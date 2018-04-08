@@ -1,0 +1,35 @@
+{
+  "name": "http-toolkit-site",
+  "private": true,
+  "version": "0.1.0",
+  "description": "httptoolkit.tech",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pimterry/http-toolkit-site.git"
+  },
+  "author": "Tim Perry <tim@httptoolkit.tech>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pimterry/http-toolkit-site/issues"
+  },
+  "homepage": "https://github.com/bntzio/http-toolkit-site",
+  "dependencies": {
+    "gatsby": "^1.9.139",
+    "gatsby-link": "^1.6.32",
+    "gatsby-plugin-react-helmet": "^2.0.6",
+    "gatsby-plugin-styled-components": "^2.0.9",
+    "gatsby-source-filesystem": "^1.5.26",
+    "gatsby-transformer-remark": "^1.7.34",
+    "moment": "^2.21.0",
+    "react-helmet": "^5.2.0",
+    "styled-components": "2.4.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.0"
+  }
+}
