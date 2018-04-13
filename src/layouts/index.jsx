@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 
-import logo from '../assets/logo-notext.png';
 import wordMarkLogo from '../assets/logo-wordmark-dark.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
@@ -17,24 +16,8 @@ const Main = styled.main`
   font-family: Lato;
 `;
 
-const Logo = styled((props) =>
-  <img className={props.className} src={logo} alt="HTTP Toolkit" />
-)`
-  height: 80%;
-  position: relative;
-  top: -4px;
-  margin-right: 15px;
-`;
-
-const Wordmark = styled((props) =>
-  <img className={props.className} src={wordMarkLogo} alt="HTTP Toolkit" />
-)`
-  height: 50%;
-`;
-
-
 const LogoLink = styled((props) => <Link className={props.className} to='/'>
-  <Wordmark />
+  <img className={props.className} src={wordMarkLogo} alt="HTTP Toolkit" />
 </Link>)`
   height: 100%;
   display: flex;
@@ -42,6 +25,13 @@ const LogoLink = styled((props) => <Link className={props.className} to='/'>
 
   text-decoration: none;
   outline: none;
+
+  img {
+    position: relative;
+    top: -1px;
+
+    height: 50%;
+  }
 `;
 
 const TemplateWrapper = ({ children }) => (
@@ -56,6 +46,7 @@ const TemplateWrapper = ({ children }) => (
         }
 
         body {
+          background-color: #fafafa;
           overflow-x: hidden;
         }
       `}</style>

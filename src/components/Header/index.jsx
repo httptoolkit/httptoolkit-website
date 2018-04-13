@@ -19,12 +19,15 @@ const HeaderBackground = HeaderBase.extend`
   left: 0;
   right: 0;
   width: 100vw;
-  background-color: #222;
+
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 0 50px -25px #000;
 `;
 
 const StyledHeader = HeaderBase.extend`
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
 
   display: flex;
   flex-direction: row;

@@ -2,28 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 
 const EmailInput = styled.input`
-  padding: 10px;
-  width: 300px;
-  border-radius: 3px 0 0 3px;
-  border: none;
+  padding: 15px;
+  width: 400px;
+  box-sizing: border-box;
+
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #1f83e0;
+  box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
 
   font-family: Lato;
-  font-size: 14pt;
+  font-size: 16pt;
 `;
 
 const SubmitInput = styled.input`
   cursor: pointer;
-  padding: 10px;
+  padding: 15px 20px;
 
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 4px 4px 0;
   border: none;
 
   font-family: Lato;
-  font-size: 14pt;
+  font-size: 16pt;
 
   color: #fff;
-  background-color: #0078e7;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: #1f83e0;
 
   &:hover {
     background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
@@ -52,6 +54,7 @@ export default class MailchimpSignupForm extends React.Component {
             noValidate
         >
             <EmailInput
+                autoFocus
                 type="email"
                 name="EMAIL"
                 placeholder="Enter your email"
