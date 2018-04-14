@@ -2,34 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 
 const EmailInput = styled.input`
-  padding: 15px;
-  width: 400px;
-  box-sizing: border-box;
+    padding: 15px;
+    width: 435px;
 
-  border-radius: 4px 0 0 4px;
-  border: 1px solid #1f83e0;
-  box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #1f83e0;
+    box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+    background-color: ${p => p.theme.popBackground};
 
-  font-family: Lato;
-  font-size: 16pt;
+    font-family: Lato;
+    font-size: ${p => p.theme.subheadingSize};
 `;
 
 const SubmitInput = styled.input`
-  cursor: pointer;
-  padding: 15px 20px;
+    cursor: pointer;
+    padding: 15px 36px;
 
-  border-radius: 0 4px 4px 0;
-  border: none;
+    border-radius: 0 4px 4px 0;
+    border: none;
 
-  font-family: Lato;
-  font-size: 16pt;
+    font-family: Lato;
+    font-size: ${p => p.theme.subheadingSize};
 
-  color: #fff;
-  background-color: #1f83e0;
+    color: #fff;
+    background-color: #1f83e0;
 
-  &:hover {
-    background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
-  }
+    &:hover {
+        background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+    }
 `;
 
 export default class MailchimpSignupForm extends React.Component {
@@ -54,7 +54,7 @@ export default class MailchimpSignupForm extends React.Component {
             noValidate
         >
             <EmailInput
-                autoFocus
+                autoFocus={this.props.autoFocus}
                 type="email"
                 name="EMAIL"
                 placeholder="Enter your email"

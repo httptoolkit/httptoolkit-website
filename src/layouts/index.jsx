@@ -1,14 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
 
-import wordMarkLogo from '../assets/logo-wordmark-dark.png';
+import styled, { ThemeProvider } from 'styled-components';
+import { injectGlobalStyles, theme } from '../styles';
+
+import wordMarkLogo from '../images/logo-wordmark.png';
+import headshot from '../images/tim-small.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
-import Header from '../components/Header';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 const Main = styled.main`
   margin: 0 auto;
@@ -17,7 +20,7 @@ const Main = styled.main`
 `;
 
 const LogoLink = styled((props) => <Link className={props.className} to='/'>
-  <img className={props.className} src={wordMarkLogo} alt="HTTP Toolkit" />
+  <img src={wordMarkLogo} alt="HTTP Toolkit" />
 </Link>)`
   height: 100%;
   display: flex;
@@ -34,33 +37,43 @@ const LogoLink = styled((props) => <Link className={props.className} to='/'>
   }
 `;
 
+const TimLink = styled((props) => 
+  <a className={props.className} href='https://tim.fyi'>
+    <span>Tim Perry</span> <img src={headshot} alt="Tim Perry" />
+  </a>
+)`
+  text-decoration: none;
+  > span {
+    text-decoration: underline;
+  }
+
+  > img {
+    margin: -18px 0 -15px 6px;
+    height: 52px;
+    vertical-align: middle;
+  }
+`;
+
 const TemplateWrapper = ({ children }) => (
-  <Main>
-    <Helmet>
-      <title>{siteMetadata.title}</title>
-      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Rubik+Mono+One' />
-      <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-        }
+  <ThemeProvider theme={theme}>
+    <Main>
+      <Helmet>
+        <title>{siteMetadata.title}</title>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik+Mono+One' />
+      </Helmet>
+      <Header>
+        <LogoLink/>
+      </Header>
 
-        body {
-          background-color: #fafafa;
-          overflow-x: hidden;
-        }
-      `}</style>
-    </Helmet>
-    <Header>
-      <LogoLink/>
-    </Header>
+      {children()}
 
-    {children()}
-  </Main>
+      <Footer>
+      &copy; 2018, built by <TimLink/>
+      </Footer>
+    </Main>
+  </ThemeProvider>
 );
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func
-};
+injectGlobalStyles();
 
 export default TemplateWrapper;

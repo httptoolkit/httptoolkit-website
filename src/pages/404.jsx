@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gif from '../assets/404.gif'
+import gif from '../images/404.gif'
 
 const Styled404 = styled.div`
   display: flex;
