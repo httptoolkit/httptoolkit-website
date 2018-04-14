@@ -112,6 +112,7 @@ export default () => (<div>
   <FeaturesBlock>
     <Feature>
       <h3>Debug</h3>
+      <FontAwesomeIcon icon={['fal', 'search']} size='3x' />
       <p>
         Transparently proxy & intercept HTTP(S) traffic
       </p>
@@ -124,6 +125,7 @@ export default () => (<div>
     </Feature>
     <Feature>
       <h3>Test</h3>
+      <FontAwesomeIcon icon={['fal', 'stopwatch']} size='3x' />
       <p>
         Edit requests live to mock API or client behaviour
       </p>
@@ -136,6 +138,7 @@ export default () => (<div>
     </Feature>
     <Feature>
       <h3>Change</h3>
+      <FontAwesomeIcon icon={['fal', 'wrench']} size='3x' />
       <p>
         Create, edit & save requests for rapid prototyping
       </p>

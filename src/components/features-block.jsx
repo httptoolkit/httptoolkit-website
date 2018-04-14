@@ -28,6 +28,8 @@ export const Feature = styled.section`
   border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
 
+  position: relative;
+
   > h3 {
     padding: 33px 30px 0;
     font-size: ${p => p.theme.subheadingSize};
@@ -37,6 +39,13 @@ export const Feature = styled.section`
     
     font-weight: bolder;
     text-transform: uppercase;
+  }
+
+  > svg {
+    position: absolute;
+    top: 21px;
+    right: 21px;
+    color: #ddd;
   }
 
   > p {
