@@ -6,6 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import RotatingText from '../components/rotating-text';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
+import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
 
 import { siteMetadata } from '../../gatsby-config.js';
@@ -68,54 +69,6 @@ const SignupForm = styled(MailchimpSignupForm)`
 const SignupText = styled.p`
   font-size: ${p => p.theme.textSize};
   color: ${p => p.theme.mainSubtleColor};
-`;
-
-const FeaturesBlock = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  margin: -180px 0 60px;
-
-  > :first-child {
-    margin-left: 0;
-  }
-
-  > :last-child {
-    margin-right: 0;
-  }
-`;
-
-const Feature = styled.section`
-  flex: 1;
-  margin: 0 8px;
-  height: 360px;
-
-  padding: 0;
-  background-color: ${p => p.theme.popBackground};
-  
-  border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-
-  > h3 {
-    padding: 33px 30px 0;
-    font-size: ${p => p.theme.subheadingSize};
-    color: ${p => p.theme.popColor};
-
-    border-radius: 4px 4px 0 0;
-    
-    font-weight: bolder;
-    text-transform: uppercase;
-  }
-
-  > p {
-    font-size: ${p => p.theme.textSize};
-    line-height: 1.45;
-
-    margin: 30px 30px;
-
-    color: ${p => p.theme.mainColor};
-  }
 `;
 
 const DetailsImage = styled.div`
