@@ -148,10 +148,10 @@ export default () => (<div>
         Transparently proxy & intercept HTTP(S) traffic
       </p>
       <p>
-        Inspect exactly what your code sends & receives
+        Visualize, diff & inspect HTTP requests & responses
       </p>
       <p>
-        Visualize, diff & explore HTTP requests & responses
+        Built-in support for Chrome, Android, Docker and more
       </p>
     </Feature>
     <Feature>
