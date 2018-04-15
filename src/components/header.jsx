@@ -23,6 +23,8 @@ const HeaderBackground = HeaderBase.extend`
   border-top: 2px solid ${p => p.theme.popColor};
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+
+  z-index: 2;
 `;
 
 const StyledHeader = HeaderBase.extend`
@@ -32,6 +34,8 @@ const StyledHeader = HeaderBase.extend`
   display: flex;
   flex-direction: row;
   align-items: stretch;
+
+  z-index: 2;
 `
 
 const Header = ({ children }) => {
