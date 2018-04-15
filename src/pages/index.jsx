@@ -8,6 +8,7 @@ import RotatingText from '../components/rotating-text';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
+import RequestStream from '../components/request-stream';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
@@ -71,10 +72,37 @@ const SignupText = styled.p`
   color: ${p => p.theme.mainSubtleColor};
 `;
 
-const DetailsImage = styled.div`
-  height: 100%;
-  width: 300px;
-  background-color: #000;
+const StreamWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+
+    background: linear-gradient(to right,
+      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1) 75%
+    ), linear-gradient(to top,
+      rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  > div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+  }
 `;
 
 export default () => (<div>
@@ -168,9 +196,12 @@ export default () => (<div>
   </DetailsBlock>
 
   <DetailsBlock>
-    <p>
+    <StreamWrapper>
+      <RequestStream />
+    </StreamWrapper>
+    <h3>
       Send things
-    </p>
+    </h3>
   </DetailsBlock>
 
   <HeroBlock>

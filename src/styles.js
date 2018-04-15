@@ -3,7 +3,11 @@ import styled, { injectGlobal } from 'styled-components';
 import reset from 'styled-reset';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import '@fortawesome/fontawesome-free-solid';
+import '@fortawesome/fontawesome-free-brands';
 import '@fortawesome/fontawesome-pro-light';
+import '@fortawesome/fontawesome-pro-regular';
+import '@fortawesome/fontawesome-pro-solid';
 
 export const theme = {
     mainBackground: '#fafafa',
