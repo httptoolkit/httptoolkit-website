@@ -52,7 +52,7 @@ export default class RequestStream extends React.Component {
             requests: [
                 buildRequest('html', 'GET', 'chrome', 'example.com', '/profile', '', 200),
                 buildRequest('css', 'GET', 'chrome', 'fonts.googleapis.com', '/css', 'family=Lato:300,400', 304),
-                buildRequest('image', 'GET', 'chrome', 'example.com', '/images/huge-image.png', '', 200),
+                buildRequest('image', 'GET', 'chrome', 'example.com', '/images/large.png', '', 200),
                 buildRequest('json', 'GET', 'docker', 'api.stripe.com', '/v1/charges', '', 200),
                 buildRequest('json', 'GET', 'chrome', 'api.mixpanel.com', '/track', 'data=abcdefghabcdefghabcdefghabcdefghabcdefgh', 200),
                 buildRequest('jsonPost', 'POST', 'docker', 'auth.local', '/login', '', 401),
@@ -61,8 +61,8 @@ export default class RequestStream extends React.Component {
                 buildRequest('jsonPost', 'POST', 'docker', 'auth.local', '/login', '', 200),
                 buildRequest('jsonPost', 'POST', 'docker', 'event-log.local', '/track', 'event=successful-login', 202),
                 buildRequest('css', 'GET', 'android', 'fonts.googleapis.com', '/css', 'family=Lato:300,400', 200),
-                buildRequest('image', 'GET', 'android', 'example.com', '/images/huge-image.png', '', 200),
-                buildRequest('image', 'GET', 'android', 'example.com', '/images/mobile-image.png', '', 200),
+                buildRequest('image', 'GET', 'android', 'example.com', '/images/large.png', '', 200),
+                buildRequest('image', 'GET', 'android', 'example.com', '/images/mobile.png', '', 200),
                 buildRequest('json', 'GET', 'docker', 'api.stripe.com', '/v1/charges', '', 200),
                 buildRequest('json', 'GET', 'android', 'api.mixpanel.com', '/track', 'data=qweasdqweasdqweasdqweasdqweasdqweasdqwea', 200),
             ]
@@ -71,7 +71,7 @@ export default class RequestStream extends React.Component {
 
     componentDidMount() {
         this.requestInterval = setInterval(() => {
-            if (Math.random() > 0.5 || this.state.requestsLoading.length > 2) {
+            if (this.state.requestsLoading.length > 2 || Math.random() > 0.5) {
                 this.setState((state) => ({
                     requestsLoading: state.requestsLoading.slice(1)
                 }));                
@@ -79,11 +79,11 @@ export default class RequestStream extends React.Component {
 
             if (Math.random() > 0.75) {
                 this.setState((state) => {
-                    let newIndex = (state.requestIndex + 1) % this.state.requests.length;
+                    let newIndex = (state.requestIndex + 1) % state.requests.length;
                     return {
                         requestIndex: newIndex,
                         requestsLoading: state.requestsLoading.concat(
-                            this.state.requests[state.requestIndex]
+                            state.requests[state.requestIndex]
                         )
                     };
                 });
@@ -101,20 +101,20 @@ export default class RequestStream extends React.Component {
 
         return <RequestList className={this.props.className}>
             {requests.map((r, i) => {
-                return <RequestRow request={r}>
+                const isLoading = this.state.requestsLoading.indexOf(r) >= 0;
+
+                return <RequestRow
+                    request={r}
+                    key={ (i + this.state.requestIndex) % requests.length }
+                >
                     <RequestRowCell width='42px'>{r.method}</RequestRowCell>
                     <RequestRowCell
                         width='45px'
                         textAlign='center'
-                        title={
-                            this.state.requestsLoading.indexOf(r) >= 0 ?
-                                null
-                            :
-                                titlesByStatus[r.status]
-                        }
+                        title={isLoading ? null : titlesByStatus[r.status]}
                     >
                         {
-                            (this.state.requestsLoading.indexOf(r) >= 0) ?
+                            isLoading ?
                                 <FontAwesomeIcon
                                     icon={['fal', 'spinner']}
                                     spin={true}
@@ -134,8 +134,8 @@ export default class RequestStream extends React.Component {
                             icon={['fab', r.source]}
                             style={{ color: colorsBySource[r.source] }}/>
                     </RequestRowCell>
-                    <RequestRowCell width='160px'>{r.host}</RequestRowCell>
-                    <RequestRowCell width='190px'>{r.path}</RequestRowCell>
+                    <RequestRowCell width='150px'>{r.host}</RequestRowCell>
+                    <RequestRowCell width='140px'>{r.path}</RequestRowCell>
                     <RequestRowCell>{r.query}</RequestRowCell>
                 </RequestRow>
             })}

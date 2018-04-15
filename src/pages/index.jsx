@@ -79,6 +79,7 @@ const StreamWrapper = styled.div`
   left: 0;
   right: 0;
   overflow: hidden;
+  border-radius: 4px;
 
   &:before {
     content: '';
@@ -91,7 +92,9 @@ const StreamWrapper = styled.div`
     pointer-events: none;
 
     background: linear-gradient(to right,
-      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1) 75%
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.8) 30%,
+      rgba(255, 255, 255, 0.95) 60%
     ), linear-gradient(to top,
       rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 100%
     );
@@ -183,25 +186,23 @@ export default () => (<div>
     </Feature>
   </FeaturesBlock>
 
-  <DetailsBlock>
-    <p>
-      Intercept things
-    </p>
-  </DetailsBlock>
-
-  <DetailsBlock>
-    <p>
-      Edit things
-    </p>
-  </DetailsBlock>
-
-  <DetailsBlock>
+  <DetailsBlock direction='right'>
     <StreamWrapper>
       <RequestStream />
     </StreamWrapper>
     <h3>
-      Send things
+      Intercept HTTP
     </h3>
+    <p>
+      See at a glance what's sent & received. Understand, remote debug, or reverse engineer any web traffic on your network.
+    </p>
+    <p>
+      Intercept & proxy HTTP(S) traffic from almost anywhere.<br/>
+      Built-in support for debugging Chrome, Android & Docker.
+    </p>
+    <p>
+      Inspect HTTP requests & responses up close, with formatters included for JSON, GraphQL, XML and more.
+    </p>
   </DetailsBlock>
 
   <HeroBlock>
