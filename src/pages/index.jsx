@@ -93,8 +93,8 @@ const StreamWrapper = styled.div`
 
     background: linear-gradient(to right,
       rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.8) 30%,
-      rgba(255, 255, 255, 0.95) 60%
+      rgba(255, 255, 255, 0.8) 25%,
+      rgba(255, 255, 255, 0.90) 60%
     ), linear-gradient(to top,
       rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 100%
     );
@@ -194,11 +194,10 @@ export default () => (<div>
       Intercept HTTP
     </h3>
     <p>
-      See at a glance what's sent & received. Understand, remote debug, or reverse engineer any web traffic on your network.
+      See everything that's sent & received at a glance. Understand, remote debug, or reverse engineer any web traffic on your network.
     </p>
     <p>
-      Intercept & proxy HTTP(S) traffic from almost anywhere.<br/>
-      Built-in support for debugging Chrome, Android & Docker.
+      Intercept & proxy HTTP traffic from almost anywhere, including HTTPS. Built-in support for debugging Chrome, Android & Docker.
     </p>
     <p>
       Inspect HTTP requests & responses up close, with formatters included for JSON, GraphQL, XML and more.

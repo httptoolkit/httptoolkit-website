@@ -21,7 +21,7 @@ export default styled.section`
         position: relative;
         float: ${p => p.direction};
         clear: both;
-        width: 560px;
+        width: 648px;
     }
 
     > h3 {
