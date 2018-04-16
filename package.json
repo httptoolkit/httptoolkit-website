@@ -29,6 +29,7 @@
     "@fortawesome/react-fontawesome": "0.0.17",
     "gatsby": "^1.9.139",
     "gatsby-link": "^1.6.32",
+    "gatsby-plugin-google-analytics": "^1.0.29",
     "gatsby-plugin-react-helmet": "^2.0.6",
     "gatsby-plugin-styled-components": "^2.0.9",
     "gatsby-source-filesystem": "^1.5.26",

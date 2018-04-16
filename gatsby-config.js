@@ -6,6 +6,15 @@ module.exports = {
   plugins: [
     'gatsby-plugin-styled-components',
     'gatsby-transformer-remark',
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-117670723-1",
+        head: false,
+        anonymize: true,
+        respectDNT: true
+      },
+    },
   ]
 }
