@@ -75,14 +75,6 @@ const SignupText = styled.p`
 `;
 
 const StreamWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  border-radius: 4px;
-
   &:before {
     content: '';
     z-index: 1;
@@ -94,9 +86,11 @@ const StreamWrapper = styled.div`
     pointer-events: none;
 
     background: linear-gradient(to right,
-      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3) 15%,
       rgba(255, 255, 255, 0.8) 25%,
-      rgba(255, 255, 255, 0.90) 60%
+      rgba(255, 255, 255, 0.9) 60%,
+      rgba(255, 255, 255, 1) 90%
     ), linear-gradient(to top,
       rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 100%
     );
@@ -211,16 +205,16 @@ export default () => (<div>
       <RequestStream />
     </StreamWrapper>
     <h3>
-      Intercept HTTP
+      HTTP Proxy
     </h3>
     <p>
-      See everything that's sent & received at a glance. Understand, remote debug, or reverse engineer any web traffic on your network.
+      See everything that's sent & received at a glance. Understand, remote&nbsp;debug, or reverse engineer any web traffic on your network.
     </p>
     <p>
       Intercept & proxy HTTP traffic from almost anywhere, including HTTPS. Built-in support for debugging Chrome, Android & Docker.
     </p>
     <p>
-      Inspect HTTP requests & responses up close, with formatters included for JSON, GraphQL, XML and more.
+      Simulate slow or unstable connections & HTTP errors to understand how your code would behave in different environments and failure cases.
     </p>
   </DetailsBlock>
 
