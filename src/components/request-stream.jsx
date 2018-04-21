@@ -157,6 +157,14 @@ const RequestRow = styled.div`
     border-radius: 2px;
 
     margin: 3px 0;
+
+    cursor: pointer;
+
+    &:hover {
+        position: relative;
+        left: -5px;
+        border-left-width: 10px;
+    }
 `;
 
 const RequestRowCell = styled.div`

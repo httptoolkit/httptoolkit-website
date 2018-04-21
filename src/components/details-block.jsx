@@ -33,11 +33,11 @@ export default styled.section`
         position: relative;
         float: ${p => p.direction};
         clear: both;
-        width: 648px;
+        width: 708px;
     }
 
     > h3 {
-        margin: 33px 30px 30px;
+        padding: 33px 30px 30px;
 
         font-size: ${p => p.theme.subheadingSize};
         color: ${p => p.theme.popColor};
@@ -47,7 +47,7 @@ export default styled.section`
     }
 
     p {
-        margin: 0 30px 29px;
+        padding: 0 30px 29px;
         font-size: ${p => p.theme.textSize};
         color: ${p => p.theme.mainColor};
         line-height: 1.45;
