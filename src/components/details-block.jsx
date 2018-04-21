@@ -16,6 +16,18 @@ export default styled.section`
     text-align: ${p => p.direction};
     position: relative;
 
+    > :first-child {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        overflow: hidden;
+
+        border-radius: 4px;
+    }
+
     > :not(:first-child) {
         z-index: 1;
         position: relative;

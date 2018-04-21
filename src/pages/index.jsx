@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
@@ -9,6 +10,7 @@ import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
+import StackedGraph from '../components/stacked-graph';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
@@ -108,6 +110,24 @@ const StreamWrapper = styled.div`
   }
 `;
 
+const trafficData = [
+  [],
+  [],
+  [0, 0, 1],
+  [0, 0, 1],
+  [0, 0, 1, 2],
+  [0, 0, 0, 2],
+  [2, 0, 0, 0, 2],
+  [0, 0, 0, 0, 2, 2],
+  [5, 0, 0, 0, 0, 4],
+  [2, 1, 0, 0, 1, 2],
+  [4, 0, 0, 0, 0, 2],
+  [2, 0, 0, 0, 0, 2],
+  [1],
+].map(([JSON, GraphQL, HTML, JS, CSS, image]) => _.mapValues({
+  JSON, GraphQL, HTML, JS, CSS, image
+}, v => v || 0));
+
 export default () => (<div>
   <TopHeroBlock>
     <IntroTextContainer>
@@ -201,6 +221,32 @@ export default () => (<div>
     </p>
     <p>
       Inspect HTTP requests & responses up close, with formatters included for JSON, GraphQL, XML and more.
+    </p>
+  </DetailsBlock>
+
+  <DetailsBlock direction='left'>
+    <StackedGraph
+      width={1024}
+      height={360}
+      data={trafficData}
+      highlighted={9}
+      opacity={0.3}
+      graphPaddingPx={33}
+    />
+
+    <h3>
+      HTTP Analyzer
+    </h3>
+    <p>
+      Inspect HTTP request & response headers, bodies, metrics & more.<br/>
+      Smart formatting available for JSON, GraphQL, XML and others.
+    </p>
+    <p>
+      Diff HTTP requests & responses to understand failure cases.
+    </p>
+    <p>
+      Explore overall performance metrics & see security warnings for problematic requests to spot non-functional issues early.<br/>
+      Use built-in visualizations, or define your own.
     </p>
   </DetailsBlock>
 
