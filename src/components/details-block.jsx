@@ -37,7 +37,7 @@ export default styled.section`
     }
 
     > h3 {
-        margin: 33px 30px 26px;
+        margin: 33px 30px 30px;
 
         font-size: ${p => p.theme.subheadingSize};
         color: ${p => p.theme.popColor};
@@ -47,7 +47,6 @@ export default styled.section`
     }
 
     p {
-        text-align: left;
         margin: 0 30px 29px;
         font-size: ${p => p.theme.textSize};
         color: ${p => p.theme.mainColor};
