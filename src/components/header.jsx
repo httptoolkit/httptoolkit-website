@@ -30,7 +30,11 @@ const StyledHeader = HeaderBase.extend`
   width: 100%;
   padding: 10px 0;
 
-  ${media.mobileOrTablet`
+  ${media.tablet`
+    padding: 10px 30px;
+  `}
+
+  ${media.mobile`
     padding: 10px;
   `}
 

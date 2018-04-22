@@ -10,6 +10,7 @@ import {
 } from 'date-fns';
 import { AreaStack, Line } from '@vx/shape';
 import { curveMonotoneX } from '@vx/curve';
+import { ParentSize } from '@vx/responsive';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { interpolateRainbow } from 'd3-scale-chromatic';
 
@@ -97,8 +98,6 @@ export default class StackedGraph extends React.Component {
 
     render() {
         const {
-            width,
-            height,
             data,
             highlighted,
             opacity,
@@ -107,121 +106,129 @@ export default class StackedGraph extends React.Component {
 
         const { requestTime, now } = this.state;
 
-        const keys = Object.keys(data[0]);
-
-        const x = (d, i) => i;
-
-        const xScale = scaleLinear()
-            .domain([0, data.length - 1])
-            .range([0, width]);
-
-        const yScale = scaleLinear()
-            .domain([_.max(data.map(d => _(d).values().sum())), 0])
-            .range([graphPaddingPx, height]);
-
-        const colorScale = scaleOrdinal()
-            .domain(keys)
-            .range(_.map(keys, (_key, index) => interpolateRainbow(index / keys.length)));
-
         let highlightOverlay = null;
         let tooltip = null;
 
-        if (highlighted) {
-            let x = xScale(highlighted);
-            let rowData = data[highlighted];
+        return <ParentSize>
+            {({ width, height }) => {
+                if (!width || !height) {
+                    width = 1024;
+                    height = 360;
+                }
+                
+                const keys = Object.keys(data[0]);
+                const x = (d, i) => i;
 
-            let ys = keys.reduce(({sum, result}, key) => {
-                let value = rowData[key];
-                sum = sum + value;
+                const xScale = scaleLinear()
+                    .domain([0, data.length - 1])
+                    .range([0, width]);
 
-                if (value !== 0) {
-                    result[key] = sum;
+                const yScale = scaleLinear()
+                    .domain([_.max(data.map(d => _(d).values().sum())), 0])
+                    .range([graphPaddingPx, height]);
+
+                const colorScale = scaleOrdinal()
+                    .domain(keys)
+                    .range(_.map(keys, (_key, index) => interpolateRainbow(index / keys.length)));
+
+                if (highlighted) {
+                    let x = xScale(highlighted);
+                    let rowData = data[highlighted];
+
+                    let ys = keys.reduce(({sum, result}, key) => {
+                        let value = rowData[key];
+                        sum = sum + value;
+
+                        if (value !== 0) {
+                            result[key] = sum;
+                        }
+
+                        return {sum, result};
+                    }, { sum: 0, result: {}}).result;
+
+                    highlightOverlay = <g>
+                        <Line
+                            from={{ x, y: height }}
+                            to={{ x, y: 0 }}
+                            stroke="rgb(0, 0, 0)"
+                            strokeWidth={2}
+                            style={{ pointerEvents: 'none' }}
+                            strokeDasharray="2,2"
+                        />
+                        { _.map(ys).map((y, key) => {
+                            return (<circle
+                                key={key}
+                                cx={x}
+                                cy={yScale(y)}
+                                r={4}
+                                fill="rgb(225, 66, 31)"
+                                stroke="white"
+                                strokeWidth={2}
+                                style={{ pointerEvents: 'none' }}
+                            />);
+                        }) }
+                    </g>
+
+                    let timeAgo = differenceInSeconds(requestTime, now) > -30 ?
+                        distanceInWordsStrict(requestTime, now) :
+                        distanceInWords(requestTime, now, { includeSeconds: true })
+
+                    tooltip = <div>
+                        <Tooltip x={x + 10} y={8} hideArrow={true}>
+                            <div>
+                                { dateFormat(requestTime, 'h:mm:ss a') }
+                            </div>
+                            <RelativeTime>
+                                { timeAgo } ago
+                            </RelativeTime>
+                        </Tooltip>
+                        { _.map(ys, (y, key) => {
+                            let value = rowData[key];
+                            return <Tooltip
+                                key={key}
+                                x={x + 10}
+                                y={yScale(y) - 16}
+                                onMouseEnter={() => this.setState({ focusedData: key }) }
+                                onMouseOut={() => this.setState({ focusedData: null }) }
+                            >
+                                { value } { key } request{ value !== 1 && 's' }
+                            </Tooltip>
+                        }).reverse() }
+                    </div>;
                 }
 
-                return {sum, result};
-            }, { sum: 0, result: {}}).result;
+                return <GraphWrapper>
+                    <svg width={width} height={height}>
+                        <rect
+                            x={0}
+                            y={0}
+                            width={width}
+                            height={height}
+                            fill="#fafafa"
+                            rx={14}
+                        />
 
-            highlightOverlay = <g>
-                <Line
-                    from={{ x, y: height }}
-                    to={{ x, y: 0 }}
-                    stroke="rgb(0, 0, 0)"
-                    strokeWidth={2}
-                    style={{ pointerEvents: 'none' }}
-                    strokeDasharray="2,2"
-                />
-                { _.map(ys).map((y, key) => {
-                    return (<circle
-                        key={key}
-                        cx={x}
-                        cy={yScale(y)}
-                        r={4}
-                        fill="rgb(225, 66, 31)"
-                        stroke="white"
-                        strokeWidth={2}
-                        style={{ pointerEvents: 'none' }}
-                    />);
-                }) }
-            </g>
+                        <AreaStack
+                            keys={keys}
+                            data={data}
+                            className='graph-data'
 
-            let timeAgo = differenceInSeconds(requestTime, now) > -30 ?
-                distanceInWordsStrict(requestTime, now) :
-                distanceInWords(requestTime, now, { includeSeconds: true })
+                            x={(d, i) => xScale(i)}
+                            y0={(d) => yScale(d[1])}
+                            y1={(d) => yScale(d[0])}
+                            curve={curveMonotoneX}
 
-            tooltip = <div>
-                <Tooltip x={x + 10} y={8} hideArrow={true}>
-                    <div>
-                        { dateFormat(requestTime, 'h:mm:ss a') }
-                    </div>
-                    <RelativeTime>
-                        { timeAgo } ago
-                    </RelativeTime>
-                </Tooltip>
-                { _.map(ys, (y, key) => {
-                    let value = rowData[key];
-                    return <Tooltip
-                        key={key}
-                        x={x + 10}
-                        y={yScale(y) - 16}
-                        onMouseEnter={() => this.setState({ focusedData: key }) }
-                        onMouseOut={() => this.setState({ focusedData: null }) }
-                    >
-                        { value } { key } request{ value !== 1 && 's' }
-                    </Tooltip>
-                }).reverse() }
-            </div>;
-        }
+                            fillOpacity={({ series: { key } }) => {
+                                return this.state.focusedData === key ? (1 + opacity) / 2 : opacity
+                            }}
+                            fill={({ index }) => colorScale(keys[index])}
+                        />
 
-        return (<GraphWrapper>
-            <svg width={width} height={height}>
-                <rect
-                    x={0}
-                    y={0}
-                    width={width}
-                    height={height}
-                    fill="#fafafa"
-                    rx={14}
-                />
-
-                <AreaStack
-                    keys={keys}
-                    data={data}
-                    className='graph-data'
-
-                    x={(d, i) => xScale(i)}
-                    y0={(d) => yScale(d[1])}
-                    y1={(d) => yScale(d[0])}
-                    curve={curveMonotoneX}
-
-                    fillOpacity={({ series: { key } }) => {
-                        return this.state.focusedData === key ? (1 + opacity) / 2 : opacity
-                    }}
-                    fill={({ index }) => colorScale(keys[index])}
-                />
-
-                { highlightOverlay }
-            </svg>
-            { tooltip }
-        </GraphWrapper>);
+                        { highlightOverlay }
+                    </svg>
+                    { tooltip }
+                </GraphWrapper>;
+            }}
+        </ParentSize>;
     }
 };

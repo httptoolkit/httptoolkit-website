@@ -7,6 +7,10 @@ const Footer = styled(({ className, children }) => {
     {children}
   </div>
 })`
+  ${media.mobileOrTablet`
+    display: none;
+  `}
+
   background-color: ${p => p.theme.popBackground};
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
 
@@ -19,10 +23,6 @@ const Footer = styled(({ className, children }) => {
   font-weight: lighter;
   text-align: right;
   color: ${p => p.theme.mainSubtleColor};
-
-  ${media.mobile`
-    display: none;
-  `}
 `;
 
 export default Footer

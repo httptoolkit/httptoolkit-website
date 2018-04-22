@@ -21,7 +21,12 @@ const FullWidth = styled.section`
     margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
   `}
 
-  ${media.mobileOrTablet`
+  ${media.tablet`
+    padding-left: 30px;
+    padding-right: 30px;
+  `}
+
+  ${media.mobile`
     padding-left: 10px;
     padding-right: 10px;
   `}
@@ -241,8 +246,6 @@ export default () => (<div>
 
   <DetailsBlock direction='left'>
     <StackedGraph
-      width={1024}
-      height={360}
       data={trafficData}
       highlighted={9}
       opacity={0.3}

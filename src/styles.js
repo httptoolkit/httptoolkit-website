@@ -67,7 +67,7 @@ export const theme = {
     `,
     fontSizeText: css`
         ${media.desktop`font-size: 15pt;`}
-        ${media.tablet`font-size: 18pt;`}
+        ${media.tablet`font-size: 16pt;`}
         ${media.mobile`font-size: calc(12pt + 2vw);`}
     `,
 };
