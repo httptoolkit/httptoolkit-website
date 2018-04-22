@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled, media } from '../styles';
 
 export const FeaturesBlock = styled.div`
   display: flex;
@@ -7,19 +7,38 @@ export const FeaturesBlock = styled.div`
 
   margin: -180px 0 60px;
 
-  > :first-child {
-    margin-left: 0;
-  }
+  ${media.mobile`
+    margin-top: 60px;
+  `}
 
-  > :last-child {
-    margin-right: 0;
-  }
+  ${media.mobile`
+    flex-direction: column;
+  `}
+
+  ${media.desktopOrTablet`
+    > :first-child {
+      margin-left: 0;
+    }
+
+    > :last-child {
+      margin-right: 0;
+    }
+  `}
 `;
 
 export const Feature = styled.section`
   flex: 1;
   margin: 0 8px;
-  height: 360px;
+
+  ${media.desktop`
+      height: 360px;
+  `}
+
+  ${media.mobile`
+    :not(:last-child) {
+      margin-bottom: 60px;
+    }
+  `}
 
   padding: 0;
   background-color: ${p => p.theme.popBackground};
@@ -32,7 +51,7 @@ export const Feature = styled.section`
 
   > h3 {
     padding: 33px 30px 0;
-    font-size: ${p => p.theme.subheadingSize};
+    ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.popColor};
 
     border-radius: 4px 4px 0 0;
@@ -49,7 +68,7 @@ export const Feature = styled.section`
   }
 
   > p {
-    font-size: ${p => p.theme.textSize};
+    ${p => p.theme.fontSizeText};
     line-height: 1.45;
 
     margin: 30px 30px;

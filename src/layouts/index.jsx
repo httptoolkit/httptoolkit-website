@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
-import styled, { ThemeProvider } from 'styled-components';
+import { styled, ThemeProvider, media } from '../styles';
 import { injectGlobalStyles, theme } from '../styles';
 
 import wordMarkLogo from '../images/logo-wordmark.png';
@@ -14,9 +14,12 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 const Main = styled.main`
-  margin: 0 auto;
-  width: 1024px;
   font-family: Lato;
+
+  ${media.desktopOrTablet`
+    margin: 0 auto;
+    width: 1024px;
+  `}
 `;
 
 const LogoLink = styled((props) => <Link className={props.className} to='/'>
@@ -33,7 +36,8 @@ const LogoLink = styled((props) => <Link className={props.className} to='/'>
     position: relative;
     top: -1px;
 
-    height: 50%;
+    max-height: 50%;
+    max-width: 70vw;
   }
 `;
 
@@ -59,7 +63,7 @@ const TemplateWrapper = ({ children }) => (
     <Main>
       <Helmet>
         <title>{siteMetadata.title}</title>
-        <meta name="viewport" content="width=1024, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik+Mono+One' />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

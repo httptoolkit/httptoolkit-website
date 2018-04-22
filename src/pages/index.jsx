@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
 import Link from 'gatsby-link';
-import styled from 'styled-components';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
@@ -12,16 +11,30 @@ import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
 import StackedGraph from '../components/stacked-graph';
 
+import { styled, media, css } from '../styles';
 import { siteMetadata } from '../../gatsby-config.js';
 
 const FullWidth = styled.section`
-  padding: 0 calc((100vw - ${p => p.theme.pageWidth}) / 2);
-  margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth}) / 2);
+  ${media.desktop`
+    padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+    padding-left: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+    margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+  `}
+
+  ${media.mobileOrTablet`
+    padding-left: 10px;
+    padding-right: 10px;
+  `}
 `;
 
 const HeroBlock = FullWidth.extend`
   padding-top: 120px;
   padding-bottom: 120px;
+
+  ${media.mobile`
+    padding-top: 60px;
+    padding-bottom: 60px;
+  `}
 
   color: ${p => p.theme.mainColor};
   background-color: ${p => p.theme.mainBackground};
@@ -42,10 +55,15 @@ const IntroTextContainer = styled.div`
 
 const PitchHeading = styled.h2`
   margin-top: -12px;
-  font-size: 36pt;
   line-height: 1.3;
   font-weight: bold;
   margin-bottom: 18px;
+
+  ${media.desktop`
+    max-width: 700px;
+  `}
+
+  ${p => p.theme.fontSizeHeading}
 `;
 
 const Subheading = styled.h3`
@@ -54,7 +72,7 @@ const Subheading = styled.h3`
 
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: ${p => p.theme.subheadingSize};
+  ${p => p.theme.fontSizeSubheading};
   color: ${p => p.theme.mainSubtleColor};
 `;
 
@@ -62,15 +80,20 @@ const RotatingTextHeading = styled(RotatingText)`
   text-decoration: underline;
   text-decoration-color: rgba(255, 66, 31, 0.2);
   color: #e1421f;
+  white-space: nowrap;
 `;
 
 const SignupForm = styled(MailchimpSignupForm)`
   display: flex;
   justify-content: start;
+
+  ${media.mobile`
+      flex-direction: column;
+  `}
 `;
 
 const SignupText = styled.p`
-  font-size: ${p => p.theme.textSize};
+  ${p => p.theme.fontSizeText};
   color: ${p => p.theme.mainSubtleColor};
 `;
 
@@ -126,9 +149,7 @@ export default () => (<div>
   <TopHeroBlock>
     <IntroTextContainer>
       <PitchHeading>
-        Debug, test & change how<br/>
-        {' '}
-        <RotatingTextHeading>
+        Debug, test & change how <RotatingTextHeading>
           <span>your code</span>
           <span>your web app</span>
           <span>your mobile app</span>
@@ -140,7 +161,7 @@ export default () => (<div>
       </PitchHeading>
 
       <Subheading>
-        Beautiful, open-source & cross-platform<br/>
+        Beautiful, open&#8209;source & cross&#8209;platform<br/>
         HTTP proxy, analyzer and client.
       </Subheading>
     </IntroTextContainer>

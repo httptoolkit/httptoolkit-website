@@ -1,17 +1,24 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled, media } from '../styles';
 
 const EmailInput = styled.input`
     padding: 15px;
-    width: 435px;
+
+    ${media.desktopOrTablet`
+        width: 435px;
+    `}
 
     border-radius: 4px 0 0 4px;
+    ${media.mobile`
+        border-radius: 4px 4px 0 0;
+    `}
+
     border: 1px solid #1f83e0;
     box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${p => p.theme.popBackground};
 
     font-family: Lato;
-    font-size: ${p => p.theme.subheadingSize};
+    ${p => p.theme.fontSizeSubheading};
 `;
 
 const SubmitInput = styled.input`
@@ -19,10 +26,15 @@ const SubmitInput = styled.input`
     padding: 15px 36px;
 
     border-radius: 0 4px 4px 0;
+
+    ${media.mobile`
+        border-radius: 0 0 4px 4px;
+    `}
+
     border: none;
 
     font-family: Lato;
-    font-size: ${p => p.theme.subheadingSize};
+    ${p => p.theme.fontSizeSubheading};
 
     color: #fff;
     background-color: #1f83e0;

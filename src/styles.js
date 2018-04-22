@@ -1,4 +1,4 @@
-import styled, { injectGlobal } from 'styled-components';
+import styled, { injectGlobal, css, ThemeProvider } from 'styled-components';
 
 import reset from 'styled-reset';
 
@@ -9,6 +9,38 @@ import '@fortawesome/fontawesome-pro-light';
 import '@fortawesome/fontawesome-pro-regular';
 import '@fortawesome/fontawesome-pro-solid';
 
+export { styled, css, ThemeProvider };
+
+export const media = {
+    desktop: (...args) => css`
+        @media (min-width: 1084px) {
+            ${ css(...args) }
+        }
+    `,
+    tablet: (...args) => css`
+        @media (min-width: 640px) and (max-width: 1083px) {
+            ${ css(...args) }
+        }
+    `,
+    mobile: (...args) => css`
+        @media (max-width: 639px) {
+            ${ css(...args) }
+        }
+    `,
+
+    // Combos:
+    desktopOrTablet: (...args) => css`
+        @media (min-width: 640px) {
+            ${ css(...args) }
+        }
+    `,
+    mobileOrTablet: (...args) => css`
+        @media (max-width: 1083px) {
+            ${ css(...args) }
+        }
+    `,
+}
+
 export const theme = {
     mainBackground: '#fafafa',
     mainColor: '#222',
@@ -16,14 +48,28 @@ export const theme = {
 
     popColor: '#e1421f',
     popBackground: '#fff',
-    
+
     containerBackground: '#d8e2e6',
     containerWatermark: '#b6c2ca',
     containerBorder: '#abb4ba',
 
-    pageWidth: '1024px',
-    subheadingSize: '18pt',
-    textSize: '15pt',
+    pageWidth: { desktop: '1024px', tablet: '100%', mobile: '100%' },
+
+    fontSizeHeading: css`
+        ${media.desktop`font-size: 36pt;`}
+        ${media.tablet`font-size: 44pt;`}
+        ${media.mobile`font-size: calc(16pt + 5vw);`}
+    `,
+    fontSizeSubheading: css`
+        ${media.desktop`font-size: 18pt;`}
+        ${media.tablet`font-size: 26pt;`}
+        ${media.mobile`font-size: calc(12pt + 3vw);`}
+    `,
+    fontSizeText: css`
+        ${media.desktop`font-size: 15pt;`}
+        ${media.tablet`font-size: 18pt;`}
+        ${media.mobile`font-size: calc(12pt + 2vw);`}
+    `,
 };
 
 export function injectGlobalStyles() {

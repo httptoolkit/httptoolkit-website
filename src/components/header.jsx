@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled, media } from '../styles'
 
 const HeaderPlaceholder = styled.div`
   width: 100%;
@@ -17,7 +17,6 @@ const HeaderBase = styled.div`
 const HeaderBackground = HeaderBase.extend`
   left: 0;
   right: 0;
-  width: 100vw;
 
   background-color: ${p => p.theme.popBackground};
   border-top: 2px solid ${p => p.theme.popColor};
@@ -30,6 +29,10 @@ const HeaderBackground = HeaderBase.extend`
 const StyledHeader = HeaderBase.extend`
   width: 100%;
   padding: 10px 0;
+
+  ${media.mobileOrTablet`
+    padding: 10px;
+  `}
 
   display: flex;
   flex-direction: row;
