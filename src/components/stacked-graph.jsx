@@ -15,10 +15,6 @@ import { interpolateRainbow } from 'd3-scale-chromatic';
 
 const GraphWrapper = styled.div`
     position: relative;
-
-    .graph-data {
-        opacity: ${p => p.opacity == null ? 1 : p.opacity};
-    }
 `;
 
 const Tooltip = styled.div`
@@ -36,6 +32,16 @@ const Tooltip = styled.div`
     color:  ${p => p.theme.mainColor};
 
     ${p => !p.hideArrow && `
+        cursor: pointer;
+
+        &:hover {
+            border-color: #222;
+
+            :before {
+                border-right-color: #222;
+            }
+        }
+
         &:after, &:before {
             right: 100%;
             top: 50%;
@@ -72,7 +78,8 @@ export default class StackedGraph extends React.Component {
 
         this.state = {
             now: new Date(),
-            requestTime: subSeconds(new Date(), 20)
+            requestTime: subSeconds(new Date(), 20),
+            focusedData: null
         };
 
         this.timerInterval = null;
@@ -176,6 +183,8 @@ export default class StackedGraph extends React.Component {
                         key={key}
                         x={x + 10}
                         y={yScale(y) - 16}
+                        onMouseEnter={() => this.setState({ focusedData: key }) }
+                        onMouseOut={() => this.setState({ focusedData: null }) }
                     >
                         { value } { key } request{ value !== 1 && 's' }
                     </Tooltip>
@@ -183,7 +192,7 @@ export default class StackedGraph extends React.Component {
             </div>;
         }
 
-        return (<GraphWrapper opacity={opacity}>
+        return (<GraphWrapper>
             <svg width={width} height={height}>
                 <rect
                     x={0}
@@ -204,7 +213,9 @@ export default class StackedGraph extends React.Component {
                     y1={(d) => yScale(d[0])}
                     curve={curveMonotoneX}
 
-                    fillOpacity={1}
+                    fillOpacity={({ series: { key } }) => {
+                        return this.state.focusedData === key ? (1 + opacity) / 2 : opacity
+                    }}
                     fill={({ index }) => colorScale(keys[index])}
                 />
 
