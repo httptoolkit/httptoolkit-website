@@ -18,19 +18,19 @@ export const media = {
         }
     `,
     tablet: (...args) => css`
-        @media (min-width: 640px) and (max-width: 1083px) {
+        @media (min-width: 600px) and (max-width: 1083px) {
             ${ css(...args) }
         }
     `,
     mobile: (...args) => css`
-        @media (max-width: 639px) {
+        @media (max-width: 599px) {
             ${ css(...args) }
         }
     `,
 
     // Combos:
     desktopOrTablet: (...args) => css`
-        @media (min-width: 640px) {
+        @media (min-width: 600px) {
             ${ css(...args) }
         }
     `,
