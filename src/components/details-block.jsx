@@ -6,8 +6,7 @@ export default styled.section`
     width: 100%;
     margin: 60px 0;
 
-    background-color: ${p => p.theme.popBackground};
-    color: ${p => p.theme.popColor};
+    background-color: ${p => p.theme.mainBackground};
     font-size: ${p => p.theme.textSize};
     
     border-radius: 4px;

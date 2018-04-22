@@ -24,13 +24,13 @@ const Tooltip = styled.div`
     left: ${p => p.x}px;
     top: ${p => p.y}px;
 
-    padding: 5px 8px;
+    padding: 6px 8px;
     border-radius: 4px;
-    border: 1px solid #fafafa;
+    border: 1px solid ${p => p.theme.containerBackground};
 
-    background-color: #d8e2e6;
-    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
-    color: #222;
+    background-color: ${p => p.theme.popBackground};
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.15);
+    color:  ${p => p.theme.mainColor};
 `;
 
 export default ({
@@ -86,6 +86,7 @@ export default ({
             />
             { _.map(ys).map((y, key) => {
                 return (<circle
+                    key={key}
                     cx={x}
                     cy={yScale(y)}
                     r={4}
@@ -102,7 +103,7 @@ export default ({
         tooltip = <div>
             <Tooltip x={x + 10} y={8}>
                 <div>
-                    { dateFormat(requestTime, 'hh:mm:ss a') }
+                    { dateFormat(requestTime, 'h:mm:ss a') }
                 </div>
                 <div>
                     ({ distanceInWordsStrict(requestTime, new Date()) } ago)
@@ -110,10 +111,14 @@ export default ({
             </Tooltip>
             { _.map(ys, (y, key) => {
                 let value = rowData[key];
-                return <Tooltip x={x + 10} y={yScale(y) - 16}>
+                return <Tooltip
+                    key={key}
+                    x={x + 10}
+                    y={yScale(y) - 16}
+                >
                     { value } <strong>{ key }</strong> request{ value !== 1 && 's' }
                 </Tooltip>
-            } )}
+            }).reverse() }
         </div>;
     }
 
