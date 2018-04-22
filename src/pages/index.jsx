@@ -205,7 +205,7 @@ export default () => (<div>
       <RequestStream />
     </StreamWrapper>
     <h3>
-      HTTP Proxy
+      Intercept HTTP
     </h3>
     <p>
       See everything that's sent & received at a glance. Understand, remote&nbsp;debug, or reverse engineer any web traffic on your network.
@@ -229,7 +229,7 @@ export default () => (<div>
     />
 
     <h3>
-      HTTP Analyzer
+      Inspect & analyze HTTP
     </h3>
     <p>
       Inspect HTTP request & response headers, bodies, metrics & more.<br/>
