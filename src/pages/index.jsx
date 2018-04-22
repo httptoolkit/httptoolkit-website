@@ -86,13 +86,13 @@ const StreamWrapper = styled.div`
     pointer-events: none;
 
     background: linear-gradient(to right,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0.3) 15%,
-      rgba(255, 255, 255, 0.8) 25%,
-      rgba(255, 255, 255, 0.9) 60%,
-      rgba(255, 255, 255, 1) 90%
+      rgba(250, 250, 250, 0.3),
+      rgba(250, 250, 250, 0.3) 15%,
+      rgba(250, 250, 250, 0.8) 25%,
+      rgba(250, 250, 250, 0.9) 60%,
+      rgba(250, 250, 250, 1) 90%
     ), linear-gradient(to top,
-      rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 1) 100%
+      rgba(250, 250, 250, 0) 85%, rgba(250, 250, 250, 1) 100%
     );
   }
 
