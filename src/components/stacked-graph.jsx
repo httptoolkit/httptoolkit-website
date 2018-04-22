@@ -177,7 +177,7 @@ export default class StackedGraph extends React.Component {
                         x={x + 10}
                         y={yScale(y) - 16}
                     >
-                        { value } <strong>{ key }</strong> request{ value !== 1 && 's' }
+                        { value } { key } request{ value !== 1 && 's' }
                     </Tooltip>
                 }).reverse() }
             </div>;

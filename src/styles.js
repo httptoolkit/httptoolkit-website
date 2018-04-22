@@ -38,6 +38,10 @@ export function injectGlobalStyles() {
             color: #000;
         }
 
+        strong {
+            font-weight: bold;
+        }
+
         /* latin-ext */
         @font-face {
             font-family: 'Lato';

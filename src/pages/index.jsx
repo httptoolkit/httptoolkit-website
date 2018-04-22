@@ -140,7 +140,7 @@ export default () => (<div>
       </PitchHeading>
 
       <Subheading>
-        Open-source & cross-platform<br/>
+        Beautiful, open-source & cross-platform<br/>
         HTTP proxy, analyzer and client.
       </Subheading>
     </IntroTextContainer>
@@ -208,13 +208,13 @@ export default () => (<div>
       Intercept HTTP
     </h3>
     <p>
-      See everything that's sent & received at a glance. Understand, remote&nbsp;debug, or reverse engineer any web traffic on your network.
+      <strong>See everything that's sent & received</strong>, at a glance. Understand, remote&nbsp;debug, or reverse engineer any web traffic on your network.
     </p>
     <p>
-      Intercept & proxy HTTP traffic from almost anywhere, including HTTPS. Built-in support for debugging Chrome, Android & Docker.
+      Intercept & proxy HTTP traffic from almost anywhere, including HTTPS. Built-in support for debugging <strong>Chrome, Android & Docker</strong>.
     </p>
     <p>
-      Simulate slow or unstable connections & HTTP errors to understand how your code would behave in different environments and failure cases.
+      <strong>Simulate slow or unstable connections & HTTP errors</strong>, to understand how your code would behave in different environments and failure cases.
     </p>
   </DetailsBlock>
 
@@ -233,13 +233,13 @@ export default () => (<div>
     </h3>
     <p>
       Inspect HTTP request & response headers, bodies, metrics & more.<br/>
-      Smart formatting available for JSON, GraphQL, XML and others.
+      Smart formatting available for <strong>JSON, GraphQL, XML</strong> and others.
     </p>
     <p>
-      Diff HTTP requests & responses to understand failure cases.
+      <strong>Diff HTTP requests & responses</strong> to understand failure cases.
     </p>
     <p>
-      Explore overall performance metrics & see security warnings for problematic requests to spot non-functional issues early.<br/>
+      Explore overall <strong>performance metrics</strong> & see <strong>security warnings</strong> for problematic requests to spot non-functional issues early.<br/>
       Use built-in visualizations, or define your own.
     </p>
   </DetailsBlock>
