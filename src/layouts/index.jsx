@@ -73,18 +73,18 @@ const TemplateWrapper = ({ children }) => (
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>{siteMetadata.title}</title>
+        <title>{siteMetadata.name} | {siteMetadata.title}</title>
         <meta name="description" content={siteMetadata.description} />
 
         <meta property="og:url"         content="https://httptoolkit.tech" />
         <meta property="og:type"        content="website" />
-        <meta property="og:title"       content={siteMetadata.title} />
+        <meta property="og:title"       content={siteMetadata.name} />
         <meta property="og:description" content={siteMetadata.description} />
         <meta property="og:image"       content="https://httptoolkit.tech/logo-facebook.png" />
 
         <meta name="twitter:card"        content="summary" />
         <meta name="twitter:site"        content="@httptoolkit" />
-        <meta name="twitter:title"       content={siteMetadata.title} />
+        <meta name="twitter:title"       content={siteMetadata.name} />
         <meta name="twitter:description" content={siteMetadata.description} />
         <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
       </Helmet>
