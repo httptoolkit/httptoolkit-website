@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'HTTP Toolkit | Intercept, debug & send HTTP requests',
-    description: 'An open-source proxy tool suite to intercept, debug & send HTTP requests'
+    title: 'HTTP Toolkit | Intercept, debug & send HTTP',
+    description: 'Beautiful, open-source & cross-platform HTTP tools to intercept, debug & send HTTP'
   },
   plugins: [
     'gatsby-plugin-styled-components',

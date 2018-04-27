@@ -62,9 +62,6 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Main>
       <Helmet>
-        <title>{siteMetadata.title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik+Mono+One' />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -73,6 +70,23 @@ const TemplateWrapper = ({ children }) => (
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e1421f" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#fafafa" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>{siteMetadata.title}</title>
+        <meta name="description" content={siteMetadata.description} />
+
+        <meta property="og:url"         content="https://httptoolkit.tech" />
+        <meta property="og:type"        content="website" />
+        <meta property="og:title"       content={siteMetadata.title} />
+        <meta property="og:description" content={siteMetadata.description} />
+        <meta property="og:image"       content="https://httptoolkit.tech/logo-facebook.png" />
+
+        <meta name="twitter:card"        content="summary" />
+        <meta name="twitter:site"        content="@httptoolkit" />
+        <meta name="twitter:title"       content={siteMetadata.title} />
+        <meta name="twitter:description" content={siteMetadata.description} />
+        <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
       </Helmet>
       <Header>
         <LogoLink/>
