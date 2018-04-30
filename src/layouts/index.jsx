@@ -14,7 +14,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 const Main = styled.main`
-  font-family: Lato;
+  font-family: Lato, Helvetica, Arial, sans-serif;
 
   ${media.desktopOrTablet`
     margin: 0 auto;
@@ -62,7 +62,7 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Main>
       <Helmet>
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik+Mono+One' />
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato' />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
