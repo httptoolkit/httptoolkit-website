@@ -105,7 +105,7 @@ export default class RequestStream extends React.Component {
 
                 return <RequestRow
                     request={r}
-                    key={ (i + this.state.requestIndex) % requests.length }
+                    key={i}
                 >
                     <RequestRowCell width='42px'>{r.method}</RequestRowCell>
                     <RequestRowCell
