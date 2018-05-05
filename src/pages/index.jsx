@@ -10,6 +10,7 @@ import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
 import StackedGraph from '../components/stacked-graph';
+import EditableBody from '../components/editable-body';
 
 import { styled, media, css } from '../styles';
 import { siteMetadata } from '../../gatsby-config.js';
@@ -102,8 +103,8 @@ const SignupText = styled.p`
   color: ${p => p.theme.mainSubtleColor};
 `;
 
-const StreamWrapper = styled.div`
-  &:before {
+const overlay = (overlayStyles) => css`
+  &:after {
     content: '';
     z-index: 1;
     position: absolute;
@@ -113,16 +114,36 @@ const StreamWrapper = styled.div`
     right: 0;
     pointer-events: none;
 
-    background: linear-gradient(to right,
-      rgba(250, 250, 250, 0.3),
-      rgba(250, 250, 250, 0.3) 15%,
-      rgba(250, 250, 250, 0.8) 25%,
-      rgba(250, 250, 250, 0.9) 60%,
-      rgba(250, 250, 250, 1) 90%
-    ), linear-gradient(to top,
-      rgba(250, 250, 250, 0) 85%, rgba(250, 250, 250, 1) 100%
-    );
+    ${overlayStyles}
   }
+`;
+
+const BackgroundEditor = styled(EditableBody)`
+  width: 50%;
+
+  ${overlay(`
+    background: linear-gradient(to right,
+        rgba(250, 250, 250, 0.1),
+        rgba(250, 250, 250, 0.3) 30%,
+        rgba(250, 250, 250, 0.6) 60%,
+        rgba(250, 250, 250, 0.9) 80%,
+        rgba(250, 250, 250, 1) 100%
+      );
+  `)}
+`;
+
+const StreamWrapper = styled.div`
+  ${overlay(`
+    background: linear-gradient(to right,
+        rgba(250, 250, 250, 0.3),
+        rgba(250, 250, 250, 0.3) 15%,
+        rgba(250, 250, 250, 0.8) 25%,
+        rgba(250, 250, 250, 0.9) 60%,
+        rgba(250, 250, 250, 1) 90%
+      ), linear-gradient(to top,
+        rgba(250, 250, 250, 0) 85%, rgba(250, 250, 250, 1) 100%
+      );
+  `)}
 
   > div {
     position: absolute;
@@ -265,6 +286,48 @@ export default () => (<div>
     <p>
       Explore overall <strong>performance metrics</strong> & see <strong>security warnings</strong> for problematic requests to spot non-functional issues early.<br/>
       Use built-in visualizations, or define your own.
+    </p>
+  </DetailsBlock>
+
+  <DetailsBlock direction='right'>
+    <BackgroundEditor
+      heading='Response body'
+      contentType='application/json'
+    >
+      {JSON.stringify({
+        key1: "value",
+        key2: [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        key3: 456
+      })}
+    </BackgroundEditor>
+
+    <h3>
+      Create & rewrite HTTP
+    </h3>
+
+    <p>
+      Edit live HTTP requests & responses to simulate client or server behaviour.
+    </p>
+
+    <p>
+      Edit body content directly, or with built-in JSON, XML & GraphQL editors.
+    </p>
+
+    <p>
+      Create & send requests from scratch, to explore & debug API behaviour.
+    </p>
+
+    <p>
+      Repeat, save and export any request or response. Share them with your team as HARs, or export as code to quickly add them to your codebase.
     </p>
   </DetailsBlock>
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { styled, media } from '../styles';
 
+const flip = (direction) =>
+    direction === 'left' ? 'right' : 'left';
+
 export default styled.section`
     ${media.mobile`
         display: none;
@@ -42,6 +45,8 @@ export default styled.section`
             left: 0;
             right: 0;
 
+            text-align: ${p => flip(p.direction)};
+
             overflow: hidden;
 
             border-radius: 4px;
@@ -54,7 +59,7 @@ export default styled.section`
             clear: both;
 
             ${media.desktopOrTablet`
-                width: 75%;
+                width: 70%;
             `}
         }
 

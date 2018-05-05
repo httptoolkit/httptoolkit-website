@@ -31,6 +31,7 @@ const Tooltip = styled.div`
     background-color: ${p => p.theme.popBackground};
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.15);
     color:  ${p => p.theme.mainColor};
+    text-align: left;
 
     ${p => !p.hideArrow && `
         cursor: pointer;
