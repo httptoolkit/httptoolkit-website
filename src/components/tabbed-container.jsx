@@ -9,8 +9,23 @@ const TabButton = styled.button`
     flex: 1;
     padding: 10px;
 
+    border: none;
+    border-top: 1px solid ${p => p.theme.containerBorder};
+
+    background-color: ${p => p.theme.popBackground };
+    cursor: pointer;
+
+    font-weight: bold;
+
     &:disabled {
-        color: #666;
+        font-weight: lighter;
+        color: #888;
+        cursor: not-allowed;
+    }
+
+    &.selected {
+        border-top: 3px solid ${p => p.theme.popColor};
+        padding-top: 8px;
     }
 `;
 
@@ -49,6 +64,7 @@ export default class TabbedContainer extends React.PureComponent {
                 { options.map((option) => <TabButton
                     key={option}
                     disabled={!tabs[option]}
+                    className={option === this.state.selected && 'selected'}
                     onClick={() => this.setState({ selected: option })}
                 >
                     {tabNameFormatter(option)}
