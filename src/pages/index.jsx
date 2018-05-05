@@ -59,7 +59,7 @@ const IntroTextContainer = styled.div`
   margin-bottom: 54px;
 `;
 
-const PitchHeading = styled.h2`
+const PitchHeading = styled.h1`
   margin-top: -12px;
   line-height: 1.3;
   font-weight: bold;
@@ -72,7 +72,7 @@ const PitchHeading = styled.h2`
   ${p => p.theme.fontSizeHeading}
 `;
 
-const Subheading = styled.h3`
+const Subheading = styled.h2`
   line-height: 1.25;
   margin-top: 25px;
 
