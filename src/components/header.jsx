@@ -12,6 +12,10 @@ const HeaderBase = styled.div`
   top: 0;
 
   height: 80px;
+
+  /* Fixed header can twitch a little with page updates. This fixes that:  */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 `;
 
 const HeaderBackground = HeaderBase.extend`
