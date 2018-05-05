@@ -295,18 +295,14 @@ export default () => (<div>
       contentType='application/json'
     >
       {JSON.stringify({
-        key1: "value",
-        key2: [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
-        key3: 456
+        user: {
+          id: 123,
+          username: "grace-hopper-1"
+        },
+        charges: [
+          { id: 1, status: 'failed' },
+          { id: 2, status: 'successful' }
+        ]
       })}
     </BackgroundEditor>
 
