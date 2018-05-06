@@ -64,7 +64,9 @@ export const Feature = styled.section`
     position: absolute;
     top: 21px;
     right: 21px;
+    height: 48px;
     color: ${p => p.theme.containerBackground};
+
   }
 
   > p {
