@@ -1,6 +1,17 @@
 import React from 'react';
 import { styled, media } from '../styles';
 
+const Form = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: start;
+
+    ${media.mobile`
+        flex-direction: column;
+    `}
+`;
+
 const EmailInput = styled.input`
     padding: 15px;
 
@@ -44,6 +55,12 @@ const SubmitInput = styled.input`
     }
 `;
 
+const PrivacyPolicy = styled.p`
+    flex-basis: 100%;
+    padding: 10px 0 0;
+    color: ${p => p.theme.mainSubtleColor};
+`;
+
 export default class MailchimpSignupForm extends React.Component {
     constructor(props) {
         super(props);
@@ -58,7 +75,7 @@ export default class MailchimpSignupForm extends React.Component {
     };
 
     render() {
-        return <form
+        return <Form
             className={this.props.className}
             action={this.props.action}
             method="post"
@@ -80,6 +97,9 @@ export default class MailchimpSignupForm extends React.Component {
             </div>
 
             <SubmitInput type="submit" value={this.props.submitText} name="subscribe" />
-        </form>
+            <PrivacyPolicy>
+                No spam, just updates & early access to the very first release.
+            </PrivacyPolicy>
+        </Form>
     }
 }

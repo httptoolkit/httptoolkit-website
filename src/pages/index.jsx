@@ -90,15 +90,6 @@ const RotatingTextHeading = styled(RotatingText)`
   white-space: nowrap;
 `;
 
-const SignupForm = styled(MailchimpSignupForm)`
-  display: flex;
-  justify-content: start;
-
-  ${media.mobile`
-      flex-direction: column;
-  `}
-`;
-
 const SignupText = styled.p`
   ${p => p.theme.fontSizeText};
   color: ${p => p.theme.mainSubtleColor};
@@ -202,7 +193,7 @@ export default () => (<div>
       </Subheading>
     </IntroTextContainer>
 
-    <SignupForm
+    <MailchimpSignupForm
       autoFocus
       action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b"
       emailTitle={"Enter your email to get early access"}
@@ -341,7 +332,7 @@ export default () => (<div>
     <PitchHeading>
       Sign up now<br/>to find out more
     </PitchHeading>
-    <SignupForm
+    <MailchimpSignupForm
       action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b"
       emailTitle={"Enter your email to get early access"}
       hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
