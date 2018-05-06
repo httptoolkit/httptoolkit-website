@@ -24,8 +24,8 @@ export default styled(({ className, content }) => <div
     color: ${p => p.theme.popColor};
 
     border-radius: 4px;
-    padding: 2px 8px 2px;
-    margin: 0 10px 2px;
+    padding: 3px 8px 2px;
+    margin: -2px 10px 1px;
     vertical-align: middle;
 
     font-size: 75%;

@@ -300,8 +300,8 @@ export default () => (<div>
           username: "grace-hopper-1"
         },
         charges: [
-          { id: 1, status: 'failed' },
-          { id: 2, status: 'successful' }
+          { id: 1, status: 'successful' },
+          { id: 2, status: 'error', message: 'Update conflict' }
         ]
       })}
     </BackgroundEditor>
