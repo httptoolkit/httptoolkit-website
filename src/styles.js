@@ -3,11 +3,13 @@ import styled, { injectGlobal, css, ThemeProvider } from 'styled-components';
 import reset from 'styled-reset';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import '@fortawesome/fontawesome-free-solid';
-import '@fortawesome/fontawesome-free-brands';
-import '@fortawesome/fontawesome-pro-light';
-import '@fortawesome/fontawesome-pro-regular';
-import '@fortawesome/fontawesome-pro-solid';
+import '@fortawesome/fontawesome-free-brands/faAndroid';
+import '@fortawesome/fontawesome-free-brands/faChrome';
+import '@fortawesome/fontawesome-free-brands/faDocker';
+import '@fortawesome/fontawesome-pro-light/faStopwatch';
+import '@fortawesome/fontawesome-pro-light/faWrench';
+import '@fortawesome/fontawesome-pro-light/faSearch';
+import '@fortawesome/fontawesome-pro-light/faSpinner';
 
 export { styled, css, ThemeProvider };
 
