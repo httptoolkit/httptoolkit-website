@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
@@ -172,6 +173,15 @@ const trafficData = [
 }, v => v || 0));
 
 export default () => (<div>
+  <Helmet>
+    <link rel="preload" href="/vs/loader.js" as="script" />
+    <link rel="preload" href="/vs/editor/editor.main.js" as="script" />
+    <link rel="preload" href="/vs/editor/editor.main.css" as="style" />
+    <link rel="preload" href="/vs/editor/editor.main.nls.js" as="script" />
+    <link rel="preload" href="/vs/base/worker/workerMain.js" as="script" />
+    <link rel="preload" href="/vs/language/json/jsonMode.js" as="script" />
+    <link rel="preload" href="/vs/language/json/jsonWorker.js" as="script" />
+  </Helmet>
   <TopHeroBlock>
     <IntroTextContainer>
       <PitchHeading>
