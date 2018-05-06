@@ -2,14 +2,17 @@ import styled, { injectGlobal, css, ThemeProvider } from 'styled-components';
 
 import reset from 'styled-reset';
 
+import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import '@fortawesome/fontawesome-free-brands/faAndroid';
-import '@fortawesome/fontawesome-free-brands/faChrome';
-import '@fortawesome/fontawesome-free-brands/faDocker';
-import '@fortawesome/fontawesome-pro-light/faStopwatch';
-import '@fortawesome/fontawesome-pro-light/faWrench';
-import '@fortawesome/fontawesome-pro-light/faSearch';
-import '@fortawesome/fontawesome-pro-light/faSpinner';
+import * as android from '@fortawesome/fontawesome-free-brands/faAndroid';
+import * as chrome from '@fortawesome/fontawesome-free-brands/faChrome';
+import * as docker from '@fortawesome/fontawesome-free-brands/faDocker';
+import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
+import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
+import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
+import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
+
+fontawesome.library.add(android, chrome, docker, stopwatch, wrench, search, spinner);
 
 export { styled, css, ThemeProvider };
 
