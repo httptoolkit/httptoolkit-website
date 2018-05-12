@@ -71,6 +71,7 @@ const ShareLinks = styled.div`
         > svg {
             display: block;
             margin: 0 auto 20px;
+            height: 24px;
         }
 
         &.facebook {
