@@ -7,12 +7,14 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import * as android from '@fortawesome/fontawesome-free-brands/faAndroid';
 import * as chrome from '@fortawesome/fontawesome-free-brands/faChrome';
 import * as docker from '@fortawesome/fontawesome-free-brands/faDocker';
+import * as twitter from '@fortawesome/fontawesome-free-brands/faTwitter';
+import * as facebook from '@fortawesome/fontawesome-free-brands/faFacebook';
 import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
 import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
 import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
 import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
 
-fontawesome.library.add(android, chrome, docker, stopwatch, wrench, search, spinner);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner);
 
 export { styled, css, ThemeProvider };
 
@@ -59,6 +61,12 @@ export const theme = {
     containerBorder: '#abb4ba',
 
     pageWidth: { desktop: '1024px', tablet: '100%', mobile: '100%' },
+
+    fontSizeUltraHeading: css`
+        ${media.desktop`font-size: 60pt;`}
+        ${media.tablet`font-size: 70pt;`}
+        ${media.mobile`font-size: calc(30pt + 5vw);`}
+    `,
 
     fontSizeHeading: css`
         ${media.desktop`font-size: 36pt;`}

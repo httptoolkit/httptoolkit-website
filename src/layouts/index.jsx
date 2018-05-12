@@ -16,6 +16,11 @@ import Footer from '../components/footer';
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
 
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
   ${media.desktopOrTablet`
     margin: 0 auto;
     width: 1024px;

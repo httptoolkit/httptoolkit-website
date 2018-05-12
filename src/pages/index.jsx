@@ -12,29 +12,12 @@ import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
 import StackedGraph from '../components/stacked-graph';
 import EditableBody from '../components/editable-body';
+import FullWidthSection from '../components/full-width-section';
 
 import { styled, media, css } from '../styles';
 import { siteMetadata } from '../../gatsby-config.js';
 
-const FullWidth = styled.section`
-  ${media.desktop`
-    padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
-    padding-left: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
-    margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
-  `}
-
-  ${media.tablet`
-    padding-left: 30px;
-    padding-right: 30px;
-  `}
-
-  ${media.mobile`
-    padding-left: 10px;
-    padding-right: 10px;
-  `}
-`;
-
-const HeroBlock = FullWidth.extend`
+const HeroBlock = FullWidthSection.extend`
   padding-top: 120px;
   padding-bottom: 120px;
 
