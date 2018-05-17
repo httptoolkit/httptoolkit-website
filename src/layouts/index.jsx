@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { styled, ThemeProvider, media } from '../styles';
 import { injectGlobalStyles, theme } from '../styles';
 
-import wordMarkLogo from '../images/logo-wordmark.png';
+import logo from '../images/logo.svg';
 import headshot from '../images/tim-small.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
@@ -28,7 +28,7 @@ const Main = styled.main`
 `;
 
 const LogoLink = styled((props) => <Link className={props.className} to='/'>
-  <img src={wordMarkLogo} alt="HTTP Toolkit" />
+  <img src={logo} alt="HTTP Toolkit" />
 </Link>)`
   height: 100%;
   display: flex;
