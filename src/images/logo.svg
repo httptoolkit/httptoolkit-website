@@ -14,8 +14,8 @@
    viewBox="0 0 163.10564 14.024311"
    version="1.1"
    id="svg5259"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="logo-long.svg">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="logo.svg">
   <defs
      id="defs5253" />
   <sodipodi:namedview
@@ -26,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.6"
-     inkscape:cx="-176.13797"
+     inkscape:cx="261.36203"
      inkscape:cy="-65.878402"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1058"
-     inkscape:window-x="0"
-     inkscape:window-y="22"
+     inkscape:window-width="838"
+     inkscape:window-height="1048"
+     inkscape:window-x="2760"
+     inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5256">
@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,21 +53,40 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-26.948409,-117.3787)">
-    <text
-       xml:space="preserve"
+    <g
+       aria-label="TOOLKIT"
+       transform="scale(0.98908074,1.0110398)"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;line-height:1.25;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;word-spacing:0px;fill:#e1421f;fill-opacity:1;stroke:none;stroke-width:0.14449117"
-       x="89.843689"
-       y="129.77553"
-       id="text4495-6-94-2"
-       inkscape:export-xdpi="1.5561962"
-       inkscape:export-ydpi="1.5561962"
-       transform="scale(0.98908074,1.0110398)"><tspan
-         sodipodi:role="line"
-         id="tspan4493-0-9-9"
-         x="89.843689"
-         y="129.77553"
+       id="text4495-6-94-2">
+      <path
+         d="m 91.384928,116.28969 h 13.293192 q 0.21192,0 0.36604,0.15412 0.15412,0.15412 0.15412,0.36604 v 3.10175 q 0,0.21192 -0.15412,0.36604 -0.15412,0.15413 -0.36604,0.15413 h -4.14208 v 8.82359 q 0,0.21192 -0.15413,0.36604 -0.15412,0.15413 -0.36604,0.15413 h -3.968693 q -0.211921,0 -0.366045,-0.15413 -0.154124,-0.15412 -0.154124,-0.36604 v -8.82359 h -4.14208 q -0.21192,0 -0.366044,-0.15413 -0.154124,-0.15412 -0.154124,-0.36604 v -3.10175 q 0,-0.21192 0.154124,-0.36604 0.154124,-0.15412 0.366044,-0.15412 z"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
-         dx="0 0.45473209 0.80650574 -0.67494816 -0.1487174 0.56627011 0.34033403">TOOLKIT</tspan></text>
+         id="path818" />
+      <path
+         d="m 119.92131,121.85741 v 2.35039 q 0,1.98435 -0.96328,3.31367 -0.96327,1.32931 -2.52378,1.88801 -1.5605,0.5587 -3.67971,0.5587 -2.1192,0 -3.6797,-0.5587 -1.56051,-0.5587 -2.52378,-1.88801 -0.96328,-1.32932 -0.96328,-3.3522 v -2.27333 q 0,-2.90909 1.98435,-4.354 2.00361,-1.44491 5.18241,-1.44491 3.17881,0 5.16316,1.44491 2.00361,1.44491 2.00361,4.31547 z m -9.13185,-0.36604 v 3.08248 q 0,0.78988 0.52017,1.21372 0.53944,0.42384 1.44491,0.42384 0.90548,0 1.42565,-0.42384 0.53943,-0.4431 0.53943,-1.23299 v -3.04395 q 0,-0.78988 -0.53943,-1.21372 -0.52017,-0.44311 -1.42565,-0.44311 -0.90547,0 -1.44491,0.42384 -0.52017,0.42384 -0.52017,1.21373 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path820" />
+      <path
+         d="m 134.9961,121.85741 v 2.35039 q 0,1.98435 -0.96327,3.31367 -0.96328,1.32931 -2.52378,1.88801 -1.5605,0.5587 -3.67971,0.5587 -2.1192,0 -3.67971,-0.5587 -1.5605,-0.5587 -2.52378,-1.88801 -0.96327,-1.32932 -0.96327,-3.3522 v -2.27333 q 0,-2.90909 1.98434,-4.354 2.00362,-1.44491 5.18242,-1.44491 3.17881,0 5.16315,1.44491 2.00361,1.44491 2.00361,4.31547 z m -9.13184,-0.36604 v 3.08248 q 0,0.78988 0.52017,1.21372 0.53943,0.42384 1.44491,0.42384 0.90548,0 1.42565,-0.42384 0.53943,-0.4431 0.53943,-1.23299 v -3.04395 q 0,-0.78988 -0.53943,-1.21372 -0.52017,-0.44311 -1.42565,-0.44311 -0.90548,0 -1.44491,0.42384 -0.52017,0.42384 -0.52017,1.21373 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path822" />
+      <path
+         d="m 141.1337,125.8261 h 6.56953 q 0.21192,0 0.36605,0.15413 0.15412,0.15412 0.15412,0.36604 v 2.90909 q 0,0.21192 -0.15412,0.36604 -0.15413,0.15413 -0.36605,0.15413 h -11.25104 q -0.21192,0 -0.36605,-0.15413 -0.15412,-0.15412 -0.15412,-0.36604 v -12.44551 q 0,-0.21192 0.15412,-0.36604 0.15413,-0.15412 0.36605,-0.15412 h 4.16134 q 0.21192,0 0.36605,0.15412 0.15412,0.15412 0.15412,0.36604 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path824" />
+      <path
+         d="m 163.4989,129.10124 q 0.0771,0.11559 0.0771,0.26971 0,0.15413 -0.13486,0.28899 -0.1156,0.11559 -0.28899,0.11559 h -4.97049 q -0.44311,0 -0.69356,-0.30825 l -3.35219,-4.14208 v 3.93016 q 0,0.21192 -0.15413,0.36604 -0.15412,0.15413 -0.36604,0.15413 h -3.96869 q -0.21192,0 -0.36605,-0.15413 -0.15412,-0.15412 -0.15412,-0.36604 v -12.44551 q 0,-0.21192 0.15412,-0.36604 0.15413,-0.15412 0.36605,-0.15412 h 3.96869 q 0.21192,0 0.36604,0.15412 0.15413,0.15412 0.15413,0.36604 v 3.62192 l 3.04394,-3.81457 q 0.28899,-0.32751 0.71283,-0.32751 h 4.64298 q 0.17339,0 0.28898,0.13485 0.13486,0.1156 0.13486,0.28899 0,0.15412 -0.0963,0.26971 l -4.56592,5.56773 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path826" />
+      <path
+         d="m 176.48398,120.23911 h -3.48705 v 5.58699 h 3.48705 q 0.21192,0 0.36605,0.15413 0.15412,0.15412 0.15412,0.36604 v 2.90909 q 0,0.21192 -0.15412,0.36604 -0.15413,0.15413 -0.36605,0.15413 h -12.21432 q -0.21192,0 -0.36604,-0.15413 -0.15413,-0.15412 -0.15413,-0.36604 v -2.90909 q 0,-0.21192 0.15413,-0.36604 0.15412,-0.15413 0.36604,-0.15413 h 3.52559 v -5.58699 h -3.52559 q -0.21192,0 -0.36604,-0.15412 -0.15413,-0.15413 -0.15413,-0.36605 v -2.90909 q 0,-0.21192 0.15413,-0.36604 0.15412,-0.15412 0.36604,-0.15412 h 12.21432 q 0.21192,0 0.36605,0.15412 0.15412,0.15412 0.15412,0.36604 v 2.90909 q 0,0.21192 -0.15412,0.36605 -0.15413,0.15412 -0.36605,0.15412 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path828" />
+      <path
+         d="m 178.33885,116.28969 h 13.29318 q 0.21192,0 0.36605,0.15412 0.15412,0.15412 0.15412,0.36604 v 3.10175 q 0,0.21192 -0.15412,0.36604 -0.15413,0.15413 -0.36605,0.15413 h -4.14208 v 8.82359 q 0,0.21192 -0.15412,0.36604 -0.15412,0.15413 -0.36604,0.15413 h -3.96869 q -0.21193,0 -0.36605,-0.15413 -0.15412,-0.15412 -0.15412,-0.36604 v -8.82359 h -4.14208 q -0.21192,0 -0.36605,-0.15413 -0.15412,-0.15412 -0.15412,-0.36604 v -3.10175 q 0,-0.21192 0.15412,-0.36604 0.15413,-0.15412 0.36605,-0.15412 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26548958px;font-family:'Rubik Mono One';-inkscape-font-specification:'Rubik Mono One';letter-spacing:-2.09985042px;fill:#e1421f;fill-opacity:1;stroke-width:0.14449117"
+         id="path830" />
+    </g>
     <g
        aria-label="HTTP"
        transform="matrix(0.03499359,0,0,0.03634239,-74.846706,54.265018)"
