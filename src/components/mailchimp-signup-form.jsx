@@ -1,7 +1,9 @@
 import React from 'react';
 import { styled, media } from '../styles';
 
-const Form = styled.form`
+import { TextInput, SubmitInput } from './form';
+
+const MailchimpForm = styled.form`
     display: flex;
     flex-wrap: wrap;
 
@@ -10,48 +12,21 @@ const Form = styled.form`
     ${media.mobile`
         flex-direction: column;
     `}
-`;
 
-const EmailInput = styled.input`
-    padding: 15px;
+    > input[type=submit] {
+        border-radius: 0 4px 4px 0;
 
-    ${media.desktopOrTablet`
-        width: 435px;
-    `}
+        ${media.mobile`
+            border-radius: 0 0 4px 4px;
+        `}
+    }
 
-    border-radius: 4px 0 0 4px;
-    ${media.mobile`
-        border-radius: 4px 4px 0 0;
-    `}
+    > input[type=email] {
+        border-radius: 4px 0 0 4px;
 
-    border: 1px solid #1f83e0;
-    box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
-    background-color: ${p => p.theme.popBackground};
-
-    font-family: Lato;
-    ${p => p.theme.fontSizeSubheading};
-`;
-
-const SubmitInput = styled.input`
-    cursor: pointer;
-    padding: 15px 36px;
-
-    border-radius: 0 4px 4px 0;
-
-    ${media.mobile`
-        border-radius: 0 0 4px 4px;
-    `}
-
-    border: none;
-
-    font-family: Lato;
-    ${p => p.theme.fontSizeSubheading};
-
-    color: #fff;
-    background-color: #1f83e0;
-
-    &:hover {
-        background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+        ${media.mobile`
+            border-radius: 4px 4px 0 0;
+        `}
     }
 `;
 
@@ -75,14 +50,14 @@ export default class MailchimpSignupForm extends React.Component {
     };
 
     render() {
-        return <Form
+        return <MailchimpForm
             className={this.props.className}
             action={this.props.action}
             method="post"
             target="_blank"
             noValidate
         >
-            <EmailInput
+            <TextInput
                 autoFocus={this.props.autoFocus}
                 type="email"
                 name="EMAIL"
@@ -100,6 +75,6 @@ export default class MailchimpSignupForm extends React.Component {
             <PrivacyPolicy>
                 No spam, just updates & early access to the very first release.
             </PrivacyPolicy>
-        </Form>
+        </MailchimpForm>
     }
 }

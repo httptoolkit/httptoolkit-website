@@ -28,7 +28,11 @@ const Main = styled.main`
   `}
 `;
 
-const LogoLink = styled((props) => <Link className={props.className} to='/'>
+const LogoLink = styled((props) => <Link
+  className={props.className}
+  onClick={clearMenu}
+  to='/'
+>
   <img src={logo} alt="HTTP Toolkit" />
 </Link>)`
   height: 100%;
@@ -78,6 +82,13 @@ function triggerTargetUpdate() {
   };
 }
 
+function clearMenu() {
+  setImmediate(() => {
+    history.pushState(null, null, window.location.pathname);
+    triggerTargetUpdate();
+  });
+}
+
 const NavBurger = styled((props) => <a
   onClick={(e) => {
     e.preventDefault();
@@ -101,8 +112,7 @@ const NavClose = styled((props) => <a
   href="#"
   onClick={(e) => {
     e.preventDefault();
-    history.pushState(null, null, '#');
-    triggerTargetUpdate();
+    clearMenu();
   }}
   {...props}
 >
@@ -119,7 +129,7 @@ const NavClose = styled((props) => <a
   `}
 `;
 
-const NavItem = styled(Link)`
+const NavItem = styled((props) => <Link onClick={clearMenu} {...props} />)`
   ${p => p.theme.fontSizeText}
   color: ${p => p.theme.mainColor};
   text-decoration: none;
@@ -192,7 +202,7 @@ const TemplateWrapper = ({ children }) => (
         <meta name="twitter:description" content={siteMetadata.description} />
         <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
       </Helmet>
-      
+
       <Header>
         <LogoLink/>
         <NavBurger href="#menu" />
