@@ -2,8 +2,9 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
-import { styled, ThemeProvider, media } from '../styles';
-import { injectGlobalStyles, theme } from '../styles';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+
+import { styled, ThemeProvider, media, injectGlobalStyles, theme } from '../styles';
 
 import logo from '../images/logo.svg';
 import headshot from '../images/tim-small.png';
@@ -44,6 +45,104 @@ const LogoLink = styled((props) => <Link className={props.className} to='/'>
     max-height: 50%;
     max-width: 70vw;
   }
+`;
+
+const Nav = styled.nav`
+  align-self: center;
+  flex: 1;
+  text-align: right;
+
+  ${media.mobile `
+    :not(:target) {
+      display: none;
+    }
+
+    position: fixed;
+    top: ${p => p.theme.headerHeight};
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+  `}
+`;
+
+function triggerTargetUpdate() {
+  // Go back and then forwards again to ensure that :target updates properly
+  // This is due to a browser bug: https://github.com/whatwg/html/issues/639
+  history.back();
+  const { onpopstate } = window;
+  window.onpopstate = function() {
+    history.forward();
+    window.onpopstate = onpopstate;
+  };
+}
+
+const NavBurger = styled((props) => <a
+  onClick={(e) => {
+    e.preventDefault();
+    history.pushState(null, null, '#menu');
+    triggerTargetUpdate();
+  }}
+  {...props}
+>
+  <FontAwesomeIcon icon={['far', 'bars']} size='2x' />
+</a>)`
+  position: fixed;
+  top: 22px;
+  right: 20px;
+
+  ${media.desktopOrTablet`
+    display: none;
+  `}
+`;
+
+const NavClose = styled((props) => <a
+  href="#"
+  onClick={(e) => {
+    e.preventDefault();
+    history.pushState(null, null, '#');
+    triggerTargetUpdate();
+  }}
+  {...props}
+>
+  <FontAwesomeIcon icon={['far', 'times']} size='2x' />
+</a>)`
+  position: fixed;
+  top: 17px;
+  right: 17px;
+  padding: 5px;
+  background-color: ${p => p.theme.popBackground};
+
+  ${media.desktopOrTablet`
+    display: none;
+  `}
+`;
+
+const NavItem = styled(Link)`
+  ${p => p.theme.fontSizeText}
+  color: ${p => p.theme.mainColor};
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,0.2);
+    color: ${p => p.theme.popColor};
+  }
+
+  ${media.desktopOrTablet`
+    margin: 0 0 0 20px;
+  `}
+
+  ${media.mobile`
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    text-align: left;
+    background-color: ${p => p.theme.popBackground};
+    border-bottom: 1px solid ${p => p.theme.containerBackground};
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  `}
 `;
 
 const TimLink = styled((props) => 
@@ -93,8 +192,18 @@ const TemplateWrapper = ({ children }) => (
         <meta name="twitter:description" content={siteMetadata.description} />
         <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
       </Helmet>
+      
       <Header>
         <LogoLink/>
+        <NavBurger href="#menu" />
+
+        <Nav id="menu">
+          <NavClose />
+
+          <NavItem to='/pricing'>Pricing</NavItem>
+          <NavItem to='/blog'>Blog</NavItem>
+          <NavItem to='/contact'>Contact</NavItem>
+        </Nav>
       </Header>
 
       {children()}

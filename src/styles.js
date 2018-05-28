@@ -13,8 +13,10 @@ import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
 import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
 import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
 import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
+import * as bars from '@fortawesome/fontawesome-pro-regular/faBars';
+import * as times from '@fortawesome/fontawesome-pro-regular/faTimes';
 
-fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner, bars, times);
 
 export { styled, css, ThemeProvider };
 
@@ -61,6 +63,7 @@ export const theme = {
     containerBorder: '#abb4ba',
 
     pageWidth: { desktop: '1024px', tablet: '100%', mobile: '100%' },
+    headerHeight: '80px',
 
     fontSizeUltraHeading: css`
         ${media.desktop`font-size: 60pt;`}

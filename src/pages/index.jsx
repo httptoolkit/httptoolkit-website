@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 import RotatingText from '../components/rotating-text';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';

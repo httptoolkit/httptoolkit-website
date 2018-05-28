@@ -4,14 +4,14 @@ import { styled, media } from '../styles'
 const HeaderPlaceholder = styled.div`
   width: 100%;
   display: block;
-  height: 80px;
+  height: ${p => p.theme.headerHeight};
 `;
 
 const HeaderBase = styled.div`
   position: fixed;
   top: 0;
 
-  height: 80px;
+  height: ${p => p.theme.headerHeight};
 
   /* Fixed header can twitch a little with page updates. This fixes that:  */
   transform: translate3d(0, 0, 0);
@@ -30,8 +30,14 @@ const HeaderBackground = HeaderBase.extend`
   z-index: 2;
 `;
 
-const StyledHeader = HeaderBase.extend`
-  width: 100%;
+const StyledHeader = styled.div`
+  ${media.desktop`
+    width: ${p => p.theme.pageWidth.desktop};
+  `}
+  height: ${p => p.theme.headerHeight};
+
+  margin: 0 auto;
+
   padding: 10px 0;
 
   ${media.tablet`
@@ -51,10 +57,9 @@ const StyledHeader = HeaderBase.extend`
 
 const Header = ({ children }) => {
   return (<HeaderPlaceholder>
-    <HeaderBackground />
-    <StyledHeader>
+    <HeaderBackground><StyledHeader>
       {children}
-    </StyledHeader>
+    </StyledHeader></HeaderBackground>
   </HeaderPlaceholder>)
 }
 
