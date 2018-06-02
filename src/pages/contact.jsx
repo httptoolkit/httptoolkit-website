@@ -22,7 +22,11 @@ const SplashHeader = styled.h1`
     ${p => p.theme.fontSizeUltraHeading}
     font-weight: bolder;
 
-    margin: 60px 0;
+    margin-bottom: 60px;
+
+    ${media.mobileOrTablet`
+        margin-top: 60px;
+    `}
 `;
 
 const SplashBody = styled.div`
@@ -64,7 +68,7 @@ export default () => (<SplashContainer>
         Contact us
     </SplashHeader>
     <SplashBody>
-        Have questions, suggestions, or problems? Get it touch!
+        Have questions, suggestions, or problems?
     </SplashBody>
     <ContactForm email="tim@httptoolkit.tech" />
 </SplashContainer>);

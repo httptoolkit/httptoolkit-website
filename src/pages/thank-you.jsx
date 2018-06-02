@@ -21,7 +21,7 @@ const ThankYouHeader = styled.h1`
     ${p => p.theme.fontSizeUltraHeading}
     font-weight: bolder;
 
-    margin: 60px 0;
+    margin-bottom: 60px;
 `;
 
 const ThankYouDetails = styled.p`
