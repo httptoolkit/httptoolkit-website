@@ -211,7 +211,6 @@ const TemplateWrapper = ({ children }) => (
           <NavClose />
 
           <NavItem to='/pricing'>Pricing</NavItem>
-          <NavItem to='/blog'>Blog</NavItem>
           <NavItem to='/contact'>Contact</NavItem>
         </Nav>
       </Header>
