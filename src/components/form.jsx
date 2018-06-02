@@ -14,7 +14,7 @@ export const TextInput = styled.input`
 
     border-radius: 4px;
 
-    border: 1px solid #1f83e0;
+    border: 1px solid ${p => p.theme.primaryColor};
     box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${p => p.theme.popBackground};
 
@@ -36,7 +36,7 @@ export const TextArea = styled.textarea`
 
     border-radius: 4px;
 
-    border: 1px solid #1f83e0;
+    border: 1px solid ${p => p.theme.primaryColor};
     box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${p => p.theme.popBackground};
 
@@ -56,7 +56,7 @@ export const SubmitInput = styled.input`
     ${p => p.theme.fontSizeSubheading};
 
     color: #fff;
-    background-color: #1f83e0;
+    background-color: ${p => p.theme.primaryColor};
 
     &:hover {
         background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));

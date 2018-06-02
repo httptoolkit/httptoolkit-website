@@ -58,6 +58,8 @@ export const theme = {
     popColor: '#e1421f',
     popBackground: '#fff',
 
+    primaryColor: '#1f83e0',
+
     containerBackground: '#d8e2e6',
     containerWatermark: '#b6c2ca',
     containerBorder: '#abb4ba',
