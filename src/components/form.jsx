@@ -44,7 +44,7 @@ export const TextArea = styled.textarea`
     ${p => p.theme.fontSizeSubheading};
 `;
 
-export const SubmitInput = styled.input`
+const ButtonStyles = css`
     cursor: pointer;
     padding: 15px 36px;
 
@@ -62,3 +62,6 @@ export const SubmitInput = styled.input`
         background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
     }
 `;
+
+export const SubmitInput = styled.input`${ButtonStyles}`;
+export const Button = styled.button`${ButtonStyles}`;

@@ -178,7 +178,7 @@ export default () => (<div>
 
     <MailchimpSignupForm
       autoFocus
-      action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b"
+      action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=homepage"
       emailTitle={"Enter your email to get early access"}
       hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
       submitText={"Get early access"}

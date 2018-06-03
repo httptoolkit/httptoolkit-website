@@ -7,8 +7,10 @@ import { Tooltip } from 'react-tippy';
 import { styled, media, css } from '../styles';
 
 import FullWidthSection from '../components/full-width-section';
-import { SubmitInput } from '../components/form';
+import { Button } from '../components/form';
 import { Nowrap } from '../components/nowrap';
+import MailchimpSignupForm from '../components/mailchimp-signup-form';
+import { Modal } from '../components/modal';
 
 const PricingContainer = FullWidthSection.extend`
     flex: 1;
@@ -177,7 +179,7 @@ const PricingCTA = styled.div`
     margin-top: auto;
     margin-bottom: 10px;
 
-    > input {
+    > ${Button} {
         text-align: center;
         width: 100%
     }
@@ -196,140 +198,188 @@ const PricingFooter = styled.div`
     `}
 `;
 
-export default () => (<PricingContainer>
-    <PricingHeader>
-        Pricing
-    </PricingHeader>
+export default class PricingPage extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedPlan: false // False or the plan name
+        };
+    }
 
-    <PricingTable>
-        <PricingTier>
-            <TierIcon>
-                <FontAwesomeIcon icon={['fal', 'cog']} size='3x' />
-            </TierIcon>
-            <TierHeader>
-                Hobbyist
-            </TierHeader>
-            <TierPrice>
-                <Price>Free</Price>
-                <small>Forever</small>
-            </TierPrice>
-            <TierFeatures>
-                <Feature>
-                    All essential HTTP debugging, testing and client features
-                </Feature>
-                <Feature>
-                    Open source (Apache 2.0)
-                </Feature>
-                <Feature>
-                    Cross-platform support (Linux/Mac/Windows)
-                </Feature>
-            </TierFeatures>
-            <PricingCTA>
-                <SubmitInput value="Download Now" />
-            </PricingCTA>
-        </PricingTier>
+    selectPlan(planName) {
+        this.setState({ selectedPlan: planName });
+        window.scrollTo(0, 0);
 
-        <PricingTier highlighted={true}>
-            <TierIcon>
-                <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
-            </TierIcon>
-            <TierHeader>
-                Professional
-            </TierHeader>
-            <TierPrice>
-                <Price>$50</Price> / year
-                <small>
-                    <StyledTooltip
-                        html={<TooltipUl>
-                            <li>Permanent license, even if your subscription ends</li>
-                            <li>Covers all versions available during your subscription</li>
-                            <li>One named user, unlimited devices</li>
-                        </TooltipUl>}>
-                        Personal user license <FontAwesomeIcon icon={['far', 'info-circle']} />
-                    </StyledTooltip>
-                </small>
-            </TierPrice>
-            <TierFeatures>
-                <Feature>
-                    <em>All Hobbyist features, and:</em>
-                </Feature>
-                <Feature>
-                    <StyledTooltip
-                        html={<TooltipUl>
-                            <li>Full source available via Github, pull requests welcome!</li>
-                            <li>Make any changes for your own personal use</li>
-                            <li>Share derived works with anybody licensed for the original version</li>
-                        </TooltipUl>}
-                    >
-                        Open source, for license{' '}
-                        <Nowrap>holders&nbsp;<FontAwesomeIcon icon={['far', 'info-circle']} /></Nowrap>
-                    </StyledTooltip>
-                </Feature>
-                <Feature>
-                    Deeper inspection of request/response data
-                </Feature>
-                <Feature>
-                    Security & performance analysis, warnings and metrics.
-                </Feature>
-                <Feature>
-                    Import/export requests, responses,
-                    and code snippets.
-                </Feature>
-                <Feature>
-                    Customize with colour themes
-                </Feature>
-                <Feature>
-                    <strong>Support ongoing development!</strong>
-                </Feature>
-            </TierFeatures>
-            <PricingCTA>
-                <SubmitInput value="Buy Now" />
-            </PricingCTA>
-        </PricingTier>
+        if (window.ga) {
+            window.ga('send', 'event', {
+                eventCategory: 'plan',
+                eventAction: 'select',
+                eventLabel: planName,
+            });
+        }
+    }
 
-        <PricingTier>
-            <TierIcon>
-                <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' transform="rotate-180"/>
-                &nbsp;&nbsp;
-                <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
-            </TierIcon>
-            <TierHeader>
-                Team
-            </TierHeader>
-            <TierPrice>
-                <Price>$100</Price> / seat / year
-                <small>
-                    <StyledTooltip
-                        html={<TooltipUl>
-                            <li>Permanent license, even if your subscription ends</li>
-                            <li>Covers all versions available during your subscription</li>
-                            <li>One named user, unlimited devices</li>
-                            <li>Named user can be changed at any time during your subscription</li>
-                        </TooltipUl>}>
-                        Transferable user license <FontAwesomeIcon icon={['far', 'info-circle']} />
-                    </StyledTooltip>
-                </small>
-            </TierPrice>
-            <TierFeatures>
-                <Feature><em>All Professional features, and:</em></Feature>
-                <Feature>Pass licenses between team members as required</Feature>
-                <Feature>Team workspaces for low-friction collaboration</Feature>
-                <Feature>
-                    Options available on request:
-                    <ul>
-                        <li>Self-hosted infrastructure</li>
-                        <li>Private support</li>
-                        <li>Training & consultancy</li>
-                        <li>Bulk discounts</li>
-                    </ul>
-                </Feature>
-            </TierFeatures>
-            <PricingCTA>
-                <SubmitInput value="Buy Now" />
-            </PricingCTA>
-        </PricingTier>
-    </PricingTable>
-    <PricingFooter>
-        Questions? <Link to="/contact">Get in touch</Link>
-    </PricingFooter>
-</PricingContainer>);
+    render() {
+        return <PricingContainer>
+            <PricingHeader>
+                Pricing
+            </PricingHeader>
+
+            <PricingTable>
+                <PricingTier>
+                    <TierIcon>
+                        <FontAwesomeIcon icon={['fal', 'cog']} size='3x' />
+                    </TierIcon>
+                    <TierHeader>
+                        Hobbyist
+                    </TierHeader>
+                    <TierPrice>
+                        <Price>Free</Price>
+                        <small>Forever</small>
+                    </TierPrice>
+                    <TierFeatures>
+                        <Feature>
+                            All essential HTTP debugging, testing and client features
+                        </Feature>
+                        <Feature>
+                            Open source (Apache 2.0)
+                        </Feature>
+                        <Feature>
+                            Cross-platform support (Linux/Mac/Windows)
+                        </Feature>
+                    </TierFeatures>
+                    <PricingCTA>
+                        <Button onClick={() => this.selectPlan('Hobbyist')}>
+                            Download
+                        </Button>
+                    </PricingCTA>
+                </PricingTier>
+
+                <PricingTier highlighted={true}>
+                    <TierIcon>
+                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
+                    </TierIcon>
+                    <TierHeader>
+                        Professional
+                    </TierHeader>
+                    <TierPrice>
+                        <Price>$50</Price> / year
+                        <small>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>Permanent license, even if your subscription ends</li>
+                                    <li>Covers all versions available during your subscription</li>
+                                    <li>One named user, unlimited devices</li>
+                                </TooltipUl>}>
+                                Personal user license <FontAwesomeIcon icon={['far', 'info-circle']} />
+                            </StyledTooltip>
+                        </small>
+                    </TierPrice>
+                    <TierFeatures>
+                        <Feature>
+                            <em>All Hobbyist features, and:</em>
+                        </Feature>
+                        <Feature>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>Full source available via Github, pull requests welcome!</li>
+                                    <li>Make any changes for your own personal use</li>
+                                    <li>Share derived works with anybody licensed for the original version</li>
+                                </TooltipUl>}
+                            >
+                                Open source, for license{' '}
+                                <Nowrap>holders&nbsp;<FontAwesomeIcon icon={['far', 'info-circle']} /></Nowrap>
+                            </StyledTooltip>
+                        </Feature>
+                        <Feature>
+                            Deeper inspection of request/response data
+                        </Feature>
+                        <Feature>
+                            Security & performance analysis, warnings and metrics.
+                        </Feature>
+                        <Feature>
+                            Import/export requests, responses,
+                            and code snippets.
+                        </Feature>
+                        <Feature>
+                            Customize with colour themes
+                        </Feature>
+                        <Feature>
+                            <strong>Support ongoing development!</strong>
+                        </Feature>
+                    </TierFeatures>
+                    <PricingCTA>
+                        <Button onClick={() => this.selectPlan('Pro')}>
+                            Buy Pro
+                        </Button>
+                    </PricingCTA>
+                </PricingTier>
+
+                <PricingTier>
+                    <TierIcon>
+                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' transform="rotate-180"/>
+                        &nbsp;&nbsp;
+                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
+                    </TierIcon>
+                    <TierHeader>
+                        Team
+                    </TierHeader>
+                    <TierPrice>
+                        <Price>$100</Price> / seat / year
+                        <small>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>Permanent license, even if your subscription ends</li>
+                                    <li>Covers all versions available during your subscription</li>
+                                    <li>One named user, unlimited devices</li>
+                                    <li>Named user can be changed at any time during your subscription</li>
+                                </TooltipUl>}>
+                                Transferable user license <FontAwesomeIcon icon={['far', 'info-circle']} />
+                            </StyledTooltip>
+                        </small>
+                    </TierPrice>
+                    <TierFeatures>
+                        <Feature><em>All Professional features, and:</em></Feature>
+                        <Feature>Pass licenses between team members as required</Feature>
+                        <Feature>Team workspaces for low-friction collaboration</Feature>
+                        <Feature>
+                            Options available on request:
+                            <ul>
+                                <li>Self-hosted infrastructure</li>
+                                <li>Private support</li>
+                                <li>Training & consultancy</li>
+                                <li>Bulk discounts</li>
+                            </ul>
+                        </Feature>
+                    </TierFeatures>
+                    <PricingCTA>
+                        <Button onClick={() => this.selectPlan('Team')}>
+                            Buy Team
+                        </Button>
+                    </PricingCTA>
+                </PricingTier>
+            </PricingTable>
+
+            <PricingFooter>
+                Questions? <Link to="/contact">Get in touch</Link>
+            </PricingFooter>
+
+            <Modal isOpen={!!this.state.selectedPlan} onClose={() => this.setState({selectedPlan: false })}>
+                <h2>Sign up for updates</h2>
+                <p>
+                    Great enthusiasm! Unfortunately, HTTP Toolkit is still being built, so you can't download or buy it quite yet.
+                </p>
+                <p>
+                    Thanks for your interest & support though. Sign up now for updates and access when HTTP Toolkit is ready here:
+                </p>
+                <MailchimpSignupForm
+                    autoFocus
+                    action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=prelaunch:${this.state.selectedPlan}`}
+                    emailTitle={"Enter your email to get updates and access when HTTP Toolkit is ready"}
+                    hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
+                    submitText={"Get early access"}
+                />
+            </Modal>
+        </PricingContainer>;
+    }
+}
