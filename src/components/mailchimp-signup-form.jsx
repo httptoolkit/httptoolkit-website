@@ -40,6 +40,8 @@ export default class MailchimpSignupForm extends React.Component {
     constructor(props) {
         super(props);
 
+        this.emailInput = null;
+
         this.state = {
             enteredText: ''
         };
@@ -48,6 +50,12 @@ export default class MailchimpSignupForm extends React.Component {
     emailChanged = (e) => {
         this.setState({ enteredText: e.target.value });
     };
+
+    componentDidMount() {
+        if (this.props.autoFocus && window.innerWidth >= 1084) {
+            this.emailInput.focus();
+        }
+    }
 
     render() {
         return <MailchimpForm
@@ -58,13 +66,13 @@ export default class MailchimpSignupForm extends React.Component {
             noValidate
         >
             <TextInput
-                autoFocus={this.props.autoFocus && window.innerWidth >= 1084}
                 type="email"
                 name="EMAIL"
                 placeholder="Enter your email"
                 title={this.props.emailTitle}
                 value={this.state.enteredText}
                 onChange={this.emailChanged}
+                innerRef={(input) => { this.emailInput = input; }}
             />
 
             <div style={{position: 'absolute', left: '-5000px'}}>
