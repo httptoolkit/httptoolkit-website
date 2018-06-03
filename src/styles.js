@@ -82,12 +82,12 @@ export const theme = {
     fontSizeSubheading: css`
         ${media.desktop`font-size: 18pt;`}
         ${media.tablet`font-size: 26pt;`}
-        ${media.mobile`font-size: calc(12pt + 3vw);`}
+        ${media.mobile`font-size: calc(12pt + 2vw);`}
     `,
     fontSizeText: css`
         ${media.desktop`font-size: 15pt;`}
         ${media.tablet`font-size: 16pt;`}
-        ${media.mobile`font-size: calc(12pt + 2vw);`}
+        ${media.mobile`font-size: calc(12pt + 1.5vw);`}
     `,
 };
 
