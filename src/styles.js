@@ -15,11 +15,9 @@ import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
 import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
 import * as bars from '@fortawesome/fontawesome-pro-regular/faBars';
 import * as times from '@fortawesome/fontawesome-pro-regular/faTimes';
-import * as cog from '@fortawesome/fontawesome-pro-light/faCog';
-import * as cogs from '@fortawesome/fontawesome-pro-light/faCogs';
 import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
 
-fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner, bars, times, cog, cogs, infoCircle);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner, bars, times, infoCircle);
 
 export { styled, css, ThemeProvider };
 

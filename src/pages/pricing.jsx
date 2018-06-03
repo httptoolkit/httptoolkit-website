@@ -88,16 +88,6 @@ const PricingTier = styled.div`
     }
 `;
 
-const TierIcon = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    height: 140px;
-    display: none;
-`;
-
 const TierHeader = styled.div`
     width: 100%;
     padding: 30px 0;
@@ -227,9 +217,6 @@ export default class PricingPage extends React.PureComponent {
 
             <PricingTable>
                 <PricingTier>
-                    <TierIcon>
-                        <FontAwesomeIcon icon={['fal', 'cog']} size='3x' />
-                    </TierIcon>
                     <TierHeader>
                         Hobbyist
                     </TierHeader>
@@ -256,9 +243,6 @@ export default class PricingPage extends React.PureComponent {
                 </PricingTier>
 
                 <PricingTier highlighted={true}>
-                    <TierIcon>
-                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
-                    </TierIcon>
                     <TierHeader>
                         Professional
                     </TierHeader>
@@ -316,11 +300,6 @@ export default class PricingPage extends React.PureComponent {
                 </PricingTier>
 
                 <PricingTier>
-                    <TierIcon>
-                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' transform="rotate-180"/>
-                        &nbsp;&nbsp;
-                        <FontAwesomeIcon icon={['fal', 'cogs']} size='5x' />
-                    </TierIcon>
                     <TierHeader>
                         Team
                     </TierHeader>
