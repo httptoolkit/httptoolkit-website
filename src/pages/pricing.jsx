@@ -85,6 +85,7 @@ const PricingTier = styled.div`
 
     [data-icon="info-circle"] {
         color: ${p => p.theme.primaryColor};
+        height: 19px;
     }
 `;
 
