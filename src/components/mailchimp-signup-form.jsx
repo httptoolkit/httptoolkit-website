@@ -58,7 +58,7 @@ export default class MailchimpSignupForm extends React.Component {
             noValidate
         >
             <TextInput
-                autoFocus={this.props.autoFocus}
+                autoFocus={this.props.autoFocus && window.innerWidth >= 1084}
                 type="email"
                 name="EMAIL"
                 placeholder="Enter your email"
