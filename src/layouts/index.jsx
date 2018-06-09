@@ -201,6 +201,9 @@ const TemplateWrapper = ({ children }) => (
         <meta name="twitter:title"       content={siteMetadata.name} />
         <meta name="twitter:description" content={siteMetadata.description} />
         <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
+
+        {/* Required to make sure Monaco loads correctly on nested pages */}
+        <base href="/" />
       </Helmet>
 
       <Header>
