@@ -176,6 +176,9 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Main>
       <Helmet>
+        {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
