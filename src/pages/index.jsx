@@ -18,8 +18,6 @@ import { styled, media, css } from '../styles';
 import { siteMetadata } from '../../gatsby-config.js';
 
 const HeroBlock = FullWidthSection.extend`
-  padding-top: 120px;
-  padding-bottom: 120px;
 
   ${media.mobile`
     padding-top: 60px;
@@ -36,46 +34,94 @@ const HeroBlock = FullWidthSection.extend`
 `;
 
 const TopHeroBlock = HeroBlock.extend`
+  padding-top: 120px;
   padding-bottom: 299px;
 `;
 
-const IntroTextContainer = styled.div`
-  margin-bottom: 54px;
+const BottomHeroBlock = HeroBlock.extend`
+  padding-top: 120px;
+  padding-bottom: 120px;
+  line-height: 1.3;
 `;
 
-const PitchHeading = styled.h1`
-  margin-top: -12px;
-  line-height: 1.3;
+const BottomHeroCTA = styled.h2`
+  ${p => p.theme.fontSizeHeading}
   font-weight: bold;
+  line-height: 1.3;
   margin-bottom: 18px;
+`;
+
+const IntroTextContainer = styled.div`
+  margin-bottom: 26px;
+`;
+
+const OneClick = styled.div`
+  font-weight: initial;
+  font-style: italic;
+  font-family: Courgette;
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+const ShiftDown = styled.span`
+  position: relative;
+  top: 10px;
+`;
+
+const PitchHeading = styled.div`
+  ${p => p.theme.fontSizeHeading}
+  font-weight: bold;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
   ${media.desktop`
-    max-width: 700px;
+    margin-bottom: 110px;
   `}
 
-  ${p => p.theme.fontSizeHeading}
+  ${media.mobileOrTablet`
+    margin-bottom: 50px;
+  `}
+
+  > svg, > ${OneClick} {
+    color: ${p => p.theme.popColor};
+  }
+`;
+
+const PitchLine = styled.h1`
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
 `;
 
 const Subheading = styled.h2`
   line-height: 1.25;
-  margin-top: 25px;
 
   text-transform: uppercase;
   letter-spacing: 1px;
   ${p => p.theme.fontSizeSubheading};
   color: ${p => p.theme.mainSubtleColor};
+
+  text-align: center;
+
+  ${media.mobile`
+    br {
+      display: inline;
+      content: ' ';
+      clear: none;
+
+      &:before {
+        content: ' ';
+      }
+    }
+  `}
 `;
 
-const RotatingTextHeading = styled(RotatingText)`
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 66, 31, 0.2);
-  color: #e1421f;
-  white-space: nowrap;
-`;
-
-const SignupText = styled.p`
-  ${p => p.theme.fontSizeText};
-  color: ${p => p.theme.mainSubtleColor};
+const StyledSignupForm = styled(MailchimpSignupForm)`
+  justify-content: center;
+  text-align: center;
 `;
 
 const overlay = (overlayStyles) => css`
@@ -159,24 +205,28 @@ export default () => (<div>
   <TopHeroBlock>
     <IntroTextContainer>
       <PitchHeading>
-        Debug, test & change how <RotatingTextHeading>
-          <span>your code</span>
-          <span>your web app</span>
-          <span>your mobile app</span>
-          <span>your IoT device</span>
-          <span>your backend</span>
-        </RotatingTextHeading>
-        {' '}
-        communicates.
+        <OneClick>
+          With one click<ShiftDown>↴</ShiftDown>
+        </OneClick>
+        <PitchLine>
+          See all HTTP you send & receive
+        </PitchLine>
+        <PitchLine>
+          Live edit, delay, or inject errors
+        </PitchLine>
+        <PitchLine>
+          Prototype APIs or calls in seconds
+        </PitchLine>
       </PitchHeading>
 
       <Subheading>
-        Beautiful, open&#8209;source & cross&#8209;platform<br/>
-        HTTP proxy, analyzer and client.
+        Beautiful & open&#8209;source<br/>
+        HTTP proxy, analyzer and client<br/>
+        for Windows, Linux & Mac.
       </Subheading>
     </IntroTextContainer>
 
-    <MailchimpSignupForm
+    <StyledSignupForm
       autoFocus
       action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=homepage"
       emailTitle={"Enter your email to get early access"}
@@ -213,7 +263,7 @@ export default () => (<div>
       </p>
     </Feature>
     <Feature>
-      <h3>Change</h3>
+      <h3>Build</h3>
       <FontAwesomeIcon icon={['fal', 'wrench']} size='3x' />
       <p>
         Create, edit & save requests for rapid prototyping
@@ -291,7 +341,7 @@ export default () => (<div>
     </BackgroundEditor>
 
     <h3>
-      Create & rewrite HTTP
+      Write & rewrite HTTP
     </h3>
 
     <p>
@@ -307,19 +357,19 @@ export default () => (<div>
     </p>
 
     <p>
-      Repeat, save and export any request or response. Share them with your team as HARs, or export as code to quickly add them to your codebase.
+      Repeat, save or export any request or response. Share them with your team as HARs, or export as code to quickly add them to your codebase.
     </p>
   </DetailsBlock>
 
-  <HeroBlock>
-    <PitchHeading>
+  <BottomHeroBlock>
+    <BottomHeroCTA>
       Sign up now<br/>to find out more
-    </PitchHeading>
+    </BottomHeroCTA>
     <MailchimpSignupForm
       action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b"
       emailTitle={"Enter your email to get early access"}
       hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
       submitText={"Get early access"}
     />
-  </HeroBlock>
+  </BottomHeroBlock>
 </div>);
