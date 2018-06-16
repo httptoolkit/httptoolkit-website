@@ -3,7 +3,62 @@ import { styled, media } from '../styles';
 
 import { TextInput, SubmitInput } from './form';
 
-const MailchimpForm = styled.form`
+const PrivacyPolicy = styled.p`
+    flex-basis: 100%;
+    padding: 10px 0 0;
+    color: ${p => p.theme.mainSubtleColor};
+`;
+
+export default styled(class MailchimpSignupForm extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.emailInput = null;
+
+        this.state = {
+            enteredText: ''
+        };
+    }
+
+    emailChanged = (e) => {
+        this.setState({ enteredText: e.target.value });
+    };
+
+    componentDidMount() {
+        if (this.props.autoFocus && window.innerWidth >= 1084) {
+            this.emailInput.focus();
+        }
+    }
+
+    render() {
+        return <form
+            className={this.props.className}
+            action={this.props.action}
+            method="post"
+            target="_blank"
+            noValidate
+        >
+            <TextInput
+                type="email"
+                name="EMAIL"
+                placeholder="Enter your email"
+                title={this.props.emailTitle}
+                value={this.state.enteredText}
+                onChange={this.emailChanged}
+                innerRef={(input) => { this.emailInput = input; }}
+            />
+
+            <div style={{position: 'absolute', left: '-5000px'}}>
+                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" value="" aria-hidden="true" />
+            </div>
+
+            <SubmitInput type="submit" value={this.props.submitText} name="subscribe" />
+            <PrivacyPolicy>
+                No spam, just updates & early access to the very first release.
+            </PrivacyPolicy>
+        </form>
+    }
+})`
     display: flex;
     flex-wrap: wrap;
 
@@ -29,60 +84,3 @@ const MailchimpForm = styled.form`
         `}
     }
 `;
-
-const PrivacyPolicy = styled.p`
-    flex-basis: 100%;
-    padding: 10px 0 0;
-    color: ${p => p.theme.mainSubtleColor};
-`;
-
-export default class MailchimpSignupForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.emailInput = null;
-
-        this.state = {
-            enteredText: ''
-        };
-    }
-
-    emailChanged = (e) => {
-        this.setState({ enteredText: e.target.value });
-    };
-
-    componentDidMount() {
-        if (this.props.autoFocus && window.innerWidth >= 1084) {
-            this.emailInput.focus();
-        }
-    }
-
-    render() {
-        return <MailchimpForm
-            className={this.props.className}
-            action={this.props.action}
-            method="post"
-            target="_blank"
-            noValidate
-        >
-            <TextInput
-                type="email"
-                name="EMAIL"
-                placeholder="Enter your email"
-                title={this.props.emailTitle}
-                value={this.state.enteredText}
-                onChange={this.emailChanged}
-                innerRef={(input) => { this.emailInput = input; }}
-            />
-
-            <div style={{position: 'absolute', left: '-5000px'}}>
-                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" value="" aria-hidden="true" />
-            </div>
-
-            <SubmitInput type="submit" value={this.props.submitText} name="subscribe" />
-            <PrivacyPolicy>
-                No spam, just updates & early access to the very first release.
-            </PrivacyPolicy>
-        </MailchimpForm>
-    }
-}

@@ -122,7 +122,7 @@ const Subheading = styled.h2`
   `}
 `;
 
-const StyledSignupForm = styled(MailchimpSignupForm)`
+const StyledSignupForm = MailchimpSignupForm.extend`
   justify-content: center;
   text-align: center;
 `;
