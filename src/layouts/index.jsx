@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import { styled, ThemeProvider, media, injectGlobalStyles, theme } from '../styles';
+import { styled, ThemeProvider, media, injectGlobalStyles, theme, css } from '../styles';
 
 import logo from '../images/logo.svg';
 import headshot from '../images/tim-small.png';
@@ -30,8 +30,8 @@ const Main = styled.main`
 
 const LogoLink = styled((props) => <Link
   className={props.className}
-  onClick={clearMenu}
   to='/'
+  {...props}
 >
   <img src={logo} alt="HTTP Toolkit" />
 </Link>)`
@@ -58,7 +58,7 @@ const Nav = styled.nav`
 
   ${media.mobile `
     :not(:target) {
-      display: none;
+      ${p => !p.open && css`display: none;`};
     }
 
     position: fixed;
@@ -71,31 +71,12 @@ const Nav = styled.nav`
   `}
 `;
 
-function triggerTargetUpdate() {
-  // Go back and then forwards again to ensure that :target updates properly
-  // This is due to a browser bug: https://github.com/whatwg/html/issues/639
-  history.back();
-  const { onpopstate } = window;
-  window.onpopstate = function() {
-    history.forward();
-    window.onpopstate = onpopstate;
-  };
-}
-
-function clearMenu() {
-  setImmediate(() => {
-    history.pushState(null, null, window.location.pathname);
-    triggerTargetUpdate();
-  });
-}
-
 const NavBurger = styled((props) => <a
+  {...props}
   onClick={(e) => {
     e.preventDefault();
-    history.pushState(null, null, '#menu');
-    triggerTargetUpdate();
+    props.onClick(e);
   }}
-  {...props}
 >
   <FontAwesomeIcon icon={['far', 'bars']} size='2x' />
 </a>)`
@@ -106,15 +87,20 @@ const NavBurger = styled((props) => <a
   ${media.desktopOrTablet`
     display: none;
   `}
+
+  /* Fixed height ensures icon size is correct before JS */
+  > svg {
+    height: 32px;
+  }
 `;
 
 const NavClose = styled((props) => <a
   href="#"
+  {...props}
   onClick={(e) => {
     e.preventDefault();
-    clearMenu();
+    props.onClick(e);
   }}
-  {...props}
 >
   <FontAwesomeIcon icon={['far', 'times']} size='2x' />
 </a>)`
@@ -127,9 +113,16 @@ const NavClose = styled((props) => <a
   ${media.desktopOrTablet`
     display: none;
   `}
+
+  /* Fixed height ensures icon size is correct before JS */
+  > svg {
+    height: 32px;
+  }
 `;
 
-const NavItem = styled((props) => <Link onClick={clearMenu} {...props} />)`
+const NavItem = styled((props) => <Link
+  {...props}
+/>)`
   ${p => p.theme.fontSizeText}
   color: ${p => p.theme.mainColor};
   text-decoration: none;
@@ -172,65 +165,89 @@ const TimLink = styled((props) =>
   }
 `;
 
-const TemplateWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Main>
-      <Helmet>
-        {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
-
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e1421f" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#fafafa" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <title>{siteMetadata.name} | {siteMetadata.title}</title>
-        <meta name="description" content={siteMetadata.description} />
-
-        <meta property="og:url"         content="https://httptoolkit.tech" />
-        <meta property="og:type"        content="website" />
-        <meta property="og:title"       content={siteMetadata.name} />
-        <meta property="og:description" content={siteMetadata.description} />
-        <meta property="og:image"       content="https://httptoolkit.tech/logo-facebook.png" />
-
-        <meta name="twitter:card"        content="summary" />
-        <meta name="twitter:site"        content="@httptoolkit" />
-        <meta name="twitter:title"       content={siteMetadata.name} />
-        <meta name="twitter:description" content={siteMetadata.description} />
-        <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
-
-        {/* Required to make sure Monaco loads correctly on nested pages */}
-        <base href="/" />
-      </Helmet>
-
-      <Header>
-        <LogoLink/>
-        <NavBurger href="#menu" />
-
-        <Nav id="menu">
-          <NavClose />
-
-          <NavItem to='/pricing'>Pricing</NavItem>
-          <NavItem to='/contact'>Contact</NavItem>
-        </Nav>
-      </Header>
-
-      {children()}
-
-      <Footer>
-      &copy; 2018, built by <TimLink/>
-      </Footer>
-    </Main>
-  </ThemeProvider>
-);
-
 injectGlobalStyles();
 
-export default TemplateWrapper;
+export default class BaseLayout extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      menuOpen: false
+    };
+  }
+
+  hideMenu = () => {
+    this.setState({
+      menuOpen: false
+    });
+  }
+
+  showMenu = (e) => {
+    // Need to stop propagation, or this bubbles up and hits hideMenu
+    e.stopPropagation();
+    this.setState({
+      menuOpen: true
+    });
+  }
+
+  render() {
+    return <ThemeProvider theme={theme}>
+      <Main onClick={this.hideMenu}>
+        <Helmet>
+          {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
+
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#e1421f" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#fafafa" />
+
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+          <title>{siteMetadata.name} | {siteMetadata.title}</title>
+          <meta name="description" content={siteMetadata.description} />
+
+          <meta property="og:url"         content="https://httptoolkit.tech" />
+          <meta property="og:type"        content="website" />
+          <meta property="og:title"       content={siteMetadata.name} />
+          <meta property="og:description" content={siteMetadata.description} />
+          <meta property="og:image"       content="https://httptoolkit.tech/logo-facebook.png" />
+
+          <meta name="twitter:card"        content="summary" />
+          <meta name="twitter:site"        content="@httptoolkit" />
+          <meta name="twitter:title"       content={siteMetadata.name} />
+          <meta name="twitter:description" content={siteMetadata.description} />
+          <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
+
+          {/* Required to make sure Monaco loads correctly on nested pages */}
+          <base href="/" />
+        </Helmet>
+
+        <Header>
+          <LogoLink onClick={this.hideMenu} />
+          <NavBurger href="#menu" onClick={this.showMenu} />
+
+          <Nav id="menu" open={this.state.menuOpen}>
+            <NavClose onClick={this.hideMenu} />
+
+            <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
+            <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>
+          </Nav>
+        </Header>
+
+
+        {this.props.children()}
+
+        <Footer>
+        &copy; 2018, built by <TimLink/>
+        </Footer>
+      </Main>
+    </ThemeProvider>;
+  }
+}
