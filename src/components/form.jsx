@@ -4,8 +4,12 @@ import { styled, media, css } from '../styles';
 export const TextInput = styled.input`
     padding: 15px;
 
-    ${media.desktopOrTablet`
+    ${media.desktop`
         width: 435px;
+    `}
+
+    ${media.tablet`
+        width: calc(30vw + 100px);
     `}
 
     ${media.mobile`
@@ -25,9 +29,13 @@ export const TextInput = styled.input`
 export const TextArea = styled.textarea`
     padding: 15px;
 
-    ${media.desktopOrTablet`
+    ${media.desktop`
         width: 435px;
         min-height: 200px;
+    `}
+
+    ${media.tablet`
+        width: calc(30vw + 100px);
     `}
 
     ${media.mobile`

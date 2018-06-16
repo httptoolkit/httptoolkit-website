@@ -18,8 +18,7 @@ import { styled, media, css } from '../styles';
 import { siteMetadata } from '../../gatsby-config.js';
 
 const HeroBlock = FullWidthSection.extend`
-
-  ${media.mobile`
+  ${media.mobileOrTablet`
     padding-top: 60px;
     padding-bottom: 60px;
   `}
@@ -36,6 +35,10 @@ const HeroBlock = FullWidthSection.extend`
 const TopHeroBlock = HeroBlock.extend`
   padding-top: 120px;
   padding-bottom: 299px;
+
+  ${media.tablet`
+    padding-bottom: 239px;
+  `}
 `;
 
 const BottomHeroBlock = HeroBlock.extend`

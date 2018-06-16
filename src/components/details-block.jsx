@@ -14,8 +14,8 @@ export default styled.section`
     `}
 
     ${media.tablet`
-        margin-left: 30px;
-        margin-right: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
 
         &:after {
             content: " ";
@@ -78,6 +78,18 @@ export default styled.section`
             ${p => p.theme.fontSizeText};
             color: ${p => p.theme.mainColor};
             line-height: 1.45;
+
+            ${media.mobileOrTablet`
+                br {
+                    display: inline;
+                    content: ' ';
+                    clear: none;
+
+                    &:before {
+                        content: ' ';
+                    }
+                }
+            `}
         }
     `}
 `;

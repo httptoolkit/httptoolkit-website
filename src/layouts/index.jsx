@@ -22,7 +22,7 @@ const Main = styled.main`
   align-items: stretch;
   flex-direction: column;
 
-  ${media.desktopOrTablet`
+  ${media.desktop`
     margin: 0 auto;
     width: 1024px;
   `}

@@ -165,6 +165,9 @@ const RequestRow = styled.div`
         left: -5px;
         border-left-width: 10px;
     }
+
+    /* Hack to make sure request row lines don't break on tablets */
+    min-width: 1024px;
 `;
 
 const RequestRowCell = styled.div`

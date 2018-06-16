@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
 import {
     subSeconds,
     format as dateFormat,
@@ -13,6 +12,8 @@ import { curveMonotoneX } from '@vx/curve';
 import { ParentSize } from '@vx/responsive';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { interpolateRainbow } from 'd3-scale-chromatic';
+
+import { styled, media } from '../styles';
 
 const GraphWrapper = styled.div`
     position: relative;
@@ -32,6 +33,10 @@ const Tooltip = styled.div`
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.15);
     color:  ${p => p.theme.mainColor};
     text-align: left;
+
+    ${media.mobileOrTablet`
+        font-size: 80%;
+    `}
 
     ${p => !p.hideArrow && `
         cursor: pointer;

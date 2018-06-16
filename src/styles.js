@@ -70,23 +70,23 @@ export const theme = {
 
     fontSizeUltraHeading: css`
         ${media.desktop`font-size: 60pt;`}
-        ${media.tablet`font-size: 70pt;`}
+        ${media.tablet`font-size: 50pt;`}
         ${media.mobile`font-size: calc(30pt + 5vw);`}
     `,
 
     fontSizeHeading: css`
         ${media.desktop`font-size: 36pt;`}
-        ${media.tablet`font-size: 44pt;`}
+        ${media.tablet`font-size: 30pt;`}
         ${media.mobile`font-size: calc(16pt + 5vw);`}
     `,
     fontSizeSubheading: css`
         ${media.desktop`font-size: 18pt;`}
-        ${media.tablet`font-size: 26pt;`}
+        ${media.tablet`font-size: 16pt;`}
         ${media.mobile`font-size: calc(12pt + 2vw);`}
     `,
     fontSizeText: css`
         ${media.desktop`font-size: 15pt;`}
-        ${media.tablet`font-size: 16pt;`}
+        ${media.tablet`font-size: 13pt;`}
         ${media.mobile`font-size: calc(12pt + 1.5vw);`}
     `,
 };

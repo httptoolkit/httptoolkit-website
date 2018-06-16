@@ -18,6 +18,8 @@ const EditorHeader = styled.h4`
 
     background-color: ${p => p.theme.popColor};
     color: ${p => p.theme.popBackground};
+
+    width: 99.5%; /* Fixes an odd issue where the header overflows the container, so overflows the gradient that fades it out */
 `;
 
 const TabbedEditor = styled(TabbedContainer)`
