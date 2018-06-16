@@ -2,6 +2,9 @@ import React from 'react';
 import { styled, media, css } from '../styles';
 
 export const TextInput = styled.input`
+    /* Stop iOS messing with my input styling */
+    -webkit-appearance: none;
+
     padding: 15px;
 
     ${media.desktop`
@@ -27,6 +30,9 @@ export const TextInput = styled.input`
 `;
 
 export const TextArea = styled.textarea`
+    /* Stop iOS messing with my input styling */
+    -webkit-appearance: none;
+
     padding: 15px;
 
     ${media.desktop`
@@ -53,6 +59,9 @@ export const TextArea = styled.textarea`
 `;
 
 const ButtonStyles = css`
+    /* Stop iOS messing with my input styling */
+    -webkit-appearance: none;
+
     cursor: pointer;
     padding: 15px 36px;
 
