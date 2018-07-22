@@ -3,4 +3,3 @@ node_modules/
 public/
 .cache/
 *.log
-.npmrc

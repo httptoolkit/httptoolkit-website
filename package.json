@@ -5,7 +5,6 @@
   "description": "httptoolkit.tech",
   "main": "n/a",
   "scripts": {
-    "preinstall": "echo \"@fortawesome:registry=https://npm.fontawesome.com/$FONT_AWESOME_TOKEN\" >> ./.npmrc",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"

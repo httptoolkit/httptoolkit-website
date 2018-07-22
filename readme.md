@@ -1,23 +1,14 @@
 # HTTP Toolkit Site
 
-## To run
+## To run locally:
 
-Locally:
+```bash
+# Configure auth for FontAwesome pro icons
+export FONT_AWESOME_TOKEN=<your FA token>
 
-```
+# Install deps
+npm install
+
+# Run
 npm run develop
-```
-
-## To add a blog post
-
-Create a file at `posts/YYYY-MM-DD-slug/index.md`, containing content like:
-
-```
----
-path: '/slug'
-date: 'YYYY-MM-DD'
-title: 'My post title'
----
-
-My markdown post content
 ```
