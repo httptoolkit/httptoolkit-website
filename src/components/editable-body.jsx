@@ -16,9 +16,14 @@ const EditorHeader = styled.h4`
     padding: 10px;
     text-transform: uppercase;
 
+    display: flex;
+    align-items: center;
+
+    font-size: 16px;
     background-color: ${p => p.theme.popColor};
     color: ${p => p.theme.popBackground};
 
+    height: 40px;
     width: 99.5%; /* Fixes an odd issue where the header overflows the container, so overflows the gradient that fades it out */
 `;
 
