@@ -277,7 +277,7 @@ export default () => (<div>
       </p>
       <p>
         Automate with HTTP Toolkit's{' '}
-        <a href="https://github.com/pimterry/mockttp">
+        <a href="https://github.com/httptoolkit/mockttp">
           open-source internals
         </a>
       </p>

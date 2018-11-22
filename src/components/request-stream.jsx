@@ -74,7 +74,7 @@ export default class RequestStream extends React.Component {
             if (this.state.requestsLoading.length > 2 || Math.random() > 0.5) {
                 this.setState((state) => ({
                     requestsLoading: state.requestsLoading.slice(1)
-                }));                
+                }));
             }
 
             if (Math.random() > 0.75) {
