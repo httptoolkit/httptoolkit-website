@@ -9,6 +9,9 @@ import * as chrome from '@fortawesome/fontawesome-free-brands/faChrome';
 import * as docker from '@fortawesome/fontawesome-free-brands/faDocker';
 import * as twitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import * as facebook from '@fortawesome/fontawesome-free-brands/faFacebook';
+import * as windows from '@fortawesome/fontawesome-free-brands/faWindows';
+import * as apple from '@fortawesome/fontawesome-free-brands/faApple';
+import * as linux from '@fortawesome/fontawesome-free-brands/faLinux';
 import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
 import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
 import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
@@ -16,8 +19,10 @@ import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
 import * as bars from '@fortawesome/fontawesome-pro-regular/faBars';
 import * as times from '@fortawesome/fontawesome-pro-regular/faTimes';
 import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
+import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
+import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 
-fontawesome.library.add(android, chrome, docker, twitter, facebook, stopwatch, wrench, search, spinner, bars, times, infoCircle);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown);
 
 export { styled, css, ThemeProvider };
 
