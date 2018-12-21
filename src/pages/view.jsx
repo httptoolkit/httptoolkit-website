@@ -4,8 +4,10 @@ import Img from 'gatsby-image';
 
 import { styled, media } from '../styles';
 
-import { DownloadWidget } from '../components/download-widget';
 import FullWidthSection from '../components/full-width-section';
+import { DownloadWidget } from '../components/download-widget';
+import { Modal } from '../components/modal';
+import MailchimpSignupForm from '../components/mailchimp-signup-form';
 
 const HeroBlock = FullWidthSection.extend`
     ${media.mobileOrTablet`
@@ -162,7 +164,7 @@ const ViewDescription = styled.p`
     `}
 
     text-align: center;
-    max-width: 600px;
+    max-width: 490px;
 `;
 
 const Feature = styled.section`
@@ -242,124 +244,168 @@ const FeatureImg = styled(Img)`
     mask-image: linear-gradient(
         to bottom,
         rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 90%,
+        rgba(0,0,0,1) 95%,
         rgba(0,0,0,0)
     );
 `;
 
-export default ({ data }) => (<div>
-    <TopHeroBlock>
-        <Pitch>
-            Debug deeper with <Highlight>HTTP View</Highlight>
-        </Pitch>
-        <SubPitch>
-            Intercept HTTP(S) with one click,
-            explore & examine traffic up close,
-            and discover exactly what your code is sending.
-        </SubPitch>
+const ModalTitle = styled.h2`
+    margin-bottom: 30px;
+`;
 
-        <WidgetAndDemoPitchContainer>
-            <DownloadWidget />
-            <WidgetDemoSpacer/>
-            <DemoPitch>or see a live demo <ShiftDown>↴</ShiftDown></DemoPitch>
-        </WidgetAndDemoPitchContainer>
-    </TopHeroBlock>
+export default class ViewPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            updateModalOpen: false
+        };
+    }
 
-    <VideoWindowBorder>
-        <VideoWindowButtons>
-            <circle cx="75" cy="50" r="25"/>
-            <circle cx="175" cy="50" r="25"/>
-            <circle cx="275" cy="50" r="25"/>
-        </VideoWindowButtons>
+    render() {
+        const { data } = this.props;
 
-        <LiveDemoVideo />
-    </VideoWindowBorder>
+        return <div>
+            <TopHeroBlock>
+                <Pitch>
+                    Debug deeper with <Highlight>HTTP View</Highlight>
+                </Pitch>
+                <SubPitch>
+                    Intercept HTTP(S) with one click,
+                    explore & examine traffic up close,
+                    and discover exactly what your code is sending.
+                </SubPitch>
 
-    <ViewDescription>
-        <Highlight>HTTP View</Highlight> is the first release of{' '}
-        <Highlight>HTTP Toolkit</Highlight>,
-        a suite of beautiful & open-source tools
-        for debugging, testing and building with HTTP(S)
-        on Windows, Linux & Mac.
-    </ViewDescription>
+                <WidgetAndDemoPitchContainer>
+                    <DownloadWidget />
+                    <WidgetDemoSpacer/>
+                    <DemoPitch>or see a live demo <ShiftDown>↴</ShiftDown></DemoPitch>
+                </WidgetAndDemoPitchContainer>
+            </TopHeroBlock>
 
-    <Feature>
-        <FeatureTextContainer>
-            <FeatureTitle>Intercept</FeatureTitle>
+            <VideoWindowBorder>
+                <VideoWindowButtons>
+                    <circle cx="75" cy="50" r="25"/>
+                    <circle cx="175" cy="50" r="25"/>
+                    <circle cx="275" cy="50" r="25"/>
+                </VideoWindowButtons>
 
-            <FeatureSubHeading>
-                Capture HTTP(S)<br/>with zero setup
-            </FeatureSubHeading>
+                <LiveDemoVideo />
+            </VideoWindowBorder>
 
-            <FeatureDescription>
-                HTTP View includes automatic interception
-                integrations for HTTP and HTTPS on a huge
-                range of platforms, with more coming soon,
-                from Chrome to iOS to Docker.
-            </FeatureDescription>
+            <ViewDescription>
+                <Highlight>HTTP View</Highlight> is the first release of{' '}
+                <Highlight>HTTP Toolkit</Highlight>,
+                a suite of beautiful & open-source tools
+                for debugging, testing and building with HTTP(S)
+                on Windows, Linux & Mac.
+            </ViewDescription>
 
-            <FeatureDescription>
-                For platforms without automatic integrations, HTTP View{' '}
-                acts as an HTTP(S) proxy, compatible with almost all HTTP clients.
-            </FeatureDescription>
-        </FeatureTextContainer>
+            <Feature>
+                <FeatureTextContainer>
+                    <FeatureTitle>Intercept</FeatureTitle>
 
-        <FeatureImg sizes={data.interceptScreenshot.sizes} />
-    </Feature>
+                    <FeatureSubHeading>
+                        Capture HTTP(S)<br/>with zero setup
+                    </FeatureSubHeading>
 
-    <Feature reverse>
-        <FeatureTextContainer>
-            <FeatureTitle>Explore</FeatureTitle>
+                    <FeatureDescription>
+                        HTTP View includes automatic interception
+                        integrations for HTTP and HTTPS on a huge
+                        range of platforms, with more coming soon,
+                        from Chrome to iOS to Docker.
+                    </FeatureDescription>
 
-            <FeatureSubHeading>
-                Quickly skim & search HTTP traffic
-            </FeatureSubHeading>
+                    <FeatureDescription>
+                        For platforms without automatic integrations, HTTP View{' '}
+                        acts as an HTTP(S) proxy, compatible with almost all HTTP clients.
+                    </FeatureDescription>
+                </FeatureTextContainer>
 
-            <FeatureDescription>
-                Automatic highlighting of requests by content type, status
-                and source lets you quickly skim streams
-                of requests, and easily spot issues.
-            </FeatureDescription>
+                <FeatureImg sizes={data.interceptScreenshot.sizes} />
+            </Feature>
 
-            <FeatureDescription>
-                Search over the full request & response URLs, statuses
-                and headers to effortlessly find specific messages.
-            </FeatureDescription>
-        </FeatureTextContainer>
+            <Feature reverse>
+                <FeatureTextContainer>
+                    <FeatureTitle>Explore</FeatureTitle>
 
-        <FeatureImg sizes={data.exploreScreenshot.sizes} />
-    </Feature>
+                    <FeatureSubHeading>
+                        Quickly skim & search HTTP traffic
+                    </FeatureSubHeading>
 
-    <Feature>
-        <FeatureTextContainer>
-            <FeatureTitle>Examine</FeatureTitle>
+                    <FeatureDescription>
+                        Automatic highlighting of requests by content type, status
+                        and source lets you quickly skim streams
+                        of requests, and easily spot issues.
+                    </FeatureDescription>
 
-            <FeatureSubHeading>
-                Deep dive into HTTP exchanges
-            </FeatureSubHeading>
+                    <FeatureDescription>
+                        Search over the full request & response URLs, statuses
+                        and headers to effortlessly find specific messages.
+                    </FeatureDescription>
+                </FeatureTextContainer>
 
-            <FeatureDescription>
-                Check the full URL, status, headers and
-                body of every request or response to understand exactly
-                what's being sent.
-            </FeatureDescription>
-            <FeatureDescription>
-                Dive into the details of bodies with built-in editor highlighting
-                and autoformatting for JavaScript, JSON, HTML, hex and more.
-                Built with all the power of Monaco, the editor from Visual Studio Code.
-            </FeatureDescription>
-        </FeatureTextContainer>
+                <FeatureImg sizes={data.exploreScreenshot.sizes} />
+            </Feature>
 
-        <FeatureImg sizes={data.examineScreenshot.sizes} />
-    </Feature>
+            <Feature>
+                <FeatureTextContainer>
+                    <FeatureTitle>Examine</FeatureTitle>
 
-    <BottomHeroBlock>
-        <BottomHeroCTA>
-            Try it for yourself
-        </BottomHeroCTA>
-        <DownloadWidget />
-    </BottomHeroBlock>
-</div>);
+                    <FeatureSubHeading>
+                        Deep dive into HTTP exchanges
+                    </FeatureSubHeading>
+
+                    <FeatureDescription>
+                        Check the full URL, status, headers and
+                        body of every request or response to understand exactly
+                        what's being sent.
+                    </FeatureDescription>
+                    <FeatureDescription>
+                        Dive into the details of bodies with built-in editor highlighting
+                        and autoformatting for JavaScript, JSON, HTML, hex and more.
+                        Built with all the power of Monaco, the editor from Visual Studio Code.
+                    </FeatureDescription>
+                </FeatureTextContainer>
+
+                <FeatureImg sizes={data.examineScreenshot.sizes} />
+            </Feature>
+
+            <ViewDescription>
+                This is the first release - there's more to come!
+                <br/><br/>
+                Planned updates include manual & automatic HTTP rewriting,
+                performance & security metrics, HTTP client tools,
+                and much more...
+                <br/><br/>
+                Want to know more? <a href='#' onClick={(e) => {
+                    e.preventDefault();
+                    this.setState({ updateModalOpen: true });
+                }}>
+                    Sign up for updates.
+                </a>
+            </ViewDescription>
+
+            <BottomHeroBlock>
+                <BottomHeroCTA>
+                    Try it for yourself
+                </BottomHeroCTA>
+                <DownloadWidget />
+            </BottomHeroBlock>
+
+            <Modal isOpen={!!this.state.updateModalOpen} onClose={() => this.setState({updateModalOpen: false })}>
+                <ModalTitle>Sign up for updates</ModalTitle>
+
+                <MailchimpSignupForm
+                    autoFocus
+                    action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=view-signup`}
+                    emailTitle={`Enter your email to get updates on new releases`}
+                    hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
+                    submitText={"Sign up now"}
+                />
+            </Modal>
+        </div>;
+    }
+}
 
 export const query = graphql`
     query GetViewImages {
