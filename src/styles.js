@@ -79,16 +79,24 @@ export const theme = {
         ${media.mobile`font-size: calc(30pt + 5vw);`}
     `,
 
+    fontSizeBiggerHeading: css`
+        ${media.desktop`font-size: 50pt;`}
+        ${media.tablet`font-size: 40pt;`}
+        ${media.mobile`font-size: calc(20pt + 5vw);`}
+    `,
+
     fontSizeHeading: css`
         ${media.desktop`font-size: 36pt;`}
         ${media.tablet`font-size: 30pt;`}
         ${media.mobile`font-size: calc(16pt + 5vw);`}
     `,
+
     fontSizeSubheading: css`
         ${media.desktop`font-size: 18pt;`}
         ${media.tablet`font-size: 16pt;`}
         ${media.mobile`font-size: calc(12pt + 2vw);`}
     `,
+
     fontSizeText: css`
         ${media.desktop`font-size: 15pt;`}
         ${media.tablet`font-size: 13pt;`}

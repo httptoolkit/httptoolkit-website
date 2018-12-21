@@ -1,0 +1,362 @@
+import _ from 'lodash';
+import React from 'react';
+
+import { styled, media } from '../styles';
+
+import interceptScreenshot from '../images/intercept-screenshot.png';
+import exploreScreenshot from '../images/explore-screenshot.png';
+import examineScreenshot from '../images/examine-screenshot.png';
+
+import { DownloadWidget } from '../components/download-widget';
+import FullWidthSection from '../components/full-width-section';
+
+const HeroBlock = FullWidthSection.extend`
+    ${media.mobileOrTablet`
+        padding-top: 60px;
+        padding-bottom: 60px;
+    `}
+
+    color: ${p => p.theme.mainColor};
+    background-color: ${p => p.theme.mainBackground};
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+`;
+
+const TopHeroBlock = HeroBlock.extend`
+    padding-top: 120px;
+    padding-bottom: 336px;
+
+    ${media.mobileOrTablet`
+        padding-bottom: 100px;
+    `}
+`;
+
+const BottomHeroBlock = HeroBlock.extend`
+    padding: 120px 0;
+`;
+
+const BottomHeroCTA = styled.h2`
+    ${p => p.theme.fontSizeHeading}
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 18px;
+`;
+
+const Pitch = styled.h1`
+    ${p => p.theme.fontSizeBiggerHeading}
+    font-weight: bold;
+    margin-bottom: 60px;
+`;
+
+const Highlight = styled.span`
+    color: ${p => p.theme.popColor};
+    font-weight: bold;
+`;
+
+const SubPitch = styled.h2`
+    ${p => p.theme.fontSizeSubheading}
+    line-height: 1.3;
+
+    max-width: 450px;
+    margin-bottom: 60px;
+`;
+
+const WidgetAndDemoPitchContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
+`;
+
+const WidgetDemoSpacer = styled.div`
+    ${media.desktop`
+        height: 0px;
+        width: 30px;
+    `}
+
+    ${media.mobileOrTablet`
+        height: 30px;
+        width: 100%;
+    `}
+`;
+
+const DemoPitch = styled.div`
+    ${p => p.theme.fontSizeSubheading}
+    font-style: italic;
+    font-family: Courgette;
+`;
+
+const ShiftDown = styled.span`
+    position: relative;
+    top: 7px;
+`;
+
+const VideoWindowBorder = styled.div`
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+
+    box-sizing: border-box;
+    padding: 29px 4px 4px 4px;
+
+    width: 1024px;
+    max-width: 100%;
+
+    position: relative;
+    margin-bottom: 60px;
+
+    ${media.desktop`
+        margin-top: -336px;
+    `}
+
+    ${media.mobileOrTablet`
+        margin-top: -100px;
+    `}
+
+    ${media.tablet`
+        margin-left: 30px;
+        margin-right: 30px;
+        max-width: calc(100% - 60px);
+    `}
+
+    ${media.mobile`
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: calc(100% - 20px);
+    `}
+`;
+
+const VideoWindowButtons = styled.svg.attrs({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 350 100"
+})`
+    position: absolute;
+    top: 3px;
+    height: 24px;
+    left: 0px;
+
+    fill: rgba(103, 113, 121, 0.6);
+`;
+
+const LiveDemoVideo = styled.div`
+    background-color: #000;
+    width: 100%;
+    height: 640px;
+`;
+
+const ViewDescription = styled.p`
+    ${p => p.theme.fontSizeSubheading}
+    font-style: italic;
+    line-height: 1.3;
+
+    ${media.desktop`
+        margin: 120px auto;
+    `}
+
+    ${media.mobileOrTablet`
+        margin: 60px auto;
+    `}
+
+    text-align: center;
+    max-width: 600px;
+`;
+
+const Feature = styled.section`
+    display: flex;
+    align-items: center;
+
+    ${media.desktop`
+        flex-direction: ${p => p.reverse ? 'row-reverse' : 'row'};
+
+        margin: 0 -15px 120px -15px;
+        > * {
+            margin: 0 15px;
+        }
+    `}
+
+    ${media.mobileOrTablet`
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 0 10px 60px;
+    `}
+
+    ${media.tablet`
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    `}
+`;
+
+const FeatureTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    ${media.mobileOrTablet`
+        margin-bottom: 40px;
+    `}
+`;
+
+const FeatureTitle = styled.h3`
+    text-transform: uppercase;
+    ${p => p.theme.fontSizeSubheading};
+    color: ${p => p.theme.mainSubtleColor};
+    font-weight: bold;
+
+    padding-bottom: 30px;
+`;
+
+const FeatureSubHeading = styled.h4`
+    ${p => p.theme.fontSizeHeading};
+    font-weight: bold;
+    line-height: 1.3;
+    padding-bottom: 30px;
+`;
+
+const FeatureDescription = styled.p`
+    ${p => p.theme.fontSizeText}
+    line-height: 1.3;
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+`;
+
+const FeatureImg = styled.img`
+    object-fit: contain;
+
+    ${media.desktop`
+        width: 55%;
+    `}
+
+    ${media.mobileOrTablet`
+        width: 100%;
+    `}
+
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 90%,
+        rgba(0,0,0,0)
+    );
+`;
+
+export default () => (<div>
+    <TopHeroBlock>
+        <Pitch>
+            Debug deeper with <Highlight>HTTP View</Highlight>
+        </Pitch>
+        <SubPitch>
+            Intercept HTTP(S) with one click,
+            explore & examine traffic up close,
+            and discover exactly what your code is sending.
+        </SubPitch>
+
+        <WidgetAndDemoPitchContainer>
+            <DownloadWidget />
+            <WidgetDemoSpacer/>
+            <DemoPitch>or see a live demo <ShiftDown>↴</ShiftDown></DemoPitch>
+        </WidgetAndDemoPitchContainer>
+    </TopHeroBlock>
+
+    <VideoWindowBorder>
+        <VideoWindowButtons>
+            <circle cx="75" cy="50" r="25"/>
+            <circle cx="175" cy="50" r="25"/>
+            <circle cx="275" cy="50" r="25"/>
+        </VideoWindowButtons>
+
+        <LiveDemoVideo />
+    </VideoWindowBorder>
+
+    <ViewDescription>
+        <Highlight>HTTP View</Highlight> is the first release of{' '}
+        <Highlight>HTTP Toolkit</Highlight>,
+        a suite of beautiful & open-source tools
+        for debugging, testing and building with HTTP(S)
+        on Windows, Linux & Mac.
+    </ViewDescription>
+
+    <Feature>
+        <FeatureTextContainer>
+            <FeatureTitle>Intercept</FeatureTitle>
+
+            <FeatureSubHeading>
+                Capture HTTP(S)<br/>with zero setup
+            </FeatureSubHeading>
+
+            <FeatureDescription>
+                HTTP View includes automatic interception
+                integrations for HTTP and HTTPS on a huge
+                range of platforms, with more coming soon,
+                from Chrome to iOS to Docker.
+            </FeatureDescription>
+
+            <FeatureDescription>
+                For platforms without automatic integrations, HTTP View{' '}
+                acts as an HTTP(S) proxy, compatible with almost all HTTP clients.
+            </FeatureDescription>
+        </FeatureTextContainer>
+
+        <FeatureImg src={interceptScreenshot} />
+    </Feature>
+
+    <Feature reverse>
+        <FeatureTextContainer>
+            <FeatureTitle>Explore</FeatureTitle>
+
+            <FeatureSubHeading>
+                Quickly skim & search HTTP traffic
+            </FeatureSubHeading>
+
+            <FeatureDescription>
+                Automatic highlighting of requests by content type, status
+                and source lets you quickly skim streams
+                of requests, and easily spot issues.
+            </FeatureDescription>
+
+            <FeatureDescription>
+                Search over the full request & response URLs, statuses
+                and headers to effortlessly find specific messages.
+            </FeatureDescription>
+        </FeatureTextContainer>
+
+        <FeatureImg src={exploreScreenshot} />
+    </Feature>
+
+    <Feature>
+        <FeatureTextContainer>
+            <FeatureTitle>Examine</FeatureTitle>
+
+            <FeatureSubHeading>
+                Deep dive into HTTP exchanges
+            </FeatureSubHeading>
+
+            <FeatureDescription>
+                Check the full URL, status, headers and
+                body of every request or response to understand exactly
+                what's being sent.
+            </FeatureDescription>
+            <FeatureDescription>
+                Dive into the details of bodies with built-in editor highlighting
+                and autoformatting for JavaScript, JSON, HTML, hex and more.
+                Built with all the power of Monaco, the editor from Visual Studio Code.
+            </FeatureDescription>
+        </FeatureTextContainer>
+
+        <FeatureImg src={examineScreenshot} />
+    </Feature>
+
+    <BottomHeroBlock>
+        <BottomHeroCTA>
+            Try it for yourself
+        </BottomHeroCTA>
+        <DownloadWidget />
+    </BottomHeroBlock>
+</div>);
