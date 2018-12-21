@@ -1,11 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
+import Img from 'gatsby-image';
 
 import { styled, media } from '../styles';
-
-import interceptScreenshot from '../images/intercept-screenshot.png';
-import exploreScreenshot from '../images/explore-screenshot.png';
-import examineScreenshot from '../images/examine-screenshot.png';
 
 import { DownloadWidget } from '../components/download-widget';
 import FullWidthSection from '../components/full-width-section';
@@ -192,6 +189,17 @@ const Feature = styled.section`
         margin-left: auto;
         margin-right: auto;
     `}
+
+    > .gatsby-image-outer-wrapper {
+        ${media.desktop`
+            flex: 0 0 55%;
+        `}
+
+        ${media.mobileOrTablet`
+            flex: 0 0 100%;
+            width: 100%;
+        `}
+    }
 `;
 
 const FeatureTextContainer = styled.div`
@@ -228,16 +236,8 @@ const FeatureDescription = styled.p`
     }
 `;
 
-const FeatureImg = styled.img`
+const FeatureImg = styled(Img)`
     object-fit: contain;
-
-    ${media.desktop`
-        width: 55%;
-    `}
-
-    ${media.mobileOrTablet`
-        width: 100%;
-    `}
 
     mask-image: linear-gradient(
         to bottom,
@@ -247,7 +247,7 @@ const FeatureImg = styled.img`
     );
 `;
 
-export default () => (<div>
+export default ({ data }) => (<div>
     <TopHeroBlock>
         <Pitch>
             Debug deeper with <Highlight>HTTP View</Highlight>
@@ -304,7 +304,7 @@ export default () => (<div>
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg src={interceptScreenshot} />
+        <FeatureImg sizes={data.interceptScreenshot.sizes} />
     </Feature>
 
     <Feature reverse>
@@ -327,7 +327,7 @@ export default () => (<div>
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg src={exploreScreenshot} />
+        <FeatureImg sizes={data.exploreScreenshot.sizes} />
     </Feature>
 
     <Feature>
@@ -350,7 +350,7 @@ export default () => (<div>
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg src={examineScreenshot} />
+        <FeatureImg sizes={data.examineScreenshot.sizes} />
     </Feature>
 
     <BottomHeroBlock>
@@ -360,3 +360,23 @@ export default () => (<div>
         <DownloadWidget />
     </BottomHeroBlock>
 </div>);
+
+export const query = graphql`
+    query GetViewImages {
+        interceptScreenshot: imageSharp(id: { regex: "/intercept-screenshot.png/" }) {
+            sizes(maxWidth: 750) {
+                ...GatsbyImageSharpSizes
+            }
+        }
+        exploreScreenshot: imageSharp(id: { regex: "/explore-screenshot.png/" }) {
+            sizes(maxWidth: 750) {
+                ...GatsbyImageSharpSizes
+            }
+        }
+        examineScreenshot: imageSharp(id: { regex: "/examine-screenshot.png/" }) {
+            sizes(maxWidth: 750) {
+                ...GatsbyImageSharpSizes
+            }
+        }
+    }
+`
