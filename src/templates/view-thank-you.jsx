@@ -1,0 +1,108 @@
+import React from 'react';
+import Helmet from 'react-helmet';
+
+import { styled, media } from '../styles';
+
+import FullWidthSection from '../components/full-width-section';
+import MailchimpSignupForm from '../components/mailchimp-signup-form';
+
+const ThankYouContainer = FullWidthSection.extend`
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: ${p => p.theme.mainColor};
+    background-color: ${p => p.theme.mainBackground};
+`;
+
+const ThankYouHeader = styled.h1`
+    ${p => p.theme.fontSizeUltraHeading}
+    font-weight: bolder;
+
+    margin-bottom: 40px;
+`;
+
+const ThankYouDetails = styled.p`
+    ${p => p.theme.fontSizeSubheading}
+    color: ${p => p.theme.mainSubtleColor};
+    line-height: 1.25;
+
+    ${media.desktop`
+        width: 70%;
+    `}
+
+    > strong {
+        color: ${p => p.theme.popColor};
+    }
+
+    margin: 0 0 40px;
+`;
+
+const ShareLinks = styled.div`
+    ${media.mobile`
+        text-align: center;
+    `}
+
+    > * {
+        display: inline-block;
+
+        ${media.desktopOrTablet`
+            min-width: 250px;
+        `}
+
+        ${media.mobile`
+            width: 90%;
+        `}
+
+        margin: 10px 10px 10px 0;
+        padding: 20px;
+
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bolder;
+        ${p => p.theme.fontSizeSubheading};
+
+        border-radius: 4px;
+        border: 1px solid ${p => p.theme.containerBackground};
+
+        > svg {
+            display: block;
+            margin: 0 auto 20px;
+            height: 24px;
+        }
+
+        &.facebook {
+            background: linear-gradient(to bottom, #4B69A8, #3B5998);
+        }
+
+        &.twitter {
+            background: linear-gradient(to bottom, #10BCEF, #00ACED);
+        }
+    }
+`;
+
+export default ({ pathContext: { releasePath } }) => (<ThankYouContainer>
+    <Helmet>
+        <meta httpEquiv='refresh' content={`1;url=https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`} />
+    </Helmet>
+    <ThankYouHeader>
+        Sign up for updates
+    </ThankYouHeader>
+    <ThankYouDetails>
+        You're now downloading HTTP View, the first release of HTTP Toolkit.
+        But there's a lot more to come soon, including automated Docker
+        interception, request metrics and security linting.
+    </ThankYouDetails>
+    <ThankYouDetails>
+        Sign up now so you don't miss new features & releases:
+    </ThankYouDetails>
+    <MailchimpSignupForm
+        action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
+        emailTitle={"Enter your email"}
+        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
+        submitText={"Sign up"}
+    />
+</ThankYouContainer>);
