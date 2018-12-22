@@ -371,18 +371,18 @@ export default class ViewPage extends React.Component {
             </Feature>
 
             <ViewDescription>
-                This is the first release - there's more to come!
+                And that's just the first release!
                 <br/><br/>
-                Planned updates include manual & automatic HTTP rewriting,
+                Future plans include manual & automatic HTTP rewriting,
                 performance & security metrics, HTTP client tools,
                 and much more...
                 <br/><br/>
-                Want to know more? <a href='#' onClick={(e) => {
+                Sound good? <a href='#' onClick={(e) => {
                     e.preventDefault();
                     this.setState({ updateModalOpen: true });
                 }}>
-                    Sign up for updates.
-                </a>
+                    Sign up for updates
+                </a>,<br/>or download now below.
             </ViewDescription>
 
             <BottomHeroBlock>
