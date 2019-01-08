@@ -321,7 +321,7 @@ export default class ViewPage extends React.Component {
                     <circle cx="275" cy="50" r="25"/>
                 </VideoWindowButtons>
 
-                <LiveDemoVideo controls autoPlay loop>
+                <LiveDemoVideo controls autoPlay loop muted>
                     <source src="/http-view-demo.mp4" type="video/mp4" />
                     <source src="/http-view-demo.webm" type="video/webm" />
                 </LiveDemoVideo>
