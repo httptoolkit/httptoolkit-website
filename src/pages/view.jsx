@@ -103,7 +103,20 @@ const VideoWindowBorder = styled.div`
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
 
     box-sizing: border-box;
-    padding: 29px 4px 4px 4px;
+
+    padding: 0 4px 4px 4px;
+
+    ${media.desktop`
+        padding-top: 29px;
+    `}
+
+    ${media.tablet`
+        padding-top: 20px;
+    `}
+
+    ${media.mobile`
+        padding-top: 12px;
+    `}
 
     width: 1024px;
     max-width: 100%;
@@ -138,10 +151,21 @@ const VideoWindowButtons = styled.svg.attrs({
 })`
     position: absolute;
     top: 3px;
-    height: 24px;
     left: 0px;
 
     fill: rgba(103, 113, 121, 0.6);
+
+    ${media.desktop`
+        height: 24px;
+    `}
+
+    ${media.tablet`
+        height: 16px;
+    `}
+
+    ${media.mobile`
+        height: 6px;
+    `}
 `;
 
 const LiveDemoVideo = styled.div`
