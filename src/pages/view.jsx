@@ -168,10 +168,18 @@ const VideoWindowButtons = styled.svg.attrs({
     `}
 `;
 
-const LiveDemoVideo = styled.div`
+const LiveDemoVideo = styled.video`
     background-color: #000;
     width: 100%;
-    height: 640px;
+
+    ${media.desktop`
+        min-height: 569px;
+        border-radius: 0 0 5px 5px;
+    `}
+
+    ${media.mobileOrTablet`
+        min-height: 50vw;
+    `}
 `;
 
 const ViewDescription = styled.p`
@@ -313,7 +321,10 @@ export default class ViewPage extends React.Component {
                     <circle cx="275" cy="50" r="25"/>
                 </VideoWindowButtons>
 
-                <LiveDemoVideo />
+                <LiveDemoVideo controls autoPlay loop>
+                    <source src="/http-view-demo.mp4" type="video/mp4" />
+                    <source src="/http-view-demo.webm" type="video/webm" />
+                </LiveDemoVideo>
             </VideoWindowBorder>
 
             <ViewDescription>
