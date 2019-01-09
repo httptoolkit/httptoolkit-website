@@ -1,36 +1,58 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
 
-import gif from '../images/404.gif'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-const Styled404 = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  p {
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    font-family: 'Poppin', sans-serif;
-    font-weight: 600;
-    color: #1d1d1d;
-    @media (min-width: 768px) {
-      font-size: 2.2rem;
+import { styled, media } from '../styles';
+
+import FullWidthSection from '../components/full-width-section';
+import { ButtonLink } from '../components/form';
+
+const ErrorContainer = FullWidthSection.extend`
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: ${p => p.theme.mainColor};
+    background-color: ${p => p.theme.mainBackground};
+`;
+
+const ErrorHeader = styled.h1`
+    ${p => p.theme.fontSizeUltraHeading}
+    font-weight: bolder;
+
+    margin-bottom: 60px;
+`;
+
+const ErrorDetails = styled.p`
+    ${p => p.theme.fontSizeSubheading}
+    color: ${p => p.theme.mainSubtleColor};
+    line-height: 1.25;
+
+    ${media.desktop`
+        width: 70%;
+    `}
+
+    > strong {
+        color: ${p => p.theme.popColor};
     }
-  }
-  img {
-    width: 38rem;
-    border: 4px solid #FEC83E;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    width: 50%;
-    max-width: 30rem;
-    min-width: 15rem;
-  }
-`
 
-export default () => (
-  <Styled404>
-    <p>Yikes! This page doesn't exist! 😬</p>
-    <img src={gif} />
-  </Styled404>
-)
+    margin: 0 0 20px;
+`;
+
+const HomeLink = styled(ButtonLink)`
+  margin: 60px auto;
+`;
+
+export default () => (<ErrorContainer>
+    <ErrorHeader>
+        Page Not Found
+    </ErrorHeader>
+    <ErrorDetails>
+        Oh no! Sorry, this page doesn't exist.
+    </ErrorDetails>
+    <HomeLink to="/">
+      Take me to the home page
+    </HomeLink>
+</ErrorContainer>);
