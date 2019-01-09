@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import Img from 'gatsby-image';
+import Helmet from 'react-helmet';
 
 import { styled, media } from '../styles';
 
@@ -297,6 +298,9 @@ export default class ViewPage extends React.Component {
         const { data } = this.props;
 
         return <div>
+            <Helmet>
+                <title>HTTP View | Intercept, explore & debug HTTP</title>
+            </Helmet>
             <TopHeroBlock>
                 <Pitch>
                     Debug deeper with <Highlight>HTTP View</Highlight>
