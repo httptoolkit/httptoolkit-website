@@ -2,13 +2,15 @@ const _ = require('lodash');
 const path = require('path');
 const fs = require('fs-extra');
 
+const LATEST_VERSION = '0.1.1';
+
 const releasePathMap = {
-    'win-exe': 'v0.0.3/HTTP.Toolkit-0.0.3.Setup.exe',
-    'win-standalone': 'v0.0.3/HTTP.Toolkit-win32-x64-0.0.3.zip',
-    'linux-deb': 'v0.0.3/httptoolkit_0.0.3_amd64.deb',
-    'linux-standalone': 'v0.0.3/HTTP.Toolkit-linux-x64-0.0.3.zip',
-    'osx-dmg': 'v0.0.3/HTTP.Toolkit.dmg',
-    'osx-standalone': 'v0.0.3/HTTP.Toolkit-darwin-x64-0.0.3.zip'
+    'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
+    'win-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-win32-x64-${LATEST_VERSION}.zip`,
+    'linux-deb': `v${LATEST_VERSION}/httptoolkit_${LATEST_VERSION}_amd64.deb`,
+    'linux-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-linux-x64-${LATEST_VERSION}.zip`,
+    'osx-dmg': `v${LATEST_VERSION}/HTTP.Toolkit.dmg`,
+    'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
 }
 
 exports.createPages = ({ boundActionCreators }) => {
