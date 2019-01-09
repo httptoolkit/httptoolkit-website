@@ -7,7 +7,7 @@ import { Tooltip } from 'react-tippy';
 import { styled, media, css } from '../styles';
 
 import FullWidthSection from '../components/full-width-section';
-import { Button } from '../components/form';
+import { Button, ButtonLink } from '../components/form';
 import { Nowrap } from '../components/nowrap';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { Modal } from '../components/modal';
@@ -170,7 +170,7 @@ const PricingCTA = styled.div`
     margin-top: auto;
     margin-bottom: 10px;
 
-    > ${Button} {
+    > ${Button}, > ${ButtonLink} {
         text-align: center;
         width: 100%
     }
@@ -237,9 +237,9 @@ export default class PricingPage extends React.PureComponent {
                         </Feature>
                     </TierFeatures>
                     <PricingCTA>
-                        <Button onClick={() => this.selectPlan('Hobbyist')}>
+                        <ButtonLink to='/view'>
                             Download
-                        </Button>
+                        </ButtonLink>
                     </PricingCTA>
                 </PricingTier>
 
@@ -347,18 +347,22 @@ export default class PricingPage extends React.PureComponent {
             <Modal isOpen={!!this.state.selectedPlan} onClose={() => this.setState({selectedPlan: false })}>
                 <h2>Sign up for updates</h2>
                 <p>
-                    Great enthusiasm! Unfortunately, HTTP Toolkit is still being built, so you can't download or buy it quite yet.
+                    Great enthusiasm! Unfortunately, HTTP Toolkit is still new, and you can't buy{' '}
+                    {this.state.selectedPlan} quite yet.
                 </p>
                 <p>
-                    Thanks for your interest & support though. Sign up now for updates and access when HTTP Toolkit is ready here:
+                    Thanks for your support though. Sign up now for updates and access when new releases are ready:
                 </p>
                 <MailchimpSignupForm
                     autoFocus
                     action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=prelaunch:${this.state.selectedPlan}`}
-                    emailTitle={"Enter your email to get updates and access when HTTP Toolkit is ready"}
+                    emailTitle={`Enter your email to get updates and access when HTTP Toolkit ${this.state.selectedPlan} is ready`}
                     hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-                    submitText={"Get early access"}
+                    submitText={"Sign up now"}
                 />
+                <p>
+                    In the meantime, have you tried <Link to='/view'>HTTP View</Link>, the free & open-source release?
+                </p>
             </Modal>
         </PricingContainer>;
     }

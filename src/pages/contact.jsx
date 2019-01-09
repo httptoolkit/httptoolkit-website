@@ -49,7 +49,7 @@ const ContactForm = styled(({ email, ...props }) =>
         <TextInput type="text" name="name" placeholder="Your Name" />
         <TextInput type="email" name="_replyto" placeholder="your@email.com" />
         <TextArea name="message" placeholder="Your message..." />
-        <SubmitInput type="submit" value="Send" />
+        <SubmitInput value="Send" />
     </form>
 )`
     display: flex;

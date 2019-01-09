@@ -52,9 +52,9 @@ export default styled(class MailchimpSignupForm extends React.Component {
                 <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" value="" aria-hidden="true" />
             </div>
 
-            <SubmitInput type="submit" value={this.props.submitText} name="subscribe" />
+            <SubmitInput value={this.props.submitText} name="subscribe" />
             <PrivacyPolicy>
-                No spam, just updates & early access to the very first release.
+                No spam, just occasional updates on major new releases.
             </PrivacyPolicy>
         </form>
     }

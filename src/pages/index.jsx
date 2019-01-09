@@ -1,21 +1,18 @@
 import _ from 'lodash';
 import React from 'react';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import RotatingText from '../components/rotating-text';
-import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
 import StackedGraph from '../components/stacked-graph';
 import EditableBody from '../components/editable-body';
 import FullWidthSection from '../components/full-width-section';
+import { DownloadWidget } from '../components/download-widget';
 
 import { styled, media, css } from '../styles';
-import { siteMetadata } from '../../gatsby-config.js';
 
 const HeroBlock = FullWidthSection.extend`
   ${media.mobileOrTablet`
@@ -29,7 +26,10 @@ const HeroBlock = FullWidthSection.extend`
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 `;
 
 const TopHeroBlock = HeroBlock.extend`
@@ -45,6 +45,9 @@ const BottomHeroBlock = HeroBlock.extend`
   padding-top: 120px;
   padding-bottom: 120px;
   line-height: 1.3;
+
+  text-align: left;
+  align-items: start;
 `;
 
 const BottomHeroCTA = styled.h2`
@@ -120,11 +123,6 @@ const Subheading = styled.h2`
       }
     }
   `}
-`;
-
-const StyledSignupForm = MailchimpSignupForm.extend`
-  justify-content: center;
-  text-align: center;
 `;
 
 const overlay = (overlayStyles) => css`
@@ -229,13 +227,7 @@ export default () => (<div>
       </Subheading>
     </IntroTextContainer>
 
-    <StyledSignupForm
-      autoFocus
-      action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=homepage"
-      emailTitle={"Enter your email to get early access"}
-      hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-      submitText={"Get early access"}
-    />
+    <DownloadWidget />
   </TopHeroBlock>
 
   <FeaturesBlock>
@@ -366,13 +358,8 @@ export default () => (<div>
 
   <BottomHeroBlock>
     <BottomHeroCTA>
-      Sign up now<br/>to find out more
+      Try it for yourself
     </BottomHeroCTA>
-    <MailchimpSignupForm
-      action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=homepage-footer"
-      emailTitle={"Enter your email to get early access"}
-      hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-      submitText={"Get early access"}
-    />
+    <DownloadWidget />
   </BottomHeroBlock>
 </div>);

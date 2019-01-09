@@ -4,7 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import Link from 'gatsby-link';
 
 import { styled, css } from '../styles';
-import { SubmitInput, Button } from '../components/form';
+import { Button } from '../components/form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import { styled, media, css } from '../styles';
 
 export const TextInput = styled.input`
@@ -80,5 +81,12 @@ const ButtonStyles = css`
     }
 `;
 
-export const SubmitInput = styled.input`${ButtonStyles}`;
+export const SubmitInput = styled.input.attrs({
+    type: 'submit'
+})`${ButtonStyles}`;
 export const Button = styled.button`${ButtonStyles}`;
+export const ButtonLink = styled(Link)`
+    ${ButtonStyles}
+    text-decoration: none;
+    display: inline-block;
+`;
