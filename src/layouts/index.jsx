@@ -149,7 +149,7 @@ const NavItem = styled((props) => <Link
 `;
 
 const TimLink = styled((props) => 
-  <a className={props.className} href='https://tim.fyi'>
+  <a className={props.className} href='https://twitter.com/pimterry'>
     <span>Tim Perry</span> <img src={headshot} alt="Tim Perry" />
   </a>
 )`
