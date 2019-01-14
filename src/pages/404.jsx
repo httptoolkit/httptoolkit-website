@@ -1,8 +1,6 @@
 import React from 'react';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-
-import { styled, media } from '../styles';
+import { styled, media, ThemeProvider, theme } from '../styles';
 
 import FullWidthSection from '../components/full-width-section';
 import { ButtonLink } from '../components/form';
@@ -45,14 +43,16 @@ const HomeLink = styled(ButtonLink)`
   margin: 60px auto;
 `;
 
-export default () => (<ErrorContainer>
-    <ErrorHeader>
-        Page Not Found
-    </ErrorHeader>
-    <ErrorDetails>
-        Oh no! Sorry, this page doesn't exist.
-    </ErrorDetails>
-    <HomeLink to="/">
-      Take me to the home page
-    </HomeLink>
-</ErrorContainer>);
+export default () => (<ThemeProvider theme={theme}>
+    <ErrorContainer>
+        <ErrorHeader>
+            Page Not Found
+        </ErrorHeader>
+        <ErrorDetails>
+            Oh no! Sorry, this page doesn't exist.
+        </ErrorDetails>
+        <HomeLink to="/">
+        Take me to the home page
+        </HomeLink>
+    </ErrorContainer>
+</ThemeProvider>);
