@@ -8,7 +8,8 @@ import { Button } from '../components/form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },
-    'win-standalone': { name: 'Windows Standalone Zip', platform: 'Windows', icon: 'windows' },
+    // TODO: Disabled temporarily, broken by https://github.com/electron-userland/electron-forge/issues/670
+    // 'win-standalone': { name: 'Windows Standalone Zip', platform: 'Windows', icon: 'windows' },
     'linux-deb': { name: 'Linux Debian Package', platform: 'Linux (Deb)', icon: 'linux' },
     'linux-standalone': { name: 'Linux Standalone Zip', platform: 'Linux', icon: 'linux' },
     'osx-dmg': { name: 'MacOS DMG', platform: 'MacOS', icon: 'apple' },
