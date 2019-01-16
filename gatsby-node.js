@@ -2,7 +2,7 @@ const _ = require('lodash');
 const path = require('path');
 const fs = require('fs-extra');
 
-const LATEST_VERSION = '0.1.1';
+const LATEST_VERSION = '0.1.2';
 
 const releasePathMap = {
     'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
