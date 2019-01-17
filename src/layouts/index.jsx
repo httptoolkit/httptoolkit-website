@@ -121,13 +121,14 @@ const NavClose = styled((props) => <a
 `;
 
 const NavItem = styled((props) => <Link
+  activeClassName='active'
   {...props}
 />)`
   ${p => p.theme.fontSizeText}
   color: ${p => p.theme.mainColor};
   text-decoration: none;
 
-  &:hover {
+  &:hover, &.active {
     text-decoration: underline;
     text-decoration-color: rgba(0,0,0,0.2);
     color: ${p => p.theme.popColor};
@@ -148,7 +149,7 @@ const NavItem = styled((props) => <Link
   `}
 `;
 
-const TimLink = styled((props) => 
+const TimLink = styled((props) =>
   <a className={props.className} href='https://twitter.com/pimterry'>
     <span>Tim Perry</span> <img src={headshot} alt="Tim Perry" />
   </a>
@@ -237,10 +238,10 @@ export default class BaseLayout extends React.Component {
             <NavClose onClick={this.hideMenu} />
 
             <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
+            <NavItem to='/blog' onClick={this.hideMenu}>Blog</NavItem>
             <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>
           </Nav>
         </Header>
-
 
         {this.props.children()}
 

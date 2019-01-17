@@ -9,6 +9,7 @@ import * as chrome from '@fortawesome/fontawesome-free-brands/faChrome';
 import * as docker from '@fortawesome/fontawesome-free-brands/faDocker';
 import * as twitter from '@fortawesome/fontawesome-free-brands/faTwitter';
 import * as facebook from '@fortawesome/fontawesome-free-brands/faFacebook';
+import * as rss from '@fortawesome/fontawesome-free-solid/faRssSquare';
 import * as windows from '@fortawesome/fontawesome-free-brands/faWindows';
 import * as apple from '@fortawesome/fontawesome-free-brands/faApple';
 import * as linux from '@fortawesome/fontawesome-free-brands/faLinux';
@@ -22,7 +23,7 @@ import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
 import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 
-fontawesome.library.add(android, chrome, docker, twitter, facebook, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown);
 
 export { styled, css, ThemeProvider };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import Link from 'gatsby-link';
 
 import { styled, media } from '../styles';
 
@@ -46,7 +47,10 @@ export default () => (<ThankYouContainer>
         Thanks for signing up
     </ThankYouHeader>
     <ThankYouDetails>
-        Watch your inbox for updates, there's a lot more new features coming soon! If you think this sounds great, tell your friends:
+        Watch your inbox for new blog posts coming soon.
+    </ThankYouDetails>
+    <ThankYouDetails>
+        Have you tried HTTP Toolkit out for yourself yet? <Link to='/view'>Download it now</Link>.
     </ThankYouDetails>
     <ShareLinks>
         <a
