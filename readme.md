@@ -9,6 +9,6 @@ export FONT_AWESOME_TOKEN=<your FA token>
 # Install deps
 npm install
 
-# Run
-npm run develop
+# Run for local dev
+npm start
 ```

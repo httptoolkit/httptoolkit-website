@@ -6,7 +6,8 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
+    "start": "gatsby develop",
+    "start:prod": "npm run build && gatsby serve",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
