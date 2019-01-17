@@ -106,7 +106,7 @@ const NavClose = styled((props) => <a
 </a>)`
   position: fixed;
   top: 17px;
-  right: 17px;
+  right: 18px;
   padding: 5px;
   background-color: ${p => p.theme.popBackground};
 
