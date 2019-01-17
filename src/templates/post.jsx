@@ -78,7 +78,7 @@ const CoverImg = styled(Img)`
 
 export default ({ data }) => {
   const post = data.markdownRemark;
-  const publishDate = moment(post.frontmatter.date, 'YYYY MM DD');
+  const publishDate = moment(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
 
   return (
     <BlogPostContainer width='780px'>
@@ -98,7 +98,7 @@ export default ({ data }) => {
         <h1>{post.frontmatter.title}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <PublishDate>Published on { publishDate.format('MMM Do YYYY') }</PublishDate>
+        <PublishDate title={publishDate.format('MMM Do YYYY')}>Published { publishDate.fromNow() }</PublishDate>
       </BlogPost>
 
       <Hr/>
