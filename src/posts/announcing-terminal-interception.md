@@ -5,11 +5,13 @@ cover_image: './shell.jpg'
 draft: false
 ---
 
-## Examine all HTTP(S) from git, npm, apt-get, or almost anything else.
+## Debug HTTP(S) from git, npm, apt-get, or any other CLI tool.
 
 The command line is powerful, but can be hard to understand, and extremely hard to debug. Ever run a command, see it fail with a cryptic error, and have no idea why?
 
-Better tools can help you understand what's really going on. They can let you see inside the command you're running to understand how it's communicating, see what data it's working with, and debug it in depth. Excitingly though I've just shipped one-click terminal interception to do exactly this with HTTP Toolkit, for HTTP and HTTPS, to show you everything your CLI is sending and help you work out what the hell is going on.
+Better tools can help you understand what's really going on. They can let you see inside the command you're running to understand how it's communicating, see what data it's working with, and debug it in depth.
+
+Excitingly I've just shipped one-click terminal interception to do exactly this with HTTP Toolkit, for HTTP and HTTPS, to show you everything your CLI is sending and help you work out what the hell is going on.
 
 _HTTP Toolkit is free & open-source, so if you want to try this yourself, go [download it now](/view) and dive right in._
 
@@ -26,11 +28,11 @@ _HTTP Toolkit is free & open-source, so if you want to try this yourself, go [do
 
 ### Debug failing applications
 
-Let's imagine you're using a CLI tool, and it hates you. For whatever reason, it refuses to do the perfectly reasonable thing you ask for. It exits with some cryptic error, or just fails silently, and you're stuck. Maybe you just downloaded it, or maybe you wrote it yesterday and somebody has sabotaged your brilliant code overnight.
+Let's imagine you're using a CLI tool, and it hates you. For whatever reason, it refuses to do the perfectly reasonable thing you ask for. It exits with some cryptic error, or just fails silently, and you're stuck. Maybe you just downloaded it, or maybe it's your code and you've just forgotten how it works (we've all been there).
 
-Internally perhaps this script is talking to an HTTP service somewhere, and failing later on. You have no idea what it's asking for though, what it gets in response, or why the result doesn't work. Most applications aren't designed to be debugged, and can be painfully opaque.
+Internally perhaps this script is talking to an HTTP service somewhere, and failing later on. Unfortunately, you have no idea what it's asking for, what it gets in response, or why the result doesn't work. Most applications aren't designed to be debugged, and can be painfully opaque.
 
-If you can intercept all HTTP from the app though then you see everything that's being sent, spot the error, and fix the root cause directly. Is your script requesting a file from github and then crashing trying to use it? When you see that github is returning unexpected HTML instead of the download, because github is down _again_, the issue gets a little clearer.
+If you can intercept all HTTP from the app then you see everything that's being sent, spot the error, and fix the root cause directly. Is your script requesting a file from github and then crashing trying to use it? When you see that github is returning unexpected HTML instead of the download, because github is down _again_, the issue gets a little clearer.
 
 ### Spot creepy app tracking & monitoring
 
