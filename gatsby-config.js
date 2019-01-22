@@ -49,12 +49,15 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
+                // Hack to make image URLs absolute
+                const html = edge.node.html.replace(' src="/static', ' src="https://httptoolkit.tech/static');
+
                 return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.html,
+                  description: html,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.blogUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.blogUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{ "content:encoded": html }],
                 })
               })
             },
