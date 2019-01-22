@@ -52,6 +52,13 @@ const BlogPost = styled.article`
     }
   }
 
+  h3 {
+    font-weight: bold;
+    ${p => p.theme.fontSizeText}
+    color: ${p => p.theme.mainColor};
+    line-height: 1.45;
+  }
+
   p, ul {
     ${p => p.theme.fontSizeText}
     color: ${p => p.theme.mainColor};
@@ -66,6 +73,15 @@ const BlogPost = styled.article`
 
   li {
     margin-bottom: 10px;
+
+    & > p:only-child {
+      margin-bottom: 0;
+    }
+  }
+
+  code {
+    font-family: mono;
+    font-weight: bold;
   }
 `;
 
