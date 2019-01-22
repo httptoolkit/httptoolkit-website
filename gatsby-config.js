@@ -53,11 +53,7 @@ module.exports = {
                 const html = edge.node.html
                   .replace(/ src="\/static/g, ' src="https://httptoolkit.tech/static')
                   .replace(/ href="\/static/g, ' href="https://httptoolkit.tech/static')
-                  + `<style>
-                    .gatsby-resp-image-background-image {
-                      padding-bottom: 0 !important;
-                    }
-                  </style>`;
+                  .replace(/ class="gatsby-resp-image-background-image"\s+style="[^"]+"/g, '');
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: html,
