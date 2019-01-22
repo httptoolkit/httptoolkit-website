@@ -51,8 +51,8 @@ module.exports = {
               return allMarkdownRemark.edges.map(edge => {
                 // Hack to make image URLs absolute
                 const html = edge.node.html
-                  .replace(' src="/static', ' src="https://httptoolkit.tech/static')
-                  .replace(' href="/static', ' href="https://httptoolkit.tech/static');
+                  .replace(/ src="\/static/g, ' src="https://httptoolkit.tech/static')
+                  .replace(/ href="\/static/g, ' href="https://httptoolkit.tech/static');
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: html,
