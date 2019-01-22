@@ -226,6 +226,8 @@ export default class BaseLayout extends React.Component {
           <meta name="twitter:description" content={siteMetadata.description} />
           <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
 
+          <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
+
           {/* Required to make sure Monaco loads correctly on nested pages */}
           <base href="/" />
         </Helmet>
