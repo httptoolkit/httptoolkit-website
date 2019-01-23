@@ -1,0 +1,6 @@
+[[redirects]]
+  # Redirect requests to the root page to the view page, since it's what's actually available
+  from = "/"
+  to = "/view"
+  force = true
+  status = 302

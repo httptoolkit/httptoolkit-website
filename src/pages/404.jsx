@@ -51,7 +51,7 @@ export default () => (<ThemeProvider theme={theme}>
         <ErrorDetails>
             Oh no! Sorry, this page doesn't exist.
         </ErrorDetails>
-        <HomeLink to="/">
+        <HomeLink to="/toolkit">
         Take me to the home page
         </HomeLink>
     </ErrorContainer>

@@ -30,7 +30,7 @@ const Main = styled.main`
 
 const LogoLink = styled((props) => <Link
   className={props.className}
-  to='/'
+  to='/toolkit'
   {...props}
 >
   <img src={logo} alt="HTTP Toolkit" />
