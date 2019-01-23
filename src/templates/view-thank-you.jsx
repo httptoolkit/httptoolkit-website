@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
 
 import { styled, media } from '../styles';
 
@@ -48,7 +49,7 @@ export default ({ pathContext: { releasePath } }) => (<ThankYouContainer>
         Sign up for updates
     </ThankYouHeader>
     <ThankYouDetails>
-        You're now downloading HTTP View, the first release of HTTP Toolkit.
+        You're now downloading <Link to='/view'>HTTP View</Link>, the first release of HTTP Toolkit.
         But there's a lot more to come soon, including automated Docker
         interception, request metrics and security linting.
     </ThankYouDetails>
