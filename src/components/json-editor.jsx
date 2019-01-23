@@ -82,6 +82,7 @@ export default class extends React.PureComponent {
             language="json"
             value={this.state.content}
             options={options}
+            requireConfig={{ url: '/vs/loader.js' }}
             onChange={this.saveAndMaybeAnnounceChange}
             editorWillMount={this.onEditorWillMount}
             editorDidMount={this.onEditorDidMount}

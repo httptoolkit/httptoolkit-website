@@ -27,6 +27,7 @@ export default class extends React.PureComponent {
             language="plaintext"
             value={this.props.children}
             options={options}
+            requireConfig={{ url: '/vs/loader.js' }}
             onChange={this.props.onChange}
             editorWillMount={this.onEditorWillMount}
             editorDidMount={this.onEditorDidMount}
