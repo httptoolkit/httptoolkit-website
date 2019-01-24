@@ -5,6 +5,7 @@ module.exports = {
     name: 'HTTP Toolkit',
     title: 'Intercept, debug & build with HTTP',
     description: 'Intercept, debug and build with HTTP. Beautiful, cross-platform & open-source HTTP(S) proxy, analyzer and client. Built-in support for Chrome, Android, Docker and more.',
+    siteUrl: 'https://httptoolkit.tech/',
     blogUrl: 'https://httptoolkit.tech/blog/'
   },
   plugins: [
@@ -109,5 +110,13 @@ module.exports = {
         respectDNT: true
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://httptoolkit.tech',
+        sitemap: null,
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
   ]
 }
