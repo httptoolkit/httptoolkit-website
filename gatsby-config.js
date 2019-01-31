@@ -28,6 +28,10 @@ module.exports = {
               quality: 90
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {}
+          },
         ],
       },
     },

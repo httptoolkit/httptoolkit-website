@@ -14,6 +14,8 @@ import { siteMetadata } from '../../gatsby-config.js';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
+import "prismjs/themes/prism-tomorrow.css";
+
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
 
