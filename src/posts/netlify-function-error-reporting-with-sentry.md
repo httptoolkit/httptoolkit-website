@@ -5,7 +5,7 @@ cover_image: './lost-plane.jpg'
 draft: false
 ---
 
-Netlify functions are a quick, easy & powerful tool, but they can be even more difficult to debug & monitor than traditional server applications. It's a hard environment to precisely recreate locally, there's no machine you can SSH into in a pinch, and no built-in error notifications.
+[Netlify functions](https://www.netlify.com/docs/functions/) are a quick, easy & powerful tool, but like most serverless platforms, they can be even more difficult to debug & monitor than traditional server applications. It's a hard environment to precisely recreate locally, there's no machine you can SSH into in a pinch, and no built-in error notifications.
 
 Your code is going to break eventually, and you need the tools to fix it.
 
@@ -48,7 +48,7 @@ Unfortunately though, errors/rejections in handlers are caught and swallowed, so
 
 ## Catching handler errors
 
-Let's detect handler function errors first. To start with, create an convenient `reportError` method you can call and wait on to confirm errors are reported (as otherwise your function may be shutdown before reporting completes):
+Let's detect handler function errors first. To start with, create an convenient `reportError` method you can call to report errors to Sentry, which will wrap the extra logic that we'll need in a minute.
 
 ```javascript
 // Don't use this example quite yet! It's not complete - see below.
@@ -64,7 +64,7 @@ function reportError(error) {
 }
 ```
 
-Then add a wrapper around each of your function handlers. The wrapper needs to call the handler as normal, but catch any errors or promise rejections, and report them to Sentry. It then needs to rethrow the error too, so that an HTTP error is still returned:
+Then add a wrapper around each of your function handlers. The wrapper needs to call the function handler as normal, but catch any errors or promise rejections, and report them to Sentry. It then needs to rethrow the error too, so that an HTTP error is still returned:
 
 ```js
 // Don't use this example quite yet! It's not complete - see below.
@@ -86,7 +86,7 @@ function catchErrors(handler) {
 
 A Lambda function runs until completion, and then will be frozen. Later calls may start it up again, or it might be disposed of, and the whole process created afresh. That means that any Sentry requests that haven't been sent when your function responds might be lost. Fortunately, we can fix this. We need to do two things: wait for reported errors to be fully sent, and ensure that Sentry doesn't interfere with normal Lambda shutdown.
 
-The latest Sentry SDK doesn't fully support any kind of callback when we report errors (though [they're investigating a flush() method](github.com/getsentry/sentry-javascript/issues/1449)), so we need to dig into the internals a little to report the error more directly, in a form where we _can_ wait for it to complete.
+The latest Sentry SDK doesn't fully support any kind of callback when we report errors (though [they're investigating a flush() method](https://github.com/getsentry/sentry-javascript/issues/1449)), so we need to dig into the internals a little to report the error more directly, in a form where we _can_ wait for it to complete.
 
 Change your report error function to the below:
 
