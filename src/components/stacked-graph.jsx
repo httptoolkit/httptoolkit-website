@@ -92,7 +92,7 @@ export default class StackedGraph extends React.Component {
         this.timerInterval = null;
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.timerInterval = setInterval(() => {
             this.setState({ now: new Date() });
         }, 1000);
