@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop",
-    "start:prod": "npm run build && gatsby serve",
+    "start:prod": "npm run build && gatsby serve --port 9090",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
