@@ -1,12 +1,7 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-import { styled } from '../styles';
-
 export default class extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
 
     onEditorWillMount = (monaco) => {
         this.monaco = monaco;

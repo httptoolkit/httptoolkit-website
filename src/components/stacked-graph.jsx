@@ -121,9 +121,8 @@ export default class StackedGraph extends React.Component {
                     width = 1024;
                     height = 360;
                 }
-                
+
                 const keys = Object.keys(data[0]);
-                const x = (d, i) => i;
 
                 const xScale = scaleLinear()
                     .domain([0, data.length - 1])

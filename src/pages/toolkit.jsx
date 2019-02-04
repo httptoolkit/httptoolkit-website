@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
+import { Layout } from '../components/layout';
 import { FeaturesBlock, Feature } from '../components/features-block';
 import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
@@ -193,7 +194,7 @@ const trafficData = [
   JSON, GraphQL, HTML, JS, CSS, image
 }, v => v || 0));
 
-export default () => (<div>
+export default () => (<Layout>
   <Helmet>
     <link rel="preload" href="/vs/loader.js" as="script" />
     <link rel="preload" href="/vs/editor/editor.main.js" as="script" />
@@ -362,4 +363,4 @@ export default () => (<div>
     </BottomHeroCTA>
     <DownloadWidget />
   </BottomHeroBlock>
-</div>);
+</Layout>);

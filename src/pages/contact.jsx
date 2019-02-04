@@ -2,6 +2,7 @@ import React from 'react';
 
 import { styled, media } from '../styles';
 
+import { Layout } from '../components/layout';
 import { TextInput, TextArea, SubmitInput } from '../components/form';
 
 import FullWidthSection from '../components/full-width-section';
@@ -62,12 +63,14 @@ const ContactForm = styled(({ email, ...props }) =>
     }
 `;
 
-export default () => (<SplashContainer>
-    <SplashHeader>
-        Contact us
-    </SplashHeader>
-    <SplashBody>
-        Have questions, suggestions, or problems?
-    </SplashBody>
-    <ContactForm email="tim@httptoolkit.tech" />
-</SplashContainer>);
+export default () => (<Layout>
+    <SplashContainer>
+        <SplashHeader>
+            Contact us
+        </SplashHeader>
+        <SplashBody>
+            Have questions, suggestions, or problems?
+        </SplashBody>
+        <ContactForm email="tim@httptoolkit.tech" />
+    </SplashContainer>
+</Layout>);

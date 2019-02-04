@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, media, css } from '../styles';
+import { styled } from '../styles';
 
 export const Nowrap = styled(({ children, className }) => <span className={className}>
     {children}

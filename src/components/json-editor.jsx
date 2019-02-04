@@ -1,8 +1,6 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-import { styled } from '../styles';
-
 const minify = (text) => JSON.stringify(JSON.parse(text));
 const prettify = (text) => JSON.stringify(JSON.parse(text), null, 2);
 

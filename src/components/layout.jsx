@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -11,8 +11,8 @@ import headshot from '../images/tim-small.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from './header';
+import Footer from './footer';
 
 import "prismjs/themes/prism-tomorrow.css";
 
@@ -170,7 +170,7 @@ const TimLink = styled((props) =>
 
 injectGlobalStyles();
 
-export default class BaseLayout extends React.Component {
+export class Layout extends React.Component {
 
   constructor(props) {
     super(props);
@@ -247,7 +247,7 @@ export default class BaseLayout extends React.Component {
           </Nav>
         </Header>
 
-        {this.props.children()}
+        {this.props.children}
 
         <Footer>
         &copy; 2018, built by <TimLink/>

@@ -1,9 +1,10 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import { styled, media } from '../styles';
 
+import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 
@@ -41,25 +42,27 @@ const ThankYouDetails = styled.p`
     margin: 0 0 40px;
 `;
 
-export default ({ pathContext: { releasePath } }) => (<ThankYouContainer>
-    <Helmet>
-        <meta httpEquiv='refresh' content={`1;url=https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`} />
-    </Helmet>
-    <ThankYouHeader>
-        Sign up for updates
-    </ThankYouHeader>
-    <ThankYouDetails>
-        You're now downloading <Link to='/view'>HTTP View</Link>, the first release of HTTP Toolkit.
-        But there's a lot more to come soon, including automated Docker
-        interception, request metrics and security linting.
-    </ThankYouDetails>
-    <ThankYouDetails>
-        Sign up now so you don't miss new features & releases:
-    </ThankYouDetails>
-    <MailchimpSignupForm
-        action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
-        emailTitle={"Enter your email"}
-        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-        submitText={"Sign up"}
-    />
-</ThankYouContainer>);
+export default ({ pageContext: { releasePath } }) => (<Layout>
+    <ThankYouContainer>
+        <Helmet>
+            <meta httpEquiv='refresh' content={`1;url=https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`} />
+        </Helmet>
+        <ThankYouHeader>
+            Sign up for updates
+        </ThankYouHeader>
+        <ThankYouDetails>
+            You're now downloading <Link to='/view'>HTTP View</Link>, the first release of HTTP Toolkit.
+            But there's a lot more to come soon, including automated Docker
+            interception, request metrics and security linting.
+        </ThankYouDetails>
+        <ThankYouDetails>
+            Sign up now so you don't miss new features & releases:
+        </ThankYouDetails>
+        <MailchimpSignupForm
+            action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
+            emailTitle={"Enter your email"}
+            hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
+            submitText={"Sign up"}
+        />
+    </ThankYouContainer>
+</Layout>);

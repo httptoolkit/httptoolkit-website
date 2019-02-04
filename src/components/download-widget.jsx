@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as _ from 'lodash';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import { styled, css } from '../styles';
 import { Button } from '../components/form';
@@ -77,7 +77,7 @@ const DownloadOptions = styled.div`
     ${p => p.hasSpaceAvailable ? 'top' : 'bottom'}: 100%;
 `;
 
-const DownloadOption = styled(Link)`
+const DownloadOption = styled((props) => <Link {...props} />)`
     display: block;
     padding: 10px;
     text-decoration: none;

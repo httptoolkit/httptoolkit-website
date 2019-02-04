@@ -1,10 +1,11 @@
-import _ from 'lodash';
 import React from 'react';
+import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 import Helmet from 'react-helmet';
 
 import { styled, media } from '../styles';
 
+import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { DownloadWidget } from '../components/download-widget';
 import { Modal } from '../components/modal';
@@ -225,7 +226,7 @@ const Feature = styled.section`
         margin-right: auto;
     `}
 
-    > .gatsby-image-outer-wrapper {
+    > .gatsby-image-wrapper {
         ${media.desktop`
             flex: 0 0 55%;
         `}
@@ -297,7 +298,7 @@ export default class ViewPage extends React.Component {
     render() {
         const { data } = this.props;
 
-        return <div>
+        return <Layout>
             <Helmet>
                 <title>HTTP View | Intercept, explore & debug HTTP</title>
             </Helmet>
@@ -360,7 +361,7 @@ export default class ViewPage extends React.Component {
                     </FeatureDescription>
                 </FeatureTextContainer>
 
-                <FeatureImg sizes={data.interceptScreenshot.sizes} />
+                <FeatureImg fluid={data.interceptScreenshot.childImageSharp.fluid} />
             </Feature>
 
             <Feature reverse>
@@ -383,7 +384,7 @@ export default class ViewPage extends React.Component {
                     </FeatureDescription>
                 </FeatureTextContainer>
 
-                <FeatureImg sizes={data.exploreScreenshot.sizes} />
+                <FeatureImg fluid={data.exploreScreenshot.childImageSharp.fluid} />
             </Feature>
 
             <Feature>
@@ -406,7 +407,7 @@ export default class ViewPage extends React.Component {
                     </FeatureDescription>
                 </FeatureTextContainer>
 
-                <FeatureImg sizes={data.examineScreenshot.sizes} />
+                <FeatureImg fluid={data.examineScreenshot.childImageSharp.fluid} />
             </Feature>
 
             <ViewDescription>
@@ -442,25 +443,31 @@ export default class ViewPage extends React.Component {
                     submitText={"Sign up now"}
                 />
             </Modal>
-        </div>;
+        </Layout>;
     }
 }
 
 export const query = graphql`
-    query GetViewImages {
-        interceptScreenshot: imageSharp(id: { regex: "/intercept-screenshot.png/" }) {
-            sizes(maxWidth: 750) {
-                ...GatsbyImageSharpSizes
+    query {
+        interceptScreenshot: file(relativePath: { eq: "intercept-screenshot.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
             }
         }
-        exploreScreenshot: imageSharp(id: { regex: "/explore-screenshot.png/" }) {
-            sizes(maxWidth: 750) {
-                ...GatsbyImageSharpSizes
+        exploreScreenshot: file(relativePath: { eq: "explore-screenshot.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
             }
         }
-        examineScreenshot: imageSharp(id: { regex: "/examine-screenshot.png/" }) {
-            sizes(maxWidth: 750) {
-                ...GatsbyImageSharpSizes
+        examineScreenshot: file(relativePath: { eq: "examine-screenshot.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
             }
         }
     }

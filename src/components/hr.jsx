@@ -1,4 +1,4 @@
-import { styled, media } from '../styles';
+import { styled } from '../styles';
 
 export const Hr = styled.hr`
     height: 1px;

@@ -1,10 +1,13 @@
 import React from "react";
 import Helmet from 'react-helmet';
 import moment from 'moment';
+import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 
 import { siteMetadata } from '../../gatsby-config.js';
-import { styled, media, css } from '../styles';
+import { styled } from '../styles';
+
+import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { Hr } from '../components/hr';
 import { BlogSubscribe } from '../components/blog-subscribe';
@@ -96,7 +99,7 @@ export default ({ data }) => {
   const post = data.markdownRemark;
   const publishDate = moment(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
 
-  return (
+  return (<Layout>
     <BlogPostContainer width='780px'>
       <Helmet>
         <title>{siteMetadata.name} | {post.frontmatter.title}</title>
@@ -110,7 +113,7 @@ export default ({ data }) => {
       </Helmet>
 
       <BlogPost>
-        <CoverImg sizes={post.frontmatter.cover_image.childImageSharp.sizes} />
+        <CoverImg fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
         <h1>{post.frontmatter.title}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -121,7 +124,7 @@ export default ({ data }) => {
 
       <BlogSubscribe />
     </BlogPostContainer>
-  );
+  </Layout>);
 };
 
 export const query = graphql`
@@ -137,8 +140,8 @@ export const query = graphql`
         date
         cover_image {
           childImageSharp{
-            sizes(maxWidth: 2560) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

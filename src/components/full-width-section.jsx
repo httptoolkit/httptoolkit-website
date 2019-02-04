@@ -1,5 +1,4 @@
-import React from 'react';
-import { styled, media, css } from '../styles';
+import { styled, media } from '../styles';
 
 export default styled.section`
   ${media.desktop`

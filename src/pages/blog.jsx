@@ -1,8 +1,9 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 
 import { styled, media } from '../styles';
 
+import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { Hr } from '../components/hr';
 import { BlogSubscribe } from '../components/blog-subscribe';
@@ -105,20 +106,22 @@ const PostList = styled.ul`
 export default ({ data }) => {
     const posts = data.allMarkdownRemark.edges;
 
-    return <BlogListContainer width='780px'>
-        <BlogHeader>
-            <BlogHeading>Read the Blog</BlogHeading>
-            <BlogSubscribe />
-        </BlogHeader>
+    return <Layout>
+        <BlogListContainer width='780px'>
+            <BlogHeader>
+                <BlogHeading>Read the Blog</BlogHeading>
+                <BlogSubscribe />
+            </BlogHeader>
 
-        <Hr/>
+            <Hr/>
 
-        <PostList>
-            {posts.map(({ node: post }) => <li key={post.id}>
-                <h2>
-                <Link to={`/blog/${post.fields.slug}`}>{post.frontmatter.title}</Link>
-                </h2>
-            </li>)}
-        </PostList>
-    </BlogListContainer>
+            <PostList>
+                {posts.map(({ node: post }) => <li key={post.id}>
+                    <h2>
+                    <Link to={`/blog/${post.fields.slug}`}>{post.frontmatter.title}</Link>
+                    </h2>
+                </li>)}
+            </PostList>
+        </BlogListContainer>
+    </Layout>
 };

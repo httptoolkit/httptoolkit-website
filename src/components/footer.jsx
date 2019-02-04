@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { styled, media, css } from '../styles';
+import { styled, media } from '../styles';
 
 const Footer = styled(({ className, children }) => {
   return <div className={className}>

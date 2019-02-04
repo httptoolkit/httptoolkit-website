@@ -1,4 +1,3 @@
-import React from 'react';
 import { styled, media } from '../styles';
 
 export const FeaturesBlock = styled.div`
