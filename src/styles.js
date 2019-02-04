@@ -22,6 +22,7 @@ import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
 import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 
+fontawesome.config.autoAddCss = false;
 fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown);
 
 export { styled, css, ThemeProvider };

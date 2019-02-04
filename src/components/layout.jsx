@@ -14,6 +14,7 @@ import { siteMetadata } from '../../gatsby-config.js';
 import Header from './header';
 import Footer from './footer';
 
+import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
 
 const Main = styled.main`
