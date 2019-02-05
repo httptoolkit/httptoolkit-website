@@ -304,7 +304,9 @@ export default @observer class PricingPage extends React.Component {
                                 All essential HTTP debugging, testing and client features
                             </Feature>
                             <Feature>
-                                Open source (Apache 2.0)
+                                Open Source (<a href="https://www.tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
+                                    AGPL v3
+                                </a>)
                             </Feature>
                             <Feature>
                                 Cross-platform support (Linux/Mac/Windows)
@@ -326,29 +328,16 @@ export default @observer class PricingPage extends React.Component {
                             <small>
                                 <StyledTooltip
                                     html={<TooltipUl>
-                                        <li>Permanent license, even if your subscription ends</li>
-                                        <li>Covers all versions available during your subscription</li>
-                                        <li>One named user, unlimited devices</li>
+                                        <li>Unlimited devices</li>
+                                        <li>Account linked to one named user</li>
                                     </TooltipUl>}>
-                                    Personal user license <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                    Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
                                 </StyledTooltip>
                             </small>
                         </TierPrice>
                         <TierFeatures>
                             <Feature>
                                 <em>All Hobbyist features, and:</em>
-                            </Feature>
-                            <Feature>
-                                <StyledTooltip
-                                    html={<TooltipUl>
-                                        <li>Full source available via Github, pull requests welcome!</li>
-                                        <li>Make any changes for your own personal use</li>
-                                        <li>Share derived works with anybody licensed for the original version</li>
-                                    </TooltipUl>}
-                                >
-                                    Open source, for license{' '}
-                                    <Nowrap>holders&nbsp;<FontAwesomeIcon icon={['far', 'info-circle']} /></Nowrap>
-                                </StyledTooltip>
                             </Feature>
                             <Feature>
                                 Deeper inspection of request/response data
@@ -384,12 +373,11 @@ export default @observer class PricingPage extends React.Component {
                             <small>
                                 <StyledTooltip
                                     html={<TooltipUl>
-                                        <li>Permanent license, even if your subscription ends</li>
-                                        <li>Covers all versions available during your subscription</li>
-                                        <li>One named user, unlimited devices</li>
-                                        <li>Named user can be changed at any time during your subscription</li>
+                                        <li>One team account, with many named user accounts</li>
+                                        <li>Subscription covers a max number of concurrent team members</li>
+                                        <li>Add or remove user accounts from the team as required</li>
                                     </TooltipUl>}>
-                                    Transferable user license <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                    Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
                                 </StyledTooltip>
                             </small>
                         </TierPrice>
