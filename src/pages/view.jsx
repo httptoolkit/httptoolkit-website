@@ -10,6 +10,7 @@ import FullWidthSection from '../components/full-width-section';
 import { DownloadWidget } from '../components/download-widget';
 import { Modal } from '../components/modal';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
+import { LinkButton } from '../components/form';
 
 const HeroBlock = FullWidthSection.extend`
     ${media.mobileOrTablet`
@@ -417,12 +418,12 @@ export default class ViewPage extends React.Component {
                 performance & security metrics, HTTP client tools,
                 and much more...
                 <br/><br/>
-                Sound good? <a href='#' onClick={(e) => {
+                Sound good? <LinkButton onClick={(e) => {
                     e.preventDefault();
                     this.setState({ updateModalOpen: true });
                 }}>
                     Sign up for updates
-                </a>,<br/>or download now below.
+                </LinkButton>,<br/>or download now below.
             </ViewDescription>
 
             <BottomHeroBlock>

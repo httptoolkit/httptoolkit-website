@@ -19,6 +19,7 @@ import Footer from './footer';
 
 import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
+import { LinkButton } from './form';
 
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
@@ -100,8 +101,7 @@ const NavBurger = styled((props) => <a
   }
 `;
 
-const NavClose = styled((props) => <a
-  href="#"
+const NavClose = styled((props) => <LinkButton
   {...props}
   onClick={(e) => {
     e.preventDefault();
@@ -109,20 +109,22 @@ const NavClose = styled((props) => <a
   }}
 >
   <FontAwesomeIcon icon={['far', 'times']} size='2x' />
-</a>)`
-  position: fixed;
-  top: 17px;
-  right: 18px;
-  padding: 5px;
-  background-color: ${p => p.theme.popBackground};
+</LinkButton>)`
+  && {
+    position: fixed;
+    top: 17px;
+    right: 18px;
+    padding: 5px;
+    background-color: ${p => p.theme.popBackground};
 
-  ${media.desktopOrTablet`
-    display: none;
-  `}
+    ${media.desktopOrTablet`
+      display: none;
+    `}
 
-  /* Fixed height ensures icon size is correct before JS */
-  > svg {
-    height: 32px;
+    /* Fixed height ensures icon size is correct before JS */
+    > svg {
+      height: 32px;
+    }
   }
 `;
 

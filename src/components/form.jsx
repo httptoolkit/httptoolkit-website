@@ -90,3 +90,17 @@ export const ButtonLink = styled((props) => <Link {...props} />)`
     text-decoration: none;
     display: inline-block;
 `;
+
+export const LinkButton = styled.button`
+    /* Stop iOS messing with my input styling */
+    -webkit-appearance: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    font-family: Lato;
+    font-size: inherit;
+    font-style: inherit;
+    text-decoration: underline;
+`;
