@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { action, observable } from 'mobx';
+import { observer } from 'mobx-react';
+
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 
 import { styled, media, css } from '../styles';
+
+import { SubscriptionPlans } from '../accounts/subscriptions';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
@@ -29,10 +34,46 @@ const PricingHeader = styled.h1`
     font-weight: bolder;
 
     text-align: center;
-    margin: 60px;
+    margin: 60px 0 10px;
 
     ${media.mobileOrTablet`
-        margin: 30px auto 10px;
+        margin: 30px auto 25px;
+    `}
+`;
+
+const PlanCycleToggle = styled.button`
+    background: none;
+    border: none;
+
+    margin: 0 auto 30px;
+
+    ${media.mobileOrTablet`
+        margin: 0 auto 10px;
+    `}
+
+    padding: 10px 10px;
+
+    font-family: Lato, Arial, sans-serif;
+    ${p => p.theme.fontSizeSubheading};
+    color: ${p => p.theme.mainColor};
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    cursor: pointer;
+
+    > svg {
+        margin: 0 10px;
+    }
+`;
+
+const PlanCycle = styled.span`
+    ${p => p.selected && css`
+        text-decoration: underline;
+    `}
+    ${p => !p.selected && css`
+        opacity: 0.7;
     `}
 `;
 
@@ -190,7 +231,7 @@ const PricingFooter = styled.div`
     `}
 `;
 
-export default class PricingPage extends React.PureComponent {
+export default @observer class PricingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -211,12 +252,43 @@ export default class PricingPage extends React.PureComponent {
         }
     }
 
+    @observable
+    planCycle = 'annual';
+
+    toggleCycle = action(() => {
+        this.planCycle = this.planCycle === 'annual' ? 'monthly' : 'annual';
+    });
+
+    getPlanMonthlyPrice = (tierCode) => {
+        const planCode = this.getPlanCode(tierCode);
+        const plan = SubscriptionPlans[planCode];
+        return plan.prices && plan.prices.monthly;
+    };
+
+    getPlanCode = (tierCode) => {
+        return `${tierCode}-${this.planCycle}`;
+    }
+
     render() {
+        const { planCycle, toggleCycle, getPlanMonthlyPrice } = this;
+
+        const spinner = <FontAwesomeIcon icon={['fal', 'spinner']} spin />;
+        const proPrice = getPlanMonthlyPrice('pro') || spinner;
+        const teamPrice = getPlanMonthlyPrice('team') || spinner;
+
         return <Layout>
             <PricingContainer>
                 <PricingHeader>
                     Pricing
                 </PricingHeader>
+
+                <PlanCycleToggle onClick={toggleCycle}>
+                    <PlanCycle selected={planCycle === 'monthly'}>Monthly</PlanCycle>
+
+                    <FontAwesomeIcon icon={['fas', planCycle === 'annual' ? 'toggle-on' : 'toggle-off']} />
+
+                    <PlanCycle selected={planCycle === 'annual'}>Annual</PlanCycle>
+                </PlanCycleToggle>
 
                 <PricingTable>
                     <PricingTier>
@@ -250,7 +322,7 @@ export default class PricingPage extends React.PureComponent {
                             Professional
                         </TierHeader>
                         <TierPrice>
-                            <Price>$50</Price> / year
+                            <Price>{proPrice} / month</Price>
                             <small>
                                 <StyledTooltip
                                     html={<TooltipUl>
@@ -307,7 +379,8 @@ export default class PricingPage extends React.PureComponent {
                             Team
                         </TierHeader>
                         <TierPrice>
-                            <Price>$100</Price> / seat / year
+                            <Price>{teamPrice} / user / month</Price>
+
                             <small>
                                 <StyledTooltip
                                     html={<TooltipUl>

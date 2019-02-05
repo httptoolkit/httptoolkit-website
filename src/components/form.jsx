@@ -85,9 +85,7 @@ export const SubmitInput = styled.input.attrs({
     type: 'submit'
 })`${ButtonStyles}`;
 export const Button = styled.button`${ButtonStyles}`;
-export const ButtonLink = styled((props) =>
-    <Link {...props} />
-)`
+export const ButtonLink = styled((props) => <Link {...props} />)`
     ${ButtonStyles}
     text-decoration: none;
     display: inline-block;

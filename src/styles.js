@@ -21,9 +21,11 @@ import * as times from '@fortawesome/fontawesome-pro-regular/faTimes';
 import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
 import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
+import * as faToggleOn from '@fortawesome/fontawesome-free-solid/faToggleOn';
+import * as faToggleOff from '@fortawesome/fontawesome-free-solid/faToggleOff';
 
 fontawesome.config.autoAddCss = false;
-fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown, faToggleOn, faToggleOff);
 
 export { styled, css, ThemeProvider };
 

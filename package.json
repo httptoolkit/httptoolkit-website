@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/bntzio/http-toolkit-site",
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@fortawesome/fontawesome": "^1.1.4",
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
     "@fortawesome/fontawesome-free-solid": "^5.0.8",
@@ -32,6 +33,7 @@
     "@vx/responsive": "0.0.158",
     "@vx/shape": "0.0.160",
     "babel-plugin-styled-components": "^1.10.0",
+    "babel-preset-gatsby": "^0.1.6",
     "d3": "^5.0.0",
     "d3-scale": "^2.0.0",
     "d3-scale-chromatic": "^1.2.0",
@@ -52,7 +54,10 @@
     "gatsby-transformer-sharp": "^2.0.0",
     "gh-pages": "^1.1.0",
     "lodash": "^4.17.11",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
     "moment": "^2.21.0",
+    "node-fetch": "^2.3.0",
     "prismjs": "^1.15.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -61,7 +66,8 @@
     "react-tippy": "^1.2.2",
     "styled-components": "2.4.0",
     "styled-reset": "^1.3.2",
-    "utf8": "^3.0.0"
+    "utf8": "^3.0.0",
+    "val-loader": "^1.1.1"
   },
   "devDependencies": {
     "fs-extra": "^6.0.0"
