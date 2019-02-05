@@ -120,7 +120,7 @@ export class DownloadWidget extends React.Component {
 
         return <DownloadWidgetContainer
             className={className}
-            innerRef={(ref) => this.containerRef = ref}
+            ref={(ref) => this.containerRef = ref}
         >
             <DownloadSelected onClick={this.downloadNow}>
                 {`Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}

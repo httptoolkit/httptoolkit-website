@@ -45,7 +45,7 @@ export default styled(class MailchimpSignupForm extends React.Component {
                 title={this.props.emailTitle}
                 value={this.state.enteredText}
                 onChange={this.emailChanged}
-                innerRef={(input) => { this.emailInput = input; }}
+                ref={(input) => { this.emailInput = input; }}
             />
 
             <div style={{position: 'absolute', left: '-5000px'}}>
