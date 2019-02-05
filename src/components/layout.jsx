@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import { styled, ThemeProvider, media, injectGlobalStyles, theme, css } from '../styles';
+import { styled, ThemeProvider, media, getGlobalStyles, theme, css } from '../styles';
 
 import logo from '../images/logo.svg';
 import headshot from '../images/tim-small.png';
@@ -174,8 +174,6 @@ const TimLink = styled((props) =>
   }
 `;
 
-injectGlobalStyles();
-
 export class Layout extends React.Component {
 
   constructor(props) {
@@ -201,8 +199,11 @@ export class Layout extends React.Component {
   }
 
   render() {
+    const GlobalStyles = getGlobalStyles();
+
     return <ThemeProvider theme={theme}>
       <Main onClick={this.hideMenu}>
+        <GlobalStyles />
         <Helmet>
           {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
           <link rel="dns-prefetch" href="https://fonts.googleapis.com" />

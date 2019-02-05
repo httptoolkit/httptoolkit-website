@@ -14,11 +14,10 @@ import { SubscriptionPlans } from '../accounts/subscriptions';
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { Button, ButtonLink } from '../components/form';
-import { Nowrap } from '../components/nowrap';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { Modal } from '../components/modal';
 
-const PricingContainer = FullWidthSection.extend`
+const PricingContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

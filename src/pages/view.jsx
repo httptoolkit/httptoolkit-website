@@ -12,7 +12,7 @@ import { Modal } from '../components/modal';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { LinkButton } from '../components/form';
 
-const HeroBlock = FullWidthSection.extend`
+const HeroBlock = styled(FullWidthSection)`
     ${media.mobileOrTablet`
         padding-top: 60px;
         padding-bottom: 60px;
@@ -30,7 +30,7 @@ const HeroBlock = FullWidthSection.extend`
     text-align: center;
 `;
 
-const TopHeroBlock = HeroBlock.extend`
+const TopHeroBlock = styled(HeroBlock)`
     padding-top: 120px;
     padding-bottom: 336px;
 
@@ -39,7 +39,7 @@ const TopHeroBlock = HeroBlock.extend`
     `}
 `;
 
-const BottomHeroBlock = HeroBlock.extend`
+const BottomHeroBlock = styled(HeroBlock)`
     padding: 120px 0;
 `;
 

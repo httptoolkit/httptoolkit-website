@@ -7,7 +7,7 @@ import { TextInput, TextArea, SubmitInput } from '../components/form';
 
 import FullWidthSection from '../components/full-width-section';
 
-const SplashContainer = FullWidthSection.extend`
+const SplashContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

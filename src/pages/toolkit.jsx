@@ -15,7 +15,7 @@ import { DownloadWidget } from '../components/download-widget';
 
 import { styled, media, css } from '../styles';
 
-const HeroBlock = FullWidthSection.extend`
+const HeroBlock = styled(FullWidthSection)`
   ${media.mobileOrTablet`
     padding-top: 60px;
     padding-bottom: 60px;
@@ -33,7 +33,7 @@ const HeroBlock = FullWidthSection.extend`
   text-align: center;
 `;
 
-const TopHeroBlock = HeroBlock.extend`
+const TopHeroBlock = styled(HeroBlock)`
   padding-top: 120px;
   padding-bottom: 299px;
 
@@ -42,7 +42,7 @@ const TopHeroBlock = HeroBlock.extend`
   `}
 `;
 
-const BottomHeroBlock = HeroBlock.extend`
+const BottomHeroBlock = styled(HeroBlock)`
   padding-top: 120px;
   padding-bottom: 120px;
   line-height: 1.3;

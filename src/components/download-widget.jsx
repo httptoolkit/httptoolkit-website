@@ -77,7 +77,7 @@ const DownloadOptions = styled.div`
     ${p => p.hasSpaceAvailable ? 'top' : 'bottom'}: 100%;
 `;
 
-const DownloadOption = styled((props) => <Link {...props} />)`
+const DownloadOption = styled(Link)`
     display: block;
     padding: 10px;
     text-decoration: none;

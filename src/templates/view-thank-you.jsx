@@ -8,7 +8,7 @@ import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 
-const ThankYouContainer = FullWidthSection.extend`
+const ThankYouContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

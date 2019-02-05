@@ -1,4 +1,4 @@
-import styled, { injectGlobal, css, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, css, ThemeProvider } from 'styled-components';
 
 import reset from 'styled-reset';
 
@@ -107,10 +107,10 @@ export const theme = {
     `,
 };
 
-export function injectGlobalStyles() {
-    injectGlobal`
+export function getGlobalStyles() {
+    return createGlobalStyle`
         ${reset};
-        
+
         * {
             box-sizing: border-box;
         }

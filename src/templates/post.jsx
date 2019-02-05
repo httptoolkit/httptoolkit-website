@@ -12,7 +12,7 @@ import FullWidthSection from '../components/full-width-section';
 import { Hr } from '../components/hr';
 import { BlogSubscribe } from '../components/blog-subscribe';
 
-const BlogPostContainer = FullWidthSection.extend`
+const BlogPostContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

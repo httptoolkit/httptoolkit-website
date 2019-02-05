@@ -6,7 +6,7 @@ import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { ButtonLink } from '../components/form';
 
-const ErrorContainer = FullWidthSection.extend`
+const ErrorContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

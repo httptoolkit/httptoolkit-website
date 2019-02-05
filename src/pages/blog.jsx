@@ -31,7 +31,7 @@ export const pageQuery = graphql`
     }
 `
 
-const BlogListContainer = FullWidthSection.extend`
+const BlogListContainer = styled(FullWidthSection)`
     flex: 1;
 
     display: flex;

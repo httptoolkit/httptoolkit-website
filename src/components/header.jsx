@@ -18,7 +18,7 @@ const HeaderBase = styled.div`
   backface-visibility: hidden;
 `;
 
-const HeaderBackground = HeaderBase.extend`
+const HeaderBackground = styled(HeaderBase)`
   left: 0;
   right: 0;
 
