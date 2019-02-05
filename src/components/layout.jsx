@@ -1,3 +1,6 @@
+// Make sure subscription data always starts loading ASAP
+import '../accounts/subscriptions';
+
 import React from 'react';
 import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
@@ -201,7 +204,8 @@ export class Layout extends React.Component {
         <Helmet>
           {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
           <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+          <link rel='preconnect' href='https://checkout.paddle.com' crossOrigin />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
 
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
