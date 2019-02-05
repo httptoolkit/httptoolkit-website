@@ -303,7 +303,7 @@ export default @observer class PricingPage extends React.Component {
                                 All essential HTTP debugging, testing and client features
                             </Feature>
                             <Feature>
-                                Open Source (<a href="https://www.tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
+                                Open Source (<a href="https://tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
                                     AGPL v3
                                 </a>)
                             </Feature>
