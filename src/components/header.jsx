@@ -55,12 +55,12 @@ const StyledHeader = styled.div`
   z-index: 2;
 `
 
-const Header = ({ children }) => {
-  return (<HeaderPlaceholder>
-    <HeaderBackground><StyledHeader>
-      {children}
-    </StyledHeader></HeaderBackground>
-  </HeaderPlaceholder>)
-}
-
-export default Header
+export const Header = React.forwardRef(({ children }, ref) => (
+  <HeaderPlaceholder ref={ref}>
+    <HeaderBackground>
+      <StyledHeader>
+        {children}
+      </StyledHeader>
+      </HeaderBackground>
+  </HeaderPlaceholder>
+));

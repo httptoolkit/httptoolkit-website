@@ -16,6 +16,17 @@ const ModalWrapper = styled.div`
     }
 `;
 
+export const getVisibilityProps = (isModalActive, isFunctionalComponent) => ({
+    'aria-hidden': isModalActive,
+    'inert': isModalActive,
+
+    // 'inert' doesn't actually work - it's non-standard, so we need this:
+    [isFunctionalComponent ? 'innerRef' : 'ref']:
+        node => node && (isModalActive ?
+            node.setAttribute('inert', '') : node.removeAttribute('inert')
+        )
+});
+
 export const Modal = styled(({ className, children, isOpen, onClose }) => isOpen && <ModalWrapper>
     <div className={className}>
         <FontAwesomeIcon icon={['far', 'times']} size='2x' onClick={onClose} />

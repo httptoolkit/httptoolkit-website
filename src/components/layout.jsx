@@ -14,12 +14,13 @@ import headshot from '../images/tim-small.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
-import Header from './header';
-import Footer from './footer';
+import { Header } from './header';
+import { Footer } from './footer';
 
 import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
 import { LinkButton } from './form';
+import { getVisibilityProps } from './modal';
 
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
@@ -201,6 +202,9 @@ export class Layout extends React.Component {
   render() {
     const GlobalStyles = getGlobalStyles();
 
+    const { modalIsActive } = this.props;
+    const visibilityProps = getVisibilityProps(modalIsActive);
+
     return <ThemeProvider theme={theme}>
       <Main onClick={this.hideMenu}>
         <GlobalStyles />
@@ -242,7 +246,7 @@ export class Layout extends React.Component {
           <base href="/" />
         </Helmet>
 
-        <Header>
+        <Header {...visibilityProps}>
           <LogoLink onClick={this.hideMenu} />
           <NavBurger href="#menu" onClick={this.showMenu} />
 
@@ -257,7 +261,7 @@ export class Layout extends React.Component {
 
         {this.props.children}
 
-        <Footer>
+        <Footer {...visibilityProps}>
         &copy; 2018, built by <TimLink/>
         </Footer>
       </Main>

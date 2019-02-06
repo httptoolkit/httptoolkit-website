@@ -1,12 +1,6 @@
-import React from 'react'
-
 import { styled, media } from '../styles';
 
-const Footer = styled(({ className, children }) => {
-  return <div className={className}>
-    {children}
-  </div>
-})`
+export const Footer = styled.div`
   ${media.mobileOrTablet`
     display: none;
   `}
@@ -24,5 +18,3 @@ const Footer = styled(({ className, children }) => {
   text-align: right;
   color: ${p => p.theme.mainSubtleColor};
 `;
-
-export default Footer
