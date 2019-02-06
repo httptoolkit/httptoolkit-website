@@ -3,16 +3,19 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import { styled, media } from '../styles';
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
     :before {
+        content: ' ';
+
         position: fixed;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
-        content: ' ';
-        background-color: rgba(0,0,0,0.5);
+        left: 0;
+
+        background: radial-gradient(#40404b, #111118) rgba(34,34,40,0.8);
         z-index: 5;
+        opacity: ${p => p.opacity || 0.9};
     }
 `;
 
