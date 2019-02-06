@@ -53,12 +53,22 @@ const DownloadWidgetContainer = styled.div`
 const DownloadSelected = styled(Button)`
     ${DownloadButtonStyle}
     border-radius: 4px 0 0 4px;
-    font-weight: bold;
+    flex-grow: 1;
+    font-weight: ${p => p.small ? 'normal' : 'bold'};
+
+    ${p => p.small && css`
+        padding: 15px 5px;
+        ${p.theme.fontSizeText};
+    `}
 `;
 
 const DownloadOptionsButton = styled(Button)`
     ${DownloadButtonStyle}
     border-radius: 0 4px 4px 0;
+
+    ${p => p.small && `
+        padding: 10px 15px;
+    `}
 `;
 
 const DownloadOptions = styled.div`
@@ -114,7 +124,7 @@ export class DownloadWidget extends React.Component {
     }
 
     render() {
-        const { className } = this.props;
+        const { className, small } = this.props;
         const { selectedId, dropdownOpen } = this.state;
         const selectedDetails = DOWNLOAD_OPTIONS[selectedId];
 
@@ -122,10 +132,12 @@ export class DownloadWidget extends React.Component {
             className={className}
             ref={(ref) => this.containerRef = ref}
         >
-            <DownloadSelected onClick={this.downloadNow}>
-                {`Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}
+            <DownloadSelected onClick={this.downloadNow} small={small}>
+                { small ?
+                    `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}` :
+                    `Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}
             </DownloadSelected>
-            <DownloadOptionsButton onClick={this.toggleDropdown}>
+            <DownloadOptionsButton onClick={this.toggleDropdown} small={small}>
                 <FontAwesomeIcon icon={[
                     'fas',
                     dropdownOpen ? 'chevron-up' : 'chevron-down'
