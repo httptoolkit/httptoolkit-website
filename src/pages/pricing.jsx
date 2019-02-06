@@ -16,6 +16,7 @@ import FullWidthSection from '../components/full-width-section';
 import { Button, ButtonLink } from '../components/form';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { Modal } from '../components/modal';
+import { DownloadWidget } from '../components/download-widget';
 
 const PricingContainer = styled(FullWidthSection)`
     flex: 1;
@@ -312,9 +313,7 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
-                            <ButtonLink to='/view'>
-                                Download
-                            </ButtonLink>
+                            <DownloadWidget small />
                         </PricingCTA>
                     </PricingTier>
 
