@@ -69,6 +69,10 @@ const BlogPost = styled.article`
     margin-bottom: 30px;
   }
 
+  > div > p:first-child {
+    margin-top: 60px;
+  }
+
   ul {
     list-style-type: circle;
     margin-left: 25px;
