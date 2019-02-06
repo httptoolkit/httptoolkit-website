@@ -44,11 +44,11 @@ export const Modal = styled(({ className, children, isOpen, onClose }) => isOpen
     }
 
     > h2 {
-        ${p => p.theme.fontSizeHeading}
+        ${p => p.theme.fontSizeHeading};
     }
 
     > p {
-        ${p => p.theme.fontSizeText}
+        ${p => p.theme.fontSizeText};
         margin: 30px 0;
     }
 

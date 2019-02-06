@@ -33,14 +33,14 @@ const BlogPost = styled.article`
   background-color: ${p => p.theme.mainBackground};
 
   h1 {
-    ${p => p.theme.fontSizeBiggerHeading}
+    ${p => p.theme.fontSizeBiggerHeading};
     font-weight: bold;
     color: ${p => p.theme.mainColor};
     margin-top: 60px;
   }
 
   h2 {
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.popColor};
 
     margin: 60px 0 30px;
@@ -57,13 +57,13 @@ const BlogPost = styled.article`
 
   h3 {
     font-weight: bold;
-    ${p => p.theme.fontSizeText}
+    ${p => p.theme.fontSizeText};
     color: ${p => p.theme.mainColor};
     line-height: 1.45;
   }
 
   p, ul {
-    ${p => p.theme.fontSizeText}
+    ${p => p.theme.fontSizeText};
     color: ${p => p.theme.mainColor};
     line-height: 1.45;
     margin-bottom: 30px;

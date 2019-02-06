@@ -44,14 +44,14 @@ const BottomHeroBlock = styled(HeroBlock)`
 `;
 
 const BottomHeroCTA = styled.h2`
-    ${p => p.theme.fontSizeHeading}
+    ${p => p.theme.fontSizeHeading};
     font-weight: bold;
     line-height: 1.3;
     margin-bottom: 18px;
 `;
 
 const Pitch = styled.h1`
-    ${p => p.theme.fontSizeBiggerHeading}
+    ${p => p.theme.fontSizeBiggerHeading};
     font-weight: bold;
     margin-bottom: 60px;
 `;
@@ -62,7 +62,7 @@ const Highlight = styled.span`
 `;
 
 const SubPitch = styled.h2`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     line-height: 1.3;
 
     max-width: 450px;
@@ -90,7 +90,7 @@ const WidgetDemoSpacer = styled.div`
 `;
 
 const DemoPitch = styled.div`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     font-style: italic;
     font-family: Courgette;
 `;
@@ -186,7 +186,7 @@ const LiveDemoVideo = styled.video`
 `;
 
 const ViewDescription = styled.p`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     font-style: italic;
     line-height: 1.3;
 
@@ -265,7 +265,7 @@ const FeatureSubHeading = styled.h4`
 `;
 
 const FeatureDescription = styled.p`
-    ${p => p.theme.fontSizeText}
+    ${p => p.theme.fontSizeText};
     line-height: 1.3;
 
     &:not(:last-child) {

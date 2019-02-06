@@ -52,7 +52,7 @@ const BottomHeroBlock = styled(HeroBlock)`
 `;
 
 const BottomHeroCTA = styled.h2`
-  ${p => p.theme.fontSizeHeading}
+  ${p => p.theme.fontSizeHeading};
   font-weight: bold;
   line-height: 1.3;
   margin-bottom: 18px;
@@ -76,7 +76,7 @@ const ShiftDown = styled.span`
 `;
 
 const PitchHeading = styled.div`
-  ${p => p.theme.fontSizeHeading}
+  ${p => p.theme.fontSizeHeading};
   font-weight: bold;
 
   display: flex;

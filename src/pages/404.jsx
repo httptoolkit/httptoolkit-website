@@ -18,14 +18,14 @@ const ErrorContainer = styled(FullWidthSection)`
 `;
 
 const ErrorHeader = styled.h1`
-    ${p => p.theme.fontSizeUltraHeading}
+    ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
 
     margin-bottom: 60px;
 `;
 
 const ErrorDetails = styled.p`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.mainSubtleColor};
     line-height: 1.25;
 

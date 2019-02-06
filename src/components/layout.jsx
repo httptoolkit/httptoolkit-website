@@ -132,7 +132,7 @@ const NavItem = styled((props) => <Link
   activeClassName='active'
   {...props}
 />)`
-  ${p => p.theme.fontSizeText}
+  ${p => p.theme.fontSizeText};
   color: ${p => p.theme.mainColor};
   text-decoration: none;
 

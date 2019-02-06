@@ -30,7 +30,7 @@ const PricingContainer = styled(FullWidthSection)`
 `;
 
 const PricingHeader = styled.h1`
-    ${p => p.theme.fontSizeHeading}
+    ${p => p.theme.fontSizeHeading};
     font-weight: bolder;
 
     text-align: center;
@@ -219,7 +219,7 @@ const PricingCTA = styled.div`
 `;
 
 const PricingFooter = styled.div`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
 
     width: 100%;
     text-align: center;

@@ -43,7 +43,7 @@ const BlogListContainer = styled(FullWidthSection)`
 `;
 
 const BlogHeading = styled.h1`
-    ${p => p.theme.fontSizeUltraHeading}
+    ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
 `;
 

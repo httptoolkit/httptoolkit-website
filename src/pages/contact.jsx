@@ -19,7 +19,7 @@ const SplashContainer = styled(FullWidthSection)`
 `;
 
 const SplashHeader = styled.h1`
-    ${p => p.theme.fontSizeUltraHeading}
+    ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
 
     margin-bottom: 60px;
@@ -30,7 +30,7 @@ const SplashHeader = styled.h1`
 `;
 
 const SplashBody = styled.div`
-    ${p => p.theme.fontSizeSubheading}
+    ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.mainSubtleColor};
     line-height: 1.25;
 
