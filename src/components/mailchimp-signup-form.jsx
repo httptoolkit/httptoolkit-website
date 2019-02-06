@@ -49,7 +49,7 @@ export default styled(class MailchimpSignupForm extends React.Component {
             />
 
             <div style={{position: 'absolute', left: '-5000px'}}>
-                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" value="" aria-hidden="true" />
+                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" defaultValue="" aria-hidden="true" />
             </div>
 
             <SubmitInput value={this.props.submitText} name="subscribe" />
