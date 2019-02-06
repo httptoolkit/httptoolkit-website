@@ -1,21 +1,23 @@
+import * as _ from 'lodash';
 import React from 'react';
 import { Link } from 'gatsby';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { action, observable } from 'mobx';
+import { flow, action, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 
 import { styled, media, css } from '../styles';
+import { delay } from '../util';
 
-import { SubscriptionPlans } from '../accounts/subscriptions';
+import { showLoginDialog, logOut, getLastUserData, getLatestUserData, loginEvents } from '../accounts/auth';
+import { openCheckout, SubscriptionPlans } from '../accounts/subscriptions';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
-import { Button, ButtonLink } from '../components/form';
-import MailchimpSignupForm from '../components/mailchimp-signup-form';
-import { Modal } from '../components/modal';
+import { Button, ButtonLink, LinkButton } from '../components/form';
+import { ModalWrapper, getVisibilityProps } from '../components/modal';
 import { DownloadWidget } from '../components/download-widget';
 
 const PricingContainer = styled(FullWidthSection)`
@@ -102,7 +104,7 @@ const PricingTier = styled.div`
         padding: 10px 20px;
     }
 
-    ${p => p.highlighted ? css`
+    ${p => p.highlighted && !p.lowlighted ? css`
         background-color: ${p => p.theme.popBackground};
 
         ${media.desktop`
@@ -110,11 +112,15 @@ const PricingTier = styled.div`
             margin: -15px -5px;
 
             > ${TierHeader} {
-                padding: 37.5px 0;
+                padding: 37.5px 0 7.5px;
             }
         `}
     ` : css`
         background-color: ${p => p.theme.mainBackground};
+    `}
+
+    ${p => p.lowlighted && css`
+        opacity: 0.6;
     `}
 
     ${media.desktop`
@@ -137,13 +143,24 @@ const PricingTier = styled.div`
 
 const TierHeader = styled.div`
     width: 100%;
-    padding: 30px 0;
+    padding: 30px 0 0;
 
-    color: ${p => p.theme.mainColor};
+    color: ${p => p.theme.popColor};
 
     text-align: center;
     font-weight: bold;
     ${p => p.theme.fontSizeSubheading};
+`;
+
+const TierStatus = styled.div`
+    width: 100%;
+    min-height: 30px;
+    padding: 0;
+    text-align: center;
+
+    color: ${p => p.theme.mainColor};
+    ${p => p.theme.fontSizeText};
+    opacity: 0.6;
 `;
 
 const TierPrice = styled.div`
@@ -151,7 +168,7 @@ const TierPrice = styled.div`
     font-size: 18pt;
     padding: 15px 0;
 
-    color: ${p => p.theme.popColor};
+    color: ${p => p.theme.mainColor};
     margin: 0 20px;
 
     border-style: solid;
@@ -216,10 +233,35 @@ const PricingCTA = styled.div`
     margin-top: auto;
     margin-bottom: 10px;
 
-    > ${Button}, > ${ButtonLink} {
+    > * {
         text-align: center;
         width: 100%
     }
+`;
+
+const CTAInstructions = styled.div`
+    width: 100%;
+    text-align: center;
+    padding: 0 0 10px;
+    color: ${p => p.theme.primaryColor};
+
+    ${media.desktop`
+        min-height: 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    `};
+
+    ${media.mobileOrTablet`
+        padding-top: 20px;
+        ${p => p.theme.fontSizeText};
+    `}
+`;
+
+const LogoutBlock = styled.div`
+    width: 100%;
+    text-align: center;
+    padding: 30px 0 0;
 `;
 
 const PricingFooter = styled.div`
@@ -228,7 +270,7 @@ const PricingFooter = styled.div`
     width: 100%;
     text-align: center;
 
-    margin 70px auto 60px;
+    margin: 70px auto 60px;
 
     ${media.mobileOrTablet`
         margin: 60px auto;
@@ -236,28 +278,94 @@ const PricingFooter = styled.div`
 `;
 
 export default @observer class PricingPage extends React.Component {
+
     constructor(props) {
         super(props);
-        this.state = {
-            selectedPlan: false // False or the plan name
-        };
+
+        // Update account data automatically on login, logout & every 10 mins
+        loginEvents.on('authenticated', async () => {
+            await this.updateUser();
+            loginEvents.emit('user_data_loaded');
+        });
+        loginEvents.on('logout', this.updateUser);
+        setInterval(this.updateUser, 1000 * 60 * 10);
+        this.updateUser();
     }
 
-    selectPlan(planName) {
-        this.setState({ selectedPlan: planName });
-        window.scrollTo(0, 0);
+    @observable
+    modal = null;
 
+    @observable
+    waitingForPurchase = false;
+
+    @observable
+    user = getLastUserData();
+
+    updateUser = flow(function * () {
+        this.user = yield getLatestUserData();
+    }.bind(this));
+
+    @computed get isLoggedIn() {
+        return !!this.user.email;
+    }
+
+    @computed get isPaidUser() {
+        // Set with the last known active subscription details
+        const subscriptionExpiry = _.get(this, 'user.subscription.expiry');
+
+        return !!subscriptionExpiry && subscriptionExpiry.valueOf() > Date.now();
+    }
+
+    @computed get subscription() {
+        if (!this.isPaidUser) return {};
+
+        const [ paidTier, paidCycle ] = this.user.subscription.plan.split('-');
+        return { paidTier, paidCycle };
+    }
+
+    buyPlan = flow(function * (tierCode) {
+        this.reportPlanSelected(tierCode);
+        const planCode = this.getPlanCode(tierCode);
+
+        if (!this.isLoggedIn) {
+            this.modal = 'login';
+            yield showLoginDialog();
+        }
+
+        if (!this.isLoggedIn || this.isPaidUser) {
+            // Login cancelled or failed, or they have a plan already
+            this.modal = null;
+            return;
+        }
+
+        this.modal = 'checkout';
+        const purchased = yield openCheckout(this.user.email, planCode);
+        this.modal = null;
+
+        if (!purchased) return;
+        this.waitingForPurchase = tierCode;
+
+        yield this.updateUser();
+        while (!this.isPaidUser) {
+            yield delay(1000);
+            yield this.updateUser();
+        }
+
+        this.waitingForPurchase = false;
+    }.bind(this));
+
+    reportPlanSelected(planName) {
         if (window.ga) {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
                 eventAction: 'select',
-                eventLabel: planName,
+                eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }
     }
 
     @observable
-    planCycle = 'annual';
+    planCycle = this.subscription.paidCycle || 'annual';
 
     toggleCycle = action(() => {
         this.planCycle = this.planCycle === 'annual' ? 'monthly' : 'annual';
@@ -273,15 +381,76 @@ export default @observer class PricingPage extends React.Component {
         return `${tierCode}-${this.planCycle}`;
     }
 
+    getPlanStatus = (tierCode) => {
+        const { paidTier, paidCycle } = this.subscription;
+
+        if (paidTier !== tierCode) return;
+
+        return paidCycle === this.planCycle ? 'Active' : `Active (${paidCycle})`;
+    }
+
+    getPlanCta = (tierCode) => {
+        const { paidTier, paidCycle } = this.subscription;
+
+        if (tierCode === 'free') {
+            return <DownloadWidget small sendToEmailText={'On mobile, but want to try it on your computer later?'} />;
+        } else if (this.waitingForPurchase === tierCode) {
+            return <Button>
+                <FontAwesomeIcon icon={['fal', 'spinner']} spin />
+            </Button>;
+        } else if (paidTier === tierCode) {
+            if (paidCycle === this.planCycle) {
+                return <>
+                    <CTAInstructions>
+                        Download now and log in to<br/>access your {_.upperFirst(tierCode)} subscription
+                    </CTAInstructions>
+                    <DownloadWidget small />
+                </>;
+            } else {
+                return <>
+                    <CTAInstructions>
+                        You already have this {paidCycle} plan.
+                    </CTAInstructions>
+                    <ButtonLink to='/contact'>
+                        Change to {this.planCycle}
+                    </ButtonLink>
+                </>
+            }
+        } else {
+            if (tierCode === 'pro') {
+                return <Button onClick={() => this.buyPlan('pro')}>
+                    Buy Pro
+                </Button>;
+            } else if (tierCode === 'team') {
+                return <ButtonLink to='/contact' onClick={() => this.reportPlanSelected('team')}>
+                    Get in touch
+                </ButtonLink>;
+            }
+        }
+    }
+
     render() {
-        const { planCycle, toggleCycle, getPlanMonthlyPrice } = this;
+        const {
+            planCycle,
+            toggleCycle,
+            getPlanMonthlyPrice,
+            modal,
+            getPlanCta,
+            user,
+            isPaidUser,
+            getPlanStatus
+        } = this;
+
+        const visibilityProps = getVisibilityProps(!!modal);
 
         const spinner = <FontAwesomeIcon icon={['fal', 'spinner']} spin />;
         const proPrice = getPlanMonthlyPrice('pro') || spinner;
         const teamPrice = getPlanMonthlyPrice('team') || spinner;
 
-        return <Layout>
-            <PricingContainer>
+        const { paidTier } = this.subscription;
+
+        return <Layout modalIsActive={!!modal}>
+            <PricingContainer {...visibilityProps}>
                 <PricingHeader>
                     Pricing
                 </PricingHeader>
@@ -295,10 +464,11 @@ export default @observer class PricingPage extends React.Component {
                 </PlanCycleToggle>
 
                 <PricingTable>
-                    <PricingTier mobileOrder={3}>
+                    <PricingTier lowlighted={isPaidUser} mobileOrder={3}>
                         <TierHeader>
                             Hobbyist
                         </TierHeader>
+                        <TierStatus/>
                         <TierPrice>
                             <Price>Free</Price>
                             <small>Forever</small>
@@ -317,14 +487,15 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
-                            <DownloadWidget small sendToEmailText={'On mobile, but want to try it on your computer later?'} />
+                            { getPlanCta('free') }
                         </PricingCTA>
                     </PricingTier>
 
-                    <PricingTier highlighted={true}>
+                    <PricingTier highlighted={true} lowlighted={isPaidUser && paidTier !== 'pro'}>
                         <TierHeader>
                             Professional
                         </TierHeader>
+                        <TierStatus>{ getPlanStatus('pro') }</TierStatus>
                         <TierPrice>
                             <Price>{proPrice} / month</Price>
                             <small>
@@ -359,16 +530,15 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
-                            <Button onClick={() => this.selectPlan('Pro')}>
-                                Buy Pro
-                            </Button>
+                            { getPlanCta('pro') }
                         </PricingCTA>
                     </PricingTier>
 
-                    <PricingTier>
+                    <PricingTier highlighted={paidTier === 'team'}>
                         <TierHeader>
                             Team
                         </TierHeader>
+                        <TierStatus>{ getPlanStatus('team') }</TierStatus>
                         <TierPrice>
                             <Price>{teamPrice} / user / month</Price>
 
@@ -398,39 +568,23 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
-                            <Button onClick={() => this.selectPlan('Team')}>
-                                Buy Team
-                            </Button>
+                            { getPlanCta('team') }
                         </PricingCTA>
                     </PricingTier>
                 </PricingTable>
 
+                { user.email && <LogoutBlock>
+                    Logged in as { user.email }. <LinkButton onClick={logOut}>Log out</LinkButton>.
+                </LogoutBlock> }
+
                 <PricingFooter>
                     Questions? <Link to="/contact">Get in touch</Link>
                 </PricingFooter>
-
-                <Modal isOpen={!!this.state.selectedPlan} onClose={() => this.setState({selectedPlan: false })}>
-                    <h2>Sign up for updates</h2>
-                    <p>
-                        Great enthusiasm! Unfortunately, HTTP Toolkit is still new, and you can't buy{' '}
-                        {this.state.selectedPlan} quite yet.
-                    </p>
-                    <p>
-                        Thanks for your support though. Sign up now for updates and access when new releases are ready:
-                    </p>
-                    <MailchimpSignupForm
-                        autoFocus
-                        action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=prelaunch:${this.state.selectedPlan}`}
-                        emailTitle={`Enter your email to get updates and access when HTTP Toolkit ${this.state.selectedPlan} is ready`}
-                        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-                        submitText={"Sign up now"}
-                        forceVertical={true}
-                    />
-                    <p>
-                        In the meantime, have you tried <Link to='/view'>HTTP View</Link>, the free & open-source release?
-                    </p>
-                </Modal>
             </PricingContainer>
+            {
+                (modal === 'checkout' && <ModalWrapper opacity={0.5}></ModalWrapper>) ||
+                (!!modal && <ModalWrapper />)
+            }
         </Layout>;
     }
 }
