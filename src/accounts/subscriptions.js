@@ -45,3 +45,21 @@ _.map(SubscriptionPlans, (PlanDetails) => {
         PlanDetails.prices = { total: planPrice, monthly: monthlyPrice };
     });
 });
+
+export const getSubscriptionPlanCode = (id) =>
+    _.findKey(SubscriptionPlans, { id: id });
+
+export const openCheckout = async (email, planCode) => {
+    const paddle = await waitForPaddle;
+
+    return new Promise((resolve) => {
+        paddle.Checkout.open({
+            product: SubscriptionPlans[planCode].id,
+            email: email,
+            disableLogout: true,
+            allowQuantity: false,
+            successCallback: () => resolve(true),
+            closeCallback: () => resolve(false)
+        });
+    });
+}

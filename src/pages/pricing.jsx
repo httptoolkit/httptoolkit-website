@@ -94,6 +94,10 @@ const PricingTier = styled.div`
     border-radius: 4px;
     border: 1px solid rgba(200, 200, 200,0.5);
 
+    ${media.mobileOrTablet`
+        order: ${p => p.mobileOrder || 'unset'};
+    `}
+
     > * {
         padding: 10px 20px;
     }
@@ -291,7 +295,7 @@ export default @observer class PricingPage extends React.Component {
                 </PlanCycleToggle>
 
                 <PricingTable>
-                    <PricingTier>
+                    <PricingTier mobileOrder={3}>
                         <TierHeader>
                             Hobbyist
                         </TierHeader>
