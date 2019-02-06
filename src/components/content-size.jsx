@@ -14,7 +14,7 @@ function getReadableSize(bytes, siUnits = true) {
     return (bytes / Math.pow(thresh, i)).toFixed(1).replace(/\.0$/, '') + ' ' + units[i];
 }
 
-export default styled(({ className, content }) => <div
+export const ContentSize = styled(({ className, content }) => <div
     className={className}
 >
     {getReadableSize(utf8.encode(content).length)}

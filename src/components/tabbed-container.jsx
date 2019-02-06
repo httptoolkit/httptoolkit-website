@@ -39,7 +39,7 @@ const Container = styled.div`
     }
 `;
 
-export default class TabbedContainer extends React.PureComponent {
+export class TabbedContainer extends React.PureComponent {
     constructor(props) {
         super(props);
 

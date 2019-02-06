@@ -4,7 +4,7 @@ import MonacoEditor from 'react-monaco-editor';
 const minify = (text) => JSON.stringify(JSON.parse(text));
 const prettify = (text) => JSON.stringify(JSON.parse(text), null, 2);
 
-export default class extends React.PureComponent {
+export class JsonEditor extends React.Component {
     constructor(props) {
         super(props);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import MonacoEditor from 'react-monaco-editor';
 
-export default class extends React.PureComponent {
+export class TextEditor extends React.PureComponent {
 
     onEditorWillMount = (monaco) => {
         this.monaco = monaco;

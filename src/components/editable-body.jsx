@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { styled } from '../styles';
-import TabbedContainer from './tabbed-container';
-import ContentSize from './content-size';
-import JsonEditor from './json-editor';
-import TextEditor from './text-editor';
+import { TabbedContainer } from './tabbed-container';
+import { ContentSize } from './content-size';
+import { JsonEditor } from './json-editor';
+import { TextEditor } from './text-editor';
 
 const EditorContainer = styled.div`
     display: flex;
