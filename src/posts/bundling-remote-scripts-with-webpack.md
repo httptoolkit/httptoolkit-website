@@ -76,4 +76,4 @@ One reasonable approach would be to include & check a hash of the remote file in
 
 Enjoy! If you'd like to see a working example, take a look at how HTTP Toolkit's UI loads paddle.js. Check out [the paddle.js loading script](https://github.com/httptoolkit/httptoolkit-ui/blob/master/src/model/account/paddle.js), and the [code that imports it](https://github.com/httptoolkit/httptoolkit-ui/blob/1aa71b9/src/model/account/subscriptions.ts#L3).
 
-Have any thoughts or ideas on this? Let me know [on twitter](https://twitter.com/httptoolkit).
+Have any thoughts or ideas about this? Just love/hate webpack? Let me know [on twitter](https://twitter.com/httptoolkit), or join the discussion [on reddit](https://www.reddit.com/r/javascript/comments/ao51z2/bundling_remote_scripts_with_webpack).
