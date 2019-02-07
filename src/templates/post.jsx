@@ -87,7 +87,6 @@ const BlogPost = styled.article`
   }
 
   code {
-    font-family: mono;
     font-weight: bold;
   }
 
