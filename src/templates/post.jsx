@@ -90,6 +90,17 @@ const BlogPost = styled.article`
     font-family: mono;
     font-weight: bold;
   }
+
+  p > code, li > code, a > code {
+    user-select: all;
+    font-size: 90%;
+    background-color: transparent !important;
+    color: ${p => p.theme.mainColor} !important;
+  }
+
+  .gatsby-highlight {
+    margin-bottom: 30px;
+  }
 `;
 
 const CoverImg = styled(Img)`
