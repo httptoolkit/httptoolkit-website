@@ -163,7 +163,7 @@ const TierStatus = styled.div`
     opacity: 0.6;
 `;
 
-const TierPrice = styled.div`
+const TierPriceBlock = styled.div`
     text-align: center;
     font-size: 18pt;
     padding: 15px 0;
@@ -174,17 +174,22 @@ const TierPrice = styled.div`
     border-style: solid;
     border-color: rgba(0,0,0,0.3);
     border-width: 1px 0;
-
-    > small {
-        display: block;
-        margin-top: 10px;
-        font-size: 80%;
-        opacity: 0.6;
-    }
 `;
 
-const Price = styled.span`
+const TierPrice = styled.span`
     font-weight: bold;
+`;
+
+const TierPriceCaveats = styled.small`
+    display: block;
+    font-size: 60%;
+    opacity: 0.6;
+`;
+
+const TierLicense = styled.div`
+    display: block;
+    margin-top: 10px;
+    ${p => p.theme.fontSizeSubheading};
 `;
 
 const TierFeatures = styled.ul`
@@ -469,10 +474,13 @@ export default @observer class PricingPage extends React.Component {
                             Hobbyist
                         </TierHeader>
                         <TierStatus/>
-                        <TierPrice>
-                            <Price>Free</Price>
-                            <small>Forever</small>
-                        </TierPrice>
+                        <TierPriceBlock>
+                            <TierPrice>Free</TierPrice>
+
+                            <TierPriceCaveats>&nbsp;</TierPriceCaveats>
+
+                            <TierLicense>Forever</TierLicense>
+                        </TierPriceBlock>
                         <TierFeatures>
                             <Feature>
                                 All essential HTTP debugging, testing and client features
@@ -496,9 +504,14 @@ export default @observer class PricingPage extends React.Component {
                             Professional
                         </TierHeader>
                         <TierStatus>{ getPlanStatus('pro') }</TierStatus>
-                        <TierPrice>
-                            <Price>{proPrice} / month</Price>
-                            <small>
+                        <TierPriceBlock>
+                            <TierPrice>{proPrice} / month</TierPrice>
+
+                            <TierPriceCaveats>
+                                plus tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
+                            </TierPriceCaveats>
+
+                            <TierLicense>
                                 <StyledTooltip
                                     html={<TooltipUl>
                                         <li>Unlimited devices</li>
@@ -506,8 +519,8 @@ export default @observer class PricingPage extends React.Component {
                                     </TooltipUl>}>
                                     Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
                                 </StyledTooltip>
-                            </small>
-                        </TierPrice>
+                            </TierLicense>
+                        </TierPriceBlock>
                         <TierFeatures>
                             <Feature>
                                 <em>All Hobbyist features, and:</em>
@@ -539,10 +552,14 @@ export default @observer class PricingPage extends React.Component {
                             Team
                         </TierHeader>
                         <TierStatus>{ getPlanStatus('team') }</TierStatus>
-                        <TierPrice>
-                            <Price>{teamPrice} / user / month</Price>
+                        <TierPriceBlock>
+                            <TierPrice>{teamPrice} / user / month</TierPrice>
 
-                            <small>
+                            <TierPriceCaveats>
+                                plus tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
+                            </TierPriceCaveats>
+
+                            <TierLicense>
                                 <StyledTooltip
                                     html={<TooltipUl>
                                         <li>One team account, with many named user accounts</li>
@@ -551,8 +568,8 @@ export default @observer class PricingPage extends React.Component {
                                     </TooltipUl>}>
                                     Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
                                 </StyledTooltip>
-                            </small>
-                        </TierPrice>
+                            </TierLicense>
+                        </TierPriceBlock>
                         <TierFeatures>
                             <Feature><em>All Professional features, and:</em></Feature>
                             <Feature>Pass licenses between team members as required</Feature>
