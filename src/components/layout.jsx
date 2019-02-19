@@ -15,7 +15,7 @@ import headshot from '../images/tim-small.png';
 import { siteMetadata } from '../../gatsby-config.js';
 
 import { Header } from './header';
-import { Footer } from './footer';
+import { Footer, FooterCopyright, FooterMenu } from './footer';
 
 import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
@@ -262,7 +262,13 @@ export class Layout extends React.Component {
         {this.props.children}
 
         <Footer {...visibilityProps}>
-        &copy; 2018, built by <TimLink/>
+          <FooterMenu>
+            <Link to='/terms-of-service'>Terms of Service</Link>
+            <Link to='/privacy-policy'>Privacy Policy</Link>
+          </FooterMenu>
+          <FooterCopyright>
+            &copy; 2018, built by <TimLink/>
+          </FooterCopyright>
         </Footer>
       </Main>
     </ThemeProvider>;
