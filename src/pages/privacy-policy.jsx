@@ -200,7 +200,7 @@ export default () => (<Layout>
 
             <p>If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.</p>
 
-            <p>If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <a href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank">http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm</a>.</p>
+            <p>If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <a href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank" rel="noopener noreferrer">http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm</a>.</p>
 
             <h2>Account Information </h2>
 
