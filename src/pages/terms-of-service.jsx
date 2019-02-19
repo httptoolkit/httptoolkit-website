@@ -42,7 +42,7 @@ const TermsDisclaimer = styled.div`
 
 const Terms = styled.div`
     ${p => p.theme.fontSizeText};
-    color: ${p => p.theme.mainSubtleColor};
+    color: ${p => p.theme.mainColor};
     line-height: 1.25;
 
     ${media.desktop`
@@ -54,7 +54,6 @@ const Terms = styled.div`
     }
 
     h1, h2 {
-        color: ${p => p.theme.mainColor};
         font-weight: bold;
     }
 
@@ -63,7 +62,7 @@ const Terms = styled.div`
     }
 
     p {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
     margin: 30px 0 60px;
