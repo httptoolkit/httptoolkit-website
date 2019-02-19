@@ -22,7 +22,7 @@ I'm going to be using JS here, and I'm assuming you've already got a working Net
 * Create a Sentry account
 * Create a Sentry project in that account for your functions
 * Take the DSN for your Sentry project and set it as a SENTRY_DSN variable in your Netlify build
-* `npm install --save @sentry/node`
+* `npm install --save @sentry/node` (the examples here require `^4.6.0`)
 * Initialize your error logging logic:
 
 ```js
@@ -80,29 +80,35 @@ function catchErrors(handler) {
         }
     };
 }
+
+// Use the wrapper on each of your handlers like so:
+exports.handler = catchErrors(function (event, context) {
+    ...
+});
 ```
+
+This assumes you're using [promises](https://aws.amazon.com/blogs/compute/node-js-8-10-runtime-now-available-in-aws-lambda/) in your handlers, instead of callbacks. If you're using a callback-based approach, you'll need to capture and wrap the callback in your `catchErrors` function.
 
 ## Reliable reporting with Sentry & AWS Lambda
 
 A Lambda function runs until completion, and then will be frozen. Later calls may start it up again, or it might be disposed of, and the whole process created afresh. That means that any Sentry requests that haven't been sent when your function responds might be lost. Fortunately, we can fix this. We need to do two things: wait for reported errors to be fully sent, and ensure that Sentry doesn't interfere with normal Lambda shutdown.
 
-The latest Sentry SDK doesn't fully support any kind of callback when we report errors (though [they're investigating a flush() method](https://github.com/getsentry/sentry-javascript/issues/1449)), so we need to dig into the internals a little to report the error more directly, in a form where we _can_ wait for it to complete.
+The latest Sentry SDK now supports [a flush() method](https://github.com/getsentry/sentry-javascript/issues/1449) (as of 4.6.0). This allows us to report errors, and then explicitly wait for them to be fully completed before our function ends.
 
-Change your report error function to the below:
+To use it, change your report error function to the below:
 
-```js{1,5,6,9,11}
+```js{1,11}
 async function reportError(error) {
     console.warn(error);
     if (!sentryInitialized) return;
 
-    const scope = Sentry.getCurrentHub().getScope();
-    const sentryClient = Sentry.getCurrentHub().getClient();
-
     if (typeof error === 'string') {
-        await sentryClient.captureMessage(error, scope);
+        Sentry.captureMessage(error);
     } else {
-        await sentryClient.captureException(error, scope);
+        Sentry.captureException(error);
     }
+
+    await Sentry.flush();
 }
 ```
 
