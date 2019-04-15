@@ -424,6 +424,7 @@ export default @observer class PricingPage extends React.Component {
                         emailTitle={`Enter your email to get updates and access when HTTP Toolkit ${this.state.selectedPlan} is ready`}
                         hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
                         submitText={"Sign up now"}
+                        forceVertical={true}
                     />
                     <p>
                         In the meantime, have you tried <Link to='/view'>HTTP View</Link>, the free & open-source release?

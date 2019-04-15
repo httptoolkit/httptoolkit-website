@@ -9,10 +9,7 @@ export const TextInput = styled.input`
 
     ${media.desktop`
         width: 435px;
-    `}
-
-    ${media.tablet`
-        width: calc(30vw + 100px);
+        max-width: 100%;
     `}
 
     ${media.mobile`
@@ -37,11 +34,8 @@ export const TextArea = styled.textarea`
 
     ${media.desktop`
         width: 435px;
+        max-width: 100%;
         min-height: 200px;
-    `}
-
-    ${media.tablet`
-        width: calc(30vw + 100px);
     `}
 
     ${media.mobile`
@@ -71,6 +65,7 @@ const ButtonStyles = css`
 
     font-family: Lato;
     ${p => p.theme.fontSizeSubheading};
+    white-space: normal;
 
     color: #fff;
     background-color: ${p => p.theme.primaryColor};

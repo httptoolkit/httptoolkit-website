@@ -442,6 +442,7 @@ export default class ViewPage extends React.Component {
                     emailTitle={`Enter your email to get updates on new releases`}
                     hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
                     submitText={"Sign up now"}
+                    forceVertical={true}
                 />
             </Modal>
         </Layout>;

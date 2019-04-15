@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, media } from '../styles';
+import { styled, media, css } from '../styles';
 
 import { TextInput, SubmitInput } from './form';
 
@@ -54,7 +54,10 @@ export default styled(class MailchimpSignupForm extends React.Component {
 
             <SubmitInput value={this.props.submitText} name="subscribe" />
             <PrivacyPolicy>
-                {this.props.privacyPolicy || 'No spam, just occasional updates on major new releases.'}
+                { this.props.privacyPolicy === undefined
+                    ? 'No spam, just occasional updates on major new releases.'
+                    : this.props.privacyPolicy
+                }
             </PrivacyPolicy>
         </form>
     }
@@ -64,23 +67,31 @@ export default styled(class MailchimpSignupForm extends React.Component {
 
     justify-content: start;
 
-    ${media.mobile`
-        flex-direction: column;
-    `}
+    ${p => p.forceVertical
+        ? css`flex-direction: column;`
+        : media.mobile`flex-direction: column;`
+    }
+
+    > input[type=email], > input[type=email] {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
 
     > input[type=submit] {
         border-radius: 0 4px 4px 0;
 
-        ${media.mobile`
-            border-radius: 0 0 4px 4px;
-        `}
+        ${p => p.forceVertical
+            ? css`border-radius: 0 0 4px 4px;`
+            : media.mobile`border-radius: 0 0 4px 4px;`
+        }
     }
 
     > input[type=email] {
         border-radius: 4px 0 0 4px;
 
-        ${media.mobile`
-            border-radius: 4px 4px 0 0;
-        `}
+        ${p => p.forceVertical
+            ? css`border-radius: 4px 4px 0 0;`
+            : media.mobile`border-radius: 4px 4px 0 0;`
+        }
     }
 `;
