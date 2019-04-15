@@ -17,6 +17,12 @@ const ThankYouContainer = styled(FullWidthSection)`
 
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
+
+    ${media.desktop`
+        > form {
+            max-width: 700px;
+        }
+    `}
 `;
 
 const ThankYouHeader = styled.h1`
