@@ -169,7 +169,7 @@ export class DownloadWidget extends React.Component {
                         action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=358164ab38&SOURCE=download-widget`}
                         emailTitle={`Enter your email to get download links sent straight to your inbox`}
                         hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_358164ab38"}
-                        submitText={'Send me a download link for later'}
+                        submitText={'Send me a download link'}
                         privacyPolicy=''
                         forceVertical={true}
                     />

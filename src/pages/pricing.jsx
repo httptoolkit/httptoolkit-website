@@ -317,7 +317,7 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
-                            <DownloadWidget small sendToEmailText={'On mobile, but want to try it? Send it to your desktop for later:'} />
+                            <DownloadWidget small sendToEmailText={'On mobile, but want to try it on your computer later?'} />
                         </PricingCTA>
                     </PricingTier>
 
