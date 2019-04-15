@@ -4,7 +4,8 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby';
 
 import { styled, css } from '../styles';
-import { Button } from '../components/form';
+import { Button } from './form';
+import MailchimpSignupForm from './mailchimp-signup-form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },
@@ -19,6 +20,10 @@ const DOWNLOAD_OPTIONS = {
 const OPTIONS_HEIGHT = 236;
 
 function detectDownloadOption() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return 'send-to-email';
+    }
+
     const platform = navigator.platform;
 
     if (platform.startsWith('Linux') && !platform.includes('Linux arm')) {
@@ -87,10 +92,17 @@ const DownloadOptions = styled.div`
     ${p => p.hasSpaceAvailable ? 'top' : 'bottom'}: 100%;
 `;
 
-const DownloadOption = styled(Link)`
+const downloadOptionCss = css`
     display: block;
+    width: 100%;
     padding: 10px;
     text-decoration: none;
+
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: 'Lato', sans-serif;
+    ${p => p.theme.fontSizeText};
 
     font-weight: ${p => p.selected ? 'bold' : 'normal'};
     text-align: left;
@@ -102,6 +114,22 @@ const DownloadOption = styled(Link)`
     &:hover {
         background-color: ${p => p.theme.containerBackground};
     }
+`;
+
+const DownloadOption = styled(Link)`${downloadOptionCss}`;
+
+const SendToEmailWrapper = styled.div`
+    width: 100%;
+    padding: 0 5px;
+    ${p => p.theme.fontSizeText};
+    display: flex;
+    flex-direction: column;
+`;
+
+const SendToEmailExplanation = styled.p`
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 10px;
 `;
 
 export class DownloadWidget extends React.Component {
@@ -124,41 +152,64 @@ export class DownloadWidget extends React.Component {
     }
 
     render() {
-        const { className, small } = this.props;
+        const { className, small, sendToEmailText } = this.props;
         const { selectedId, dropdownOpen } = this.state;
-        const selectedDetails = DOWNLOAD_OPTIONS[selectedId];
 
-        return <DownloadWidgetContainer
-            className={className}
-            ref={(ref) => this.containerRef = ref}
-        >
-            <DownloadSelected onClick={this.downloadNow} small={small}>
-                { small ?
-                    `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}` :
-                    `Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}
-            </DownloadSelected>
-            <DownloadOptionsButton onClick={this.toggleDropdown} small={small}>
-                <FontAwesomeIcon icon={[
-                    'fas',
-                    dropdownOpen ? 'chevron-up' : 'chevron-down'
-                ]} />
-            </DownloadOptionsButton>
-            <DownloadOptions
-                dropdownOpen={dropdownOpen}
-                hasSpaceAvailable={this.isDownloadOptionsSpaceAvailable()}
+        if (selectedId === 'send-to-email') {
+            return <DownloadWidgetContainer
+                className={className}
+                ref={(ref) => this.containerRef = ref}
             >
-                { _.map(DOWNLOAD_OPTIONS, (downloadDetails, downloadId) =>
-                    <DownloadOption
-                        key={downloadId}
-                        to={`/view/thank-you/${downloadId}`}
-                        selected={selectedId === downloadId}
-                    >
-                        <FontAwesomeIcon icon={['fab', downloadDetails.icon]} />
-                        {downloadDetails.name}
-                    </DownloadOption>
-                ) }
-            </DownloadOptions>
-        </DownloadWidgetContainer>;
+                <SendToEmailWrapper>
+                    <SendToEmailExplanation>{
+                        sendToEmailText || 'On mobile? Send it to your computer for later:'
+                    }</SendToEmailExplanation>
+                    <MailchimpSignupForm
+                        autoFocus
+                        action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=358164ab38&SOURCE=download-widget`}
+                        emailTitle={`Enter your email to get download links sent straight to your inbox`}
+                        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_358164ab38"}
+                        submitText={'Send me a download link for later'}
+                        privacyPolicy=''
+                        forceVertical={true}
+                    />
+                </SendToEmailWrapper>
+            </DownloadWidgetContainer>;
+        } else {
+            const selectedDetails = DOWNLOAD_OPTIONS[selectedId];
+
+            return <DownloadWidgetContainer
+                className={className}
+                ref={(ref) => this.containerRef = ref}
+            >
+                <DownloadSelected onClick={this.downloadNow} small={small}>
+                    { small ?
+                        `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}` :
+                        `Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}
+                </DownloadSelected>
+                <DownloadOptionsButton onClick={this.toggleDropdown} small={small}>
+                    <FontAwesomeIcon icon={[
+                        'fas',
+                        dropdownOpen ? 'chevron-up' : 'chevron-down'
+                    ]} />
+                </DownloadOptionsButton>
+                <DownloadOptions
+                    dropdownOpen={dropdownOpen}
+                    hasSpaceAvailable={this.isDownloadOptionsSpaceAvailable()}
+                >
+                    { _.map(DOWNLOAD_OPTIONS, (downloadDetails, downloadId) =>
+                        <DownloadOption
+                            key={downloadId}
+                            to={`/view/thank-you/${downloadId}`}
+                            selected={selectedId === downloadId}
+                        >
+                            <FontAwesomeIcon icon={['fab', downloadDetails.icon]} fixedWidth />
+                            {downloadDetails.name}
+                        </DownloadOption>
+                    ) }
+                </DownloadOptions>
+            </DownloadWidgetContainer>;
+        }
     }
 
     isDownloadOptionsSpaceAvailable() {

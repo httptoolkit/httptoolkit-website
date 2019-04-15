@@ -153,7 +153,7 @@ export function getGlobalStyles() {
         body {
             background-color: ${theme.containerBackground};
             overflow-x: hidden;
-            font-family: 'Lato';
+            font-family: 'Lato', sans-serif;
         }
 
         em {
