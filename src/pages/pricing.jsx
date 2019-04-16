@@ -527,10 +527,10 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                             <Feature>
                                 In-depth debugging integrations for 1400+ APIs,
-                                including AWS, Github and Stripe.
+                                including AWS, Github and Stripe
                             </Feature>
                             <Feature>
-                                Detailed performance, caching & compression analysis & warnings.
+                                Detailed performance, caching & compression analysis & warnings
                             </Feature>
                             <Feature>
                                 Light, dark & high-contrast UI themes
