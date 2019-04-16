@@ -11,6 +11,8 @@ import { DownloadWidget } from '../components/download-widget';
 import { Modal } from '../components/modal';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
 import { LinkButton } from '../components/form';
+import { ProPill } from '../components/pro-pill';
+import { Nowrap } from '../components/nowrap';
 
 const HeroBlock = styled(FullWidthSection)`
     ${media.mobileOrTablet`
@@ -273,6 +275,12 @@ const FeatureDescription = styled.p`
     }
 `;
 
+const ProFeature = styled(ProPill)`
+    ${p => p.theme.fontSizeSubheading};
+    vertical-align: 0.35em;
+    margin-left: 5px;
+`;
+
 const FeatureImg = styled(Img)`
     object-fit: contain;
 
@@ -346,7 +354,7 @@ export default class ViewPage extends React.Component {
                     <FeatureTitle>Intercept</FeatureTitle>
 
                     <FeatureSubHeading>
-                        Capture HTTP(S)<br/>with zero setup
+                        Capture HTTP(S) <Nowrap>with zero setup</Nowrap>
                     </FeatureSubHeading>
 
                     <FeatureDescription>
@@ -358,7 +366,8 @@ export default class ViewPage extends React.Component {
 
                     <FeatureDescription>
                         For platforms without automatic integrations, HTTP View{' '}
-                        acts as an HTTP(S) proxy, compatible with almost all HTTP clients.
+                        acts as an HTTP(S) proxy, <strong>compatible with almost all
+                        HTTP clients, in any language</strong>.
                     </FeatureDescription>
                 </FeatureTextContainer>
 
@@ -398,12 +407,12 @@ export default class ViewPage extends React.Component {
 
                     <FeatureDescription>
                         Check the full URL, status, headers and
-                        body of every request or response to understand exactly
+                        body of every request or response to examine exactly
                         what's being sent.
                     </FeatureDescription>
                     <FeatureDescription>
-                        Dive into the details of bodies with built-in editor highlighting
-                        and autoformatting for JavaScript, JSON, HTML, hex and more.
+                        Dive into the details of bodies with built-in editor <strong>highlighting
+                        and autoformatting for JavaScript, JSON, HTML, hex and more</strong>.
                         Built with all the power of Monaco, the editor from Visual Studio Code.
                     </FeatureDescription>
                 </FeatureTextContainer>
@@ -411,11 +420,65 @@ export default class ViewPage extends React.Component {
                 <FeatureImg fluid={data.examineScreenshot.childImageSharp.fluid} />
             </Feature>
 
+            <Feature reverse>
+                <FeatureTextContainer>
+                    <FeatureTitle>Understand</FeatureTitle>
+
+                    <FeatureSubHeading>
+                        Know <Nowrap>everything <ProFeature /></Nowrap>
+                    </FeatureSubHeading>
+
+                    <FeatureDescription>
+                        Fully understand what you're sending & receiving, with <strong>inline
+                        documentation, validation and analysis for 1400+ APIs</strong>, including
+                        AWS, Github & Stripe, along with all standard HTTP headers.
+                    </FeatureDescription>
+                    <FeatureDescription>
+                        Get documentation inline for the service and endpoint you're talking to, with
+                        explanations of each parameter, and jump to the official docs with one click.
+                    </FeatureDescription>
+                    <FeatureDescription>
+                        Spot misspelled, missed, or deprecated parameters before you put them in
+                        production, and deeply understand responses, with response status & body
+                        documentation included.
+                    </FeatureDescription>
+                </FeatureTextContainer>
+
+                <FeatureImg fluid={data.understandScreenshot.childImageSharp.fluid} />
+            </Feature>
+
+            <Feature>
+                <FeatureTextContainer>
+                    <FeatureTitle>Accelerate</FeatureTitle>
+
+                    <FeatureSubHeading>
+                        <Nowrap>Go faster <ProFeature /></Nowrap>
+                    </FeatureSubHeading>
+
+                    <FeatureDescription>
+                        See timing info, and dive into the compression and caching of
+                        every exchange, for a full performance overview.
+                    </FeatureDescription>
+                    <FeatureDescription>
+                        Check the compression of your requests & responses, to find easy routes
+                        to save time & bandwidth, and get warnings for messages made larger by
+                        poor compression.
+                    </FeatureDescription>
+                    <FeatureDescription>
+                        Effortlessly understand HTTP caching, with detailed explanations of how
+                        each response will be cached, why, and warnings & suggestions to help
+                        you improve.
+                    </FeatureDescription>
+                </FeatureTextContainer>
+
+                <FeatureImg fluid={data.accelerateScreenshot.childImageSharp.fluid} />
+            </Feature>
+
             <ViewDescription>
                 And that's just the first release!
                 <br/><br/>
                 Future plans include manual & automatic HTTP rewriting,
-                performance & security metrics, HTTP client tools,
+                security analysis & metrics, HTTP client tools,
                 and much more...
                 <br/><br/>
                 Sound good? <LinkButton onClick={(e) => {
@@ -469,6 +532,20 @@ export const query = graphql`
             childImageSharp {
                 fluid(maxWidth: 750) {
                     ...GatsbyImageSharpFluid_withWebp
+                }
+            }
+        }
+        understandScreenshot: file(relativePath: { eq: "understand-screenshot.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        accelerateScreenshot: file(relativePath: { eq: "accelerate-screenshot.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 750) {
+                    ...GatsbyImageSharpFluid
                 }
             }
         }
