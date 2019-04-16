@@ -409,7 +409,7 @@ export default @observer class PricingPage extends React.Component {
                     <CTAInstructions>
                         Download now and log in to<br/>access your {_.upperFirst(tierCode)} subscription
                     </CTAInstructions>
-                    <DownloadWidget small />
+                    <DownloadWidget small sendToEmailText={'On mobile? Send it to your computer:'} />
                 </>;
             } else {
                 return <>
@@ -419,7 +419,7 @@ export default @observer class PricingPage extends React.Component {
                     <ButtonLink to='/contact'>
                         Change to {this.planCycle}
                     </ButtonLink>
-                </>
+                </>;
             }
         } else {
             if (tierCode === 'pro') {
@@ -483,7 +483,7 @@ export default @observer class PricingPage extends React.Component {
                         </TierPriceBlock>
                         <TierFeatures>
                             <Feature>
-                                All essential HTTP debugging, testing and client features
+                                All essential HTTP interception and debugging features
                             </Feature>
                             <Feature>
                                 Open Source (<a href="https://tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
@@ -526,17 +526,14 @@ export default @observer class PricingPage extends React.Component {
                                 <em>All Hobbyist features, and:</em>
                             </Feature>
                             <Feature>
-                                Deeper inspection of request/response data
+                                In-depth debugging integrations for 1400+ APIs,
+                                including AWS, Github and Stripe.
                             </Feature>
                             <Feature>
-                                Security & performance analysis, warnings and metrics.
+                                Detailed performance, caching & compression analysis & warnings.
                             </Feature>
                             <Feature>
-                                Import/export requests, responses,
-                                and code snippets.
-                            </Feature>
-                            <Feature>
-                                Customize with colour themes
+                                Light, dark & high-contrast UI themes
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
