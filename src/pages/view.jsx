@@ -454,21 +454,21 @@ export const query = graphql`
         interceptScreenshot: file(relativePath: { eq: "intercept-screenshot.png" }) {
             childImageSharp {
                 fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
         exploreScreenshot: file(relativePath: { eq: "explore-screenshot.png" }) {
             childImageSharp {
                 fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
         examineScreenshot: file(relativePath: { eq: "examine-screenshot.png" }) {
             childImageSharp {
                 fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                 }
             }
         }
