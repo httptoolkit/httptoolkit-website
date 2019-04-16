@@ -105,6 +105,10 @@ export default () => (<Layout>
 
             <p>In some jurisdictions there may be limitations on these limitations, and they may not fully apply. In this case, all other remaining limitations of liability and warranty will continue to apply in full.</p>
 
+            <h2>Purchases</h2>
+
+            <p>Our order process is conducted by our online reseller <a href="http://paddle.com">Paddle.com</a>. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
+
             <h2>User Accounts</h2>
 
             <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Services.</p>
