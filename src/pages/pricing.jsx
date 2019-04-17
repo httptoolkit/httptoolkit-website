@@ -515,7 +515,8 @@ export default @observer class PricingPage extends React.Component {
                                 <StyledTooltip
                                     html={<TooltipUl>
                                         <li>Unlimited devices</li>
-                                        <li>Account linked to one named user</li>
+                                        <li>Can only be used by one person</li>
+                                        <li>Not transferrable between people</li>
                                     </TooltipUl>}>
                                     Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
                                 </StyledTooltip>
@@ -559,7 +560,7 @@ export default @observer class PricingPage extends React.Component {
                             <TierLicense>
                                 <StyledTooltip
                                     html={<TooltipUl>
-                                        <li>One team account, with many named user accounts</li>
+                                        <li>One team account, with many linked individual accounts</li>
                                         <li>Subscription covers a max number of concurrent team members</li>
                                         <li>Add or remove user accounts from the team as required</li>
                                     </TooltipUl>}>

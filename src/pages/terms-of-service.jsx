@@ -113,6 +113,8 @@ export default () => (<Layout>
 
             <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Services.</p>
 
+            <p>Personal accounts are licensed to a individual person (the main owner of the email address used). They may only be used by that individual, and must not be shared. Team accounts may include multiple individuals, and may transfer accounts between individuals. Only the individuals currently linked to the team account may use the features of the account.</p>
+
             <p>Access to some tiers of account is contingent on a corresponding active subscription, as shown on <a href="https://httptoolkit.tech/pricing">our pricing page</a>. You agree not to access or attempt to access any account tier at any time when you are not personally included in an active subscription.</p>
 
             <p>You are responsible for safeguarding your HTTP Toolkit user account, and for any activities or actions taken using that account.</p>
