@@ -325,7 +325,9 @@ export default @observer class PricingPage extends React.Component {
         if (!this.isPaidUser) return {};
 
         const [ paidTier, paidCycle ] = this.user.subscription.plan.split('-');
-        return { paidTier, paidCycle };
+        const status = this.user.subscription.status;
+
+        return { paidTier, paidCycle, status };
     }
 
     buyPlan = flow(function * (tierCode) {
@@ -387,11 +389,20 @@ export default @observer class PricingPage extends React.Component {
     }
 
     getPlanStatus = (tierCode) => {
-        const { paidTier, paidCycle } = this.subscription;
+        const { paidTier, paidCycle, status } = this.subscription;
 
         if (paidTier !== tierCode) return;
 
-        return paidCycle === this.planCycle ? 'Active' : `Active (${paidCycle})`;
+        const statusDescription = {
+            'active': 'Active',
+            'trialing': 'Active trial',
+            'past_due': 'Past due',
+            'deleted': 'Active but cancelled'
+        }[status] || 'Unknown';
+
+        return paidCycle === this.planCycle
+            ? statusDescription
+            : `${statusDescription} (${paidCycle})`;
     }
 
     getPlanCta = (tierCode) => {

@@ -191,13 +191,15 @@ function parseUserData(userJwt) {
 
     const subscription = {
         id: appData.subscription_id,
+        status: appData.subscription_status,
         plan: getSubscriptionPlanCode(appData.subscription_plan_id),
         expiry: new Date(appData.subscription_expiry)
     };
 
     return {
         email: appData.email,
-        subscription: _.every(subscription) ? subscription : undefined
+        // Use undefined rather than {} when there's no subscription data.
+        subscription: _.some(subscription) ? subscription : undefined
     };
 }
 
