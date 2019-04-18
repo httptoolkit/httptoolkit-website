@@ -294,9 +294,6 @@ export default @observer class PricingPage extends React.Component {
     account = new AccountStore();
 
     @observable
-    modal = null;
-
-    @observable
     planCycle = this.account.subscription.paidCycle || 'annual';
 
     toggleCycle = action(() => {
@@ -374,12 +371,11 @@ export default @observer class PricingPage extends React.Component {
             planCycle,
             toggleCycle,
             getPlanMonthlyPrice,
-            modal,
             getPlanCta,
             getPlanStatus,
             hideFreePlan
         } = this;
-        const { user, isPaidUser } = this.account;
+        const { user, isPaidUser, modal } = this.account;
         const { paidTier } = this.account.subscription;
 
         const visibilityProps = getVisibilityProps(!!modal);

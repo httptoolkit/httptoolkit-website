@@ -28,6 +28,9 @@ export class AccountStore {
     }
 
     @observable
+    modal = null;
+
+    @observable
     waitingForPurchase = false;
 
     @observable
