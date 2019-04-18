@@ -35,8 +35,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
+  // Create a download page for each available download
   const viewThankYou = path.resolve('./src/templates/view-thank-you.jsx');
-
   _.forEach(releasePathMap, (releasePath, downloadId) => {
       createPage({
           path: `/view/thank-you/${downloadId}`,
@@ -45,6 +45,14 @@ exports.createPages = ({ graphql, actions }) => {
       });
   });
 
+  // Create a normal and a 'buy now' pricing page
+  const pricingPage = path.resolve('./src/templates/pricing.jsx');
+  createPage({ path: '/pricing', component: pricingPage, context: {} });
+  createPage({ path: '/get-pro', component: pricingPage, context: {
+      hideFreePlan: true
+  }});
+
+  // Create a page for each blog post
   return new Promise((resolve) => {
     graphql(`
       {

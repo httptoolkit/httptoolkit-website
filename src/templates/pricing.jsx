@@ -283,6 +283,14 @@ const PricingFooter = styled.div`
 
 export default @observer class PricingPage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.hideFreePlan = props.pageContext.hideFreePlan || false;
+    }
+
+    // Set only when jumping here as part of a purchase flow
+    hideFreePlan = false;
+
     account = new AccountStore();
 
     @observable
@@ -321,7 +329,11 @@ export default @observer class PricingPage extends React.Component {
         const { paidTier, paidCycle } = this.account.subscription;
 
         if (tierCode === 'free') {
-            return <DownloadWidget small sendToEmailText={'On mobile, but want to try it on your computer later?'} />;
+            if (this.hideFreePlan) return null;
+            else return <DownloadWidget
+                small
+                sendToEmailText={'On mobile, but want to try it on your computer later?'}
+            />;
         } else if (this.account.waitingForPurchase === tierCode) {
             return <Button>
                 <FontAwesomeIcon icon={['fal', 'spinner']} spin />
@@ -364,7 +376,8 @@ export default @observer class PricingPage extends React.Component {
             getPlanMonthlyPrice,
             modal,
             getPlanCta,
-            getPlanStatus
+            getPlanStatus,
+            hideFreePlan
         } = this;
         const { user, isPaidUser } = this.account;
         const { paidTier } = this.account.subscription;
@@ -390,7 +403,7 @@ export default @observer class PricingPage extends React.Component {
                 </PlanCycleToggle>
 
                 <PricingTable>
-                    <PricingTier lowlighted={isPaidUser} mobileOrder={3}>
+                    <PricingTier lowlighted={isPaidUser || hideFreePlan} mobileOrder={3}>
                         <TierHeader>
                             Hobbyist
                         </TierHeader>
