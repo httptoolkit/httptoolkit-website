@@ -285,11 +285,15 @@ export default @observer class PricingPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.hideFreePlan = props.pageContext.hideFreePlan || false;
+        this.hideFreePlan = props.pageContext.directPurchase || false;
+        this.pageTitle = props.pageContext.directPurchase
+            ? 'Get Pro'
+            : 'Pricing';
     }
 
     // Set only when jumping here as part of a purchase flow
     hideFreePlan = false;
+    pageTitle = 'Pricing';
 
     account = new AccountStore();
 
@@ -387,7 +391,7 @@ export default @observer class PricingPage extends React.Component {
         return <Layout modalIsActive={!!modal}>
             <PricingContainer {...visibilityProps}>
                 <PricingHeader>
-                    Pricing
+                    { this.pageTitle }
                 </PricingHeader>
 
                 <PlanCycleToggle onClick={toggleCycle}>

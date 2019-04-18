@@ -49,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
   const pricingPage = path.resolve('./src/templates/pricing.jsx');
   createPage({ path: '/pricing', component: pricingPage, context: {} });
   createPage({ path: '/get-pro', component: pricingPage, context: {
-      hideFreePlan: true
+      directPurchase: true,
   }});
 
   // Create a page for each blog post
