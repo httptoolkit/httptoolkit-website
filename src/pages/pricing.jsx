@@ -2,17 +2,16 @@ import * as _ from 'lodash';
 import React from 'react';
 import { Link } from 'gatsby';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { flow, action, observable, computed } from 'mobx';
+import { action, observable } from 'mobx';
 import { observer } from 'mobx-react';
 
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
 
 import { styled, media, css } from '../styles';
-import { delay } from '../util';
 
-import { showLoginDialog, logOut, getLastUserData, getLatestUserData, loginEvents } from '../accounts/auth';
-import { openCheckout, SubscriptionPlans } from '../accounts/subscriptions';
+import { AccountStore } from '../accounts/account-store';
+import { logOut } from '../accounts/auth';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
@@ -284,112 +283,25 @@ const PricingFooter = styled.div`
 
 export default @observer class PricingPage extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        // Update account data automatically on login, logout & every 10 mins
-        loginEvents.on('authenticated', async () => {
-            await this.updateUser();
-            loginEvents.emit('user_data_loaded');
-        });
-        loginEvents.on('logout', this.updateUser);
-        setInterval(this.updateUser, 1000 * 60 * 10);
-        this.updateUser();
-    }
+    account = new AccountStore();
 
     @observable
     modal = null;
 
     @observable
-    waitingForPurchase = false;
-
-    @observable
-    user = getLastUserData();
-
-    updateUser = flow(function * () {
-        this.user = yield getLatestUserData();
-    }.bind(this));
-
-    @computed get isLoggedIn() {
-        return !!this.user.email;
-    }
-
-    @computed get isPaidUser() {
-        // Set with the last known active subscription details
-        const subscriptionExpiry = _.get(this, 'user.subscription.expiry');
-
-        return !!subscriptionExpiry && subscriptionExpiry.valueOf() > Date.now();
-    }
-
-    @computed get subscription() {
-        if (!this.isPaidUser) return {};
-
-        const [ paidTier, paidCycle ] = this.user.subscription.plan.split('-');
-        const status = this.user.subscription.status;
-
-        return { paidTier, paidCycle, status };
-    }
-
-    buyPlan = flow(function * (tierCode) {
-        this.reportPlanSelected(tierCode);
-        const planCode = this.getPlanCode(tierCode);
-
-        if (!this.isLoggedIn) {
-            this.modal = 'login';
-            yield showLoginDialog();
-        }
-
-        if (!this.isLoggedIn || this.isPaidUser) {
-            // Login cancelled or failed, or they have a plan already
-            this.modal = null;
-            return;
-        }
-
-        this.modal = 'checkout';
-        const purchased = yield openCheckout(this.user.email, planCode);
-        this.modal = null;
-
-        if (!purchased) return;
-        this.waitingForPurchase = tierCode;
-
-        yield this.updateUser();
-        while (!this.isPaidUser) {
-            yield delay(1000);
-            yield this.updateUser();
-        }
-
-        this.waitingForPurchase = false;
-    }.bind(this));
-
-    reportPlanSelected(planName) {
-        if (window.ga) {
-            window.ga('send', 'event', {
-                eventCategory: 'plan',
-                eventAction: 'select',
-                eventLabel: _.upperFirst(planName), // For historical reasons
-            });
-        }
-    }
-
-    @observable
-    planCycle = this.subscription.paidCycle || 'annual';
+    planCycle = this.account.subscription.paidCycle || 'annual';
 
     toggleCycle = action(() => {
         this.planCycle = this.planCycle === 'annual' ? 'monthly' : 'annual';
     });
 
     getPlanMonthlyPrice = (tierCode) => {
-        const planCode = this.getPlanCode(tierCode);
-        const plan = SubscriptionPlans[planCode];
+        const plan = this.account.getPlan(tierCode, this.planCycle);
         return plan.prices && plan.prices.monthly;
     };
 
-    getPlanCode = (tierCode) => {
-        return `${tierCode}-${this.planCycle}`;
-    }
-
     getPlanStatus = (tierCode) => {
-        const { paidTier, paidCycle, status } = this.subscription;
+        const { paidTier, paidCycle, status } = this.account.subscription;
 
         if (paidTier !== tierCode) return;
 
@@ -406,11 +318,11 @@ export default @observer class PricingPage extends React.Component {
     }
 
     getPlanCta = (tierCode) => {
-        const { paidTier, paidCycle } = this.subscription;
+        const { paidTier, paidCycle } = this.account.subscription;
 
         if (tierCode === 'free') {
             return <DownloadWidget small sendToEmailText={'On mobile, but want to try it on your computer later?'} />;
-        } else if (this.waitingForPurchase === tierCode) {
+        } else if (this.account.waitingForPurchase === tierCode) {
             return <Button>
                 <FontAwesomeIcon icon={['fal', 'spinner']} spin />
             </Button>;
@@ -434,11 +346,11 @@ export default @observer class PricingPage extends React.Component {
             }
         } else {
             if (tierCode === 'pro') {
-                return <Button onClick={() => this.buyPlan('pro')}>
+                return <Button onClick={() => this.account.buyPlan('pro', this.planCycle)}>
                     Buy Pro
                 </Button>;
             } else if (tierCode === 'team') {
-                return <ButtonLink to='/contact' onClick={() => this.reportPlanSelected('team')}>
+                return <ButtonLink to='/contact' onClick={() => this.account.reportPlanSelected('team')}>
                     Get in touch
                 </ButtonLink>;
             }
@@ -452,18 +364,16 @@ export default @observer class PricingPage extends React.Component {
             getPlanMonthlyPrice,
             modal,
             getPlanCta,
-            user,
-            isPaidUser,
             getPlanStatus
         } = this;
+        const { user, isPaidUser } = this.account;
+        const { paidTier } = this.account.subscription;
 
         const visibilityProps = getVisibilityProps(!!modal);
 
         const spinner = <FontAwesomeIcon icon={['fal', 'spinner']} spin />;
         const proPrice = getPlanMonthlyPrice('pro') || spinner;
         const teamPrice = getPlanMonthlyPrice('team') || spinner;
-
-        const { paidTier } = this.subscription;
 
         return <Layout modalIsActive={!!modal}>
             <PricingContainer {...visibilityProps}>

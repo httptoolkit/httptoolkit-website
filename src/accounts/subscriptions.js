@@ -49,12 +49,12 @@ _.map(SubscriptionPlans, (PlanDetails) => {
 export const getSubscriptionPlanCode = (id) =>
     _.findKey(SubscriptionPlans, { id: id });
 
-export const openCheckout = async (email, planCode) => {
+export const openCheckout = async (email, plan) => {
     const paddle = await waitForPaddle;
 
     return new Promise((resolve) => {
         paddle.Checkout.open({
-            product: SubscriptionPlans[planCode].id,
+            product: plan.id,
             email: email,
             disableLogout: true,
             allowQuantity: false,
