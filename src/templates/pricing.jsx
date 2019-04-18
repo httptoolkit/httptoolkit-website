@@ -363,7 +363,10 @@ export default @observer class PricingPage extends React.Component {
                     Buy Pro
                 </Button>;
             } else if (tierCode === 'team') {
-                return <ButtonLink to='/contact' onClick={() => this.account.reportPlanSelected('team')}>
+                return <ButtonLink
+                    to='/contact'
+                    onClick={() => this.account.reportPlanSelected('team')}
+                >
                     Get in touch
                 </ButtonLink>;
             }

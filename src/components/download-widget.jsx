@@ -76,6 +76,12 @@ const DownloadOptionsButton = styled(Button)`
     `}
 `;
 
+const SeparatePlatformText = styled.small`
+    ${p => p.theme.fontSizeText};
+    font-weight: normal;
+    display: block;
+`;
+
 const DownloadOptions = styled.div`
     display: ${p => p.dropdownOpen ? 'block' : 'none'};
 
@@ -183,9 +189,14 @@ export class DownloadWidget extends React.Component {
                 ref={(ref) => this.containerRef = ref}
             >
                 <DownloadSelected onClick={this.downloadNow} small={small}>
-                    { small ?
-                        `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}` :
-                        `Download now${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`}
+                    { small
+                        ? `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`
+                        : <>Download free now{
+                            selectedDetails ? <SeparatePlatformText>
+                                for {selectedDetails.platform}
+                            </SeparatePlatformText> : ''
+                        }</>
+                    }
                 </DownloadSelected>
                 <DownloadOptionsButton onClick={this.toggleDropdown} small={small}>
                     <FontAwesomeIcon icon={[

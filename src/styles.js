@@ -94,6 +94,12 @@ export const theme = {
         ${media.mobile`font-size: calc(16pt + 5vw)`}
     `,
 
+    fontSizeNearlyHeading: css`
+        ${media.desktop`font-size: 26pt`}
+        ${media.tablet`font-size: 24pt`}
+        ${media.mobile`font-size: calc(14pt + 3vw)`}
+    `,
+
     fontSizeSubheading: css`
         ${media.desktop`font-size: 18pt`}
         ${media.tablet`font-size: 16pt`}

@@ -10,7 +10,7 @@ import FullWidthSection from '../components/full-width-section';
 import { DownloadWidget } from '../components/download-widget';
 import { Modal } from '../components/modal';
 import MailchimpSignupForm from '../components/mailchimp-signup-form';
-import { LinkButton } from '../components/form';
+import { LinkButton, ButtonLink } from '../components/form';
 import { ProPill } from '../components/pro-pill';
 import { Nowrap } from '../components/nowrap';
 
@@ -42,7 +42,11 @@ const TopHeroBlock = styled(HeroBlock)`
 `;
 
 const BottomHeroBlock = styled(HeroBlock)`
-    padding: 120px 0;
+    padding: 120px 0 60px;
+
+    ${media.mobileOrTablet`
+        padding-bottom: 0;
+    `}
 `;
 
 const BottomHeroCTA = styled.h2`
@@ -71,35 +75,72 @@ const SubPitch = styled.h2`
     margin-bottom: 60px;
 `;
 
-const WidgetAndDemoPitchContainer = styled.div`
+const WidgetsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-evenly;
     margin-bottom: 60px;
-`;
 
-const WidgetDemoSpacer = styled.div`
     ${media.desktop`
-        height: 0px;
-        width: 30px;
-    `}
-
-    ${media.mobileOrTablet`
-        height: 30px;
         width: 100%;
     `}
+    ${media.mobileOrTablet`
+        min-width: 80%;
+    `}
 `;
 
-const DemoPitch = styled.div`
-    ${p => p.theme.fontSizeSubheading};
+const Or = styled.span`
     font-style: italic;
-    font-family: Courgette;
+    font-family: 'Courgette', sans-serif;
+    ${p => p.theme.fontSizeSubheading};
+    padding: 20px 0;
+
+    align-self: center;
+
+    ${media.mobileOrTablet`
+        display: none;
+    `}
 `;
 
-const ShiftDown = styled.span`
-    position: relative;
-    top: 7px;
+const DownloadViewWidget = styled(DownloadWidget)`
+    ${media.desktop`
+        width: 38%;
+    `}
+    ${media.mobileOrTablet`
+        min-width: 80%;
+    `}
+
+    > button {
+        color: ${p => p.theme.mainColor};
+        background-color: ${p => p.theme.containerBackground};
+
+        border: 1px solid ${p => p.theme.containerBorder};
+
+        &:first-child {
+            border-right: none;
+        }
+        &:not(:first-child) {
+            border-left: none;
+        }
+    }
+`;
+
+const BuyProWidget = styled(ButtonLink).attrs({
+    to: '/get-pro',
+    children: 'Get Pro'
+})`
+    ${p => p.theme.fontSizeNearlyHeading};
+    font-weight: bold;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38%;
+    ${media.mobileOrTablet`
+        display: none;
+    `}
 `;
 
 const VideoWindowBorder = styled.div`
@@ -321,11 +362,11 @@ export default class ViewPage extends React.Component {
                     and discover exactly what your code is sending.
                 </SubPitch>
 
-                <WidgetAndDemoPitchContainer>
-                    <DownloadWidget />
-                    <WidgetDemoSpacer/>
-                    <DemoPitch>or see a live demo <ShiftDown>↴</ShiftDown></DemoPitch>
-                </WidgetAndDemoPitchContainer>
+                <WidgetsContainer>
+                    <DownloadViewWidget />
+                    <Or>or</Or>
+                    <BuyProWidget />
+                </WidgetsContainer>
             </TopHeroBlock>
 
             <VideoWindowBorder>
@@ -493,7 +534,11 @@ export default class ViewPage extends React.Component {
                 <BottomHeroCTA>
                     Try it for yourself
                 </BottomHeroCTA>
-                <DownloadWidget />
+                <WidgetsContainer>
+                    <DownloadViewWidget />
+                    <Or>or</Or>
+                    <BuyProWidget />
+                </WidgetsContainer>
             </BottomHeroBlock>
 
             <Modal isOpen={!!this.state.updateModalOpen} onClose={() => this.setState({updateModalOpen: false })}>

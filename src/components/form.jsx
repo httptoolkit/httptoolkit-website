@@ -66,6 +66,7 @@ const ButtonStyles = css`
     font-family: Lato;
     ${p => p.theme.fontSizeSubheading};
     white-space: normal;
+    line-height: normal;
 
     color: #fff;
     background-color: ${p => p.theme.primaryColor};
