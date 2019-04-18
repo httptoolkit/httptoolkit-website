@@ -267,7 +267,7 @@ export class Layout extends React.Component {
             <Link to='/privacy-policy'>Privacy Policy</Link>
           </FooterMenu>
           <FooterCopyright>
-            &copy; 2018, built by <TimLink/>
+            &copy; 2018, built in Barcelona by <TimLink/>
           </FooterCopyright>
         </Footer>
       </Main>
