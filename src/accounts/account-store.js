@@ -89,6 +89,7 @@ export class AccountStore {
         }
 
         this.waitingForPurchase = false;
+        this.reportPlanPurchased(tierCode);
     }.bind(this));
 
     reportPlanSelected(planName) {
@@ -96,6 +97,16 @@ export class AccountStore {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
                 eventAction: 'select',
+                eventLabel: _.upperFirst(planName), // For historical reasons
+            });
+        }
+    }
+
+    reportPlanPurchased(planName) {
+        if (window.ga) {
+            window.ga('send', 'event', {
+                eventCategory: 'plan',
+                eventAction: 'purchased',
                 eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }
