@@ -64,6 +64,13 @@ const Nav = styled.nav`
   flex: 1;
   text-align: right;
 
+  display: flex;
+
+  ${media.desktopOrTablet`
+    justify-content: flex-end;
+    align-items: center;
+  `}
+
   ${media.mobile `
     :not(:target) {
       ${p => !p.open && css`display: none;`};
@@ -74,7 +81,6 @@ const Nav = styled.nav`
     left: 0;
     right: 0;
 
-    display: flex;
     flex-direction: column;
   `}
 `;
@@ -152,6 +158,32 @@ const NavItem = styled((props) => <Link
     margin: 0;
     padding: 20px 10px;
     text-align: left;
+    background-color: ${p => p.theme.popBackground};
+    border-bottom: 1px solid ${p => p.theme.containerBackground};
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
+  `}
+`;
+
+const ProductHuntWidget = styled((props) =>
+  <a
+    href="https://www.producthunt.com/posts/http-view"
+    target="_blank"
+    rel="noopener noreferrer"
+    className={props.className}
+  >
+    <img
+      src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=152277&theme=dark"
+      alt="HTTP View - Discuss & review now, on Product Hunt"
+      style={{ height: '46px' }}
+    />
+  </a>
+)`
+  ${media.mobile`
+    order: 100; // Push to the end of the list
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    text-align: center;
     background-color: ${p => p.theme.popBackground};
     border-bottom: 1px solid ${p => p.theme.containerBackground};
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
@@ -253,6 +285,8 @@ export class Layout extends React.Component {
           <Nav id="menu" open={this.state.menuOpen}>
             <NavClose onClick={this.hideMenu} />
 
+            {/* ProductHunt embed - TODO: remove a few days after the launch */}
+            <ProductHuntWidget />
             <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
             <NavItem to='/blog' onClick={this.hideMenu}>Blog</NavItem>
             <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>
