@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import { flow, observable, computed } from 'mobx';
 
-import { delay } from '../util';
+import { delay, isSSR } from '../util';
 
 import {
     showLoginDialog,
@@ -19,7 +19,7 @@ export class AccountStore {
             loginEvents.emit('user_data_loaded');
         });
         loginEvents.on('logout', this.updateUser);
-        setInterval(this.updateUser, 1000 * 60 * 10);
+        if (!isSSR) setInterval(this.updateUser, 1000 * 60 * 10);
         this.updateUser();
     }
 
