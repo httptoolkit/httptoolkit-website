@@ -26,7 +26,9 @@ mCVpul3MYubdv034/ipGZSKJTwgubiHocrSBdeImNe3xdxOw/Mo04r0kcZBg2l/b
 -----END PUBLIC KEY-----
 `;
 
-const auth0Lock = new Auth0LockPasswordless(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+const isSSR = typeof window === 'undefined';
+
+const auth0Lock = isSSR ? {} : new Auth0LockPasswordless(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
     configurationBaseUrl: 'https://cdn.eu.auth0.com',
 
     // Passwordless - email a code, confirm the code
@@ -55,12 +57,16 @@ const auth0Lock = new Auth0LockPasswordless(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 export const loginEvents = new EventEmitter();
 
 // Forward auth0 events to the emitter
-[
-    'authenticated',
-    'unrecoverable_error',
-    'authorization_error',
-    'hide'
-].forEach((event) => auth0Lock.on(event, (data) => loginEvents.emit(event, data)));
+if (!isSSR){
+    [
+        'authenticated',
+        'unrecoverable_error',
+        'authorization_error',
+        'hide'
+    ].forEach((event) =>
+        auth0Lock.on(event, (data) => loginEvents.emit(event, data))
+    );
+}
 
 // Manually hide _after_ user logs in (no autohide) to ensure that
 // the events trigger in an order that makes showLoginDialog happen.
@@ -86,7 +92,7 @@ export const logOut = () => {
     loginEvents.emit('logout');
 };
 
-let tokens = JSON.parse(localStorage.getItem('tokens'));
+let tokens = isSSR ? {} : JSON.parse(localStorage.getItem('tokens'));
 
 const tokenMutex = new Mutex();
 
@@ -150,6 +156,8 @@ function getToken() {
  * we refresh in the background.
  */
 export function getLastUserData() {
+    if (isSSR) return {};
+
     try {
         return parseUserData(localStorage.getItem('last_jwt'));
     } catch (e) {
