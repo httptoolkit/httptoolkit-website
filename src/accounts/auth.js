@@ -6,6 +6,7 @@ import * as jwt from 'jsonwebtoken';
 import { Auth0LockPasswordless } from '@httptoolkit/auth0-lock';
 
 import { theme } from '../styles';
+import { isSSR } from '../util';
 import { getSubscriptionPlanCode } from './subscriptions';
 
 const AUTH0_CLIENT_ID = 'KAJyF1Pq9nfBrv5l3LHjT9CrSQIleujj';
@@ -25,8 +26,6 @@ mCVpul3MYubdv034/ipGZSKJTwgubiHocrSBdeImNe3xdxOw/Mo04r0kcZBg2l/b
 7QIDAQAB
 -----END PUBLIC KEY-----
 `;
-
-const isSSR = typeof window === 'undefined';
 
 const auth0Lock = isSSR ? {} : new Auth0LockPasswordless(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
     configurationBaseUrl: 'https://cdn.eu.auth0.com',

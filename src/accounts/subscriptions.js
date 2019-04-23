@@ -1,7 +1,8 @@
 import * as _ from 'lodash';
 import { observable } from 'mobx';
 
-const isSSR = typeof window === 'undefined';
+import { isSSR } from '../util';
+
 if (!isSSR) import('val-loader!./paddle');
 
 const PADDLE_VENDOR_ID = 37222;
