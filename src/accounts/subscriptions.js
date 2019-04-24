@@ -40,8 +40,16 @@ export const SubscriptionPlans = observable({
 _.map(SubscriptionPlans, (PlanDetails) => {
     getPlanPrices(PlanDetails.id).then((planPricing) => {
         const planPrice = planPricing.price.net.replace(/[.,]00$/g, '');
-        const monthlyPrice = planPricing.recurring.subscription.type === 'year' ?
-            planPrice.replace(/[\d.,]+/g, (d) => _.round((parseFloat(d) / 12), 2).toString()) : planPrice;
+        const monthlyPrice = planPricing.recurring.subscription.type === 'year'
+            ? planPrice.replace(
+                /[\d.,]+$/g,
+                (d) => _.round((parseFloat(
+                    // Replace all punctuation except the last. This ensures we can parse
+                    // numbers in the 1,000s without assuming either . or , separators.
+                    d.replace(/[,.](?=\d+[,.])/g, '')
+                ) / 12), 2).toString()
+            )
+            : planPrice;
 
         PlanDetails.prices = { total: planPrice, monthly: monthlyPrice };
     });
