@@ -464,11 +464,16 @@ export default @observer class PricingPage extends React.Component {
                                 <em>All Hobbyist features, and:</em>
                             </Feature>
                             <Feature>
-                                In-depth debugging integrations for 1400+ APIs,
-                                including AWS, Github and Stripe
+                                <strong>Integration with 1400+ APIs</strong>, including
+                                AWS, Github & Stripe, for live validation and documentation
                             </Feature>
                             <Feature>
-                                Detailed performance, caching & compression analysis & warnings
+                                In-depth <strong>performance analysis</strong>, including
+                                compression and caching explanations & warnings
+                            </Feature>
+                            <Feature>
+                                <strong>Export requests & responses</strong> to HAR, or as
+                                ready-to-use code for 20+ languages & tools
                             </Feature>
                             <Feature>
                                 Light, dark & high-contrast UI themes
