@@ -472,7 +472,7 @@ export default @observer class PricingPage extends React.Component {
                                 compression and caching explanations & warnings
                             </Feature>
                             <Feature>
-                                <strong>Export requests & responses</strong> to HAR, or as
+                                <strong>Import/export traffic</strong> as HARs, or as
                                 ready-to-use code for 20+ languages & tools
                             </Feature>
                             <Feature>
