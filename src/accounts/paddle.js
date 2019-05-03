@@ -7,6 +7,15 @@ module.exports = function () {
     return fetch('https://cdn.paddle.com/paddle/paddle.js')
     .then((paddleResponse) => paddleResponse.text())
     .then((paddleScript) => ({
-        code: paddleScript
+        // We prepend logic to ensure everything is registered globally, because _half_ of
+        // Paddle.js assumes that that's the case, and mobile viewport management breaks
+        // if module or define are defined.
+        code: `
+            (function () {
+                const define = undefined;
+                const module = undefined;
+                ${paddleScript}
+            })();
+        `
     }));
 }
