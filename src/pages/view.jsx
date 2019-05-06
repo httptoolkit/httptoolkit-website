@@ -68,10 +68,10 @@ const Highlight = styled.span`
 `;
 
 const SubPitch = styled.h2`
-    ${p => p.theme.fontSizeSubheading};
+    ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.3;
 
-    max-width: 450px;
+    max-width: 650px;
     margin-bottom: 60px;
 `;
 
@@ -229,8 +229,7 @@ const LiveDemoVideo = styled.video`
 `;
 
 const ViewDescription = styled.p`
-    ${p => p.theme.fontSizeSubheading};
-    font-style: italic;
+    ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.3;
 
     ${media.desktop`
@@ -239,10 +238,11 @@ const ViewDescription = styled.p`
 
     ${media.mobileOrTablet`
         margin: 60px auto;
+        padding: 0 10px;
     `}
 
     text-align: center;
-    max-width: 490px;
+    max-width: 700px;
 `;
 
 const Feature = styled.section`
@@ -333,6 +333,24 @@ const FeatureImg = styled(Img)`
     );
 `;
 
+const ViewFuturePlans = styled.p`
+    ${p => p.theme.fontSizeSubheading};
+    font-style: italic;
+    line-height: 1.3;
+
+    ${media.desktop`
+        margin: 0 auto 120px;
+    `}
+
+    ${media.mobileOrTablet`
+        margin: 0 auto 60px;
+        padding: 0 10px;
+    `}
+
+    text-align: center;
+    max-width: 490px;
+`;
+
 const ModalTitle = styled.h2`
     margin-bottom: 30px;
 `;
@@ -385,9 +403,12 @@ export default class ViewPage extends React.Component {
             <ViewDescription>
                 <Highlight>HTTP View</Highlight> is the first release of{' '}
                 <Highlight>HTTP Toolkit</Highlight>,
-                a suite of beautiful & open-source tools
-                for debugging, testing and building with HTTP(S)
-                on Windows, Linux & Mac.
+                a suite of beautiful & <a
+                    href="https://github.com/httptoolkit"
+                    target="_blank"
+                    rel='noopener noreferrer'
+                >open-source</a> tools for debugging, testing and building with
+                HTTP(S) on Windows, Linux & Mac.
             </ViewDescription>
 
             <Feature>
@@ -515,7 +536,7 @@ export default class ViewPage extends React.Component {
                 <FeatureImg fluid={data.accelerateScreenshot.childImageSharp.fluid} />
             </Feature>
 
-            <ViewDescription>
+            <ViewFuturePlans>
                 And that's just the first release!
                 <br/><br/>
                 Future plans include manual & automatic HTTP rewriting,
@@ -528,7 +549,7 @@ export default class ViewPage extends React.Component {
                 }}>
                     Sign up for updates
                 </LinkButton>,<br/>or download now below.
-            </ViewDescription>
+            </ViewFuturePlans>
 
             <BottomHeroBlock>
                 <BottomHeroCTA>
