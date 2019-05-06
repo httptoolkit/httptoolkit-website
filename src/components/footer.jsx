@@ -1,5 +1,7 @@
 import { styled, media } from '../styles';
 
+import headshot from '../images/tim-small.png';
+
 export const Footer = styled.div`
   background-color: ${p => p.theme.popBackground};
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
@@ -26,6 +28,15 @@ export const Footer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  > * {
+    ${media.desktopOrTablet`
+      flex: 1 1 0;
+    `}
+    ${media.mobile`
+      flex: 0 0 100%;
+    `}
+  }
 `;
 
 export const FooterMenu = styled.div`
@@ -39,6 +50,31 @@ export const FooterMenu = styled.div`
   }
 `;
 
-export const FooterCopyright = styled.div`
-  padding: 20px 0 16px;
+export const FooterCreator = styled.div`
+  ${media.mobileOrTablet`
+    display: none;
+  `}
+`;
+
+export const FooterOpenSource = styled.div`
+  text-align: center;
+
+  ${media.tablet`
+    text-align: right;
+  `}
+
+  ${media.mobile`
+    margin-top: 20px;
+    text-align: left;
+  `}
+`;
+
+export const Headshot = styled.img.attrs({
+  src: headshot,
+  alt: "Picture of Tim Perry"
+})`
+  float: right;
+  margin: -5px 0 -10px 10px;
+  height: 52px;
+  vertical-align: middle;
 `;

@@ -10,12 +10,11 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { styled, ThemeProvider, media, getGlobalStyles, theme, css } from '../styles';
 
 import logo from '../images/logo.svg';
-import headshot from '../images/tim-small.png';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
 import { Header } from './header';
-import { Footer, FooterCopyright, FooterMenu } from './footer';
+import { Footer, FooterCreator, FooterOpenSource, FooterMenu, Headshot } from './footer';
 
 import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
@@ -164,23 +163,6 @@ const NavItem = styled((props) => <Link
   `}
 `;
 
-const TimLink = styled((props) =>
-  <a className={props.className} href='https://twitter.com/pimterry'>
-    <span>Tim Perry</span> <img src={headshot} alt="Tim Perry" />
-  </a>
-)`
-  text-decoration: none;
-  > span {
-    text-decoration: underline;
-  }
-
-  > img {
-    margin: -18px 0 -15px 6px;
-    height: 52px;
-    vertical-align: middle;
-  }
-`;
-
 export class Layout extends React.Component {
 
   constructor(props) {
@@ -272,9 +254,23 @@ export class Layout extends React.Component {
             <Link to='/terms-of-service'>Terms of Service</Link>
             <Link to='/privacy-policy'>Privacy Policy</Link>
           </FooterMenu>
-          <FooterCopyright>
-            &copy; 2018, built in Barcelona by <TimLink/>
-          </FooterCopyright>
+          <FooterOpenSource>
+            <strong>100% open-source</strong>
+            <br/>
+            Dive in at <a
+              href="https://github.com/httptoolkit"
+              target="_blank"
+              rel='noopener noreferrer'
+            >github.com/httptoolkit</a>
+          </FooterOpenSource>
+          <FooterCreator>
+            <Headshot />
+            Built in Barcelona
+            <br/>
+            by <a href="https://twitter.com/pimterry">
+              Tim Perry
+            </a>
+          </FooterCreator>
         </Footer>
       </Main>
     </ThemeProvider>;
