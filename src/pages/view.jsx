@@ -233,7 +233,7 @@ const ViewDescription = styled.p`
     line-height: 1.3;
 
     ${media.desktop`
-        margin: 120px auto;
+        margin: 120px auto 40px;
     `}
 
     ${media.mobileOrTablet`
@@ -243,6 +243,42 @@ const ViewDescription = styled.p`
 
     text-align: center;
     max-width: 700px;
+`;
+
+const FeaturedBy = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-bottom: 180px;
+`
+
+const FeaturedByTitle = styled.h3`
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    ${p => p.theme.fontSizeSubheading};
+    color: ${p => p.theme.mainSubtleColor};
+    font-weight: bold;
+
+    margin-bottom: 40px;
+`;
+
+const FeaturedByOrg = styled((props) => <a
+    {...props}
+    target="_blank"
+    rel='noopener noreferrer'
+>
+    <Img alt={props.alt} fluid={props.fluid} />
+</a>)`
+    opacity: 0.8;
+    min-width: 150px;
+
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 const Feature = styled.section`
@@ -410,6 +446,40 @@ export default class ViewPage extends React.Component {
                 >open-source</a> tools for debugging, testing and building with
                 HTTP(S) on Windows, Linux & Mac.
             </ViewDescription>
+
+            <FeaturedBy>
+                <FeaturedByTitle>Featured by</FeaturedByTitle>
+                <FeaturedByOrg
+                    href="https://javascriptweekly.com/issues/434"
+                    alt="JavaScript Daily"
+                    fluid={data.jsDailyLogo.childImageSharp.fluid}
+                />
+                <FeaturedByOrg
+                    href="https://twitter.com/smashingmag/status/1123879784688291841"
+                    alt="Smashing Magazine"
+                    fluid={data.smashingLogo.childImageSharp.fluid}
+                />
+                <FeaturedByOrg
+                    href="https://www.producthunt.com/posts/http-view"
+                    alt="Product Hunt"
+                    fluid={data.phLogo.childImageSharp.fluid}
+                />
+                <FeaturedByOrg
+                    href="https://webopsweekly.com/issues/213"
+                    alt="WebOps Daily"
+                    fluid={data.webOpsLogo.childImageSharp.fluid}
+                />
+                <FeaturedByOrg
+                    href="https://betalist.com/startups/http-toolkit"
+                    alt="Betalist"
+                    fluid={data.betalistLogo.childImageSharp.fluid}
+                />
+                <FeaturedByOrg
+                    href="https://www.netlify.com/blog/2019/02/18/featured-site-http-toolkit/"
+                    alt="Netlify"
+                    fluid={data.netlifyLogo.childImageSharp.fluid}
+                />
+            </FeaturedBy>
 
             <Feature>
                 <FeatureTextContainer>
@@ -587,6 +657,14 @@ export const query = graphql`
         }
     }
 
+    fragment FeaturedLogo on File {
+        childImageSharp {
+            fluid(maxHeight: 150) {
+                ...GatsbyImageSharpFluid_withWebp
+            }
+        }
+    }
+
     query {
         interceptScreenshot: file(relativePath: { eq: "intercept-screenshot.png" }) {
             ...FeatureImage
@@ -602,6 +680,25 @@ export const query = graphql`
         }
         accelerateScreenshot: file(relativePath: { eq: "accelerate-screenshot.png" }) {
             ...FeatureImage
+        }
+
+        smashingLogo: file(relativePath: { eq: "3rd-party-logos/smashing-mag.png" }) {
+            ...FeaturedLogo
+        }
+        webOpsLogo: file(relativePath: { eq: "3rd-party-logos/webops-weekly.png" }) {
+            ...FeaturedLogo
+        }
+        phLogo: file(relativePath: { eq: "3rd-party-logos/product-hunt.png" }) {
+            ...FeaturedLogo
+        }
+        jsDailyLogo: file(relativePath: { eq: "3rd-party-logos/js-daily.jpg" }) {
+            ...FeaturedLogo
+        }
+        betalistLogo: file(relativePath: { eq: "3rd-party-logos/betalist.png" }) {
+            ...FeaturedLogo
+        }
+        netlifyLogo: file(relativePath: { eq: "3rd-party-logos/netlify.png" }) {
+            ...FeaturedLogo
         }
     }
 `
