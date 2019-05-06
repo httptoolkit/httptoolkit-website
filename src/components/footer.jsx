@@ -7,16 +7,16 @@ export const Footer = styled.div`
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
 
   ${media.desktop`
-    padding: 10px calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+    padding: 10px calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2) 20px;
     margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
   `}
 
   ${media.tablet`
-    padding: 10px 30px;
+    padding: 10px 30px 20px;
   `}
 
   ${media.mobile`
-    padding: 20px 10px;
+    padding: 20px 10px 30px;
   `}
 
   ${p => p.theme.fontSizeText};
@@ -36,6 +36,19 @@ export const Footer = styled.div`
     ${media.mobile`
       flex: 0 0 100%;
     `}
+  }
+`;
+
+export const FooterSocialIcons = styled.div`
+  text-align: center;
+  flex: 1 0 100%;
+  margin: 10px 0 20px;
+
+  > a {
+    margin: 0 20px;
+    &:hover {
+      color: ${p => p.theme.popColor};
+    }
   }
 `;
 

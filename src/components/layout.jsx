@@ -14,7 +14,7 @@ import logo from '../images/logo.svg';
 import { siteMetadata } from '../../gatsby-config.js';
 
 import { Header } from './header';
-import { Footer, FooterCreator, FooterOpenSource, FooterMenu, Headshot } from './footer';
+import { Footer, FooterSocialIcons, FooterCreator, FooterOpenSource, FooterMenu, Headshot } from './footer';
 
 import '@fortawesome/fontawesome/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
@@ -250,6 +250,17 @@ export class Layout extends React.Component {
         {this.props.children}
 
         <Footer {...visibilityProps}>
+          <FooterSocialIcons>
+            <a href="https://github.com/httptoolkit">
+              <FontAwesomeIcon size='2x' icon={['fab', 'github']} />
+            </a>
+            <a href="https://twitter.com/httptoolkit">
+              <FontAwesomeIcon size='2x' icon={['fab', 'twitter']} />
+            </a>
+            <a href="/rss.xml">
+              <FontAwesomeIcon size='2x' icon={['fas', 'rss-square']} />
+            </a>
+          </FooterSocialIcons>
           <FooterMenu>
             <Link to='/terms-of-service'>Terms of Service</Link>
             <Link to='/privacy-policy'>Privacy Policy</Link>
