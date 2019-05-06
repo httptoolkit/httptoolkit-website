@@ -579,41 +579,29 @@ export default class ViewPage extends React.Component {
 }
 
 export const query = graphql`
+    fragment FeatureImage on File {
+        childImageSharp {
+            fluid(maxWidth: 750) {
+                ...GatsbyImageSharpFluid_withWebp
+            }
+        }
+    }
+
     query {
         interceptScreenshot: file(relativePath: { eq: "intercept-screenshot.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
+            ...FeatureImage
         }
         exploreScreenshot: file(relativePath: { eq: "explore-screenshot.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
+            ...FeatureImage
         }
         examineScreenshot: file(relativePath: { eq: "examine-screenshot.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
+            ...FeatureImage
         }
         understandScreenshot: file(relativePath: { eq: "understand-screenshot.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
+            ...FeatureImage
         }
         accelerateScreenshot: file(relativePath: { eq: "accelerate-screenshot.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 750) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
+            ...FeatureImage
         }
     }
 `
