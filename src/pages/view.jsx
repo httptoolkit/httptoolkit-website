@@ -252,8 +252,14 @@ const FeaturedBy = styled.section`
     align-items: center;
     justify-content: space-evenly;
 
-    margin-bottom: 180px;
-`
+    ${media.desktop`
+        margin-bottom: 180px;
+    `}
+
+    ${media.mobileOrTablet`
+        margin-bottom: 120px;
+    `}
+`;
 
 const FeaturedByTitle = styled.h3`
     width: 100%;
