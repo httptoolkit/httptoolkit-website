@@ -253,11 +253,11 @@ const FeaturedBy = styled.section`
     justify-content: space-evenly;
 
     ${media.desktop`
-        margin-bottom: 180px;
+        margin-bottom: 170px;
     `}
 
     ${media.mobileOrTablet`
-        margin-bottom: 120px;
+        margin-bottom: 110px;
     `}
 `;
 
@@ -281,6 +281,7 @@ const FeaturedByOrg = styled((props) => <a
 </a>)`
     opacity: 0.8;
     min-width: 150px;
+    margin-bottom: 10px;
 
     &:hover {
         opacity: 1;
