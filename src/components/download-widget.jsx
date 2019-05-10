@@ -9,7 +9,7 @@ import MailchimpSignupForm from './mailchimp-signup-form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },
-    // TODO: Disabled temporarily, broken by https://github.com/electron-userland/electron-forge/issues/670
+    // TODO: Disabled, broken by https://github.com/electron-userland/electron-forge/issues/670
     // 'win-standalone': { name: 'Windows Standalone Zip', platform: 'Windows', icon: 'windows' },
     'linux-deb': { name: 'Linux Debian Package', platform: 'Linux (Deb)', icon: 'linux' },
     'linux-standalone': { name: 'Linux Standalone Zip', platform: 'Linux', icon: 'linux' },
@@ -65,6 +65,10 @@ const DownloadSelected = styled(Button)`
         padding: 15px 5px;
         ${p.theme.fontSizeText};
     `}
+
+    &:focus {
+        z-index: 1;
+    }
 `;
 
 const DownloadOptionsButton = styled(Button)`
@@ -74,6 +78,10 @@ const DownloadOptionsButton = styled(Button)`
     ${p => p.small && `
         padding: 10px 15px;
     `}
+
+    &:focus {
+        z-index: 1;
+    }
 `;
 
 const SeparatePlatformText = styled.small`
