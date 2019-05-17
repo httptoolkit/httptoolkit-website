@@ -1,6 +1,5 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
 
 import { styled, media } from '../styles';
 
@@ -57,12 +56,12 @@ export default ({ pageContext: { releasePath } }) => (<Layout>
             Sign up for updates
         </ThankYouHeader>
         <ThankYouDetails>
-            You're now downloading <Link to='/view'>HTTP View</Link>, the first release of HTTP Toolkit.
-            But there's a lot more to come soon, including automated Docker
-            interception, request metrics and security linting.
+            <strong>You're now downloading HTTP View</strong>, the first release of HTTP Toolkit.
+            But there's a lot more to come soon, including automated Android, iOS & Docker interception,
+            request & response editing, and security linting.
         </ThankYouDetails>
         <ThankYouDetails>
-            Sign up now so you don't miss new features & releases:
+            Sign up now, so you don't miss new features & releases:
         </ThankYouDetails>
         <MailchimpSignupForm
             action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
