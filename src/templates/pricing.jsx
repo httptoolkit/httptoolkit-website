@@ -473,14 +473,14 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                             <Feature>
                                 In-depth <strong>performance analysis</strong>, including
-                                compression and caching explanations & warnings
+                                compression and caching tools
                             </Feature>
                             <Feature>
                                 <strong>Import/export traffic</strong> as HARs, or as
                                 ready-to-use code for 20+ languages & tools
                             </Feature>
                             <Feature>
-                                Light, dark & high-contrast UI themes
+                                <strong>Extra customization</strong>, including light, dark & high-contrast UI themes and proxy port range selection.
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
