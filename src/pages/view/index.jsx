@@ -85,6 +85,15 @@ export const SubPitch = styled.h2`
 
     max-width: 650px;
     margin-bottom: 60px;
+
+    ${media.mobileOrTablet`
+        br {
+            content: ' ';
+        }
+        br:after {
+            content: ' ';
+        }
+    `}
 `;
 
 const WidgetsContainer = styled.div`
@@ -125,7 +134,10 @@ const DownloadViewWidget = styled(DownloadWidget)`
 
     > button {
         color: ${p => p.theme.mainColor};
-        background-color: ${p => p.theme.containerBackground};
+        background-color: ${p => p.outsideContainer
+            ? p.theme.mainBackground
+            : p.theme.containerBackground
+        };
 
         border: 1px solid ${p => p.theme.containerBorder};
 
@@ -155,9 +167,9 @@ const BuyProWidget = styled(ButtonLink).attrs({
     `}
 `;
 
-export const CTAWidgets = () =>
+export const CTAWidgets = (p) =>
     <WidgetsContainer>
-        <DownloadViewWidget />
+        <DownloadViewWidget outsideContainer={p.outsideContainer} />
         <Or>or</Or>
         <BuyProWidget />
     </WidgetsContainer>
@@ -260,16 +272,25 @@ export const DemoVideo = () => <VideoWindowBorder>
     </LiveDemoVideo>
 </VideoWindowBorder>
 
-const ViewDescriptionContainer = styled.p`
-    ${p => p.theme.fontSizeNearlyHeading};
-    line-height: 1.3;
+export const SectionSpacer = styled.div`
+    width: 100%;
+    visibility: hidden;
 
     ${media.desktop`
-        margin: 120px auto 40px;
+        height: 120px;
     `}
 
     ${media.mobileOrTablet`
-        margin: 60px auto;
+        height: 60px;
+    `}
+`;
+
+const ViewDescriptionContainer = styled.p`
+    ${p => p.theme.fontSizeNearlyHeading};
+    line-height: 1.3;
+    margin: 0 auto 60px;
+
+    ${media.mobileOrTablet`
         padding: 0 10px;
     `}
 
@@ -352,8 +373,10 @@ export default class ViewPage extends React.Component {
 
             <DemoVideo />
 
+            <SectionSpacer />
             <ViewDescription />
             <FeaturedBy />
+            <SectionSpacer />
 
             <InterceptFeature />
             <ExploreFeature reverse />

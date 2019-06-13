@@ -2,7 +2,7 @@ import * as React from 'react';
 import Img from 'gatsby-image';
 import { StaticQuery, graphql } from "gatsby";
 
-import { styled, media } from '../styles';
+import { styled } from '../styles';
 
 const FeaturedByContainer = styled.section`
     display: flex;
@@ -10,14 +10,7 @@ const FeaturedByContainer = styled.section`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
-    ${media.desktop`
-        margin-bottom: 170px;
-    `}
-
-    ${media.mobileOrTablet`
-        margin-bottom: 110px;
-    `}
+    margin-bottom: 60px;
 `;
 
 const FeaturedByTitle = styled.h3`

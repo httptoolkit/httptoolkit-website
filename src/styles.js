@@ -12,6 +12,7 @@ import * as rss from '@fortawesome/fontawesome-free-solid/faRssSquare';
 import * as windows from '@fortawesome/fontawesome-free-brands/faWindows';
 import * as apple from '@fortawesome/fontawesome-free-brands/faApple';
 import * as linux from '@fortawesome/fontawesome-free-brands/faLinux';
+import * as github from '@fortawesome/fontawesome-free-brands/faGithub';
 import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
 import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
 import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
@@ -23,10 +24,10 @@ import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
 import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
 import * as toggleOn from '@fortawesome/fontawesome-free-solid/faToggleOn';
 import * as toggleOff from '@fortawesome/fontawesome-free-solid/faToggleOff';
-import * as github from '@fortawesome/fontawesome-free-brands/faGithub';
+import * as check from '@fortawesome/fontawesome-free-solid/faCheck';
 
 fontawesome.config.autoAddCss = false;
-fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown, toggleOn, toggleOff, github);
+fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, github, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown, toggleOn, toggleOff, check);
 
 export { styled, css, ThemeProvider };
 
