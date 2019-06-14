@@ -1,5 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Img from 'gatsby-image';
+import { graphql, StaticQuery } from 'gatsby';
 
 import { Layout } from '../../components/layout';
 import { Modal } from '../../components/modal';
@@ -20,13 +22,13 @@ import {
     Pitch,
     Highlight,
     SubPitch,
-    DemoVideo,
     SectionSpacer,
     ViewDescription,
     ViewFuturePlans,
     BottomHeroBlock,
     ModalTitle
 } from './index';
+import { AppWindow } from '../../components/app-window';
 
 export default class ViewRubyPage extends React.Component {
     constructor(props) {
@@ -53,7 +55,24 @@ export default class ViewRubyPage extends React.Component {
                 <CTAWidgets />
             </TopHeroContainer>
 
-            <DemoVideo/>
+            <AppWindow>
+                <StaticQuery
+                    query={graphql`
+                        query {
+                            rubyScreenshot: file(relativePath: { eq: "ruby-ui-screenshot.png" }) {
+                                childImageSharp {
+                                    fluid(maxWidth: 1024) {
+                                        ...GatsbyImageSharpFluid_withWebp
+                                    }
+                                }
+                            }
+                        }
+                    `}
+                    render={(data) =>
+                        <Img fluid={data.rubyScreenshot.childImageSharp.fluid} />
+                    }
+                />
+            </AppWindow>
 
             <SectionSpacer />
             <ViewDescription />
