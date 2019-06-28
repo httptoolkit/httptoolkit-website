@@ -7,8 +7,8 @@ import { Layout } from '../../components/layout';
 import { Modal } from '../../components/modal';
 import MailchimpSignupForm from '../../components/mailchimp-signup-form';
 
-import { RubyGettingStarted } from '../../components/per-target/ruby-getting-started';
-import { RubySupportedTools } from '../../components/per-target/ruby-supported-tools';
+import { JSGettingStarted } from '../../components/per-target/js-getting-started';
+import { JSSupportedTools } from '../../components/per-target/js-supported-tools';
 
 import { InterceptFeature } from '../../components/features/intercept';
 import { ExploreFeature } from '../../components/features/explore';
@@ -30,7 +30,7 @@ import {
 } from './index';
 import { AppWindow } from '../../components/app-window';
 
-export default class ViewRubyPage extends React.Component {
+export default class ViewJSPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,15 +41,15 @@ export default class ViewRubyPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Capture, view and explore your Ruby app's HTTP traffic</title>
+                <title>Capture, view and explore your JavaScript's HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch>
-                    HTTP Debugging for <Highlight>Ruby</Highlight>
+                    HTTP Debugging for <Highlight>JavaScript</Highlight>
                 </Pitch>
                 <SubPitch>
                     Instantly view & debug all HTTP traffic<br/>
-                    from any Ruby tool, process, or server
+                    from any JavaScript tool, script, or server
                 </SubPitch>
 
                 <CTAWidgets />
@@ -59,7 +59,7 @@ export default class ViewRubyPage extends React.Component {
                 <StaticQuery
                     query={graphql`
                         query {
-                            rubyScreenshot: file(relativePath: { eq: "ruby-ui-screenshot.png" }) {
+                            jsScreenshot: file(relativePath: { eq: "js-ui-screenshot.png" }) {
                                 childImageSharp {
                                     fluid(maxWidth: 1024) {
                                         ...GatsbyImageSharpFluid_withWebp
@@ -69,15 +69,15 @@ export default class ViewRubyPage extends React.Component {
                         }
                     `}
                     render={(data) =>
-                        <Img fluid={data.rubyScreenshot.childImageSharp.fluid} />
+                        <Img fluid={data.jsScreenshot.childImageSharp.fluid} />
                     }
                 />
             </AppWindow>
 
             <SectionSpacer />
             <ViewDescription />
-            <RubyGettingStarted />
-            <RubySupportedTools />
+            <JSGettingStarted />
+            <JSSupportedTools />
             <SectionSpacer />
             <CTAWidgets outsideContainer={true} />
             <SectionSpacer />
