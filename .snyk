@@ -1,0 +1,144 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby-remark-images > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby-plugin-sharp > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-plugin-styled-components > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - '@vx/responsive > lodash':
+        patched: '2019-07-04T00:49:07.056Z'
+    - styled-components > babel-plugin-styled-components > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/core > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > webpack-merge > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > gatsby-plugin-page-creator > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > gatsby-cli > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint-plugin-import > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint-plugin-graphql > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby-plugin-sharp > async > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby-remark-images > cheerio > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint-plugin-flowtype > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > css-loader > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gh-pages > async > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > @babel/traverse > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint-plugin-graphql > graphql-config > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > webpack-dev-server > http-proxy-middleware > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/core > @babel/traverse > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-plugin-styled-components > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > react-dev-utils > inquirer > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > optimize-css-assets-webpack-plugin > last-call-webpack-plugin > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint > table > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint > inquirer > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-eslint > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - styled-components > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby-transformer-remark > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > gatsby-cli > yurnalist > inquirer > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-eslint > @babel/traverse > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - '@babel/plugin-proposal-decorators > @babel/helper-create-class-features-plugin > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > eslint-plugin-graphql > graphql-config > graphql-import > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-sticky-regex > @babel/helper-regex > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/core > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - '@babel/plugin-proposal-decorators > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash':
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-eslint > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-modules-commonjs > @babel/helper-simple-access > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-transform-template-literals > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-async-to-generator > @babel/helper-module-imports > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - '@babel/plugin-proposal-decorators > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash':
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/helper-optimise-call-expression > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - '@babel/plugin-proposal-decorators > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash':
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/traverse > @babel/generator > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-proposal-async-generator-functions > @babel/helper-remap-async-to-generator > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-transform-classes > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-exponentiation-operator > @babel/helper-builder-binary-assignment-operator-visitor > @babel/helper-explode-assignable-expression > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
+    - gatsby > relay-compiler > babel-preset-fbjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-04T00:49:07.056Z'
