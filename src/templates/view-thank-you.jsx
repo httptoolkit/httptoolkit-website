@@ -1,5 +1,4 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+import React, { useEffect } from 'react';
 
 import { styled, media } from '../styles';
 
@@ -47,27 +46,34 @@ const ThankYouDetails = styled.p`
     margin: 0 0 40px;
 `;
 
-export default ({ pageContext: { releasePath } }) => (<Layout>
-    <ThankYouContainer>
-        <Helmet>
-            <meta httpEquiv='refresh' content={`1;url=https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`} />
-        </Helmet>
-        <ThankYouHeader>
-            Sign up for updates
-        </ThankYouHeader>
-        <ThankYouDetails>
-            <strong>You're now downloading HTTP View</strong>, the first release of HTTP Toolkit.
-            But there's a lot more to come soon, including automated Android, iOS & Docker interception,
-            request & response editing, and security linting.
-        </ThankYouDetails>
-        <ThankYouDetails>
-            Sign up now, so you don't miss new features & releases:
-        </ThankYouDetails>
-        <MailchimpSignupForm
-            action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
-            emailTitle={"Enter your email"}
-            hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
-            submitText={"Sign up"}
-        />
-    </ThankYouContainer>
-</Layout>);
+export default ({ pageContext: { releasePath } }) => {
+    useEffect(() => {
+        // Trigger a download of the app
+        var iframe = document.createElement('iframe');
+        iframe.src = `https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`;
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+    }, []);
+
+    return <Layout>
+        <ThankYouContainer>
+            <ThankYouHeader>
+                Sign up for updates
+            </ThankYouHeader>
+            <ThankYouDetails>
+                <strong>You're now downloading HTTP View</strong>, the first release of HTTP Toolkit.
+                But there's a lot more to come soon, including automated Android, iOS & Docker interception,
+                request & response editing, and security linting.
+            </ThankYouDetails>
+            <ThankYouDetails>
+                Sign up now, so you don't miss new features & releases:
+            </ThankYouDetails>
+            <MailchimpSignupForm
+                action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
+                emailTitle={"Enter your email"}
+                hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
+                submitText={"Sign up"}
+            />
+        </ThankYouContainer>
+    </Layout>;
+}
