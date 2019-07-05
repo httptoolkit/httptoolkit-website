@@ -19,6 +19,19 @@ exports.onPostBootstrap = function (pages) {
     return fs.copy('./node_modules/monaco-editor/min/vs', './public/vs');
 };
 
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          // Exclude auth0 from the server-side build, as it uses Window
+          { test: /auth0-js/, use: loaders.null(), },
+        ],
+      },
+    })
+  }
+}
+
 // Set up the blog:
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
