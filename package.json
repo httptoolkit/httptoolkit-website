@@ -8,7 +8,9 @@
     "build": "gatsby build",
     "start": "gatsby develop",
     "start:prod": "npm run build && gatsby serve --port 9090",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -70,9 +72,11 @@
     "styled-components": "^4.1.3",
     "styled-reset": "^1.3.2",
     "utf8": "^3.0.0",
-    "val-loader": "^1.1.1"
+    "val-loader": "^1.1.1",
+    "snyk": "^1.192.2"
   },
   "devDependencies": {
     "fs-extra": "^6.0.0"
-  }
+  },
+  "snyk": true
 }

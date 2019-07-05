@@ -1,0 +1,36 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > react-hot-loader > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > gatsby-telemetry > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > gatsby-cli > gatsby-telemetry > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > gatsby-plugin-page-creator > gatsby-page-utils > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - styled-reset > opencollective > inquirer > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - styled-components > @babel/traverse > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - styled-components > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-transform-modules-commonjs > @babel/helper-module-transforms > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-transform-parameters > @babel/helper-call-delegate > @babel/helper-hoist-variables > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-transform-classes > @babel/helper-define-map > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
+    - gatsby > @gatsbyjs/relay-compiler > babel-preset-fbjs > @babel/plugin-proposal-class-properties > @babel/helper-create-class-features-plugin > @babel/helper-replace-supers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
+        patched: '2019-07-05T19:33:59.011Z'
