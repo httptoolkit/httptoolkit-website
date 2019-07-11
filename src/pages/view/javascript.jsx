@@ -41,11 +41,12 @@ export default class ViewJSPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Capture, view and explore your JavaScript's HTTP traffic</title>
+                <title>Capture, view and debug your Node.js and web JS's HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch>
-                    HTTP Debugging for <Highlight>JavaScript</Highlight>
+                    HTTP Debugging<br/>
+                    for <Highlight>JavaScript</Highlight> & <Highlight>Node.js</Highlight>
                 </Pitch>
                 <SubPitch>
                     Instantly view & debug all HTTP traffic<br/>
