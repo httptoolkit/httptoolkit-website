@@ -41,7 +41,7 @@ export default class ViewRubyPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Capture, view and explore your Ruby app's HTTP traffic</title>
+                <title>Capture, view and debug your Ruby app's HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch>

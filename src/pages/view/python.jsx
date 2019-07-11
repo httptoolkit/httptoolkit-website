@@ -41,7 +41,7 @@ export default class ViewPythonPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Capture, view and explore your Python code's HTTP traffic</title>
+                <title>Capture, view and debug your Python code's HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch>
