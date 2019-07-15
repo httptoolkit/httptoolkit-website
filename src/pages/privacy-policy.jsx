@@ -135,7 +135,7 @@ export default () => (<Layout>
                 <li>To send you marketing and promotional communications. We and/or our third party marketing partners may use the personal information you send to us for our marketing purposes, where you have consented to this marketing. You can opt-out of our marketing emails at any time.</li>
                 <li>To send administrative information to you. We may use your personal information to send you necessary product and service information, and/or information about changes to our terms, conditions, and policies.</li>
                 <li>To fulfill and manage your orders. We may use your information to fulfill and manage your orders, payments, returns, and exchanges made through the Services.</li>
-                <li>To request feedback. We may use your information to request feedback, and to contact you about your use of our Services.</li>
+                <li>To collect & request feedback. We may use your information in automated error reporting, to request feedback, or to contact you about your use of our Services.</li>
                 <li>To enable user-to-user communications. We may use your information in order to enable user-to-user communications with each user's consent.</li>
                 <li>To enforce our terms, conditions and policies.</li>
                 <li>To respond to legal requests and prevent harm. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.</li>
@@ -188,7 +188,7 @@ export default () => (<Layout>
 
             <p>We have implemented appropriate technical and organisational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the services within a secure environment. </p>
 
-            <h1>Do we collection information from minors?</h1>
+            <h1>Do we collect information from minors?</h1>
 
             <p>We do not knowingly solicit data from or market to children under 13 years of age. By using the Services, you represent that you are at least 13 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services.</p>
 
