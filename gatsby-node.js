@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const LATEST_VERSION = '0.1.8';
+const LATEST_VERSION = '0.1.9';
 
 const releasePathMap = {
     'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
