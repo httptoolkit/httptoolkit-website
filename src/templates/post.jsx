@@ -130,7 +130,7 @@ const CoverImg = styled(Img)`
 
 export default ({ data }) => {
   const post = data.markdownRemark;
-  const publishDate = moment(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
+  const publishDate = moment.utc(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
 
   return (<Layout>
     <BlogPostContainer width='780px'>

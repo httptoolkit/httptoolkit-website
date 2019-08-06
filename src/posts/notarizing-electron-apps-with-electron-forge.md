@@ -1,6 +1,6 @@
 ---
 title: 'Notarize your Electron App with Electron Forge'
-date: '2019-08-06T15:00'
+date: '2019-08-06T13:00'
 cover_image: './signing.jpg'
 draft: false
 ---
