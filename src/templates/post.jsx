@@ -62,7 +62,7 @@ const BlogPost = styled.article`
     line-height: 1.45;
   }
 
-  p, ul {
+  p, ul, ol {
     ${p => p.theme.fontSizeText};
     color: ${p => p.theme.mainColor};
     line-height: 1.45;
@@ -78,12 +78,31 @@ const BlogPost = styled.article`
     margin-left: 25px;
   }
 
+  ol {
+    list-style-type: decimal;
+    margin-left: 25px;
+  }
+
+  li > ul {
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+
   li {
     margin-bottom: 10px;
 
     & > p:only-child {
       margin-bottom: 0;
     }
+  }
+
+  blockquote {
+    white-space: pre;
+  }
+
+  blockquote > p {
+    border-left: 5px solid ${p => p.theme.mainSubtleColor};
+    padding-left: 10px;
   }
 
   code {
