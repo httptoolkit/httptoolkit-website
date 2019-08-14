@@ -4,3 +4,9 @@
   to = "/view"
   force = true
   status = 302
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # https://xclacksoverhead.org
+    X-Clacks-Overhead = "GNU Terry Pratchett"
