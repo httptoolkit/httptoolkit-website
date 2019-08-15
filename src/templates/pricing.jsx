@@ -480,7 +480,8 @@ export default @observer class PricingPage extends React.Component {
                                 ready-to-use code for 20+ languages & tools
                             </Feature>
                             <Feature>
-                                <strong>Extra customization</strong>, including light, dark & high-contrast UI themes and proxy port range selection.
+                                <strong>Advanced customization</strong>, including proxy port configuration,
+                                certificate whitelisting, and light, dark & high-contrast UI themes.
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
