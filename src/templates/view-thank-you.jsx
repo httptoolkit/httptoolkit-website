@@ -13,6 +13,10 @@ const ThankYouContainer = styled(FullWidthSection)`
     flex-direction: column;
     justify-content: center;
 
+    ${p => !p.leftAlign && media.desktop`
+        align-items: center;
+    `}
+
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
 
@@ -46,24 +50,44 @@ const ThankYouDetails = styled.p`
     margin: 0 0 40px;
 `;
 
-export default ({ pageContext: { releasePath } }) => {
-    useEffect(() => {
-        // Trigger a download of the app
-        var iframe = document.createElement('iframe');
-        iframe.src = `https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`;
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
-    }, []);
+const InstallCode = styled.code`
+    ${p => p.theme.fontSizeHeading};
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    color: #ccc;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    padding: 30px;
+    margin: 0 0 40px;
+`;
+
+export default ({ pageContext: { releasePath, downloadCommand } }) => {
+    if (releasePath) {
+        useEffect(() => {
+            // Trigger a download of the app
+            var iframe = document.createElement('iframe');
+            iframe.src = `https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`;
+            iframe.style.display = "none";
+            document.body.appendChild(iframe);
+        }, []);
+    }
 
     return <Layout>
-        <ThankYouContainer>
-            <ThankYouHeader>
-                Sign up for updates
-            </ThankYouHeader>
+        <ThankYouContainer leftAlign={!downloadCommand}>
+            { downloadCommand
+                ? <InstallCode>
+                    { downloadCommand }
+                </InstallCode>
+                : <ThankYouHeader>
+                    Sign up for updates
+                </ThankYouHeader>
+            }
             <ThankYouDetails>
-                <strong>You're now downloading HTTP View</strong>, the first release of HTTP Toolkit.
+                { downloadCommand
+                    ? <strong>You'll soon be downloading HTTP View</strong>
+                    : <strong>You're now downloading HTTP View</strong>
+                }, the first release of HTTP Toolkit.
                 But there's a lot more to come soon, including automated Android, iOS & Docker interception,
-                request & response editing, and security linting.
+                request & response editing, server mocking, and security linting.
             </ThankYouDetails>
             <ThankYouDetails>
                 Sign up now, so you don't miss new features & releases:

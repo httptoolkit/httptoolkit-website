@@ -14,6 +14,7 @@ const DOWNLOAD_OPTIONS = {
     'linux-deb': { name: 'Linux Debian Package', platform: 'Linux (Deb)', icon: 'linux' },
     'linux-standalone': { name: 'Linux Standalone Zip', platform: 'Linux', icon: 'linux' },
     'osx-dmg': { name: 'MacOS DMG', platform: 'MacOS', icon: 'apple' },
+    'osx-homebrew': { name: 'MacOS via Homebrew', platform: 'MacOS', icon: 'apple' },
     'osx-standalone': { name: 'MacOS Standalone Zip', platform: 'MacOS', icon: 'apple' }
 }
 

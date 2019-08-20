@@ -5,15 +5,6 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 const LATEST_VERSION = '0.1.10';
 
-const releasePathMap = {
-    'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
-    'win-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-win32-x64-${LATEST_VERSION}.zip`,
-    'linux-deb': `v${LATEST_VERSION}/httptoolkit_${LATEST_VERSION}_amd64.deb`,
-    'linux-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-linux-x64-${LATEST_VERSION}.zip`,
-    'osx-dmg': `v${LATEST_VERSION}/HTTP.Toolkit.dmg`,
-    'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
-}
-
 // Include Monaco:
 exports.onPostBootstrap = function (pages) {
     return fs.copy('./node_modules/monaco-editor/min/vs', './public/vs');
@@ -50,12 +41,26 @@ exports.createPages = ({ graphql, actions }) => {
 
   // Create a download page for each available download
   const viewThankYou = path.resolve('./src/templates/view-thank-you.jsx');
-  _.forEach(releasePathMap, (releasePath, downloadId) => {
+  _.forEach({
+    'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
+    'win-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-win32-x64-${LATEST_VERSION}.zip`,
+    'linux-deb': `v${LATEST_VERSION}/httptoolkit_${LATEST_VERSION}_amd64.deb`,
+    'linux-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-linux-x64-${LATEST_VERSION}.zip`,
+    'osx-dmg': `v${LATEST_VERSION}/HTTP.Toolkit.dmg`,
+    'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
+  }, (releasePath, downloadId) => {
       createPage({
-          path: `/view/thank-you/${downloadId}`,
-          component: viewThankYou,
-          context: { releasePath }
+        path: `/view/thank-you/${downloadId}`,
+        component: viewThankYou,
+        context: { releasePath }
       });
+  });
+
+  // Create a 'download' page for the homebrew install command
+  createPage({
+    path: `/view/thank-you/osx-homebrew`,
+    component: viewThankYou,
+    context: { downloadCommand: 'brew cask install http-toolkit' }
   });
 
   // Create a normal and a 'buy now' pricing page
