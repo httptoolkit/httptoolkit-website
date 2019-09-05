@@ -86,10 +86,10 @@ export default () => (<Layout>
             The text below formally defines what data HTTP Toolkit collects, how HTTP Toolkit uses your data, and why.
         </PolicyDisclaimer>
         <PolicyDisclaimer>
-            HTTP Toolkit does its best to avoid collecting data about you wherever possible. If you have suggestions for ways to improve user privacy, let us know at <a href="https://github.com/httptoolkit/feedback/issues/new">github.com/httptoolkit/feedback</a>.
+            HTTP Toolkit does its best to avoid collecting data about you wherever possible. <strong>The content of your HTTP(S) requests & responses is never collected</strong>, and this is stored only locally on your machine. Users of HTTP Toolkit are typically completely anonymous, except for users who explicitly log into HTTP Toolkit accounts, and HTTP Toolkit takes efforts to preserve the anonymity of collected data wherever possible.
         </PolicyDisclaimer>
         <PolicyDisclaimer>
-            If you'd like to see exactly what data HTTP Toolkit collects up close, feel free to take a look at <a href="https://github.com/httptoolkit">the source</a> for yourself.
+            If you have suggestions for ways to improve user privacy, let us know at <a href="https://github.com/httptoolkit/feedback/issues/new">github.com/httptoolkit/feedback</a>. If you'd like to see exactly what data HTTP Toolkit collects up close, feel free to take a look at <a href="https://github.com/httptoolkit">the source</a> for yourself.
         </PolicyDisclaimer>
         <Policy>
             <h1>Our privacy policy</h1>
