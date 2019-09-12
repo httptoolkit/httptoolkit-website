@@ -135,7 +135,7 @@ export default ({ data }) => {
   return (<Layout>
     <BlogPostContainer width='780px'>
       <Helmet>
-        <title>{siteMetadata.name} | {post.frontmatter.title}</title>
+        <title>{post.frontmatter.title}</title>
         <meta name="description" content={post.excerpt} />
 
         <meta property="og:title"       content={post.frontmatter.title} />
