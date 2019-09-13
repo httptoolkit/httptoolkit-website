@@ -126,7 +126,7 @@ There's even [discussion](https://github.com/microsoft/TypeScript/pull/32695#iss
 
 [Async/await](https://basarat.gitbooks.io/typescript/docs/async-await.html) is amazing, and makes promises dramatically cleaner to use.
 
-Unfortunately though, you can't use them at the top level. This might not be something you care about much in a TS library or application, but if you're writing a runnable script or using TypeScript in a [REPL](https://www.npmjs.com/package/ts-node) then this gets super annoying. It's even worse if you're used to frontend development, since `await` has been legal at the top level in Chrome and Firefox for a couple of years now.
+Unfortunately though, you can't use them at the top level. This might not be something you care about much in a TS library or application, but if you're writing a runnable script or using TypeScript in a [REPL](https://www.npmjs.com/package/ts-node) then this gets super annoying. It's even worse if you're used to frontend development, since top-level `await` has been working nicely in the Chrome and Firefox console for a couple of years now.
 
 Fortunately though, a fix is coming. This is actually a general stage-3 JS [proposal](https://github.com/tc39/proposal-top-level-await), so it'll be everywhere else eventually too, but for TS devs 3.7 is where the magic happens.
 
