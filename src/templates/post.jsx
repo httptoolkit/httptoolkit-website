@@ -4,7 +4,7 @@ import moment from 'moment';
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 
-import { styled } from '../styles';
+import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
@@ -44,6 +44,10 @@ const BlogPost = styled.article`
     font-weight: bold;
     color: ${p => p.theme.mainColor};
     margin-top: 60px;
+
+    ${media.desktop`
+      letter-spacing: -1px;
+    `}
   }
 
   h2 {
