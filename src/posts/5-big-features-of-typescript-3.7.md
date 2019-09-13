@@ -28,7 +28,7 @@ It's easiest to demonstrate this with a JavaScript example:
 // In JS:
 
 function assertString(input) {
-    if (input instanceof 'string') return;
+    if (typeof input === 'string') return;
     else throw new Error('Input must be a string!');
 }
 
@@ -52,7 +52,7 @@ Fortunately, soon we will:
 // With TS 3.7
 
 function assertString(input: any): asserts input is string { // <-- the magic
-    if (input instanceof 'string') return;
+    if (typeof input === 'string') return;
     else throw new Error('Input must be a string!');
 }
 
