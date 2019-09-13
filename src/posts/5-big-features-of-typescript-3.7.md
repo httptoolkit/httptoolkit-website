@@ -14,7 +14,7 @@ The target release date is November 5th, and there's some seriously exciting hea
 - Null coalescing
 - Optional chaining
 
-Personally, I'm super excited about this, they're going to whisk away some annoyances I've been fighting against forever!
+Personally, I'm super excited about this, they're going to whisk away all sorts of annoyances that I've been fighting in TypeScript whilst building [HTTP Toolkit](https://httptoolkit.tech).
 
 If you haven't been paying close attention to the TypeScript development process though, it's probably not clear what half of these mean, or why you should care. Let's talk them through.
 

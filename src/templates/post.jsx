@@ -4,7 +4,6 @@ import moment from 'moment';
 import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 
-import { siteMetadata } from '../../gatsby-config.js';
 import { styled } from '../styles';
 
 import { Layout } from '../components/layout';
