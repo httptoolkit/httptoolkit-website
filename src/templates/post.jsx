@@ -8,7 +8,6 @@ import { styled } from '../styles';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
-import { Hr } from '../components/hr';
 import { BlogSubscribe } from '../components/blog-subscribe';
 
 const BlogPostContainer = styled(FullWidthSection)`
@@ -152,9 +151,7 @@ export default ({ data }) => {
         <PublishDate title={publishDate.format('MMM Do YYYY')}>Published { publishDate.fromNow() }</PublishDate>
       </BlogPost>
 
-      <Hr/>
-
-      <BlogSubscribe />
+      <BlogSubscribe inPostFooter={true} />
     </BlogPostContainer>
   </Layout>);
 };

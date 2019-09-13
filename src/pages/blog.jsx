@@ -5,7 +5,6 @@ import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
-import { Hr } from '../components/hr';
 import { BlogSubscribe } from '../components/blog-subscribe';
 
 export const pageQuery = graphql`
@@ -45,16 +44,11 @@ const BlogListContainer = styled(FullWidthSection)`
 const BlogHeading = styled.h1`
     ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
+    margin-bottom: 60px;
 `;
 
 const BlogHeader = styled.div`
-    ${media.desktop`
-        margin: 60px 0 75px;
-    `}
-
-    ${media.mobileOrTablet`
-        margin: 60px 0 40px;
-    `}
+    margin-top: 60px;
 `;
 
 const PostList = styled.ul`
@@ -112,8 +106,6 @@ export default ({ data }) => {
                 <BlogHeading>Read the Blog</BlogHeading>
                 <BlogSubscribe />
             </BlogHeader>
-
-            <Hr/>
 
             <PostList>
                 {posts.map(({ node: post }) => <li key={post.id}>
