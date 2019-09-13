@@ -283,10 +283,8 @@ The last case shows how neatly some of these dovetail together: null coalescing 
 
 One gotcha: this will return undefined for missing values, even if they were null, e.g. in cases like `(null)?.key` (returns undefined). A small point, but one to watch out for if you have a lot of `null` in your data structures.
 
----
-
 That's the lot! That should outline all the essentials for these features, but there's lots of smaller improvements, fixes & editor support improvements coming too, so take a look at the [official roadmap](https://github.com/microsoft/TypeScript/issues/33352) if you want to get into the nitty gritty.
 
 Hope that's useful - if you've got any questions let me know on [Twitter](https://twitter.com/pimterry).
 
-_While you're here, if you like JS & want to supercharge your debugging skills, take a look at **[HTTP Toolkit](https://httptoolkit.tech/view/javascript)**. One-click HTTP(S) interception & debugging for any JS page, script, or server (plus lots of other tools too)._
+**While you're here, if you like JavaScript & want to supercharge your debugging skills, [try out HTTP Toolkit](https://httptoolkit.tech/view/javascript). One-click HTTP(S) interception & debugging for any JS page, script, or server (plus lots of other tools too).**

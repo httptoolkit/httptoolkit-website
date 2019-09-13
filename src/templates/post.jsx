@@ -9,6 +9,7 @@ import { styled } from '../styles';
 import { Layout } from '../components/layout';
 import FullWidthSection from '../components/full-width-section';
 import { BlogSubscribe } from '../components/blog-subscribe';
+import { Headshot } from '../components/footer';
 
 const BlogPostContainer = styled(FullWidthSection)`
     flex: 1;
@@ -25,6 +26,14 @@ const BlogPostContainer = styled(FullWidthSection)`
 const PublishDate = styled.p`
   font-style: italic;
   text-align: right;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  > a {
+    margin-left: 5px;
+  }
 `;
 
 const BlogPost = styled.article`
@@ -94,6 +103,10 @@ const BlogPost = styled.article`
     }
   }
 
+  strong > a {
+    color: ${p => p.theme.popColor};
+  }
+
   blockquote {
     white-space: pre;
   }
@@ -148,7 +161,13 @@ export default ({ data }) => {
         <h1>{post.frontmatter.title}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <PublishDate title={publishDate.format('MMM Do YYYY')}>Published { publishDate.fromNow() }</PublishDate>
+        <PublishDate title={publishDate.format('MMM Do YYYY')}>
+          Published { publishDate.fromNow() } by <a
+            href="https://twitter.com/pimterry"
+          >
+            Tim Perry
+          </a> <Headshot />
+        </PublishDate>
       </BlogPost>
 
       <BlogSubscribe inPostFooter={true} />
