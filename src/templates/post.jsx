@@ -39,6 +39,10 @@ const PublishDate = styled.p`
 const BlogPost = styled.article`
   background-color: ${p => p.theme.mainBackground};
 
+  ${media.mobile`
+    overflow-wrap: break-word;
+  `}
+
   h1 {
     ${p => p.theme.fontSizeBiggerHeading};
     font-weight: bold;
