@@ -32,6 +32,7 @@ const PublishDate = styled.p`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
 
   > a {
     margin-left: 5px;
@@ -58,10 +59,13 @@ const BlogPost = styled.article`
   }
 
   h2 {
-    ${p => p.theme.fontSizeSubheading};
-    color: ${p => p.theme.popColor};
+    ${p => p.theme.fontSizeHeading};
 
     margin: 60px 0 30px;
+
+    ${media.desktop`
+      letter-spacing: -1px;
+    `}
 
     &:first-child {
       margin: 10px 0 60px;
@@ -82,8 +86,10 @@ const BlogPost = styled.article`
 
   p, ul, ol {
     ${p => p.theme.fontSizeText};
+    font-family: 'Merriweather', serif;
     color: ${p => p.theme.mainColor};
-    line-height: 1.45;
+    line-height: 1.8;
+    letter-spacing: -0.01em;
     margin-bottom: 30px;
   }
 
