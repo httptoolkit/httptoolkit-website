@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Layout } from '../components/layout';
 import { FeaturesBlock, Feature } from '../components/features-block';

@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, ThemeProvider, media, getGlobalStyles, theme, css } from '../styles';
 
@@ -16,7 +16,7 @@ import { siteMetadata } from '../../gatsby-config.js';
 import { Header } from './header';
 import { Footer, FooterSocialIcons, FooterCreator, FooterOpenSource, FooterMenu, Headshot } from './footer';
 
-import '@fortawesome/fontawesome/styles.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
 import { LinkButton } from './form';
 import { getVisibilityProps } from './modal';

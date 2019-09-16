@@ -2,32 +2,65 @@ import styled, { createGlobalStyle, css, ThemeProvider } from 'styled-components
 
 import reset from 'styled-reset';
 
-import fontawesome from '@fortawesome/fontawesome'
-import * as android from '@fortawesome/fontawesome-free-brands/faAndroid';
-import * as chrome from '@fortawesome/fontawesome-free-brands/faChrome';
-import * as docker from '@fortawesome/fontawesome-free-brands/faDocker';
-import * as twitter from '@fortawesome/fontawesome-free-brands/faTwitter';
-import * as facebook from '@fortawesome/fontawesome-free-brands/faFacebook';
-import * as rss from '@fortawesome/fontawesome-free-solid/faRssSquare';
-import * as windows from '@fortawesome/fontawesome-free-brands/faWindows';
-import * as apple from '@fortawesome/fontawesome-free-brands/faApple';
-import * as linux from '@fortawesome/fontawesome-free-brands/faLinux';
-import * as github from '@fortawesome/fontawesome-free-brands/faGithub';
-import * as stopwatch from '@fortawesome/fontawesome-pro-light/faStopwatch';
-import * as wrench from '@fortawesome/fontawesome-pro-light/faWrench';
-import * as search from '@fortawesome/fontawesome-pro-light/faSearch';
-import * as spinner from '@fortawesome/fontawesome-pro-light/faSpinner';
-import * as bars from '@fortawesome/fontawesome-pro-regular/faBars';
-import * as times from '@fortawesome/fontawesome-pro-regular/faTimes';
-import * as infoCircle from '@fortawesome/fontawesome-pro-regular/faInfoCircle';
-import * as chevronUp from '@fortawesome/fontawesome-free-solid/faChevronUp';
-import * as chevronDown from '@fortawesome/fontawesome-free-solid/faChevronDown';
-import * as toggleOn from '@fortawesome/fontawesome-free-solid/faToggleOn';
-import * as toggleOff from '@fortawesome/fontawesome-free-solid/faToggleOff';
-import * as check from '@fortawesome/fontawesome-free-solid/faCheck';
+import { library, config } from '@fortawesome/fontawesome-svg-core'
+import { faAndroid } from '@fortawesome/free-brands-svg-icons/faAndroid';
+import { faChrome } from '@fortawesome/free-brands-svg-icons/faChrome';
+import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
+import { faRedditAlien } from '@fortawesome/free-brands-svg-icons/faRedditAlien';
+import { faHackerNews } from '@fortawesome/free-brands-svg-icons/faHackerNews';
+import { faProductHunt } from '@fortawesome/free-brands-svg-icons/faProductHunt';
+import { faDev } from '@fortawesome/free-brands-svg-icons/faDev';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons/faShareAlt';
+import { faRssSquare } from '@fortawesome/free-solid-svg-icons/faRssSquare';
+import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows';
+import { faApple } from '@fortawesome/free-brands-svg-icons/faApple';
+import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faStopwatch } from '@fortawesome/pro-light-svg-icons/faStopwatch';
+import { faWrench } from '@fortawesome/pro-light-svg-icons/faWrench';
+import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
+import { faSpinner } from '@fortawesome/pro-light-svg-icons/faSpinner';
+import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
+import { faTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
+import { faInfoCircle } from '@fortawesome/pro-regular-svg-icons/faInfoCircle';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
+import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
-fontawesome.config.autoAddCss = false;
-fontawesome.library.add(android, chrome, docker, twitter, facebook, rss, windows, apple, linux, github, stopwatch, wrench, search, spinner, bars, times, infoCircle, chevronUp, chevronDown, toggleOn, toggleOff, check);
+config.autoAddCss = false;
+library.add(
+    faAndroid,
+    faChrome,
+    faDocker,
+    faTwitter,
+    faFacebook,
+    faRedditAlien,
+    faHackerNews,
+    faProductHunt,
+    faDev,
+    faShareAlt,
+    faRssSquare,
+    faWindows,
+    faApple,
+    faLinux,
+    faGithub,
+    faStopwatch,
+    faWrench,
+    faSearch,
+    faSpinner,
+    faBars,
+    faTimes,
+    faInfoCircle,
+    faChevronUp,
+    faChevronDown,
+    faToggleOn,
+    faToggleOff,
+    faCheck
+);
 
 export { styled, css, ThemeProvider };
 

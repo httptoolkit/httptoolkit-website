@@ -3,6 +3,7 @@ title: 'X-Ray Debugging for HTTP'
 date: '2019-04-24T12:00'
 cover_image: './xray.jpg'
 draft: false
+productHuntUrl: 'https://producthunt.com/posts/http-view'
 ---
 
 HTTP Toolkit is a suite of open-source & cross-platform tools for developing, debugging & testing anything using HTTP. It lets you intercept HTTP(S) with one click, and explore, examine & understand all your traffic, to spot bugs, fix bugs, and build better software.

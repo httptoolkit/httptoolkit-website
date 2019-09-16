@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby';
 
 import { styled, css } from '../styles';

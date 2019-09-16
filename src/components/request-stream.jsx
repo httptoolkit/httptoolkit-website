@@ -1,5 +1,5 @@
 import React from 'react';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components';
 
 function buildRequest(type, method, source, host, path, query = '', status = 200) {

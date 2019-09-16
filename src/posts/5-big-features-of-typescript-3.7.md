@@ -2,6 +2,10 @@
 title: 'The 5 Big Features of TypeScript 3.7 and How to Use Them'
 date: '2019-09-12T12:00'
 cover_image: './code.jpg'
+twitterUrl: https://twitter.com/HttpToolkit/status/1172151468721344517
+redditUrl: https://www.reddit.com/r/programming/comments/d38rp9/typescript_37_the_5_biggest_features_how_to_use/
+hackerNewsUrl: https://news.ycombinator.com/item?id=20956450
+devToUrl: https://dev.to/pimterry/the-5-big-features-of-typescript-3-7-and-how-to-use-them-1bfn
 ---
 
 The TypeScript 3.7 release is coming soon, and it's going to be a big one.

@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import React from 'react';
 import { Link } from 'gatsby';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { action, observable } from 'mobx';
 import { observer } from 'mobx-react';
 
