@@ -1,10 +1,10 @@
-import { styled, media } from '../styles';
+import { styled, media } from '../../styles';
 
-export const FeaturesBlock = styled.div`
+export const FeatureCardsBlock = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin: -180px 0 60px;
+  margin: 60px 0;
 
   ${media.mobile`
     margin-top: 60px;
@@ -25,7 +25,7 @@ export const FeaturesBlock = styled.div`
   `}
 `;
 
-export const Feature = styled.section`
+export const FeaturesCard = styled.section`
   flex: 1;
   margin: 0 8px;
 

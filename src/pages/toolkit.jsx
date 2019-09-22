@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Layout } from '../components/layout';
-import { FeaturesBlock, Feature } from '../components/features-block';
+import { FeatureCardsBlock, FeaturesCard } from '../components/features/feature-cards';
 import DetailsBlock from '../components/details-block';
 import RequestStream from '../components/request-stream';
 import StackedGraph from '../components/stacked-graph';
@@ -126,6 +126,10 @@ const Subheading = styled.h2`
   `}
 `;
 
+const OverlappingFeatureCardsBlock = styled(FeatureCardsBlock)`
+  margin: -180px 0 60px;
+`;
+
 const overlay = (overlayStyles) => css`
   &:after {
     content: '';
@@ -231,8 +235,8 @@ export default () => (<Layout>
     <DownloadWidget />
   </TopHeroBlock>
 
-  <FeaturesBlock>
-    <Feature>
+  <OverlappingFeatureCardsBlock>
+    <FeaturesCard>
       <h3>Debug</h3>
       <FontAwesomeIcon icon={['fal', 'search']} size='3x' />
       <p>
@@ -244,8 +248,8 @@ export default () => (<Layout>
       <p>
         Built-in support for Chrome, Android, Docker and more
       </p>
-    </Feature>
-    <Feature>
+    </FeaturesCard>
+    <FeaturesCard>
       <h3>Test</h3>
       <FontAwesomeIcon icon={['fal', 'stopwatch']} size='3x' />
       <p>
@@ -257,8 +261,8 @@ export default () => (<Layout>
       <p>
         Analyze live request performance & security
       </p>
-    </Feature>
-    <Feature>
+    </FeaturesCard>
+    <FeaturesCard>
       <h3>Build</h3>
       <FontAwesomeIcon icon={['fal', 'wrench']} size='3x' />
       <p>
@@ -274,8 +278,8 @@ export default () => (<Layout>
           open-source internals
         </a>
       </p>
-    </Feature>
-  </FeaturesBlock>
+    </FeaturesCard>
+  </OverlappingFeatureCardsBlock>
 
   <DetailsBlock direction='right'>
     <StreamWrapper>

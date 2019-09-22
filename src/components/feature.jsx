@@ -88,9 +88,15 @@ export const FeatureDescription = styled.p`
     }
 `;
 
-export const ProFeaturePill = styled(ProPill)`
+export const BigProFeaturePill = styled(ProPill)`
     ${p => p.theme.fontSizeSubheading};
     vertical-align: 0.35em;
+    margin-left: 5px;
+`;
+
+export const SmallProFeaturePill = styled(ProPill)`
+    ${p => p.theme.fontSizeText};
+    line-height: 1;
     margin-left: 5px;
 `;
 

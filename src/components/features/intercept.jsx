@@ -28,16 +28,17 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureSubHeading>
 
             <FeatureDescription>
-                HTTP View includes automatic interception
-                integrations for HTTP and HTTPS on a huge
-                range of platforms, with more coming soon,
-                from Chrome to iOS to Docker.
+                Automatic interception setup for HTTP & HTTPS
+                from most clients, including browsers like <strong>
+                Chrome & Firefox</strong>, almost all CLI tools, and backend languages
+                like <strong>Node.js, Python & Ruby</strong>, with more platforms
+                coming soon.
             </FeatureDescription>
 
             <FeatureDescription>
-                For platforms without automatic integrations, HTTP View{' '}
-                acts as an HTTP(S) proxy, <strong>compatible with almost all
-                HTTP clients, in any language</strong>.
+                For platforms without automatic integrations, HTTP Toolkit{' '}
+                acts as an HTTP(S) proxy, <strong>compatible with standard
+                HTTP requests from any language or tool</strong>.
             </FeatureDescription>
         </FeatureTextContainer>
 

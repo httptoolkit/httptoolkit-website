@@ -9,7 +9,7 @@ import {
     FeatureSubHeading,
     FeatureDescription,
     FeatureImg,
-    ProFeaturePill
+    BigProFeaturePill
 } from '../feature';
 
 export const AccelerateFeature = (p) => <StaticQuery
@@ -25,7 +25,7 @@ export const AccelerateFeature = (p) => <StaticQuery
             <FeatureTitle>Accelerate</FeatureTitle>
 
             <FeatureSubHeading>
-                <Nowrap>Go faster <ProFeaturePill /></Nowrap>
+                <Nowrap>Go faster <BigProFeaturePill /></Nowrap>
             </FeatureSubHeading>
 
             <FeatureDescription>

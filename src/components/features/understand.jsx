@@ -9,7 +9,7 @@ import {
     FeatureSubHeading,
     FeatureDescription,
     FeatureImg,
-    ProFeaturePill
+    BigProFeaturePill
 } from '../feature';
 
 export const UnderstandFeature = (p) => <StaticQuery
@@ -25,7 +25,7 @@ export const UnderstandFeature = (p) => <StaticQuery
             <FeatureTitle>Understand</FeatureTitle>
 
             <FeatureSubHeading>
-                Know <Nowrap>everything <ProFeaturePill /></Nowrap>
+                Know <Nowrap>everything <BigProFeaturePill /></Nowrap>
             </FeatureSubHeading>
 
             <FeatureDescription>
