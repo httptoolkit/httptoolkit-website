@@ -390,7 +390,7 @@ export default class MockPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Intercept, explore & debug HTTP</title>
+                <title>Intercept, debug & mock HTTP</title>
             </Helmet>
             <TopHeroContainer>
                 <MockPitch />

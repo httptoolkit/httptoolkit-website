@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import { Nowrap } from '../nowrap';
 import {
     Feature,
     FeatureTextContainer,
