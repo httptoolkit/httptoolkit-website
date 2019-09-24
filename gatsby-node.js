@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const LATEST_VERSION = '0.1.12';
+const LATEST_VERSION = '0.1.13';
 
 // Include Monaco:
 exports.onPostBootstrap = function (pages) {
