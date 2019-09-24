@@ -1,7 +1,9 @@
+import { Link } from 'gatsby';
 import { styled } from '../styles';
 
-export const ProPill = styled.span.attrs({
-    children: 'Pro'
+export const ProPill = styled(Link).attrs({
+    children: 'Pro',
+    to: '/get-pro'
 })`
     display: inline-block;
     border-radius: 4px;
@@ -17,6 +19,7 @@ export const ProPill = styled.span.attrs({
 
     text-align: center;
     text-transform: uppercase;
+    text-decoration: none;
     font-weight: bold;
 
     color: ${p => p.theme.popColor};
