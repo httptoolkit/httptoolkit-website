@@ -124,6 +124,10 @@ const PricingTier = styled.div`
 
     ${media.desktop`
         flex: 1 1 100%;
+
+        ${p => p.highlighted && css`
+            flex-basis: 104%;
+        `}
     `}
 
     ${media.tablet`
@@ -496,12 +500,17 @@ export default @observer class PricingPage extends React.Component {
                                 responses to errors & timeouts
                             </Feature>
                             <Feature>
-                                <strong>Import/export</strong> for mock rules, and for collected traffic
-                                as either HARs or ready-to-use code for 20+ languages & tools
+                                <strong>Import/export</strong> mock rules, and code or <a
+                                    href="https://en.wikipedia.org/wiki/HAR_(file_format)"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    HARs
+                                </a> of collected traffic
                             </Feature>
                             <Feature>
                                 <strong>Advanced customization</strong>, including port configuration,
-                                certificate whitelisting, and light, dark & high-contrast UI themes
+                                certificate whitelisting, and UI themes
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
