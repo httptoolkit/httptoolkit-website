@@ -83,11 +83,6 @@ const PricingTable = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
-    ${media.desktop`
-        width: 80%;
-        margin: 0 auto;
-    `}
-
     ${media.mobileOrTablet`
         flex-wrap: wrap;
     `};
@@ -128,7 +123,7 @@ const PricingTier = styled.div`
     `}
 
     ${media.desktop`
-        width: 51%;
+        flex: 1 1 100%;
     `}
 
     ${media.tablet`
@@ -212,8 +207,10 @@ const Feature = styled.li`
         list-style-type: circle;
         list-style-position: inside;
 
+        margin-top: 20px;
+
         li {
-            margin-top: 20px;
+            margin-top: 10px;
         }
     }
 `;
@@ -335,8 +332,7 @@ export default @observer class PricingPage extends React.Component {
         const { paidTier, paidCycle } = this.account.subscription;
 
         if (tierCode === 'free') {
-            if (this.hideFreePlan) return null;
-            else return <DownloadWidget
+            return <DownloadWidget
                 small
                 sendToEmailText={'On mobile, but want to try it on your computer later?'}
             />;
@@ -365,7 +361,7 @@ export default @observer class PricingPage extends React.Component {
         } else {
             if (tierCode === 'pro') {
                 return <Button onClick={() => this.account.buyPlan('pro', this.planCycle)}>
-                    Get Pro
+                    Buy Pro
                 </Button>;
             } else if (tierCode === 'team') {
                 return <ButtonLink
@@ -394,6 +390,7 @@ export default @observer class PricingPage extends React.Component {
 
         const spinner = <FontAwesomeIcon icon={['fal', 'spinner']} spin />;
         const proPrice = getPlanMonthlyPrice('pro') || spinner;
+        const teamPrice = getPlanMonthlyPrice('team') || spinner;
 
         return <Layout modalIsActive={!!modal}>
             <PricingContainer {...visibilityProps}>
@@ -410,7 +407,7 @@ export default @observer class PricingPage extends React.Component {
                 </PlanCycleToggle>
 
                 <PricingTable>
-                    <PricingTier lowlighted={isPaidUser || hideFreePlan} mobileOrder={3}>
+                    { !hideFreePlan && <PricingTier lowlighted={isPaidUser} mobileOrder={3}>
                         <TierHeader>
                             Hobbyist
                         </TierHeader>
@@ -457,7 +454,7 @@ export default @observer class PricingPage extends React.Component {
                         <PricingCTA>
                             { getPlanCta('free') }
                         </PricingCTA>
-                    </PricingTier>
+                    </PricingTier> }
 
                     <PricingTier highlighted={true} lowlighted={isPaidUser && paidTier !== 'pro'}>
                         <TierHeader>
@@ -483,9 +480,9 @@ export default @observer class PricingPage extends React.Component {
                             </TierLicense>
                         </TierPriceBlock>
                         <TierFeatures>
-                            <Feature>
+                            { !hideFreePlan && <Feature>
                                 <em>All Hobbyist features, and:</em>
-                            </Feature>
+                            </Feature> }
                             <Feature>
                                 <strong>In-depth HTTP debugging tools</strong>, including compression
                                 & caching analysis
@@ -512,6 +509,50 @@ export default @observer class PricingPage extends React.Component {
                         </TierFeatures>
                         <PricingCTA>
                             { getPlanCta('pro') }
+                        </PricingCTA>
+                    </PricingTier>
+
+                    <PricingTier highlighted={paidTier === 'team'}>
+                        <TierHeader>
+                            Team
+                        </TierHeader>
+                        <TierStatus>{ getPlanStatus('team') }</TierStatus>
+                        <TierPriceBlock>
+                            <TierPrice>{teamPrice} / user / month</TierPrice>
+
+                            <TierPriceCaveats>
+                                plus tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
+                            </TierPriceCaveats>
+
+                            <TierLicense>
+                                <StyledTooltip
+                                    html={<TooltipUl>
+                                        <li>One team account, with many linked individual users</li>
+                                        <li>Subscription covers a max number of linked team members</li>
+                                        <li>Add or remove members from your team as required</li>
+                                    </TooltipUl>}>
+                                    Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                </StyledTooltip>
+                            </TierLicense>
+                        </TierPriceBlock>
+                        <TierFeatures>
+                            <Feature><em>All Professional features, and:</em></Feature>
+                            <Feature><strong>Centralized billing</strong> to simplify payment for your team</Feature>
+                            <Feature>Licensed to your team, rather than individuals</Feature>
+                            <Feature>Add or remove team members whenever you need to</Feature>
+                            <Feature><strong>Team workspaces</strong> for low-friction collaboration (coming soon)</Feature>
+                            <Feature>
+                                Options available on request:
+                                <ul>
+                                    <li>Self-hosted infrastructure</li>
+                                    <li>Private support</li>
+                                    <li>Training & consultancy</li>
+                                    <li>Bulk discounts</li>
+                                </ul>
+                            </Feature>
+                        </TierFeatures>
+                        <PricingCTA>
+                            { getPlanCta('team') }
                         </PricingCTA>
                     </PricingTier>
                 </PricingTable>
