@@ -423,16 +423,35 @@ export default @observer class PricingPage extends React.Component {
                             <TierLicense>Forever</TierLicense>
                         </TierPriceBlock>
                         <TierFeatures>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>100% open-source, even Pro</li>
+                                    <li>Remix as you like, share with others, and contribute back</li>
+                                    <li>
+                                        AGPL is a copyleft license, meaning that derivative code must remain open-source
+                                    </li>
+                                    <li>
+                                        Most libraries within such as Mockttp are non-copyleft
+                                        licensed (MIT / Apache 2), and can be used without this restriction
+                                    </li>
+                                </TooltipUl>}>
+                                <Feature>
+                                    100% Open Source (<a href="https://tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
+                                        AGPL v3
+                                    </a>) <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                </Feature>
+                            </StyledTooltip>
                             <Feature>
-                                Basic HTTP interception and debugging features
+                                Cross-platform (Linux/Mac/Windows)
                             </Feature>
                             <Feature>
-                                Open Source (<a href="https://tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
-                                    AGPL v3
-                                </a>)
+                                Every interception integration
                             </Feature>
                             <Feature>
-                                Cross-platform support (Linux/Mac/Windows)
+                                Essential HTTP debugging features
+                            </Feature>
+                            <Feature>
+                                Manual HTTP mocking & rewriting
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
