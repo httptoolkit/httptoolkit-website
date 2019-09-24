@@ -29,22 +29,6 @@ const SplashHeader = styled.h1`
     `}
 `;
 
-const SplashBody = styled.div`
-    ${p => p.theme.fontSizeSubheading};
-    color: ${p => p.theme.mainSubtleColor};
-    line-height: 1.25;
-
-    ${media.desktop`
-        width: 70%;
-    `}
-
-    > strong {
-        color: ${p => p.theme.popColor};
-    }
-
-    margin: 0 0 20px;
-`;
-
 const ContactForm = styled(({ email, ...props }) =>
     <form action={`https://formspree.io/${ email }`} method="POST" {...props}>
         <TextInput type="text" name="name" placeholder="Your Name" />
@@ -66,11 +50,8 @@ const ContactForm = styled(({ email, ...props }) =>
 export default () => (<Layout>
     <SplashContainer>
         <SplashHeader>
-            Contact us
+            Get in touch
         </SplashHeader>
-        <SplashBody>
-            Have questions, suggestions, or problems?
-        </SplashBody>
-        <ContactForm email="tim@httptoolkit.tech" />
+        <ContactForm email="contact@httptoolkit.tech" />
     </SplashContainer>
 </Layout>);
