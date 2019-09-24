@@ -19,6 +19,6 @@ export const ProPill = styled.span.attrs({
     text-transform: uppercase;
     font-weight: bold;
 
-    color: #e1421f;
-    background-color: rgba(225,66,31,0.3);
+    color: ${p => p.theme.popColor};
+    background-color: rgba(255, 255, 255, 0.9);
 `;
