@@ -186,8 +186,8 @@ const LiveDemoVideo = styled.video`
 
 export const DemoVideo = () => <AppWindow>
     <LiveDemoVideo controls autoPlay loop muted>
-        <source src="/http-view-demo.mp4" type="video/mp4" />
-        <source src="/http-view-demo.webm" type="video/webm" />
+        <source src="/http-mock-demo.mp4" type="video/mp4" />
+        <source src="/http-mock-demo.webm" type="video/webm" />
     </LiveDemoVideo>
 </AppWindow>
 
