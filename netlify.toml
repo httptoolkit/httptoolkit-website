@@ -1,7 +1,7 @@
 [[redirects]]
-  # Redirect requests to the root page to the view page, since it's what's actually available
+  # Redirect requests to the root page to the mock page, since it's what's actually available
   from = "/"
-  to = "/view"
+  to = "/mock"
   force = true
   status = 302
 

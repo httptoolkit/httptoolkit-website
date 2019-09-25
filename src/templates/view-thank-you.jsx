@@ -83,8 +83,8 @@ export default ({ pageContext: { releasePath, downloadCommand } }) => {
             }
             <ThankYouDetails>
                 { downloadCommand
-                    ? <strong>You'll soon be downloading HTTP View</strong>
-                    : <strong>You're now downloading HTTP View</strong>
+                    ? <strong>You'll soon be downloading HTTP Toolkit</strong>
+                    : <strong>You're now downloading HTTP Toolkit</strong>
                 }, the first release of HTTP Toolkit.
                 But there's a lot more to come soon, including automated Android, iOS & Docker interception,
                 request & response editing, server mocking, and security linting.
