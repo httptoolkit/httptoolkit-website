@@ -394,7 +394,7 @@ export default class MockPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch />
-                <CTAWidgets />
+                <StandaloneDownloadWidget />
             </TopHeroContainer>
 
             <DemoVideo />
