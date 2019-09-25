@@ -175,7 +175,7 @@ const LiveDemoVideo = styled.video`
     width: 100%;
 
     ${media.desktop`
-        min-height: 569px;
+        min-height: 541px;
         border-radius: 0 0 5px 5px;
     `}
 
