@@ -12,6 +12,7 @@ const DOWNLOAD_OPTIONS = {
     // TODO: Disabled, broken by https://github.com/electron-userland/electron-forge/issues/670
     // 'win-standalone': { name: 'Windows Standalone Zip', platform: 'Windows', icon: 'windows' },
     'linux-deb': { name: 'Linux Debian Package', platform: 'Linux (Deb)', icon: 'linux' },
+    'linux-aur': { name: 'Linux Arch Package via AUR', platform: 'Linux (Arch)', icon: 'linux' },
     'linux-standalone': { name: 'Linux Standalone Zip', platform: 'Linux', icon: 'linux' },
     'osx-dmg': { name: 'MacOS DMG', platform: 'MacOS', icon: 'apple' },
     'osx-homebrew': { name: 'MacOS via Homebrew', platform: 'MacOS', icon: 'apple' },

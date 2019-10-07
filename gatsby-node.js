@@ -63,6 +63,13 @@ exports.createPages = ({ graphql, actions }) => {
     context: { downloadCommand: 'brew cask install http-toolkit' }
   });
 
+  // Create a 'download' page for the AUR install command
+  createPage({
+    path: `/view/thank-you/linux-aur`,
+    component: viewThankYou,
+    context: { downloadCommand: 'yay -S httptoolkit' }
+  });
+
   // Create a normal and a 'buy now' pricing page
   const pricingPage = path.resolve('./src/templates/pricing.jsx');
   createPage({ path: '/pricing', component: pricingPage, context: {} });
