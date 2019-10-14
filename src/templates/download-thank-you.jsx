@@ -30,8 +30,6 @@ const ThankYouContainer = styled(FullWidthSection)`
 const ThankYouHeader = styled.h1`
     ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
-
-    margin-bottom: 40px;
 `;
 
 const ThankYouDetails = styled.p`
