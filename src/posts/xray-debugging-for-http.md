@@ -8,7 +8,7 @@ productHuntUrl: 'https://producthunt.com/posts/http-view'
 
 HTTP Toolkit is a suite of open-source & cross-platform tools for developing, debugging & testing anything using HTTP. It lets you intercept HTTP(S) with one click, and explore, examine & understand all your traffic, to spot bugs, fix bugs, and build better software.
 
-The free release of the first version (HTTP View) has been available for a little while, and today I've got some new killer features launching as part of [HTTP Toolkit Pro](/view), to let you look deep inside your HTTP traffic, with all the context you need to understand everything your application is doing.
+The free release of the first version (HTTP View) has been available for a little while, and today I've got some new killer features launching as part of [HTTP Toolkit Pro](/mock), to let you look deep inside your HTTP traffic, with all the context you need to understand everything your application is doing.
 
 ## API integrations for 1400+ APIs
 
@@ -46,6 +46,6 @@ HTTP Toolkit is fundamentally an open-source project. It's been hugely driven by
 
 Releasing this paid version doesn't change that, and the entire Pro code is open-source too: [github.com/httptoolkit](https://github.com/httptoolkit). The aim is to make the project sustainable though, by encouraging professional developers & power users to help support ongoing development, to drive the project forward into the future.
 
-If you like the sound of this, help fund it! **[Get HTTP Toolkit now](/get-pro)**, and supercharge your software debugging. If you're on the fence, you can also get started by with the existing [free release](/view).
+If you like the sound of this, help fund it! **[Get HTTP Toolkit now](/get-pro)**, and supercharge your software debugging. If you're on the fence, you can also get started by with the existing [free release](/mock).
 
 **We're also launching on Product Hunt today! Take a look at the reviews and leave your feedback at [producthunt.com/posts/http-view](https://producthunt.com/posts/http-view).**

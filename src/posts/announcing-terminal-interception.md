@@ -13,7 +13,7 @@ Better tools can help you understand what's really going on. They can let you se
 
 Excitingly I've just shipped one-click terminal interception to do exactly this with HTTP Toolkit, for HTTP and HTTPS, to show you everything your CLI is sending and help you work out what the hell is going on.
 
-_HTTP Toolkit is free & open-source, so if you want to try this yourself, go [download it now](/view) and dive right in._
+_HTTP Toolkit is free & open-source, so if you want to try this yourself, go [download it now](/mock) and dive right in._
 
 ## How do I try it?
 
@@ -76,4 +76,4 @@ I suspect there'll be extra cases that could be caught with a few more env vars.
 ![A Lynx browser window being intercepted](./lynx-interception.png)
 ![The HTTP Toolkit view of intercepted Lynx traffic](./lynx-intercepted.png)
 
-If this looks interesting, go [download HTTP Toolkit now](/view) and try it out for yourself. Have feedback? File it [on Github](https://github.com/httptoolkit/feedback/issues/new), or get in touch [on Twitter](https://twitter.com/httptoolkit).
+If this looks interesting, go [download HTTP Toolkit now](/mock) and try it out for yourself. Have feedback? File it [on Github](https://github.com/httptoolkit/feedback/issues/new), or get in touch [on Twitter](https://twitter.com/httptoolkit).

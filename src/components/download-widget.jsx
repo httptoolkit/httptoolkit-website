@@ -221,7 +221,7 @@ export class DownloadWidget extends React.Component {
                     { _.map(DOWNLOAD_OPTIONS, (downloadDetails, downloadId) =>
                         <DownloadOption
                             key={downloadId}
-                            to={`/view/thank-you/${downloadId}`}
+                            to={`/download/${downloadId}`}
                             selected={selectedId === downloadId}
                         >
                             <FontAwesomeIcon icon={['fab', downloadDetails.icon]} fixedWidth />
@@ -258,7 +258,7 @@ export class DownloadWidget extends React.Component {
         const { selectedId } = this.state;
 
         if (selectedId) {
-            window.location.href = `/view/thank-you/${selectedId}`;
+            window.location.href = `/download/${selectedId}`;
         } else {
             this.toggleDropdown();
         }

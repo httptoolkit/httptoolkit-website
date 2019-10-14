@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // Create a download page for each available download
-  const viewThankYou = path.resolve('./src/templates/view-thank-you.jsx');
+  const downloadThankYou = path.resolve('./src/templates/download-thank-you.jsx');
   _.forEach({
     'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
     'win-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-win32-x64-${LATEST_VERSION}.zip`,
@@ -50,23 +50,43 @@ exports.createPages = ({ graphql, actions }) => {
     'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
   }, (releasePath, downloadId) => {
       createPage({
+        path: `/download/${downloadId}`,
+        component: downloadThankYou,
+        context: { releasePath }
+      });
+      // Create a /view/thank-you page for each too, for historical reasons
+      createPage({
         path: `/view/thank-you/${downloadId}`,
-        component: viewThankYou,
+        component: downloadThankYou,
         context: { releasePath }
       });
   });
 
   // Create a 'download' page for the homebrew install command
   createPage({
+    path: `/download/osx-homebrew`,
+    component: downloadThankYou,
+    context: { downloadCommand: 'brew cask install http-toolkit' }
+  });
+
+  // Create a 'download' page for the AUR install command
+  createPage({
+    path: `/download/linux-aur`,
+    component: downloadThankYou,
+    context: { downloadCommand: 'yay -S httptoolkit' }
+  });
+
+  // The same, for /view (purely for historical reasons):
+  createPage({
     path: `/view/thank-you/osx-homebrew`,
-    component: viewThankYou,
+    component: downloadThankYou,
     context: { downloadCommand: 'brew cask install http-toolkit' }
   });
 
   // Create a 'download' page for the AUR install command
   createPage({
     path: `/view/thank-you/linux-aur`,
-    component: viewThankYou,
+    component: downloadThankYou,
     context: { downloadCommand: 'yay -S httptoolkit' }
   });
 

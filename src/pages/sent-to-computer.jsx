@@ -49,7 +49,7 @@ export default () => (<Layout>
             Thanks!
         </ThankYouHeader>
         <ThankYouDetails>
-            We've just sent a download link for <Link to='/view'>HTTP Toolkit</Link> to
+            We've just sent a download link for <Link to='/mock'>HTTP Toolkit</Link> to
             your inbox to check out on your desktop later.
         </ThankYouDetails>
         <ThankYouDetails>
