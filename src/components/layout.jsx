@@ -20,6 +20,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import "prismjs/themes/prism-tomorrow.css";
 import { LinkButton } from './form';
 import { getVisibilityProps } from './modal';
+import { ProductHuntWidget } from './product-hunt-widget';
 
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
@@ -241,6 +242,8 @@ export class Layout extends React.Component {
           <Nav id="menu" open={this.state.menuOpen}>
             <NavClose onClick={this.hideMenu} />
 
+            {/* ProductHunt embed - TODO: remove a few days after the launch */}
+            <ProductHuntWidget postUrl="https://www.producthunt.com/posts/http-mock" postId="171029" />
             <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
             <NavItem to='/blog' onClick={this.hideMenu}>Blog</NavItem>
             <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>

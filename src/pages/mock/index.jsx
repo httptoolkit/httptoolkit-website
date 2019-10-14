@@ -18,6 +18,7 @@ import { InspectFeature } from '../../components/features/inspect';
 import { MockFeature } from '../../components/features/mock';
 import { EditFeature } from '../../components/features/edit';
 import { BreakpointFeature } from '../../components/features/breakpoint';
+import { ProductHuntWidget } from '../../components/product-hunt-widget';
 
 const HeroBlockContainer = styled(FullWidthSection)`
     ${media.mobileOrTablet`
@@ -401,6 +402,10 @@ export default class MockPage extends React.Component {
 
             <SectionSpacer />
             <MockDescription />
+
+            {/* ProductHunt embed - TODO: remove a few days after the launch */}
+            <ProductHuntWidget postUrl="https://www.producthunt.com/posts/http-mock" postId="171029" />
+
             <MockFeatureCards />
             <StandaloneDownloadWidget />
 
