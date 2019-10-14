@@ -77,19 +77,26 @@ export default ({ pageContext: { releasePath, downloadCommand } }) => {
                 ? <InstallCode>
                     { downloadCommand }
                 </InstallCode>
-                : <ThankYouHeader>
-                    Sign up for updates
-                </ThankYouHeader>
+                : <>
+                    <ThankYouHeader>
+                        HTTP Toolkit is now downloading...
+                    </ThankYouHeader>
+                    <ThankYouDetails>
+                        <em>
+                            Didn't work? Click{' '}
+                            <a href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`}>
+                                here
+                            </a>.
+                        </em>
+                    </ThankYouDetails>
+                </>
             }
             <ThankYouDetails>
-                { downloadCommand
-                    ? <strong>You'll soon be downloading HTTP Toolkit</strong>
-                    : <strong>You're now downloading HTTP Toolkit</strong>
-                }.
-                But there's a lot more to come soon, including automated Android, iOS & Docker interception, security linting and request diffing.
+                { downloadCommand && "You'll soon be downloading HTTP Toolkit. " }
+                There's a lot more to come soon though, including automated Android, iOS & Docker interception, security linting and request diffing.
             </ThankYouDetails>
             <ThankYouDetails>
-                Sign up now, so you don't miss new features & releases:
+                <strong>Sign up now, so you don't miss new features & releases:</strong>
             </ThankYouDetails>
             <MailchimpSignupForm
                 action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
