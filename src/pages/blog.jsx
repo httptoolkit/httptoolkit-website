@@ -12,7 +12,10 @@ export const pageQuery = graphql`
         allMarkdownRemark(
             limit: 100
             sort: { fields: [frontmatter___date], order: DESC },
-            filter: { frontmatter: { draft: { ne: true } } }
+            filter: {
+                frontmatter: { draft: { ne: true } }
+                fields: { type: { eq: "blog-post" } }
+            }
         ) {
             edges {
                 node {

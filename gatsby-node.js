@@ -23,10 +23,24 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   }
 }
 
+const blogPostsFolder = path.join(__dirname, 'src', 'posts')
+const docsFolder = path.join(__dirname, 'src', 'docs')
+
 // Set up the blog:
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
+
   if (node.internal.type === `MarkdownRemark`) {
+    const nodePath = node.fileAbsolutePath;
+    const nodeType = nodePath.startsWith(blogPostsFolder)
+        ? 'blog-post'
+      : nodePath.startsWith(docsFolder)
+        ? 'docs'
+      : false;
+    if (!nodeType) throw new Error(`Unexpected markdown: ${nodePath}`);
+
+    createNodeField({ node, name: 'type', value: nodeType });
+
     const slug = createFilePath({ node, getNode, basePath: 'post' });
     createNodeField({
       node,
@@ -106,6 +120,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                type
               }
             }
           }
@@ -113,14 +128,23 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: `/blog/${node.fields.slug}`,
-          component: path.resolve(`./src/templates/post.jsx`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
+        if (node.fields.type === 'blog-post') {
+          createPage({
+            path: `/blog/${node.fields.slug}`,
+            component: path.resolve(`./src/templates/post.jsx`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        } else if (node.fields.type === 'docs') {
+          createPage({
+            path: `/docs/${node.fields.slug}`,
+            component: path.resolve(`./src/templates/doc.jsx`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        }
       })
       resolve()
     });
