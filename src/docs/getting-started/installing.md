@@ -39,11 +39,11 @@ HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an 
 - Extract it on your machine
 - Run the `httptoolkit` binary from the `HTTP Toolkit-linux-x64` top-level folder in the resulting extracted files, to start the application.
 
-## Next Steps
+## Next steps
 
 HTTP Toolkit installed and running ok?
 
-It's time to start [intercepting some HTTP & HTTPS requests](/docs/getting-started/intercepting/).
+It's time to **[start intercepting some HTTP requests](/docs/getting-started/intercepting/)**.
 
 ## Troubleshooting
 
