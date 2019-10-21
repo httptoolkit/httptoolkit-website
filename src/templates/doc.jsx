@@ -170,7 +170,7 @@ export default ({ data }) => {
                 <meta name="twitter:description" content={doc.excerpt} />
             </Helmet>
 
-            <DocsSidebar selected={data.slug} />
+            <DocsSidebar />
             <Doc>
                 <h1>{title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: doc.html }} />

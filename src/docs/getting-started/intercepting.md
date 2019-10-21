@@ -7,7 +7,7 @@ HTTP Toolkit allows you to intercept HTTP & HTTPS traffic from almost any HTTP c
 
 For interception, HTTP Toolkit acts as an HTTP & HTTPS proxy. You can set it up manually to work with any HTTP client that supports proxies, and it also comes with automatic setup for many specific tools.
 
-To intercept traffic, open the 'Intercept' page of HTTP Toolkit (this is the initial page, if you've just only opened the application). It looks like this:
+To intercept traffic, open the 'Intercept' page of HTTP Toolkit (this is the initial page, if you've just opened the application). It looks like this:
 
 ![The HTTP Toolkit intercept page](../../images/intercept-screenshot.png)
 

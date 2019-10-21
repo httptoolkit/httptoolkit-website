@@ -24,7 +24,7 @@ We want to match all requests to example.com. To do that:
 * Enter `example.com` into the input that appears
 * Click the blue plus button to add the matcher
 
-You can add other matchers here too if you like, to more precisely specify the requests you're looking for. All matchers are ANDed together, so a request will only match a rule if _all_ configured constraits match.
+You can add other matchers here too if you like, to more precisely specify the requests you're looking for. All matchers are ANDed together, so a request will only match a rule if _all_ configured constraints match.
 
 ## Handling requests
 
@@ -34,7 +34,7 @@ Once you're done, your fully configured rule should look like this:
 
 ![A configured rule to rewrite example.com traffic](./configured-example.com-rule.png)
 
-That's it! To activate your rule, don't forget to save it. You can save rules individually from the save icon on the rule, or click the 'Save changes' button at the top of the page to save everything.
+That's it! Save your rule to activate it. You can save rules individually from the save icon on the rule, or click the 'Save changes' button at the top of the page to save everything.
 
 ## Rewriting HTTP
 
