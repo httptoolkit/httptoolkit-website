@@ -125,7 +125,13 @@ export const DocsSidebar = () => {
         }
     `)).allMarkdownRemark.edges.map(e => e.node);
 
-    const docGroups = _.groupBy(docs, (doc) => doc.fields.slug.split('/')[0]);
+    const docGroups = _.groupBy(docs, (doc) => {
+        const { slug } = doc.fields;
+        const slugParts = slug.split('/');
+        if (slugParts.length > 2) {
+            return slug.split('/')[0];
+        } else return '';
+    });
 
     return <SidebarContainer>
         <SidebarList>
