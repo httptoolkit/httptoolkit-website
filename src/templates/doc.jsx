@@ -12,21 +12,21 @@ const DocContainer = styled.section`
     ${media.desktop`
         padding-left: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
         margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+        flex-direction: row;
     `}
 
     ${media.tablet`
         padding-left: 30px;
         padding-right: 30px;
+        flex-direction: column;
     `}
 
     ${media.mobile`
-        padding-left: 10px;
-        padding-right: 10px;
+        flex-direction: column;
     `}
 
     flex: 1;
     display: flex;
-    flex-direction: row;
 
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
@@ -37,13 +37,20 @@ const Doc = styled.article`
     flex-grow: 1;
     background-color: ${p => p.theme.popBackground};
 
-    border-left: 1px solid rgba(0,0,0,0.2);
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    ${media.desktop`
+        border-left: 1px solid rgba(0,0,0,0.2);
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
 
-    padding-left: 60px;
-    padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+        padding-left: 60px;
+        padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+    `}
+
+    ${media.tablet`
+        padding: 0 30px;
+    `}
 
     ${media.mobile`
+        padding: 0 20px;
         overflow-wrap: break-word;
     `}
 
@@ -55,6 +62,10 @@ const Doc = styled.article`
 
         ${media.desktop`
             letter-spacing: -1px;
+        `}
+
+        ${media.mobileOrTablet`
+            margin-top: 30px;
         `}
     }
 

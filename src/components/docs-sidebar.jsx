@@ -2,12 +2,22 @@ import * as _ from 'lodash';
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
-import { styled } from '../styles';
+import { styled, media } from '../styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SidebarContainer = styled.nav`
-    float: left;
-    padding: 30px 40px 0 0;
+    ${media.desktop`
+        padding: 30px 40px 0 0;
+    `}
+
+    ${media.tablet`
+        padding: 10px 0 30px 0;
+    `}
+
+    ${media.mobile`
+        padding: 10px 20px 30px;
+    `}
+
     flex-shrink: 0;
 `;
 
