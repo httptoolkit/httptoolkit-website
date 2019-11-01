@@ -204,12 +204,12 @@ export const SectionSpacer = styled.div`
     `}
 `;
 
-const MockPitch = () => <PitchHeading>
+export const MockPitch = (props) => <PitchHeading>
         <OneClick>
         With one click<ShiftDown>↴</ShiftDown>
         </OneClick>
         <PitchLine>
-            Intercept & view all your HTTP(S)
+            Intercept & view all { props.language || 'your'} HTTP(S)
         </PitchLine>
         <PitchLine>
             Mock endpoints or entire servers
