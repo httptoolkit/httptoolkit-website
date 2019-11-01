@@ -18,7 +18,13 @@ const SupportedToolsContainer = styled.section`
 const SupportedToolsList = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+
+    ${media.desktopOrTablet`
+        justify-content: space-evenly;
+    `}
+    ${media.mobile`
+        justify-content: space-between;
+    `}
 `;
 
 const GeneralSupport = styled.p`
@@ -38,6 +44,11 @@ export const SupportedTools = (p) =>
 
 const SupportedToolListItem = styled.li`
     margin: 20px;
+
+    white-space: nowrap;
+    ${media.mobile`
+        flex: 1 0 30%;
+    `}
 
     > svg {
         margin-right: 10px;
