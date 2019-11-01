@@ -18,8 +18,7 @@ const SupportedToolsContainer = styled.section`
 const SupportedToolsList = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 600px;
+    justify-content: space-between;
 `;
 
 const GeneralSupport = styled.p`
