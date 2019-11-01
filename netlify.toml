@@ -5,6 +5,13 @@
   force = true
   status = 302
 
+[[redirects]]
+  # Redirect View requests to Mock, as the newer release
+  from = "/view"
+  to = "/mock"
+  force = true
+  status = 302
+
 [[headers]]
   for = "/*"
   [headers.values]
