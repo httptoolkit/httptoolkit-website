@@ -10,5 +10,7 @@ export const PythonSupportedTools = () => <SupportedTools>
     <SupportedTool>Python 2 & 3</SupportedTool>
     <SupportedTool>Urlfetch</SupportedTool>
     <SupportedTool>httplib2</SupportedTool>
+    <SupportedTool>httpx</SupportedTool>
+    <SupportedTool>grequests</SupportedTool>
     <SupportedTool>Boto</SupportedTool>
 </SupportedTools>
