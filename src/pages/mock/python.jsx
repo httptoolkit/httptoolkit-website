@@ -18,6 +18,7 @@ import {
     TopHeroContainer,
     StandaloneDownloadWidget,
     MockPitch,
+    MockLanguageIcons,
     DemoVideo,
     SectionSpacer,
     MockDescription,
@@ -42,6 +43,9 @@ export default class MockPythonPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='Python' />
+                <MockLanguageIcons icons={[
+                    { icon: ['fab', 'python'], color: '#4584b6' }
+                ]} />
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 

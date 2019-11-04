@@ -5,6 +5,7 @@ import reset from 'styled-reset';
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { faAndroid } from '@fortawesome/free-brands-svg-icons/faAndroid';
 import { faChrome } from '@fortawesome/free-brands-svg-icons/faChrome';
+import { faFirefox } from '@fortawesome/free-brands-svg-icons/faFirefox';
 import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
@@ -18,6 +19,9 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows';
 import { faApple } from '@fortawesome/free-brands-svg-icons/faApple';
 import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faGem } from '@fortawesome/free-solid-svg-icons/faGem';
+import { faPython } from '@fortawesome/free-brands-svg-icons/faPython';
+import { faNode } from '@fortawesome/free-brands-svg-icons/faNode';
 import { faStopwatch } from '@fortawesome/pro-light-svg-icons/faStopwatch';
 import { faWrench } from '@fortawesome/pro-light-svg-icons/faWrench';
 import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
@@ -35,6 +39,7 @@ config.autoAddCss = false;
 library.add(
     faAndroid,
     faChrome,
+    faFirefox,
     faDocker,
     faTwitter,
     faFacebook,
@@ -48,6 +53,9 @@ library.add(
     faApple,
     faLinux,
     faGithub,
+    faGem,
+    faPython,
+    faNode,
     faStopwatch,
     faWrench,
     faSearch,

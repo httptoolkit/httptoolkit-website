@@ -17,6 +17,7 @@ import { BreakpointFeature } from '../../components/features/breakpoint';
 import {
     TopHeroContainer,
     StandaloneDownloadWidget,
+    MockLanguageIcons,
     MockPitch,
     DemoVideo,
     SectionSpacer,
@@ -42,6 +43,11 @@ export default class MockJSPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='JavaScript' />
+                <MockLanguageIcons icons={[
+                    { icon: ['fab', 'chrome'], color: '#1da462' },
+                    { icon: ['fab', 'node'], color: '#3c873a' },
+                    { icon: ['fab', 'firefox'], color: '#e66000' }
+                ]} />
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 

@@ -18,6 +18,7 @@ import {
     TopHeroContainer,
     StandaloneDownloadWidget,
     MockPitch,
+    MockLanguageIcons,
     DemoVideo,
     SectionSpacer,
     MockDescription,
@@ -42,6 +43,9 @@ export default class MockRubyPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='Ruby' />
+                <MockLanguageIcons icons={[
+                    { icon: ['fas', 'gem'], color: '#CC342D' }
+                ]} />
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 

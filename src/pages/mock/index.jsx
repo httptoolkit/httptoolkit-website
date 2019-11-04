@@ -260,6 +260,31 @@ const PitchLine = styled.h1`
   }
 `;
 
+const LanguageIconContainer = styled.div`
+    ${media.desktop`
+        margin-top: -60px;
+    `}
+    margin-bottom: 50px;
+
+    > svg {
+        margin: 0 20px;
+    }
+`;
+
+export const MockLanguageIcons = (props) => {
+    return <LanguageIconContainer>
+        { props.icons.map((icon, i) =>
+            <FontAwesomeIcon
+                icon={icon.icon}
+                size='6x'
+                style={{
+                    color: icon.color
+                }}
+            />
+        ) }
+    </LanguageIconContainer>;
+}
+
 const MockDescriptionContainer = styled.p`
     ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.3;
