@@ -14,11 +14,13 @@ import { MockFeature } from '../../components/features/mock';
 import { EditFeature } from '../../components/features/edit';
 import { BreakpointFeature } from '../../components/features/breakpoint';
 
+import pythonLogo from '../../images/3rd-party-logos/python.png';
+
 import {
     TopHeroContainer,
     StandaloneDownloadWidget,
     MockPitch,
-    MockLanguageIcons,
+    LanguageIconContainer,
     DemoVideo,
     SectionSpacer,
     MockDescription,
@@ -43,9 +45,9 @@ export default class MockPythonPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='Python' />
-                <MockLanguageIcons icons={[
-                    { icon: ['fab', 'python'], color: '#4584b6' }
-                ]} />
+                <LanguageIconContainer>
+                    <img src={pythonLogo} alt="The Python Logo" />
+                </LanguageIconContainer>
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 

@@ -260,30 +260,32 @@ const PitchLine = styled.h1`
   }
 `;
 
-const LanguageIconContainer = styled.div`
+export const LanguageIconContainer = styled.div`
     ${media.desktop`
         margin-top: -60px;
     `}
     margin-bottom: 50px;
 
-    > svg {
-        margin: 0 20px;
+
+    > * {
+        ${media.desktopOrTablet`
+            margin: 0 20px;
+            height: 120px;
+        `}
+        ${media.mobile`
+            margin: 0 10px;
+            height: 60px;
+        `}
+    }
+
+    > :first-child {
+        margin-left: 0;
+    }
+
+    > :last-child {
+        margin-right: 0;
     }
 `;
-
-export const MockLanguageIcons = (props) => {
-    return <LanguageIconContainer>
-        { props.icons.map((icon, i) =>
-            <FontAwesomeIcon
-                icon={icon.icon}
-                size='6x'
-                style={{
-                    color: icon.color
-                }}
-            />
-        ) }
-    </LanguageIconContainer>;
-}
 
 const MockDescriptionContainer = styled.p`
     ${p => p.theme.fontSizeNearlyHeading};

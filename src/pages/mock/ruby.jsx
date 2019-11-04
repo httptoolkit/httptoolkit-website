@@ -14,11 +14,13 @@ import { MockFeature } from '../../components/features/mock';
 import { EditFeature } from '../../components/features/edit';
 import { BreakpointFeature } from '../../components/features/breakpoint';
 
+import rubyLogo from '../../images/3rd-party-logos/ruby.png';
+
 import {
     TopHeroContainer,
     StandaloneDownloadWidget,
     MockPitch,
-    MockLanguageIcons,
+    LanguageIconContainer,
     DemoVideo,
     SectionSpacer,
     MockDescription,
@@ -43,9 +45,9 @@ export default class MockRubyPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='Ruby' />
-                <MockLanguageIcons icons={[
-                    { icon: ['fas', 'gem'], color: '#CC342D' }
-                ]} />
+                <LanguageIconContainer>
+                    <img src={rubyLogo} alt="The Ruby Logo" />
+                </LanguageIconContainer>
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 

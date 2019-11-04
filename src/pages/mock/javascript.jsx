@@ -14,10 +14,14 @@ import { MockFeature } from '../../components/features/mock';
 import { EditFeature } from '../../components/features/edit';
 import { BreakpointFeature } from '../../components/features/breakpoint';
 
+import ChromeLogo from '../../images/3rd-party-logos/chrome.png';
+import NodeJSLogo from '../../images/3rd-party-logos/nodejs.png';
+import FirefoxLogo from '../../images/3rd-party-logos/firefox.png';
+
 import {
     TopHeroContainer,
     StandaloneDownloadWidget,
-    MockLanguageIcons,
+    LanguageIconContainer,
     MockPitch,
     DemoVideo,
     SectionSpacer,
@@ -43,11 +47,11 @@ export default class MockJSPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <MockPitch language='JavaScript' />
-                <MockLanguageIcons icons={[
-                    { icon: ['fab', 'chrome'], color: '#1da462' },
-                    { icon: ['fab', 'node'], color: '#3c873a' },
-                    { icon: ['fab', 'firefox'], color: '#e66000' }
-                ]} />
+                <LanguageIconContainer>
+                    <img src={ChromeLogo} alt="The Chrome logo" />
+                    <img src={NodeJSLogo} alt="The Node.js logo" />
+                    <img src={FirefoxLogo} alt="The Firefox logo" />
+                </LanguageIconContainer>
                 <StandaloneDownloadWidget />
             </TopHeroContainer>
 
