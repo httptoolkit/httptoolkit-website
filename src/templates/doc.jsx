@@ -156,6 +156,12 @@ export default ({ data }) => {
     const doc = data.markdownRemark;
     const { frontmatter } = doc;
     const { title } = frontmatter;
+    const { slug } = doc.fields;
+
+    // Links to the raw markdown -> click the edit pencil, and it forks & starts an editor.
+    const editUrl = `https://github.com/httptoolkit/httptoolkit.tech/blob/master/src/docs/${
+        slug.replace(/\/$/, '') // Trim trailing slashes
+    }.md`;
 
     return (<Layout>
         <DocContainer>
@@ -173,7 +179,9 @@ export default ({ data }) => {
             <DocsSidebar />
             <Doc>
                 <h1>{title}</h1>
+                <em>Help improve these docs <a href={editUrl} target='_blank' rel='noopener noreferrer'>on GitHub</a></em>
                 <div dangerouslySetInnerHTML={{ __html: doc.html }} />
+                <em>Edit this page <a href={editUrl} target='_blank' rel='noopener noreferrer'>on GitHub</a></em>
             </Doc>
         </DocContainer>
     </Layout>);
