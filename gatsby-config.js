@@ -131,6 +131,19 @@ module.exports = {
         sitemap: null,
         policy: [{ userAgent: '*', allow: '/' }]
       }
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: [
+          '/view/thank-you/*', // Drop view download pages (/download replaces these)
+          '/blog-thank-you', // Drop post-blog subscribe thank you
+          '/view/*', // Drop per-language View pages
+          '/sent-to-computer', // Drop post-send-to-computer page
+          '/thank-you', // Drop post-mailing-list signup page
+          '/toolkit', // Drop original toolkit landing page
+        ]
+      }
     }
   ]
 }

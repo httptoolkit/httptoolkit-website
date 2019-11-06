@@ -40,6 +40,7 @@
     "d3-scale": "^2.0.0",
     "d3-scale-chromatic": "^1.2.0",
     "date-fns": "^1.29.0",
+    "fs-extra": "^6.0.0",
     "gatsby": "^2.13.3",
     "gatsby-image": "^2.0.0",
     "gatsby-link": "^2.0.0",
@@ -48,6 +49,7 @@
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-robots-txt": "^1.4.0",
     "gatsby-plugin-sharp": "^2.2.2",
+    "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-remark-images": "^2.0.0",
     "gatsby-remark-prismjs": "^2.0.0",
@@ -71,8 +73,5 @@
     "styled-reset": "^1.3.2",
     "utf8": "^3.0.0",
     "val-loader": "^1.1.1"
-  },
-  "devDependencies": {
-    "fs-extra": "^6.0.0"
   }
 }
