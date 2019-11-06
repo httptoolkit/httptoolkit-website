@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     name: 'HTTP Toolkit',
     title: 'Intercept, debug & build with HTTP',
-    description: 'Intercept, debug and build with HTTP. Beautiful, cross-platform & open-source HTTP(S) proxy, analyzer and client. Built-in support for Chrome, Android, Docker and more.',
+    description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
     siteUrl: 'https://httptoolkit.tech/',
     blogUrl: 'https://httptoolkit.tech/blog/'
   },
