@@ -27,7 +27,7 @@ The requests are shown in the order they were received. Each one shows the essen
 
 There's also controls available at the bottom, to filter requests & responses, pause capture of requests, clear all request data, and (for Pro users) import & export captured data:
 
-![The list controls](./list-controls.png)
+![The list controls](../list-controls.png)
 
 Once you found a request that you'd like to look at in more detail, you can click it to see the full details on the right.
 
