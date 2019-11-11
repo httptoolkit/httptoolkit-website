@@ -10,14 +10,14 @@
   from = "/view"
   to = "/mock"
   force = true
-  status = 302
+  status = 301
 
 [[redirects]]
   # Redirect View subpage requests to Mock subpages, as its the newer release
   from = "/view/*"
   to = "/mock/:splat"
   force = true
-  status = 302
+  status = 301
 
 [[headers]]
   for = "/*"
