@@ -12,6 +12,13 @@
   force = true
   status = 302
 
+[[redirects]]
+  # Redirect View subpage requests to Mock subpages, as its the newer release
+  from = "/view/*"
+  to = "/mock/:splat"
+  force = true
+  status = 302
+
 [[headers]]
   for = "/*"
   [headers.values]
