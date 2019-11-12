@@ -1,6 +1,7 @@
 ---
 name: 'The Intercept Page'
 title: 'The Intercept Page'
+order: 0
 ---
 
 ![The Intercept page, showing some intercepted sources active](../../images/intercept-screenshot.png)

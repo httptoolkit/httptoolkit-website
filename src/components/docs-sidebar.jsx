@@ -118,6 +118,7 @@ export const DocsSidebar = () => {
                         frontmatter {
                             title
                             name
+                            order
                         }
                     }
                 }
@@ -125,18 +126,28 @@ export const DocsSidebar = () => {
         }
     `)).allMarkdownRemark.edges.map(e => e.node);
 
-    const docGroups = _.groupBy(docs, (doc) => {
-        const { slug } = doc.fields;
-        const slugParts = slug.split('/');
-        if (slugParts.length > 2) {
-            return slug.split('/')[0];
-        } else return '';
-    });
+    const docGroups = _(docs)
+        .groupBy((doc) => {
+            const { slug } = doc.fields;
+            const slugParts = slug.split('/');
+            if (slugParts.length > 2) {
+                return slug.split('/')[0];
+            } else return '';
+        })
+        .mapValues((group) => _.sortBy(group, g => g.frontmatter.order))
+        .valueOf();
 
     return <SidebarContainer>
         <SidebarList>
             <SidebarGroup title='Getting Started'>
                 { docGroups['getting-started'].map((doc) =>
+                    <SidebarLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                        { doc.frontmatter.name }
+                    </SidebarLink>
+                ) }
+            </SidebarGroup>
+            <SidebarGroup title='Reference'>
+                { docGroups['reference'].map((doc) =>
                     <SidebarLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
                         { doc.frontmatter.name }
                     </SidebarLink>

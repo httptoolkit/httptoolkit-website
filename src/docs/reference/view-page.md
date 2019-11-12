@@ -1,6 +1,7 @@
 ---
 name: 'The View Page'
 title: 'The View Page'
+order: 1
 ---
 
 ![The View page, showing various intercepted requests](../../images/inspect-screenshot.png)

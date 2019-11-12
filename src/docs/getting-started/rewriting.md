@@ -1,6 +1,7 @@
 ---
 name: '4. Rewriting'
 title: 'Rewriting intercepted HTTP traffic'
+order: 4
 ---
 
 Once you've successfully [intercepted](/docs/getting-started/intercepting) traffic from an HTTP client,HTTP Toolkit allows you to mock & rewrite intercepted HTTP requests and responses, both manually and automatically.

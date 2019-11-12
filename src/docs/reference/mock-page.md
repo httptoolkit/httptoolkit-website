@@ -1,6 +1,7 @@
 ---
 name: 'The Mock Page'
 title: 'The Mock Page'
+order: 2
 ---
 
 ![The Mock page, showing mock rules](../../images/edit-screenshot.png)

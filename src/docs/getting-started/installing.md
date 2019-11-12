@@ -1,6 +1,7 @@
 ---
 name: '1. Installing'
 title: 'Installing HTTP Toolkit'
+order: 1
 ---
 
 HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an installation package for your platform:

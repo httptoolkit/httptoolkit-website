@@ -1,6 +1,7 @@
 ---
 name: '2. Intercepting'
 title: 'Intercepting HTTP traffic'
+order: 2
 ---
 
 HTTP Toolkit allows you to intercept HTTP & HTTPS traffic from almost any HTTP client. Once you're intercepting traffic from a client, you can explore & examine it to understand what it's doing, or rewrite it to provide mock responses, inject errors, and test edge cases.
