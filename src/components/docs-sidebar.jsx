@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const SidebarContainer = styled.nav`
     ${media.desktop`
         padding: 30px 40px 0 0;
+        flex-basis: 240px;
     `}
 
     ${media.tablet`
