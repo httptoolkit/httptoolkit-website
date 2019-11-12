@@ -13,10 +13,12 @@ const SidebarContainer = styled.nav`
 
     ${media.tablet`
         padding: 10px 0 30px 0;
+        order: 1;
     `}
 
     ${media.mobile`
         padding: 10px 20px 30px;
+        order: 1;
     `}
 
     flex-shrink: 0;
