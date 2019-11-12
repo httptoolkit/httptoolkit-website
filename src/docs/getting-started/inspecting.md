@@ -24,7 +24,7 @@ Let's try these out:
 
 On the left, you can see a list of all intercepted requests.
 
-The requests are shown in the order they were received. Each one shows the essential request details, including the method, URL, source & status, colourized for each skimming so you can quickly find the requests you're interested in.
+The requests are shown in the order they were received. Each one shows the essential request details, including the method, URL, source & status, colourized for easy skimming, so you can quickly find the requests you're interested in.
 
 There's also controls available at the bottom, to filter requests & responses, pause capture of requests, clear all request data, and (for Pro users) import & export captured data:
 

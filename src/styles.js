@@ -30,6 +30,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 
 config.autoAddCss = false;
 library.add(
@@ -59,7 +60,8 @@ library.add(
     faChevronDown,
     faToggleOn,
     faToggleOff,
-    faCheck
+    faCheck,
+    faRocket
 );
 
 export { styled, css, ThemeProvider };

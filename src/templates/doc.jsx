@@ -3,36 +3,12 @@ import Helmet from 'react-helmet';
 import { graphql } from "gatsby"
 
 import { styled, media } from '../styles';
-
 import { Layout } from '../components/layout';
 import { DocsSidebar } from '../components/docs-sidebar';
 
-const DocContainer = styled.section`
-    /* Based on FullWidthSection, but no right padding here (it's below) */
-    ${media.desktop`
-        padding-left: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
-        margin: 0 calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
-        flex-direction: row;
-    `}
+import { DocContainer } from '../pages/docs';
 
-    ${media.tablet`
-        padding-left: 30px;
-        padding-right: 30px;
-        flex-direction: column;
-    `}
-
-    ${media.mobile`
-        flex-direction: column;
-    `}
-
-    flex: 1;
-    display: flex;
-
-    color: ${p => p.theme.mainColor};
-    background-color: ${p => p.theme.mainBackground};
-`;
-
-const Doc = styled.article`
+const DocBody = styled.article`
     position: relative;
     flex-grow: 1;
     background-color: ${p => p.theme.popBackground};
@@ -43,14 +19,15 @@ const Doc = styled.article`
 
         padding-left: 60px;
         padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
+        padding-bottom: 60px;
     `}
 
     ${media.tablet`
-        padding: 0 30px;
+        padding: 0 30px 20px;
     `}
 
     ${media.mobile`
-        padding: 0 20px;
+        padding: 0 20px 20px;
         overflow-wrap: break-word;
     `}
 
@@ -177,12 +154,12 @@ export default ({ data }) => {
             </Helmet>
 
             <DocsSidebar />
-            <Doc>
+            <DocBody>
                 <h1>{title}</h1>
                 <em>Help improve these docs <a href={editUrl} target='_blank' rel='noopener noreferrer'>on GitHub</a></em>
                 <div dangerouslySetInnerHTML={{ __html: doc.html }} />
                 <em>Edit this page <a href={editUrl} target='_blank' rel='noopener noreferrer'>on GitHub</a></em>
-            </Doc>
+            </DocBody>
         </DocContainer>
     </Layout>);
 };

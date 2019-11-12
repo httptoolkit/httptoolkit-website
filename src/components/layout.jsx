@@ -241,7 +241,7 @@ export class Layout extends React.Component {
           <Nav id="menu" open={this.state.menuOpen}>
             <NavClose onClick={this.hideMenu} />
 
-            <NavItem to='/docs/getting-started' onClick={this.hideMenu}>Docs</NavItem>
+            <NavItem to='/docs' onClick={this.hideMenu}>Docs</NavItem>
             <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
             <NavItem to='/blog' onClick={this.hideMenu}>Blog</NavItem>
             <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>

@@ -24,11 +24,11 @@ const SidebarContainer = styled.nav`
     flex-shrink: 0;
 `;
 
-const SidebarList = styled.ul`
+const DocsList = styled.ul`
     list-style: none;
 `;
 
-const SidebarItem = styled.li`
+const DocsItem = styled.li`
     ${p => p.theme.fontSizeText};
     color: ${p => p.theme.mainColor};
     margin-top: 10px;
@@ -65,10 +65,10 @@ const GroupButton = styled.button`
     }
 `;
 
-const SidebarGroup = styled((props) => {
+const DocsGroup = styled((props) => {
     const [collapsed, setCollapsed] = React.useState(false);
 
-    return <SidebarItem>
+    return <DocsItem>
         <GroupButton onClick={() => setCollapsed(!collapsed)}>
             <FontAwesomeIcon icon={[
                 'fas',
@@ -78,16 +78,16 @@ const SidebarGroup = styled((props) => {
         { !collapsed && <GroupedLinks>
             { props.children }
         </GroupedLinks> }
-    </SidebarItem>
+    </DocsItem>
 })`
 `
 
-const SidebarLink = styled((props) => <SidebarItem>
+const DocsLink = styled((props) => <DocsItem>
     <Link
         activeClassName='active'
         {...props}
     />
-</SidebarItem>)`
+</DocsItem>)`
     text-decoration: none;
     display: block;
 
@@ -103,7 +103,7 @@ const SidebarLink = styled((props) => <SidebarItem>
     }
 `;
 
-export const DocsSidebar = () => {
+export const DocsMenu = () => {
     const docs = (useStaticQuery(graphql`
         query DocsQuery {
             allMarkdownRemark(
@@ -140,22 +140,26 @@ export const DocsSidebar = () => {
         .mapValues((group) => _.sortBy(group, g => g.frontmatter.order))
         .valueOf();
 
+    return <DocsList>
+        <DocsGroup title='Getting Started'>
+            { docGroups['getting-started'].map((doc) =>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                    { doc.frontmatter.name }
+                </DocsLink>
+            ) }
+        </DocsGroup>
+        <DocsGroup title='Reference'>
+            { docGroups['reference'].map((doc) =>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                    { doc.frontmatter.name }
+                </DocsLink>
+            ) }
+        </DocsGroup>
+    </DocsList>;
+}
+
+export const DocsSidebar = () => {
     return <SidebarContainer>
-        <SidebarList>
-            <SidebarGroup title='Getting Started'>
-                { docGroups['getting-started'].map((doc) =>
-                    <SidebarLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
-                        { doc.frontmatter.name }
-                    </SidebarLink>
-                ) }
-            </SidebarGroup>
-            <SidebarGroup title='Reference'>
-                { docGroups['reference'].map((doc) =>
-                    <SidebarLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
-                        { doc.frontmatter.name }
-                    </SidebarLink>
-                ) }
-            </SidebarGroup>
-        </SidebarList>
+        <DocsMenu />
     </SidebarContainer>;
 }
