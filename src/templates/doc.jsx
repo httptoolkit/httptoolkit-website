@@ -128,7 +128,7 @@ const Doc = styled.article`
     }
 
     blockquote {
-        white-space: pre;
+        white-space: pre-wrap;
     }
 
     blockquote > p {
