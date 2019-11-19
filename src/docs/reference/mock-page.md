@@ -48,7 +48,7 @@ Each rule row shows these 4 controls in the top right. You can hover over any bu
 * Deactivate/reactivate rule (note that you will need to save the rule for this change to apply).
 * Delete rule (note that you will need to save the full list of rules for this change to apply).
 
-Rules can be reordered by hovering over the rule whilst it is collapsed, and dragging it using the draggable tag that appears. For keyboard use you can tab to this tag, which will appear if previously invisible, start dragging with enter or space, select a position with the arrow keys, and place the rule with enter/space again.
+Rules can be reordered by hovering over the rule whilst it is collapsed, and dragging it using the draggable tag that appears. For keyboard use you can tab to this tag, which will appear if previously invisible, start dragging with space, select a position with the arrow keys, and place the rule with space again.
 
 To edit any rule, click it or press enter on it in the list, and it will expand to show its details. You can collapse it again from the chevron button in the top right. If you've made changes, that becomes a save button, which will save the changes to this rule before collapsing it. To avoid saving changes, first use the revert button, which will put the rule back to its last saved state.
 
