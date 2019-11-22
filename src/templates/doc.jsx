@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import { styled, media } from '../styles';
 import { Layout } from '../components/layout';
 import { DocsSidebar } from '../components/docs-sidebar';
+import { Docsearch } from '../components/docsearch';
 
 import { DocContainer } from '../pages/docs';
 
@@ -129,6 +130,14 @@ const DocBody = styled.article`
     }
 `;
 
+const MobileDocsearch = styled(Docsearch)`
+    ${media.desktop`
+        display: none;
+    `}
+
+    margin-top: 30px;
+`;
+
 export default ({ data }) => {
     const doc = data.markdownRemark;
     const { frontmatter } = doc;
@@ -155,6 +164,7 @@ export default ({ data }) => {
 
             <DocsSidebar />
             <DocBody>
+                <MobileDocsearch />
                 <h1>{title}</h1>
                 <em>Help improve these docs <a href={editUrl} target='_blank' rel='noopener noreferrer'>on GitHub</a></em>
                 <div dangerouslySetInnerHTML={{ __html: doc.html }} />

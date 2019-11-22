@@ -1,9 +1,10 @@
 import * as _ from 'lodash';
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Docsearch } from "./docsearch";
 
 const SidebarContainer = styled.nav`
     ${media.desktop`
@@ -103,6 +104,18 @@ const DocsLink = styled((props) => <DocsItem>
     }
 `;
 
+const SidebarDocsearch = styled(Docsearch)`
+    ${media.mobileOrTablet`
+        display: none;
+    `}
+
+    margin-bottom: 20px;
+
+    input[type=search] {
+        ${p => p.theme.fontSizeText};
+    }
+`;
+
 export const DocsMenu = () => {
     const docs = (useStaticQuery(graphql`
         query DocsQuery {
@@ -160,6 +173,7 @@ export const DocsMenu = () => {
 
 export const DocsSidebar = () => {
     return <SidebarContainer>
+        <SidebarDocsearch />
         <DocsMenu />
     </SidebarContainer>;
 }
