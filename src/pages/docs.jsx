@@ -1,12 +1,13 @@
 import React from "react";
 import Helmet from 'react-helmet';
+import { Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 import { DocsMenu } from '../components/docs-sidebar';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
+import { TextInput } from "../components/form";
 
 export const DocContainer = styled.section`
     /* Based on FullWidthSection, but no right padding here (it's below) */
@@ -69,6 +70,14 @@ const DocIntroBody = styled.div`
         ${media.mobileOrTablet`
             margin-top: 30px;
         `}
+    }
+`;
+
+const DocsearchContainer = styled.div`
+    margin: 60px 0;
+
+    .algolia-autocomplete, input {
+        width: 100%;
     }
 `;
 
@@ -136,6 +145,13 @@ export default () => {
                         New to HTTP Toolkit? Start here.
                     </p>
                 </GettingStartedTile>
+
+                <DocsearchContainer>
+                    <TextInput
+                        placeholder="Search the docs..."
+                        className="docsearch-input"
+                    />
+                </DocsearchContainer>
 
                 <DocsMenu />
             </DocIntroBody>

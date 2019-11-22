@@ -144,6 +144,15 @@ module.exports = {
           '/toolkit', // Drop original toolkit landing page
         ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-algolia-docsearch`,
+      options: {
+        apiKey: "f5b49b1ad3229d305c66fc594c1133a3",
+        indexName: "httptoolkit",
+        inputSelector: ".docsearch-input",
+        debug: false // (bool) Optional. Default `false`
+      }
     }
   ]
 }
