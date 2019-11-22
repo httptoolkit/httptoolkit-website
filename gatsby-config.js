@@ -150,8 +150,7 @@ module.exports = {
       options: {
         apiKey: "f5b49b1ad3229d305c66fc594c1133a3",
         indexName: "httptoolkit",
-        inputSelector: ".docsearch-input",
-        debug: false // (bool) Optional. Default `false`
+        inputSelector: ".docsearch-input"
       }
     }
   ]

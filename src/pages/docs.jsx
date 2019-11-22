@@ -7,7 +7,7 @@ import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 import { DocsMenu } from '../components/docs-sidebar';
-import { TextInput } from "../components/form";
+import { Docsearch } from "../components/docsearch";
 
 export const DocContainer = styled.section`
     /* Based on FullWidthSection, but no right padding here (it's below) */
@@ -73,12 +73,8 @@ const DocIntroBody = styled.div`
     }
 `;
 
-const DocsearchContainer = styled.div`
+const IntroDocsearch = styled(Docsearch)`
     margin: 60px 0;
-
-    .algolia-autocomplete, input {
-        width: 100%;
-    }
 `;
 
 const GettingStartedTile = styled(Link)`
@@ -146,12 +142,7 @@ export default () => {
                     </p>
                 </GettingStartedTile>
 
-                <DocsearchContainer>
-                    <TextInput
-                        placeholder="Search the docs..."
-                        className="docsearch-input"
-                    />
-                </DocsearchContainer>
+                <IntroDocsearch />
 
                 <DocsMenu />
             </DocIntroBody>
