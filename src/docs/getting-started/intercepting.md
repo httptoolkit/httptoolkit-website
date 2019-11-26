@@ -34,7 +34,7 @@ _This step assumes you have Node.js installed._
 
 HTTP Toolkit also allows you to intercept servers, scripts & command-line tools, such as Node.js applications.
 
-To do this, click the 'Terminal' interception option to open a new intercepted terminal window. Within this window, various environmental variables & overrides are in place so that any applications started there are automatically intercepted. In every other respect though, it's just like any other terminal on your system, and you should be able to run commands just like normal.
+To do this, click the 'Fresh Terminal' interception option to open a new intercepted terminal window. Within this window, various environmental variables & overrides are in place so that any applications started there are automatically intercepted. In every other respect though, it's just like any other terminal on your system, and you should be able to run commands just like normal.
 
 Clicking that button is all the setup that's required. Now you just need to send some requests! As an example, you can send a request with Node.js's built-in client by running the below:
 

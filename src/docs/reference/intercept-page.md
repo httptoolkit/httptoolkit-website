@@ -32,7 +32,7 @@ Once that's done, any traffic from this Firefox instance will be intercepted and
 
 This Firefox instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other Firefox window, and it runs as a separate app. Only the traffic from this specific Firefox window (or windows opened from this Firefox window) will be intercepted. The separate profile ensures that this window starts completely fresh, with none of your day to day cookies or extensions, which is useful for testing. Otherwise though, this window acts just like any other Firefox window on your machine.
 
-### Terminal
+### Fresh Terminal
 
 This interceptor launches a terminal window. This window is preconfigured so that the vast majority of CLI tools or languages that you might use from the command line will automatically use the HTTP Toolkit proxy and trust the certificate. This includes:
 
@@ -53,6 +53,16 @@ In addition, the terminal prepends an extra path to your PATH variable, which al
 The specific terminal application that will be used is autodetected according to various rules, depending on what's available. See [getTerminalCommand()](https://github.com/httptoolkit/httptoolkit-server/blob/master/src/interceptors/terminal/fresh-terminal-interceptor.ts#L60) in the HTTP Toolkit server for details.
 
 Whilst this terminal is open, it also appends a change to the appropriate detected shell config files, e.g. `.bashrc` to ensure the PATH overrides are in place. This ensures that PATH changes in your bash config don't override the interception settings. This wrapped in a check for an `HTTP_TOOLKIT_ACTIVE` variable, so it won't affect other sessions, and is automatically removed again as soon as your terminal is closed.
+
+### Existing Terminal
+
+This interceptor shows a short copyable command, which can be pasted into any terminal window on your machine to immediately enable interception in that window.
+
+In general this should behave the same as the 'Fresh Terminal' option, but being able to intercept existing terminals can be more convenient at times, and allows you to activate interception in some cases where the fresh terminal may not work.
+
+As an example, using `nvm` to switch node versions in an intercepted terminal after it has started may override node interception, but using `nvm` and then subsequently enabling interception should work fine.
+
+This interceptor is not available on Windows, as it's difficult to find a command that will work reliably in the many different shells available (e.g. cmd, git bash, cygwin, powershell, hyper, WSL).
 
 ### Anything
 
