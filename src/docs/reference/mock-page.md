@@ -112,13 +112,19 @@ There are a variety of actions available, to apply different effects to the matc
 * Forward the request to a different host:
     * This changes the target server of the request.
     * By default the 'Host' header is also updated to match, although this can be disabled.
-* Return an automated fixed response:
+* Return a fixed response:
     * Request triggering this rule are never sent upstream to any real server, but receive a response directly from the proxy.
     * The response status, status message, headers and body can be specified manually.
     * Header rows can be added by editing the final name/value pair, or deleted using the delete button next to each individual row.
     * The body editor is based on [Monaco](https://github.com/microsoft/monaco-editor) (the internals of Visual Studio Code), so includes many of its features, including syntax highlighting, regex search, and code folding.
     * The syntax highlighting to use can be selected using the dropdown on the right of the body editor.
     * The body dropdown will automatically update the content-type header, and will automatically match type of the header if it is specified & recognized.
+* Return a response from a file:
+    * Request triggering this rule are never sent upstream to any real server, but receive a response directly from the proxy.
+    * The response status, status message and headers can be specified manually.
+    * Header rows can be added by editing the final name/value pair, or deleted using the delete button next to each individual row.
+    * The body content will come from a file, selected using the button shown.
+    * The file contents are read fresh for each request, so future changes will be immediately visible in responses.
 * Pause the request to manually edit it:
     * This will breakpoint each matched request as it is received, before it is sent upstream to the server.
     * When a matching request is received, HTTP Toolkit will immediately jump to the request on the View page to show it.

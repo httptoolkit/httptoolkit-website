@@ -60,7 +60,7 @@ We're barely scratching the surface here, but there's a lot of options to go fur
 * Use the 'Response directly' button on a paused request, to skip sending the request and instead manually provide your own response data.
 * Rewrite responses, or even requests _and_ responses in a single exchange, to receive real response data from other servers and manually tweak it yourself.
 * With [Pro](/get-pro), add even more powerful & automated HTTP rewriting:
-    * Respond automatically with fixed response data, to automatically mock endpoints or entire servers, even if they don't exist
+    * Respond automatically with fixed response data, to automatically mock endpoints or entire servers
     * Simulate connection timeouts & resets
     * Forward all requests automatically from one server to another
 
