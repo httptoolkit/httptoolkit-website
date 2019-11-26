@@ -32,6 +32,12 @@ Once that's done, any traffic from this Firefox instance will be intercepted and
 
 This Firefox instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other Firefox window, and it runs as a separate app. Only the traffic from this specific Firefox window (or windows opened from this Firefox window) will be intercepted. The separate profile ensures that this window starts completely fresh, with none of your day to day cookies or extensions, which is useful for testing. Otherwise though, this window acts just like any other Firefox window on your machine.
 
+### Fresh Edge
+
+This interceptor launches a Edge instance, preconfigured to use the HTTP Toolkit proxy and trust the HTTP Toolkit certificate. Only the latest Chromium-based Edge is supported.
+
+This Edge instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other Edge window, and it runs as a separate app. Only the traffic from this specific Edge window (or windows opened from this Edge window) will be intercepted. The separate profile ensures that this window starts completely fresh, with none of your day to day cookies or extensions, which is useful for testing. Otherwise though, this window acts just like any other Edge window on your machine.
+
 ### Fresh Terminal
 
 This interceptor launches a terminal window. This window is preconfigured so that the vast majority of CLI tools or languages that you might use from the command line will automatically use the HTTP Toolkit proxy and trust the certificate. This includes:
