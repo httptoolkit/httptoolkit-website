@@ -2,6 +2,8 @@
 title: 'How to Debug Anything'
 date: '2019-12-02T15:00'
 cover_image: './code.jpg'
+redditUrl: https://www.reddit.com/r/programming/comments/e5096w/how_to_debug_anything/
+hackerNewsUrl: https://news.ycombinator.com/item?id=21682919
 ---
 
 Debugging is an important skill for any developer. Arguably the most important skill, if you consider debugging in the general sense: exploring a system, explaining its behaviour, and working out how to change it.
