@@ -330,8 +330,9 @@ export default ({ data }) => {
   return (<Layout>
     <BlogPostContainer width='780px'>
       <Helmet>
-        <title>{title}</title>
+        <title>{title} | HTTP Toolkit</title>
         <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={postUrl} />
 
         <meta property="og:title"       content={title} />
         <meta property="og:description" content={post.excerpt} />
