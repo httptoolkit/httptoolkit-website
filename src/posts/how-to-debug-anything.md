@@ -28,7 +28,7 @@ Let's look at how to isolate the location of the problem first, and we'll explor
 
 Your first step is to focus your debugging down to a sufficiently small area that you can start thinking about fixes.
 
-In effect, you're running tests to separate the parts of your system that are working correctly from the parts that aren't, repeatedly. This is an incremental process, and I'd highly recomend taking notes as you go to keep track.
+In effect, you're running tests to separate the parts of your system that are working correctly from the parts that aren't, repeatedly. This is an incremental process, and I'd highly recomend taking careful notes as you go, to keep track.
 
 Sometimes the separating lines are clear. If you have a single function, which gets the correct inputs but produces the wrong outputs, your next step is to examine the values at points within that function, and work out at which point they go wrong.
 
@@ -49,11 +49,11 @@ Sometimes, it's less clear. Some tips:
 ### If the system is made up of communicating parts
 
 * Which one makes the first mistake?
-* For example, if your app failing to load data from the server:
+* For example, if your app fails to load data from the server:
     * Is it requesting the right data from the server?
     * Is the server returning the right data?
 * [HTTP Toolkit](https://httptoolkit.tech) is perfect for doing this, if you're using HTTP!
-* If you can answer those questions, you immediately know whether the server or the app is at fault (assuming only one is broken of course...)
+* If you can answer those questions, you immediately know whether the server or the app is at fault (assuming only one is broken...)
 
 ### If the issue is intermittent
 
@@ -66,7 +66,11 @@ Sometimes, it's less clear. Some tips:
 * Once you have a clear race condition, you can remove and shrink the parallel operations until you can find what's racing.
 * Once you have specific inputs that cause a failure, you can reproduce the issue and investigate why.
 
-You don't just have to search your code for the cause. Sometimes you can search within your set of servers or users, to find the specific machine that's doing the wrong thing, which can provide clues. It can also be useful to narrow down the problem in time, to find the moment this behaviour changed (if you're confident it worked in the past) so you can see which parts of the system were changed at a similar time, and investigate those more closely.
+You don't just have to search the code for the cause!
+
+Sometimes you can search within your set of servers or users, to narrow down where the bug appears to a specific machine that's doing the wrong thing, which can provide a wealth of clues.
+
+Sometimes it can also be useful to narrow down the problem in time, to find the moment this behaviour changed (if you're confident it worked in the past) so you can see which parts of the system were changed at a similar time, and investigate those more closely.
 
 > Isolate as many variables as you can and test each one by itself until you figure out the issue - [Stacy Caprio](https://stacycaprio.com/) from [Accelerated Growth Marketing](http://acceleratedgrowthmarketing.com/)
 
@@ -78,15 +82,15 @@ Once you've found the point that things go wrong, it's these inputs that become 
 
 'Input' here is very general: it might be an HTTP request you receive, a database record that you're processing, a function parameter, the current time of day, or your network latency. It's any variable that affects your application.
 
-The process here is much the same, but for complex inputs this is one place where a good diff can be very valuable. Find a working input, find a bad input, and compare them. Somewhere in that set of differences in your problem. You can replace parts of the bad input with the good input (or vice versa) until it fails, to discover exactly which part of your data is to blame.
+The process here is much the same, but for complex inputs this is one place where a good diff can be very valuable. Find a working input, find a bad input, and compare them. Somewhere in that set of differences is your problem! You can replace parts of the bad input with the good input (or vice versa) until it fails, to pin down the minimal bad data required to trigger the issue.
 
-For simple inputs it's easier, but there's still some comparison required. The UI throws an error when trying to display some prices: for which values does that happen?
+For simple inputs it's easier, but there's still some comparison required. For example, if your UI throws an error when trying to display some prices: for which prices does that happen? Is it an issue with too large inputs, unexpected negative inputs, or certain inputs that cause calculation errors later on?
 
 > Binary search all the things; if you can rule out half the possibilities in one step then do it - [Tom Hudson](https://twitter.com/TomNomNom)
 
 Once you have a range of possibilities for what could cause your problem, in some sense, test in the middle of the two. Your intuition for where the problem lies is probably wrong. Given that, the middle is going to get you to the right answer faster and more reliably than anything else.
 
-This is solid advice for everything from debugging a single broken function (examine the state of your values in the middle) to an entire codebase (it's well worth learning [how to `git bisect`](https://flaviocopes.com/git-bisect/)).
+This is solid advice for everything from debugging a single broken function (examine the state of your values in the middle) to an entire codebase (where it's well worth learning [how to `git bisect`](https://flaviocopes.com/git-bisect/)).
 
 ## Get visibility
 
@@ -126,7 +130,7 @@ For all kinds of tools like this, it's best if you've set them up beforehand! Th
 
 Your language will have proper debugging tools, which allow you to walk through your system, line by line. That's mostly relevant in local environments, but tricks like sending your customer a debug build of the app to reproduce the issue can help in other cases too.
 
-Either way, debuggers are normally once you're reasonable sure _where_ the problem is, and you want to examine it up close to work out the exact details.
+Either way, debuggers are most useful once you're reasonable sure _where_ the problem is, and you want to examine it up close to work out the exact details.
 
 Being very familiar with the standard debugging tools for your environment is extremely valuable. Don't just learn the basics; many will go beyond just adding breakpoints and examining variables, and include more powerful features that you can use to more quickly & effectively find your issue:
 
@@ -140,7 +144,7 @@ Don't shy away from debugging into your platform itself too. Even if the bug is 
 
 Often, issues will appear in the interactions between systems, and being able to see and interact directly with the communications powering these interactions can quickly solve them.
 
-Of course, this is where [HTTP Toolkit](https://httptoolkit.tech) fits in. HTTP Toolkit makes it easy to intercept & view HTTP or HTTPS traffic from clients, between backend servers, or sent to APIs, and to then edit that traffic live too, so you can test edge cases and narrow down which part of your inputs is causing you trouble.
+[HTTP Toolkit](https://httptoolkit.tech) fits in perfectly here. HTTP Toolkit makes it easy to intercept & view HTTP or HTTPS traffic from clients, between backend servers, or sent to APIs, and to then edit that traffic live too, so you can test edge cases and narrow down which part of your inputs is causing you trouble.
 
 Alternatively, if you're working with a different protocol, or you need to inspect at the raw TCP level, [Wireshark](https://www.wireshark.org/) can be a godsend. Wireshark lets you capture & view raw packet data, and provides tools to interpret & filter packets with an understanding of a variety of protocols, although that can mean it has a steep learning curve.
 
@@ -160,7 +164,7 @@ Hopefully at this point, after using your visibility into your system to increme
 
 The next step is to work out why.
 
-In many cases, once you narrow down the specific part of your system or state that's incorrect, the error itself will be obvious. You're adding instead of multiplying a value for example, or you've forgotten to validate clearly bad input data before using it. In other cases it's not though, and explaining the issue so you can fix it can be a big challenge in itself.
+In many cases, once you narrow down the specific part of your system or state that's incorrect, the mistake will be obvious. You're adding instead of multiplying a value for example, or you've forgotten to validate clearly bad input data before using it. In other cases it's not though, and explaining the issue so you can fix it can be a big challenge in itself.
 
 ### Check your assumptions
 
@@ -174,7 +178,7 @@ As humans, we make assumptions and build abstractions around how things work, to
 
 Sometimes these are wrong.
 
-It's very easy for this to end up causing major bugs that are hard to unpick, even for the most simple assumptions. If a problem seems inexplicable, as if the computer itself is just doing the 'wrong' thing, you've almost certainly run into this, and you're making the wrong assumption somewhere.
+It's very easy for this to end up causing major bugs that are hard to unpick, even for the most simple assumptions. If a problem seems inexplicable, as if the computer is just doing the 'wrong' thing, you've almost certainly run into this, and you're making the wrong assumption somewhere.
 
 * Check the right function is being called, or the right server is being talked to.
 * Check you're running the version of the code you think you are.
@@ -188,13 +192,13 @@ Searching the internet for explanations of confusing behaviour is a time worn de
 
 Often you'll struggle though, and it's not as easy at it sounds for complex issues. If just searching from your description of the problem doesn't work, there's a few things you can try:
 
-* Search StackOverflow directly, filtering questions by tags to hone your results.
+* Search for potential answers to your problem, not just the question. Rather than "fetch request to X fails", try "X doesn't support gzipped requests" or "fetch can't send JSON".
 * Search for snippets of any error messages you can see, or any other related logging, even if it's not the problem itself.
-* Search for potential answers to your problem, not just the question. If you have an intermittent failure for example, rather than "X randomly crashes", try "X is not thread safe".
-* Search the issue tracker for the tools involved directly, to find bug reports related to your issue.
-* Search for examples of working projects that might do similar things, and compare your approach to theirs.
+* Search StackOverflow directly, filtering questions by tags to hone your results.
+* Search the issue tracker for the tools involved, to find bug reports related to your issue.
+* Search for examples of working projects that might include similar code, compare your approach to theirs, and look very closely at the places where they differ.
 
-### Check the common culprits
+### Check on the usual suspects
 
 [Tom Hudson](https://twitter.com/TomNomNom) has a good list of common things to watch out for:
 
@@ -220,6 +224,13 @@ Try to explain everything you understand about what's currently happening, and w
 
 ## Fix it
 
-Hopefully, you can now explain which part of your system is broken, and why that's happened. The last step is up to you I'm afraid: fix it! However you do that though, don't forget to test it afterwards, to confirm your change really does solve the issue. Good luck.
+Hopefully, you can now explain which part of your system is broken, and why that's happened. The last step is up to you I'm afraid: fix it. Fortunately, if you understand where the code is broken and why it's wrong, that's normally a fairly clear process (though not necessarily a quick one).
+
+Once you do fix your issue though, do yourself a favour and remember to:
+
+* Throughly retest the fix after writing it, rather than assuming it works based on your understanding of the problem. Failing to do this is very painful, wastes a load of your time, and is yet remarkably common.
+* Write some notes on how you debugged the issue, and your best understanding of the underlying issue & how it happened. At the very least this will help you debug similar issues in future, and in some important cases this highlights that your fix doesn't actually make any sense given your explanation, so one of the two is wrong.
+
+Good luck!
 
 _Still stuck? Have questions or comments on this article? Have any great debugging tips of your own? Get in touch [on Twitter](https://twitter.com)._
