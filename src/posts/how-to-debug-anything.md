@@ -2,8 +2,10 @@
 title: 'How to Debug Anything'
 date: '2019-12-02T15:00'
 cover_image: './code.jpg'
+twitterUrl: https://twitter.com/pimterry/status/1201517994729447425
 redditUrl: https://www.reddit.com/r/programming/comments/e5096w/how_to_debug_anything/
 hackerNewsUrl: https://news.ycombinator.com/item?id=21682919
+devToUrl: https://dev.to/pimterry/how-to-debug-anything-11o3
 ---
 
 Debugging is an important skill for any developer. Arguably the most important skill, if you consider debugging in the general sense: exploring a system, explaining its behaviour, and working out how to change it.
@@ -230,7 +232,7 @@ Hopefully, you can now explain which part of your system is broken, and why that
 
 Once you do fix your issue though, do yourself a favour and remember to:
 
-* Throughly retest the fix after writing it, rather than assuming it works based on your understanding of the problem. Failing to do this is very painful, wastes a load of your time, and is yet remarkably common.
+* Thoroughly retest the fix after writing it, rather than assuming it works based on your understanding of the problem. Failing to do this is very painful, wastes a load of your time, and is yet remarkably common.
 * Write some notes on how you debugged the issue, and your best understanding of the underlying issue & how it happened. At the very least this will help you debug similar issues in future, and in some important cases this highlights that your fix doesn't actually make any sense given your explanation, so one of the two is wrong.
 
 Good luck!
