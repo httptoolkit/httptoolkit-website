@@ -22,7 +22,7 @@ Let's start by intercepting Chrome. Click the 'Fresh Chrome' interception option
 
 ![A Chrome window showing the intercepted AmIUsing page](./fresh-chrome-amiusing.png)
 
-This uses a separate Chrome profile, so will start as a clean browser, disconnected from other profiles and their settings, extensions & history that you might have on your machine. This allows you to continue using your existing browser separtely from HTTP Toolkit, whilst intercepting the traffic shown in this browser.
+This uses a separate Chrome profile, so will start as a clean browser, disconnected from other profiles and their settings, extensions & history that you might have on your machine. This allows you to continue using your existing browser separately from HTTP Toolkit, whilst intercepting the traffic shown in this browser.
 
 Once Chrome has opened, you will see all traffic that it has sent and received on the 'View' page in HTTP Toolkit. Each request is shown on the left in the order they were sent, and they can be clicked to see their full details in the panel on the right.
 
