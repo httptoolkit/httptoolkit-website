@@ -88,6 +88,22 @@ export const FeatureDescription = styled.p`
     }
 `;
 
+export const FeatureList = styled.ul`
+    ${p => p.theme.fontSizeText};
+    line-height: 1.3;
+
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    list-style: circle;
+    padding: 30px 0 0 20px;
+
+    > li:not(:first-child) {
+        margin-top: 10px;
+    }
+`;
+
 export const BigProFeaturePill = styled(ProPill)`
     ${p => p.theme.fontSizeSubheading};
     vertical-align: 0.35em;

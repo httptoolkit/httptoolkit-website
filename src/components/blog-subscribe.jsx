@@ -59,7 +59,7 @@ export const BlogSubscribe = (props) => {
                     by following <SubscribeLink
                         href='https://twitter.com/intent/user?screen_name=httptoolkit'
                         target='_blank'
-                        rel='noopener'
+                        rel='noopener noreferrer'
                     >
                         HTTP Toolkit on Twitter <FontAwesomeIcon icon={['fab', 'twitter']} />
                     </SubscribeLink>

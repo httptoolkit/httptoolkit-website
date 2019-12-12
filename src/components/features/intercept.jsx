@@ -8,6 +8,7 @@ import {
     FeatureTitle,
     FeatureSubHeading,
     FeatureDescription,
+    FeatureList,
     FeatureImg
 } from '../feature';
 
@@ -28,11 +29,22 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureSubHeading>
 
             <FeatureDescription>
-                Automatic interception setup for HTTP & HTTPS
-                from most clients, including browsers like <strong>
-                Chrome & Firefox</strong>, almost all CLI tools, and backend languages
-                like <strong>Node.js, Python & Ruby</strong>, with more platforms
-                coming soon.
+                Automatic setup for targeted interception of HTTP & HTTPS
+                from most clients, including:
+                <FeatureList>
+                    <li>Browsers like <strong>Chrome, Edge & Firefox</strong></li>
+                    <li>Almost all terminal or Electron-based applications</li>
+                    <li>Backend & scripting languages, including <strong>Node.js, Python & Ruby</strong></li>
+                    <li>
+                        More coming soon, all powered by <a
+                            href='https://github.com/httptoolkit/feedback'
+                            target="_blank"
+                            rel='noopener noreferrer'
+                        >
+                            your feedback
+                        </a>
+                    </li>
+                </FeatureList>
             </FeatureDescription>
 
             <FeatureDescription>
