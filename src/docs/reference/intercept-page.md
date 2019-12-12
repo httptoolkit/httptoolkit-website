@@ -70,6 +70,18 @@ As an example, using `nvm` to switch node versions in an intercepted terminal af
 
 This interceptor is not available on Windows, as it's difficult to find a command that will work reliably in the many different shells available (e.g. cmd, git bash, cygwin, powershell, hyper, WSL).
 
+### Electron App
+
+This interceptor allows you to launch an Electron app, preconfigured to send all traffic through HTTP Toolkit. You can select the executable to run, or rerun a previous successfully run executable.
+
+Interception is only support for all Electron apps using an Electron version above v1.7.4. All HTTP from standard clients in the renderer and main processes should be intercepted, although it is possible that traffic from applications using native extensions directly (e.g. libcurl) may not be.
+
+This interceptor works by setting the environment variables set by the terminal interceptors, which is sufficient for many well-behaved applications that use the system proxy settings, and then injecting logic into the process itself.
+
+The injection is done by starting the app with a `--inspect-brk` argument, so that it waits for a debugger before opening, then automatically connecting as a debugger to run a version of the interception logic normally used for Node processes in the terminal.
+
+Using this to start non-Electron apps may have strange results: some may fail to start due to the bad command line flag, some may start as normal without any interception active, and some will observe the proxy & certificate settings from the environment variables, and will be intercepted even without using Electron.
+
 ### Anything
 
 This interception option shows the instructions and details required to manually connect any other clients to HTTP Toolkit.
