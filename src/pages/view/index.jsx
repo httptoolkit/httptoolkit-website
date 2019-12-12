@@ -255,8 +255,7 @@ export const ViewFuturePlans = (p) => <ViewFutureContainer>
     And that's just the first release!
     <br/><br/>
     Future plans include manual & automatic HTTP rewriting,
-    security analysis & metrics, HTTP client tools,
-    and much more...
+    security analysis & metrics, HTTP client tools & more...
     <br/><br/>
     Sound good? <LinkButton onClick={(e) => {
         e.preventDefault();

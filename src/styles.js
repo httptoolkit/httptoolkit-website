@@ -138,15 +138,15 @@ export const theme = {
     `,
 
     fontSizeSubheading: css`
-        ${media.desktop`font-size: 24px`}
-        ${media.tablet`font-size: 22px`}
-        ${media.mobile`font-size: calc(16px + 2vw)`}
+        ${media.desktop`font-size: 22px`}
+        ${media.tablet`font-size: 20px`}
+        ${media.mobile`font-size: calc(15px + 2vw)`}
     `,
 
     fontSizeText: css`
-        ${media.desktop`font-size: 21px`}
-        ${media.tablet`font-size: 17px`}
-        ${media.mobile`font-size: calc(16px + 1.5vw)`}
+        ${media.desktop`font-size: 18px`}
+        ${media.tablet`font-size: 16px`}
+        ${media.mobile`font-size: calc(14px + 1.5vw)`}
     `,
 };
 
