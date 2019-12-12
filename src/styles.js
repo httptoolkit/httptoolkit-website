@@ -114,39 +114,39 @@ export const theme = {
     headerHeight: '80px',
 
     fontSizeUltraHeading: css`
-        ${media.desktop`font-size: 60pt`}
-        ${media.tablet`font-size: 50pt`}
-        ${media.mobile`font-size: calc(30pt + 5vw)`}
+        ${media.desktop`font-size: 80px`}
+        ${media.tablet`font-size: 66px`}
+        ${media.mobile`font-size: calc(40px + 5vw)`}
     `,
 
     fontSizeBiggerHeading: css`
-        ${media.desktop`font-size: 50pt`}
-        ${media.tablet`font-size: 40pt`}
-        ${media.mobile`font-size: calc(20pt + 5vw)`}
+        ${media.desktop`font-size: 66px`}
+        ${media.tablet`font-size: 52px`}
+        ${media.mobile`font-size: calc(26px + 5vw)`}
     `,
 
     fontSizeHeading: css`
-        ${media.desktop`font-size: 36pt`}
-        ${media.tablet`font-size: 30pt`}
-        ${media.mobile`font-size: calc(16pt + 5vw)`}
+        ${media.desktop`font-size: 48px`}
+        ${media.tablet`font-size: 40px`}
+        ${media.mobile`font-size: calc(22px + 5vw)`}
     `,
 
     fontSizeNearlyHeading: css`
-        ${media.desktop`font-size: 26pt`}
-        ${media.tablet`font-size: 24pt`}
-        ${media.mobile`font-size: calc(14pt + 3vw)`}
+        ${media.desktop`font-size: 35px`}
+        ${media.tablet`font-size: 32px`}
+        ${media.mobile`font-size: calc(19px + 3vw)`}
     `,
 
     fontSizeSubheading: css`
-        ${media.desktop`font-size: 18pt`}
-        ${media.tablet`font-size: 16pt`}
-        ${media.mobile`font-size: calc(12pt + 2vw)`}
+        ${media.desktop`font-size: 24px`}
+        ${media.tablet`font-size: 22px`}
+        ${media.mobile`font-size: calc(16px + 2vw)`}
     `,
 
     fontSizeText: css`
-        ${media.desktop`font-size: 15pt`}
-        ${media.tablet`font-size: 13pt`}
-        ${media.mobile`font-size: calc(12pt + 1.5vw)`}
+        ${media.desktop`font-size: 21px`}
+        ${media.tablet`font-size: 17px`}
+        ${media.mobile`font-size: calc(16px + 1.5vw)`}
     `,
 };
 
