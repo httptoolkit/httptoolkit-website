@@ -217,6 +217,11 @@ const Feature = styled.li`
             margin-top: 10px;
         }
     }
+
+    strong {
+        font-weight: bold;
+        color: ${p => p.theme.popColor};
+    }
 `;
 
 const StyledTooltip = ({ children, ...props }) =>
@@ -549,7 +554,7 @@ export default @observer class PricingPage extends React.Component {
                             <Feature><strong>Centralized billing</strong> to simplify payment for your team</Feature>
                             <Feature>Licensed to your team, rather than individuals</Feature>
                             <Feature>Add or remove team members whenever you need to</Feature>
-                            <Feature><strong>Team workspaces</strong> for low-friction collaboration (coming soon)</Feature>
+                            <Feature><strong>Team workspaces</strong> for low-friction collaboration <em>(coming soon)</em></Feature>
                             <Feature>
                                 Options available on request:
                                 <ul>
