@@ -8,10 +8,11 @@ export const FeatureCardsBlock = styled.div`
 
   ${media.mobile`
     margin-top: 60px;
+    flex-direction: column;
   `}
 
-  ${media.mobile`
-    flex-direction: column;
+  ${media.tablet`
+    padding: 0 10px;
   `}
 
   ${media.desktopOrTablet`
@@ -29,10 +30,6 @@ export const FeaturesCard = styled.section`
   flex: 1;
   margin: 0 8px;
 
-  ${media.desktop`
-      height: 360px;
-  `}
-
   ${media.mobile`
     :not(:last-child) {
       margin-bottom: 60px;
@@ -41,7 +38,7 @@ export const FeaturesCard = styled.section`
 
   padding: 0;
   background-color: ${p => p.theme.popBackground};
-  
+
   border-radius: 4px;
   border: 1px solid rgba(0,0,0,0.05);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
@@ -54,7 +51,7 @@ export const FeaturesCard = styled.section`
     color: ${p => p.theme.popColor};
 
     border-radius: 4px 4px 0 0;
-    
+
     font-weight: bolder;
     text-transform: uppercase;
   }
