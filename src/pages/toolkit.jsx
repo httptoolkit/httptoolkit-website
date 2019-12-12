@@ -207,6 +207,9 @@ export default () => (<Layout>
     <link rel="preload" href="/vs/base/worker/workerMain.js" as="script" />
     <link rel="preload" href="/vs/language/json/jsonMode.js" as="script" />
     <link rel="preload" href="/vs/language/json/jsonWorker.js" as="script" />
+
+    {/* Required to make sure Monaco loads correctly */}
+    <base href="/" />
   </Helmet>
   <TopHeroBlock>
     <IntroTextContainer>
