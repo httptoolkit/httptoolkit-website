@@ -1,0 +1,96 @@
+---
+name: 'Troubleshooting'
+title: 'Troubleshooting'
+order: 999
+---
+
+Sometimes things go wrong. Below is a list of known issues you might encounter with HTTP Toolkit, and what you can do about them.
+
+**Have any issues not listed here? Please get in touch, either [by email](/contact) or by filing an issue [on GitHub](https://github.com/httptoolkit/feedback/issues/new).**
+
+# General issues
+
+## HTTP Toolkit doesn't start
+
+There's a few known possible causes of this:
+
+* The ports HTTP Toolkit uses are in use. HTTP Toolkit uses ports 45456 and 45457 for internal communication, and then selects a separate port for the proxy automatically. If one of those ports is in use, or there are no free ports available, HTTP Toolkit will fail to start.
+* A previous run of HTTP Toolkit has crashed without cleaning up after itself, and is still using these ports. To resolve this, you will need to kill the background `httptoolkit-server` node process.
+* Your local install has become corrupted somehow. Reinstalling the latest version of the app should generally resolve this.
+
+If you hit this issue, please get in touch. Right now there's no well known applications using these ports, so all these possibilities are very unusual, and it's possible that they'll be solvable with more investigation.
+
+## HTTP Toolkit starts, but blank
+
+HTTP Toolkit loads its UI and the core of its logic from https://app.httptoolkit.tech on first startup, and updates automatically as new versions of that site become available.
+
+That means on the first startup you will need an internet connection, and if you're offline HTTP Toolkit will not start successfully.
+
+This is only required for the first start - after that the latest UI is stored indefinitely, so that future startups will work offline, and load much more quickly.
+
+## The server crashes and the app restarts
+
+Any time the server crashes, a notification is shown with the error details and the app is restarted (up to 3 times, and only if the server ran for at least 5 seconds before crashing).
+
+If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact) with any details you have, as this is definitely a bug that needs fixing.
+
+## I hate Electron
+
+This is a whole debate that we can get into elsewhere, but if you really don't like Electron apps, it is possible to use HTTP Toolkit without it. To do so:
+
+* Start a server:
+    * Download the latest HTTP Toolkit server from https://github.com/httptoolkit/httptoolkit-server/releases for your platform
+    * Extract it somewhere
+    * Run `bin/httptoolkit-server` in the extracted folder
+* Open https://app.httptoolkit.tech in Chrome, Edge or Brave:
+    * This is the hosted version of the latest HTTP Toolkit UI
+    * A Chromium-based browser is required, as Firefox & Safari have issues with some of the UI/server communication
+    * The UI will work offline in your browser after the first load, just like the app, as it's built using service workers.
+
+# Interception issues
+
+## Firefox shows 'Unable to connect' or 'EConnRefused'
+
+In some circumstances, initial Firefox setup can fail with this error, and something like "Firefox can't establish a connection to the server at localhost:8001".
+
+This is quite rare, and the exact cause isn't pinned down yet. In general this will disappear immediately if you close Firefox and try again.
+
+If you can reproduce this issue reliably, [please get in touch](/contact), so we can trace down the exact cause of this.
+
+## A browser shows ERR\_PROXY\_CERTIFICATE\_INVALID or other certificate errors
+
+This means that your browser is not correctly trusting the HTTP Toolkit certificate it has been given, for some reason.
+
+This is another very rare issue, and it's unclear why this happens on certain machines. If this happens to you, do [please get in touch](/contact) so we can investigate it further.
+
+In the meantime you can manually start Chrome configured to trust _all_ certificates with the below command (for Windows):
+
+```
+chrome.exe --ignore-certificate-errors --user-data-dir="C:\Users\$YOURUSERNAME\AppData\Local\httptoolkit\Config\chrome" --proxy-server=127.0.0.1:8000 --proxy-bypass-list="<-loopback>;https://localhost:8000" --disable-restore-session-state --no-default-browser-check --disable-popup-blocking --disable-translate --start-maximized --disable-default-apps --disable-sync --enable-fixed-layout --no-first-run --noerrdialogs --flag-switches-begin --flag-switches-end http://amiusing.httptoolkit.tech
+```
+
+You will need to use the full path for Chrome on your machine, and use your username instead of `$YOURUSERNAME` here.
+
+This issue has only been seen on Windows, but if you do see this on Mac or Linux, you'll need to update the data dir path completely. Any empty directory is fine, it's only used to store the new Chrome's profile, and the directory can be deleted later.
+
+## An application I have installed appears as 'Not Available'
+
+HTTP Toolkit attempts to detect which relevant applications you have installed when it's started, so it can show the available ones in the UI.
+
+If this isn't working in your case, it's possible there's something unusual in your configuration. Please [report this](/contact) so it can be fixed properly.
+
+In the meantime, if you're trying to launch a browser, you can manually edit or delete the cached list of detected browsers at:
+
+* Linux: `/home/<username>/.config/httptoolkit/browsers.json`
+* Windows: `C:\Users\<username>\AppData\Local\httptoolkit\Config\browsers.json`
+* Mac: `/Users/<username>/Library/Preferences/httptoolkit/browsers.json`
+
+Adding your browser of choice in there or fixing the detected settings should get it to appear the next time you start the app.
+
+## Interception doesn't work in some other way
+
+* If you need to test whether any client is working correctly, make a request to [`AmIUsing.httptoolkit.tech`](https://amiusing.httptoolkit.tech). You should see "You're not being intercepted" or "You're being intercepted", depending on whether your traffic is successfuly going through HTTP Toolkit
+
+* If you're struggling to manually set up a client, there's two possibilities: either the client isn't using the HTTP proxy settings correctly, or it doesn't trust the certificate. In the former case, you should see "You're not being intercepted" when making requests to amiusing.httptoolkit.tech. In the latter case, you'll likely receive certificate errors, and you should be able to see rows showing failed or rejected requests on the View page.
+
+* Terminal interception should be available on all machines, but it's possible that browser and other interception options might not be available on your machine, depending on the applications you have installed. Ensure you have the required applications correctly installed on your system. Installing applications in unusual locations or in portable/standalone modes may stop them being automatically detected.

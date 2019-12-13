@@ -168,6 +168,13 @@ export const DocsMenu = () => {
                 </DocsLink>
             ) }
         </DocsGroup>
+        <DocsGroup title='Guides'>
+            { docGroups['guides'].map((doc) =>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                    { doc.frontmatter.name }
+                </DocsLink>
+            ) }
+        </DocsGroup>
     </DocsList>;
 }
 
