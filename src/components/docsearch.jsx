@@ -18,7 +18,9 @@ export const Docsearch = (props) => {
         window.docsearch({
             apiKey: "f5b49b1ad3229d305c66fc594c1133a3",
             indexName: "httptoolkit",
-            inputSelector: ".docsearch-input"
+            // We need a *unique* id here. Breaks if we use memoized ids if we also
+            // try to use SSR, so instead we use an explicit name prop:
+            inputSelector: `.docsearch-input-${props.name}`
         });
     }, []);
 
@@ -26,7 +28,7 @@ export const Docsearch = (props) => {
         <TextInput
             type="search"
             placeholder="Search the docs..."
-            className="docsearch-input"
+            className={`docsearch-input-${props.name}`}
         />
     </DocsearchContainer>;
 }

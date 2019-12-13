@@ -180,7 +180,7 @@ export const DocsMenu = () => {
 
 export const DocsSidebar = () => {
     return <SidebarContainer>
-        <SidebarDocsearch />
+        <SidebarDocsearch name='sidebar' />
         <DocsMenu />
     </SidebarContainer>;
 }

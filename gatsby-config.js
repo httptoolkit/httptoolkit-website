@@ -150,6 +150,8 @@ module.exports = {
       }
     },
     {
+      // Used primarily to inject the docsearch script, not to configure the input
+      // itself. That's done by the standalone Docsearch component.
       resolve: `gatsby-plugin-algolia-docsearch`,
       options: {
         apiKey: "f5b49b1ad3229d305c66fc594c1133a3",

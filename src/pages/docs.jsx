@@ -142,7 +142,7 @@ export default () => {
                     </p>
                 </GettingStartedTile>
 
-                <IntroDocsearch />
+                <IntroDocsearch name='intro' />
 
                 <DocsMenu />
             </DocIntroBody>
