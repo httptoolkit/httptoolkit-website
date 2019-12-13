@@ -91,6 +91,7 @@ const DocsLink = styled((props) => <DocsItem>
 </DocsItem>)`
     text-decoration: none;
     display: block;
+    cursor: pointer;
 
     &:hover {
         color: ${p => p.theme.popColor};
