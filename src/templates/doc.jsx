@@ -21,6 +21,9 @@ const DocBody = styled.article`
         padding-left: 60px;
         padding-right: calc((100vw - ${p => p.theme.pageWidth.desktop}) / 2);
         padding-bottom: 60px;
+
+        max-width: calc(${p => p.theme.pageWidth.desktop} - 240px);
+        box-sizing: content-box;
     `}
 
     ${media.tablet`

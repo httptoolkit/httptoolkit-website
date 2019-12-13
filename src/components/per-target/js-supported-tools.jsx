@@ -15,4 +15,5 @@ export const JSSupportedTools = () => <SupportedTools>
     <SupportedTool>Bent</SupportedTool>
     <SupportedTool>Unirest</SupportedTool>
     <SupportedTool>npm</SupportedTool>
+    <SupportedTool>Electron applications</SupportedTool>
 </SupportedTools>
