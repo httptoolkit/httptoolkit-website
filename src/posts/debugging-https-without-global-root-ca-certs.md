@@ -2,7 +2,8 @@
 title: "Global developer CAs considered harmful"
 date: '2020-01-14T13:00'
 cover_image: './locks.jpg'
-draft: false
+redditUrl: https://www.reddit.com/r/programming/comments/eol0il/global_developer_cas_considered_harmful/
+hackerNewsUrl: https://news.ycombinator.com/item?id=22044381
 ---
 
 Certificate infrastructure is built on trust. If you trust the wrong thing, it all falls down. Unfortunately, we developers do it all the time anyway. YOLO.
@@ -138,4 +139,4 @@ Of course, a big part of why I'm writing this is my work in HTTP Toolkit solving
 
 That implementation is all [open source](https://github.com/httptoolkit), so if you're interested or working on something similar then go take a look at how HTTP Toolkit [launches Chrome with interception](https://github.com/httptoolkit/httptoolkit-server/blob/v0.1.29/src/interceptors/fresh-chrome.ts#L45-L100), or all the env vars it uses [to intercept arbitrary CLI commands](https://github.com/httptoolkit/httptoolkit-server/blob/master/src/interceptors/terminal/terminal-env-overrides.ts).
 
-Have any thoughts on this? Get in touch [on Twitter](https://twitter.com/pimterry) or [by email](/contact).
+Have any thoughts on this? Get in touch [on Twitter](https://twitter.com/pimterry), [by email](/contact), or join the discussion on [HN](https://news.ycombinator.com/item?id=22044381) & [reddit](https://www.reddit.com/r/programming/comments/eol0il/global_developer_cas_considered_harmful/).
