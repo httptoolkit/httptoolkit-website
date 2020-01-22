@@ -99,7 +99,7 @@ See Android's [network security config documentation](https://developer.android.
 
 To intercept traffic from 3rd party apps that don't trust the HTTP Toolkit CA certificate, you will need to either do some reverse engineering, or install the app in an emulator or rooted device.
 
-In an emulator/rooted device it's possible to work default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://en.wikipedia.org/wiki/Certificate_pinning)).
+In an emulator/rooted device it's possible to work default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://security.stackexchange.com/questions/29988/what-is-certificate-pinning)).
 
 If that doesn't work or isn't possible, you'll need to reverse engineer your target application.
 
