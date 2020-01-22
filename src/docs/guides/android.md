@@ -6,21 +6,19 @@ order: 1
 
 HTTP Toolkit can intercept, inspect & rewrite traffic from Android devices.
 
-Simple interception for a device just involves scanning a QR code and accepting a couple of Android prompts. With that done, all plain HTTP traffic will be immediately visible in HTTP Toolkit, along with all HTTPS traffic from Chrome, webviews, and any application that trusts the user certificate store.
+Plain HTTP traffic plus all HTTPS traffic from Chrome, webviews and applications that trust the user certificate store will be intercepted completely automatically.
 
-HTTP Toolkit can't automatically intercept HTTPS from all applications on all devices, but it can intercept most with only small changes to the application itself.
+For other apps, manual changes may be required to intercept HTTPS traffic. For your own apps these changes are very simple, whilst for 3rd party apps it can be more involved.
 
-Apps targeting Android API level 24+ (Android 7) won't trust HTTP Toolkit's installed certificate by default, and some apps will also include their own internal protections to block HTTPS interception.
-
-For your own applications this is easily fixed, see ['Intercepting traffic from your own app'](#intercepting-traffic-from-your-own-app). For 3rd party applications, some reverse engineering may be required, see ['Intercepting traffic from 3rd party apps'](/#intercepting-traffic-from-3rd-party-apps).
+See ['intercepting HTTPS traffic from your own app'](#intercepting-traffic-from-your-own-app) or ['intercepting HTTPS traffic from 3rd party apps'](/#intercepting-traffic-from-3rd-party-apps) below for more details.
 
 ## Getting set up
 
-First time set up requires installing an app, scanning a QR code, and accepting two Android security prompts to enable interception.
+First time set up requires installing the HTTP Toolkit app, scanning a QR code, and accepting two Android security prompts to enable interception. Once that's done, future setup just requires scanning a code once.
 
-Once that's done, in future HTTP Toolkit setup just requires scanning a code once.
+To get started:
 
-1. Start HTTP Toolkit and click the 'Android' interception option.
+1. Start HTTP Toolkit on your computer and click the 'Android' interception option.
 1. Scan the code to start setup.
     * If you have a QR code reader:
         1. Scan the code shown and open the link within.
@@ -50,18 +48,17 @@ You will be prompted again to trust new certificates if you use HTTP Toolkit wit
 
 ## Intercepting browser traffic
 
-All traffic sent by Chrome on Android will trust the HTTP Toolkit certificate automatically after the application is set up.
+All traffic sent by Chrome on Android will trust the HTTP Toolkit certificate automatically, after the application is set up.
 
 This also applies to webviews inside applications, and to many other browsers including Brave & Microsoft Edge.
 
-Behaviour of non-Chromium browsers will vary. In general these should be treated like [intercepting a 3rd party app](/#intercepting-traffic-from-3rd-party-apps), but many browsers will have their own options available to manually trust HTTPS CA certificates.
-
+Behaviour of non-Chromium browsers varies. In general these should be treated like [intercepting a 3rd party app](/#intercepting-traffic-from-3rd-party-apps), but many browsers will have their own options available to manually trust HTTPS CA certificates.
 
 ## Intercepting traffic from your own app
 
-If you are targeting an Android API level below 23 (below Android 7), your application should trust the automatically installed certificate automatically, and no changes are required.
+If you are targeting an Android API level below 23 (below Android 7), your application will trust the automatically installed certificate automatically, and no changes are required.
 
-If not, you will need to explicitly opt in to trusting the certificate. You'll know this is happening because you'll see messages in HTTP Toolkit like "Certificate rejected for connection to..." and "Aborted connection to..." and "HTTPS setup failed for...". Each of these typically means the application rejected our HTTPS interception before sending its requests.
+If not, you need to explicitly opt in to trusting the certificate. You'll know this is happening because you'll see messages in HTTP Toolkit like "Certificate rejected for connection to..." and "Aborted connection to..." and "HTTPS setup failed for...". Each of these typically means the application rejected our HTTPS interception before sending its requests.
 
 To fix this you need to trust user-installed certificates in your app, like so:
 
@@ -97,7 +94,7 @@ See Android's [network security config documentation](https://developer.android.
 
 ## Intercepting traffic from 3rd party apps
 
-To intercept traffic from 3rd party apps that don't trust the HTTP Toolkit CA certificate, you will need to either do some reverse engineering, or install the app in an emulator or rooted device.
+To intercept traffic from 3rd party apps that don't trust the HTTP Toolkit CA certificate, you need to either do some reverse engineering, or install the app in an emulator or rooted device.
 
 In an emulator/rooted device it's possible to work default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://security.stackexchange.com/questions/29988/what-is-certificate-pinning)).
 
@@ -109,4 +106,4 @@ Once you have the APK, you'll need to edit the application to trust user certifi
 
 The easiest way to do this generally is using a tool like [apk-mitm](https://github.com/shroudedcode/apk-mitm). Apk-mitm automatically opens up the APK, makes the network security config transformations described above, disables most standard certificate pinning, and rebuilds the application.
 
-This isn't foolproof. If it doesn't work, you can run apk-mitm with the `--wait` argument, which will allow you to explore the decompiled source of the application, and make your own changes manually before resuming repackaging.
+This isn't foolproof. If it doesn't work, you can run apk-mitm with the `--wait` argument, which allows you to explore the decompiled source of the application, and make your own changes manually before resuming repackaging.
