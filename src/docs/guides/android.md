@@ -89,6 +89,8 @@ To fix this you need to trust user-installed certificates in your app, like so:
   ```
 2. Add `android:networkSecurityConfig="@xml/network_security_config"` to the `<application>` element in your application manifest.
 
+That's it!
+
 This configures your application to trust both built-in & user-added CA certificates for all HTTPS connections, for debug & release builds.
 
 You can include this in your config at all times, and it will work with and without HTTP Toolkit. The only risk is that your end users will be able to intercept their own HTTPS traffic from your app, and potentially any users who are tricked into trusting an attacker's CA could have their traffic intercepted. For most applications that isn't a major concern.
