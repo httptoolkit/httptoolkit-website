@@ -91,16 +91,20 @@ const DocBody = styled.article`
         margin-left: 25px;
     }
 
-    li > ul {
-        margin-top: -20px;
+    li > ul, li > ol {
         margin-bottom: 10px;
     }
 
     li {
+        padding-left: 5px;
         margin-bottom: 10px;
 
+        & > p {
+            margin-bottom: 10px;
+        }
+
         & > p:only-child {
-        margin-bottom: 0;
+            margin-bottom: 0;
         }
     }
 
