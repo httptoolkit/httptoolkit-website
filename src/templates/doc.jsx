@@ -123,6 +123,7 @@ const DocBody = styled.article`
 
     code {
         font-weight: bold;
+        word-break: break-all !important;
     }
 
     p > code, li > code, a > code {
