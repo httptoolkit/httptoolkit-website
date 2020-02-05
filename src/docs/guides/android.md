@@ -111,12 +111,12 @@ To intercept traffic from 3rd party apps that don't trust the HTTP Toolkit CA ce
 
 In an emulator/rooted device it's possible to work default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://security.stackexchange.com/questions/29988/what-is-certificate-pinning)).
 
-If that doesn't work or isn't possible, you'll need to reverse engineer your target application.
+If that doesn't work or isn't possible, you'll need to edit your target application somehow.
 
-To do so, as a first step you're going to need to download an APK for the application. [ApkPure.com](https://apkpure.com/) is a useful site to do this for most apps on the Google Play store.
+On rooted devices or emulator, the best option to do this is [Frida](https://blog.jamie.holdings/2019/01/19/advanced-certificate-bypassing-in-android-with-frida/). Frida is a framework for dynamic application injection. Once installed, it can rewrite apps on your device on demand to remove most cert pinning restrictions.
 
-Once you have the APK, you'll need to edit the application to trust user certificates and disable any certificate pinning.
+If you don't have a rooted device, it's still possible to rewrite the application externally. To do so, you first need to download an APK for the application. [ApkPure.com](https://apkpure.com/) is a useful site to do this for most apps on the Google Play store. You may also be able to retrieve an APK from a device with the application, by using `adb shell pm list packages -f -3` to get the path to installed applications, and `adb pull <apk path>` to pull the APK itself.
 
-The easiest way to do this generally is using a tool like [apk-mitm](https://github.com/shroudedcode/apk-mitm). Apk-mitm automatically opens up the APK, makes the network security config transformations described above, disables most standard certificate pinning, and rebuilds the application.
+Once you have the APK, you'll need to edit the application to trust user certificates and disable any certificate pinning. You can do this using [apk-mitm](https://github.com/shroudedcode/apk-mitm). Apk-mitm automatically opens up the APK, makes the network security config transformations described above, disables most standard certificate pinning, and rebuilds the application ready to be reinstalled.
 
 This isn't foolproof. If it doesn't work, you can run apk-mitm with the `--wait` argument, which allows you to explore the decompiled source of the application, and make your own changes manually before resuming repackaging.
