@@ -4,6 +4,8 @@ title: 'Intercepting Android HTTP'
 order: 1
 ---
 
+**Android support is still in alpha testing. Want to try it out? [Get in touch](/contact)**
+
 HTTP Toolkit can intercept, inspect & rewrite traffic from Android devices.
 
 Plain HTTP traffic plus all HTTPS traffic from Chrome, webviews and applications that trust the user certificate store will be intercepted completely automatically.
