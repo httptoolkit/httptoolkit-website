@@ -220,7 +220,7 @@ export class Layout extends React.Component {
           <meta property="og:type"        content="website" />
           <meta property="og:title"       content={siteMetadata.name} />
           <meta property="og:description" content={siteMetadata.description} />
-          <meta property="og:image"       content="https://httptoolkit.tech/logo-facebook.png" />
+          <meta property="og:image"       content="https://httptoolkit.tech/logo-social.png" />
 
           <meta name="twitter:card"        content="summary" />
           <meta name="twitter:site"        content="@httptoolkit" />
