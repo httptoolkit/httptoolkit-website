@@ -4,7 +4,7 @@ title: 'Intercepting Android HTTP'
 order: 1
 ---
 
-**Android support is still in alpha testing. Want to try it out? [Get in touch](/contact)**
+**Android support is in invite-only alpha. Want to try it out? [Get in touch](/contact)**
 
 HTTP Toolkit can intercept, inspect & rewrite traffic from Android devices.
 
@@ -109,9 +109,9 @@ See Android's [network security config documentation](https://developer.android.
 
 ## Intercepting traffic from 3rd party apps
 
-To intercept traffic from 3rd party apps that don't trust the HTTP Toolkit CA certificate, you need to either do some reverse engineering, or install the app in an emulator or rooted device.
+To intercept traffic from 3rd party apps or your own existing app builds which don't trust the HTTP Toolkit CA certificate, you need to either do some reverse engineering, or install the app in an emulator or rooted device.
 
-In an emulator/rooted device it's possible to work default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://security.stackexchange.com/questions/29988/what-is-certificate-pinning)).
+In an emulator/rooted device it's possible to work around default certificate restrictions by editing the system certificates directly, instead of just using user certificates. Doing this will work for the most Android apps, as long as they haven't explicitly locked down the certificates they expect (known as [certificate pinning](https://security.stackexchange.com/questions/29988/what-is-certificate-pinning)).
 
 If that doesn't work or isn't possible, you'll need to edit your target application somehow.
 
