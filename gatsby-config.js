@@ -6,7 +6,8 @@ module.exports = {
     title: 'Intercept, debug & build with HTTP',
     description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
     siteUrl: 'https://httptoolkit.tech/',
-    blogUrl: 'https://httptoolkit.tech/blog/'
+    blogUrl: 'https://httptoolkit.tech/blog/',
+    latestAppVersion: '0.1.18'
   },
   plugins: [
     'gatsby-plugin-styled-components',
