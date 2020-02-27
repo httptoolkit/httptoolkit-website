@@ -44,11 +44,11 @@ const DescriptionContainer = styled.p`
 `;
 
 export const Description = () => <DescriptionContainer>
-    <Highlight>HTTP Toolkit</Highlight> is a suite of beautiful & <Nowrap><a
+    <Highlight>HTTP Toolkit</Highlight> is a beautiful & <Nowrap><a
         href="https://github.com/httptoolkit"
         target="_blank"
         rel='noopener noreferrer'
-    >open-source</a></Nowrap> tools<br/>
+    >open-source</a></Nowrap> tool<br/>
     for debugging, testing and building with HTTP(S)<br/>
     on Windows, Linux & Mac.
 </DescriptionContainer>;

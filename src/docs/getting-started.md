@@ -3,7 +3,7 @@ name: 'Getting Started'
 title: 'Getting Started with HTTP Toolkit'
 ---
 
-HTTP Toolkit is a suite of tools for testing, debugging & developing with HTTP and HTTPS.
+HTTP Toolkit is a tool for testing, debugging & developing with HTTP and HTTPS.
 
 If you're looking to develop, test, or debug HTTP traffic, you're in the right place.
 
