@@ -306,7 +306,7 @@ const WebShare = styled((p) =>
 )`
   && { padding: 10px 11px 10px 9px; }
   border: none;
-  background-color: ${p => p.theme.primaryColor};
+  background-color: ${p => p.theme.primaryInputBackground};
   color: ${p => p.theme.mainBackground};
 `;
 

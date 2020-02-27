@@ -139,7 +139,7 @@ const PricingTier = styled.div`
     `}
 
     [data-icon="info-circle"] {
-        color: ${p => p.theme.primaryColor};
+        color: ${p => p.theme.primaryInputBackground};
         height: 19px;
     }
 `;
@@ -258,7 +258,7 @@ const CTAInstructions = styled.div`
     width: 100%;
     text-align: center;
     padding: 0 0 10px;
-    color: ${p => p.theme.primaryColor};
+    color: ${p => p.theme.primaryInputBackground};
 
     ${media.desktop`
         min-height: 45px;

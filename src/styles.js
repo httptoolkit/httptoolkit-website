@@ -104,7 +104,8 @@ export const theme = {
     popColor: '#e1421f',
     popBackground: '#fff',
 
-    primaryColor: '#1f83e0',
+    primaryInputBackground: '#1076b9',
+    primaryInputColor: '#fafafa',
 
     containerBackground: '#d8e2e6',
     containerWatermark: '#b6c2ca',

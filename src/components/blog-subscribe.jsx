@@ -18,7 +18,7 @@ const SubscribeText = styled.div`
 
 const SubscribeLink = styled.a`
     font-weight: bold;
-    color: ${p => p.theme.primaryColor};
+    color: ${p => p.theme.primaryInputBackground};
 
     &:hover {
         color: ${p => p.theme.popColor};

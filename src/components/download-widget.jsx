@@ -46,8 +46,8 @@ const DownloadButtonStyle = css`
     ${p => p.theme.fontSizeSubheading};
     white-space: normal;
 
-    color: #fff;
-    background-color: ${p => p.theme.primaryColor};
+    color: ${p => p.theme.primaryInputColor};
+    background-color: ${p => p.theme.primaryInputBackground};
 `;
 
 const DownloadWidgetContainer = styled.div`

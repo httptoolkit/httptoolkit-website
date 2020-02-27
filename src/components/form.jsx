@@ -18,7 +18,7 @@ export const TextInput = styled.input`
 
     border-radius: 4px;
 
-    border: 1px solid ${p => p.theme.primaryColor};
+    border: 1px solid ${p => p.theme.primaryInputBackground};
     box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${p => p.theme.popBackground};
 
@@ -44,7 +44,7 @@ export const TextArea = styled.textarea`
 
     border-radius: 4px;
 
-    border: 1px solid ${p => p.theme.primaryColor};
+    border: 1px solid ${p => p.theme.primaryInputBackground};
     box-shadow: inset 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${p => p.theme.popBackground};
 
@@ -68,8 +68,8 @@ const ButtonStyles = css`
     white-space: normal;
     line-height: normal;
 
-    color: #fff;
-    background-color: ${p => p.theme.primaryColor};
+    color: ${p => p.theme.primaryInputColor};
+    background-color: ${p => p.theme.primaryInputBackground};
 
     &:hover {
         background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
