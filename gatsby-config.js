@@ -133,7 +133,6 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://httptoolkit.tech',
-        sitemap: null,
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -141,6 +140,8 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         exclude: [
+          '/download/*', // Drop direct download pages
+          '/view/thank-you/*', // Drop old view download pages too
           '/blog-thank-you', // Drop post-blog subscribe thank you
           '/sent-to-computer', // Drop post-send-to-computer page
           '/thank-you', // Drop post-mailing-list signup page
