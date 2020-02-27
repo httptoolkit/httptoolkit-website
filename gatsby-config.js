@@ -146,7 +146,6 @@ module.exports = {
           '/view/*', // Drop per-language View pages
           '/sent-to-computer', // Drop post-send-to-computer page
           '/thank-you', // Drop post-mailing-list signup page
-          '/toolkit', // Drop original toolkit landing page
         ]
       }
     },
