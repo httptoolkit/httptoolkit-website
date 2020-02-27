@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
-import MailchimpSignupForm from '../components/mailchimp-signup-form';
+import { FullWidthSection } from '../components/full-width-section';
+import { MailchimpSignupForm } from '../components/mailchimp-signup-form';
 
 const ThankYouContainer = styled(FullWidthSection)`
     flex: 1;

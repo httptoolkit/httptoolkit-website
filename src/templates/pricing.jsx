@@ -14,7 +14,7 @@ import { AccountStore } from '../accounts/account-store';
 import { logOut } from '../accounts/auth';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import { Button, ButtonLink, LinkButton } from '../components/form';
 import { ModalWrapper, getVisibilityProps } from '../components/modal';
 import { DownloadWidget } from '../components/download-widget';

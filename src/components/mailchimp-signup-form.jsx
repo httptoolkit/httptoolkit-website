@@ -9,59 +9,7 @@ const PrivacyPolicy = styled.p`
     color: ${p => p.theme.mainSubtleColor};
 `;
 
-export default styled(class MailchimpSignupForm extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.emailInput = null;
-
-        this.state = {
-            enteredText: ''
-        };
-    }
-
-    emailChanged = (e) => {
-        this.setState({ enteredText: e.target.value });
-    };
-
-    componentDidMount() {
-        if (this.props.autoFocus && window.innerWidth >= 1084) {
-            this.emailInput.focus();
-        }
-    }
-
-    render() {
-        return <form
-            className={this.props.className}
-            action={this.props.action}
-            method="post"
-            target="_blank"
-            noValidate
-        >
-            <TextInput
-                type="email"
-                name="EMAIL"
-                placeholder="Enter your email"
-                title={this.props.emailTitle}
-                value={this.state.enteredText}
-                onChange={this.emailChanged}
-                ref={(input) => { this.emailInput = input; }}
-            />
-
-            <div style={{position: 'absolute', left: '-5000px'}}>
-                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" defaultValue="" aria-hidden="true" />
-            </div>
-
-            <SubmitInput value={this.props.submitText} name="subscribe" />
-            <PrivacyPolicy>
-                { this.props.privacyPolicy === undefined
-                    ? 'No spam, just occasional updates on major new releases.'
-                    : this.props.privacyPolicy
-                }
-            </PrivacyPolicy>
-        </form>
-    }
-})`
+const FormContainer = styled.form`
     display: flex;
     flex-wrap: wrap;
 
@@ -95,3 +43,57 @@ export default styled(class MailchimpSignupForm extends React.Component {
         }
     }
 `;
+
+export class MailchimpSignupForm extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.emailInput = null;
+
+        this.state = {
+            enteredText: ''
+        };
+    }
+
+    emailChanged = (e) => {
+        this.setState({ enteredText: e.target.value });
+    };
+
+    componentDidMount() {
+        if (this.props.autoFocus && window.innerWidth >= 1084) {
+            this.emailInput.focus();
+        }
+    }
+
+    render() {
+        return <FormContainer
+            action={this.props.action}
+            forceVertical={this.props.forceVertical}
+            method="post"
+            target="_blank"
+            noValidate
+        >
+            <TextInput
+                type="email"
+                name="EMAIL"
+                placeholder="Enter your email"
+                title={this.props.emailTitle}
+                value={this.state.enteredText}
+                onChange={this.emailChanged}
+                ref={(input) => { this.emailInput = input; }}
+            />
+
+            <div style={{position: 'absolute', left: '-5000px'}}>
+                <input type="text" name={this.props.hiddenFieldName} tabIndex="-1" defaultValue="" aria-hidden="true" />
+            </div>
+
+            <SubmitInput value={this.props.submitText} name="subscribe" />
+            <PrivacyPolicy>
+                { this.props.privacyPolicy === undefined
+                    ? 'No spam, just occasional updates on major new releases.'
+                    : this.props.privacyPolicy
+                }
+            </PrivacyPolicy>
+        </FormContainer>
+    }
+}

@@ -9,7 +9,7 @@ import { styled, media } from '../styles';
 import { isSSR } from '../util';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import { BlogSubscribe } from '../components/blog-subscribe';
 import { Headshot } from '../components/footer';
 

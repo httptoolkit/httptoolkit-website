@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import { BlogSubscribe } from '../components/blog-subscribe';
 
 export const pageQuery = graphql`

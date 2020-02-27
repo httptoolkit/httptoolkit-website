@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 import { styled, css } from '../styles';
 import { Button } from './form';
-import MailchimpSignupForm from './mailchimp-signup-form';
+import { MailchimpSignupForm } from './mailchimp-signup-form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },

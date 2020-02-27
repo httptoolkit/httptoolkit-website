@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import ShareLinks from '../components/share-links';
 
 const ThankYouContainer = styled(FullWidthSection)`
@@ -49,7 +49,7 @@ export default () => (<Layout>
             Thanks!
         </ThankYouHeader>
         <ThankYouDetails>
-            We've just sent a download link for <Link to='/mock'>HTTP Toolkit</Link> to
+            We've just sent a download link for <Link to='/'>HTTP Toolkit</Link> to
             your inbox to check out on your desktop later.
         </ThankYouDetails>
         <ThankYouDetails>

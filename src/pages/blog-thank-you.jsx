@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import ShareLinks from '../components/share-links';
 
 const ThankYouContainer = styled(FullWidthSection)`
@@ -52,7 +52,7 @@ export default () => (<Layout>
             Watch your inbox for new blog posts coming soon.
         </ThankYouDetails>
         <ThankYouDetails>
-            Have you tried HTTP Toolkit out for yourself yet? <Link to='/mock'>Download it now</Link>.
+            Have you tried HTTP Toolkit out for yourself yet? <Link to='/'>Download it now</Link>.
         </ThankYouDetails>
         <ShareLinks>
             <a

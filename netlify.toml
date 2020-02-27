@@ -1,21 +1,28 @@
 [[redirects]]
-  # Redirect requests to the root page to the mock page, since it's what's actually available
-  from = "/"
-  to = "/mock"
-  force = true
-  status = 302
-
-[[redirects]]
-  # Redirect View requests to Mock, as the newer release
-  from = "/view"
-  to = "/mock"
+  # Redirect Mock requests to the root
+  from = "/mock"
+  to = "/"
   force = true
   status = 301
 
 [[redirects]]
-  # Redirect View subpage requests to Mock subpages, as its the newer release
+  # Redirect Mock subpage requests to root pages
+  from = "/mock/*"
+  to = "/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
+  # Redirect View requests to the root
+  from = "/view"
+  to = "/"
+  force = true
+  status = 301
+
+[[redirects]]
+  # Redirect View subpage requests to root pages
   from = "/view/*"
-  to = "/mock/:splat"
+  to = "/:splat"
   force = true
   status = 301
 

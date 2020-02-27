@@ -4,7 +4,7 @@ import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 
 const SplashContainer = styled(FullWidthSection)`
     flex: 1;

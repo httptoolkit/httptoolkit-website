@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../styles';
 
-import MailchimpSignupForm from './mailchimp-signup-form';
+import { MailchimpSignupForm } from './mailchimp-signup-form';
 
 const SubscribeText = styled.div`
     ${p => p.theme.fontSizeSubheading};

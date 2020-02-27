@@ -7,7 +7,7 @@ HTTP Toolkit is a suite of tools for testing, debugging & developing with HTTP a
 
 If you're looking to develop, test, or debug HTTP traffic, you're in the right place.
 
-Check out [the home page](/mock) for more details, or try it out for yourself by working through the Getting Started guide:
+Check out [the home page](/) for more details, or try it out for yourself by working through the Getting Started guide:
 
 1. [Installing HTTP Toolkit](/docs/getting-started/installing/)
 2. [Intercepting HTTP traffic](/docs/getting-started/intercepting/)

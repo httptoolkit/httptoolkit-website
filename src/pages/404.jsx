@@ -3,7 +3,7 @@ import React from 'react';
 import { styled, media, ThemeProvider, theme } from '../styles';
 
 import { Layout } from '../components/layout';
-import FullWidthSection from '../components/full-width-section';
+import { FullWidthSection }from '../components/full-width-section';
 import { ButtonLink } from '../components/form';
 
 const ErrorContainer = styled(FullWidthSection)`
@@ -41,7 +41,7 @@ const ErrorDetails = styled.p`
 `;
 
 const HomeLink = styled(ButtonLink)`
-  margin: 60px auto;
+    margin: 60px auto;
 `;
 
 export default () => (<ThemeProvider theme={theme}>
@@ -53,8 +53,8 @@ export default () => (<ThemeProvider theme={theme}>
             <ErrorDetails>
                 Oh no! Sorry, this page doesn't exist.
             </ErrorDetails>
-            <HomeLink to="/mock">
-            Take me to the home page
+            <HomeLink to="/">
+                Take me to the home page
             </HomeLink>
         </ErrorContainer>
     </Layout>
