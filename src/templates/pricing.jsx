@@ -434,11 +434,11 @@ export default @observer class PricingPage extends React.Component {
                                     <li>100% open-source, even Pro</li>
                                     <li>Remix as you like, share with others, and contribute back</li>
                                     <li>
-                                        AGPL is a copyleft license, meaning that derivative code must remain open-source
+                                        AGPL is a copyleft license, meaning derivative code must remain open-source
                                     </li>
                                     <li>
-                                        Most libraries within such as Mockttp are non-copyleft
-                                        licensed (MIT / Apache 2), and can be used without this restriction
+                                        Standalone libraries like Mockttp are non-copyleft licensed
+                                        (MIT / Apache 2) and can be used without this restriction
                                     </li>
                                 </TooltipUl>}>
                                 <Feature>
