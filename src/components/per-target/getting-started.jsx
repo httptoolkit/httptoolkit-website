@@ -46,7 +46,7 @@ export const GettingStartedSteps = styled.ol`
 
             display: inline-block;
             border-radius: 50%;
-            background: #1f83e0;
+            background: ${p => p.theme.primaryInputBackground};
             color: ${p => p.theme.mainBackground};
         }
     }
