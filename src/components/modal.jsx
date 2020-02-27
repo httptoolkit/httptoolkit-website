@@ -36,16 +36,11 @@ export const Modal = styled(({ className, children, isOpen, onClose }) => isOpen
         { children }
     </div>
 </ModalWrapper>)`
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: fixed;
 
-    ${media.desktop`
-        top: 20%;
-    `}
-    ${media.mobileOrTablet`
-        top: 40px;
-    `}
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     border: 1px solid ${p => p.theme.containerBackground};
     border-radius: 4px;
