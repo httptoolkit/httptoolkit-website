@@ -6,7 +6,7 @@ module.exports = {
     title: 'Intercept, debug & build with HTTP',
     description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
     siteUrl: 'https://httptoolkit.tech/',
-    blogUrl: 'https://httptoolkit.tech/blog/',
+    blogUrl: 'https://httptoolkit.tech/blog',
     latestAppVersion: '0.1.18'
   },
   plugins: [
@@ -147,6 +147,14 @@ module.exports = {
           '/thank-you', // Drop post-mailing-list signup page
         ]
       }
+    },
+    'gatsby-plugin-remove-trailing-slashes',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://httptoolkit.tech',
+        stripQueryString: true
+      },
     },
     {
       // Used primarily to inject the docsearch script, not to configure the input
