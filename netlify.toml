@@ -1,4 +1,11 @@
 [[redirects]]
+  # Redirect Toolkit requests to the root
+  from = "/toolkit"
+  to = "/"
+  force = true
+  status = 301
+
+[[redirects]]
   # Redirect Mock requests to the root
   from = "/mock"
   to = "/"
