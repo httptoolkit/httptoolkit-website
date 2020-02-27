@@ -22,7 +22,7 @@ export const Docsearch = (props) => {
             // try to use SSR, so instead we use an explicit name prop:
             inputSelector: `.docsearch-input-${props.name}`
         });
-    }, []);
+    }, [props.name]);
 
     return <DocsearchContainer className={props.className}>
         <TextInput

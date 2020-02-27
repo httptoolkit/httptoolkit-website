@@ -66,7 +66,7 @@ export default ({ pageContext: { releasePath, downloadCommand } }) => {
             iframe.src = `https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`;
             iframe.style.display = "none";
             document.body.appendChild(iframe);
-        }, []);
+        }, [releasePath]);
     }
 
     return <Layout>
