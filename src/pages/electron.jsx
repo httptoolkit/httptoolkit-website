@@ -12,13 +12,9 @@ import { Description } from '../components/pitch/description';
 import { FuturePlans } from '../components/pitch/future-plans';
 import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
-import { TargetIconContainer } from "../components/per-target/target-icon-container";
-import ChromeLogo from '../images/3rd-party-logos/chrome.png';
-import NodeJSLogo from '../images/3rd-party-logos/nodejs.png';
-import FirefoxLogo from '../images/3rd-party-logos/firefox.png';
-import ElectronLogo from '../images/3rd-party-logos/electron.svg';
-import RubyLogo from '../images/3rd-party-logos/ruby.png';
-import PythonLogo from '../images/3rd-party-logos/python.png';
+import { TargetIconContainer } from '../components/per-target/target-icon-container';
+import { ElectronGettingStarted } from '../components/per-target/electron-getting-started';
+import { ElectronSupportedTools } from '../components/per-target/electron-supported-tools';
 
 import { FeatureCards } from '../components/features/feature-cards';
 import { InterceptFeature } from '../components/features/intercept';
@@ -27,7 +23,9 @@ import { MockFeature } from '../components/features/mock';
 import { EditFeature } from '../components/features/edit';
 import { BreakpointFeature } from '../components/features/breakpoint';
 
-export default class IndexPage extends React.Component {
+import ElectronLogo from '../images/3rd-party-logos/electron.svg';
+
+export default class ElectronPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { updateModalOpen: false };
@@ -36,19 +34,28 @@ export default class IndexPage extends React.Component {
     render() {
         return <Layout>
             <Helmet>
-                <title>Intercept, debug & mock HTTP</title>
+                <title>Capture, debug and mock your Node.js and web JS's HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
-                <Pitch />
+                <Pitch target='Electron' />
+                <TargetIconContainer>
+                    <img src={ElectronLogo} alt="The Electron logo" />
+                </TargetIconContainer>
                 <StandaloneDownloadCTA />
             </TopHeroContainer>
 
-            <DemoVideo />
+            <DemoVideo name="electron-demo" />
 
             <SectionSpacer />
             <Description />
-            <FeatureCards />
+            <ElectronGettingStarted />
+            <ElectronSupportedTools />
+            <SectionSpacer />
+
             <StandaloneDownloadCTA />
+
+            <FeatureCards />
+            <SectionSpacer />
 
             <InterceptFeature />
             <InspectFeature reverse />

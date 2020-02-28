@@ -17,9 +17,13 @@ const LiveDemoVideo = styled.video`
     `}
 `;
 
-export const DemoVideo = () => <AppWindow>
-    <LiveDemoVideo controls autoPlay loop muted>
-        <source src="/http-mock-demo.mp4" type="video/mp4" />
-        <source src="/http-mock-demo.webm" type="video/webm" />
-    </LiveDemoVideo>
-</AppWindow>
+export const DemoVideo = (props) => {
+    const videoName = props.name || "http-mock-demo";
+
+    return <AppWindow>
+        <LiveDemoVideo controls autoPlay loop muted>
+            <source src={`/${videoName}.mp4`} type="video/mp4" />
+            <source src={`/${videoName}.webm`} type="video/webm" />
+        </LiveDemoVideo>
+    </AppWindow>;
+}
