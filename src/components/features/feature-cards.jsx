@@ -83,43 +83,43 @@ export const FeatureCards = () => <FeatureCardsBlock>
         <h3>Debug</h3>
         <FontAwesomeIcon icon={['fal', 'search']} size='3x' />
         <p>
-            Effortlessly intercept & proxy any HTTP or HTTPS traffic
+            Effortlessly intercept & <strong>proxy any HTTP or HTTPS traffic</strong>
         </p>
         <p>
-            Search, explore & inspect HTTP requests & responses
+            <strong>Search, explore & inspect</strong> HTTP requests & responses
         </p>
         <p>
-            One-click setup for Chrome, Node.js, Ruby, Python & more
+            <strong>One-click setup</strong> for Chrome, Node.js, Ruby, Python & more
         </p>
     </FeaturesCard>
     <FeaturesCard>
         <h3>Test</h3>
         <FontAwesomeIcon icon={['fal', 'stopwatch']} size='3x' />
         <p>
-            Edit requests & responses live, to test both APIs & clients
+            <strong>Edit live requests & responses</strong>, to test your APIs & clients
         </p>
         <p>
-            Simulate HTTP errors, timeouts & failed connections
+            <strong>Simulate HTTP errors</strong>, timeouts & failed connections
         </p>
         <p>
-            Proxy traffic to edit all HTTP, or mock as a standalone server
+            Validate request performance and <strong>debug caching & compression</strong>
         </p>
     </FeaturesCard>
     <FeaturesCard>
         <h3>Build</h3>
         <FontAwesomeIcon icon={['fal', 'wrench']} size='3x' />
         <p>
-            Mock servers or endpoints for rapid prototyping
+            Mock servers or endpoints for <strong>rapid API prototyping</strong>
         </p>
         <p>
-            Export ready-to-use requests for curl, fetch
+            <strong>Export ready-to-use requests</strong> for curl, fetch
             &amp; 20 other tools
         </p>
         <p>
-            Automate HTTP using HTTP Toolkit's{' '}
+            Automate HTTP using HTTP Toolkit's <strong>
             <a href="https://github.com/httptoolkit/mockttp">
                 open-source internals
-            </a>
+            </a></strong>
         </p>
     </FeaturesCard>
 </FeatureCardsBlock>;
