@@ -24,7 +24,7 @@ export const EditFeature = (p) => <StaticQuery
             <FeatureTitle>Edit</FeatureTitle>
 
             <FeatureSubHeading>
-                Rewrite anything
+                Rewrite <em>anything</em>
             </FeatureSubHeading>
 
             <FeatureDescription>
@@ -35,8 +35,8 @@ export const EditFeature = (p) => <StaticQuery
 
             <FeatureDescription>
                 Precise matching lets you target the requests you care about.
-                Match requests to anywhere when used as a proxy, or direct requests
-                as a standalone mock server.
+                Match any requests sent anywhere by using HTTP Toolkit as a proxy,
+                send requests directly to use it as a mock server.
             </FeatureDescription>
         </FeatureTextContainer>
 
