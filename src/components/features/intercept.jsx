@@ -31,25 +31,26 @@ export const InterceptFeature = (p) => <StaticQuery
             <FeatureDescription>
                 Automatic setup for targeted interception of HTTP & HTTPS
                 from most clients, including:
-                <FeatureList>
-                    <li>Browsers like <strong>Chrome, Edge & Firefox</strong></li>
-                    <li>Almost all terminal or Electron-based applications</li>
-                    <li>Backend & scripting languages, including <strong>Node.js, Python & Ruby</strong></li>
-                    <li>
-                        More coming soon, all powered by <a
-                            href='https://github.com/httptoolkit/feedback'
-                            target="_blank"
-                            rel='noopener noreferrer'
-                        >
-                            your feedback
-                        </a>
-                    </li>
-                </FeatureList>
             </FeatureDescription>
 
+            <FeatureList>
+                <li>Browsers like <strong>Chrome, Edge & Firefox</strong></li>
+                <li>Almost all terminal or Electron-based applications</li>
+                <li>Backend & scripting languages, including <strong>Node.js, Python & Ruby</strong></li>
+                <li>
+                    More coming soon, all powered by <a
+                        href='https://github.com/httptoolkit/feedback'
+                        target="_blank"
+                        rel='noopener noreferrer'
+                    >
+                        your feedback
+                    </a>
+                </li>
+            </FeatureList>
+
             <FeatureDescription>
-                For platforms without automatic integrations, HTTP Toolkit{' '}
-                acts as an HTTP(S) proxy, <strong>compatible with standard
+                For platforms without automatic setup, HTTP Toolkit{' '}
+                can be used as an HTTP(S) proxy, <strong>compatible with
                 HTTP requests from any language or tool</strong>.
             </FeatureDescription>
         </FeatureTextContainer>

@@ -97,7 +97,7 @@ export const FeatureList = styled.ul`
     }
 
     list-style: circle;
-    padding: 30px 0 0 20px;
+    padding-left: 20px;
 
     > li:not(:first-child) {
         margin-top: 10px;
