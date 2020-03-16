@@ -94,6 +94,8 @@ For an HTTP exchange, there's a few cards that will be shown:
 * The export options (_requires [HTTP Toolkit Pro](/get-pro)_).
 * Breakpoint cards, for breakpointed requests and responses.
 
+It's also possible to expand the request and response body cards, so they fill the entire pane. In this case, only that card will be shown.
+
 ### The Request Card
 
 For [HTTP Toolkit Pro](/get-pro) users, the request card may show metadata & validation, for requests to recognized APIs. This is powered by the OpenAPI specifications of the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory). As an example:
@@ -121,6 +123,7 @@ Both requests and responses can have bodies, and when present, the corresponding
 
 This card consists of a viewer for the body content, plus a few controls. Let's start with the controls:
 
+* An expand/shrink button: this expands the body content to fill the entire right pane or shrinks it again, back to normal, if it is currently expanded.
 * A copy button: this copies the currently shown body content to your clipboard.
 * The number of bytes: this shows the numbers of bytes in the content itself. This is the content after decoding bodies, which may have been gzipped for example, but ignoring any content autoformatting in the editor shown.
 * A dropdown to select the formatting for the body viewer. This is filtered to provide only meaningful options for each content type. There's a few options:
