@@ -124,7 +124,7 @@ Both requests and responses can have bodies, and when present, the corresponding
 This card consists of a viewer for the body content, plus a few controls. Let's start with the controls:
 
 * An expand/shrink button: this expands the body content to fill the entire right pane or shrinks it again, back to normal, if it is currently expanded.
-* A copy button: this copies the currently shown body content to your clipboard.
+* A save button: this saves the shown decoded body content to a file, so it can be edited or opened directly with other tools (_requires [HTTP Toolkit Pro](/get-pro)_)
 * The number of bytes: this shows the numbers of bytes in the content itself. This is the content after decoding bodies, which may have been gzipped for example, but ignoring any content autoformatting in the editor shown.
 * A dropdown to select the formatting for the body viewer. This is filtered to provide only meaningful options for each content type. There's a few options:
     * Image - an image, shown as an actual image.
