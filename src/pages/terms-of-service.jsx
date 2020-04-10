@@ -95,7 +95,7 @@ export default () => (<Layout>
 
             <p>All materials provided through the Services are the copyright of HTTP Toolkit, except where explicitly stated. The name, logos and trademarks of HTTP Toolkit may not be used outside of the terms provided without explicit approval from HTTP Toolkit.</p>
 
-            <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement.</p>
+            <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement. Unless you inform us otherwise, you allow HTTP Toolkit to use your company name and logo, exclusively to identify your organization as a user of HTTP Toolkit, without implying any further endorsement or relationship. To opt out of this, please contact us and we'll ensure your name and logo is never used in any future HTTP Toolkit materials, and is removed from any in which they currently appear.</p>
 
             <h2>Warranties and Liability</h2>
 
