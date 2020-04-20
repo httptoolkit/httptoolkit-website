@@ -16,6 +16,7 @@ import logo from '../images/logo.svg';
 
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
+  font-display: fallback;
 
   min-height: 100vh;
   display: flex;
