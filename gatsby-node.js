@@ -152,6 +152,14 @@ exports.createPages = ({ graphql, actions }) => {
   });
 };
 
+exports.onCreatePage = async({ page, actions }) => {
+  const { createPage } = actions;
+  if (page.path.match(/^\/will-it-cors(\/|$)/)) {
+    page.matchPath = "/will-it-cors/*";
+    createPage(page);
+  }
+}
+
 exports.onPostBuild = () => {
   fs.writeFileSync(path.join(__dirname, 'public', 'latest-version'), LATEST_VERSION);
 };

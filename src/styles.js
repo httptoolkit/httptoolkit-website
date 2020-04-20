@@ -31,6 +31,7 @@ import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
+import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt';
 
 config.autoAddCss = false;
 library.add(
@@ -61,7 +62,8 @@ library.add(
     faToggleOn,
     faToggleOff,
     faCheck,
-    faRocket
+    faRocket,
+    faTrashAlt
 );
 
 export { styled, css, ThemeProvider };

@@ -33,6 +33,13 @@
   force = true
   status = 301
 
+[[redirects]]
+  # Redirect will-it-cors subpage requests to the root
+  from = "/will-it-cors/*"
+  to = "/will-it-cors/"
+  force = true
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
