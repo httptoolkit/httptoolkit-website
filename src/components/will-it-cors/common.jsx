@@ -15,8 +15,8 @@ export function getHeaderValue(headers, key) {
     return (getHeaderPair(headers, key) || [])[1];
 }
 
-export function getHeaderValues(headers, key, separator = ', ') {
-    return (getHeaderValue(headers, key) || '').split(separator).filter(v => !!v);
+export function getHeaderValues(headers, key, separator = ',') {
+    return (getHeaderValue(headers, key) || '').split(separator).map(v => v.trim()).filter(v => !!v);
 }
 
 export function setHeader(headers, key, value) {
@@ -26,6 +26,10 @@ export function setHeader(headers, key, value) {
     } else {
         headers.unshift([key, value]);
     }
+}
+
+export function deleteHeader(headers, key) {
+    _.remove(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
 export const ExternalLink = styled.a.attrs(() => ({

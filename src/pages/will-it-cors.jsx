@@ -317,6 +317,7 @@ export default class WillItCors extends React.Component {
                             targetUrl={this.targetUrl}
                             method={this.method}
                             unsafeHeaders={this.unsafeHeaders}
+                            isServerResponseReadable={this.isServerResponseReadable}
 
                             value={this.serverResponseHeaders}
                             onChange={(newValue) => { this.serverResponseHeaders = newValue }}
@@ -357,6 +358,7 @@ export default class WillItCors extends React.Component {
                             targetUrl={this.targetUrl}
                             method={this.method}
                             unsafeHeaders={this.unsafeHeaders}
+                            isPreflightSuccessful={this.isPreflightSuccessful}
 
                             value={this.preflightResponseHeaders}
                             onChange={(newValue) => { this.preflightResponseHeaders = newValue }}

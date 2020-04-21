@@ -8,7 +8,9 @@ import {
     Checkmark,
     Cross,
     getHeaderValue,
-    getHeaderValues
+    getHeaderValues,
+    setHeader,
+    deleteHeader
 } from './common';
 
 export const Intro = (props) =>
@@ -209,13 +211,48 @@ export const ServerResponseQuestion = (props) =>
         <QuestionText>
             What headers will the server return in its response?
         </QuestionText>
-        <ActionButton
-            onClick={() => props.onChange([
-                ['Access-Control-Allow-Origin', props.sourceOrigin]
-            ])}
+        <Checkbox
+            value={props.isServerResponseReadable}
+            onChange={(e) => {
+                if (e.target.checked) {
+                    setHeader(props.value, 'Access-Control-Allow-Origin', props.sourceOrigin);
+                } else {
+                    deleteHeader(props.value, 'Access-Control-Allow-Origin');
+                }
+                props.onChange(props.value);
+            }}
         >
-            Give me some working CORS headers
-        </ActionButton>
+            Allow the page to read this response
+        </Checkbox>
+        <Checkbox
+            value={getHeaderValue(props.value, 'Access-Control-Expose-Headers') !== undefined}
+            onChange={(e) => {
+                if (e.target.checked) {
+                    setHeader(props.value, 'Access-Control-Expose-Headers', "HeaderA, HeaderB");
+                } else {
+                    deleteHeader(props.value, 'Access-Control-Expose-Headers');
+                }
+                props.onChange(props.value);
+            }}
+        >
+            Allow the page to read custom headers from the response
+        </Checkbox>
+        <Checkbox
+            value={
+                getHeaderValue(props.value, 'timing-allow-origin') === '*' ||
+                getHeaderValues(props.value, 'timing-allow-origin').includes(props.sourceOrigin)
+            }
+            onChange={(e) => {
+                if (e.target.checked) {
+                    setHeader(props.value, 'Timing-Allow-Origin', props.sourceOrigin);
+                } else {
+                    deleteHeader(props.value, 'Timing-Allow-Origin');
+                }
+                props.onChange(props.value);
+            }}
+        >
+            Allow the page to read the timing data for this response
+        </Checkbox>
         <EditableHeaders
             headers={props.value}
             onChange={props.onChange}
@@ -310,34 +347,46 @@ export const PreflightRequest = (props) =>
         </ActionButton>
     </Exposition>;
 
-export const PreflightResponseQuestion = (props) =>
-    <Question $onNext={props.onNext}>
-        <QuestionNotes>
-            The browser will send a preflight OPTIONS request to { props.targetUrl } with headers including:
-            <ul>
-                <li>Origin: { props.sourceOrigin }</li>
-                <li>Access-Control-Request-Method: { props.method }</li>
-                { props.unsafeHeaders.length
-                    ? <li>Access-Control-Request-Headers: { props.unsafeHeaders.join(', ') }</li>
-                    : null
-                }
-            </ul>
-        </QuestionNotes>
+export const PreflightResponseQuestion = (props) => {
+    const preflightHeaders = props.value;
+    const cacheDuration = parseInt(getHeaderValue(preflightHeaders, 'access-control-max-age'), 10);
+
+    return <Question $onNext={props.onNext}>
         <QuestionText>
             What headers will the server return in its response?
         </QuestionText>
-        <ActionButton
-            onClick={() => props.onChange([
-                ['Access-Control-Allow-Origin', props.sourceOrigin],
-                ['Access-Control-Allow-Methods', props.method],
-                ...(props.unsafeHeaders.length ?
-                    [['Access-Control-Allow-Headers', props.unsafeHeaders.join(', ')]]
-                : []),
-                ['Access-Control-Max-Age', '86400']
-            ])}
+        <Checkbox
+            value={props.isPreflightSuccessful}
+            onChange={(e) => {
+                if (e.target.checked) {
+                    setHeader(preflightHeaders, 'Access-Control-Allow-Origin', props.sourceOrigin);
+                    setHeader(preflightHeaders, 'Access-Control-Allow-Methods', props.method);
+                    if (props.unsafeHeaders.length) {
+                        setHeader(preflightHeaders, 'Access-Control-Allow-Headers', props.unsafeHeaders.join(', '));
+                    }
+                } else {
+                    deleteHeader(preflightHeaders, 'Access-Control-Allow-Origin');
+                    deleteHeader(preflightHeaders, 'Access-Control-Allow-Methods');
+                    deleteHeader(preflightHeaders, 'Access-Control-Allow-Headers');
+                }
+                props.onChange(preflightHeaders);
+            }}
         >
-            Give me some working default headers
-        </ActionButton>
+            Allow this request
+        </Checkbox>
+        <Checkbox
+            value={cacheDuration > 0}
+            onChange={(e) => {
+                if (e.target.checked) {
+                    setHeader(preflightHeaders, 'Access-Control-Max-Age', '86400');
+                } else {
+                    deleteHeader(preflightHeaders, 'Access-Control-Max-Age');
+                }
+                props.onChange(preflightHeaders);
+            }}
+        >
+            Cache this result, to speed up future preflight checks
+        </Checkbox>
         <EditableHeaders
             headers={props.value}
             onChange={props.onChange}
@@ -345,7 +394,8 @@ export const PreflightResponseQuestion = (props) =>
         <SubmitButton>
             Next
         </SubmitButton>
-    </Question>;
+    </Question>
+};
 
 export const ServerRejectsPreflightRequest = () =>
     <Exposition>
@@ -387,8 +437,6 @@ export const ServerAllowsPreflightRequest = (props) =>
             Next
         </ActionButton>
     </Exposition>;
-
-
 
 const Exposition = styled.div``;
 
@@ -531,3 +579,21 @@ const TextInput = styled((props) =>
     margin-bottom: 10px;
 `
 
+const Checkbox = styled((props) =>
+    <label className={props.className}>
+        <input type='checkbox' checked={props.value} onChange={props.onChange} />
+        { props.children }
+    </label>
+)`
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    ${p => p.theme.fontSizeSubheading};
+
+    input {
+        zoom: 2;
+        margin-right: 10px;
+    }
+`;
