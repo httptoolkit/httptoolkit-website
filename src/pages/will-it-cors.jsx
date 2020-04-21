@@ -89,17 +89,19 @@ const SAFE_CONTENT_TYPES = [
     'text/plain'
 ];
 
+function isSafeContentType(contentType) {
+    return !UNSAFE_HEADER_BYTES.some((b) => contentType.includes(b)) &&
+        SAFE_CONTENT_TYPES.includes(contentType.split(';')[0]);
+}
+
 const SAFE_HEADERS = [
     'accept',
     'accept-language',
     'content-language',
-    'content-type',
-    'dpr',
-    'downlink',
-    'save-data',
-    'viewport-width',
-    'width'
+    'content-type'
 ];
+
+const UNSAFE_HEADER_BYTES = '"():<>?@[\\]{}'.split('');
 
 @observer
 export default class WillItCors extends React.Component {
@@ -150,8 +152,22 @@ export default class WillItCors extends React.Component {
 
     @computed get unsafeHeaders() {
         return this.requestHeaders
+            .filter(([headerName, headerValue]) => {
+                const name = headerName.toLowerCase();
+
+                if (!SAFE_HEADERS.includes(name)) return true;
+
+                if (name === 'accept') return UNSAFE_HEADER_BYTES.some((b) => headerValue.includes(b));
+                if (name === 'accept-language' || name === 'content-language') {
+                    return !/^[0-9A-Za-z *,.;=\-]$/.match(headerValue);
+                }
+
+                if (name === 'content-type') {
+                    // Can't include unsafe bytes, must be a safe content type (ignoring params)
+                    return !isSafeContentType(headerValue);
+                }
+            })
             .map(([headerName]) => headerName)
-            .filter((headerName) => !SAFE_HEADERS.includes(headerName.toLowerCase()))
     }
 
     @computed get isSendingUnsafeHeaders() {
@@ -159,16 +175,15 @@ export default class WillItCors extends React.Component {
     }
 
     @computed get isSimpleCorsRequest() {
-        if (
-            this.isCorsRequest === undefined ||
-            !this.method ||
-            (this.method === 'POST' && !this.contentType)
-        ) return undefined;
+        if (this.isCorsRequest === undefined || !this.method) return undefined;
 
         return this.isCorsRequest &&
-            !this.isSendingUnsafeHeaders && (
+            !this.isSendingUnsafeHeaders &&
+            (
+                // All HEAD/GET without funky headers are safe:
                 ['HEAD', 'GET'].includes(this.method) ||
-                (this.method === 'POST' && SAFE_CONTENT_TYPES.includes(this.contentType.toLowerCase()))
+                // If POST, it must have a (safe, checked above) content type:
+                (this.method === 'POST' && !!this.contentType)
             );
     }
 
