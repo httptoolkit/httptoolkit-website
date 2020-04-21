@@ -24,7 +24,7 @@ export function setHeader(headers, key, value) {
     if (headerPair) {
         headerPair[1] = value;
     } else {
-        headers.unshift([key, value]);
+        headers.push([key, value]);
     }
 }
 

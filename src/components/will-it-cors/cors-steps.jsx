@@ -558,7 +558,7 @@ const QuestionText = styled.h2`
     width: 100%;
     ${p => p.theme.fontSizeHeading};
     line-height: 1.1;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
 `;
 
 const QuestionNotes = styled.p`
@@ -590,7 +590,7 @@ const TextInput = styled((props) =>
     /* Stop iOS messing with my input styling */
     -webkit-appearance: none;
 
-    padding: 15px;
+    padding: 10px;
 
     width: 100%;
 
@@ -605,7 +605,7 @@ const TextInput = styled((props) =>
     background-color: ${p => p.theme.popBackground};
 
     font-family: Lato;
-    ${p => p.theme.fontSizeSubheading};
+    ${p => p.theme.fontSizeText};
 
     margin-bottom: 10px;
 `
@@ -626,5 +626,9 @@ const Checkbox = styled((props) =>
     input {
         zoom: 2;
         margin-right: 10px;
+    }
+
+    &:last-of-type {
+        margin-bottom: 10px;
     }
 `;

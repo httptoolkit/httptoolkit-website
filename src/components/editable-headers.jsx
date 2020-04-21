@@ -33,7 +33,7 @@ const TextInput = styled.input`
     /* Stop iOS messing with my input styling */
     -webkit-appearance: none;
 
-    padding: 15px;
+    padding: 10px;
 
     border-radius: 4px;
 
@@ -42,7 +42,7 @@ const TextInput = styled.input`
     background-color: ${p => p.theme.popBackground};
 
     font-family: Lato;
-    ${p => p.theme.fontSizeSubheading};
+    ${p => p.theme.fontSizeText};
 `;
 
 const HeaderDeleteButton = styled(Button).attrs({
