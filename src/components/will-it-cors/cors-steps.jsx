@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
 import {
     ExternalLink,
+    Checkmark,
+    Cross,
     getHeaderValue,
     getHeaderValues
 } from './common';
@@ -402,6 +403,11 @@ const Heading = styled.h1`
     ${media.mobile`
         margin-bottom: 0.6em;
     `}
+
+    svg {
+        display: block;
+        margin: 0 auto;
+    }
 `;
 
 const Explanation = styled.p`
@@ -525,20 +531,3 @@ const TextInput = styled((props) =>
     margin-bottom: 10px;
 `
 
-const Checkmark = styled(FontAwesomeIcon).attrs(() => ({
-    icon: ['fas', 'check'],
-    'aria-label': "All good"
-}))`
-    display: block;
-    margin: 0 auto;
-    color: #27bc17;
-`;
-
-const Cross = styled(FontAwesomeIcon).attrs(() => ({
-    icon: ['far', 'times'],
-    'aria-label': "Rejected"
-}))`
-    display: block;
-    margin: 0 auto;
-    color: ${p => p.theme.popColor};
-`;

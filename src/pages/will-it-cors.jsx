@@ -17,6 +17,7 @@ import {
     setHeader,
     getOrigin
 } from '../components/will-it-cors/common';
+import { Breadcrumbs } from '../components/will-it-cors/breadcrumbs';
 import {
     Intro,
     SourceUrlQuestion,
@@ -54,12 +55,12 @@ const Main = styled.main`
 
 const PageContent = styled.section`
     ${media.desktopOrTablet`
-        margin: auto 0 0 0;
+        margin: 40px 0 0 0;
         max-width: 60%;
     `}
 
     ${media.mobile`
-        margin: auto 10px 10px 10px;
+        margin: 10px;
     `}
 `;
 
@@ -233,6 +234,8 @@ export default class WillItCors extends React.Component {
                 </Helmet>
 
                 <PageContent>
+                    <Router basepath="/will-it-cors"><Breadcrumbs path="/*" /></Router>
+
                     <Router basepath="/will-it-cors">
                         <Intro path="/" onNext={() => navigate("./source-url")} />
                         <SourceUrlQuestion
@@ -319,16 +322,16 @@ export default class WillItCors extends React.Component {
                             onChange={(newValue) => { this.serverResponseHeaders = newValue }}
                             onNext={() => {
                                 if (this.isServerResponseReadable) {
-                                    navigate("./simple-request-success");
+                                    navigate("./request-success");
                                 } else {
-                                    navigate("./simple-request-failure");
+                                    navigate("./request-failure");
                                 }
                             }}
                         />
 
                         { this.isServerResponseReadable &&
                             <ServerAllowsCorsRequest
-                                path="/simple-request-success"
+                                path="/request-success"
                                 sourceOrigin={this.sourceOrigin}
                                 responseHeaders={this.serverResponseHeaders}
                             />
@@ -336,7 +339,7 @@ export default class WillItCors extends React.Component {
 
                         { this.isServerResponseReadable === false &&
                             <ServerRejectsCorsRequest
-                                path="/simple-request-failure"
+                                path="/request-failure"
                             />
                         }
 

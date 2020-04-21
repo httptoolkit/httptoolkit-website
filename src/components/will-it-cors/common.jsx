@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled } from '../../styles';
 
@@ -32,4 +33,18 @@ export const ExternalLink = styled.a.attrs(() => ({
     rel: "noopener noreferrer"
 }))`
     color: ${p => p.theme.primaryInputBackground};
+`;
+
+export const Checkmark = styled(FontAwesomeIcon).attrs(() => ({
+    icon: ['fas', 'check'],
+    'aria-label': "Yes"
+}))`
+    color: #27bc17;
+`;
+
+export const Cross = styled(FontAwesomeIcon).attrs(() => ({
+    icon: ['far', 'times'],
+    'aria-label': "No"
+}))`
+    color: ${p => p.theme.popColor};
 `;
