@@ -32,6 +32,12 @@ export function deleteHeader(headers, key) {
     _.remove(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
+export function someHeaderValues(headers, predicate) {
+    return headers.some(([key, value]) =>
+        value.split(',').map(v => v.trim()).filter(predicate).length > 0
+    );
+}
+
 export function joinAnd(vals, initialSep = ', ', finalSep = ' and ') {
     if (vals.length === 1) return vals[0];
     return vals.slice(0, -1).join(initialSep) + finalSep + vals[vals.length - 1];

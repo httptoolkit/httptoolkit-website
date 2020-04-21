@@ -13,6 +13,7 @@ import {
     getHeaderValues,
     setHeader,
     deleteHeader,
+    someHeaderValues,
     joinAnd
 } from './common';
 
@@ -219,8 +220,17 @@ export const ServerResponseQuestion = observer((props) =>
             onChange={(e) => {
                 if (e.target.checked) {
                     setHeader(props.value, 'Access-Control-Allow-Origin', props.sourceOrigin);
+                    setHeader(props.value, 'Vary', 'origin');
                 } else {
                     deleteHeader(props.value, 'Access-Control-Allow-Origin');
+
+                    // If there's now no headers that depend on the origin, drop the Vary
+                    if (
+                        getHeaderValue(props.value, 'vary') === 'origin' &&
+                        !someHeaderValues(props.value, (value) => value === props.sourceOrigin)
+                    ) {
+                        deleteHeader(props.value, 'Vary');
+                    }
                 }
                 props.onChange(props.value);
             }}
@@ -248,8 +258,17 @@ export const ServerResponseQuestion = observer((props) =>
             onChange={(e) => {
                 if (e.target.checked) {
                     setHeader(props.value, 'Timing-Allow-Origin', props.sourceOrigin);
+                    setHeader(props.value, 'Vary', 'origin');
                 } else {
                     deleteHeader(props.value, 'Timing-Allow-Origin');
+
+                    // If there's now no headers that depend on the origin, drop the Vary
+                    if (
+                        getHeaderValue(props.value, 'vary') === 'origin' &&
+                        !someHeaderValues(props.value, (value) => value === props.sourceOrigin)
+                    ) {
+                        deleteHeader(props.value, 'Vary');
+                    }
                 }
                 props.onChange(props.value);
             }}
@@ -341,6 +360,17 @@ export const ServerAllowsCorsRequest = (props) => {
                     </>
             }
         </Explanation>
+        {
+            !varyOnOrigin && someHeaderValues(props.responseHeaders, (v) => v.toLowerCase() === props.sourceOrigin)
+            ? <Explanation>
+                <Warning>This result may be cached incorrectly</Warning>. Your response headers reference the page
+                origin from the request, but they don't include 'Origin' in a <ExternalLink
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary"
+                >Vary header</ExternalLink>. This response might be cached and then used by a CORS request from
+                a different origin, where it will unexpectedly fail.
+            </Explanation>
+            : null
+        }
     </Exposition>;
 };
 
@@ -572,6 +602,10 @@ const QuestionNotes = styled.p`
     &:not(:last-child) {
         margin-bottom: 1em;
     }
+`;
+
+const Warning = styled.strong`
+    color: ${p => p.theme.popColor};
 `;
 
 const focusRef = (elem) => {
