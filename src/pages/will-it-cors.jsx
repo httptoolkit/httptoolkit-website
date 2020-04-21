@@ -187,17 +187,29 @@ export default class WillItCors extends React.Component {
             );
     }
 
-    @computed get isPreflightSuccessful() {
+    @computed get doesPreflightResponseAllowOrigin() {
         if (this.sourceOrigin === undefined) return undefined;
-
         const allowedOrigin = getHeaderValue(this.preflightResponseHeaders, 'access-control-allow-origin');
+        return allowedOrigin === '*' || allowedOrigin === this.sourceOrigin;
+    }
+
+    @computed get doesPreflightResponseAllowMethod() {
+        if (!this.method) return undefined;
         const allowedMethods = getHeaderValues(this.preflightResponseHeaders, 'access-control-allow-methods');
+        return allowedMethods === '*' || allowedMethods.includes(this.method);
+    }
+
+    @computed get doesPreflightResponseAllowHeaders() {
         const allowedHeaders = getHeaderValues(this.preflightResponseHeaders, 'access-control-allow-headers')
             .map(h => h.toLowerCase());
 
-        return (allowedOrigin === '*' || allowedOrigin === this.sourceOrigin) &&
-            (allowedMethods === '*' || allowedMethods.includes(this.method)) &&
-            (allowedHeaders === '*' || !this.unsafeHeaders.some(h => !allowedHeaders.includes(h.toLowerCase())));
+        return (allowedHeaders === '*' || !this.unsafeHeaders.some(h => !allowedHeaders.includes(h.toLowerCase())));
+    }
+
+    @computed get isPreflightSuccessful() {
+        return this.doesPreflightResponseAllowOrigin &&
+            this.doesPreflightResponseAllowMethod &&
+            this.doesPreflightResponseAllowHeaders;
     }
 
     @computed get isServerResponseReadable() {
@@ -387,7 +399,18 @@ export default class WillItCors extends React.Component {
                         />
 
                         { this.isPreflightSuccessful === false &&
-                            <ServerRejectsPreflightRequest path="/preflight-failure" />
+                            <ServerRejectsPreflightRequest
+                                path="/preflight-failure"
+
+                                sourceOrigin={this.sourceOrigin}
+                                method={this.method}
+                                unsafeHeaders={this.unsafeHeaders}
+                                preflightResponseHeaders={this.preflightResponseHeaders}
+
+                                originAllowed={this.doesPreflightResponseAllowOrigin}
+                                methodAllowed={this.doesPreflightResponseAllowMethod}
+                                headersAllowed={this.doesPreflightResponseAllowHeaders}
+                            />
                         }
 
                         { this.isPreflightSuccessful &&

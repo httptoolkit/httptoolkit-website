@@ -455,8 +455,18 @@ export const PreflightResponseQuestion = observer((props) => {
     </Question>
 });
 
-export const ServerRejectsPreflightRequest = () =>
-    <Exposition>
+export const ServerRejectsPreflightRequest = (props) => {
+    const incorrectHeaders = [
+        !props.originAllowed && 'Origin',
+        !props.methodAllowed && 'Methods',
+        !props.headersAllowed && 'Headers'
+    ].filter(v => !!v);
+
+    const [missingHeaders, incompleteHeaders] = _.partition(incorrectHeaders, h =>
+        !getHeaderValue(props.preflightResponseHeaders, `Access-Control-Allow-${h}`)
+    );
+
+    return <Exposition>
         <Heading>
             <Cross />
         </Heading>
@@ -470,12 +480,35 @@ export const ServerRejectsPreflightRequest = () =>
             response wasn't OK.
         </Explanation>
         <Explanation>
+            This failed because {joinAnd([
+                missingHeaders.length &&
+                    `the ${
+                        joinAnd(missingHeaders.map(h => `Access-Control-Allow-${h}`))
+                    } header${
+                        missingHeaders.length > 1 ? 's are' : ' is'
+                    } required but missing`,
+                ...incompleteHeaders.map((incompleteHeader) =>
+                    `the Access-Control-Allow-${incompleteHeader} header (${
+                        getHeaderValue(props.preflightResponseHeaders, `Access-Control-Allow-${incompleteHeader}`)
+                    }) ${
+                        incompleteHeader === 'Origin'
+                            ? `does not match the request origin (${props.sourceOrigin})`
+                        : incompleteHeader === 'Methods'
+                            ? `does not include include the request method (${props.method})`
+                        : // Headers:
+                            `does not match all unsafe headers (${props.unsafeHeaders})`
+                    }`
+                )
+            ].filter(v => !!v))}.
+        </Explanation>
+        <Explanation>
             To avoid this, you'll need to either make the server send the correct
             preflight headers, or make your request a <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests"
             >simple request</ExternalLink> that doesn't require an initial preflight.
         </Explanation>
-    </Exposition>;
+    </Exposition>
+};
 
 export const ServerAllowsPreflightRequest = (props) =>
     <Exposition>
