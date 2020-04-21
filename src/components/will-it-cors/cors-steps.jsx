@@ -98,11 +98,12 @@ export const MixedContentResult = (props) =>
         <Explanation>
             This is due to <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content"
-            >mixed content restrictions</ExternalLink>, and isn't related to CORS.
+            >mixed content restrictions</ExternalLink> that ensure HTTPS pages can only
+            use secure content, and isn't related to CORS.
         </Explanation>
         <Explanation>
-            To fix this, you need to connect to { props.targetOrigin } over
-            HTTPS instead of HTTP.
+            To fix this, you should connect to { props.targetOrigin } over
+            HTTPS instead of using plain HTTP.
         </Explanation>
     </Exposition>
 
@@ -272,8 +273,8 @@ export const ServerRejectsCorsRequest = () =>
             <Cross />
         </Heading>
         <Explanation>
-            The request was sent, but the headers returned by the server don't allow you
-            to read the response.
+            <strong>The request was sent, but the headers returned by the server don't allow you
+            to read the response.</strong>
         </Explanation>
         <Explanation>
             In practice, your request will fail with an error, and the browser will print
@@ -282,8 +283,11 @@ export const ServerRejectsCorsRequest = () =>
         </Explanation>
         <Explanation>
             To avoid this and ready the response, you'll need to make the server send the
-            correct CORS headers, or use a CORS proxy. If you're actually not interested in
-            the response, you can set "mode: no-cors" on your request, to intentionally receive
+            correct CORS headers, or use a CORS proxy.
+        </Explanation>
+        <Explanation>
+            If you're actually not interested in the response,
+            you can set "mode: no-cors" on your request, to intentionally receive
             an opaque response. This is useful for <ExternalLink
                 href="https://stackoverflow.com/a/39109790/68051"
             >a few niche use cases</ExternalLink> in caching & cross-origin resource loading.
