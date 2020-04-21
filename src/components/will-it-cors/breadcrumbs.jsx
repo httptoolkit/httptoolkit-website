@@ -15,7 +15,7 @@ const BreadcrumbContainer = styled.nav`
     `}
 
     ${media.mobile`
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     `}
 `;
 

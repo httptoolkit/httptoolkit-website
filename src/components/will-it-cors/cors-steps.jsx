@@ -452,11 +452,11 @@ const Heading = styled.h1`
     font-weight: bold;
 
     ${media.desktopOrTablet`
-        margin-bottom: 1em;
+        margin-bottom: 40px;
     `}
 
     ${media.mobile`
-        margin-bottom: 0.6em;
+        margin-bottom: 20px;
     `}
 
     svg {

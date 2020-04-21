@@ -60,7 +60,7 @@ const PageContent = styled.section`
     `}
 
     ${media.mobile`
-        margin: 10px;
+        margin: 20px;
     `}
 `;
 
