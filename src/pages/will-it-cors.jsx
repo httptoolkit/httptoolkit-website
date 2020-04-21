@@ -37,19 +37,19 @@ import {
 } from '../components/will-it-cors/cors-steps';
 
 const Main = styled.main`
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  font-display: fallback;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-display: fallback;
 
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-  ${media.desktop`
-    margin: 0 auto;
-    width: 1024px;
-  `}
+    ${media.desktop`
+        margin: 0 auto;
+        width: 1024px;
+    `}
 `;
 
 const PageContent = styled.section`
@@ -129,7 +129,7 @@ export default class WillItCors extends React.Component {
     }
 
     @computed get contentType() {
-        return getHeaderValue(this.requestHeaders, 'content-type');
+        return getHeaderValue(this.requestHeaders, 'Content-Type');
     }
 
     @computed get isCorsRequest() {
@@ -292,7 +292,7 @@ export default class WillItCors extends React.Component {
                         <ContentTypeQuestion
                             path="/content-type"
                             value={this.contentType}
-                            onChange={(newValue) => setHeader(this.requestHeaders, 'content-type', newValue)}
+                            onChange={(newValue) => setHeader(this.requestHeaders, 'Content-Type', newValue)}
                             onNext={() => {
                                 if (this.isSimpleCorsRequest) {
                                     navigate("./simple-cors");

@@ -7,7 +7,7 @@ export function getOrigin(url) {
 }
 
 export function getHeaderPair(headers, key) {
-    return _.find(headers, ([headerKey]) => headerKey.toLowerCase() === key);
+    return _.find(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
 export function getHeaderValue(headers, key) {
