@@ -144,7 +144,7 @@ export default class WillItCors extends React.Component {
 
     @computed get isCorsRequest() {
         if (!this.sourceOrigin || !this.targetOrigin) return undefined;
-        return this.sourceOrigin === this.targetOrigin;
+        return this.sourceOrigin !== this.targetOrigin;
     }
 
     @computed get isMixedContentRequest() {
