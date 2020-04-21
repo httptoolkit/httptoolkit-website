@@ -295,8 +295,23 @@ export const ServerRejectsCorsRequest = () =>
     </Exposition>;
 
 export const ServerAllowsCorsRequest = (props) => {
-    const exposedHeaders = getHeaderValues(props.responseHeaders, 'access-control-expose-headers');
+    const exposedHeadersHeader = getHeaderValues(props.responseHeaders, 'access-control-expose-headers');
     const timingInfo = getHeaderValue(props.responseHeaders, 'timing-allow-origin');
+
+    const corsSafelistedHeaders = <>
+        and all <ExternalLink
+            href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header"
+        >CORS-safelisted headers</ExternalLink>
+    </>;
+
+    const exposedHeaders = exposedHeadersHeader.includes("*") &&
+            exposedHeadersHeader.some((exposedHeader) => exposedHeader.toLowerCase() === "authorization")
+        ? "and all received headers"
+            : exposedHeadersHeader.includes("*")
+        ? "and all received headers (except Authorization)"
+            : exposedHeadersHeader.length
+        ? <>the explicitly exposed headers ({ exposedHeadersHeader.join(', ') }) {corsSafelistedHeaders}</>
+        : corsSafelistedHeaders
 
     return <Exposition>
         <Heading>
@@ -306,13 +321,7 @@ export const ServerAllowsCorsRequest = (props) => {
             <strong>The request was sent, and the server's CORS headers let you read the response</strong>.
         </Explanation>
         <Explanation>
-            You'll be able to examine the response's status code, its body, {
-                exposedHeaders.length
-                    ? <>the explicitly exposed headers ({exposedHeaders.join(', ')}),</>
-                    : null
-            } and any <ExternalLink
-                href="https://developer.mozilla.org/en-US/docs/Glossary/CORS-safelisted_response_header"
-            >CORS-safelisted headers</ExternalLink>.
+            You'll be able to examine the response's status code, its body, { exposedHeaders }.
         </Explanation>
         <Explanation>
             {
