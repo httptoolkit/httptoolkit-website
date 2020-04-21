@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import { observer } from 'mobx-react';
+
 import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
 import {
@@ -201,7 +203,7 @@ export const SimpleCorsRequest = (props) =>
         </ActionButton>
     </Exposition>;
 
-export const ServerResponseQuestion = (props) =>
+export const ServerResponseQuestion = observer((props) =>
     <Question $onNext={props.onNext}>
         <QuestionNotes>
             The browser will send your { props.method } request to { props.targetUrl }, with extra headers
@@ -260,7 +262,8 @@ export const ServerResponseQuestion = (props) =>
         <SubmitButton>
             Next
         </SubmitButton>
-    </Question>;
+    </Question>
+);
 
 
 export const ServerRejectsCorsRequest = () =>
@@ -347,7 +350,7 @@ export const PreflightRequest = (props) =>
         </ActionButton>
     </Exposition>;
 
-export const PreflightResponseQuestion = (props) => {
+export const PreflightResponseQuestion = observer((props) => {
     const preflightHeaders = props.value;
     const cacheDuration = parseInt(getHeaderValue(preflightHeaders, 'access-control-max-age'), 10);
 
@@ -395,7 +398,7 @@ export const PreflightResponseQuestion = (props) => {
             Next
         </SubmitButton>
     </Question>
-};
+});
 
 export const ServerRejectsPreflightRequest = () =>
     <Exposition>
