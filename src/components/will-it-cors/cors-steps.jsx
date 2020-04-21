@@ -12,7 +12,8 @@ import {
     getHeaderValue,
     getHeaderValues,
     setHeader,
-    deleteHeader
+    deleteHeader,
+    joinAnd
 } from './common';
 
 export const Intro = (props) =>
@@ -207,9 +208,8 @@ export const SimpleCorsRequest = (props) =>
 export const ServerResponseQuestion = observer((props) =>
     <Question $onNext={props.onNext}>
         <QuestionNotes>
-            The browser will send your { props.method } request to { props.targetUrl }, with extra headers
-            including an 'Origin' header set to { props.sourceOrigin }, so the server knows that this
-            is a CORS request.
+            The browser will include an Origin header set to { props.sourceOrigin } with your request,
+            so the server knows that this is a CORS request, and knows the specific page origin.
         </QuestionNotes>
         <QuestionText>
             What headers will the server return in its response?
@@ -304,13 +304,16 @@ export const ServerAllowsCorsRequest = (props) => {
         >CORS-safelisted headers</ExternalLink>
     </>;
 
+    const varyOnOrigin = getHeaderValues(props.responseHeaders, 'vary').some(v => v.toLowerCase() === 'origin') ||
+        getHeaderValue(props.responseHeaders, 'vary') === '*';
+
     const exposedHeaders = exposedHeadersHeader.includes("*") &&
             exposedHeadersHeader.some((exposedHeader) => exposedHeader.toLowerCase() === "authorization")
         ? "and all received headers"
             : exposedHeadersHeader.includes("*")
         ? "and all received headers (except Authorization)"
             : exposedHeadersHeader.length
-        ? <>the explicitly exposed headers ({ exposedHeadersHeader.join(', ') }) {corsSafelistedHeaders}</>
+        ? <>the explicitly exposed headers ({ joinAnd(exposedHeadersHeader) }) {corsSafelistedHeaders}</>
         : corsSafelistedHeaders
 
     return <Exposition>
@@ -368,6 +371,15 @@ export const PreflightResponseQuestion = observer((props) => {
     const cacheDuration = parseInt(getHeaderValue(preflightHeaders, 'access-control-max-age'), 10);
 
     return <Question $onNext={props.onNext}>
+        <QuestionNotes>
+            The browser will send an OPTIONS request to { props.targetUrl }, with { joinAnd([
+                `an Origin header (${ props.sourceOrigin })`,
+                `an Access-Control-Request-Method header (${ props.method })`
+            ].concat(
+                props.unsafeHeaders.length ? [`an Access-Control-Request-Headers header (${ props.unsafeHeaders.join(', ') })`] : []
+            )) }.
+
+        </QuestionNotes>
         <QuestionText>
             What headers will the server return in its response?
         </QuestionText>
@@ -552,6 +564,9 @@ const QuestionText = styled.h2`
 const QuestionNotes = styled.p`
     margin-top: 1em;
     ${p => p.theme.fontSizeText};
+    font-style: italic;
+    opacity: 0.8;
+
     line-height: 1.3;
 
     &:not(:last-child) {
