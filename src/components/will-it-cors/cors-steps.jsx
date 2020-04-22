@@ -115,10 +115,10 @@ export const MixedContentResult = (props) =>
 
 export const MethodQuestion = (props) =>
     <Question $onNext={props.onNext}>
-        <QuestionNotes>
+        <Sidenote>
             Your source and target URLs have different origins ({ props.sourceOrigin } and{' '}
             { props.targetOrigin } respectively) so <strong>this is indeed a cross-origin request</strong>.
-        </QuestionNotes>
+        </Sidenote>
         <QuestionText>
             What <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"
@@ -194,12 +194,12 @@ export const ContentTypeQuestion = (props) =>
             onChange={(e) => props.onChange(e.target.value)}
         />
         <SubmitButton>Next</SubmitButton>
-        <QuestionNotes>
+        <Sidenote>
             Only POSTs sent with application/x-www-form-urlencoded, text/plain or multipart/form-data
             content-type headers are considered <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests"
             >simple requests</ExternalLink>.
-        </QuestionNotes>
+        </Sidenote>
     </Question>;
 
 export const SimpleCorsRequest = (props) =>
@@ -231,10 +231,10 @@ export const SimpleCorsRequest = (props) =>
 
 export const ServerResponseQuestion = observer((props) =>
     <Question $onNext={props.onNext}>
-        <QuestionNotes>
+        <Sidenote>
             The browser will include an Origin header set to { props.sourceOrigin } with your request,
             so the server knows that this is a CORS request, and knows the specific page origin.
-        </QuestionNotes>
+        </Sidenote>
         <QuestionText>
             What headers will the server return in its response?
         </QuestionText>
@@ -448,6 +448,11 @@ export const ServerAllowsCorsRequest = (props) => {
         <ActionButton onClick={props.onNext}>
             Show me the code
         </ActionButton>
+        <Sidenote>
+            Want to see & test this for real? Give <ExternalLink href="/">
+                HTTP Toolkit
+            </ExternalLink> a whirl.
+        </Sidenote>
     </Exposition>;
 };
 
@@ -489,7 +494,7 @@ export const PreflightResponseQuestion = observer((props) => {
     const cacheDuration = parseInt(getHeaderValue(preflightHeaders, 'access-control-max-age'), 10);
 
     return <Question $onNext={props.onNext}>
-        <QuestionNotes>
+        <Sidenote>
             The browser will send an OPTIONS request to { props.targetUrl }, with { joinAnd([
                 `an Origin header (${ props.sourceOrigin })`,
                 `an Access-Control-Request-Method header (${ props.method })`
@@ -497,7 +502,7 @@ export const PreflightResponseQuestion = observer((props) => {
                 props.unsafeHeaders.length ? [`an Access-Control-Request-Headers header (${ props.unsafeHeaders.join(', ') })`] : []
             )) }.
 
-        </QuestionNotes>
+        </Sidenote>
         <QuestionText>
             What headers will the server return in its response?
         </QuestionText>
@@ -779,7 +784,7 @@ const QuestionText = styled.h2`
     margin-bottom: 10px;
 `;
 
-const QuestionNotes = styled.p`
+const Sidenote = styled.p`
     margin-top: 1em;
     ${p => p.theme.fontSizeText};
     font-style: italic;
