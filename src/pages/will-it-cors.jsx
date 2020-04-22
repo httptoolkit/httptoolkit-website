@@ -214,11 +214,19 @@ export default class WillItCors extends React.Component {
         const allowedHeaders = getHeaderValues(this.preflightResponseHeaders, 'access-control-allow-headers')
             .map(h => h.toLowerCase());
 
-        const includesAllUnsafeHeaders = !this.unsafeHeaders.some(h => !allowedHeaders.includes(h.toLowerCase()));
+        const includesAllUnsafeHeaders = !this.unsafeHeaders.some(h =>
+            !allowedHeaders.includes(h.toLowerCase())
+        );
 
-        return this.sendCredentials
-            ? includesAllUnsafeHeaders
-            : allowedHeaders.includes('*') || includesAllUnsafeHeaders
+        // Authorization must be included explicitly - * isn't sufficient.
+        const unsafeAuthorization = !allowedHeaders.includes('authorization') &&
+            this.unsafeHeaders.map(h => h.toLowerCase()).includes('authorization');
+
+        return !unsafeAuthorization && (
+            this.sendCredentials
+                ? includesAllUnsafeHeaders
+                : allowedHeaders.includes('*') || includesAllUnsafeHeaders
+        );
     }
 
     // Slight misnomer: really does it allow the credentials *we wanted to send* (i.e. always true if we send nothing)
@@ -441,6 +449,7 @@ export default class WillItCors extends React.Component {
 
                                 sourceOrigin={this.sourceOrigin}
                                 method={this.method}
+                                sendCredentials={this.sendCredentials}
                                 unsafeHeaders={this.unsafeHeaders}
                                 preflightResponseHeaders={this.preflightResponseHeaders}
 

@@ -491,6 +491,8 @@ export const PreflightResponseQuestion = observer((props) => {
 });
 
 export const ServerRejectsPreflightRequest = (props) => {
+    const preflightHeaders = props.preflightResponseHeaders;
+
     const incorrectHeaders = [
         !props.originAllowed && 'Origin',
         !props.methodAllowed && 'Methods',
@@ -499,8 +501,28 @@ export const ServerRejectsPreflightRequest = (props) => {
     ].filter(v => !!v);
 
     const [missingHeaders, incompleteHeaders] = _.partition(incorrectHeaders, h =>
-        !getHeaderValue(props.preflightResponseHeaders, `Access-Control-Allow-${h}`)
+        !getHeaderValue(preflightHeaders, `Access-Control-Allow-${h}`)
     );
+
+    const invalidWildcards = props.sendCredentials ? [
+        !props.originAllowed &&
+            getHeaderValue(preflightHeaders, 'Access-Control-Allow-Origin') === '*' &&
+            'Origin',
+        !props.methodAllowed &&
+            getHeaderValues(preflightHeaders, 'Access-Control-Allow-Methods').includes('*') &&
+            'Methods',
+        !props.headersAllowed &&
+            getHeaderValues(preflightHeaders, 'Access-Control-Allow-Headers').includes('*') &&
+            'Headers',
+    ].filter(h => !!h) : [];
+
+    // Authorization must be included explicitly - * is never sufficient.
+    const allowedHeaders = getHeaderValues(preflightHeaders, 'access-control-allow-headers')
+        .map(h => h.toLowerCase());
+    const wildcardWithAuthorization = !props.sendCredentials && // Irrelevant if * is invalid anyway
+        props.unsafeHeaders.map(h => h.toLowerCase()).includes('authorization') &&
+        !allowedHeaders.includes('authorization') &&
+        allowedHeaders.includes('*');
 
     return <Exposition>
         <Heading>
@@ -525,20 +547,41 @@ export const ServerRejectsPreflightRequest = (props) => {
                     } required but missing`,
                 ...incompleteHeaders.map((incompleteHeader) =>
                     `the Access-Control-Allow-${incompleteHeader} header (${
-                        getHeaderValue(props.preflightResponseHeaders, `Access-Control-Allow-${incompleteHeader}`)
+                        getHeaderValue(preflightHeaders, `Access-Control-Allow-${incompleteHeader}`)
                     }) ${
                         incompleteHeader === 'Origin'
                             ? `does not match the request origin (${props.sourceOrigin})`
                         : incompleteHeader === 'Methods'
-                            ? `does not include include the request method (${props.method})`
+                            ? `does not include the request method (${props.method})`
                         : incompleteHeader === 'Headers'
-                            ? `does not match all unsafe headers (${props.unsafeHeaders})`
+                            ? `does not match all unsafe headers (${joinAnd(props.unsafeHeaders)})`
                         : // Credentials
                             `is not 'true' and the request would include credentials`
                     }`
                 )
             ].filter(v => !!v))}.
         </Explanation>
+        {
+            wildcardWithAuthorization &&
+                <Explanation>
+                    <strong>
+                        Note that the * wildcard for Access-Control-Allow-Headers never
+                        matches Authorization headers
+                    </strong>. The Authorization header needs to be listed explicitly.
+                </Explanation>
+        }
+        {
+            invalidWildcards.length > 0 &&
+                <Explanation>
+                    <strong>
+                        Remember that the {
+                            joinAnd(invalidWildcards.map(h => `Access-Control-Allow-${h}`))
+                        } {
+                            invalidWildcards.length > 1 ? 'headers ignore' : 'header ignores'
+                        } * wildcards when credentials are enabled.
+                    </strong>
+                </Explanation>
+        }
         <Explanation>
             To avoid this, you'll need to either make the server send the correct
             preflight headers, or make your request a <ExternalLink
