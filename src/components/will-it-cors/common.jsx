@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'gatsby';
 
 import { styled } from '../../styles';
 
@@ -47,6 +48,10 @@ export const ExternalLink = styled.a.attrs(() => ({
     target: '_blank',
     rel: "noopener noreferrer"
 }))`
+    color: ${p => p.theme.primaryInputBackground};
+`;
+
+export const InternalLink = styled(Link)`
     color: ${p => p.theme.primaryInputBackground};
 `;
 

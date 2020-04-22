@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +8,7 @@ import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
 import {
     ExternalLink,
+    InternalLink,
     Checkmark,
     Cross,
     getHeaderValue,
@@ -82,7 +82,9 @@ export const NotCorsResult = (props) =>
             There may be other (less restrictive) limits on the requests you can send though. Check
             the list of <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name"
-            >forbidden headers</ExternalLink> for more info, and try out <Link to="/">HTTP Toolkit</Link> if
+            >forbidden headers</ExternalLink> for more info, and try out <InternalLink to="/">
+                HTTP Toolkit
+            </InternalLink> if
             you want to see exactly what's being sent & received in reality.
         </Explanation>
     </Exposition>;
