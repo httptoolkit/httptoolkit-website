@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import { observer } from 'mobx-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as PrismJS from 'prismjs';
 
 import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
@@ -125,7 +126,7 @@ export const MethodQuestion = (props) =>
             required
             placeholder="GET"
             value={props.value}
-            onChange={(e) => props.onChange(e.target.value.toUpperCase())}
+            onChange={(e) => props.onChange(e.target.value.toUpperCase().trim())}
         />
         <SubmitButton>Next</SubmitButton>
     </Question>;
@@ -442,6 +443,19 @@ export const ServerAllowsCorsRequest = (props) => {
                     a different origin, where it will unexpectedly fail.
                 </Explanation>
         }
+        <ActionButton onClick={props.onNext}>
+            Show me the code
+        </ActionButton>
+    </Exposition>;
+};
+
+export const ShowCode = (props) => {
+    React.useEffect(() => {
+        PrismJS.highlightAll()
+     });
+
+    return <Exposition>
+        <CodeBlock>{ props.code.trim() }</CodeBlock>
     </Exposition>;
 };
 
@@ -836,4 +850,18 @@ const Checkbox = styled((props) =>
     }
 
     margin: 10px 0;
+`;
+
+const CodeBlock = styled((props) =>
+    <pre className={props.className}>
+        <code className="language-js">{props.children}</code>
+    </pre>
+)`
+    && {
+        margin: -20px -20px 0 -20px;
+    }
+
+    .comment {
+        white-space: pre-wrap;
+    }
 `;

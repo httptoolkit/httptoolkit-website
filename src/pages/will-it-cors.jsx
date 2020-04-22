@@ -31,6 +31,7 @@ import {
     ServerResponseQuestion,
     ServerRejectsCorsRequest,
     ServerAllowsCorsRequest,
+    ShowCode,
     PreflightRequest,
     PreflightResponseQuestion,
     ServerRejectsPreflightRequest,
@@ -252,6 +253,59 @@ export default class WillItCors extends React.Component {
             : allowedOrigin === '*' || allowedOrigin === this.sourceOrigin;
     }
 
+    @computed get exampleCode() {
+        return `\
+// In your script on ${this.sourceUrl}
+fetch("${ this.targetUrl }", ${
+    JSON.stringify(Object.assign(
+        { method: this.method },
+        this.sendCredentials ? { credentials: 'include' } : {},
+        !_.isEmpty(this.requestHeaders) ? {
+            headers: _(this.requestHeaders)
+                .keyBy(([headerName]) => headerName)
+                .mapValues(([headerName, headerValue]) => headerValue)
+                .valueOf()
+        } : {},
+    ), null, 4)
+});
+
+/*${
+    !this.isSimpleCorsRequest ?
+`
+The server will receive an OPTIONS request to ${
+    this.targetUrl
+}, including headers:
+
+Origin: ${this.sourceOrigin}
+Access-Control-Request-Method: ${this.method}${
+    this.unsafeHeaders.length ? `
+Access-Control-Request-Headers: ${this.unsafeHeaders.join(', ')}` : ''}
+
+The server's response headers should include:
+
+${
+    this.preflightResponseHeaders.map(([headerName, headerValue]) =>
+        `${headerName}: ${headerValue}`
+    ).join('\n')
+}
+
+Next, the `
+: `
+The `
+
+}server will receive your ${this.method} request to ${this.targetUrl}, with an 'Origin: ${this.sourceOrigin}' header set by the browser.
+
+The server's response headers should include:
+
+${
+    this.serverResponseHeaders.map(([headerName, headerValue]) =>
+        `${headerName}: ${headerValue}`
+    ).join('\n')
+}
+*/
+`;
+    }
+
     render() {
         const { navigate } = this.props;
 
@@ -406,6 +460,15 @@ export default class WillItCors extends React.Component {
                                 sourceOrigin={this.sourceOrigin}
                                 responseHeaders={this.serverResponseHeaders}
                                 sendCredentials={this.sendCredentials}
+
+                                onNext={() => navigate('./show-code')}
+                            />
+                        }
+
+                        { this.isServerResponseReadable &&
+                            <ShowCode
+                                path="/show-code"
+                                code={this.exampleCode}
                             />
                         }
 

@@ -150,7 +150,10 @@ export const Breadcrumbs = (props) => {
         </Breadcrumb>
     </BreadcrumbContainer>;
 
-    if (path === 'request-success') return <BreadcrumbContainer>
+    if ([
+        'request-success',
+        'show-code'
+    ].includes(path)) return <BreadcrumbContainer>
         { isCors }
         { isSafeToSend }
         <Breadcrumb state='yes'>
