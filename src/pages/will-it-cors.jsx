@@ -110,8 +110,8 @@ export default class WillItCors extends React.Component {
 
     // The various props. They each start as undefined, become empty values (""/{}/[])
     // when the question is ready, and then get updated with input.
-    @observable sourceUrl = "";
-    @observable targetUrl = "";
+    @observable sourceUrl = "https://";
+    @observable targetUrl = "https://";
     @observable method = "";
 
     @observable sendCredentials = false;
