@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as React from 'react';
 import { action } from 'mobx';
-import { observer } from 'mobx-react';
+import { Observer } from 'mobx-react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 
 import { styled } from '../styles';
@@ -52,10 +52,13 @@ const HeaderDeleteButton = styled(Button).attrs({
     padding: 3px 10px 5px;
 `;
 
-export const EditableHeaders = observer((props) => {
-    const { headers, onChange } = props;
 
-    return <HeadersContainer>
+export const EditableHeaders = (props) => {
+    const { headers, onChange, autoFocus, onlyClientHeaders } = props;
+
+    const [focused, setFocused] = React.useState(!autoFocus);
+
+    return <Observer>{() => <HeadersContainer>
         { _.flatMap(headers, ([key, value], i) => [
             <TextInput
                 value={key}
@@ -101,6 +104,11 @@ export const EditableHeaders = observer((props) => {
                     headers.push([event.target.value, '']);
                     onChange(headers);
                 })}
+                ref={(elem) => {
+                    if (!elem || focused || !autoFocus) return;
+                    elem.focus();
+                    setFocused(true);
+                }}
             />,
             <TextInput
                 value=''
@@ -113,5 +121,5 @@ export const EditableHeaders = observer((props) => {
                 })}
             />
         ]) }
-    </HeadersContainer>
-});
+    </HeadersContainer>}</Observer>;
+};

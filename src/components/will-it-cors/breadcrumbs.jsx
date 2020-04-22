@@ -103,7 +103,7 @@ export const Breadcrumbs = (props) => {
 
     if ([
         'method',
-        'request-headers',
+        'request-extras',
         'content-type'
     ].includes(path)) return <BreadcrumbContainer>
         { isCors }

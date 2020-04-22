@@ -25,7 +25,7 @@ import {
     NotCorsResult,
     MixedContentResult,
     MethodQuestion,
-    RequestHeadersQuestion,
+    RequestExtrasQuestion,
     ContentTypeQuestion,
     SimpleCorsRequest,
     ServerResponseQuestion,
@@ -111,7 +111,11 @@ export default class WillItCors extends React.Component {
     @observable sourceUrl = "";
     @observable targetUrl = "";
     @observable method = "";
+
+    @observable sendCredentials = false;
+    @observable useStreaming = false;
     @observable requestHeaders = []; // List of key value pairs
+
     @observable preflightResponseHeaders = []; // List of key value pairs
     @observable serverResponseHeaders = []; // List of key value pairs
 
@@ -179,6 +183,7 @@ export default class WillItCors extends React.Component {
 
         return this.isCorsRequest &&
             !this.isSendingUnsafeHeaders &&
+            !this.useStreaming &&
             (
                 // All HEAD/GET without funky headers are safe:
                 ['HEAD', 'GET'].includes(this.method) ||
@@ -190,32 +195,53 @@ export default class WillItCors extends React.Component {
     @computed get doesPreflightResponseAllowOrigin() {
         if (this.sourceOrigin === undefined) return undefined;
         const allowedOrigin = getHeaderValue(this.preflightResponseHeaders, 'access-control-allow-origin');
-        return allowedOrigin === '*' || allowedOrigin === this.sourceOrigin;
+
+        return this.sendCredentials
+            ? allowedOrigin === this.sourceOrigin
+            : allowedOrigin === '*' || allowedOrigin === this.sourceOrigin;
     }
 
     @computed get doesPreflightResponseAllowMethod() {
         if (!this.method) return undefined;
         const allowedMethods = getHeaderValues(this.preflightResponseHeaders, 'access-control-allow-methods');
-        return allowedMethods === '*' || allowedMethods.includes(this.method);
+
+        return this.sendCredentials
+            ? allowedMethods.includes(this.method)
+            : allowedMethods === '*' || allowedMethods.includes(this.method);
     }
 
     @computed get doesPreflightResponseAllowHeaders() {
         const allowedHeaders = getHeaderValues(this.preflightResponseHeaders, 'access-control-allow-headers')
             .map(h => h.toLowerCase());
 
-        return (allowedHeaders === '*' || !this.unsafeHeaders.some(h => !allowedHeaders.includes(h.toLowerCase())));
+        const includesAllUnsafeHeaders = !this.unsafeHeaders.some(h => !allowedHeaders.includes(h.toLowerCase()));
+
+        return this.sendCredentials
+            ? includesAllUnsafeHeaders
+            : allowedHeaders.includes('*') || includesAllUnsafeHeaders
+    }
+
+    // Slight misnomer: really does it allow the credentials *we wanted to send* (i.e. always true if we send nothing)
+    @computed get doesPreflightResponseAllowCredentials() {
+        return !this.sendCredentials ||
+            getHeaderValue(this.preflightResponseHeaders, 'access-control-allow-credentials') === 'true';
     }
 
     @computed get isPreflightSuccessful() {
         return this.doesPreflightResponseAllowOrigin &&
             this.doesPreflightResponseAllowMethod &&
-            this.doesPreflightResponseAllowHeaders;
+            this.doesPreflightResponseAllowHeaders &&
+            this.doesPreflightResponseAllowCredentials;
     }
 
     @computed get isServerResponseReadable() {
         if (this.sourceOrigin === undefined) return undefined;
         const allowedOrigin = getHeaderValue(this.serverResponseHeaders, 'access-control-allow-origin');
-        return (allowedOrigin === '*' || allowedOrigin === this.sourceOrigin);
+        const credentialsAllowed = getHeaderValue(this.serverResponseHeaders, 'access-control-allow-credentials') === 'true';
+
+        return this.sendCredentials
+            ? credentialsAllowed && allowedOrigin === this.sourceOrigin
+            : allowedOrigin === '*' || allowedOrigin === this.sourceOrigin;
     }
 
     render() {
@@ -303,12 +329,20 @@ export default class WillItCors extends React.Component {
                             targetOrigin={this.targetOrigin}
                             value={this.method}
                             onChange={(newValue) => { this.method = newValue }}
-                            onNext={() => navigate("./request-headers")}
+                            onNext={() => navigate("./request-extras")}
                         />
-                        <RequestHeadersQuestion
-                            path="/request-headers"
-                            value={this.requestHeaders}
-                            onChange={(newValue) => { this.requestHeaders = newValue }}
+                        <RequestExtrasQuestion
+                            path="/request-extras"
+
+                            sendCredentials={this.sendCredentials}
+                            onSendCredentials={(newValue) => { this.sendCredentials = newValue }}
+
+                            useStreaming={this.useStreaming}
+                            onUseStreaming={(newValue) => { this.useStreaming = newValue }}
+
+                            headers={this.requestHeaders}
+                            onChangeHeaders={(newValue) => { this.requestHeaders = newValue }}
+
                             onNext={() => {
                                 if (this.isSimpleCorsRequest) {
                                     navigate("./simple-cors");
@@ -344,6 +378,7 @@ export default class WillItCors extends React.Component {
                             targetUrl={this.targetUrl}
                             method={this.method}
                             unsafeHeaders={this.unsafeHeaders}
+                            sendCredentials={this.sendCredentials}
                             isServerResponseReadable={this.isServerResponseReadable}
 
                             value={this.serverResponseHeaders}
@@ -362,6 +397,7 @@ export default class WillItCors extends React.Component {
                                 path="/request-success"
                                 sourceOrigin={this.sourceOrigin}
                                 responseHeaders={this.serverResponseHeaders}
+                                sendCredentials={this.sendCredentials}
                             />
                         }
 
@@ -385,6 +421,7 @@ export default class WillItCors extends React.Component {
                             targetUrl={this.targetUrl}
                             method={this.method}
                             unsafeHeaders={this.unsafeHeaders}
+                            sendCredentials={this.sendCredentials}
                             isPreflightSuccessful={this.isPreflightSuccessful}
 
                             value={this.preflightResponseHeaders}
@@ -410,6 +447,7 @@ export default class WillItCors extends React.Component {
                                 originAllowed={this.doesPreflightResponseAllowOrigin}
                                 methodAllowed={this.doesPreflightResponseAllowMethod}
                                 headersAllowed={this.doesPreflightResponseAllowHeaders}
+                                credentialsAllowed={this.doesPreflightResponseAllowCredentials}
                             />
                         }
 

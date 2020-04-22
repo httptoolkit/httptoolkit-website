@@ -129,29 +129,47 @@ export const MethodQuestion = (props) =>
         <SubmitButton>Next</SubmitButton>
     </Question>;
 
-export const RequestHeadersQuestion = (props) => {
-    const [focused, setFocused] = React.useState(false);
+export const RequestExtrasQuestion = (props) => {
+    const [showHeaders, setShowHeaders] = React.useState(!_.isEmpty(props.headers));
 
     return <Question
         $onNext={props.onNext}
-        ref={(elem) => {
-            if (!elem || focused) return;
-
-            focusRef(elem.querySelector('input'));
-            setFocused(true);
-        }}
     >
         <QuestionText>
-            Do you want to send any custom <ExternalLink
-                href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers"
-            >request headers</ExternalLink>?
+            Do you want send or read any other data?
         </QuestionText>
-        <EditableHeaders
-            headers={props.value}
-            onChange={props.onChange}
-        />
+        <Checkbox
+            value={props.sendCredentials}
+            onChange={(e) => props.onSendCredentials(e.target.checked)}
+        >
+            Send built-in browser credentials, like cookies or client certificates, with this request?
+        </Checkbox>
+        <Checkbox
+            value={props.useStreaming}
+            onChange={(e) => props.onUseStreaming(e.target.checked)}
+        >
+            Incrementally stream the request or response, or monitor their progress?
+        </Checkbox>
+        <Checkbox
+            value={showHeaders}
+            onChange={(e) => {
+                const shouldShowHeaders = e.target.checked;
+                setShowHeaders(shouldShowHeaders);
+                if (!shouldShowHeaders) {
+                    props.onChangeHeaders([]);
+                }
+            }}
+        >
+            Send custom request headers?
+        </Checkbox>
+        { showHeaders && <EditableHeaders
+            autoFocus
+            headers={props.headers}
+            onChange={props.onChangeHeaders}
+            onlyClientHeaders={true}
+        /> }
         <SubmitButton>
-            { props.value.length === 0
+            { props.headers.length === 0 && !props.sendCredentials && !props.useStreaming
                 ? "No, skip this"
                 : "Next"
             }
@@ -195,7 +213,8 @@ export const SimpleCorsRequest = (props) =>
         </Explanation>
         <Explanation>
             Simple requests are a GET or HEAD requests, or POST requests with
-            specific safe content types, that don't use any unsafe cross-origin headers.
+            specific safe content types, that don't use any unsafe cross-origin headers or
+            streaming.
         </Explanation>
         <Explanation>
             <strong>However, this doesn't mean you're always allowed to read the response</strong>.
@@ -220,9 +239,13 @@ export const ServerResponseQuestion = observer((props) =>
             onChange={(e) => {
                 if (e.target.checked) {
                     setHeader(props.value, 'Access-Control-Allow-Origin', props.sourceOrigin);
+                    if (props.sendCredentials) {
+                        setHeader(props.value, 'Access-Control-Allow-Credentials', 'true');
+                    }
                     setHeader(props.value, 'Vary', 'origin');
                 } else {
                     deleteHeader(props.value, 'Access-Control-Allow-Origin');
+                    deleteHeader(props.value, 'Access-Control-Allow-Credentials');
 
                     // If there's now no headers that depend on the origin, drop the Vary
                     if (
@@ -323,17 +346,21 @@ export const ServerAllowsCorsRequest = (props) => {
         >CORS-safelisted headers</ExternalLink>
     </>;
 
+    const hasHeaderWildcard = exposedHeadersHeader.includes("*");
+    const explicitlyAllowedHeaders = exposedHeadersHeader.filter(h => h !== '*');
+
+    const credsWithWildcardWarning = hasHeaderWildcard && props.sendCredentials
+        ? " (* doesn't match all headers if you send credentials)"
+        : "";
+    const exposedHeaders = hasHeaderWildcard && !props.sendCredentials
+        ? "and all received headers"
+            : explicitlyAllowedHeaders.length
+        ? <>the explicitly exposed headers ({ joinAnd(explicitlyAllowedHeaders) }) {corsSafelistedHeaders}</>
+        : corsSafelistedHeaders;
+
     const varyOnOrigin = getHeaderValues(props.responseHeaders, 'vary').some(v => v.toLowerCase() === 'origin') ||
         getHeaderValue(props.responseHeaders, 'vary') === '*';
 
-    const exposedHeaders = exposedHeadersHeader.includes("*") &&
-            exposedHeadersHeader.some((exposedHeader) => exposedHeader.toLowerCase() === "authorization")
-        ? "and all received headers"
-            : exposedHeadersHeader.includes("*")
-        ? "and all received headers (except Authorization)"
-            : exposedHeadersHeader.length
-        ? <>the explicitly exposed headers ({ joinAnd(exposedHeadersHeader) }) {corsSafelistedHeaders}</>
-        : corsSafelistedHeaders
 
     return <Exposition>
         <Heading>
@@ -343,7 +370,7 @@ export const ServerAllowsCorsRequest = (props) => {
             <strong>The request was sent, and the server's CORS headers let you read the response</strong>.
         </Explanation>
         <Explanation>
-            You'll be able to examine the response's status code, its body, { exposedHeaders }.
+            You'll be able to examine the response's status code, its body, { exposedHeaders }{ credsWithWildcardWarning }.
         </Explanation>
         <Explanation>
             {
@@ -422,10 +449,14 @@ export const PreflightResponseQuestion = observer((props) => {
                     if (props.unsafeHeaders.length) {
                         setHeader(preflightHeaders, 'Access-Control-Allow-Headers', props.unsafeHeaders.join(', '));
                     }
+                    if (props.sendCredentials) {
+                        setHeader(preflightHeaders, 'Access-Control-Allow-Credentials', 'true');
+                    }
                 } else {
                     deleteHeader(preflightHeaders, 'Access-Control-Allow-Origin');
                     deleteHeader(preflightHeaders, 'Access-Control-Allow-Methods');
                     deleteHeader(preflightHeaders, 'Access-Control-Allow-Headers');
+                    deleteHeader(preflightHeaders, 'Access-Control-Allow-Credentials');
                 }
                 props.onChange(preflightHeaders);
             }}
@@ -459,7 +490,8 @@ export const ServerRejectsPreflightRequest = (props) => {
     const incorrectHeaders = [
         !props.originAllowed && 'Origin',
         !props.methodAllowed && 'Methods',
-        !props.headersAllowed && 'Headers'
+        !props.headersAllowed && 'Headers',
+        !props.credentialsAllowed && 'Credentials'
     ].filter(v => !!v);
 
     const [missingHeaders, incompleteHeaders] = _.partition(incorrectHeaders, h =>
@@ -495,8 +527,10 @@ export const ServerRejectsPreflightRequest = (props) => {
                             ? `does not match the request origin (${props.sourceOrigin})`
                         : incompleteHeader === 'Methods'
                             ? `does not include include the request method (${props.method})`
-                        : // Headers:
-                            `does not match all unsafe headers (${props.unsafeHeaders})`
+                        : incompleteHeader === 'Headers'
+                            ? `does not match all unsafe headers (${props.unsafeHeaders})`
+                        : // Credentials
+                            `is not 'true' and the request would include credentials`
                     }`
                 )
             ].filter(v => !!v))}.
@@ -689,13 +723,14 @@ const Checkbox = styled((props) =>
     cursor: pointer;
 
     ${p => p.theme.fontSizeSubheading};
+    line-height: 1.3;
+
+    user-select: none;
 
     input {
         zoom: 2;
         margin-right: 10px;
     }
 
-    &:last-of-type {
-        margin-bottom: 10px;
-    }
+    margin: 10px 0;
 `;
