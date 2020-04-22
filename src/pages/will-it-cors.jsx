@@ -412,6 +412,10 @@ export default class WillItCors extends React.Component {
                         { this.isServerResponseReadable === false &&
                             <ServerRejectsCorsRequest
                                 path="/request-failure"
+
+                                sourceOrigin={this.sourceOrigin}
+                                sendCredentials={this.sendCredentials}
+                                serverResponseHeaders={this.serverResponseHeaders}
                             />
                         }
 

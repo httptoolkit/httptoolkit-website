@@ -311,9 +311,37 @@ export const ServerResponseQuestion = observer((props) =>
     </Question>
 );
 
+export const ServerRejectsCorsRequest = (props) => {
+    const allowedOrigin = getHeaderValue(props.serverResponseHeaders, 'access-control-allow-origin');
+    const allowCredentials = getHeaderValue(props.serverResponseHeaders, 'access-control-allow-credentials');
 
-export const ServerRejectsCorsRequest = () =>
-    <Exposition>
+    const missingHeaders = [
+        allowedOrigin === undefined && 'Access-Control-Allow-Origin',
+        props.sendCredentials && allowCredentials === undefined && 'Access-Control-Allow-Credentials',
+    ].filter(h => !!h);
+
+    const failureReasons = [
+        missingHeaders.length > 0 && `
+            the ${
+                joinAnd(missingHeaders)
+            } ${
+                missingHeaders.length > 1 ? 'headers were' : 'header was'
+            } required but missing`,
+        props.sendCredentials && allowCredentials && allowCredentials !== 'true' && `
+            credentials were sent, but the Access-Control-Allow-Credentials header was
+            '${ allowCredentials }' instead of 'true'`,
+        allowedOrigin && allowedOrigin !== props.sourceOrigin && (
+            allowedOrigin !== '*' || props.sendCredentials
+        ) && `
+            the Access-Control-Allow-Origin header was '${ allowedOrigin }' instead of
+            '${ props.sourceOrigin }'${
+                props.sendCredentials && allowedOrigin === '*'
+                    ? " (* doesn't match all origins when you send credentials)"
+                    : ""
+            }`
+    ].filter(r => !!r);
+
+    return <Exposition>
         <Heading>
             <Cross />
         </Heading>
@@ -327,6 +355,9 @@ export const ServerRejectsCorsRequest = () =>
             You won't be able to examine the response's status code, headers or body.
         </Explanation>
         <Explanation>
+            This failed because { joinAnd(failureReasons) }.
+        </Explanation>
+        <Explanation>
             To avoid this and ready the response, you'll need to make the server send the
             correct CORS headers, or use a CORS proxy.
         </Explanation>
@@ -337,7 +368,8 @@ export const ServerRejectsCorsRequest = () =>
                 href="https://stackoverflow.com/a/39109790/68051"
             >a few niche use cases</ExternalLink> in caching & cross-origin resource loading.
         </Explanation>
-    </Exposition>;
+    </Exposition>
+};
 
 export const ServerAllowsCorsRequest = (props) => {
     const exposedHeadersHeader = getHeaderValues(props.responseHeaders, 'access-control-expose-headers');
