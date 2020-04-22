@@ -396,6 +396,8 @@ export const ServerAllowsCorsRequest = (props) => {
     const varyOnOrigin = getHeaderValues(props.responseHeaders, 'vary').some(v => v.toLowerCase() === 'origin') ||
         getHeaderValue(props.responseHeaders, 'vary') === '*';
 
+    const uselessSetCookie = getHeaderValue(props.responseHeaders, 'set-cookie') !== undefined &&
+        !props.sendCredentials;
 
     return <Exposition>
         <Heading>
@@ -423,15 +425,22 @@ export const ServerAllowsCorsRequest = (props) => {
             }
         </Explanation>
         {
-            !varyOnOrigin && someHeaderValues(props.responseHeaders, (v) => v.toLowerCase() === props.sourceOrigin)
-            ? <Explanation>
-                <Warning>This result may be cached incorrectly</Warning>. Your response headers reference the page
-                origin from the request, but they don't include 'Origin' in a <ExternalLink
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary"
-                >Vary header</ExternalLink>. This response might be cached and then used by a CORS request from
-                a different origin, where it will unexpectedly fail.
-            </Explanation>
-            : null
+            uselessSetCookie &&
+                <Explanation>
+                    <Warning>This response sets a cookie that won't be used</Warning>. Set-Cookie headers in
+                    responses are ignored, unless the initial request includes browser credentials.
+                </Explanation>
+        }
+        {
+            !varyOnOrigin &&
+            someHeaderValues(props.responseHeaders, (v) => v.toLowerCase() === props.sourceOrigin) &&
+                <Explanation>
+                    <Warning>This result may be cached incorrectly</Warning>. Your response headers reference the page
+                    origin from the request, but they don't include 'Origin' in a <ExternalLink
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary"
+                    >Vary header</ExternalLink>. This response might be cached and then used by a CORS request from
+                    a different origin, where it will unexpectedly fail.
+                </Explanation>
         }
     </Exposition>;
 };
