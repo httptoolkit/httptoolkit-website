@@ -93,7 +93,7 @@ const SAFE_CONTENT_TYPES = [
 
 function isSafeContentType(contentType) {
     return !UNSAFE_HEADER_BYTES.some((b) => contentType.includes(b)) &&
-        SAFE_CONTENT_TYPES.includes(contentType.split(';')[0]);
+        SAFE_CONTENT_TYPES.includes(contentType.split(';')[0].toLowerCase());
 }
 
 const SAFE_HEADERS = [
