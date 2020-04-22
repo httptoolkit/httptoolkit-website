@@ -263,9 +263,11 @@ export const ServerResponseQuestion = observer((props) =>
             value={getHeaderValue(props.value, 'Access-Control-Expose-Headers') !== undefined}
             onChange={(e) => {
                 if (e.target.checked) {
-                    setHeader(props.value, 'Access-Control-Expose-Headers', "HeaderA, HeaderB");
+                    setHeader(props.value, 'Access-Control-Expose-Headers', 'MyCustomHeader');
+                    setHeader(props.value, 'MyCustomHeader', '');
                 } else {
                     deleteHeader(props.value, 'Access-Control-Expose-Headers');
+                    deleteHeader(props.value, 'MyCustomHeader');
                 }
                 props.onChange(props.value);
             }}
