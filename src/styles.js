@@ -32,6 +32,8 @@ import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt';
+import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
+import { faShippingFast } from '@fortawesome/pro-regular-svg-icons/faShippingFast';
 
 config.autoAddCss = false;
 library.add(
@@ -63,7 +65,9 @@ library.add(
     faToggleOff,
     faCheck,
     faRocket,
-    faTrashAlt
+    faTrashAlt,
+    faPaperPlane,
+    faShippingFast
 );
 
 export { styled, css, ThemeProvider };

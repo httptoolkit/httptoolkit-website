@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import { observer } from 'mobx-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
@@ -202,6 +203,7 @@ export const SimpleCorsRequest = (props) =>
     <Exposition>
         <Heading>
             Simple cross-origin request
+            <GoodHeadingIcon icon={['far', 'shipping-fast']} />
         </Heading>
         <Explanation>
             This is a <ExternalLink
@@ -406,6 +408,7 @@ export const PreflightRequest = (props) =>
     <Exposition>
         <Heading>
             Preflight required
+            <WarningHeadingIcon icon={['far', 'paper-plane']} />
         </Heading>
         <Explanation>
             This is not a <ExternalLink
@@ -582,6 +585,21 @@ const Heading = styled.h1`
         display: block;
         margin: 0 auto;
     }
+`;
+
+const HeadingIcon = styled(FontAwesomeIcon)`
+    && {
+        display: inline-block;
+        margin-left: 20px;
+    }
+`;
+
+const WarningHeadingIcon = styled(HeadingIcon)`
+    color: ${p => p.theme.popColor};
+`;
+
+const GoodHeadingIcon = styled(HeadingIcon)`
+    color: #27bc17;
 `;
 
 const Explanation = styled.p`
