@@ -52,6 +52,44 @@ const HeaderDeleteButton = styled(Button).attrs({
     padding: 3px 10px 5px;
 `;
 
+// Check for headers that browsers won't let you send
+function isForbiddenBrowserHeader(rawHeaderName) {
+    const headerName = rawHeaderName.toLowerCase();
+
+    return headerName.startsWith('proxy-') ||
+        headerName.startsWith('sec-') || [
+            'accept-charset',
+            'accept-encoding',
+            'access-control-request-headers',
+            'access-control-request-method',
+            'connection',
+            'content-length',
+            'cookie',
+            'cookie2',
+            'date',
+            'dnt',
+            'expect',
+            'feature-policy',
+            'host',
+            'keep-alive',
+            'origin',
+            'referer',
+            'te',
+            'trailer',
+            'transfer-encoding',
+            'upgrade',
+            'via'
+        ].includes(headerName);
+}
+
+function validateClientHeaderNameChange(event) {
+    const headerName = event.target.value;
+    if (isForbiddenBrowserHeader(headerName)) {
+        event.target.setCustomValidity(`Browsers will not let you set a custom ${headerName} header`);
+    } else {
+        event.target.setCustomValidity('');
+    }
+}
 
 export const EditableHeaders = (props) => {
     const { headers, onChange, autoFocus, onlyClientHeaders } = props;
@@ -67,6 +105,7 @@ export const EditableHeaders = (props) => {
                 spellCheck={false}
                 key={`${i}-key`}
                 onChange={action((event) => {
+                    if (onlyClientHeaders) validateClientHeaderNameChange(event);
                     event.target.reportValidity();
                     headers[i][0] = event.target.value;
                     onChange(headers);
@@ -101,6 +140,7 @@ export const EditableHeaders = (props) => {
                 spellCheck={false}
                 key={`${headers.length}-key`}
                 onChange={action((event) => {
+                    if (onlyClientHeaders) validateClientHeaderNameChange(event);
                     headers.push([event.target.value, '']);
                     onChange(headers);
                 })}
