@@ -62,6 +62,7 @@ const PageContent = styled.section`
 
     ${media.mobile`
         margin: 20px;
+        max-width: calc(100% - 40px);
     `}
 `;
 

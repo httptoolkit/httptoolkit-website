@@ -4,7 +4,7 @@ import { action } from 'mobx';
 import { Observer } from 'mobx-react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 
-import { styled } from '../styles';
+import { styled, media } from '../styles';
 import { Button } from './form';
 
 // Based RFC7230, 3.2.6:
@@ -27,13 +27,27 @@ const HeadersContainer = styled.div`
     > :last-child {
         grid-column: 2 / span 2;
     }
+
+    ${media.desktopOrTablet`
+        margin: 0 0 10px 0;
+    `}
+
+    ${media.mobile`
+        margin: 0 -18px 10px -18px;
+    `}
 `;
 
 const TextInput = styled.input`
     /* Stop iOS messing with my input styling */
     -webkit-appearance: none;
 
-    padding: 10px;
+    ${media.desktopOrTablet`
+        padding: 10px;
+    `}
+
+    ${media.mobile`
+        padding: 5px 6px;
+    `}
 
     border-radius: 4px;
 
@@ -49,7 +63,14 @@ const HeaderDeleteButton = styled(Button).attrs({
     type: 'button'
 })`
     font-size: ${p => p.theme.textSize};
-    padding: 3px 10px 5px;
+
+    ${media.desktopOrTablet`
+        padding: 3px 10px 5px;
+    `}
+
+    ${media.mobile`
+        padding: 0;
+    `}
 `;
 
 // Check for headers that browsers won't let you send

@@ -712,6 +712,8 @@ const Explanation = styled.p`
 `;
 
 const Button = styled.button`
+    display: block;
+
     /* Stop iOS messing with my input styling */
     -webkit-appearance: none;
 
@@ -860,7 +862,7 @@ const CodeBlock = styled((props) =>
     </pre>
 )`
     && {
-        margin: -20px -20px 0 -20px;
+        margin: 0 -20px;
     }
 
     .comment {
