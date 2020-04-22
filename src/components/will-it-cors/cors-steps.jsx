@@ -20,23 +20,25 @@ import {
 } from './common';
 
 export const Intro = (props) =>
-    <Exposition>
-        <Heading>Will it CORS?</Heading>
+    <IntroContainer>
+        <IntroHeading>Will it CORS?</IntroHeading>
         <Explanation>
-            Cross-Origin Resource Sharing (CORS) is the mechanism browsers use to decide
+            Cross-Origin Resource Sharing (CORS) is how browsers decide
             how web applications can communicate with other services.
         </Explanation>
         <Explanation>
-            Restricting this is important for security, but it can make sending requests
-            to external services & APIs difficult and confusing.
+            Restricting this is important for security, but it's hard to
+            understand how CORS works, which means sending HTTP requests
+            to APIs can be difficult & confusing.
         </Explanation>
         <Explanation>
-            Tell the CORS-A-Matic what you want to happen, and it'll tell you what to do:
+            Tell this magic CORS machine what you want, and it'll tell you
+            exactly what to do:
         </Explanation>
         <ActionButton onClick={props.onNext}>
             Get Started
         </ActionButton>
-    </Exposition>;
+    </IntroContainer>;
 
 export const SourceUrlQuestion = (props) =>
     <Question $onNext={props.onNext}>
@@ -674,9 +676,16 @@ export const ServerAllowsPreflightRequest = (props) =>
 
 const Exposition = styled.div``;
 
+const IntroContainer = styled(Exposition)`
+    ${media.desktop`
+        margin-top: 4vh;
+    `}
+`;
+
 const Heading = styled.h1`
     ${p => p.theme.fontSizeUltraHeading};
     font-weight: bold;
+    text-align: center;
 
     ${media.desktopOrTablet`
         margin-bottom: 40px;
@@ -692,10 +701,16 @@ const Heading = styled.h1`
     }
 `;
 
+const IntroHeading = styled(Heading)`
+    ${media.desktop`font-size: 160px;`}
+    ${media.tablet`font-size: 100px;`}
+    ${media.mobile`font-size: calc(70px + 5vw);`}
+`;
+
 const HeadingIcon = styled(FontAwesomeIcon)`
     && {
-        display: inline-block;
-        margin-left: 20px;
+        display: block;
+        margin-top: 20px;
     }
 `;
 
@@ -868,6 +883,10 @@ const CodeBlock = styled((props) =>
 )`
     && {
         margin: 0 -20px;
+    }
+
+    > code {
+        display: block;
     }
 
     .comment {
