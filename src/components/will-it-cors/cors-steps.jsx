@@ -185,14 +185,13 @@ export const ContentTypeQuestion = (props) =>
             >content type</ExternalLink> will your POST request use?
         </QuestionText>
         <TextInput
-            required
             placeholder="text/plain"
             value={props.value || ''}
             onChange={(e) => props.onChange(e.target.value)}
         />
         <SubmitButton>Next</SubmitButton>
         <QuestionNotes>
-            POSTs sent with application/x-www-form-urlencoded, text/plain or multipart/form-data
+            Only POSTs sent with application/x-www-form-urlencoded, text/plain or multipart/form-data
             content-type headers are considered <ExternalLink
                 href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests"
             >simple requests</ExternalLink>.

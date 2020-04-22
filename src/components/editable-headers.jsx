@@ -113,7 +113,6 @@ export const EditableHeaders = (props) => {
             />,
             <TextInput
                 value={value}
-                required
                 spellCheck={false}
                 key={`${i}-val`}
                 onChange={action((event) => {
