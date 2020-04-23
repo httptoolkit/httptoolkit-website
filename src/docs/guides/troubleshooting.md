@@ -41,7 +41,7 @@ This is a whole debate that we can get into elsewhere, but if you really don't l
 * Start a server:
     * Download the latest HTTP Toolkit server from https://github.com/httptoolkit/httptoolkit-server/releases for your platform
     * Extract it somewhere
-    * Run `bin/httptoolkit-server` in the extracted folder
+    * Run `./bin/httptoolkit-server start` in the extracted folder
 * Open https://app.httptoolkit.tech in Chrome, Edge or Brave:
     * This is the hosted version of the latest HTTP Toolkit UI
     * A Chromium-based browser is required, as Firefox & Safari have issues with some of the UI/server communication
