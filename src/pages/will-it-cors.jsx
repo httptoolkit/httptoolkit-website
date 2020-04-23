@@ -15,6 +15,7 @@ import {
     getHeaderValue,
     getHeaderValues,
     setHeader,
+    deleteHeader,
     getOrigin
 } from '../components/will-it-cors/common';
 import { Breadcrumbs } from '../components/will-it-cors/breadcrumbs';
@@ -186,12 +187,7 @@ export default class WillItCors extends React.Component {
         return this.isCorsRequest &&
             !this.isSendingUnsafeHeaders &&
             !this.useStreaming &&
-            (
-                // All HEAD/GET without funky headers are safe:
-                ['HEAD', 'GET'].includes(this.method) ||
-                // If POST, it must have a (safe, checked above) content type:
-                (this.method === 'POST' && !!this.contentType)
-            );
+            ['HEAD', 'GET', 'POST'].includes(this.method);
     }
 
     @computed get doesPreflightResponseAllowOrigin() {
@@ -407,10 +403,10 @@ ${
                             onChangeHeaders={(newValue) => { this.requestHeaders = newValue }}
 
                             onNext={() => {
-                                if (this.isSimpleCorsRequest) {
-                                    navigate("./simple-cors");
-                                } else if (this.method === 'POST' && !this.contentType) {
+                                if (this.method === 'POST' && this.contentType === undefined) {
                                     navigate("./content-type");
+                                } else if (this.isSimpleCorsRequest) {
+                                    navigate("./simple-cors");
                                 } else {
                                     navigate("./preflight");
                                 }
@@ -419,7 +415,13 @@ ${
                         <ContentTypeQuestion
                             path="/content-type"
                             value={this.contentType}
-                            onChange={(newValue) => setHeader(this.requestHeaders, 'Content-Type', newValue)}
+                            onChange={(newValue) => {
+                                if (newValue) {
+                                    setHeader(this.requestHeaders, 'Content-Type', newValue)
+                                } else {
+                                    deleteHeader(this.requestHeaders, 'Content-Type');
+                                }
+                            }}
                             onNext={() => {
                                 if (this.isSimpleCorsRequest) {
                                     navigate("./simple-cors");
