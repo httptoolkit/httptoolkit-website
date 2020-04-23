@@ -130,7 +130,17 @@ export const MethodQuestion = (props) =>
             required
             placeholder="GET"
             value={props.value}
-            onChange={(e) => props.onChange(e.target.value.toUpperCase().trim())}
+            onChange={(e) => {
+                const method = e.target.value.toUpperCase().trim();
+                props.onChange(method);
+
+                if (['CONNECT', 'TRACE', 'TRACK'].includes(method)) {
+                    e.target.setCustomValidity(`Browsers will not let you manually send a ${method} request`);
+                } else {
+                    e.target.setCustomValidity('');
+                }
+                e.target.reportValidity();
+            }}
         />
         <SubmitButton>Next</SubmitButton>
     </Question>;
