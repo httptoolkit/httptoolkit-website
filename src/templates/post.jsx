@@ -119,6 +119,10 @@ const BlogPost = styled.article`
     & > p:only-child {
       margin-bottom: 0;
     }
+
+    .gatsby-resp-image-wrapper {
+      margin: 10px 0;
+    }
   }
 
   strong > a {
