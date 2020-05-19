@@ -90,7 +90,7 @@ export class MailchimpSignupForm extends React.Component {
             <SubmitInput value={this.props.submitText} name="subscribe" />
             <PrivacyPolicy>
                 { this.props.privacyPolicy === undefined
-                    ? 'No spam, just occasional updates on major new releases.'
+                    ? 'No spam, just very occasional updates on major new releases.'
                     : this.props.privacyPolicy
                 }
             </PrivacyPolicy>
