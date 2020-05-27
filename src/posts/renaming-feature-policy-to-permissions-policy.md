@@ -10,7 +10,7 @@ It's useful for any site that's concerned about XSS attacks, embedded content, s
 
 Feature Policy has been around a couple of years now, and got some good early press as a recommended security technique all over, from Google's [web developer guide](https://developers.google.com/web/updates/2018/06/feature-policy) to [Smashing Magazine](https://www.smashingmagazine.com/2018/12/feature-policy/).
 
-Since then browser support has made steady progress, with about 75% of users globally [now supporting](https://caniuse.com/#feat=feature-policy) it (that's all recent browser versions except Safari). More recently that's lead to the start of real production usage; Scott Helme's [latest analysis](https://scotthelme.co.uk/top-1-million-analysis-march-2020/) of the top 1 million sites shows the Feature-Policy header in use by nearly 5,000 of them.
+Since then browser support has made steady progress, with about 75% of users globally [now supporting](https://caniuse.com/#feat=feature-policy) it (that's all recent browser versions except Safari). More recently that's lead to the start of real production usage: [Rails 6.1](https://github.com/rails/rails/pull/33439) and Node.js's popular [helmet](https://www.npmjs.com/package/helmet) security package recently shipped built-in support, and Scott Helme's [latest analysis](https://scotthelme.co.uk/top-1-million-analysis-march-2020/) of the top 1 million sites shows the Feature-Policy header in use by nearly 5,000 of them.
 
 It is still just a draft though. That means it's subject to change, and it is now changing: **the Feature-Policy standard & header is being renamed to Permissions-Policy**.
 
@@ -20,7 +20,7 @@ There's some discussion of the reasoning in [the spec repo](https://github.com/w
 * The remaining features are a strict subset of the [separately defined](https://w3c.github.io/permissions/#permission-registry) set of web permissions.
 * Renaming offers an opportunity to change the header value syntax, to align it with the new [Structured Headers](https://datatracker.ietf.org/doc/draft-ietf-httpbis-header-structure/) standard.
 
-Any kind of migration of web standards comes with some risk. In this case, a different risk than normal: removing or renaming this header won't break anything outright, but it does silently remove a security safeguard from existing sites.
+Any kind of migration of web standards comes with some risk. In this case, a different risk than normal: removing or renaming this header won't break anything outright, but it does silently remove a security safeguard from existing sites (scary).
 
 The exact migration plan is unclear, but it seems likely that browsers will include support for the existing header & syntax for a while with a warning, to ensure this is as obvious as possible for the existing sites that expect it to work. Seeing this change in the real world is still a couple of browser releases away, so we'll have to wait to find out exactly how each browser decides to handle this.
 
