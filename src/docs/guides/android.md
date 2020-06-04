@@ -70,6 +70,10 @@ All traffic sent by Chrome on Android will trust the HTTP Toolkit certificate au
 
 Behaviour of non-Chromium browsers varies. In general these should be treated like [intercepting a 3rd party app](#intercepting-traffic-from-3rd-party-android-apps), but many browsers will have their own options available to manually trust HTTPS CA certificates.
 
+In Firefox specifically, you can trust your HTTP Toolkit's CA certificate by browsing to `http://amiusing.httptoolkit.tech/certificate` (note the `http://`, not `https://`) in Firefox whilst interception is active, and then accepting the prompt to trust the certificate that's downloaded:
+
+![Firefox offering to trust the downloaded CA certificate](../../images/android-firefox-certificate-prompt.png)
+
 ### Intercepting traffic from your own Android app
 
 If you are targeting an Android API level below 23 (below Android 7), your application will trust the automatically installed certificate automatically, and no changes are required.
