@@ -8,7 +8,7 @@ const Highlight = styled.span`
     font-weight: bold;
 `;
 
-const DescriptionContainer = styled.p`
+const DescriptionContainer = styled.h2`
     ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.3;
     margin: 0 auto;
