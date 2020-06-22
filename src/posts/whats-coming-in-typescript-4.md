@@ -138,7 +138,7 @@ class X {
 
 In the above code right now, the type of `a` is `any` (triggering an error if `noImplicitAny` is enabled). Property types are only inferred from direct initialization, so you always need either an initializer or an explicit type definition.
 
-In TypeScript 4.0, the type of `a` will be `string | boolean`: constructor usage is used to infer property types automatically.
+In TypeScript 4.0, the type of `a` will be `number | boolean`: constructor usage is used to infer property types automatically.
 
 If that's not sufficient, you can still explicitly define types for properties, and those will be used in preference when they exist.
 
