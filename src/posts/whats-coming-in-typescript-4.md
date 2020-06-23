@@ -19,7 +19,7 @@ Let's dive into the details:
 
 Also known as 'variadic [kinds](https://en.wikipedia.org/wiki/Kind_(type_theory))', this is a complex but substantial new feature for TypeScript's type system.
 
-It's not 100% confirmed yet (the [PR](https://github.com/microsoft/TypeScript/pull/39094) remains unmerged), but it's explicitly in the 4.0 roadmap, and Anders Hejlsberg himself has [called it out](https://twitter.com/ahejlsberg/status/1272986860957003788) as planned for the coming release.
+~~It's not 100% confirmed yet (the [PR](https://github.com/microsoft/TypeScript/pull/39094) remains unmerged!), but it's explicitly in the 4.0 roadmap, and Anders Hejlsberg himself has [called it out](https://twitter.com/ahejlsberg/status/1272986860957003788) as planned for the coming release.~~ Update: PR now merged, looks like this is happening!
 
 Explaining this is complicated if you don't have an strong existing grasp of type theory, but it's easy to demo. Let's try to type a `concat` function with tuple arguments:
 
