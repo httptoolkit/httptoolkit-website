@@ -12,7 +12,7 @@ const DetailsContainer = styled.section`
     flex-wrap: wrap;
 
     margin: 60px 0 20px;
-    max-height: 502px;
+    max-height: 480px;
 
     > ${PhoneContainer} {
         flex-basis: 100%;
@@ -30,7 +30,9 @@ const DetailsContent = styled.div`
     width: calc((100% - 324px) / 2);
     flex-grow: 1;
 
-    margin-bottom: 20px;
+    & + & {
+        margin-top: 20px;
+    }
 
     h3 {
         text-transform: uppercase;
@@ -91,7 +93,7 @@ export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
         <h3>Capture & inspect encrypted HTTPS</h3>
         <p>
-            Inspect HTTPS on non-rooted devices from apps like Chrome that trust user-installed CA certificates.
+            Immediately view HTTPS on any device from apps that trust user-installed certificates, like Chrome.
         </p>
         <p>
             Enable trust in your own app with <a
