@@ -149,13 +149,13 @@ export const theme = {
     fontSizeSubheading: css`
         ${media.desktop`font-size: 22px`}
         ${media.tablet`font-size: 20px`}
-        ${media.mobile`font-size: calc(15px + 2vw)`}
+        ${media.mobile`font-size: calc(14px + 2vw)`}
     `,
 
     fontSizeText: css`
         ${media.desktop`font-size: 18px`}
         ${media.tablet`font-size: 16px`}
-        ${media.mobile`font-size: calc(14px + 1.5vw)`}
+        ${media.mobile`font-size: calc(12px + 1.5vw)`}
     `,
 };
 
