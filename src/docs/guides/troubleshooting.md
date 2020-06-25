@@ -8,9 +8,9 @@ Sometimes things go wrong. Below is a list of known issues you might encounter w
 
 **Have any issues not listed here? Please get in touch, either [by email](/contact) or by filing an issue [on GitHub](https://github.com/httptoolkit/feedback/issues/new).**
 
-# General issues
+## General issues
 
-## HTTP Toolkit doesn't start
+### HTTP Toolkit doesn't start
 
 There's a few known possible causes of this:
 
@@ -20,7 +20,7 @@ There's a few known possible causes of this:
 
 If you hit this issue, please get in touch. Right now there's no well known applications using these ports, so all these possibilities are very unusual, and it's possible that they'll be solvable with more investigation.
 
-## HTTP Toolkit starts, but blank
+### HTTP Toolkit starts, but blank
 
 HTTP Toolkit loads its UI and the core of its logic from https://app.httptoolkit.tech on first startup, and updates automatically as new versions of that site become available.
 
@@ -28,13 +28,13 @@ That means on the first startup you will need an internet connection, and if you
 
 This is only required for the first start - after that the latest UI is stored indefinitely, so that future startups will work offline, and load much more quickly.
 
-## The server crashes and the app restarts
+### The server crashes and the app restarts
 
 Any time the server crashes, a notification is shown with the error details and the app is restarted (up to 3 times, and only if the server ran for at least 5 seconds before crashing).
 
 If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact) with any details you have, as this is definitely a bug that needs fixing.
 
-## I hate Electron
+### I hate Electron
 
 This is a whole debate that we can get into elsewhere, but if you really don't like Electron apps, it is possible to use HTTP Toolkit without it. To do so:
 
@@ -47,9 +47,9 @@ This is a whole debate that we can get into elsewhere, but if you really don't l
     * A Chromium-based browser is required, as Firefox & Safari have issues with some of the UI/server communication
     * The UI will work offline in your browser after the first load, just like the app, as it's built using service workers.
 
-# Interception issues
+## Interception issues
 
-## Firefox shows 'Unable to connect' or 'EConnRefused'
+### Firefox shows 'Unable to connect' or 'EConnRefused'
 
 In some circumstances, initial Firefox setup can fail with this error, and something like "Firefox can't establish a connection to the server at localhost:8001".
 
@@ -57,7 +57,7 @@ This is quite rare, and the exact cause isn't pinned down yet. In general this w
 
 If you can reproduce this issue reliably, [please get in touch](/contact), so we can trace down the exact cause of this.
 
-## A browser shows ERR\_PROXY\_CERTIFICATE\_INVALID or other certificate errors
+### A browser shows ERR\_PROXY\_CERTIFICATE\_INVALID or other certificate errors
 
 This means that your browser is not correctly trusting the HTTP Toolkit certificate it has been given, for some reason.
 
@@ -73,7 +73,7 @@ You will need to use the full path for Chrome on your machine, and use your user
 
 This issue has only been seen on Windows, but if you do see this on Mac or Linux, you'll need to update the data dir path completely. Any empty directory is fine, it's only used to store the new Chrome's profile, and the directory can be deleted later.
 
-## An application I have installed appears as 'Not Available'
+### An application I have installed appears as 'Not Available'
 
 HTTP Toolkit attempts to detect which relevant applications you have installed when it's started, so it can show the available ones in the UI.
 
@@ -87,7 +87,7 @@ In the meantime, if you're trying to launch a browser, you can manually edit or 
 
 Adding your browser of choice in there or fixing the detected settings should get it to appear the next time you start the app.
 
-## Interception doesn't work in some other way
+### Interception doesn't work in some other way
 
 * If you need to test whether any client is working correctly, make a request to [`AmIUsing.httptoolkit.tech`](https://amiusing.httptoolkit.tech). You should see "You're not being intercepted" or "You're being intercepted", depending on whether your traffic is successfuly going through HTTP Toolkit
 
