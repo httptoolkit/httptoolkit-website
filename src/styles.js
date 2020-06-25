@@ -34,6 +34,7 @@ import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
 import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt';
 import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
 import { faShippingFast } from '@fortawesome/pro-regular-svg-icons/faShippingFast';
+import { faLockOpen } from '@fortawesome/pro-light-svg-icons/faLockOpen';
 
 config.autoAddCss = false;
 library.add(
@@ -67,7 +68,8 @@ library.add(
     faRocket,
     faTrashAlt,
     faPaperPlane,
-    faShippingFast
+    faShippingFast,
+    faLockOpen
 );
 
 export { styled, css, ThemeProvider };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { styled } from '../../styles';
+import { styled, media } from '../../styles';
 
 import { PhoneContainer } from '../phone-container';
 
@@ -12,14 +12,36 @@ const DetailsContainer = styled.section`
     flex-direction: column;
     flex-wrap: wrap;
 
-    margin: 60px 0 20px;
-    max-height: 480px;
+    position: relative;
 
-    > ${PhoneContainer} {
-        flex-basis: 100%;
-        flex-shrink: 0;
-        margin: -40px 20px;
-    }
+    ${media.desktop`
+        margin-top: -60px;
+        margin-bottom: 20px;
+        max-height: 480px;
+
+        > ${PhoneContainer} {
+            flex-basis: 100%;
+            flex-shrink: 0;
+            margin: -40px 20px;
+        }
+    `}
+
+    ${media.tablet`
+        padding-right: 20%;
+
+        > ${PhoneContainer} {
+            position: absolute;
+            left: 75%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    `}
+
+    ${media.mobile`
+        > ${PhoneContainer} {
+            display: none;
+        }
+    `}
 `;
 
 const DetailsContent = styled.div`
@@ -28,21 +50,42 @@ const DetailsContent = styled.div`
     background-color: ${p => p.theme.mainBackground};
     padding: 20px 40px 0 20px;
 
-    width: calc((100% - 324px) / 2);
-    flex-grow: 1;
+    ${media.desktop`
+        width: calc((100% - 324px) / 2);
+        flex-grow: 1;
 
-    & + & {
-        margin-top: 20px;
+        & + & {
+            margin-top: 20px;
+        }
+    `}
+
+    ${media.tablet`
+        padding-bottom: 20px;
+        margin: 0 20px 20px;
+        z-index: -1;
+    `};
+
+    ${media.mobile`
+        padding-bottom: 20px;
+        margin: 0 10px 20px;
+    `};
+
+    label {
+        display: flex;
+        align-items: center;
+    }
+
+    > label, > h3 {
+        margin-bottom: 15px;
     }
 
     h3 {
-        text-transform: uppercase;
         ${p => p.theme.fontSizeSubheading};
-        color: ${p => p.theme.mainSubtleColor};
+        color: ${p => p.theme.mainColor};
+        line-height: 1.1;
         font-weight: bold;
 
-        padding-bottom: 10px;
-        padding-right: 18px;
+        padding-right: 30px;
     }
 
     p {
@@ -50,7 +93,7 @@ const DetailsContent = styled.div`
         line-height: 1.3;
 
         &:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
     }
 
@@ -71,15 +114,49 @@ const DetailsContent = styled.div`
     strong a {
         color: ${p => p.theme.popColor};
     }
+
+    input {
+        &[type=checkbox], & + label .chevron {
+            display: none;
+
+            margin-right: 18px;
+        }
+
+        ${media.mobile`
+            &:checked {
+                & + label [data-icon=chevron-up] {
+                    display: inline;
+                }
+            }
+
+            &:not(:checked) {
+                & + label [data-icon=chevron-down] {
+                    display: inline;
+                }
+
+                & + label {
+                    margin-bottom: 0;
+                }
+
+                & ~ p {
+                    display: none;
+                }
+            }
+        `}
+    }
 `;
 
 export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
         <FontAwesomeIcon icon={['fal', 'search']} />
 
-        <h3>
-            Debug HTTP from any Android device
-        </h3>
+        <input id="debug-toggle" type="checkbox" />
+        <label for="debug-toggle">
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
+            <h3>Debug HTTP from any Android device</h3>
+        </label>
+
         <p>
             Scan a QR code on the device to start setup, or remotely connect debuggable devices via ADB.
         </p>
@@ -87,14 +164,20 @@ export const AndroidDetails = () => <DetailsContainer>
             Reconnect again later in one tap.
         </p>
         <p>
-            Supports Android Lollipop and later (that means v5 / API level 21+)
+            Supports Android Lollipop and later (v5 / API level 21+)
         </p>
     </DetailsContent>
 
     <DetailsContent>
         <FontAwesomeIcon icon={['fal', 'wrench']} />
 
-        <h3>Self-driving setup</h3>
+        <input id="quickstart-toggle" type="checkbox" />
+        <label for="quickstart-toggle">
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
+            <h3>Get started instantly</h3>
+        </label>
+
         <p>
             No messing around with certificate files and wifi settings.
         </p>
@@ -113,7 +196,13 @@ export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
         <FontAwesomeIcon icon={['fal', 'lock-open']} />
 
-        <h3>Capture & inspect encrypted HTTPS</h3>
+        <input id="decrypt-toggle" type="checkbox" />
+        <label for="decrypt-toggle">
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
+            <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
+            <h3>Capture & inspect encrypted HTTPS</h3>
+        </label>
+
         <p>
             Immediately view HTTPS on any device from apps that trust user-installed certificates, like Chrome.
         </p>
