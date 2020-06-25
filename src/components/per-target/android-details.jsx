@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled } from '../../styles';
 
@@ -41,10 +42,7 @@ const DetailsContent = styled.div`
         font-weight: bold;
 
         padding-bottom: 10px;
-
-        &:not(:first-child) {
-            margin-top: 20px;
-        }
+        padding-right: 18px;
     }
 
     p {
@@ -55,10 +53,30 @@ const DetailsContent = styled.div`
             margin-bottom: 20px;
         }
     }
+
+    position: relative;
+
+    > svg {
+        position: absolute;
+        top: 11px;
+        right: 20px;
+        height: 48px;
+        color: ${p => p.theme.mainColor};
+        font-size: 2em;
+        width: 1em;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    strong a {
+        color: ${p => p.theme.popColor};
+    }
 `;
 
 export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
+        <FontAwesomeIcon icon={['fal', 'search']} />
+
         <h3>
             Debug HTTP from any Android device
         </h3>
@@ -74,6 +92,8 @@ export const AndroidDetails = () => <DetailsContainer>
     </DetailsContent>
 
     <DetailsContent>
+        <FontAwesomeIcon icon={['fal', 'wrench']} />
+
         <h3>Self-driving setup</h3>
         <p>
             No messing around with certificate files and wifi settings.
@@ -91,6 +111,8 @@ export const AndroidDetails = () => <DetailsContainer>
     </PhoneContainer>
 
     <DetailsContent>
+        <FontAwesomeIcon icon={['fal', 'lock-open']} />
+
         <h3>Capture & inspect encrypted HTTPS</h3>
         <p>
             Immediately view HTTPS on any device from apps that trust user-installed certificates, like Chrome.
@@ -108,13 +130,13 @@ export const AndroidDetails = () => <DetailsContainer>
     </DetailsContent>
 
     <DetailsContent>
-        <h3>Want more details?</h3>
-        <p>Take a look at the <a
+        <h3>Want the full details?</h3>
+        <p>Take a look at the <strong><a
             href="/docs/guides/android"
             target="_blank"
             rel='noopener noreferrer'
         >
-            full guide to Android HTTP debugging
-        </a>.</p>
+            in-depth guide to Android HTTP debugging
+        </a></strong>.</p>
     </DetailsContent>
 </DetailsContainer>
