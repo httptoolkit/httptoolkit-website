@@ -124,7 +124,7 @@ To intercept HTTPS traffic from apps which don't trust user-installed CA certifi
 
 Although in these cases you often don't have the Google Play Store available, you can use [Open GAPPS](https://opengapps.org/) to install it manually.
 
-To install a system certificate, connect a supported device using ADB, and the "Android device connected via ADB" interception option will appear on the 'Intercept' page in your HTTP Toolkit application. Click that, and the certificate will be added as a system certificate on the device, the HTTP Toolkit Android app will be installed if not already present, and interception will be started automatically.
+To install a system certificate, first [connect](https://developer.android.com/studio/command-line/adb#Enabling) a supported device using ADB, and the "Android device connected via ADB" interception option will appear on the 'Intercept' page in your HTTP Toolkit application. Click that, and the certificate will be added as a system certificate on the device, the HTTP Toolkit Android app will be installed if not already present (this may take 10 seconds or so), and then interception will start up automatically.
 
 When system interception is installed successfully, it's shown in the app:
 
