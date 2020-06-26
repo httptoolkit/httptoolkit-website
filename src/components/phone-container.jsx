@@ -4,9 +4,9 @@ import { styled, media } from '../styles';
 
 const PhoneOutline = styled.div`
     border-radius: 24px;
-    background-color: #adb5b8;
+    background-color: #c8c8c8;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
-    border: 1px solid #828b91;
+    border: 1px solid #a8a8a8;
 
     box-sizing: border-box;
 
@@ -36,7 +36,7 @@ const HomeButton = styled.div`
     height: 26px;
     border-radius: 12px;
 
-    background-color: rgba(103,113,121,0.6);
+    background-color: #a8a8a8;
 `;
 
 export const PhoneContainer = styled((p) =>
