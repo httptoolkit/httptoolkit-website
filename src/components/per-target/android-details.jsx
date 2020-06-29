@@ -160,7 +160,7 @@ export const AndroidDetails = () => <DetailsContainer>
         <label htmlFor="debug-toggle">
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
-            <h3>Debug HTTP from any Android device</h3>
+            <h3>Debug your Android device's HTTP requests</h3>
         </label>
 
         <p>

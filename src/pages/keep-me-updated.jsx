@@ -46,7 +46,7 @@ export default () => (<Layout>
             Keep yourself up to date
         </Header>
         <Details>
-            There's a lot of new HTTP Toolkit features coming soon, from Android, iOS & Docker interception to request diffing.
+            There's a lot of new HTTP Toolkit features coming soon, from iOS & Docker interception to request diffing.
         </Details>
         <Details>
             Want to hear about the latest new HTTP Toolkit features as soon as they land? <strong>Sign up for updates:</strong>
