@@ -145,6 +145,7 @@ const SendToEmailWrapper = styled.div`
 const SendToEmailExplanation = styled.p`
     font-style: italic;
     text-align: center;
+    line-height: 1.2;
     margin-bottom: 10px;
 `;
 
@@ -178,7 +179,7 @@ export class DownloadWidget extends React.Component {
             >
                 <SendToEmailWrapper>
                     <SendToEmailExplanation>{
-                        sendToEmailText || 'On mobile? Send it to your computer for later:'
+                        sendToEmailText || 'On mobile? Send this to your computer to try it out later:'
                     }</SendToEmailExplanation>
                     <MailchimpSignupForm
                         autoFocus

@@ -27,13 +27,18 @@ export default class JSPage extends React.Component {
     }
 
     render() {
+        const sendToEmailBlurb = <>
+            You're on mobile, but you'll need the desktop app to get started.
+            Send yourself a link to try it now on your computer:
+        </>
+
         return <Layout>
             <Helmet>
                 <title>Capture, debug & mock Android HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch target='Android' />
-                <StandaloneDownloadCTA />
+                <StandaloneDownloadCTA sendToEmailText={sendToEmailBlurb} />
             </TopHeroContainer>
 
             <AndroidDemoVideo />
@@ -44,7 +49,7 @@ export default class JSPage extends React.Component {
             <AndroidDetails />
             <SectionSpacer />
 
-            <StandaloneDownloadCTA />
+            <StandaloneDownloadCTA sendToEmailText={sendToEmailBlurb} />
 
             <InspectFeature reverse />
             <BreakpointFeature />
@@ -52,7 +57,7 @@ export default class JSPage extends React.Component {
             <EditFeature />
 
             <FuturePlans onSignupUpdate={() => this.setState({ updateModalOpen: true })}/>
-            <TrailingPitchBlock />
+            <TrailingPitchBlock sendToEmailText={sendToEmailBlurb} />
 
             <MailchimpSignupModal
                 source='view-signup'

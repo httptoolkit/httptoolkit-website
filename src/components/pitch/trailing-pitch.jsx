@@ -36,7 +36,10 @@ const WidgetsContainer = styled.div`
 
 const CTAWidgets = (p) =>
     <WidgetsContainer>
-        <DownloadCTA outsideContainer={p.outsideContainer} />
+        <DownloadCTA
+            outsideContainer={p.outsideContainer}
+            sendToEmailText={p.sendToEmailText}
+        />
         <Or>or</Or>
         <BuyProCTA />
     </WidgetsContainer>;
@@ -57,10 +60,10 @@ const BottomHeroCTA = styled.h2`
     margin-bottom: 18px;
 `;
 
-export const TrailingPitchBlock = () =>
+export const TrailingPitchBlock = (p) =>
     <BottomHeroContainer>
         <BottomHeroCTA>
             Try it for yourself
         </BottomHeroCTA>
-        <CTAWidgets />
+        <CTAWidgets {...p} />
     </BottomHeroContainer>;
