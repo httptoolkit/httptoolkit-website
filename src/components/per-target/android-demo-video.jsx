@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../../styles';
 
@@ -23,9 +24,33 @@ const PhoneDemoVideo = styled.video`
     width: 100%;
 `;
 
+const MobileFullscreenButton = styled.button`
+    ${media.desktopOrTablet`
+        display: none;
+    `};
+
+    border: none;
+    background: none;
+    ${p => p.theme.fontSizeTinyText};
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.4;
+
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 6px;
+    padding: 0;
+
+    > svg {
+        margin-left: 3px;
+    }
+`;
+
 const PhonePlusDesktopContainer = styled.div`
     display: flex;
     align-items: center;
+    position: relative;
 
     margin-bottom: 60px;
 
@@ -154,5 +179,12 @@ export const AndroidDemoVideo = () => {
                 <source src='/android-desktop-demo.mp4' type="video/mp4" />
             </DesktopDemoVideo>
         </AppWindow>
+        <MobileFullscreenButton onClick={() => {
+            const video = desktopVideoRef.current;
+            if (!video) return;
+            video.requestFullscreen();
+        }}>
+            View fullscreen <FontAwesomeIcon icon={['far', 'expand-arrows']} />
+        </MobileFullscreenButton>
     </PhonePlusDesktopContainer>;
 }

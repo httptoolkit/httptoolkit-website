@@ -14,7 +14,6 @@ import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
 import { AndroidDetails } from '../components/per-target/android-details';
 
-import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
 import { EditFeature } from '../components/features/edit';

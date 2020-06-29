@@ -35,6 +35,7 @@ import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt';
 import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
 import { faShippingFast } from '@fortawesome/pro-regular-svg-icons/faShippingFast';
 import { faLockOpen } from '@fortawesome/pro-light-svg-icons/faLockOpen';
+import { faExpandArrows } from '@fortawesome/pro-regular-svg-icons/faExpandArrows';
 
 config.autoAddCss = false;
 library.add(
@@ -69,7 +70,8 @@ library.add(
     faTrashAlt,
     faPaperPlane,
     faShippingFast,
-    faLockOpen
+    faLockOpen,
+    faExpandArrows
 );
 
 export { styled, css, ThemeProvider };
@@ -156,6 +158,12 @@ export const theme = {
         ${media.desktop`font-size: 18px`}
         ${media.tablet`font-size: 16px`}
         ${media.mobile`font-size: calc(12px + 1.5vw)`}
+    `,
+
+    fontSizeTinyText: css`
+        ${media.desktop`font-size: 14px`}
+        ${media.tablet`font-size: 12px`}
+        ${media.mobile`font-size: calc(10px + 0.5vw)`}
     `,
 };
 
