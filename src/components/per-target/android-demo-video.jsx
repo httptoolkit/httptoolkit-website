@@ -60,20 +60,19 @@ const PhonePlusDesktopContainer = styled.div`
 `;
 
 // A hook which swaps out the contents of a video when it goes fullscreen.
-const useVideoFullscreenSwap = (videoRef, replaceSrc, replaceTarget) => {
+const useVideoFullscreenSwap = (videoRef, initialSrc, fullscreenSrc) => {
     React.useEffect(() => {
         const updateVideoContent = () => {
             const video = videoRef.current;
             if (!video) return;
 
-            const currentSource = video.currentSrc;
             const currentTime = video.currentTime;
 
             const videoIsFullscreen = document.fullscreenElement == video;
             if (videoIsFullscreen) {
-                video.setAttribute('src', currentSource.replace(replaceSrc, replaceTarget));
+                video.setAttribute('src', fullscreenSrc);
             } else {
-                video.setAttribute('src', currentSource.replace(replaceTarget, replaceSrc));
+                video.setAttribute('src', initialSrc);
             }
             video.currentTime = currentTime;
         };
@@ -136,7 +135,7 @@ export const AndroidDemoVideo = () => {
     const mobileVideoRef = React.useRef();
     const desktopVideoRef = React.useRef();
 
-    useVideoFullscreenSwap(desktopVideoRef, "android-desktop", "android-both");
+    useVideoFullscreenSwap(desktopVideoRef, "/android-desktop-demo.mp4", "/android-both-demo.mp4");
     useVideoLinking(desktopVideoRef, mobileVideoRef);
 
     return <PhonePlusDesktopContainer>
