@@ -103,6 +103,11 @@ const useVideoLinking = (videoARef, videoBRef) => {
             videoB.currentTime = videoA.currentTime;
             videoB.pause();
         });
+        videoA.addEventListener('timeupdate', () => {
+            if (Math.abs(videoB.currentTime - videoB.currentTime) > 0.5) {
+                videoB.currentTime = videoA.currentTime;
+            }
+        });
 
         // Wait until both videos have enough data before letting them start:
         let loaded = 0;
