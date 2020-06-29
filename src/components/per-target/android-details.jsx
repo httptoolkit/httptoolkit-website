@@ -157,7 +157,7 @@ export const AndroidDetails = () => <DetailsContainer>
         <FontAwesomeIcon icon={['fal', 'search']} />
 
         <input id="debug-toggle" type="checkbox" />
-        <label for="debug-toggle">
+        <label htmlFor="debug-toggle">
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
             <h3>Debug HTTP from any Android device</h3>
@@ -178,7 +178,7 @@ export const AndroidDetails = () => <DetailsContainer>
         <FontAwesomeIcon icon={['fal', 'wrench']} />
 
         <input id="quickstart-toggle" type="checkbox" />
-        <label for="quickstart-toggle">
+        <label htmlFor="quickstart-toggle">
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
             <h3>Get started instantly</h3>
@@ -203,7 +203,7 @@ export const AndroidDetails = () => <DetailsContainer>
         <FontAwesomeIcon icon={['fal', 'lock-open']} />
 
         <input id="decrypt-toggle" type="checkbox" />
-        <label for="decrypt-toggle">
+        <label htmlFor="decrypt-toggle">
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-up'} />
             <FontAwesomeIcon className="chevron" icon={'fas', 'chevron-down'} />
             <h3>Capture & inspect encrypted HTTPS</h3>
