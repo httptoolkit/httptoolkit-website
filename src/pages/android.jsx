@@ -46,7 +46,6 @@ export default class JSPage extends React.Component {
 
             <StandaloneDownloadCTA />
 
-            <InterceptFeature />
             <InspectFeature reverse />
             <BreakpointFeature />
             <MockFeature reverse />

@@ -34,9 +34,10 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureDescription>
 
             <FeatureList>
-                <li>Browsers like <strong>Chrome, Edge & Firefox</strong></li>
+                <li>Desktop browsers like <strong>Chrome, Edge & Firefox</strong></li>
+                <li><strong>Android applications</strong></li>
+                <li>Backend & scripting languages, like <strong>Node.js, Python & Ruby</strong></li>
                 <li>Almost all terminal or Electron-based applications</li>
-                <li>Backend & scripting languages, including <strong>Node.js, Python & Ruby</strong></li>
                 <li>
                     More coming soon, all powered by <a
                         href='https://github.com/httptoolkit/feedback'
