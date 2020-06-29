@@ -142,6 +142,9 @@ const useVideoLinking = (videoARef, videoBRef) => {
             videoB.currentTime = videoA.currentTime;
             videoB.pause();
         });
+        videoA.addEventListener('seeked', () => {
+            videoB.currentTime = videoA.currentTime;
+        });
         videoA.addEventListener('timeupdate', () => {
             if (Math.abs(videoB.currentTime - videoB.currentTime) > 0.5) {
                 videoB.currentTime = videoA.currentTime;
