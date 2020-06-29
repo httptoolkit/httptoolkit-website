@@ -146,6 +146,12 @@ const DetailsContent = styled.div`
     }
 `;
 
+const AndroidScreenshot = styled.img`
+    display: block;
+    height: 480px;
+    width: 270px;
+`;
+
 export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
         <FontAwesomeIcon icon={['fal', 'search']} />
@@ -187,7 +193,7 @@ export const AndroidDetails = () => <DetailsContainer>
     </DetailsContent>
 
     <PhoneContainer>
-        <img
+        <AndroidScreenshot
             src={connectedScreenshot}
             alt="Screenshot of the Android app, successfully connected"
         />

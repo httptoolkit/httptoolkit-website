@@ -42,6 +42,21 @@ const PhonePlusDesktopContainer = styled.div`
         margin-right: 30px;
         max-width: calc(100% - 60px);
     `}
+
+    ${PhoneContainer} {
+        ${media.desktopOrTablet`
+            margin-right: 20px;
+        `}
+        ${media.mobile`
+            margin-right: -4px;
+        `}
+
+        flex: 1 1 222px;
+    }
+
+    ${AppWindow} {
+        flex: 1 1 782px;
+    }
 `;
 
 // A hook which swaps out the contents of a video when it goes fullscreen.
