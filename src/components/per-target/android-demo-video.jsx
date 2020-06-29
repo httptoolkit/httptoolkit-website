@@ -87,13 +87,17 @@ const PhonePlusDesktopContainer = styled.div`
 // A hook which swaps out the contents of a video when it goes fullscreen.
 const useVideoFullscreenSwap = (videoRef, initialSrc, fullscreenSrc) => {
     React.useEffect(() => {
-        const updateVideoContent = () => {
-            const video = videoRef.current;
-            if (!video) return;
+        const video = videoRef.current;
+        if (!video) return;
 
+        const updateVideoContent = () => {
             const currentTime = video.currentTime;
 
-            const videoIsFullscreen = document.fullscreenElement == video;
+            const videoIsFullscreen =
+                document.fullscreenElement === video ||
+                document.webkitFullscreenElement === video ||
+                video.webkitDisplayingFullscreen === true;
+
             if (videoIsFullscreen) {
                 video.setAttribute('src', fullscreenSrc);
             } else {
@@ -105,13 +109,23 @@ const useVideoFullscreenSwap = (videoRef, initialSrc, fullscreenSrc) => {
         document.addEventListener('fullscreenchange', updateVideoContent);
         document.addEventListener('mozfullscreenchange', updateVideoContent);
         document.addEventListener('webkitfullscreenchange', updateVideoContent);
+        document.addEventListener('webkitbeginfullscreen', updateVideoContent);
+        document.addEventListener('webkitendfullscreen', updateVideoContent);
+        video.addEventListener('fullscreenchange', updateVideoContent);
+        video.addEventListener('webkitbeginfullscreen', updateVideoContent);
+        video.addEventListener('webkitendfullscreen', updateVideoContent);
 
         return () => {
             document.removeEventListener('fullscreenchange', updateVideoContent);
             document.removeEventListener('mozfullscreenchange', updateVideoContent);
             document.removeEventListener('webkitfullscreenchange', updateVideoContent);
+            document.removeEventListener('webkitbeginfullscreen', updateVideoContent);
+            document.removeEventListener('webkitendfullscreen', updateVideoContent);
+            video.removeEventListener('fullscreenchange', updateVideoContent);
+            video.removeEventListener('webkitbeginfullscreen', updateVideoContent);
+            video.removeEventListener('webkitendfullscreen', updateVideoContent);
         };
-    }, [videoRef.current]);
+    }, [videoRef]);
 };
 
 const useVideoLinking = (videoARef, videoBRef) => {
