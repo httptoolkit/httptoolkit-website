@@ -4,9 +4,8 @@ import Helmet from 'react-helmet';
 import { Layout } from '../components/layout';
 import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
-import { DemoVideo } from '../components/demo-video';
+import { AndroidDemoVideo } from '../components/per-target/android-demo-video';
 import { SectionSpacer } from '../components/section-spacer';
-import { PhoneContainer } from '../components/phone-container';
 
 import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
 import { Description } from '../components/pitch/description';
@@ -37,7 +36,7 @@ export default class JSPage extends React.Component {
                 <StandaloneDownloadCTA />
             </TopHeroContainer>
 
-            <DemoVideo />
+            <AndroidDemoVideo />
 
             <SectionSpacer />
             <Description />
