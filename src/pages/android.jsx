@@ -33,7 +33,7 @@ export default class JSPage extends React.Component {
 
         return <Layout>
             <Helmet>
-                <title>Capture, debug & mock Android HTTP traffic</title>
+                <title>Intercept, mock & debug Android HTTP traffic</title>
             </Helmet>
             <TopHeroContainer>
                 <Pitch target='Android' />
