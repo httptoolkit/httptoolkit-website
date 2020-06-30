@@ -179,6 +179,9 @@ const useVideoLinking = (videoARef, videoBRef) => {
 };
 
 export const AndroidDemoVideo = () => {
+    const ua = navigator.userAgent.toLowerCase();
+    const isAndroidChrome = ua.includes("android") && ua.includes("chrome");
+
     const mobileVideoRef = React.useRef();
     const desktopVideoRef = React.useRef();
 
@@ -196,12 +199,13 @@ export const AndroidDemoVideo = () => {
                 <source src='/android-desktop-demo.mp4' type="video/mp4" />
             </DesktopDemoVideo>
         </AppWindow>
-        <MobileFullscreenButton onClick={() => {
-            const video = desktopVideoRef.current;
-            if (!video) return;
-            video.requestFullscreen();
-        }}>
-            View fullscreen <FontAwesomeIcon icon={['far', 'expand-arrows']} />
-        </MobileFullscreenButton>
+        { isAndroidChrome && // This fullscreens to landscape, which is the place where this is useful
+            <MobileFullscreenButton onClick={() => {
+                const video = desktopVideoRef.current;
+                if (!video) return;
+                video.requestFullscreen();
+            }}>
+                View fullscreen <FontAwesomeIcon icon={['far', 'expand-arrows']} />
+            </MobileFullscreenButton> }
     </PhonePlusDesktopContainer>;
 }
