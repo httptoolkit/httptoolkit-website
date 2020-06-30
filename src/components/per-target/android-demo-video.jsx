@@ -179,7 +179,7 @@ const useVideoLinking = (videoARef, videoBRef) => {
 };
 
 export const AndroidDemoVideo = () => {
-    const ua = navigator.userAgent.toLowerCase();
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent.toLowerCase() : '';
     const isAndroidChrome = ua.includes("android") && ua.includes("chrome");
 
     const mobileVideoRef = React.useRef();
