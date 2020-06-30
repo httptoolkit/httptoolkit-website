@@ -119,10 +119,11 @@ See Android's [network security config documentation](https://developer.android.
 To intercept HTTPS traffic from apps which don't trust user-installed CA certificates, HTTP Toolkit can inject system certificates using [ADB](https://developer.android.com/studio/command-line/adb) on supported devices:
 
 * Rooted physical devices
-* Official emulators running the standard Google API or AOSP builds (but not Google Play builds)
+* Official emulators, using the standard Google API or AOSP builds (but not 'Google Play' builds)
 * Genymotion emulators
+* Any other ADB device where `adb shell su` or `adb root` are available
 
-Although in these cases you often don't have the Google Play Store available, you can use [Open GAPPS](https://opengapps.org/) to install it manually.
+In some of these cases you won't have the Google Play Store available, which can be inconvenient for reverse engineering. To fix that, you can use [Open GAPPS](https://opengapps.org/) to install Google tools manually, or you can download individual APKs directly, from sites such like [ApkPure](https://apkpure.com/) or [APKMirror](https://www.apkmirror.com/).
 
 To install a system certificate, first [connect](https://developer.android.com/studio/command-line/adb#Enabling) a supported device using ADB, and the "Android device connected via ADB" interception option will appear on the 'Intercept' page in your HTTP Toolkit application. Click that, and the certificate will be added as a system certificate on the device, the HTTP Toolkit Android app will be installed if not already present (this may take 10 seconds or so), and then interception will start up automatically.
 
@@ -179,9 +180,13 @@ The initial configuration used by the app to communicate with the HTTP Toolkit d
 
 In each case, the initial configuration includes a certificate fingerprint, to verify that the HTTP Toolkit instance we connect to is the correct one, and that our HTTPS MITM is not itself MITM'd.
 
-When connecting, HTTP Toolkit checks that this CA certificate is trusted on the device, and prompts to install it as a user-installed certificate if not. It also prompts for permission to register as a VPN, to allow it to intercept traffic as described above. Once complete, the VPN activates, intercepting all traffic, and a notification is shown whilst this is active.
+When connecting, HTTP Toolkit checks that this CA certificate is trusted on the device, and prompts to install it as a user-installed certificate if not, using the standard [Android APIs](https://developer.android.com/reference/android/security/KeyChain#createInstallIntent()) to do so.
 
-When the VPN is stopped, the CA remains installed indefinitely, although it will not be trusted by most apps by default unless they opt-in. The VPN remains registered but inactive. The VPN cannot activate silently, and both can be removed manually from the device settings if necessary. This is enforced by Android's own VPN system, which kills the VPN service within seconds if it is ever running without an attached persistent notification, and also shows a separate key icon and warning in your notifications whilst any VPN is active on the device.
+Then app also prompts for permission to register as a VPN, to allow it to intercept traffic, as described above. Once complete, the VPN activates, intercepting all traffic, and a notification is shown whilst this is active.
+
+When the VPN is stopped, the CA remains installed (as a 'user-installed CA') indefinitely. This is not a significant security risk, as your CA certificate is unique to you, and the key is stored only on the computer with HTTP Toolkit installed (and never shared), so it can only used by your own HTTP Toolkit interception. That said, the certificate can be removed or disabled manually from 'Trusted Credentials' in your device settings, if required.
+
+The VPN also remains registered, but inactive. The VPN can also be removed manually from the device settings, if necessary, and cannot activate silently. This is enforced by Android's own VPN system, which kills the VPN service within seconds if it is ever running without an attached persistent notification, and also shows a separate key icon and warning in your notification area whilst any VPN is active on the device.
 
 ### ADB interception
 
@@ -212,6 +217,10 @@ System certificate injection works by:
     * Copies our own CA file into that directory as well
     * Updates the permissions & SELinux context labels of the mounted directory and its contents so Android treats it as trustworthy.
 
-This ensures that the CA certificate appears as a legitimate built-in certificate on the device, whilst remaining only temporary, and without remounting the entirety of `/system` as read-write (which requires reboots and emulator reconfigurations in some cases, and can cause issues with [SafetyNet](https://developer.android.com/training/safetynet) checks).
+This ensures that the CA certificate appears as a legitimate built-in certificate on the device, and does not require remounting the entirety of `/system` as read-write (which requires reboots and emulator reconfigurations in some cases, and can cause issues with [SafetyNet](https://developer.android.com/training/safetynet) checks).
 
-On devices where root isn't available, CA injection is skipped, and ADB interception acts as just a convenient alternative to QR code setup for ADB-connected devices.
+In general, it's completely possible to set up a rooted device with HTTP Toolkit interception active that still passes SafetyNet checks as a valid unmodified Android device, and can therefore run apps which check these restrictions, like Netflix.
+
+Due to the sensitivity of system certificates and the use of the approach above, this system CA is installed only temporarily. The next time the device is rebooted, the extra certificate will unmount and disappear entirely.
+
+On devices where root isn't available, this CA injection process is skipped, and ADB interception acts as just a convenient alternative to QR code setup for ADB-connected devices.
