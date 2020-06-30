@@ -169,7 +169,7 @@ export class DownloadWidget extends React.Component {
     }
 
     render() {
-        const { className, small, sendToEmailText } = this.props;
+        const { className, small, sendToEmailText, privacyPolicy } = this.props;
         const { selectedId, dropdownOpen } = this.state;
 
         if (selectedId === 'send-to-email') {
@@ -179,7 +179,9 @@ export class DownloadWidget extends React.Component {
             >
                 <SendToEmailWrapper>
                     <SendToEmailExplanation>{
-                        sendToEmailText || 'On mobile? Send this to your computer to try it out later:'
+                        sendToEmailText || <>
+                            On mobile? Send this to your computer and try it out there:
+                        </>
                     }</SendToEmailExplanation>
                     <MailchimpSignupForm
                         autoFocus
@@ -187,7 +189,7 @@ export class DownloadWidget extends React.Component {
                         emailTitle={`Enter your email to get download links sent straight to your inbox`}
                         hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_358164ab38"}
                         submitText={'Send me a download link'}
-                        privacyPolicy=''
+                        privacyPolicy={ privacyPolicy || '' }
                         forceVertical={true}
                     />
                 </SendToEmailWrapper>

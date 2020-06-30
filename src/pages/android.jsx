@@ -37,7 +37,10 @@ export default class JSPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <Pitch target='Android' />
-                <StandaloneDownloadCTA sendToEmailText={sendToEmailBlurb} />
+                <StandaloneDownloadCTA
+                    sendToEmailText={sendToEmailBlurb}
+                    privacyPolicy="(No spam, no newsletters - just a quick & easy download link)"
+                />
             </TopHeroContainer>
 
             <AndroidDemoVideo />

@@ -40,7 +40,9 @@ export default class IndexPage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <Pitch />
-                <StandaloneDownloadCTA />
+                <StandaloneDownloadCTA
+                    privacyPolicy="(No spam, no newsletters - just a quick & easy download link)"
+                />
             </TopHeroContainer>
 
             <DemoVideo />
