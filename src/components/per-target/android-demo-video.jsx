@@ -103,7 +103,11 @@ const useVideoFullscreenSwap = (videoRef, initialSrc, fullscreenSrc) => {
             } else {
                 video.setAttribute('src', initialSrc);
             }
+
             video.currentTime = currentTime;
+            video.addEventListener('loadeddata', () => {
+                video.currentTime = currentTime;
+            });
         };
 
         document.addEventListener('fullscreenchange', updateVideoContent);
