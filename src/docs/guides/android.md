@@ -4,18 +4,20 @@ title: 'Intercepting Android HTTP'
 order: 1
 ---
 
-HTTP Toolkit can automatically intercept, inspect & rewrite traffic from any Android device.
+HTTP Toolkit can automatically intercept, inspect & rewrite traffic from any Android device. For a quick demo and an outline of how this works, check out the [HTTP Toolkit for Android](/android) page, or read on for a detailed walkthrough.
 
-For plain HTTP, or for HTTP & HTTPS traffic from most browsers this works with zero manual setup required.
+For many cases, including most browser traffic, emulators, and rooted devices, this works with zero manual setup required.
 
-To intercept secure HTTPS traffic from other modern apps, you need to either:
+To intercept secure HTTPS traffic from other apps on non-rooted devices, you'll need to either:
 
 - Make a small change to the app's config, so that it trusts user-installed CA certificates
-- Use an emulator or a rooted device with HTTP Toolkit's ADB-based interception, to inject a system CA certificate.
+- Use an emulator or a rooted device with HTTP Toolkit's ADB-based interception, to inject a system CA certificate
 
-If you're debugging your own app, rebuilding with the config change and using any test device you like is very quick and easy, and usually the simplest option. If you're trying to intercept HTTPS from a 3rd party app or an existing build that can't be easily changed, you'll usually want to use an emulator or rooted device instead.
+If you're debugging your own app, rebuilding with the config change and using any test device you like is very quick and easy, and usually the simplest option.
 
-Keep reading to get started right away, or jump to the full details for your case in ['intercepting HTTPS traffic from your own app'](#intercepting-traffic-from-your-own-android-app) or ['intercepting HTTPS traffic from 3rd party apps'](#intercepting-traffic-from-3rd-party-android-apps).
+If you're trying to intercept HTTPS from a 3rd party app or an existing build that can't be easily changed, you'll usually want to use an emulator or rooted device instead.
+
+Keep reading to get started right away, or jump to the full details for your case in ['Intercepting HTTPS traffic from your own app'](#intercepting-traffic-from-your-own-android-app) or ['Intercepting HTTPS traffic from 3rd party apps'](#intercepting-traffic-from-3rd-party-android-apps).
 
 ## First time setup
 
