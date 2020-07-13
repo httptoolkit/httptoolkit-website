@@ -309,7 +309,7 @@ export default @observer class PricingPage extends React.Component {
     account = new AccountStore();
 
     @observable
-    planCycle = this.account.subscription.paidCycle || 'annual';
+    planCycle = this.account.subscription.paidCycle || 'monthly';
 
     toggleCycle = action(() => {
         this.planCycle = this.planCycle === 'annual' ? 'monthly' : 'annual';
