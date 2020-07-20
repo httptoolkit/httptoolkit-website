@@ -72,6 +72,7 @@ async function loadPlanPrices() {
 export const SubscriptionPlans = observable({
     'pro-monthly': { id: 550380 },
     'pro-annual': { id: 550382 },
+    'pro-perpetual': { id: 599788 },
     'team-monthly': { id: 550789 },
     'team-annual': { id: 550788 },
 });
