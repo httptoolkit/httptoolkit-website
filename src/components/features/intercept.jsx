@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery, Link } from 'gatsby';
 
 import { Nowrap } from '../nowrap';
+import { styled } from '../../styles';
 import {
     Feature,
     FeatureTextContainer,
@@ -11,6 +12,20 @@ import {
     FeatureList,
     FeatureImg
 } from '../feature';
+
+const LinkedFeatureList = styled(FeatureList)`
+    a[href^="/"] {
+        font-weight: bold;
+
+        &:not([aria-current]) {
+            color: ${p => p.theme.popColor};
+        }
+
+        &[aria-current] {
+            text-decoration: none;
+        }
+    }
+`;
 
 export const InterceptFeature = (p) => <StaticQuery
     query={graphql`
@@ -33,11 +48,23 @@ export const InterceptFeature = (p) => <StaticQuery
                 from most clients, including:
             </FeatureDescription>
 
-            <FeatureList>
+            <LinkedFeatureList>
                 <li>Desktop browsers like <strong>Chrome, Edge & Firefox</strong></li>
-                <li><strong>Android applications</strong></li>
-                <li>Backend & scripting languages, like <strong>Node.js, Python & Ruby</strong></li>
-                <li>Almost all terminal or Electron-based applications</li>
+                <li><Link to="/android">
+                    Android
+                </Link> applications and browsers</li>
+                <li>Backend & scripting languages, like&nbsp;
+                    <Link to="/javascript">
+                        Node.js
+                    </Link>, <Link to="/python">
+                        Python
+                    </Link> & <Link to="/ruby">
+                        Ruby
+                    </Link>
+                </li>
+                <li>Almost all terminal or <Link to="/electron">
+                    Electron-based
+                </Link> applications</li>
                 <li>
                     More coming soon, all powered by <a
                         href='https://github.com/httptoolkit/feedback'
@@ -47,7 +74,7 @@ export const InterceptFeature = (p) => <StaticQuery
                         your feedback
                     </a>
                 </li>
-            </FeatureList>
+            </LinkedFeatureList>
 
             <FeatureDescription>
                 For platforms without automatic setup, HTTP Toolkit{' '}
