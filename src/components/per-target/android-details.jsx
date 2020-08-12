@@ -92,9 +92,15 @@ const DetailsContent = styled.div`
         ${p => p.theme.fontSizeText};
         line-height: 1.3;
 
-        &:not(:last-child) {
+        ${media.mobileOrTablet`
+            &:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        `}
+
+        ${media.desktop`
             margin-bottom: 15px;
-        }
+        `}
     }
 
     position: relative;
