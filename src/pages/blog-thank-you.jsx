@@ -57,7 +57,7 @@ export default () => (<Layout>
         <ShareLinks>
             <a
                 className='twitter'
-                href="https://twitter.com/intent/tweet?hashtags=httptoolkit&text=HTTP%20Toolkit%20looks%20awesome!%20New%20open-source%20tool%20to%20intercept%2C%20debug%20%26%20build%20with%20HTTP.%20Download%20it%20now%20at&url=https%3A%2F%2Fhttptoolkit.tech/"
+                href="https://twitter.com//intent/tweet?hashtags=httptoolkit&text=HTTP%20Toolkit%20looks%20awesome!%20New%20open-source%20tool%20to%20intercept%2C%20debug%20%26%20build%20with%20HTTP.%20Download%20it%20now%20at&url=https%3A%2F%2Fhttptoolkit.tech/"
                 target="_blank"
                 rel='noopener noreferrer'
             >

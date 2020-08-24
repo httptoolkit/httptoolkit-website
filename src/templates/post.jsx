@@ -325,9 +325,9 @@ export default ({ data }) => {
   const publishDate = moment.utc(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
 
   const twitterUrl = frontmatter.twitterUrl ||
-    `https://twitter.com/intent/tweet?text=${title}&url=${postUrl}`;
+    `https://twitter.com//intent/tweet?text=${title}&url=${postUrl}`;
   const redditUrl = frontmatter.redditUrl ||
-    `http://www.reddit.com/submit?url=${postUrl}`;
+    `http://www.reddit.com//submit?url=${postUrl}`;
   const hackerNewsUrl = frontmatter.hackerNewsUrl ||
     `https://news.ycombinator.com/submitlink?u=${postUrl}`;
   const devToUrl = frontmatter.devToUrl || false;
