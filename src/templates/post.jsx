@@ -32,7 +32,7 @@ const PublishDate = styled.p`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 0;
 
   > a {
     margin-left: 5px;
@@ -164,76 +164,38 @@ const CoverImg = styled(Img)`
 `;
 
 const SocialContainer = styled.div`
-  position: absolute;
-  left: 100%;
-  height: 100%;
-  margin-top: 49px;
 `;
 
 const SocialIcons = styled.div`
-  ${media.desktop`
-    position: sticky;
-    top: 120px;
+  width: 100%;
 
-    > a, > button {
-      margin: 20px 40px 0 40px;
-      padding: 10px;
-      box-sizing: border-box;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-      text-decoration: none;
-      border: none;
+  > a, > button {
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 
-      display: block;
+    text-decoration: none;
+    border: none;
 
-      > svg {
-        width: 100% !important;
-        height: 100%;
-      }
+    display: block;
 
-      &:hover, &:focus {
-        opacity: 0.6;
-      }
-    }
-  `}
-
-  ${media.tablet`
-    display: none;
-  `}
-
-  ${media.mobile`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: row;
-
-    align-items: stretch;
-    justify-content: space-evenly;
-
-    background-color: ${p => p.theme.mainBackground};
-
-    > a {
-      height: 40px;
-      width: 40px;
-      padding: 5px;
-      box-sizing: border-box;
-      flex-grow: 0;
-
-      > svg {
-        width: 100% !important;
-        height: 100%;
-      }
+    > svg {
+      width: 100% !important;
+      height: 100%;
     }
 
-    > button {
-      height: 40px;
-      flex-grow: 1;
+    &:hover, &:focus {
+      opacity: 0.6;
     }
-  `}
+  }
 `;
 
 const SocialLink = (p) =>
@@ -349,28 +311,30 @@ export default ({ data }) => {
 
       <BlogPost>
         <CoverImg fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
-        <SocialContainer>
-          <SocialIcons>
-            <TwitterIcon url={twitterUrl} />
-            <RedditIcon url={redditUrl} />
-            <DevToIcon url={devToUrl} />
-            <HackerNewsIcon url={hackerNewsUrl} />
-            <ProductHuntIcon url={productHuntUrl} />
-            <WebShare postUrl={postUrl} title={title} />
-          </SocialIcons>
-        </SocialContainer>
 
         <h1>{title}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <PublishDate title={publishDate.format('MMM Do YYYY')}>
-          Published { publishDate.fromNow() } by <a
-            href="https://twitter.com/pimterry"
-          >
-            Tim Perry
-          </a> <Headshot />
+          <span>
+            Published { publishDate.fromNow() } by <a
+              href="https://twitter.com/pimterry"
+            >
+              Tim Perry
+            </a>
+          </span>
+          <Headshot />
         </PublishDate>
       </BlogPost>
+
+      <SocialIcons>
+        <TwitterIcon url={twitterUrl} />
+        <RedditIcon url={redditUrl} />
+        <DevToIcon url={devToUrl} />
+        <HackerNewsIcon url={hackerNewsUrl} />
+        <ProductHuntIcon url={productHuntUrl} />
+        <WebShare postUrl={postUrl} title={title} />
+      </SocialIcons>
 
       <BlogSubscribe inPostFooter={true} />
     </BlogPostContainer>
