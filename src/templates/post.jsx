@@ -159,6 +159,8 @@ const CoverImg = styled(Img)`
   width: 100vw;
   max-height: 60vh;
   margin: 0 calc(-1 * (100vw - 100%) / 2);
+
+  border-top: 1px solid rgba(0,0,0,0.2);
 `;
 
 const SocialContainer = styled.div`

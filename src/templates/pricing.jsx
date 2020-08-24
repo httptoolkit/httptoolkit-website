@@ -28,6 +28,7 @@ const PricingContainer = styled(FullWidthSection)`
 
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.containerBackground};
+    border-top: 1px solid rgba(0,0,0,0.2);
 `;
 
 const PricingHeader = styled.h1`

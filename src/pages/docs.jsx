@@ -32,6 +32,7 @@ export const DocContainer = styled.section`
 
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
+    border-top: 1px solid rgba(0,0,0,0.2);
 `;
 
 const DocIntroBody = styled.div`

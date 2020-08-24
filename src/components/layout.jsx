@@ -75,10 +75,12 @@ const Nav = styled.nav`
       ${p => !p.open && css`display: none;`};
     }
 
-    position: fixed;
-    top: ${p => p.theme.headerHeight};
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
+
+    padding-top: ${p => p.theme.headerHeight};
 
     flex-direction: column;
   `}
@@ -93,7 +95,7 @@ const NavBurger = styled((props) => <a
 >
   <FontAwesomeIcon icon={['far', 'bars']} size='2x' />
 </a>)`
-  position: fixed;
+  position: absolute;
   top: 22px;
   right: 20px;
 
@@ -117,7 +119,7 @@ const NavClose = styled((props) => <LinkButton
   <FontAwesomeIcon icon={['far', 'times']} size='2x' />
 </LinkButton>)`
   && {
-    position: fixed;
+    position: absolute;
     top: 17px;
     right: 18px;
     padding: 5px;
