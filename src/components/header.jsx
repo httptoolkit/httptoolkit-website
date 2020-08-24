@@ -7,20 +7,13 @@ const HeaderPlaceholder = styled.div`
   height: ${p => p.theme.headerHeight};
 `;
 
-const HeaderBase = styled.div`
-  position: fixed;
+const HeaderBackground = styled.div`
+  position: absolute;
   top: 0;
-
-  height: ${p => p.theme.headerHeight};
-
-  /* Fixed header can twitch a little with page updates. This fixes that:  */
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-`;
-
-const HeaderBackground = styled(HeaderBase)`
   left: 0;
   right: 0;
+
+  height: ${p => p.theme.headerHeight};
 
   background-color: ${p => p.theme.popBackground};
   border-top: 2px solid ${p => p.theme.popColor};
