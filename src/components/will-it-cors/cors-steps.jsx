@@ -460,11 +460,7 @@ export const ServerAllowsCorsRequest = (props) => {
         <ActionButton onClick={props.onNext}>
             Show me the code
         </ActionButton>
-        <Sidenote>
-            Want to see & test this for real? Give <ExternalLink href="/">
-                HTTP Toolkit
-            </ExternalLink> a whirl.
-        </Sidenote>
+        <TryHttpToolkit />
     </Exposition>;
 };
 
@@ -475,6 +471,7 @@ export const ShowCode = (props) => {
 
     return <Exposition>
         <CodeBlock>{ props.code.trim() }</CodeBlock>
+        <TryHttpToolkit />
     </Exposition>;
 };
 
@@ -902,4 +899,14 @@ const CodeBlock = styled((props) =>
     .comment {
         white-space: pre-wrap;
     }
+`;
+
+const TryHttpToolkit = styled((props) =>
+    <Sidenote {...props}>
+        Want to see & test this for real? <ExternalLink href="/">
+            Try out HTTP Toolkit
+        </ExternalLink>.
+    </Sidenote>
+)`
+    text-align: center;
 `;

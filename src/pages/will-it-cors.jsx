@@ -71,15 +71,13 @@ const Footer = styled.footer`
     margin-top: auto;
     padding: 10px 0;
 
-    opacity: 0.6;
-
     a {
         text-decoration: none;
     }
 
     img {
         height: 1em;
-        margin-left: 5px;
+        margin-left: 3px;
     }
 `;
 
@@ -540,7 +538,7 @@ ${
                 </PageContent>
 
                 <Footer>
-                    <ExternalLink href="/">Built by <img src={logo} alt="HTTP Toolkit" /></ExternalLink>
+                    <ExternalLink href="/">Part of <img src={logo} alt="HTTP Toolkit" /></ExternalLink>
                 </Footer>
             </Main>
         </ThemeProvider>;
