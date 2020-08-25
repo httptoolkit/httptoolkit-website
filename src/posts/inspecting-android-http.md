@@ -2,6 +2,9 @@
 title: "Inspecting Android HTTP with a fake VPN"
 date: '2020-08-25T12:20'
 cover_image: './vpn-active.jpg'
+hackerNewsUrl: https://news.ycombinator.com/item?id=24270698
+redditUrl: https://www.reddit.com/r/androiddev/comments/igbe2p/inspecting_android_http_with_a_fake_vpn/
+twitterUrl: https://twitter.com/HttpToolkit/status/1298241363444727808
 ---
 
 **Can you build an Android app that can inspect & rewrite the network traffic from every other app on the device?**
@@ -75,6 +78,8 @@ With that in place, we now transparently receive every network packet from the d
 ## How can we use this?
 
 In HTTP Toolkit's case, the usage of this is very direct: we forcibly redirect all HTTP(S) traffic via the debugging proxy (which is running on your local development machine). That proxy then lets you inspect and rewrite all the traffic there as you see fit.
+
+There's a demo video on [the Android page](/android) if you want to see this in action.
 
 To do this, we check the target port of outgoing TCP connections, and rewrite the address if it's one of our configured HTTP ports (e.g. 80, 443, ...), by just adding the following lines into [TCP session setup](https://github.com/httptoolkit/httptoolkit-android/blob/b4cb5a97d48d299958b4e7a907b41fc9b44d2129/app/src/main/java/tech/httptoolkit/android/vpn/SessionManager.java#L169-L212):
 
@@ -204,7 +209,7 @@ In the HTTP Toolkit app specifically:
 
 * [`ClientPacketWriter`](https://github.com/httptoolkit/httptoolkit-android/blob/070830e3ea3d2cadf141468a83c83b6d078272ac/app/src/main/java/tech/httptoolkit/android/vpn/ClientPacketWriter.java#L67) is where raw IP data is written back to the VPN (incoming IP packets). At this stage we can easily drop, corrupt or delay incoming packets at the IP level.
 * [`handlePacket`](https://github.com/httptoolkit/httptoolkit-android/blob/master/app/src/main/java/tech/httptoolkit/android/vpn/SessionHandler.java#L74-L95) again in `SessionHandler`, would allow us to drop, delay or otherwise react to outgoing packets.
-* [`SessionHandler`](https://github.com/httptoolkit/httptoolkit-android/blob/master/app/src/main/java/tech/httptoolkit/android/vpn/SessionHandler.java) controls the TCP flow of each connection to process each packet, allowing us to hook into that. For example, you could extend [`replySynAck`](https://github.com/httptoolkit/httptoolkit-android/blob/master/app/src/main/java/tech/httptoolkit/android/vpn/SessionHandler.java#L360-L386) to schedule a connection reset (just a call to `resetConnection`) for 50% of new connections 2s after they're created.
+* SessionHandler also controls the TCP flow of each connection to process each packet, allowing us to hook into that flow directly. For example, you could extend [`replySynAck`](https://github.com/httptoolkit/httptoolkit-android/blob/master/app/src/main/java/tech/httptoolkit/android/vpn/SessionHandler.java#L360-L386) to schedule a connection reset (just a call to `resetConnection`) for 50% of new connections 2s after they're created.
 * [`SessionManager`](https://github.com/httptoolkit/httptoolkit-android/blob/master/app/src/main/java/tech/httptoolkit/android/vpn/SessionManager.java) stores the state controlled by `SessionHandler`. Given the list of active connections there, we could select random active TCP sessions and kill them according to whatever criteria you like.
 
 As we've seen, the Android VPN APIs are powerful, and there's a lot of potential here.
