@@ -225,3 +225,5 @@ You can also extend with non-Apollo tools too. Here we're building primarily aro
 Apollo do have a wide selection of interesting & useful packages, and they should be lauded for the effort and contributions they've made to the ecosystem. At the same time though, they're not a neutral actor. Don't assume that the Next Big Thing is the right choice for your project, especially if it calls itself "industry-standard".
 
 Instead, start simple: build a system that you can fully understand & manage, avoid unnecessary complexity, and keep your project lean & flexible for as long as you can.
+
+**Using GraphQL, and want to debug, rewrite & mock live traffic? [Try out HTTP Toolkit](https://httptoolkit.tech/). One-click HTTP(S) interception & debugging for browsers, servers, Android & more.**
