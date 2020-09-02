@@ -26,7 +26,7 @@ In practice, "industry-standard GraphQL implementation" means [169 separate npm 
 * 3 different GraphQL Babel plugins (plus a Relay un-Babel plugin, so you can avoid using Babel for some specific cases).
 * Much much more...
 
-The Apollo packages required to install the base `apollo-server` install suggested in their [Getting Started guide](https://www.apollographql.com/docs/apollo-server/) include the "Apollo Studio" (née Apollo Graph Manager, néeée Apollo Engine) [reporting engine](https://www.npmjs.com/package/apollo-engine-reporting), which integrates your server with their cloud service, plus [extra protobuf definitions](https://www.npmjs.com/package/apollo-engine-reporting-protobuf) on top of that to reporting to the cloud service with Protobuf. It includes [request tracing](https://www.npmjs.com/package/apollo-tracing) for their own custom tracing format, [multiple](https://www.npmjs.com/package/apollo-server-caching) [different](https://www.npmjs.com/package/apollo-cache-control) custom caching packages, an [abstraction layer](https://www.npmjs.com/package/apollo-link) that powers the many available transport link layers, an [abstraction layer](https://www.npmjs.com/package/apollo-datasource) for connecting external data sources...
+The Apollo packages required to install the base `apollo-server` package suggested in their [Getting Started guide](https://www.apollographql.com/docs/apollo-server/) include the "Apollo Studio" (née Apollo Graph Manager, néeée Apollo Engine) [reporting engine](https://www.npmjs.com/package/apollo-engine-reporting), which integrates your server with their cloud service, plus [extra protobuf definitions](https://www.npmjs.com/package/apollo-engine-reporting-protobuf) on top of that to reporting to the cloud service with Protobuf. It includes [request tracing](https://www.npmjs.com/package/apollo-tracing) for their own custom tracing format, [multiple](https://www.npmjs.com/package/apollo-server-caching) [different](https://www.npmjs.com/package/apollo-cache-control) custom caching packages, an [abstraction layer](https://www.npmjs.com/package/apollo-link) that powers the many available transport link layers, an [abstraction layer](https://www.npmjs.com/package/apollo-datasource) for connecting external data sources...
 
 In total, installing `apollo-server` installs actually installs 33 direct dependencies, and 179 packages in total, pulling in about 35MB of JavaScript.
 
@@ -43,7 +43,7 @@ If however you also use the (official, non-Apollo) `graphql` package too, then y
 }
 ```
 
-To be clear, that `graphql` package is the official GraphQL JS implementation, which takes a schema, a query, and an resolve (in effect, a data set object), and gives you a result. I.e. it does _all_ the GraphQL heavy lifting required to process a query like this, except the HTTP.
+To be clear, that `graphql` package is the official GraphQL JS implementation, which takes a schema, a query, and a resolver (in effect, a data set object), and gives you a result. I.e. it does _all_ the GraphQL heavy lifting required to process a query like this, except the HTTP.
 
 I know I'm treating Apollo very harshly here, and that's not wholly fair. Most of their published packages do have cases where they're genuinely useful, many of the packages I'm counting are deprecated or duplicates (though published and often still well used), and as far as I'm aware everything they've released works perfectly effectively. I certainly don't think that _nobody_ should use Apollo!
 
