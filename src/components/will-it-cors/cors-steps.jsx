@@ -6,7 +6,6 @@ import * as PrismJS from 'prismjs';
 
 import { styled, media } from '../../styles';
 import { EditableHeaders } from '../editable-headers';
-import { ProductHuntWidget } from '../product-hunt-widget';
 import {
     ExternalLink,
     InternalLink,
@@ -39,11 +38,6 @@ export const Intro = (props) =>
         <ActionButton onClick={props.onNext}>
             Get Started
         </ActionButton>
-        <ProductHuntWidget
-            name="Will it CORS"
-            postUrl="https://www.producthunt.com/posts/will-it-cors"
-            postId="249495"
-        />
     </IntroContainer>;
 
 export const SourceUrlQuestion = (props) =>
@@ -693,18 +687,6 @@ const IntroContainer = styled(Exposition)`
     ${media.desktop`
         margin-top: 4vh;
     `}
-
-    ${ProductHuntWidget} {
-        display: block;
-
-        ${media.desktopOrTablet`
-            margin: 60px 0;
-        `}
-
-        ${media.mobile`
-            margin-top: 30px 0;
-        `}
-    }
 `;
 
 const Heading = styled.h1`
