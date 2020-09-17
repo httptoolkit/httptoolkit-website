@@ -10,7 +10,7 @@ Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below
 
 ### What are the subscription options?
 
-There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](#Accounts) below for the full details on the differences).
+There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](#accounts) below for the full details on the differences).
 
 For each subscription, you can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
 
