@@ -8,13 +8,17 @@ Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below
 
 ## Payments
 
-### What're the payment options?
+### What are the subscription options?
 
-There are two types of HTTP Toolkit account: Team & Pro (see [Accounts](#Accounts) below for the full details on the differences).
+There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](#Accounts) below for the full details on the differences).
 
-For each subscription, you can either pay monthly or annually.
+For each subscription, you can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
 
-For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
+### What payment methods are available?
+
+You can pay for any subscription by credit card, with PayPal, or with Apple Pay (in Safari on Mac only).
+
+Payment by wire transfer is available on request, but may entail significant delays.
 
 ### Can I get a trial?
 
