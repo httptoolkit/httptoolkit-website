@@ -577,7 +577,7 @@ export default @observer class PricingPage extends React.Component {
                 </LogoutBlock> }
 
                 <PricingFooter>
-                    Questions? <Link to="/contact">Get in touch</Link>
+                    Questions? <Link to="/docs/guides/subscription-faq">Read the FAQ</Link> or <Link to="/contact">Get in touch</Link>
                 </PricingFooter>
             </PricingContainer>
             {
