@@ -18,7 +18,7 @@ For each subscription, you can pay either monthly or annually. For either subscr
 
 You can pay for any subscription by credit card, with PayPal, or with Apple Pay (in Safari on Mac only).
 
-Payment by wire transfer is available on request, but may entail significant delays.
+Payment by wire transfer is available on request, for payments over $1,000, but may entail significant delays and additional charges.
 
 ### Can I get a trial?
 

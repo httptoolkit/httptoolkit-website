@@ -113,11 +113,11 @@ export default () => (<Layout>
 
             <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Services.</p>
 
-            <p>Personal accounts are licensed to a individual person (the main owner of the email address used). They may only be used by that individual, and must not be shared. We reserve the right to terminate accounts where there is clear evidence that they're being shared between multiple individuals, although we will make best efforts to make contact with the account owner before doing so.</p>
+            <p>'Professional' accounts are licensed to a individual person (the main owner of the email address used). They may only be used by that individual, and must not be shared. We reserve the right to terminate accounts where there is clear evidence that they're being shared between multiple individuals, although we will make best efforts to make contact with the account owner before doing so.</p>
 
-            <p>Team accounts include many licenses. These licenses can each be linked to individual team members, and may transferred between team members. Only the individuals currently linked to the team account may use the features of the account.</p>
+            <p>'Team' accounts include many licenses. These licenses can each be linked to individual team members, and may transferred between team members. Only the individuals currently linked to the team account may use the features of the account. Each license may only be transferred once every 48 hours.</p>
 
-            <p>Access to some tiers of account is contingent on a corresponding active subscription, as shown on <a href="https://httptoolkit.tech/pricing">our pricing page</a>. You agree not to access or attempt to access any account tier at any time when you are not personally included in an active subscription.</p>
+            <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.tech/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription. Customer support in using HTTP Toolkit may be provided at our discretion, but neither license guarantees such support or any specific level or response time of customer service, unless agreed separately.</p>
 
             <p>You are responsible for safeguarding your HTTP Toolkit user account, and for any activities or actions taken using that account.</p>
 
