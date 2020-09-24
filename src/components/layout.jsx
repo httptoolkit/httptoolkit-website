@@ -231,6 +231,32 @@ export class Layout extends React.Component {
           <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
 
           <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
+
+          <script type="application/ld+json">
+          {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "image": "https://httptoolkit.tech/logo-square.png",
+              "screenshot": "https://httptoolkit.tech/screenshot.png",
+              "video": "https://httptoolkit.tech/http-mock-demo.mp4",
+              "name": "HTTP Toolkit",
+              "description": "Beautiful & open-source tools to debug, test and develop with HTTP(S)",
+              "softwareVersion": siteMetadata.latestAppVersion,
+              "operatingSystem": [
+                  "Windows",
+                  "Mac",
+                  "Linux",
+                  "Android"
+              ],
+              "url": "https://httptoolkit.tech/",
+              "downloadUrl": "https://httptoolkit.tech/",
+              "applicationCategory": "DeveloperApplication",
+              "offers": {
+                  "@type": "Offer",
+                  "price": "0"
+              }
+          })}
+          </script>
         </Helmet>
 
         <Header {...visibilityProps}>
