@@ -49,6 +49,9 @@ export const InspectFeature = (p) => <StaticQuery
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg fluid={data.inspectScreenshot.childImageSharp.fluid} />
+        <FeatureImg
+            fluid={data.inspectScreenshot.childImageSharp.fluid}
+            alt="Inspecting HTTP requests with HTTP Toolkit"
+        />
     </Feature>}
 />;

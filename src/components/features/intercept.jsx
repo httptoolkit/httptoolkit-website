@@ -83,6 +83,9 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg fluid={data.interceptScreenshot.childImageSharp.fluid} />
+        <FeatureImg
+            fluid={data.interceptScreenshot.childImageSharp.fluid}
+            alt="HTTP interception for Chrome, Firefox, CLI tools, Docker, Edge, Android and more"
+        />
     </Feature>}
 />;

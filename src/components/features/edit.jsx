@@ -40,6 +40,9 @@ export const EditFeature = (p) => <StaticQuery
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg fluid={data.editScreenshot.childImageSharp.fluid} />
+        <FeatureImg
+            fluid={data.editScreenshot.childImageSharp.fluid}
+            alt="Match and rewrite HTTP with custom rules"
+        />
     </Feature>}
 />;

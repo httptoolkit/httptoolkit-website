@@ -45,6 +45,9 @@ export const BreakpointFeature = (p) => <StaticQuery
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg fluid={data.breakpointScreenshot.childImageSharp.fluid} />
+        <FeatureImg
+            fluid={data.breakpointScreenshot.childImageSharp.fluid}
+            alt="HTTP debugging with breakpoints on live traffic"
+        />
     </Feature>}
 />;

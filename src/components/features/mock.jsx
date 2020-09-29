@@ -43,6 +43,9 @@ export const MockFeature = (p) => <StaticQuery
             </FeatureDescription>
         </FeatureTextContainer>
 
-        <FeatureImg fluid={data.mockScreenshot.childImageSharp.fluid} />
+        <FeatureImg
+            fluid={data.mockScreenshot.childImageSharp.fluid}
+            alt="Build HTTP mock rules in just a few clicks"
+        />
     </Feature>}
 />;
