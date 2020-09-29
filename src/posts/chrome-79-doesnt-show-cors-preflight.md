@@ -46,7 +46,7 @@ Judging from the [bug discussion](https://bugs.chromium.org/p/chromium/issues/de
 
 ## What can I do about this?
 
-Cheeky plug: you could debug Chrome's HTTP traffic with [HTTP Toolkit](https://httptoolkit.tech) instead. HTTP Toolkit lets you collect _all_ traffic the browser sends, even for CORS requests (or any other requests) that happen outside the core renderer process.
+Cheeky plug: you could debug Chrome's HTTP traffic with **[HTTP Toolkit](https://httptoolkit.tech/)** instead. HTTP Toolkit lets you collect _all_ traffic the browser sends, even for CORS requests (or any other requests) that happen outside the core renderer process.
 
 One-click setup to start intercepting Chrome, and then you can see literally everything, with a far nicer UI than the network tab to boot:
 
@@ -62,4 +62,4 @@ There are other options too though:
 
 When you do start seeing CORS requests failing for no good reason though, none of these are quite as convenient as being able to check the preflight inline...
 
-**Want to show the Chrome team this matters to you too? [Star the Chromium bug](https://bugs.chromium.org/p/chromium/issues/detail?id=941297)**
+**Want to see & explore _all_ your HTTP traffic? Get started with [HTTP Toolkit](https://httptoolkit.tech) now**.
