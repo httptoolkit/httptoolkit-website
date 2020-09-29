@@ -314,7 +314,7 @@ export default ({ data, location }) => {
       </Helmet>
 
       <BlogPost>
-        <CoverImg fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
+        <CoverImg loading='eager' fluid={post.frontmatter.cover_image.childImageSharp.fluid} />
 
         <h1>{title}</h1>
 
@@ -358,7 +358,7 @@ export const query = graphql`
         date
         cover_image {
           childImageSharp {
-            fluid(maxWidth: 2560) {
+            fluid(maxWidth: 2560, quality: 85) {
               ...GatsbyImageSharpFluid_withWebp
             }
             fixed(width: 1200, height: 630, quality: 100) {
