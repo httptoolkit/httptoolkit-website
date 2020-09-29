@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import Img from 'gatsby-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { siteMetadata } from '../../gatsby-config.js';
+
 import { styled, media } from '../styles';
 import { isSSR } from '../util';
 
@@ -163,9 +165,6 @@ const CoverImg = styled(Img)`
   border-top: 1px solid rgba(0,0,0,0.2);
 `;
 
-const SocialContainer = styled.div`
-`;
-
 const SocialIcons = styled.div`
   width: 100%;
 
@@ -295,6 +294,8 @@ export default ({ data, location }) => {
   const devToUrl = frontmatter.devToUrl || false;
   const productHuntUrl = frontmatter.productHuntUrl || false;
 
+  const socialImage = siteMetadata.siteUrl + post.frontmatter.cover_image.childImageSharp.fixed.src.slice(1);
+
   return <Layout location={location}>
     <BlogPostContainer width='780px'>
       <Helmet>
@@ -304,9 +305,12 @@ export default ({ data, location }) => {
 
         <meta property="og:title"       content={title} />
         <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image"       content={socialImage} />
 
+        <meta name="twitter:card"        content="summary_large_image" />
         <meta name="twitter:title"       content={title} />
         <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image"       content={socialImage} />
       </Helmet>
 
       <BlogPost>
@@ -353,9 +357,12 @@ export const query = graphql`
         title
         date
         cover_image {
-          childImageSharp{
+          childImageSharp {
             fluid(maxWidth: 2560) {
               ...GatsbyImageSharpFluid_withWebp
+            }
+            fixed(width: 1200, height: 630, quality: 100) {
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }

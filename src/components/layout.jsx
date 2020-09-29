@@ -228,6 +228,7 @@ export class Layout extends React.Component {
 
           <meta name="twitter:card"        content="summary" />
           <meta name="twitter:site"        content="@httptoolkit" />
+          <meta name="twitter:creator"     content="@pimterry" />
           <meta name="twitter:title"       content={siteMetadata.name} />
           <meta name="twitter:description" content={siteMetadata.description} />
           <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
