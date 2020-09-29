@@ -45,7 +45,7 @@ const HomeLink = styled(ButtonLink)`
 `;
 
 export default () => (<ThemeProvider theme={theme}>
-    <Layout>
+    <Layout location={{ pathname: '/' }}>
         <ErrorContainer>
             <ErrorHeader>
                 Page Not Found

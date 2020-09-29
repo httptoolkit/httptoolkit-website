@@ -330,7 +330,7 @@ ${
                     <title>{ PAGE_TITLE }</title>
                     <meta name="description" content={PAGE_DESCRIPTION} />
 
-                    <meta property="og:url"         content="https://httptoolkit.tech" />
+                    <meta property="og:url"         content="https://httptoolkit.tech/will-it-cors/" />
                     <meta property="og:type"        content="website" />
                     <meta property="og:title"       content={PAGE_TITLE} />
                     <meta property="og:description" content={PAGE_DESCRIPTION} />

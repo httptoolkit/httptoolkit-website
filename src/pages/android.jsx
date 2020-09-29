@@ -31,7 +31,7 @@ export default class JSPage extends React.Component {
             Send yourself a link to try it now on your computer:
         </>
 
-        return <Layout>
+        return <Layout location={this.props.location}>
             <Helmet>
                 <title>Intercept, mock & debug Android HTTP traffic</title>
             </Helmet>

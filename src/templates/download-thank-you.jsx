@@ -58,7 +58,7 @@ const InstallCode = styled.code`
     margin: 0 0 40px;
 `;
 
-export default ({ pageContext: { releasePath, downloadCommand } }) => {
+export default ({ pageContext: { releasePath, downloadCommand }, location }) => {
     if (releasePath) {
         useEffect(() => {
             // Trigger a download of the app
@@ -69,7 +69,7 @@ export default ({ pageContext: { releasePath, downloadCommand } }) => {
         }, [releasePath]);
     }
 
-    return <Layout>
+    return <Layout location={location}>
         <ThankYouContainer leftAlign={!downloadCommand}>
             { downloadCommand
                 ? <InstallCode>

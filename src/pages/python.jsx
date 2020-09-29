@@ -34,7 +34,7 @@ export default class PythonPage extends React.Component {
     }
 
     render() {
-        return <Layout>
+        return <Layout location={this.props.location}>
             <Helmet>
                 <title>Capture, debug and mock your Python code's HTTP traffic</title>
             </Helmet>

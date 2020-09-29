@@ -192,7 +192,7 @@ export class Layout extends React.Component {
   render() {
     const GlobalStyles = getGlobalStyles();
 
-    const { modalIsActive } = this.props;
+    const { modalIsActive, location } = this.props;
     const visibilityProps = getVisibilityProps(modalIsActive);
 
     return <ThemeProvider theme={theme}>
@@ -220,7 +220,7 @@ export class Layout extends React.Component {
           <title>{siteMetadata.name} | {siteMetadata.title}</title>
           <meta name="description" content={siteMetadata.description} />
 
-          <meta property="og:url"         content="https://httptoolkit.tech" />
+          <meta property="og:url"         content={`${siteMetadata.siteUrl}${location.pathname.slice(1)}`} />
           <meta property="og:type"        content="website" />
           <meta property="og:title"       content={siteMetadata.name} />
           <meta property="og:description" content={siteMetadata.description} />

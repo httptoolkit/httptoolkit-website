@@ -278,7 +278,7 @@ const WebShare = styled((p) =>
   color: ${p => p.theme.mainBackground};
 `;
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   const post = data.markdownRemark;
   const { slug } = post.fields;
   const postUrl = `https://httptoolkit.tech/blog/${slug}/`;
@@ -295,7 +295,7 @@ export default ({ data }) => {
   const devToUrl = frontmatter.devToUrl || false;
   const productHuntUrl = frontmatter.productHuntUrl || false;
 
-  return (<Layout>
+  return <Layout location={location}>
     <BlogPostContainer width='780px'>
       <Helmet>
         <title>{title} | HTTP Toolkit</title>
@@ -338,7 +338,7 @@ export default ({ data }) => {
 
       <BlogSubscribe inPostFooter={true} />
     </BlogPostContainer>
-  </Layout>);
+  </Layout>;
 };
 
 export const query = graphql`

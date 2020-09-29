@@ -100,10 +100,10 @@ const PostList = styled.ul`
     }
 `
 
-export default ({ data }) => {
+export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
 
-    return <Layout>
+    return <Layout location={location}>
         <BlogListContainer width='780px'>
             <BlogHeader>
                 <BlogHeading>Read the Blog</BlogHeading>

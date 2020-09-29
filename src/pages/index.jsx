@@ -34,7 +34,7 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
-        return <Layout>
+        return <Layout location={this.props.location}>
             <Helmet>
                 <title>Intercept, debug & mock HTTP</title>
             </Helmet>

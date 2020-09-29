@@ -126,8 +126,8 @@ const GettingStartedTile = styled(Link)`
     }
 `;
 
-export default () => {
-    return (<Layout>
+export default (props) => {
+    return (<Layout location={props.location}>
         <Helmet>
             <title>HTTP Toolkit Documentation</title>
         </Helmet>

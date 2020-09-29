@@ -47,7 +47,7 @@ const ContactForm = styled(({ email, ...props }) =>
     }
 `;
 
-export default () => (<Layout>
+export default (props) => (<Layout location={props.location}>
     <SplashContainer>
         <SplashHeader>
             Get in touch

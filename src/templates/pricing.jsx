@@ -402,7 +402,7 @@ export default @observer class PricingPage extends React.Component {
         const proPrice = getPlanMonthlyPrice('pro') || spinner;
         const teamPrice = getPlanMonthlyPrice('team') || spinner;
 
-        return <Layout modalIsActive={!!modal}>
+        return <Layout location={this.props.location} modalIsActive={!!modal}>
             <PricingContainer {...visibilityProps}>
                 <PricingHeader>
                     { this.pageTitle }

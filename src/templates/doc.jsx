@@ -155,7 +155,7 @@ const MobileDocsearch = styled(Docsearch)`
     margin-top: 30px;
 `;
 
-export default ({ data }) => {
+export default ({ data, location }) => {
     const doc = data.markdownRemark;
     const { frontmatter } = doc;
     const { title } = frontmatter;
@@ -166,7 +166,7 @@ export default ({ data }) => {
         slug.replace(/\/$/, '') // Trim trailing slashes
     }.md`;
 
-    return (<Layout>
+    return (<Layout location={location}>
         <DocContainer>
             <Helmet>
                 <title>{title}</title>

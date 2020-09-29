@@ -68,7 +68,7 @@ const Terms = styled.div`
     margin: 30px 0 60px;
 `;
 
-export default () => (<Layout>
+export default (props) => (<Layout location={props.location}>
     <SplashContainer>
         <SplashHeader>
             Terms Of Service

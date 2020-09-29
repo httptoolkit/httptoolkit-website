@@ -34,7 +34,7 @@ export default class JSPage extends React.Component {
     }
 
     render() {
-        return <Layout>
+        return <Layout location={this.props.location}>
             <Helmet>
                 <title>Capture, debug and mock your Node.js and web JS's HTTP traffic</title>
             </Helmet>

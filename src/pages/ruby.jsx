@@ -34,7 +34,7 @@ export default class RubyPage extends React.Component {
     }
 
     render() {
-        return <Layout>
+        return <Layout location={this.props.location}>
             <Helmet>
                 <title>Capture, debug and mock your Ruby app's HTTP traffic</title>
             </Helmet>

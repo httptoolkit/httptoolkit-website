@@ -43,7 +43,7 @@ const ThankYouDetails = styled.p`
     margin: 0 0 20px;
 `;
 
-export default () => (<Layout>
+export default (props) => (<Layout location={props.location}>
     <ThankYouContainer>
         <ThankYouHeader>
             Thanks!
