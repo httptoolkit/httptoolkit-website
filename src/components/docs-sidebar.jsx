@@ -157,21 +157,21 @@ export const DocsMenu = () => {
     return <DocsList>
         <DocsGroup title='Getting Started'>
             { docGroups['getting-started'].map((doc) =>
-                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}/`}>
                     { doc.frontmatter.name }
                 </DocsLink>
             ) }
         </DocsGroup>
         <DocsGroup title='Reference'>
             { docGroups['reference'].map((doc) =>
-                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}/`}>
                     { doc.frontmatter.name }
                 </DocsLink>
             ) }
         </DocsGroup>
         <DocsGroup title='Guides'>
             { docGroups['guides'].map((doc) =>
-                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}`}>
+                <DocsLink key={doc.fields.slug} to={`/docs/${doc.fields.slug}/`}>
                     { doc.frontmatter.name }
                 </DocsLink>
             ) }

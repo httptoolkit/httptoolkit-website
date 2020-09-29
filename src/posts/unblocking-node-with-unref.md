@@ -46,4 +46,4 @@ There's three last things worth noting here:
 * This can come with a small performance cost, as it's actually implemented using a separate scheduled task. Using a few is fine, but if you're creating very large numbers of these you might see a performance impact.
 * You shouldn't be using this everywhere. If you use this on a timeout you care about, you'll discover that your app is unexpectedly exiting half way through, way before you're expecting. This is similar to weak maps: it's a tool for specific situations, not an option for every day.
 
-While you're here, if you like Node & want to supercharge your debugging skills, take a look at **[HTTP Toolkit](https://httptoolkit.tech/view/javascript)**. One-click HTTP(S) interception & debugging for any Node.js script, tool or server (and lots of other tools too).
+While you're here, if you like Node & want to supercharge your debugging skills, take a look at **[HTTP Toolkit](https://httptoolkit.tech/javascript/)**. One-click HTTP(S) interception & debugging for any Node.js script, tool or server (and lots of other tools too).

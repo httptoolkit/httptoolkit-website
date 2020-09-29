@@ -291,4 +291,4 @@ That's the lot! That should outline all the essentials for these features, but t
 
 Hope that's useful - if you've got any questions let me know on [Twitter](https://twitter.com/pimterry).
 
-**While you're here, if you like JavaScript & want to supercharge your debugging skills, [try out HTTP Toolkit](https://httptoolkit.tech/view/javascript). One-click HTTP(S) interception & debugging for any JS page, script, or server (plus lots of other tools too).**
+**While you're here, if you like JavaScript & want to supercharge your debugging skills, [try out HTTP Toolkit](https://httptoolkit.tech/javascript/). One-click HTTP(S) interception & debugging for any JS page, script, or server (plus lots of other tools too).**

@@ -50,19 +50,19 @@ export const InterceptFeature = (p) => <StaticQuery
 
             <LinkedFeatureList>
                 <li>Desktop browsers like <strong>Chrome, Edge & Firefox</strong></li>
-                <li><Link to="/android">
+                <li><Link to="/android/">
                     Android
                 </Link> applications and browsers</li>
                 <li>Backend & scripting languages, like&nbsp;
-                    <Link to="/javascript">
+                    <Link to="/javascript/">
                         Node.js
-                    </Link>, <Link to="/python">
+                    </Link>, <Link to="/python/">
                         Python
-                    </Link> & <Link to="/ruby">
+                    </Link> & <Link to="/ruby/">
                         Ruby
                     </Link>
                 </li>
-                <li>Almost all terminal or <Link to="/electron">
+                <li>Almost all terminal or <Link to="/electron/">
                     Electron-based
                 </Link> applications</li>
                 <li>

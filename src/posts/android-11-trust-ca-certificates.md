@@ -71,7 +71,7 @@ First up: add a star on the Android bug I've filed, suggesting an automatable AD
 Once you've done that, in the meantime you have a few options:
 
 * Accept that you need to manually install CA certificates, and do so/tell your users how to do so.
-* Use a rooted device or emulator, and trust your certificate in the system store (you might be interested in [how HTTP Toolkit does this](https://httptoolkit.tech/docs/guides/android#adb-interception)).
+* Use a rooted device or emulator, and trust your certificate in the system store (you might be interested in [how HTTP Toolkit does this](https://httptoolkit.tech/docs/guides/android/#adb-interception)).
 * Completely reset the device, preprovision your application (before initial account setup), and configure your application as the device owner with `dpm set-device-owner <your app's device admin component>`
 * Enable debugging on the device, connect to it with ADB, and manually inject touch events to automatically walk through the various settings screens.
 * Avoid using Android 11 entirely.
@@ -86,4 +86,4 @@ Not as smooth as in previous versions, but manageable!
 
 These changes are important for Android to ensure it can protect average users from serious risks and attacks. At the same time though, it's important to balance that against allowing owners of devices freedom to configure those devices for themselves, and against allowing developers and other power users to access potentially dangerous functionality. Hopefully Android can find a path to support both.
 
-**Debugging Android apps, and want to inspect, rewrite & mock live traffic? [Try out HTTP Toolkit](https://httptoolkit.tech/android). Hands-free HTTP(S) interception & debugging for Android apps, web browsers, servers, microservices & more.**
+**Debugging Android apps, and want to inspect, rewrite & mock live traffic? [Try out HTTP Toolkit](https://httptoolkit.tech/android/). Hands-free HTTP(S) interception & debugging for Android apps, web browsers, servers, microservices & more.**

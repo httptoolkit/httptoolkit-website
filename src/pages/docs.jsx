@@ -135,7 +135,7 @@ export default () => {
             <DocIntroBody>
                 <h1>The HTTP Toolkit Docs</h1>
 
-                <GettingStartedTile to="/docs/getting-started">
+                <GettingStartedTile to="/docs/getting-started/">
                     <FontAwesomeIcon icon={['fal', 'rocket']} size='4x' />
                     <h2>Quickstart Guide</h2>
                     <p>

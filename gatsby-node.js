@@ -46,7 +46,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: 'slug',
-      value: slug.replace(/^\//, '').replace(/\/$/, ''),
+      value: slug.replace(/^\//, ''),
     });
   }
 };
@@ -65,13 +65,13 @@ exports.createPages = ({ graphql, actions }) => {
     'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
   }, (releasePath, downloadId) => {
       createPage({
-        path: `/download/${downloadId}`,
+        path: `/download/${downloadId}/`,
         component: downloadThankYou,
         context: { releasePath }
       });
-      // Create a /view/thank-you page for each too, for historical reasons
+      // Create a /view/thank-you/ page for each too, for historical reasons
       createPage({
-        path: `/view/thank-you/${downloadId}`,
+        path: `/view/thank-you/${downloadId}/`,
         component: downloadThankYou,
         context: { releasePath }
       });
@@ -79,36 +79,35 @@ exports.createPages = ({ graphql, actions }) => {
 
   // Create a 'download' page for the homebrew install command
   createPage({
-    path: `/download/osx-homebrew`,
+    path: `/download/osx-homebrew/`,
     component: downloadThankYou,
     context: { downloadCommand: 'brew cask install http-toolkit' }
   });
 
   // Create a 'download' page for the AUR install command
   createPage({
-    path: `/download/linux-aur`,
+    path: `/download/linux-aur/`,
     component: downloadThankYou,
     context: { downloadCommand: 'yay -S httptoolkit' }
   });
 
   // The same, for /view (purely for historical reasons):
   createPage({
-    path: `/view/thank-you/osx-homebrew`,
+    path: `/view/thank-you/osx-homebrew/`,
     component: downloadThankYou,
     context: { downloadCommand: 'brew cask install http-toolkit' }
   });
 
-  // Create a 'download' page for the AUR install command
   createPage({
-    path: `/view/thank-you/linux-aur`,
+    path: `/view/thank-you/linux-aur/`,
     component: downloadThankYou,
     context: { downloadCommand: 'yay -S httptoolkit' }
   });
 
   // Create a normal and a 'buy now' pricing page
   const pricingPage = path.resolve('./src/templates/pricing.jsx');
-  createPage({ path: '/pricing', component: pricingPage, context: {} });
-  createPage({ path: '/get-pro', component: pricingPage, context: {
+  createPage({ path: '/pricing/', component: pricingPage, context: {} });
+  createPage({ path: '/get-pro/', component: pricingPage, context: {
       directPurchase: true,
   }});
 

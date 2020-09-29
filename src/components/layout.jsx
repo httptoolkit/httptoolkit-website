@@ -266,10 +266,10 @@ export class Layout extends React.Component {
           <Nav id="menu" open={this.state.menuOpen}>
             <NavClose onClick={this.hideMenu} />
 
-            <NavItem to='/docs' onClick={this.hideMenu}>Docs</NavItem>
-            <NavItem to='/pricing' onClick={this.hideMenu}>Pricing</NavItem>
-            <NavItem to='/blog' onClick={this.hideMenu}>Blog</NavItem>
-            <NavItem to='/contact' onClick={this.hideMenu}>Contact</NavItem>
+            <NavItem to='/docs/' onClick={this.hideMenu}>Docs</NavItem>
+            <NavItem to='/pricing/' onClick={this.hideMenu}>Pricing</NavItem>
+            <NavItem to='/blog/' onClick={this.hideMenu}>Blog</NavItem>
+            <NavItem to='/contact/' onClick={this.hideMenu}>Contact</NavItem>
           </Nav>
         </Header>
 
@@ -288,8 +288,8 @@ export class Layout extends React.Component {
             </a>
           </FooterSocialIcons>
           <FooterMenu>
-            <Link to='/terms-of-service'>Terms of Service</Link>
-            <Link to='/privacy-policy'>Privacy Policy</Link>
+            <Link to='/terms-of-service/'>Terms of Service</Link>
+            <Link to='/privacy-policy/'>Privacy Policy</Link>
           </FooterMenu>
           <FooterOpenSource>
             <strong>100% open-source</strong>

@@ -6,7 +6,7 @@ module.exports = {
     title: 'Intercept, debug & build with HTTP',
     description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
     siteUrl: 'https://httptoolkit.tech/',
-    blogUrl: 'https://httptoolkit.tech/blog',
+    blogUrl: 'https://httptoolkit.tech/blog/',
     latestAppVersion: '1.0.1'
   },
   plugins: [
@@ -78,7 +78,7 @@ module.exports = {
                   description: html,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.blogUrl + '/' + edge.node.fields.slug,
-                  guid: site.siteMetadata.blogUrl + '/' + edge.node.fields.slug + '/',
+                  guid: site.siteMetadata.blogUrl + '/' + edge.node.fields.slug,
                   custom_elements: [{ "content:encoded": html }],
                 })
               })
@@ -144,13 +144,13 @@ module.exports = {
         exclude: [
           '/download/*', // Drop direct download pages
           '/view/thank-you/*', // Drop old view download pages too
-          '/blog-thank-you', // Drop post-blog subscribe thank you
-          '/sent-to-computer', // Drop post-send-to-computer page
-          '/thank-you', // Drop post-mailing-list signup page
+          '/blog-thank-you/', // Drop post-blog subscribe thank you
+          '/sent-to-computer/', // Drop post-send-to-computer page
+          '/thank-you/', // Drop post-mailing-list signup page
         ]
       }
     },
-    'gatsby-plugin-remove-trailing-slashes',
+    'gatsby-plugin-force-trailing-slashes',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {

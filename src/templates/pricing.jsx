@@ -363,7 +363,7 @@ export default @observer class PricingPage extends React.Component {
                     <CTAInstructions>
                         You already have this {paidCycle} plan.
                     </CTAInstructions>
-                    <ButtonLink to='/contact'>
+                    <ButtonLink to='/contact/'>
                         Change to {this.planCycle}
                     </ButtonLink>
                 </>;
@@ -375,7 +375,7 @@ export default @observer class PricingPage extends React.Component {
                 </Button>;
             } else if (tierCode === 'team') {
                 return <ButtonLink
-                    to='/contact'
+                    to='/contact/'
                     onClick={() => this.account.reportPlanSelected('team')}
                 >
                     Get in touch
@@ -577,7 +577,7 @@ export default @observer class PricingPage extends React.Component {
                 </LogoutBlock> }
 
                 <PricingFooter>
-                    Questions? <Link to="/docs/guides/subscription-faq">Read the FAQ</Link> or <Link to="/contact">Get in touch</Link>
+                    Questions? <Link to="/docs/guides/subscription-faq/">Read the FAQ</Link> or <Link to="/contact/">Get in touch</Link>
                 </PricingFooter>
             </PricingContainer>
             {

@@ -281,7 +281,7 @@ const WebShare = styled((p) =>
 export default ({ data }) => {
   const post = data.markdownRemark;
   const { slug } = post.fields;
-  const postUrl = `https://httptoolkit.tech/blog/${slug}`;
+  const postUrl = `https://httptoolkit.tech/blog/${slug}/`;
   const { frontmatter } = post;
   const { title } = frontmatter;
   const publishDate = moment.utc(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');

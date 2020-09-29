@@ -224,7 +224,7 @@ export class DownloadWidget extends React.Component {
                     { _.map(DOWNLOAD_OPTIONS, (downloadDetails, downloadId) =>
                         <DownloadOption
                             key={downloadId}
-                            to={`/download/${downloadId}`}
+                            to={`/download/${downloadId}/`}
                             selected={selectedId === downloadId}
                         >
                             <FontAwesomeIcon icon={['fab', downloadDetails.icon]} fixedWidth />
