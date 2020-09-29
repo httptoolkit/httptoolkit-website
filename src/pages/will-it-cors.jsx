@@ -310,6 +310,8 @@ ${
             <Main>
                 <GlobalStyles />
                 <Helmet>
+                    <html lang="en" />
+
                     {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
                     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
                     <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
