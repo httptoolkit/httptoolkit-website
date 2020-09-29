@@ -56,7 +56,7 @@ More specifically, I'm giving out free Pro subscriptions in return for any accep
 * Reporting new bugs or security issues
 * Suggesting new & useful features
 
-This is not an exhaustive list, and it's intentionally not limited to code contributions. Documentation, bug reporting & marketing are some of the most important contributors to any project's successs. **My goal is to reward _anything_ that helps drive HTTP Toolkit development or bring it to new people.** I'd love to involve anybody else who wants to contribute in any way, so if you're not sure, [get in touch](/contact).
+This is not an exhaustive list, and it's intentionally not limited to code contributions. Documentation, bug reporting & marketing are some of the most important contributors to any project's successs. **My goal is to reward _anything_ that helps drive HTTP Toolkit development or bring it to new people.** I'd love to involve anybody else who wants to contribute in any way, so if you're not sure, [get in touch](/contact/).
 
 Length of Pro subscription for different contributions will vary according to my whims, but as a guideline:
 
@@ -69,8 +69,8 @@ Length of Pro subscription for different contributions will vary according to my
 
 To get your subscription set up, just send me an email with the details, from the email account you'd like associated with your new subscription, and I'll make it happen.
 
-If you'd like ideas for contributions, take a look through [the feedback repo](https://github.com/feedback) or the issues attached to the above repos, play around with [HTTP Toolkit](/) for yourself to find rough edges or missing features, or feel free to [get in touch](/contact) for suggestions.
+If you'd like ideas for contributions, take a look through [the feedback repo](https://github.com/feedback) or the issues attached to the above repos, play around with [HTTP Toolkit](/) for yourself to find rough edges or missing features, or feel free to [get in touch](/contact/) for suggestions.
 
 If you look closely, all this is just an extension of the philosophy above! It's an expansion of the free tier - if you're a contributor to the project, HTTP Toolkit is now 100% FOSS for you - and a use of open source to feed that freemium virtuous cycle, and push the project further & higher.
 
-Make sense? Have any thoughts on this? Get in touch [on Twitter](https://twitter.com/pimterry) or [by email](/contact).
+Make sense? Have any thoughts on this? Get in touch [on Twitter](https://twitter.com/pimterry) or [by email](/contact/).

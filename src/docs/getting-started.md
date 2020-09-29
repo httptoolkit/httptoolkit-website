@@ -14,4 +14,4 @@ Check out [the home page](/) for more details, or try it out for yourself by wor
 3. [Inspecting intercepted traffic](/docs/getting-started/inspecting/)
 4. [Rewriting intercepted traffic](/docs/getting-started/rewriting/)
 
-Have any questions? [Send a message](/contact), or get in touch [on Twitter](https://twitter.com/httptoolkit).
+Have any questions? [Send a message](/contact/), or get in touch [on Twitter](https://twitter.com/httptoolkit).

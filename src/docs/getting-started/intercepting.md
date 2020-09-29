@@ -77,4 +77,4 @@ Struggling to get interception working? Here's some tips:
 
 If you have an application installed but the interception option is still disabled, or if an option is enabled but it's not working for you, that's a bug! Please [file an issue](https://github.com/httptoolkit/feedback/issues/new) so we can get this fixed.
 
-Any other questions? Feel free to [get in touch](/contact).
+Any other questions? Feel free to [get in touch](/contact/).

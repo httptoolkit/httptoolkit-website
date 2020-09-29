@@ -6,7 +6,7 @@ order: 999
 
 Sometimes things go wrong. Below is a list of known issues you might encounter with HTTP Toolkit, and what you can do about them.
 
-**Have any issues not listed here? Please get in touch, either [by email](/contact) or by filing an issue [on GitHub](https://github.com/httptoolkit/feedback/issues/new).**
+**Have any issues not listed here? Please get in touch, either [by email](/contact/) or by filing an issue [on GitHub](https://github.com/httptoolkit/feedback/issues/new).**
 
 ## General issues
 
@@ -32,7 +32,7 @@ This is only required for the first start - after that the latest UI is stored i
 
 Any time the server crashes, a notification is shown with the error details and the app is restarted (up to 3 times, and only if the server ran for at least 5 seconds before crashing).
 
-If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact) with any details you have, as this is definitely a bug that needs fixing.
+If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact/) with any details you have, as this is definitely a bug that needs fixing.
 
 ### I hate Electron
 
@@ -55,13 +55,13 @@ In some circumstances, initial Firefox setup can fail with this error, and somet
 
 This is quite rare, and the exact cause isn't pinned down yet. In general this will disappear immediately if you close Firefox and try again.
 
-If you can reproduce this issue reliably, [please get in touch](/contact), so we can trace down the exact cause of this.
+If you can reproduce this issue reliably, [please get in touch](/contact/), so we can trace down the exact cause of this.
 
 ### A browser shows ERR\_PROXY\_CERTIFICATE\_INVALID or other certificate errors
 
 This means that your browser is not correctly trusting the HTTP Toolkit certificate it has been given, for some reason.
 
-This is another very rare issue, and it's unclear why this happens on certain machines. If this happens to you, do [please get in touch](/contact) so we can investigate it further.
+This is another very rare issue, and it's unclear why this happens on certain machines. If this happens to you, do [please get in touch](/contact/) so we can investigate it further.
 
 In the meantime you can manually start Chrome configured to trust _all_ certificates with the below command (for Windows):
 
@@ -77,7 +77,7 @@ This issue has only been seen on Windows, but if you do see this on Mac or Linux
 
 HTTP Toolkit attempts to detect which relevant applications you have installed when it's started, so it can show the available ones in the UI.
 
-If this isn't working in your case, it's possible there's something unusual in your configuration. Please [report this](/contact) so it can be fixed properly.
+If this isn't working in your case, it's possible there's something unusual in your configuration. Please [report this](/contact/) so it can be fixed properly.
 
 In the meantime, if you're trying to launch a browser, you can manually edit or delete the cached list of detected browsers at:
 

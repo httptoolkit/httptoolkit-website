@@ -136,4 +136,4 @@ With all that in place, you can convert back and forth between HTTP/2 and HTTP/1
 
 If you're interested in the finer details of implementing this, you might enjoy [this thread](https://twitter.com/pimterry/status/1280132796951007233), where I'm currently live tweeting the entire implementation of [HTTP Toolkit](/)'s new HTTP/2 interception & debugging support, with links and explanation for each commit along the way.
 
-Anything I've missed? Any thoughts? Get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message](/contact) and let me know.
+Anything I've missed? Any thoughts? Get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message](/contact/) and let me know.

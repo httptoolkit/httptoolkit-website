@@ -112,7 +112,7 @@ To test this out today, you'll need an HTTPS server locally where you can log re
 * Load a page from your domain over HTTPS, and look at the request headers you receive - this is what'll happen soon by default:
     ![Example.com loaded with the UA frozen](./chrome-ua-frozen.png)
     _Note the frozen "84.0.0.0" version and "Windows" platform in the UA here_
-* Load the page afresh, this time returning edited headers (directly from your server, or by adding a breakpoint from the [Mock page](/docs/reference/mock-page) in HTTP Toolkit) that include `Accept-CH: UA-Platform`
+* Load the page afresh, this time returning edited headers (directly from your server, or by adding a breakpoint from the [Mock page](/docs/reference/mock-page/) in HTTP Toolkit) that include `Accept-CH: UA-Platform`
     ![An example.com response with an accept-ch header](./example.com-accept-ch.png)
 * Reload once more, and you should see the client send you a new `Sec-CH-UA-Platform` header in the request.
     ![An example.com request including a Sec-CH-UA-Platform client hint](./example.com-with-client-hint-header.png)

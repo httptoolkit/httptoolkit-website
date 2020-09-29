@@ -4,7 +4,7 @@ title: 'Intercepting Android HTTP'
 order: 1
 ---
 
-HTTP Toolkit can automatically intercept, inspect & rewrite traffic from any Android device. For a quick demo and an outline of how this works, check out the [HTTP Toolkit for Android](/android) page, or read on for a detailed walkthrough.
+HTTP Toolkit can automatically intercept, inspect & rewrite traffic from any Android device. For a quick demo and an outline of how this works, check out the [HTTP Toolkit for Android](/android/) page, or read on for a detailed walkthrough.
 
 For many cases, including most browser traffic, emulators, and rooted devices, this works with zero manual setup required.
 
@@ -23,7 +23,7 @@ Keep reading to get started right away, or jump to the full details for your cas
 
 To get started:
 
-1. [Download](/android) and install HTTP Toolkit, if you haven't already.
+1. [Download](/android/) and install HTTP Toolkit, if you haven't already.
 1. Start HTTP Toolkit on your computer and click the 'Android device' interception option to expand it:
     ![The Android intercept option, expanded](../../images/android-interceptor.png)
 1. Scan the code to start setup.

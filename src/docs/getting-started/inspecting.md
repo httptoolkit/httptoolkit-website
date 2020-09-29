@@ -4,7 +4,7 @@ title: 'Inspecting intercepted HTTP traffic'
 order: 3
 ---
 
-Once you've successfully [intercepted](/docs/getting-started/intercepting) traffic from an HTTP client, you can explore & examine it. This is often useful to understand how an application is communicating & behaving, and can be a powerful tool for debugging.
+Once you've successfully [intercepted](/docs/getting-started/intercepting/) traffic from an HTTP client, you can explore & examine it. This is often useful to understand how an application is communicating & behaving, and can be a powerful tool for debugging.
 
 You can see the traffic that you've intercepted so far on the 'View' page:
 

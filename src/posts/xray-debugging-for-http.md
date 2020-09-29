@@ -46,6 +46,6 @@ HTTP Toolkit is fundamentally an open-source project. It's been hugely driven by
 
 Releasing this paid version doesn't change that, and the entire Pro code is open-source too: [github.com/httptoolkit](https://github.com/httptoolkit). The aim is to make the project sustainable though, by encouraging professional developers & power users to help support ongoing development, to drive the project forward into the future.
 
-If you like the sound of this, help fund it! **[Get HTTP Toolkit now](/get-pro)**, and supercharge your software debugging. If you're on the fence, you can also get started by with the existing [free release](/).
+If you like the sound of this, help fund it! **[Get HTTP Toolkit now](/get-pro/)**, and supercharge your software debugging. If you're on the fence, you can also get started by with the existing [free release](/).
 
 **We're also launching on Product Hunt today! Take a look at the reviews and leave your feedback at [producthunt.com/posts/http-view](https://producthunt.com/posts/http-view).**

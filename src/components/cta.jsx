@@ -36,7 +36,7 @@ export const StandaloneDownloadCTA = styled(DownloadCTA).attrs({
 
 
 export const BuyProCTA = styled(ButtonLink).attrs({
-    to: '/get-pro',
+    to: '/get-pro/',
     children: 'Get Pro'
 })`
     ${p => p.theme.fontSizeNearlyHeading};

@@ -24,8 +24,8 @@ The Mock page consists of a set of controls at the top, an 'Add a new rule' butt
 
 The controls at the top are, from left to right:
 - Clear all: resets all rules to default. This deletes all custom rules, and all changes from the built in rules.
-- Import rules: this imports a set of exported rules, replacing all existing rules (_requires [HTTP Toolkit Pro](/get-pro)_).
-- Export rules: this exports the current set of rules to a file, for your own use later or to share with others (_requires [HTTP Toolkit Pro](/get-pro)_).
+- Import rules: this imports a set of exported rules, replacing all existing rules (_requires [HTTP Toolkit Pro](/get-pro/)_).
+- Export rules: this exports the current set of rules to a file, for your own use later or to share with others (_requires [HTTP Toolkit Pro](/get-pro/)_).
 - Revert changes: reverts all unsaved changes to rules.
 - Save all: this saves all unsaved changes to all rules.
 
@@ -143,4 +143,4 @@ After selecting and configuring an action, remember to save the rule to begin ap
 
 _Have suggestions for other actions you'd like to see? File [some feedback](https://github.com/httptoolkit/feedback/issues/new), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
 
-**Any questions? [Get in touch](/contact)**
+**Any questions? [Get in touch](/contact/)**

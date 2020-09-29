@@ -26,7 +26,7 @@ The _system_ store is used as the default to verify all certificates - e.g. for 
 
 Until now however, you could install to the _user_ certificate store, which apps could individually opt into trusting, but which they don't trust by default.
 
-This was very useful! This allowed developers to opt-into this trust in their local builds to debug traffic, it allowed testers to automatically & easily trust CA certificates so they can mock & verify HTTPS traffic in manual & automated testing, and it was used by a wide variety of debugging tools (including **[HTTP Toolkit](/android)**) to easily let developers & testers inspect & rewrite their encrypted HTTPS traffic.
+This was very useful! This allowed developers to opt-into this trust in their local builds to debug traffic, it allowed testers to automatically & easily trust CA certificates so they can mock & verify HTTPS traffic in manual & automated testing, and it was used by a wide variety of debugging tools (including **[HTTP Toolkit](/android/)**) to easily let developers & testers inspect & rewrite their encrypted HTTPS traffic.
 
 Unfortunately, automating that setup is no longer possible on these devices, and each of these use cases will now require a series of fiddly manual steps that tools can't lead you to or help with.
 
@@ -76,7 +76,7 @@ Once you've done that, in the meantime you have a few options:
 * Enable debugging on the device, connect to it with ADB, and manually inject touch events to automatically walk through the various settings screens.
 * Avoid using Android 11 entirely.
 
-For now, [HTTP Toolkit](/android) takes options 1 and 2:
+For now, [HTTP Toolkit](/android/) takes options 1 and 2:
 
 * For users using Android < 11, it walks you through the automated setup prompts as before, all very conveniently.
 * For users using Android 11 on unrooted standard devices, it downloads the certificate to your Downloads folder & tells you how to do manual setup.

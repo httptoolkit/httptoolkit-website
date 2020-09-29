@@ -4,7 +4,7 @@ title: 'HTTP Toolkit Subscription Frequently Asked Questions'
 order: 2
 ---
 
-Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below, and feel free to [get in touch](/contact) if you have any other questions.
+Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below, and feel free to [get in touch](/contact/) if you have any other questions.
 
 ## Payments
 

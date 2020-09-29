@@ -9,7 +9,7 @@ twitterUrl: https://twitter.com/HttpToolkit/status/1298241363444727808
 
 **Can you build an Android app that can inspect & rewrite the network traffic from every other app on the device?**
 
-In turns out that, yes, you can. **[HTTP Toolkit](/android)** does exactly this, by building an app on top of the Android VPN APIs that fully simulates a fake VPN connection entirely within the device.
+In turns out that, yes, you can. **[HTTP Toolkit](/android/)** does exactly this, by building an app on top of the Android VPN APIs that fully simulates a fake VPN connection entirely within the device.
 
 Here I want to talk through how that works, look at the code that makes it happen, and show you how you can do the same thing for yourself.
 
@@ -17,7 +17,7 @@ To be clear, this is not intended (or very effective) as a attack on the securit
 
 There are some interesting & constructive use cases this opens up though for developer tooling. For example:
 
-* Inspecting & rewriting mobile traffic for testing & debugging (this is [HTTP Toolkit](/android)'s raison d'être).
+* Inspecting & rewriting mobile traffic for testing & debugging (this is [HTTP Toolkit](/android/)'s raison d'être).
 * Building a firewall for Android that blocks outgoing app connections according to your custom rules.
 * Recording metrics on the traffic sent & received by your device.
 * Simulating connection issues by adding delays or randomly injecting packet resets.
@@ -79,7 +79,7 @@ With that in place, we now transparently receive every network packet from the d
 
 In HTTP Toolkit's case, the usage of this is very direct: we forcibly redirect all HTTP(S) traffic via the debugging proxy (which is running on your local development machine). That proxy then lets you inspect and rewrite all the traffic there as you see fit.
 
-There's a demo video on [the Android page](/android) if you want to see this in action.
+There's a demo video on [the Android page](/android/) if you want to see this in action.
 
 To do this, we check the target port of outgoing TCP connections, and rewrite the address if it's one of our configured HTTP ports (e.g. 80, 443, ...), by just adding the following lines into [TCP session setup](https://github.com/httptoolkit/httptoolkit-android/blob/b4cb5a97d48d299958b4e7a907b41fc9b44d2129/app/src/main/java/tech/httptoolkit/android/vpn/SessionManager.java#L169-L212):
 
@@ -216,4 +216,4 @@ As we've seen, the Android VPN APIs are powerful, and there's a lot of potential
 
 With a few tricks like this to hook into network traffic, there's a whole world of interesting tools you can build. Give it a go! Have any thoughts or feedback? [Let me know](https://twitter.com/pimterry).
 
-**Want to take your Android debugging to the next level? [HTTP Toolkit](/android) gives you one-click HTTP(S) inspection & mocking for any Android app (plus lots of other tools too).**
+**Want to take your Android debugging to the next level? [HTTP Toolkit](/android/) gives you one-click HTTP(S) inspection & mocking for any Android app (plus lots of other tools too).**

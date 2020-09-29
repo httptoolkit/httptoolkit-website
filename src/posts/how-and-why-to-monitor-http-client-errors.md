@@ -190,4 +190,4 @@ server.on('clientError', (error, socket) => {
 
 Easy peasy.
 
-Make sense? Agree, disagree, or hate the whole concept? Get in touch [on Twitter](https://twitter.com/pimterry) or [send a message directly](/contact) and let me know.
+Make sense? Agree, disagree, or hate the whole concept? Get in touch [on Twitter](https://twitter.com/pimterry) or [send a message directly](/contact/) and let me know.

@@ -113,7 +113,7 @@ First, I'm not changing any prices for existing customers, and I have no plans f
 
 However one week from now, for all new customers, I am going to rebalance a lot of prices. They're not exclusively going up though - for some countries, this is going to be a dramatic discount. There will be price increases for some of the more well-off countries (Canada, USA, Sweden, Denmark, Hong Kong & Switzerland), but price cuts for others (Brazil, China, India, Czechia & Russia).
 
-Those are all the clear-cut cases for now, so everybody else is staying the same. If you think I do need to customize pricing for your country though, [let me know](/contact), and I'll take a look.
+Those are all the clear-cut cases for now, so everybody else is staying the same. If you think I do need to customize pricing for your country though, [let me know](/contact/), and I'll take a look.
 
 ## Conclusion
 

@@ -6,7 +6,7 @@ order: 0
 
 ![The Intercept page, showing some intercepted sources active](../../images/intercept-screenshot.png)
 
-On the Intercept page you can connect HTTP and HTTPS clients, whose traffic will be intercepted. That traffic can then be viewed on the [View page](/docs/reference/view-page), or you can add rules on the [Mock page](/docs/reference/mock-page) to rewrite the traffic from these clients.
+On the Intercept page you can connect HTTP and HTTPS clients, whose traffic will be intercepted. That traffic can then be viewed on the [View page](/docs/reference/view-page/), or you can add rules on the [Mock page](/docs/reference/mock-page/) to rewrite the traffic from these clients.
 
 The page consists of a grid of clickable interception options, each of which helps you set up a different type of client for interception.
 
@@ -88,4 +88,4 @@ This interception option shows the instructions and details required to manually
 
 Anything that can send HTTP via a HTTP proxy can be intercepted by HTTP Toolkit, if it is configured with the proxy settings shown here. For clients that send HTTPS, they will need to trust your certificate, in addition to these proxy settings. The certificate is unique to you, and is generated fresh for each install of HTTP Toolkit. The specific path of the certificate varies according to your platform and home directory, but just click this option to find it.
 
-**Any questions? [Get in touch](/contact)**
+**Any questions? [Get in touch](/contact/)**

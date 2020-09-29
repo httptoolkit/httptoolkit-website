@@ -75,8 +75,8 @@ At the bottom of the list, there's a few useful controls:
 * A button to pause/resume interception.
     * When interception is paused, traffic will continue to pass through the proxy as normal, but will not be collected or shown.
     * When interception is resumed, traffic is once again collected.
-* A button to export the currently visible exchanges as a [HAR file](https://en.wikipedia.org/wiki/HAR_(file_format)), usable with many other tools (_requires [HTTP Toolkit Pro](/get-pro)_).
-* A button to import a HAR file. These imported exchanges are appended to the list of events, and won't remove any events already present  (_requires [HTTP Toolkit Pro](/get-pro)_).
+* A button to export the currently visible exchanges as a [HAR file](https://en.wikipedia.org/wiki/HAR_(file_format)), usable with many other tools (_requires [HTTP Toolkit Pro](/get-pro/)_).
+* A button to import a HAR file. These imported exchanges are appended to the list of events, and won't remove any events already present  (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * A button to clear the event list, deleting all events from memory.
 
 ## The event details pane
@@ -90,15 +90,15 @@ For an HTTP exchange, there's a few cards that will be shown:
 * If a response has been received:
     * The response details.
     * The response body (if there is one).
-* The performance details (_requires [HTTP Toolkit Pro](/get-pro)_).
-* The export options (_requires [HTTP Toolkit Pro](/get-pro)_).
+* The performance details (_requires [HTTP Toolkit Pro](/get-pro/)_).
+* The export options (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * Breakpoint cards, for breakpointed requests and responses.
 
 It's also possible to expand the request and response body cards, so they fill the entire pane. In this case, only that card will be shown.
 
 ### The Request Card
 
-For [HTTP Toolkit Pro](/get-pro) users, the request card may show metadata & validation, for requests to recognized APIs. This is powered by the OpenAPI specifications of the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory). As an example:
+For [HTTP Toolkit Pro](/get-pro/) users, the request card may show metadata & validation, for requests to recognized APIs. This is powered by the OpenAPI specifications of the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory). As an example:
 
 ![An example request card, showing metadata for a request to the GitHub API](./request-card.png)
 
@@ -124,7 +124,7 @@ Both requests and responses can have bodies, and when present, the corresponding
 This card consists of a viewer for the body content, plus a few controls. Let's start with the controls:
 
 * An expand/shrink button: this expands the body content to fill the entire right pane or shrinks it again, back to normal, if it is currently expanded.
-* A save button: this saves the shown decoded body content to a file, so it can be edited or opened directly with other tools (_requires [HTTP Toolkit Pro](/get-pro)_)
+* A save button: this saves the shown decoded body content to a file, so it can be edited or opened directly with other tools (_requires [HTTP Toolkit Pro](/get-pro/)_)
 * The number of bytes: this shows the numbers of bytes in the content itself. This is the content after decoding bodies, which may have been gzipped for example, but ignoring any content autoformatting in the editor shown.
 * A dropdown to select the formatting for the body viewer. This is filtered to provide only meaningful options for each content type. There's a few options:
     * Image - an image, shown as an actual image.
@@ -153,12 +153,12 @@ The viewer is powered by a read-only [Monaco editor](https://github.com/microsof
 
 ![An example response card](./response-card.png)
 
-The response card shows the HTTP status code, status message, and response headers. For [HTTP Toolkit Pro](/get-pro) users, the response status itself may come with further explanations powered by any detected OpenAPI specifications from the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory).
+The response card shows the HTTP status code, status message, and response headers. For [HTTP Toolkit Pro](/get-pro/) users, the response status itself may come with further explanations powered by any detected OpenAPI specifications from the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory).
 
 All standard status codes and headers on this card are automatically recognized, and clicking the plus symbol next to them will show a quick explanation of what they mean, and links to the Mozilla Developer Network's full documentation for that status or header.
 
 ### The Performance Card
-_Only available with [HTTP Toolkit Pro](/get-pro)_
+_Only available with [HTTP Toolkit Pro](/get-pro/)_
 
 ![An example performance card](./performance-card.png)
 
@@ -183,7 +183,7 @@ The performance card shows the performance details for the given response. These
     * The explanations here indicate the behaviour allowed by the caching standards. Individual cache behaviour will depend on these, but can vary further. For example, caches are not obliged to cache cacheable content, but should never cache non-cacheable content.
 
 ### The Export Card
-_Only available with [HTTP Toolkit Pro](/get-pro)_
+_Only available with [HTTP Toolkit Pro](/get-pro/)_
 
 ![An example export card](./export-card.png)
 
@@ -236,7 +236,7 @@ Each snippet is intended to be representative ready-to-use code for the given ta
 
 ### Breakpoint Cards
 
-When viewing a request or response that is paused at a breakpoint, some other cards may not appear, or may be replaced by editable cards. The rules that trigger breakpoints can be configured on [the Mock page](/docs/reference/mock-page).
+When viewing a request or response that is paused at a breakpoint, some other cards may not appear, or may be replaced by editable cards. The rules that trigger breakpoints can be configured on [the Mock page](/docs/reference/mock-page/).
 
 Breakpointed requests can be edited before they are sent upstream to their target server, or you can respond to them directly without forwarding the request. Breakpointed responses can be edited before they are returned to the initiating HTTP client.
 
@@ -288,4 +288,4 @@ There are a couple of other things about breakpointing worth noting:
     * The edited request data will not be shown - you'll see the data that the client actually sent, not the data sent to the server.
     * The original response data will not be shown - you'll see the data that the client actually received, not the data received from the server.
 
-**Any questions? [Get in touch](/contact)**
+**Any questions? [Get in touch](/contact/)**

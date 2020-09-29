@@ -4,7 +4,7 @@ title: 'The Settings Page'
 order: 3
 ---
 
-The Settings page is only available to [HTTP Toolkit Pro](/get-pro) users. It allows you to configure extra proxy settings, UI themes, and manage your account.
+The Settings page is only available to [HTTP Toolkit Pro](/get-pro/) users. It allows you to configure extra proxy settings, UI themes, and manage your account.
 
 It looks like this:
 
@@ -82,4 +82,4 @@ Select one of the three themes on the left to immediately change the whole app's
 
 All colours used in the theme are shown on the right, along with an editor containing some example HTML (actually the contents of the default intercepted [amiusing.httptoolkit.tech](https://amiusing.httptoolkit.tech) page!), so you can see it all live.
 
-**Any questions? [Get in touch](/contact)**
+**Any questions? [Get in touch](/contact/)**

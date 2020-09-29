@@ -3,7 +3,7 @@ import { styled } from '../styles';
 
 export const ProPill = styled(Link).attrs({
     children: 'Pro',
-    to: '/get-pro'
+    to: '/get-pro/'
 })`
     display: inline-block;
     border-radius: 4px;

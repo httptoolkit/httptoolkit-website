@@ -4,7 +4,7 @@ title: 'Rewriting intercepted HTTP traffic'
 order: 4
 ---
 
-Once you've successfully [intercepted](/docs/getting-started/intercepting) traffic from an HTTP client,HTTP Toolkit allows you to mock & rewrite intercepted HTTP requests and responses, both manually and automatically.
+Once you've successfully [intercepted](/docs/getting-started/intercepting/) traffic from an HTTP client,HTTP Toolkit allows you to mock & rewrite intercepted HTTP requests and responses, both manually and automatically.
 
 To do this, you first need to configure a rule. Each rules specifies what traffic it matches, and then what happens to that traffic.
 
@@ -59,9 +59,9 @@ We're barely scratching the surface here, but there's a lot of options to go fur
 * Rewrite requests in more complicated ways; edit headers to simulate different clients or add/remote authentication from requests, edit request bodies to test edge cases, or change HTTP methods entirely.
 * Use the 'Response directly' button on a paused request, to skip sending the request and instead manually provide your own response data.
 * Rewrite responses, or even requests _and_ responses in a single exchange, to receive real response data from other servers and manually tweak it yourself.
-* With [Pro](/get-pro), add even more powerful & automated HTTP rewriting:
+* With [Pro](/get-pro/), add even more powerful & automated HTTP rewriting:
     * Respond automatically with fixed response data, to automatically mock endpoints or entire servers
     * Simulate connection timeouts & resets
     * Forward all requests automatically from one server to another
 
-Enjoy! Have any questions, bugs, or feature requests? Feel free to [file a feedback issue](https://github.com/httptoolkit/feedback/issues/new) on GitHub, or [get in touch directly](/contact).
+Enjoy! Have any questions, bugs, or feature requests? Feel free to [file a feedback issue](https://github.com/httptoolkit/feedback/issues/new) on GitHub, or [get in touch directly](/contact/).
