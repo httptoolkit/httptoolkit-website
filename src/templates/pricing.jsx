@@ -30,28 +30,55 @@ const PricingContainer = styled(FullWidthSection)`
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.containerBackground};
     border-top: 1px solid rgba(0,0,0,0.2);
+
+    padding-bottom: 90px;
 `;
 
 const PricingHeader = styled.h1`
     ${p => p.theme.fontSizeHeading};
     font-weight: bolder;
+    line-height: 1.2;
 
     text-align: center;
-    margin: 30px 0 10px;
+    margin: 60px 0 20px;
 
     ${media.mobileOrTablet`
         margin: 30px auto 25px;
     `}
 `;
 
+const PricingIntroText = styled.p`
+    ${p => p.theme.fontSizeSubheading};
+
+    width: 100%;
+    max-width: 584px;
+    text-align: center;
+    margin: 40px auto 0;
+
+    line-height: 1.3;
+
+    ${media.mobileOrTablet`
+        margin: 30px auto 0;
+    `}
+
+    > strong {
+        font-weight: bold;
+        color: ${p => p.theme.mainColor};
+    }
+
+    [data-icon=bolt] {
+        color: #f1971f;
+    }
+`;
+
 const PlanCycleToggle = styled.button`
     background: none;
     border: none;
 
-    margin: 0 auto 30px;
+    margin: 40px auto 50px;
 
     ${media.mobileOrTablet`
-        margin: 0 auto 10px;
+        margin: 30px auto 10px;
     `}
 
     padding: 10px 10px;
@@ -284,20 +311,7 @@ const CTAInstructions = styled.div`
 const LogoutBlock = styled.div`
     width: 100%;
     text-align: center;
-    padding: 30px 0 0;
-`;
-
-const PricingFooter = styled.div`
-    ${p => p.theme.fontSizeSubheading};
-
-    width: 100%;
-    text-align: center;
-
-    margin: 70px auto 60px;
-
-    ${media.mobileOrTablet`
-        margin: 60px auto;
-    `}
+    padding: 10px 0 0;
 `;
 
 export default @observer class PricingPage extends React.Component {
@@ -415,8 +429,26 @@ export default @observer class PricingPage extends React.Component {
             </Helmet>
             <PricingContainer {...visibilityProps}>
                 <PricingHeader>
-                    { this.pageTitle }
+                    Developer tools<br/>built for professionals
                 </PricingHeader>
+
+                <PricingIntroText>
+                    <strong>Your time is valuable</strong>. HTTP Toolkit gives you instant insight
+                    and access into every request & response, with zero hassle. Test clients, debug
+                    APIs and catch bugs, all at lightning speed.
+                </PricingIntroText>
+
+                <PricingIntroText>
+                    Have questions? <a
+                        href='/docs/guides/subscription-faq/'
+                        target="_blank"
+                        rel='noopener noreferrer'
+                    >Read the FAQ</a> or <Link to="/contact/">get in touch</Link>.
+                </PricingIntroText>
+
+                { user.email && <LogoutBlock>
+                    Logged in as { user.email }. <LinkButton onClick={logOut}>Log out</LinkButton>.
+                </LogoutBlock> }
 
                 <PlanCycleToggle onClick={toggleCycle}>
                     <PlanCycle selected={planCycle === 'monthly'}>Monthly</PlanCycle>
@@ -567,14 +599,6 @@ export default @observer class PricingPage extends React.Component {
                         </PricingCTA>
                     </PricingTier>
                 </PricingTable>
-
-                { user.email && <LogoutBlock>
-                    Logged in as { user.email }. <LinkButton onClick={logOut}>Log out</LinkButton>.
-                </LogoutBlock> }
-
-                <PricingFooter>
-                    Questions? <Link to="/docs/guides/subscription-faq/">Read the FAQ</Link> or <Link to="/contact/">Get in touch</Link>
-                </PricingFooter>
             </PricingContainer>
             {
                 (modal === 'checkout' && <ModalWrapper opacity={0.5}></ModalWrapper>) ||
