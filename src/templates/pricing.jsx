@@ -147,15 +147,17 @@ const PricingTier = styled.div`
         background-color: ${p => p.theme.mainBackground};
     `}
 
-    ${p => p.lowlighted && css`
-        opacity: 0.6;
-    `}
-
     ${media.desktop`
         flex: 1 1 100%;
 
         ${p => p.highlighted && css`
             flex-basis: 104%;
+        `}
+
+        ${p => p.lowlighted && css`
+            align-self: flex-start;
+            flex-basis: 93%;
+            margin-right: 25px;
         `}
     `}
 
@@ -459,7 +461,7 @@ export default @observer class PricingPage extends React.Component {
                 </PlanCycleToggle>
 
                 <PricingTable>
-                    { !hideFreePlan && <PricingTier lowlighted={isPaidUser} mobileOrder={3}>
+                    { !hideFreePlan && <PricingTier lowlighted={true} mobileOrder={3}>
                         <TierHeader>
                             Hobbyist
                         </TierHeader>
