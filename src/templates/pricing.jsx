@@ -204,6 +204,7 @@ const TierFeatures = styled.ul`
 
 const Feature = styled.li`
     margin-top: 20px;
+    line-height: 1.2;
 
     &:first-child {
         margin-top: 0;
@@ -224,6 +225,11 @@ const Feature = styled.li`
         font-weight: bold;
         color: ${p => p.theme.popColor};
     }
+`;
+
+const FeatureCont = styled(Feature)`
+    font-style: italic;
+    text-align: center;
 `;
 
 const StyledTooltip = ({ children, ...props }) =>
@@ -434,35 +440,21 @@ export default @observer class PricingPage extends React.Component {
                             <TierLicense>Forever</TierLicense>
                         </TierPriceBlock>
                         <TierFeatures>
-                            <StyledTooltip
-                                html={<TooltipUl>
-                                    <li>100% open-source, even Pro</li>
-                                    <li>Remix as you like, share with others, and contribute back</li>
-                                    <li>
-                                        AGPL is a copyleft license, meaning derivative code must remain open-source
-                                    </li>
-                                    <li>
-                                        Standalone libraries like Mockttp are non-copyleft licensed
-                                        (MIT / Apache 2) and can be used without this restriction
-                                    </li>
-                                </TooltipUl>}>
-                                <Feature>
-                                    100% Open Source (<a href="https://tldrlegal.com/l/agpl3" target="_blank" rel="noopener noreferrer">
-                                        AGPL v3
-                                    </a>) <FontAwesomeIcon icon={['far', 'info-circle']} />
-                                </Feature>
-                            </StyledTooltip>
+                            <FeatureCont>
+                                Includes all the basic features you need to start viewing &
+                                rewriting your HTTP traffic:
+                            </FeatureCont>
                             <Feature>
-                                Cross-platform (Linux/Mac/Windows)
+                                Automatically intercept all supported clients
                             </Feature>
                             <Feature>
-                                Every interception integration
+                                Inspect and debug raw HTTP data
                             </Feature>
                             <Feature>
-                                Essential HTTP debugging features
+                                Filter, delete & pin requests
                             </Feature>
                             <Feature>
-                                Manual HTTP mocking & rewriting
+                                Manually rewrite HTTP with request & response breakpoints
                             </Feature>
                         </TierFeatures>
                         <PricingCTA>
@@ -494,17 +486,9 @@ export default @observer class PricingPage extends React.Component {
                             </TierLicense>
                         </TierPriceBlock>
                         <TierFeatures>
-                            { !hideFreePlan && <Feature>
-                                <em>All Hobbyist features, and:</em>
-                            </Feature> }
-                            <Feature>
-                                <strong>In-depth HTTP debugging tools</strong>, including compression
-                                & caching analysis
-                            </Feature>
-                            <Feature>
-                                <strong>Validation & documentation for more than 1400 APIs</strong>,
-                                from AWS to GitHub to Stripe
-                            </Feature>
+                            { !hideFreePlan && <FeatureCont>
+                                All Hobbyist features, and...
+                            </FeatureCont> }
                             <Feature>
                                 <strong>Automated HTTP mocking & rewriting</strong>, from fixed
                                 responses to errors & timeouts
@@ -519,8 +503,16 @@ export default @observer class PricingPage extends React.Component {
                                 </a> of collected traffic
                             </Feature>
                             <Feature>
-                                <strong>Advanced customization</strong>, including port configuration,
-                                whitelisted & client certificates, and UI themes
+                                <strong>Advanced HTTP debugging and inspection</strong>, including compression
+                                & caching analysis
+                            </Feature>
+                            <Feature>
+                                <strong>Validation & documentation for more than 1400 APIs</strong>,
+                                from AWS to GitHub to Stripe
+                            </Feature>
+                            <Feature>
+                                <strong>Advanced customization</strong>, including UI themes
+                                whitelisted & client certificates, and port configuration.
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
@@ -555,10 +547,10 @@ export default @observer class PricingPage extends React.Component {
                             </TierLicense>
                         </TierPriceBlock>
                         <TierFeatures>
-                            <Feature><em>All Professional features, and:</em></Feature>
+                            <FeatureCont>All Professional features, and...</FeatureCont>
                             <Feature><strong>Centralized billing</strong> to simplify payment for your team</Feature>
-                            <Feature>Licensed to your team, rather than individuals</Feature>
-                            <Feature>Add or remove team members whenever you need to</Feature>
+                            <Feature>Licensed to your team, not permanently linked to individuals</Feature>
+                            <Feature><strong>Centralized control</strong> to easily manage your team members and subscription</Feature>
                             <Feature><strong>Team workspaces</strong> for low-friction collaboration <em>(coming soon)</em></Feature>
                             <Feature>
                                 Options available on request:
