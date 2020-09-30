@@ -179,11 +179,18 @@ const TierHeader = styled.div`
     width: 100%;
     padding: 30px 0 0;
 
-    color: ${p => p.theme.popColor};
+    ${p => p.lowlight
+        ? css`
+            color: ${p => p.theme.mainColor};
+        `
+        : css`
+            color: ${p => p.theme.popColor};
+        `
+    }
 
     text-align: center;
     font-weight: bold;
-    ${p => p.theme.fontSizeSubheading};
+    ${p => p.theme.fontSizeNearlyHeading};
 `;
 
 const TierStatus = styled.div`
@@ -195,6 +202,10 @@ const TierStatus = styled.div`
     color: ${p => p.theme.mainColor};
     ${p => p.theme.fontSizeText};
     opacity: 0.6;
+
+    &:empty {
+        display: none;
+    }
 `;
 
 const TierPriceBlock = styled.div`
@@ -205,9 +216,9 @@ const TierPriceBlock = styled.div`
     color: ${p => p.theme.mainColor};
     margin: 0 20px;
 
-    border-style: solid;
-    border-color: rgba(0,0,0,0.3);
-    border-width: 1px 0;
+    &:empty {
+        padding: 0 0 10px;
+    }
 `;
 
 const TierPrice = styled.span`
@@ -217,17 +228,19 @@ const TierPrice = styled.span`
 const TierPriceCaveats = styled.small`
     display: block;
     font-size: 60%;
-    opacity: 0.6;
+    opacity: 0.7;
+    margin-top: 3px;
 `;
 
 const TierLicense = styled.div`
     display: block;
     margin-top: 10px;
+    text-align: center;
     ${p => p.theme.fontSizeSubheading};
 `;
 
 const TierFeatures = styled.ul`
-    padding: 30px 20px;
+    padding: 0 20px 20px 20px;
     ${p => p.theme.fontSizeText};
 `;
 
@@ -282,10 +295,10 @@ const TooltipUl = styled.ul`
 `;
 
 const PricingCTA = styled.div`
-    margin-top: auto;
     margin-bottom: 10px;
 
     > * {
+        font-weight: bold;
         text-align: center;
         width: 100%
     }
@@ -295,10 +308,8 @@ const CTAInstructions = styled.div`
     width: 100%;
     text-align: center;
     padding: 0 0 10px;
-    color: ${p => p.theme.primaryInputBackground};
 
     ${media.desktop`
-        min-height: 45px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -364,12 +375,7 @@ export default @observer class PricingPage extends React.Component {
     getPlanCta = (tierCode) => {
         const { paidTier, paidCycle } = this.account.subscription;
 
-        if (tierCode === 'free') {
-            return <DownloadWidget
-                small
-                sendToEmailText={'On mobile, but want to try it on your computer later?'}
-            />;
-        } else if (this.account.waitingForPurchase === tierCode) {
+        if (this.account.waitingForPurchase === tierCode) {
             return <Button>
                 <FontAwesomeIcon icon={['fal', 'spinner']} spin />
             </Button>;
@@ -462,17 +468,12 @@ export default @observer class PricingPage extends React.Component {
 
                 <PricingTable>
                     { !hideFreePlan && <PricingTier lowlighted={true} mobileOrder={3}>
-                        <TierHeader>
+                        <TierHeader lowlight={true}>
                             Hobbyist
                         </TierHeader>
                         <TierStatus/>
-                        <TierPriceBlock>
-                            <TierPrice>Free</TierPrice>
-
-                            <TierPriceCaveats>&nbsp;</TierPriceCaveats>
-
-                            <TierLicense>Forever</TierLicense>
-                        </TierPriceBlock>
+                        <TierLicense>Free</TierLicense>
+                        <TierPriceBlock />
                         <TierFeatures>
                             <FeatureCont>
                                 Includes all the basic features you need to start viewing &
@@ -491,9 +492,6 @@ export default @observer class PricingPage extends React.Component {
                                 Manually rewrite HTTP with request & response breakpoints
                             </Feature>
                         </TierFeatures>
-                        <PricingCTA>
-                            { getPlanCta('free') }
-                        </PricingCTA>
                     </PricingTier> }
 
                     <PricingTier highlighted={true} lowlighted={isPaidUser && paidTier !== 'pro'}>
@@ -501,27 +499,29 @@ export default @observer class PricingPage extends React.Component {
                             Professional
                         </TierHeader>
                         <TierStatus>{ getPlanStatus('pro') }</TierStatus>
+                        <TierLicense>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>Unlimited devices</li>
+                                    <li>Can only be used by one person</li>
+                                    <li>Not transferrable between people</li>
+                                </TooltipUl>}>
+                                Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
+                            </StyledTooltip>
+                        </TierLicense>
                         <TierPriceBlock>
                             <TierPrice>{proPrice} / month</TierPrice>
 
                             <TierPriceCaveats>
-                                plus tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
+                                plus local tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
                             </TierPriceCaveats>
-
-                            <TierLicense>
-                                <StyledTooltip
-                                    html={<TooltipUl>
-                                        <li>Unlimited devices</li>
-                                        <li>Can only be used by one person</li>
-                                        <li>Not transferrable between people</li>
-                                    </TooltipUl>}>
-                                    Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
-                                </StyledTooltip>
-                            </TierLicense>
                         </TierPriceBlock>
+                        <PricingCTA>
+                            { getPlanCta('pro') }
+                        </PricingCTA>
                         <TierFeatures>
                             { !hideFreePlan && <FeatureCont>
-                                All Hobbyist features, and...
+                                All Hobbyist features, plus...
                             </FeatureCont> }
                             <Feature>
                                 <strong>Automated HTTP mocking & rewriting</strong>, from fixed
@@ -552,9 +552,6 @@ export default @observer class PricingPage extends React.Component {
                                 <strong>Support ongoing development!</strong>
                             </Feature>
                         </TierFeatures>
-                        <PricingCTA>
-                            { getPlanCta('pro') }
-                        </PricingCTA>
                     </PricingTier>
 
                     <PricingTier highlighted={paidTier === 'team'}>
@@ -562,26 +559,28 @@ export default @observer class PricingPage extends React.Component {
                             Team
                         </TierHeader>
                         <TierStatus>{ getPlanStatus('team') }</TierStatus>
+                        <TierLicense>
+                            <StyledTooltip
+                                html={<TooltipUl>
+                                    <li>One team account, with many linked individual users</li>
+                                    <li>Subscription covers a max number of linked team members</li>
+                                    <li>Add or remove members from your team as required</li>
+                                </TooltipUl>}>
+                                Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
+                            </StyledTooltip>
+                        </TierLicense>
                         <TierPriceBlock>
                             <TierPrice>{teamPrice} / user / month</TierPrice>
 
                             <TierPriceCaveats>
-                                plus tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
+                                plus local tax, paid {this.planCycle === 'annual' ? 'annually' : 'monthly'}
                             </TierPriceCaveats>
-
-                            <TierLicense>
-                                <StyledTooltip
-                                    html={<TooltipUl>
-                                        <li>One team account, with many linked individual users</li>
-                                        <li>Subscription covers a max number of linked team members</li>
-                                        <li>Add or remove members from your team as required</li>
-                                    </TooltipUl>}>
-                                    Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
-                                </StyledTooltip>
-                            </TierLicense>
                         </TierPriceBlock>
+                        <PricingCTA>
+                            { getPlanCta('team') }
+                        </PricingCTA>
                         <TierFeatures>
-                            <FeatureCont>All Professional features, and...</FeatureCont>
+                            <FeatureCont>All Professional features, plus...</FeatureCont>
                             <Feature><strong>Centralized billing</strong> to simplify payment for your team</Feature>
                             <Feature>Licensed to your team, not permanently linked to individuals</Feature>
                             <Feature><strong>Centralized control</strong> to easily manage your team members and subscription</Feature>
@@ -596,9 +595,6 @@ export default @observer class PricingPage extends React.Component {
                                 </ul>
                             </Feature>
                         </TierFeatures>
-                        <PricingCTA>
-                            { getPlanCta('team') }
-                        </PricingCTA>
                     </PricingTier>
                 </PricingTable>
             </PricingContainer>
