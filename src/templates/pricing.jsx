@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import React from 'react';
 import { Link } from 'gatsby';
+import Helmet from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { action, observable } from 'mobx';
 import { observer } from 'mobx-react';
@@ -403,6 +404,9 @@ export default @observer class PricingPage extends React.Component {
         const teamPrice = getPlanMonthlyPrice('team') || spinner;
 
         return <Layout location={this.props.location} modalIsActive={!!modal}>
+            <Helmet>
+                <title>Pricing | HTTP Toolkit</title>
+            </Helmet>
             <PricingContainer {...visibilityProps}>
                 <PricingHeader>
                     { this.pageTitle }
