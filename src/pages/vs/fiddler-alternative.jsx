@@ -93,7 +93,7 @@ const Description = styled(SubHeading.withComponent("p"))`
 const UniqueFeatures = styled.ul`
     ${p => p.theme.fontSizeSubheading};
     line-height: 1.5;
-    max-width: 750px;
+    max-width: 760px;
 
     ${media.desktop`
         margin: 0 auto 60px;
@@ -116,12 +116,9 @@ export const UniqueFeature = styled((p) =>
     margin-bottom: 10px;
 
     > svg {
-        margin-right: 10px;
+        margin-right: 15px;
         margin-top: 5px;
         color: #27bc17;
-    }
-
-    > div {
     }
 `;
 
@@ -134,7 +131,7 @@ export default class FiddlerAlternativePage extends React.Component {
     render() {
         return <Layout location={this.props.location}>
             <Helmet>
-                <title>The modern Fiddler alternative | HTTP Toolkit</title>
+                <title>Fiddler alternative → HTTP Toolkit</title>
 
                 <meta property="og:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
                 <meta name="twitter:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
@@ -160,18 +157,14 @@ export default class FiddlerAlternativePage extends React.Component {
             </Description>
             <UniqueFeatures>
                 <UniqueFeature>
-                    <strong>One-click zero-configuration interception</strong>: see & rewrite HTTPS instantly,
-                    with <Link to="/blog/debugging-https-without-global-root-ca-certs/">no global CA
-                    certificates required</Link>
+                    <strong>One-click zero-configuration HTTPS interception</strong>: inspect & rewrite HTTPS
+                    immediately with <Link to="/blog/debugging-https-without-global-root-ca-certs/">no global CA certificate
+                    required</Link>
                 </UniqueFeature>
                 <UniqueFeature>
-                    Isolated interception: capture traffic from just one browser window, without noise from
-                    or interference with the rest of your machine
-                </UniqueFeature>
-                <UniqueFeature>
-                    Capture traffic from specific terminal windows and <strong>intercept scripts & servers</strong>,
-                    with built-in integrations for <Link to="/javascript">Node.js</Link>, <Link to="/python">Python</Link>,{' '}
-                    <Link to="/ruby">Ruby</Link> and more
+                    <strong>Targeted interception</strong>: automatically capture traffic from just one browser window or from servers and scripts
+                    (including <Link to="/javascript">Node.js</Link>, <Link to="/python">Python</Link> and <Link to="/ruby">Ruby</Link>)
+                    without noise from or interference with the rest of your machine
                 </UniqueFeature>
                 <UniqueFeature>
                     <Link to="/android">Android integration</Link> for apps and mobile browsers,
@@ -179,16 +172,21 @@ export default class FiddlerAlternativePage extends React.Component {
                     complete visibility into emulators and rooted devices.
                 </UniqueFeature>
                 <UniqueFeature>
-                    Built-in documentation for every standard HTTP header & status code, plus specific
+                    <strong>Interception internals you can integrate into your own code</strong> for mocking, testing or building custom proxies,
+                    available as an MIT-licensed <a href="https://github.com/httptoolkit/mockttp">open-source library</a> (that's $0 vs
+                    the <a href="https://www.telerik.com/purchase/fiddlercore">$2,999/year price tag</a> to build on FiddlerCore)
+                </UniqueFeature>
+                <UniqueFeature>
+                    Built-in documentation for every standard HTTP header and status code, plus specific
                     endpoint docs & validation for 1400+ popular APIs
                 </UniqueFeature>
                 <UniqueFeature>
-                    <strong>Flexible rule engine for rewriting traffic</strong> so you can combine matchers with
+                    <strong>Flexible rules engine for rewriting traffic</strong> so you can combine matchers with
                     mock responses, simulated errors, timeouts, redirection and more
                 </UniqueFeature>
                 <UniqueFeature>
-                    One-click rule builder, to transform live traffic instantly into an editable rule that matches
-                    subsequent requests and mocks the same response
+                    One-click transformation of collected traffic into editable rules to match & mock subsequent requests,
+                    or to export collected requests as ready-to-use code for 20+ languages
                 </UniqueFeature>
             </UniqueFeatures>
             <Description>
