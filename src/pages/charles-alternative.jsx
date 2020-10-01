@@ -12,7 +12,7 @@ import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
 import { DemoVideo } from '../components/demo-video';
 
-import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
+import { TopHeroContainer } from '../components/pitch/leading-pitch';
 import { FuturePlans } from '../components/pitch/future-plans';
 import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
@@ -119,6 +119,10 @@ export const UniqueFeature = styled((p) =>
         margin-right: 15px;
         margin-top: 5px;
         color: #27bc17;
+    }
+
+    a:hover {
+        color: ${p => p.theme.popColor};
     }
 `;
 

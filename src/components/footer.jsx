@@ -22,11 +22,12 @@ export const Footer = styled.div`
   ${p => p.theme.fontSizeText};
   font-weight: lighter;
   text-align: right;
-  color: ${p => p.theme.mainSubtleColor};
+  color: ${p => p.theme.mainColor};
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
 
   > * {
@@ -59,7 +60,7 @@ export const FooterMenu = styled.div`
   text-align: left;
 
   > a {
-    color: ${p => p.theme.mainSubtleColor};
+    color: ${p => p.theme.mainColor};
   }
 `;
 

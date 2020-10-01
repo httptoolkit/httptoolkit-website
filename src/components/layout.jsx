@@ -293,6 +293,7 @@ export class Layout extends React.Component {
           <FooterMenu>
             <Link to='/terms-of-service/'>Terms of Service</Link>
             <Link to='/privacy-policy/'>Privacy Policy</Link>
+            <Link to='/alternatives/'>Comparisons</Link>
           </FooterMenu>
           <FooterOpenSource>
             <strong>100% open-source</strong>
