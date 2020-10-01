@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import { siteMetadata } from '../../gatsby-config.js';
+
 import { Layout } from '../components/layout';
 import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
@@ -37,6 +39,10 @@ export default class RubyPage extends React.Component {
         return <Layout location={this.props.location}>
             <Helmet>
                 <title>Capture, debug and mock your Ruby app's HTTP traffic</title>
+
+                <meta property="og:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
+                <meta name="twitter:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
+                <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <TopHeroContainer>
                 <Pitch target='Ruby' />
