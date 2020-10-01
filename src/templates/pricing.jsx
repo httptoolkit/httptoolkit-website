@@ -524,8 +524,8 @@ export default @observer class PricingPage extends React.Component {
                                 All Hobbyist features, plus...
                             </FeatureCont> }
                             <Feature>
-                                <strong>Automated HTTP mocking & rewriting</strong>, from fixed
-                                responses to errors & timeouts
+                                <strong>Automated HTTP mocking & rewriting</strong> including traffic redirection,
+                                mock responses, and errors & timeouts.
                             </Feature>
                             <Feature>
                                 <strong>Import/export</strong> mock rules, and code or <a
@@ -537,15 +537,15 @@ export default @observer class PricingPage extends React.Component {
                                 </a> of collected traffic
                             </Feature>
                             <Feature>
-                                <strong>Advanced HTTP debugging and inspection</strong>, including compression
+                                <strong>Advanced HTTP debugging and inspection</strong> including compression
                                 & caching analysis
                             </Feature>
                             <Feature>
-                                <strong>Validation & documentation for more than 1400 APIs</strong>,
+                                <strong>Validation & documentation for more than 1400 APIs</strong>
                                 from AWS to GitHub to Stripe
                             </Feature>
                             <Feature>
-                                <strong>Advanced customization</strong>, including UI themes
+                                <strong>Advanced customization</strong> including UI themes,
                                 whitelisted & client certificates, and port configuration.
                             </Feature>
                             <Feature>
