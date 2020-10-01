@@ -3,24 +3,24 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { siteMetadata } from '../../../gatsby-config.js';
+import { siteMetadata } from '../../gatsby-config.js';
 
-import { styled, media } from '../../styles';
+import { styled, media } from '../styles';
 
-import { Layout } from '../../components/layout';
-import { MailchimpSignupModal } from '../../components/mailchimp-signup-modal';
-import { StandaloneDownloadCTA } from '../../components/cta';
-import { DemoVideo } from '../../components/demo-video';
+import { Layout } from '../components/layout';
+import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
+import { StandaloneDownloadCTA } from '../components/cta';
+import { DemoVideo } from '../components/demo-video';
 
-import { TopHeroContainer, Pitch } from '../../components/pitch/leading-pitch';
-import { FuturePlans } from '../../components/pitch/future-plans';
-import { TrailingPitchBlock } from '../../components/pitch/trailing-pitch';
+import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
+import { FuturePlans } from '../components/pitch/future-plans';
+import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
-import { InterceptFeature } from '../../components/features/intercept';
-import { InspectFeature } from '../../components/features/inspect';
-import { MockFeature } from '../../components/features/mock';
-import { EditFeature } from '../../components/features/edit';
-import { BreakpointFeature } from '../../components/features/breakpoint';
+import { InterceptFeature } from '../components/features/intercept';
+import { InspectFeature } from '../components/features/inspect';
+import { MockFeature } from '../components/features/mock';
+import { EditFeature } from '../components/features/edit';
+import { BreakpointFeature } from '../components/features/breakpoint';
 
 const Heading = styled.h1`
     ${p => p.theme.fontSizeHeading};
