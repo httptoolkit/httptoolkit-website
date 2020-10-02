@@ -174,6 +174,47 @@ module.exports = {
         indexName: "httptoolkit",
         inputSelector: ".docsearch-input"
       }
+    },
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        credentials: {
+          consumer_key: process.env.TWITTER_CONSUMER_KEY,
+          consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+          bearer_token: process.env.TWITTER_BEARER_TOKEN,
+        },
+        queries: {
+          testimonials: {
+            endpoint: "statuses/lookup",
+            params: {
+              id: [
+                "1293520327591333890",
+                "1223946088324968448",
+                "1226889803582537728",
+                "1233552355339071488",
+                "1252611268806148102",
+                "1265816960685793280",
+                "1227981703496511489",
+                "1302164558736322560",
+                "1277965200457478145",
+                "1222894618594795520",
+                "1176163277925228545",
+                "1233552355339071488",
+                "1358065384524496896",
+                "1356353324694515718",
+                "1337144156397953024",
+                "1329019171800223744",
+                "1381489773223665669",
+                "1381703719687835648",
+                "1385676109073764353",
+                "1275874663705522178"
+
+              ].join(','),
+              tweet_mode: 'extended' // do not truncate
+            }
+          }
+        }
+      }
     }
   ]
 }

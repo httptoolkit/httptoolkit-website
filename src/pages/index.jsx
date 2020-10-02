@@ -13,8 +13,8 @@ import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
 import { Description } from '../components/pitch/description';
 import { FuturePlans } from '../components/pitch/future-plans';
 import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
+import { Testimonials } from '../components/testimonials';
 
-import { FeatureCards } from '../components/features/feature-cards';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -47,7 +47,7 @@ export default class IndexPage extends React.Component {
 
             <SectionSpacer />
             <Description />
-            <FeatureCards />
+            <Testimonials />
             <StandaloneDownloadCTA />
 
             <InterceptFeature />

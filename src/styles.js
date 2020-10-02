@@ -8,6 +8,7 @@ import { faChrome } from '@fortawesome/free-brands-svg-icons/faChrome';
 import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
+import { faReddit } from '@fortawesome/free-brands-svg-icons/faReddit';
 import { faRedditAlien } from '@fortawesome/free-brands-svg-icons/faRedditAlien';
 import { faHackerNews } from '@fortawesome/free-brands-svg-icons/faHackerNews';
 import { faProductHunt } from '@fortawesome/free-brands-svg-icons/faProductHunt';
@@ -36,6 +37,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons/faPaperPlane';
 import { faShippingFast } from '@fortawesome/free-solid-svg-icons/faShippingFast';
 import { faLockOpen } from '@fortawesome/free-solid-svg-icons/faLockOpen';
 import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons/faExpandArrowsAlt';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons/faNewspaper';
 
 config.autoAddCss = false;
 library.add(
@@ -44,6 +46,7 @@ library.add(
     faDocker,
     faTwitter,
     faFacebook,
+    faReddit,
     faRedditAlien,
     faHackerNews,
     faProductHunt,
@@ -71,7 +74,8 @@ library.add(
     faPaperPlane,
     faShippingFast,
     faLockOpen,
-    faExpandArrowsAlt
+    faExpandArrowsAlt,
+    faNewspaper
 );
 
 export { styled, css, ThemeProvider };
