@@ -135,13 +135,13 @@ export default class CharlesAlternativePage extends React.Component {
             </Description>
             <Comparisons>
                 <Comparison>
-                    <Link to="/fiddler-alternative">Fiddler alternative</Link>
+                    <Link to="/fiddler-alternative/">Fiddler alternative</Link>
                 </Comparison>
                 <Comparison>
-                    <Link to="/charles-alternative">Charles alternative</Link>
+                    <Link to="/charles-alternative/">Charles alternative</Link>
                 </Comparison>
                 <Comparison>
-                    <Link to="/chrome-devtools-alternative">Chrome Devtools alternative</Link>
+                    <Link to="/chrome-devtools-alternative/">Chrome Devtools alternative</Link>
                 </Comparison>
             </Comparisons>
             <Description>
