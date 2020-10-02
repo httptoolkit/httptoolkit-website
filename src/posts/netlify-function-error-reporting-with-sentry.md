@@ -140,7 +140,7 @@ All done! With this in place, all handler errors will be reliably reported to Se
 
 There's two optional extra steps I'd like to mention, to help you debug your issues more easily.
 
-First, extra reporting is super useful. [`Sentry.addBreadcrumb`](https://docs.sentry.io/learn/breadcrumbs/) for example lets you record extra events that will be included in any later exceptions. You can also call our `reportError` function from anywhere else in your code to immediate report errors, even if you don't actually throw them and fail (but do remember to wait on the returned promise).
+First, extra reporting is super useful. [`Sentry.addBreadcrumb`](https://docs.sentry.io/platforms/javascript/enriching-events/breadcrumbs/) for example lets you record extra events that will be included in any later exceptions. You can also call our `reportError` function from anywhere else in your code to immediate report errors, even if you don't actually throw them and fail (but do remember to wait on the returned promise).
 
 Second, include your function's git commit as your Sentry release, so you always know which version of the code threw which errors. Netlify provides this as a `COMMIT_REF` environment variable, but this sadly isn't available in the runtime Lambda environment, so we need to make sure we bake it in at build time. To do that, first extend the default webpack config:
 

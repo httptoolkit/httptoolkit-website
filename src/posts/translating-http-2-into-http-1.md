@@ -8,7 +8,7 @@ Semantically, what changed in HTTP/2?
 
 Multiplexed connections, binary frames, header compression - all the headline changes are syntactic and network format changes, rather than fundamental changes to the concept. As a developer building on top of this, you can often ignore the low-level syntax of network protocols like this, and just think about the meaning of each message (the semantics) rather than byte-by-byte how it's sent between computers.
 
-Semantically though, while HTTP/2 is built on top of the ideas of HTTP/1.1, and the [HTTP/2 spec](https://http2.github.io/http2-spec/) is at pains to emphasize that it is not redefining HTTP's semantics, there are a few real-world semantic differences you need to use it effectively (and with HTTP/2 now in use on [nearly 50% of the top 10 million webservers](https://w3techs.com/technologies/details/ce-http2), you really do need to know how it works).
+Semantically though, while HTTP/2 is built on top of the ideas of HTTP/1.1, and the [HTTP/2 spec](https://httpwg.org/specs/rfc7540.html) is at pains to emphasize that it is not redefining HTTP's semantics, there are a few real-world semantic differences you need to use it effectively (and with HTTP/2 now in use on [nearly 50% of the top 10 million webservers](https://w3techs.com/technologies/details/ce-http2), you really do need to know how it works).
 
 This matters when building anything non-trivial on HTTP/2, but especially matters if your application does need to translate between the two, e.g. as a proxy or from a cache, and it's important to understand if you want to reliably handle requests in both protocols using the same code.
 

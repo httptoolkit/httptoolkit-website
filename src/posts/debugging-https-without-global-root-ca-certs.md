@@ -20,7 +20,7 @@ First, there's a selection of tools that generate HTTPS CAs & certificate for lo
 
 The tools doing this include:
 
-* [mkcert](https://github.com/FiloSottile/mkcert) - a go-based CLI tool that generates a CA and then automatically trusts it everywhere, recommended for HTTPS setup with everything from [ASP.NET](https://www.scottbrady91.com/ASPNET/Using-mkcert-for-ASPNET-Core-Development) to [Python](https://woile.github.io/posts/local-https-development-in-python-with-mkcert/).
+* [mkcert](https://github.com/FiloSottile/mkcert) - a go-based CLI tool that generates a CA and then automatically trusts it everywhere, recommended for HTTPS setup with everything from [ASP.NET](https://www.scottbrady91.com/ASPNET/Using-mkcert-for-ASPNET-Core-Development) to [Python](https://gist.github.com/h007/196575c0d68d3832d246f1a32c07e6fd).
     ```
     $ mkcert -install
     Created a new local CA at "/Users/filippo/Library/Application Support/mkcert" 💥
