@@ -56,7 +56,7 @@ const BlogPost = styled.article`
     margin-top: 60px;
 
     ${media.desktop`
-      letter-spacing: -1px;
+      letter-spacing: -2px;
     `}
   }
 
@@ -133,6 +133,10 @@ const BlogPost = styled.article`
 
   blockquote {
     white-space: pre-wrap;
+
+    + blockquote {
+      margin-top: -30px;
+    }
   }
 
   blockquote > p {

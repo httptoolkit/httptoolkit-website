@@ -42,7 +42,7 @@ const DocBody = styled.article`
         margin-top: 60px;
 
         ${media.desktop`
-            letter-spacing: -1px;
+            letter-spacing: -2px;
         `}
 
         ${media.mobileOrTablet`
