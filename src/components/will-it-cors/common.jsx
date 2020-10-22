@@ -63,7 +63,7 @@ export const Checkmark = styled(FontAwesomeIcon).attrs(() => ({
 `;
 
 export const Cross = styled(FontAwesomeIcon).attrs(() => ({
-    icon: ['far', 'times'],
+    icon: ['fas', 'times'],
     'aria-label': "No"
 }))`
     color: ${p => p.theme.popColor};

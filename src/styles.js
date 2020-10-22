@@ -18,24 +18,24 @@ import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows';
 import { faApple } from '@fortawesome/free-brands-svg-icons/faApple';
 import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faStopwatch } from '@fortawesome/pro-light-svg-icons/faStopwatch';
-import { faWrench } from '@fortawesome/pro-light-svg-icons/faWrench';
-import { faSearch } from '@fortawesome/pro-light-svg-icons/faSearch';
-import { faSpinner } from '@fortawesome/pro-light-svg-icons/faSpinner';
-import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
-import { faTimes } from '@fortawesome/pro-regular-svg-icons/faTimes';
-import { faInfoCircle } from '@fortawesome/pro-regular-svg-icons/faInfoCircle';
+import { faStopwatch } from '@fortawesome/free-solid-svg-icons/faStopwatch';
+import { faWrench } from '@fortawesome/free-solid-svg-icons/faWrench';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { faToggleOn } from '@fortawesome/free-solid-svg-icons/faToggleOn';
 import { faToggleOff } from '@fortawesome/free-solid-svg-icons/faToggleOff';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faRocket } from '@fortawesome/pro-light-svg-icons/faRocket';
-import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt';
-import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
-import { faShippingFast } from '@fortawesome/pro-regular-svg-icons/faShippingFast';
-import { faLockOpen } from '@fortawesome/pro-light-svg-icons/faLockOpen';
-import { faExpandArrows } from '@fortawesome/pro-regular-svg-icons/faExpandArrows';
+import { faRocket } from '@fortawesome/free-solid-svg-icons/faRocket';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons/faTrashAlt';
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons/faPaperPlane';
+import { faShippingFast } from '@fortawesome/free-solid-svg-icons/faShippingFast';
+import { faLockOpen } from '@fortawesome/free-solid-svg-icons/faLockOpen';
+import { faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons/faExpandArrowsAlt';
 
 config.autoAddCss = false;
 library.add(
@@ -71,7 +71,7 @@ library.add(
     faPaperPlane,
     faShippingFast,
     faLockOpen,
-    faExpandArrows
+    faExpandArrowsAlt
 );
 
 export { styled, css, ThemeProvider };

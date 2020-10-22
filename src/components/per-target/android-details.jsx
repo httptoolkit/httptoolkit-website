@@ -160,7 +160,7 @@ const AndroidScreenshot = styled.img`
 
 export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
-        <FontAwesomeIcon icon={['fal', 'search']} />
+        <FontAwesomeIcon icon={['fas', 'search']} />
 
         <input id="debug-toggle" type="checkbox" />
         <label htmlFor="debug-toggle">
@@ -181,7 +181,7 @@ export const AndroidDetails = () => <DetailsContainer>
     </DetailsContent>
 
     <DetailsContent>
-        <FontAwesomeIcon icon={['fal', 'wrench']} />
+        <FontAwesomeIcon icon={['fas', 'wrench']} />
 
         <input id="quickstart-toggle" type="checkbox" />
         <label htmlFor="quickstart-toggle">
@@ -206,7 +206,7 @@ export const AndroidDetails = () => <DetailsContainer>
     </PhoneContainer>
 
     <DetailsContent>
-        <FontAwesomeIcon icon={['fal', 'lock-open']} />
+        <FontAwesomeIcon icon={['fas', 'lock-open']} />
 
         <input id="decrypt-toggle" type="checkbox" />
         <label htmlFor="decrypt-toggle">

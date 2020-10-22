@@ -377,7 +377,7 @@ export default @observer class PricingPage extends React.Component {
 
         if (this.account.waitingForPurchase === tierCode) {
             return <Button>
-                <FontAwesomeIcon icon={['fal', 'spinner']} spin />
+                <FontAwesomeIcon icon={['fas', 'spinner']} spin />
             </Button>;
         } else if (paidTier === tierCode) {
             if (paidCycle === this.planCycle) {
@@ -427,7 +427,7 @@ export default @observer class PricingPage extends React.Component {
 
         const visibilityProps = getVisibilityProps(!!modal);
 
-        const spinner = <FontAwesomeIcon icon={['fal', 'spinner']} spin />;
+        const spinner = <FontAwesomeIcon icon={['fas', 'spinner']} spin />;
         const proPrice = getPlanMonthlyPrice('pro') || spinner;
         const teamPrice = getPlanMonthlyPrice('team') || spinner;
 
@@ -506,7 +506,7 @@ export default @observer class PricingPage extends React.Component {
                                     <li>Can only be used by one person</li>
                                     <li>Not transferrable between people</li>
                                 </TooltipUl>}>
-                                Personal user account <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                Personal user account <FontAwesomeIcon icon={['fas', 'info-circle']} />
                             </StyledTooltip>
                         </TierLicense>
                         <TierPriceBlock>
@@ -566,7 +566,7 @@ export default @observer class PricingPage extends React.Component {
                                     <li>Subscription covers a max number of linked team members</li>
                                     <li>Add or remove members from your team as required</li>
                                 </TooltipUl>}>
-                                Team account <FontAwesomeIcon icon={['far', 'info-circle']} />
+                                Team account <FontAwesomeIcon icon={['fas', 'info-circle']} />
                             </StyledTooltip>
                         </TierLicense>
                         <TierPriceBlock>

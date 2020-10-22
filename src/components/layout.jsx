@@ -93,7 +93,7 @@ const NavBurger = styled((props) => <a
     props.onClick(e);
   }}
 >
-  <FontAwesomeIcon icon={['far', 'bars']} size='2x' />
+  <FontAwesomeIcon icon={['fas', 'bars']} size='2x' />
 </a>)`
   position: absolute;
   top: 22px;
@@ -116,7 +116,7 @@ const NavClose = styled((props) => <LinkButton
     props.onClick(e);
   }}
 >
-  <FontAwesomeIcon icon={['far', 'times']} size='2x' />
+  <FontAwesomeIcon icon={['fas', 'times']} size='2x' />
 </LinkButton>)`
   && {
     position: absolute;

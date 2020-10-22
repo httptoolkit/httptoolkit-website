@@ -136,7 +136,7 @@ export default (props) => {
                 <h1>The HTTP Toolkit Docs</h1>
 
                 <GettingStartedTile to="/docs/getting-started/">
-                    <FontAwesomeIcon icon={['fal', 'rocket']} size='4x' />
+                    <FontAwesomeIcon icon={['fas', 'rocket']} size='4x' />
                     <h2>Quickstart Guide</h2>
                     <p>
                         New to HTTP Toolkit? Start here.

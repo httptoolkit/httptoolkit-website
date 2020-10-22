@@ -218,7 +218,7 @@ export const SimpleCorsRequest = (props) =>
     <Exposition>
         <Heading>
             Simple cross-origin request
-            <GoodHeadingIcon icon={['far', 'shipping-fast']} />
+            <GoodHeadingIcon icon={['fas', 'shipping-fast']} />
         </Heading>
         <Explanation>
             This is a <ExternalLink

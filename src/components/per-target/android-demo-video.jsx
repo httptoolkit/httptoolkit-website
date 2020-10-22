@@ -209,7 +209,7 @@ export const AndroidDemoVideo = () => {
                 if (!video) return;
                 video.requestFullscreen();
             }}>
-                View fullscreen <FontAwesomeIcon icon={['far', 'expand-arrows']} />
+                View fullscreen <FontAwesomeIcon icon={['fas', 'expand-arrows-alt']} />
             </MobileFullscreenButton> }
     </PhonePlusDesktopContainer>;
 }

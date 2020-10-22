@@ -32,7 +32,7 @@ export const getVisibilityProps = (isModalActive, isFunctionalComponent) => ({
 
 export const Modal = styled(({ className, children, isOpen, onClose }) => isOpen && <ModalWrapper>
     <div className={className}>
-        <FontAwesomeIcon icon={['far', 'times']} size='2x' onClick={onClose} />
+        <FontAwesomeIcon icon={['fas', 'times']} size='2x' onClick={onClose} />
         { children }
     </div>
 </ModalWrapper>)`

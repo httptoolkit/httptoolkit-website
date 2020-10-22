@@ -81,7 +81,7 @@ const FeaturesCard = styled.section`
 export const FeatureCards = () => <FeatureCardsBlock>
     <FeaturesCard>
         <h3>Debug</h3>
-        <FontAwesomeIcon icon={['fal', 'search']} size='3x' />
+        <FontAwesomeIcon icon={['fas', 'search']} size='3x' />
         <p>
             Effortlessly intercept & <strong>proxy any HTTP or HTTPS traffic</strong>
         </p>
@@ -94,7 +94,7 @@ export const FeatureCards = () => <FeatureCardsBlock>
     </FeaturesCard>
     <FeaturesCard>
         <h3>Test</h3>
-        <FontAwesomeIcon icon={['fal', 'stopwatch']} size='3x' />
+        <FontAwesomeIcon icon={['fas', 'stopwatch']} size='3x' />
         <p>
             <strong>Edit live requests & responses</strong>, to test your APIs & clients
         </p>
@@ -107,7 +107,7 @@ export const FeatureCards = () => <FeatureCardsBlock>
     </FeaturesCard>
     <FeaturesCard>
         <h3>Build</h3>
-        <FontAwesomeIcon icon={['fal', 'wrench']} size='3x' />
+        <FontAwesomeIcon icon={['fas', 'wrench']} size='3x' />
         <p>
             Mock servers or endpoints for <strong>rapid API prototyping</strong>
         </p>
