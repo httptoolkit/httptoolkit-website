@@ -147,7 +147,7 @@ export const DocsMenu = () => {
         .groupBy((doc) => {
             const { slug } = doc.fields;
             const slugParts = slug.split('/');
-            if (slugParts.length >= 2) {
+            if (slugParts.length > 2) {
                 return slug.split('/')[0];
             } else return '';
         })
