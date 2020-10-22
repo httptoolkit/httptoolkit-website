@@ -164,7 +164,7 @@ export default class WillItCors extends React.Component {
 
                 if (name === 'accept') return UNSAFE_HEADER_BYTES.some((b) => headerValue.includes(b));
                 if (name === 'accept-language' || name === 'content-language') {
-                    return !/^[0-9A-Za-z *,.;=\-]$/.match(headerValue);
+                    return !/^[0-9A-Za-z *,.;=\-]+$/.test(headerValue);
                 }
 
                 if (name === 'content-type') {
