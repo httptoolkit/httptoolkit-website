@@ -1,4 +1,4 @@
-
+import * as _ from 'lodash';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Router } from "@reach/router"
@@ -256,10 +256,10 @@ fetch("${ this.targetUrl }", ${
         { method: this.method },
         this.sendCredentials ? { credentials: 'include' } : {},
         !_.isEmpty(this.requestHeaders) ? {
-            headers: _(this.requestHeaders)
-                .keyBy(([headerName]) => headerName)
-                .mapValues(([headerName, headerValue]) => headerValue)
-                .valueOf()
+            headers: _.mapValues(
+                _.keyBy(this.requestHeaders, ([headerName]) => headerName),
+                ([headerName, headerValue]) => headerValue
+            )
         } : {},
     ), null, 4)
 });

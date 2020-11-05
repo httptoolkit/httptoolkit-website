@@ -143,16 +143,16 @@ export const DocsMenu = () => {
         }
     `)).allMarkdownRemark.edges.map(e => e.node);
 
-    const docGroups = _(docs)
-        .groupBy((doc) => {
+    const docGroups = _.mapValues(
+        _.groupBy(docs, (doc) => {
             const { slug } = doc.fields;
             const slugParts = slug.split('/');
             if (slugParts.length > 2) {
                 return slug.split('/')[0];
             } else return '';
-        })
-        .mapValues((group) => _.sortBy(group, g => g.frontmatter.order))
-        .valueOf();
+        }),
+        (group) => _.sortBy(group, g => g.frontmatter.order)
+    );
 
     return <DocsList>
         <DocsGroup title='Getting Started'>
