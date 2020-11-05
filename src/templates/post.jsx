@@ -146,6 +146,9 @@ const BlogPost = styled.article`
 
   code {
     font-weight: bold;
+    ${media.mobileOrTablet`
+      word-break: break-all !important;
+    `}
   }
 
   p > code, li > code, a > code {
@@ -157,6 +160,19 @@ const BlogPost = styled.article`
 
   .gatsby-highlight {
     margin-bottom: 30px;
+  }
+
+  iframe.video-embed {
+    margin: 0 auto 30px;
+    width: 100%;
+
+    ${media.desktop`
+      min-height: 390px;
+    `}
+
+    ${media.mobileOrTablet`
+      height: 50vw;
+    `}
   }
 `;
 
