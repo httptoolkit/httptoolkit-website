@@ -4,7 +4,9 @@ date: '2020-11-05T16:45'
 cover_image: './signing.jpg'
 ---
 
-To intercept HTTPS traffic, you need the HTTPS client to trust you before it will send you any requests. If you want to intercept your own HTTPS on Android, to capture & rewrite traffic from your Android device for debugging & testing, how do you do that?
+To intercept, inspect or manipulate HTTPS traffic, you need the HTTPS client to trust you.
+
+If you want to intercept your own HTTPS on Android, perhaps to capture & rewrite traffic from your Android device for debugging or testing, how do you do that?
 
 This isn't theoretical - [HTTP Toolkit](/android/) does exactly this, automatically intercepting HTTPS from real Android devices, for inspection, testing & mocking. To do so, it has to automatically ensure that it's trusted by HTTPS clients on Android devices, without breaking security on those devices completely (it would be a very bad idea to simply turn off certificate validation, for example). Here's a demo:
 
@@ -12,7 +14,7 @@ This isn't theoretical - [HTTP Toolkit](/android/) does exactly this, automatica
     <iframe class="video-embed" src="https://www.youtube.com/embed/ttf8IhfI0Ao" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 </center>
 
-Let's talk though how HTTPS clients in general manage this kind of trust, see how that works on Android specifically, and then look at how HTTP Toolkit gets around this to automatically set up trust and capture HTTPS traffic (and how you can do the same).
+Let's talk though how HTTPS clients in general manage this kind of trust, see how that works on Android specifically, and then look at how it's possible to get around this and intercept real HTTPS traffic.
 
 ## How HTTPS trust works
 
