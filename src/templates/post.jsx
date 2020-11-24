@@ -174,6 +174,15 @@ const BlogPost = styled.article`
       height: 50vw;
     `}
   }
+
+  figure {
+    figcaption {
+      margin-top: 10px;
+      text-align: center;
+      font-style: italic;
+    }
+    margin-bottom: 30px;
+  }
 `;
 
 const CoverImg = styled(Img)`
