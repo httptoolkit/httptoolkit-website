@@ -28,8 +28,8 @@ export const InspectFeature = (p) => <StaticQuery
 
             <FeatureDescription>
                 Skim through traffic with highlighting by content type, status
-                & source, or search by URL, status and headers to hunt down
-                the messages that matter.
+                & source, or use <strong>powerful filtering tools</strong> to precisely
+                match the messages that matter to you.
             </FeatureDescription>
 
             <FeatureDescription>
