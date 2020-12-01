@@ -61,15 +61,14 @@ To see more details on any row, click it to select it, and it'll be shown in the
 
 At the bottom of the list, there's a few useful controls:
 
-* A search bar. This filters the visible events by string matching, for their:
-    - Request methods.
-    - Request URL.
-    - Protocol (HTTP/HTTPS).
-    - Request header keys or values (use `key: value` to match both together).
-    - Response status code.
-    - Response status message.
-    - Response header keys or values.
-    - (Note that request & response bodies are not searched, for performance)
+* A search bar. This filters the visible events. You can focus it at any time with Ctrl+F (or Cmd+F on Mac).
+    * You can type text here and it'll be matched directly against the text of every part of every exchange, except the body itself (for performance reasons).
+    * You can also enter a structured filter, e.g. `status=200`
+        * When you enter text that matches a structured filter, an autosuggest for the filters you can create will appear. Select one with up/down and press enter to create it. You can also press up/down with no text entered to browse the full list of filters available.
+        * The created filters are shown as floating tags in the filter input box.
+        * You can precisely filter for every aspect of a request, from path to the presence of individual headers to body size, including various operators for each filter, such as "starts with" or "greater than".
+        * As you enter text, an explanation of the filter that will be created is shown below to the selected filter.
+        * [HTTP Toolkit Pro](/get-pro/) users can save sets of filters with their own custom name. To do this, create your filters, then type a string that doesn't match an existing filter, and select the 'Save filters' suggestion that's shown.
 * The number of events shown, if your current filter is hiding any events.
 * The total number of events in the list.
 * A button to pause/resume interception.
