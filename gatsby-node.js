@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
   createPage({
     path: `/download/osx-homebrew/`,
     component: downloadThankYou,
-    context: { downloadCommand: 'brew cask install http-toolkit' }
+    context: { downloadCommand: 'brew install --cask http-toolkit' }
   });
 
   // Create a 'download' page for the AUR install command
@@ -95,7 +95,7 @@ exports.createPages = ({ graphql, actions }) => {
   createPage({
     path: `/view/thank-you/osx-homebrew/`,
     component: downloadThankYou,
-    context: { downloadCommand: 'brew cask install http-toolkit' }
+    context: { downloadCommand: 'brew install --cask http-toolkit' }
   });
 
   createPage({
