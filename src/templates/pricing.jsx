@@ -611,22 +611,22 @@ export default @observer class PricingPage extends React.Component {
                     <ExistingAccountBlock>
                         Logged in as { user.email }.
                         <ExistingAccountButtons>
-                            { user.subscription.lastReceiptUrl &&
+                            { user.subscription?.lastReceiptUrl &&
                                 <ButtonExternalLink href={
                                     user.subscription.lastReceiptUrl
                                 }>View latest receipt</ButtonExternalLink>
                             }
-                            { user.subscription.updateBillingDetailsUrl &&
+                            { user.subscription?.updateBillingDetailsUrl &&
                                 <ButtonExternalLink href={
                                     user.subscription.updateBillingDetailsUrl
                                 }>Update billing info</ButtonExternalLink>
                             }
-                            { user.subscription.cancelSubscriptionUrl &&
+                            { user.subscription?.cancelSubscriptionUrl &&
                                 <ButtonExternalLink href={
                                     user.subscription.cancelSubscriptionUrl
                                 }>Cancel subscription</ButtonExternalLink>
                             }
-                            <ButtonLink onClick={logOut}>Log out</ButtonLink>
+                            <Button onClick={logOut}>Log out</Button>
                         </ExistingAccountButtons>
                     </ExistingAccountBlock>
                 : <ExistingAccountBlock>
