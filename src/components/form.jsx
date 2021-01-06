@@ -86,6 +86,12 @@ export const ButtonLink = styled(Link)`
     display: inline-block;
 `;
 
+export const ButtonExternalLink = styled.a`
+    ${ButtonStyles}
+    text-decoration: none;
+    display: inline-block;
+`;
+
 export const LinkButton = styled.button`
     /* Stop iOS messing with my input styling */
     -webkit-appearance: none;

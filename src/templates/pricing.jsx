@@ -16,7 +16,7 @@ import { logOut } from '../accounts/auth';
 
 import { Layout } from '../components/layout';
 import { FullWidthSection }from '../components/full-width-section';
-import { Button, ButtonLink, LinkButton } from '../components/form';
+import { Button, ButtonLink, LinkButton, ButtonExternalLink } from '../components/form';
 import { ModalWrapper, getVisibilityProps } from '../components/modal';
 import { DownloadWidget } from '../components/download-widget';
 
@@ -321,10 +321,23 @@ const CTAInstructions = styled.div`
     `}
 `;
 
-const LogoutBlock = styled.div`
+const ExistingAccountBlock = styled.div`
+    margin-top: 30px;
     width: 100%;
     text-align: center;
     padding: 10px 0 0;
+
+    ${p => p.theme.fontSizeTinyText};
+`;
+
+const ExistingAccountButtons = styled.div`
+    margin-top: 10px;
+
+    > * {
+        ${p => p.theme.fontSizeTinyText};
+        margin: 0 5px;
+        padding: 5px 10px;
+    }
 `;
 
 export default @observer class PricingPage extends React.Component {
@@ -422,7 +435,7 @@ export default @observer class PricingPage extends React.Component {
             getPlanStatus,
             hideFreePlan
         } = this;
-        const { user, isPaidUser, modal } = this.account;
+        const { user, isPaidUser, modal, login } = this.account;
         const { paidTier } = this.account.subscription;
 
         const visibilityProps = getVisibilityProps(!!modal);
@@ -453,10 +466,6 @@ export default @observer class PricingPage extends React.Component {
                         rel='noopener noreferrer'
                     >Read the FAQ</a> or <Link to="/contact/">get in touch</Link>.
                 </PricingIntroText>
-
-                { user.email && <LogoutBlock>
-                    Logged in as { user.email }. <LinkButton onClick={logOut}>Log out</LinkButton>.
-                </LogoutBlock> }
 
                 <PlanCycleToggle onClick={toggleCycle}>
                     <PlanCycle selected={planCycle === 'monthly'}>Monthly</PlanCycle>
@@ -597,6 +606,35 @@ export default @observer class PricingPage extends React.Component {
                         </TierFeatures>
                     </PricingTier>
                 </PricingTable>
+
+                { user.email ?
+                    <ExistingAccountBlock>
+                        Logged in as { user.email }.
+                        <ExistingAccountButtons>
+                            { user.subscription.lastReceiptUrl &&
+                                <ButtonExternalLink href={
+                                    user.subscription.lastReceiptUrl
+                                }>View latest receipt</ButtonExternalLink>
+                            }
+                            { user.subscription.updateBillingDetailsUrl &&
+                                <ButtonExternalLink href={
+                                    user.subscription.updateBillingDetailsUrl
+                                }>Update billing info</ButtonExternalLink>
+                            }
+                            { user.subscription.cancelSubscriptionUrl &&
+                                <ButtonExternalLink href={
+                                    user.subscription.cancelSubscriptionUrl
+                                }>Cancel subscription</ButtonExternalLink>
+                            }
+                            <ButtonLink onClick={logOut}>Log out</ButtonLink>
+                        </ExistingAccountButtons>
+                    </ExistingAccountBlock>
+                : <ExistingAccountBlock>
+                    Already have an account? <LinkButton onClick={login}>
+                        Log in
+                    </LinkButton>.
+                </ExistingAccountBlock> }
+
             </PricingContainer>
             {
                 (modal === 'checkout' && <ModalWrapper opacity={0.5}></ModalWrapper>) ||

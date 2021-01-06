@@ -60,6 +60,14 @@ export class AccountStore {
         return { paidTier, paidCycle, status };
     }
 
+    login = flow(function * () {
+        if (!this.isLoggedIn) {
+            this.modal = 'login';
+            yield showLoginDialog();
+            this.modal = null;
+        }
+    }).bind(this);
+
     buyPlan = flow(function * (tierCode, planCycle) {
         this.reportPlanSelected(tierCode);
         const plan = this.getPlan(tierCode, planCycle);
