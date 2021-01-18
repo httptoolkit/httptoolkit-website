@@ -13,6 +13,8 @@ HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an 
 - You can now run HTTP Toolkit from the shortcuts on your desktop & in the start menu
 - If a firewall warning appears, click 'Allow Access', to allow HTTP Toolkit to accept traffic from elsewhere on your network, such as from phones or other computers
 
+[A standalone portable zip](/download/win-standalone) version is also available, if you prefer.
+
 ## For Mac
 
 - Download the [MacOS .dmg file](/download/osx-dmg/)
@@ -22,7 +24,7 @@ HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an 
 - A MacOS "This is an application downloaded from the internet" prompt may appear;
   accept it and continue to start the application
 
-[Homebrew](/download/osx-homebrew/) & [standalone zip](/download/osx-standalone/) installs are also available, if you prefer.
+[Homebrew](/download/osx-homebrew/) install is also available, if you prefer.
 
 ## For Linux
 
@@ -38,7 +40,7 @@ HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an 
 ### Other Linuxes
 - Download the [standalone zip](/download/linux-standalone/)
 - Extract it on your machine
-- Run the `httptoolkit` binary from the `HTTP Toolkit-linux-x64` top-level folder in the resulting extracted files, to start the application.
+- Run the `httptoolkit` binary from the `HttpToolkit-linux-x64-<version>` top-level folder in the resulting extracted files to start the application.
 
 ## Next steps
 

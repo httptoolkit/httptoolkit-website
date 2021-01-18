@@ -57,12 +57,11 @@ exports.createPages = ({ graphql, actions }) => {
   // Create a download page for each available download
   const downloadThankYou = path.resolve('./src/templates/download-thank-you.jsx');
   _.forEach({
-    'win-exe': `v${LATEST_VERSION}/HTTP.Toolkit-${LATEST_VERSION}.Setup.exe`,
-    'win-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-win32-x64-${LATEST_VERSION}.zip`,
-    'linux-deb': `v${LATEST_VERSION}/httptoolkit_${LATEST_VERSION}_amd64.deb`,
-    'linux-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-linux-x64-${LATEST_VERSION}.zip`,
-    'osx-dmg': `v${LATEST_VERSION}/HTTP.Toolkit.dmg`,
-    'osx-standalone': `v${LATEST_VERSION}/HTTP.Toolkit-darwin-x64-${LATEST_VERSION}.zip`
+    'win-exe': `v${LATEST_VERSION}/HttpToolkit-installer-${LATEST_VERSION}.exe`,
+    'win-standalone': `v${LATEST_VERSION}/HttpToolkit-win-x64-${LATEST_VERSION}.zip`,
+    'linux-deb': `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.deb`,
+    'linux-standalone': `v${LATEST_VERSION}/HttpToolkit-linux-x64-${LATEST_VERSION}.zip`,
+    'osx-dmg': `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.dmg`,
   }, (releasePath, downloadId) => {
       createPage({
         path: `/download/${downloadId}/`,
