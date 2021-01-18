@@ -197,6 +197,13 @@ export class DownloadWidget extends React.Component {
         } else {
             const selectedDetails = DOWNLOAD_OPTIONS[selectedId];
 
+            const downloadOptionOrder = selectedId
+                ? _.flatten(
+                    // Show the current platform options first, then the rest:
+                    _.partition(Object.keys(DOWNLOAD_OPTIONS), k => selectedId.startsWith(k.split('-')[0]))
+                )
+                : Object.keys(DOWNLOAD_OPTIONS);
+
             return <DownloadWidgetContainer
                 className={className}
                 ref={(ref) => this.containerRef = ref}
@@ -221,14 +228,14 @@ export class DownloadWidget extends React.Component {
                     dropdownOpen={dropdownOpen}
                     hasSpaceAvailable={this.isDownloadOptionsSpaceAvailable()}
                 >
-                    { _.map(DOWNLOAD_OPTIONS, (downloadDetails, downloadId) =>
+                    { _.map(downloadOptionOrder, (downloadId) =>
                         <DownloadOption
                             key={downloadId}
                             to={`/download/${downloadId}/`}
                             selected={selectedId === downloadId}
                         >
-                            <FontAwesomeIcon icon={['fab', downloadDetails.icon]} fixedWidth />
-                            {downloadDetails.name}
+                            <FontAwesomeIcon icon={['fab', DOWNLOAD_OPTIONS[downloadId].icon]} fixedWidth />
+                            {DOWNLOAD_OPTIONS[downloadId].name}
                         </DownloadOption>
                     ) }
                 </DownloadOptions>
