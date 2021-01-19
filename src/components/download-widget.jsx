@@ -10,6 +10,7 @@ import { MailchimpSignupForm } from './mailchimp-signup-form';
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },
     'win-standalone': { name: 'Windows Standalone Zip', platform: 'Windows', icon: 'windows' },
+    'win-winget': { name: 'Windows via Winget', platform: 'Windows', icon: 'windows' },
     'linux-deb': { name: 'Linux Debian Package', platform: 'Linux (Deb)', icon: 'linux' },
     'linux-aur': { name: 'Linux Arch Package via AUR', platform: 'Linux (Arch)', icon: 'linux' },
     'linux-standalone': { name: 'Linux Standalone Zip', platform: 'Linux', icon: 'linux' },
