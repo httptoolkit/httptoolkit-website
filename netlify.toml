@@ -27,6 +27,13 @@
   status = 301
 
 [[redirects]]
+  # Redirect View downloads requests to new download pages
+  from = "/view/thank-you/*"
+  to = "/download/:splat"
+  force = true
+  status = 301
+
+[[redirects]]
   # Redirect View subpage requests to root pages
   from = "/view/*"
   to = "/:splat"

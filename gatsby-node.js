@@ -68,12 +68,6 @@ exports.createPages = ({ graphql, actions }) => {
         component: downloadThankYou,
         context: { releasePath }
       });
-      // Create a /view/thank-you/ page for each too, for historical reasons
-      createPage({
-        path: `/view/thank-you/${downloadId}/`,
-        component: downloadThankYou,
-        context: { releasePath }
-      });
   });
 
   // Create a 'download' page for the homebrew install command
@@ -86,19 +80,6 @@ exports.createPages = ({ graphql, actions }) => {
   // Create a 'download' page for the AUR install command
   createPage({
     path: `/download/linux-aur/`,
-    component: downloadThankYou,
-    context: { downloadCommand: 'yay -S httptoolkit' }
-  });
-
-  // The same, for /view (purely for historical reasons):
-  createPage({
-    path: `/view/thank-you/osx-homebrew/`,
-    component: downloadThankYou,
-    context: { downloadCommand: 'brew install --cask http-toolkit' }
-  });
-
-  createPage({
-    path: `/view/thank-you/linux-aur/`,
     component: downloadThankYou,
     context: { downloadCommand: 'yay -S httptoolkit' }
   });
