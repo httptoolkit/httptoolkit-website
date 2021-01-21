@@ -80,6 +80,13 @@ const BlogPost = styled.article`
   }
 
   h3 {
+    ${p => p.theme.fontSizeNearlyHeading};
+    color: ${p => p.theme.mainColor};
+    line-height: 1.45;
+    margin-bottom: 30px;
+  }
+
+  h4 {
     font-weight: bold;
     ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.mainColor};
