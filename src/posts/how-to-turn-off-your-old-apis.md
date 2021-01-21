@@ -49,7 +49,7 @@ Once you've told the humans, it's time to tell the computers. This is where the 
 
 ### The Deprecation Header
 
-The [Deprecation header](https://datatracker.ietf.org/doc/rfc8594/?include_text=1) tells clients that the requested resource still works as before, but is no longer recommended. You can state that very simply with a single HTTP header:
+The [Deprecation header](https://datatracker.ietf.org/doc/draft-ietf-httpapi-deprecation-header/?include_text=1) tells clients that the requested resource still works as before, but is no longer recommended. You can state that very simply with a single HTTP header:
 
 ```
 Deprecation: true
