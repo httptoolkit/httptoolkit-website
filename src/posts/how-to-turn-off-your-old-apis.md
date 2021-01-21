@@ -136,9 +136,17 @@ Link: <https://api.example.com/v2/customers>; rel="successor-version",
     <https://developer.example.com/shutting-down-customers-v1>; rel="deprecation"
 ```
 
+## Progressive shutdowns
+
+Once all that's in place, and your sunset deadline has passed, you're good to go.
+
+That doesn't mean you need to immediately kill the API completely though. Progressive shutdowns can help ensure that any clients still using this API get a last-chance warning before it disappears completely. GitHub [did this](https://github.blog/2018-02-01-crypto-removal-notice/) when removing some crypto support in 2018: first they disabled it for one hour, then reenabled it, then they disabled it permanently two weeks later.
+
+There's other tricks too: Android [added increasing delays to deprecated native APIs](https://twitter.com/jbaruch/status/930476565065953280) in 2015, eventually going up to a full 16 second wait, before finally turning off the API entirely. These progressive shutdowns provide a little flexibility for clients who miss your deadline, and may help clients who haven't noticed the deprecation spot and deal with the issue before the API turns off completely.
+
 ## Flip the switch
 
-Once all that's in place, and your sunset deadline has passed, you're good to go. Turn off the endpoint/feature/entire service, delete the code, and finally go take that nap.
+Either way, once you've done the best you can to communicate the shutdown, it's time to turn off the endpoint/feature/entire service, delete the code, and finally go take that nap.
 
 Doing deprecations and shutdowns carefully like this makes it as clear as possible to your clients how they can depend on your API, when they need to take action, and what they need to do. These kind of changes can be a big deal, and this information is important!
 
