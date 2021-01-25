@@ -18,7 +18,7 @@ First up: check if the API in question actually has any clients.
 
 Hopefully you have some API metrics or at least logging somewhere. If you don't, add some! If you do, and you can tell for sure that nobody is using this API anymore, then you win. Turn it off right now, delete the code, skip this article and have a well-deserved nap.
 
-The next question, if you're not napping, is to ask yourself is whether there's an alternative to shutting down this API. Everything you turn off will break somebody's code and take their time to fix it. It's good for the health of your client ecosystem and the web as a whole if APIs keep working.
+The next question, if you're not napping, is to ask yourself whether there's an alternative to shutting down this API. Everything you turn off will break somebody's code and take their time to fix it. It's good for the health of your client ecosystem and the web as a whole if APIs keep working.
 
 In many cases, old APIs can be translated internally, to transparently transform requests into calls to a new API instead, without maintaining two completely independent versions. This is a fundamental part of [the API versioning approach at Stripe](https://stripe.com/blog/api-versioning#versioning-under-the-hood) who include transformations with all API changes to ensure that requests for incompatible old versions continue to work as before, automatically translating the requests and responses to use the newer code as required.
 
@@ -63,7 +63,7 @@ Deprecation: Thu, 21 Jan 2021 23:59:59 GMT
 
 If you're deprecating the whole endpoint or service, you can just return this with every response. If you're deprecating a specific feature, perhaps a parameter, request method, or a certain field in the request body, then you want to just return this in requests when that feature is used.
 
-To give the client more information, you can use `Link` HTTP response headers to link to endpoints or human-readable documentation elsewhere. You can more than one of these in combination in the same `Link` header, by just comma-separating them (we'll see a full example later). The spec defines 4 links related to deprecation:
+To give the client more information, you can use `Link` HTTP response headers to link to endpoints or human-readable documentation elsewhere. You can include more than one of these in combination in the same `Link` header, by just comma-separating them (we'll see a full example later). The spec defines 4 links related to deprecation:
 
 #### Deprecation links
 
