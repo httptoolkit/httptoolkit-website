@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
 
 export const getVisibilityProps = (isModalActive, isFunctionalComponent) => ({
     'aria-hidden': isModalActive,
-    'inert': isModalActive,
+    'inert': isModalActive ? true : undefined,
 
     // 'inert' doesn't actually work - it's non-standard, so we need this:
     [isFunctionalComponent ? 'innerRef' : 'ref']:
