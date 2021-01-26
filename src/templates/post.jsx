@@ -316,7 +316,7 @@ const WebShare = styled((p) =>
 export default ({ data, location }) => {
   const post = data.markdownRemark;
   const { slug } = post.fields;
-  const postUrl = `https://httptoolkit.tech/blog/${slug}/`;
+  const postUrl = `https://httptoolkit.tech/blog/${slug}`;
   const { frontmatter } = post;
   const { title } = frontmatter;
   const publishDate = moment.utc(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
@@ -337,7 +337,6 @@ export default ({ data, location }) => {
       <Helmet>
         <title>{title} | HTTP Toolkit</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={postUrl} />
 
         <meta property="og:title"       content={title} />
         <meta property="og:description" content={post.excerpt} />
