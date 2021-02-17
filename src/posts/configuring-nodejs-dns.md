@@ -76,7 +76,7 @@ There's two key things we can do to improve on Node's defaults:
 * We should cache all lookups in memory in node (according to the DNS record's TTL) so that we don't block libuv and (so far as possible) our application doesn't unnecessarily wait for DNS resolutions elsewhere.
 * We should configure reliable & fast DNS servers, to improve performance, and make us more resilient to any individual DNS failure.
 
-You could even go further with this, and add custom logic to our DNS resolution to do more exciting & wild things. It's just a function, you can resolve things however you like! For example, **[HTTP Toolkit](https://httptoolkit.tech)**'s upcoming automatic Docker interception reconfigures its DNS so that it can resolve traffic between docker container network aliases automatically, from a node process running entirely outside docker (yes, building that is the original reason I started down this whole rabbit hole).
+You could even go further with this, and add custom logic to our DNS resolution to do more exciting & wild things. It's just a function, you can resolve things however you like! For example, **[HTTP Toolkit](https://httptoolkit.tech/javascript/)**'s upcoming automatic Docker interception reconfigures its DNS so that it can resolve traffic between docker container network aliases automatically, from a node process running entirely outside docker (yes, building that is the original reason I started down this whole rabbit hole).
 
 This is powerful, and there's a whole world of resolution games available with custom `lookup` functions, for everything from unusual service discovery approaches to monitoring & measuring your DNS queries.
 
@@ -113,7 +113,7 @@ If you'd like to add DNS servers, rather than replacing the default DNS configur
 
 When multiple servers are configured, subsequent servers are queried only when the first server is inaccessible or fail to respond correctly. They're not used if the first server explicitly returns a `NOTFOUND` response.
 
-For all hostnames that can't be resolved by these servers (for any reason at all) by default cacheable-lookup will then fall back to `dns.lookup`, and cache that result as normal. This is really useful for apps like **[HTTP Toolkit](https://httptoolkit.tech)** that are heavily used by developers, and so are often used with local servers and unusual network configurations, but it might not be applicable in other cases.
+For all hostnames that can't be resolved by these servers (for any reason at all) by default cacheable-lookup will then fall back to `dns.lookup`, and cache that result as normal. This is really useful for apps like **[HTTP Toolkit](https://httptoolkit.tech/javascript/)** that are heavily used by developers, and so are often used with local servers and unusual network configurations, but it might not be applicable in other cases.
 
 If you frequently make requests to domains that don't resolve then this extra step could create its own performance problems, so if you don't need this for your case then you can disable it by passing a `lookup: false` option.
 
@@ -133,4 +133,4 @@ In general even if this doesn't help it won't hurt, except for two specific case
 
 Hopefully that's a useful way to quickly improve the performance & reliability of your node network requests. Have any thoughts or questions? Feel free to in touch on [Twitter](https://twitter.com/pimterry) or [directly](/contact).
 
-**Debugging APIs or HTTP clients, and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.tech/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**
+**Debugging APIs or HTTP clients, and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.tech/javascript/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**

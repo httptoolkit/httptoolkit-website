@@ -103,6 +103,10 @@ const BlogPost = styled.article`
     margin-bottom: 30px;
   }
 
+  hr {
+    margin-bottom: 30px;
+  }
+
   > div > p:first-child {
     margin-top: 60px;
   }
