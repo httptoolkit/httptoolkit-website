@@ -1,9 +1,9 @@
 import React from "react";
 import Helmet from 'react-helmet';
 import moment from 'moment';
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 import Img from 'gatsby-image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { siteMetadata } from '../../gatsby-config.js';
 
@@ -187,6 +187,7 @@ const BlogPost = styled.article`
   }
 
   figure {
+    text-align: center;
     figcaption {
       margin-top: 10px;
       text-align: center;
