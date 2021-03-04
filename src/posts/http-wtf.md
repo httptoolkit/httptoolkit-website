@@ -74,7 +74,7 @@ Most of the time, this is a no-op. If you've started sending a request, you were
 
 This becomes useful though if you send a request including a `Expect: 100-continue` header. That header tells the server you expect a 100 response, and you're not going to send the full request body until you receive it.
 
-Sending `Expect: 100-continue` allows the server to decide if it wants to receive the whole body, which might take a lot of time/bandwidth. If the URL & headers are enough for it to already send a response (e.g. to reject a file upload) this is a quick and efficient way to do that. If the server does want to receive the full body, it sends an interim 101 response, the client continues, and then the server handles the complete request as normal when it's done.
+Sending `Expect: 100-continue` allows the server to decide if it wants to receive the whole body, which might take a lot of time/bandwidth. If the URL & headers are enough for it to already send a response (e.g. to reject a file upload) this is a quick and efficient way to do that. If the server does want to receive the full body, it sends an interim 100 response, the client continues, and then the server handles the complete request as normal when it's done.
 
 ### HTTP 101
 
