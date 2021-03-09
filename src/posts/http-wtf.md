@@ -165,7 +165,7 @@ The `Sec-WebSocket-Accept` key here is interesting. This is designed to stop cac
 
 This is deeply weird. A single fixed random UUID that's used in the setup of every single websocket forever? Appending strings to base64 strings without decoding, and then base64-ing the result again too?
 
-The idea is that this logic isn't something that could be happen by accident, or something that could ever be used elsewhere, to guarantee that both parties are intentionally starting a websocket connection. This confirms that the server or proxy isn't used cached data without understanding it, and the client hasn't been tricked into opening a websocket connection that it doesn't understand.
+The idea is that this logic isn't something that could happen by accident, or something that could ever be used elsewhere, to guarantee that both parties are intentionally starting a websocket connection. This confirms that the server or proxy isn't used cached data without understanding it, and the client hasn't been tricked into opening a websocket connection that it doesn't understand.
 
 This totally works, it's widely used and quick & easy to implement, which is all great, but it's wild that every websocket connection in the world relies on one magic UUID.
 
