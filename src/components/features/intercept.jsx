@@ -44,21 +44,23 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureSubHeading>
 
             <FeatureDescription>
-                Automatic setup for targeted interception of HTTP & HTTPS
+                Automatic setup for targeted interception of HTTP &amp; HTTPS
                 from most clients, including:
             </FeatureDescription>
 
             <LinkedFeatureList>
-                <li>Desktop browsers like <strong>Chrome, Edge & Firefox</strong></li>
+                <li>Desktop browsers like <strong>Chrome, Edge &amp; Firefox</strong></li>
                 <li><Link to="/android/">
                     Android
                 </Link> applications and browsers</li>
-                <li>Backend & scripting languages, like&nbsp;
+                <li>Backend &amp; scripting languages, like&nbsp;
                     <Link to="/javascript/">
                         Node.js
                     </Link>, <Link to="/python/">
                         Python
-                    </Link> & <Link to="/ruby/">
+                    </Link>, <Link to="/java/">
+                        Java
+                    </Link> &amp; <Link to="/ruby/">
                         Ruby
                     </Link>
                 </li>

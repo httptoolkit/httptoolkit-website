@@ -83,26 +83,26 @@ export const FeatureCards = () => <FeatureCardsBlock>
         <h3>Debug</h3>
         <FontAwesomeIcon icon={['fas', 'search']} size='3x' />
         <p>
-            Effortlessly intercept & <strong>proxy any HTTP or HTTPS traffic</strong>
+            Effortlessly intercept &amp; <strong>proxy any HTTP or HTTPS traffic</strong>
         </p>
         <p>
-            <strong>Search, explore & inspect</strong> HTTP requests & responses
+            <strong>Search, explore &amp; inspect</strong> HTTP requests &amp; responses
         </p>
         <p>
-            <strong>One-click setup</strong> for Chrome, Node.js, Ruby, Python & more
+            <strong>One-click setup</strong> for Chrome, Node.js, Java, Python &amp; more
         </p>
     </FeaturesCard>
     <FeaturesCard>
         <h3>Test</h3>
         <FontAwesomeIcon icon={['fas', 'stopwatch']} size='3x' />
         <p>
-            <strong>Edit live requests & responses</strong>, to test your APIs & clients
+            <strong>Edit live requests &amp; responses</strong>, to test your APIs &amp; clients
         </p>
         <p>
-            <strong>Simulate HTTP errors</strong>, timeouts & failed connections
+            <strong>Simulate HTTP errors</strong>, timeouts &amp; failed connections
         </p>
         <p>
-            Validate request performance and <strong>debug caching & compression</strong>
+            Validate request performance and <strong>debug caching &amp; compression</strong>
         </p>
     </FeaturesCard>
     <FeaturesCard>

@@ -18,33 +18,36 @@ export const GettingStartedSteps = styled.ol`
             margin-bottom: 20px;
         }
 
+        display: flex;
+        align-items: flex-start;
+
         &:before {
             content: counter(item);
+            flex-grow: 0;
+            flex-shrink: 0;
 
             ${p => p.theme.fontSizeText};
             font-weight: bold;
             box-sizing: border-box;
 
             ${media.desktop`
-                width: 42px;
-                padding: 8px 9px 9px 8px;
-                margin: 0 20px 0 0;
+                flex-basis: 42px;
+                padding: 8px 8px 9px 7px;
+                margin: -4px 20px 0 0;
             `}
             ${media.tablet`
-                width: 36px;
-                padding: 8px 9px 8px 8px;
+                flex-basis: 36px;
+                padding: 8px 8px 8px 7px;
                 margin: 0 20px 0 0;
             `}
             ${media.mobile`
-                width: 36px;
-                padding: 4px 5px 4px 4px;
-                margin: 0 10px -4px 0;
-                float: left;
+                flex-basis: 36px;
+                padding: 6px 10px 7px 9px;
+                margin: 0 10px 0 0;
             `}
 
             text-align: center;
 
-            display: inline-block;
             border-radius: 50%;
             background: ${p => p.theme.primaryInputBackground};
             color: ${p => p.theme.mainBackground};
