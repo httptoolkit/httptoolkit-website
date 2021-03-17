@@ -77,10 +77,10 @@ export default (props) => (<Layout location={props.location}>
             There's some legal text below which formally defines how you're allowed to use HTTP Toolkit, this website, and your HTTP Toolkit user account. It looks serious, but it's all fairly standard boilerplate.
         </TermsDisclaimer>
         <TermsDisclaimer>
-            It's important to note that these terms don't limit your open-source freedoms, as defined in the relevant project licenses. The below only applies to the hosted service (e.g. <a href="https://httptoolkit.tech">httptoolkit.tech</a> and <a href="https://app.httptoolkit.tech">app.httptoolkit.tech</a>) and user accounts.
+            The rules here apply if you're using the hosted services (e.g. httptoolkit.tech and app.httptoolkit.tech) and user accounts, or the published application binaries. This does not limit your open-source freedoms, and if you're building HTTP Toolkit yourself on your own infrastructure then only the open-source licenses apply.
         </TermsDisclaimer>
         <TermsDisclaimer>
-            If you're building & hosting HTTP Toolkit yourself, without using these services, only the open-source licenses apply.
+            Note that the binaries specifically are dual-licensed: they're available under either the <a href="https://github.com/httptoolkit/httptoolkit-desktop/blob/master/LICENSE">AGPL v3</a>, guaranteeing open-source freedoms within the constraints of AGPL, or under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons BY-ND license</a>, allowing unencumbered licensing for simple unmodified use.
         </TermsDisclaimer>
         <Terms>
             <h1>Terms of Service ("Terms")</h1>
@@ -94,6 +94,10 @@ export default (props) => (<Layout location={props.location}>
             <h2>Use License</h2>
 
             <p>All materials provided through the Services are the copyright of HTTP Toolkit, except where explicitly stated. The name, logos and trademarks of HTTP Toolkit may not be used outside of the terms provided without explicit approval from HTTP Toolkit.</p>
+
+            <p>The licenses for the source code of open-source software distributed and referenced within the Services is documented primarily by the source code of that software, and the terms here do not limit or otherwise affect those licenses.</p>
+
+            <p>The HTTP Toolkit application downloadable from the httptoolkit.tech may be used under the terms of one of two possible licenses: the GNU Affero General Public License v3.0 (AGPL-3.0) or the Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) license, according to your needs.</p>
 
             <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement. Unless you inform us otherwise, you allow HTTP Toolkit to use your company name and logo, exclusively to identify your organization as a user of HTTP Toolkit, without implying any further endorsement or relationship. To opt out of this, please contact us and we'll ensure your name and logo is never used in any future HTTP Toolkit materials, and is removed from any in which they currently appear.</p>
 
