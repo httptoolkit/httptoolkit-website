@@ -195,6 +195,11 @@ const BlogPost = styled.article`
     }
     margin-bottom: 30px;
   }
+
+  img {
+    // Only applies to unprocessed images, e.g. gifs:
+    max-width: 100%;
+  }
 `;
 
 const CoverImg = styled(Img)`

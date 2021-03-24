@@ -33,7 +33,9 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 1024,
-              quality: 90
+              quality: 90,
+              maxHeight: 600,
+              fit: `inside`
             },
           },
           {
@@ -44,6 +46,10 @@ module.exports = {
           },
           {
             resolve: `gatsby-remark-prismjs`,
+            options: {}
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
             options: {}
           },
         ],
