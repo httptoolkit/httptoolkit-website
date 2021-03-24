@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { styled, ThemeProvider, media, getGlobalStyles, theme, css } from '../styles';
+import { styled, ThemeProvider, media, fontStyles, GlobalStyles, theme, css } from '../styles';
 
 import logo from '../images/logo.svg';
 
@@ -190,8 +190,6 @@ export class Layout extends React.Component {
   }
 
   render() {
-    const GlobalStyles = getGlobalStyles();
-
     const { modalIsActive, location } = this.props;
     const visibilityProps = getVisibilityProps(modalIsActive);
 
@@ -260,6 +258,8 @@ export class Layout extends React.Component {
               }
           })}
           </script>
+
+          <style>{ fontStyles }</style>
         </Helmet>
 
         <Header {...visibilityProps}>

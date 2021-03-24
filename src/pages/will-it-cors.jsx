@@ -9,7 +9,7 @@ import { observer } from 'mobx-react';
 import "prismjs/themes/prism-tomorrow.css";
 import logo from '../images/logo.svg';
 
-import { styled, ThemeProvider, media, getGlobalStyles, theme } from '../styles';
+import { styled, ThemeProvider, media, fontStyles, GlobalStyles, theme } from '../styles';
 import {
     ExternalLink,
     getHeaderValue,
@@ -304,8 +304,6 @@ ${
     render() {
         const { navigate } = this.props;
 
-        const GlobalStyles = getGlobalStyles();
-
         return <ThemeProvider theme={theme}>
             <Main>
                 <GlobalStyles />
@@ -343,6 +341,8 @@ ${
                     <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
 
                     <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
+
+                    <style>{ fontStyles }</style>
                 </Helmet>
 
                 <PageContent>
