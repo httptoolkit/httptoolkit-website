@@ -50,12 +50,6 @@ export const BlogSubscribe = (props) => {
                     : 'like these'
             } via <SubscribeLink href='/rss.xml'>
                     RSS <FontAwesomeIcon icon={['fas', 'rss-square']} />
-            </SubscribeLink>, by following <SubscribeLink
-                href='https://twitter.com/intent/user?screen_name=httptoolkit'
-                target='_blank'
-                rel='noopener noreferrer'
-            >
-                HTTP Toolkit on Twitter <FontAwesomeIcon icon={['fab', 'twitter']} />
             </SubscribeLink>, or with new posts sent straight to your inbox:
             <MailchimpSignupForm
                 action={'https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&id=001b24c3da&SOURCE=blog:subscribe'}
