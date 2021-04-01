@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { styled, media } from '../styles';
 
@@ -20,15 +19,6 @@ const SubscribeText = styled.div`
     }
 `;
 
-const SubscribeLink = styled.a`
-    font-weight: bold;
-    color: ${p => p.theme.primaryInputBackground};
-
-    &:hover {
-        color: ${p => p.theme.popColor};
-    }
-`;
-
 const SubscribeCTAContainer = styled.div`
     background-color: ${p => p.theme.containerBackground};
     border-left: 3px solid ${p => p.theme.popColor};
@@ -44,13 +34,11 @@ const SubscribeCTAContainer = styled.div`
 export const BlogSubscribe = (props) => {
     return <SubscribeCTAContainer>
         <SubscribeText>
-            <strong>Become an HTTP &amp; debugging expert</strong> by subscribing to hear about new posts {
+            <strong>Become an HTTP &amp; debugging expert</strong> by subscribing to receive {
                 props.inPostFooter
-                    ? 'like this'
-                    : 'like these'
-            } via <SubscribeLink href='/rss.xml'>
-                    RSS <FontAwesomeIcon icon={['fas', 'rss-square']} />
-            </SubscribeLink>, or with new posts sent straight to your inbox:
+                    ? 'more posts like this'
+                    : 'new posts like these'
+            } emailed straight to your inbox:
             <MailchimpSignupForm
                 action={'https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&id=001b24c3da&SOURCE=blog:subscribe'}
                 emailTitle={'Enter your email to stay up to date with new blog posts & updates'}
