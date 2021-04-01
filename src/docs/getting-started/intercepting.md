@@ -18,7 +18,7 @@ You can click options here to intercept different clients, or search the options
 
 _This step assumes you have Chrome installed._
 
-Let's start by intercepting Chrome. Click the 'Fresh Chrome' interception option to launch a new Chrome instance. A Chrome window should appear within a few seconds, showing [AmIUsing.httptoolkit.tech](https://AmIUsing.httptoolkit.tech), a test site which you can use to confirm whether your connection is being intercepted:
+Let's start by intercepting Chrome. Click the 'Chrome' interception option to launch a new Chrome instance. A Chrome window should appear within a few seconds, showing [AmIUsing.httptoolkit.tech](https://AmIUsing.httptoolkit.tech), a test site which you can use to confirm whether your connection is being intercepted:
 
 ![A Chrome window showing the intercepted AmIUsing page](./fresh-chrome-amiusing.png)
 
@@ -26,7 +26,7 @@ This uses a separate Chrome profile, so will start as a clean browser, disconnec
 
 Once Chrome has opened, you will see all traffic that it has sent and received on the 'View' page in HTTP Toolkit. Each request is shown on the left in the order they were sent, and they can be clicked to see their full details in the panel on the right.
 
-Initially you'll see a few requests that Chrome itself sends during startup. Visit another URL (why not try this page?) to explore the requests & responses of other web pages & applications.
+Initially, you'll see a few requests that Chrome itself sends during startup. Visit another URL (why not try this page?) to explore the requests & responses of other web pages & applications.
 
 ## Intercepting HTTP from Node.js
 
@@ -46,7 +46,7 @@ $ node
 
 ![An intercepted example.com request in HTTP Toolkit](./node-example.com-request.png)
 
-HTTP requests sent by almost all Node.js HTTP & HTTPS clients will be intercepted automatically, in addition to requests from most clients for Ruby, Python, PHP, cURL, and many other languages & tools.
+HTTP requests sent by almost all Node.js HTTP & HTTPS clients will be intercepted automatically, in addition to requests from most clients for Python, Java, Ruby, PHP, cURL, and many other languages & tools.
 
 ## Manually intercepting HTTP clients
 

@@ -9,7 +9,7 @@ HTTP Toolkit is available for Windows, Mac & Linux. To get started, download an 
 ## For Windows
 
 - Download and run [the Windows installer](/download/win-exe/)
-- A spinner will appear whilst the installer runs, wait for it to complete
+- A progress bar will appear whilst the installer runs, wait for it to complete
 - You can now run HTTP Toolkit from the shortcuts on your desktop & in the start menu
 - If a firewall warning appears, click 'Allow Access', to allow HTTP Toolkit to accept traffic from elsewhere on your network, such as from phones or other computers
 
