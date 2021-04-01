@@ -1,6 +1,6 @@
 ---
 title: What are CORS proxies, and when are they safe?
-date: '2021-04-01T10:20'
+date: '2021-04-01T09:30'
 cover_image: './broken-paperclip.png'
 ---
 
