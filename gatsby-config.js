@@ -35,7 +35,9 @@ module.exports = {
               maxWidth: 1024,
               quality: 90,
               maxHeight: 600,
-              fit: `inside`
+              fit: `inside`,
+              backgroundColor: 'transparent',
+              disableBgImageOnAlpha: true
             },
           },
           {
