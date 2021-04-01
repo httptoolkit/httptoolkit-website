@@ -14,6 +14,10 @@ const SubscribeText = styled.div`
     ${media.mobile`
         line-height: 1.4;
     `}
+
+    > form {
+        margin-top: 10px;
+    }
 `;
 
 const SubscribeLink = styled.a`
@@ -37,44 +41,29 @@ const SubscribeCTAContainer = styled.div`
     `}
 `;
 
-const CTAItem = styled.li`
-    margin-top: 10px;
-`;
-
 export const BlogSubscribe = (props) => {
     return <SubscribeCTAContainer>
         <SubscribeText>
-            <strong>{
+            <strong>Become an HTTP &amp; debugging expert</strong> by subscribing to hear about new posts {
                 props.inPostFooter
-                    ? 'Subscribe to more posts like this'
-                    : 'Subscribe to new posts like these'
-            }</strong>
-            <ul>
-                <CTAItem>
-                    via <SubscribeLink href='/rss.xml'>
-                        RSS <FontAwesomeIcon icon={['fas', 'rss-square']} />
-                    </SubscribeLink>
-                </CTAItem>
-                <CTAItem>
-                    by following <SubscribeLink
-                        href='https://twitter.com/intent/user?screen_name=httptoolkit'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                    >
-                        HTTP Toolkit on Twitter <FontAwesomeIcon icon={['fab', 'twitter']} />
-                    </SubscribeLink>
-                </CTAItem>
-                <CTAItem>
-                    or with new posts sent straight to your inbox:
-                    <MailchimpSignupForm
-                        action={'https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&id=001b24c3da&SOURCE=blog:subscribe'}
-                        emailTitle={'Enter your email to stay up to date with new blog posts & updates'}
-                        privacyPolicy={'No spam, just new blog posts hot off the press'}
-                        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_001b24c3da"}
-                        submitText={'Subscribe'}
-                    />
-                </CTAItem>
-            </ul>
-            </SubscribeText>
+                    ? 'like this'
+                    : 'like these'
+            } via <SubscribeLink href='/rss.xml'>
+                    RSS <FontAwesomeIcon icon={['fas', 'rss-square']} />
+            </SubscribeLink>, by following <SubscribeLink
+                href='https://twitter.com/intent/user?screen_name=httptoolkit'
+                target='_blank'
+                rel='noopener noreferrer'
+            >
+                HTTP Toolkit on Twitter <FontAwesomeIcon icon={['fab', 'twitter']} />
+            </SubscribeLink>, or with new posts sent straight to your inbox:
+            <MailchimpSignupForm
+                action={'https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&id=001b24c3da&SOURCE=blog:subscribe'}
+                emailTitle={'Enter your email to stay up to date with new blog posts & updates'}
+                privacyPolicy={'No spam, just new blog posts hot off the press'}
+                hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_001b24c3da"}
+                submitText={'Subscribe'}
+            />
+        </SubscribeText>
     </SubscribeCTAContainer>
 };
