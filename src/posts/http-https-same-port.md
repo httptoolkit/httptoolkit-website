@@ -8,6 +8,8 @@ Traditionally, a TCP port has a single server listening for incoming connections
 
 This is boring.
 
+What if you could accept everything, from proxied HTTPS to plain-text HTTP/1.0, all on a single port?
+
 **[HTTP Toolkit](https://httptoolkit.tech/)** acts as an HTTP(S) proxy for debugging and interception. With all the possible combinations of clients and configurations, tools like this can be complicated to set up, and getting everything working and properly intercepted is a common pain point.
 
 To make setup as easy as possible, HTTP Toolkit uses a single incoming port for absolutely _everything_, for every widespread HTTP format, for both HTTP & HTTPS, for both direct and proxied requests.
