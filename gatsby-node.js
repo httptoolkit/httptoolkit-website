@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const path = require('path');
 const fs = require('fs-extra');
+const fetch = require('node-fetch');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { siteMetadata } = require('./gatsby-config');
 
@@ -51,24 +52,36 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // Create a download page for each available download
   const downloadThankYou = path.resolve('./src/templates/download-thank-you.jsx');
-  _.forEach({
+  await Promise.all(_.map({
     'win-exe': `v${LATEST_VERSION}/HttpToolkit-installer-${LATEST_VERSION}.exe`,
     'win-standalone': `v${LATEST_VERSION}/HttpToolkit-win-x64-${LATEST_VERSION}.zip`,
     'linux-deb': `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.deb`,
     'linux-standalone': `v${LATEST_VERSION}/HttpToolkit-linux-x64-${LATEST_VERSION}.zip`,
     'osx-dmg': `v${LATEST_VERSION}/HttpToolkit-${LATEST_VERSION}.dmg`,
-  }, (releasePath, downloadId) => {
-      createPage({
-        path: `/download/${downloadId}/`,
-        component: downloadThankYou,
-        context: { releasePath }
-      });
-  });
+  }, async (releasePath, downloadId) => {
+    // Validate that all download URLs are reachable
+    const response = await fetch(
+      `https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${releasePath}`,
+      { method: 'HEAD' }
+    );
+    if (response.status !== 200) {
+      throw new Error(
+        `Unexpected response for download ${downloadId}: ${response.status} ${response.statusText}`
+      );
+    }
+
+    // Create a page for this download:
+    createPage({
+      path: `/download/${downloadId}/`,
+      component: downloadThankYou,
+      context: { releasePath }
+    });
+  }));
 
   // Create a 'download' page for the homebrew install command
   createPage({
