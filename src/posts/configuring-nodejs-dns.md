@@ -1,5 +1,5 @@
 ---
-title: Improving DNS in Node.js
+title: Fixing DNS in Node.js
 date: '2021-02-17T16:00'
 cover_image: './forest-look-up.jpg'
 ---
@@ -123,7 +123,7 @@ Don't follow these suggestions blindly! This applies to all posts about performa
 
 Whether these changes are helpful depends a lot on your specific system, and the pattern of DNS lookups your application is making. Test it!
 
-In general even if this doesn't help it won't hurt, except for two specific cases:
+In general even if this doesn't help it won't hurt, except for three specific cases:
 
 * If it's very important that you share your DNS cache with the rest of the OS, rather than caching lookups just in your node process. This may be affect performance in some process cluster scenarios (but, again, test it!).
 * If a major percentage of your DNS lookups are not really domain names: e.g. `localhost`, mDNS names, or host file mappings. In that case you're going to end up doing `dns.lookup` to resolve this in the end anyway, so making separate DNS requests elsewhere first may be unhelpful.
