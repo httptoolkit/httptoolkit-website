@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const fetch = require('node-fetch');
 const { createFilePath } = require('gatsby-source-filesystem');
+
 const { siteMetadata } = require('./gatsby-config');
 
 const LATEST_VERSION = siteMetadata.latestAppVersion;
@@ -19,6 +20,44 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     })
   }
 }
+
+
+exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => {
+  const { createNode } = actions;
+
+  const response = await fetch("https://api.github.com/repos/httptoolkit/httptoolkit-desktop/releases?per_page=100", {
+    headers: {
+      "Accept": "application/vnd.github.v3+json"
+    }
+  });
+
+  if (!response.ok) {
+    response.text().then(console.log); // Async print the body when we have it
+    throw new Error(`Bad response for GitHub stats: ${response.status}`); // Kill the build
+  }
+
+  const releaseStats = await response.json();
+
+  const totalDownloads = _.sum(releaseStats.map(release =>
+    _.sum(release.assets.map((asset) =>
+      asset.download_count
+    )))
+  );
+
+  const data = { value: totalDownloads };
+
+  createNode({
+    ...data,
+    id: createNodeId('gh-download-stats'),
+    parent: null,
+    children: null,
+    internal: {
+      type: "GhDownloadStat",
+      content: JSON.stringify(data),
+      contentDigest: createContentDigest(data)
+    }
+  });
+};
 
 const blogPostsFolder = path.join(__dirname, 'src', 'posts')
 const docsFolder = path.join(__dirname, 'src', 'docs')
