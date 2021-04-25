@@ -7,11 +7,6 @@ const { siteMetadata } = require('./gatsby-config');
 
 const LATEST_VERSION = siteMetadata.latestAppVersion;
 
-// Include Monaco:
-exports.onPostBootstrap = function (pages) {
-    return fs.copy('./node_modules/monaco-editor/min/vs', './public/vs');
-};
-
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({
