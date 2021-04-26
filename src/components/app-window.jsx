@@ -10,25 +10,26 @@ const VideoWindowBorder = styled.div`
 
     box-sizing: border-box;
 
-    ${media.desktopOrTablet`
-        padding: 0 3px 3px 3px;
-    `}
-
-    ${media.mobile`
-        padding: 0 2px 2px 2px;
-    `}
+    padding: 0;
 
     ${media.desktop`
         padding-top: 29px;
+        background: linear-gradient(to bottom, #dfdfdf, #cacaca 29px);
     `}
 
     ${media.tablet`
         padding-top: 20px;
+        background: linear-gradient(to bottom, #dfdfdf, #cacaca 20px);
     `}
 
     ${media.mobile`
         padding-top: 12px;
+        background: linear-gradient(to bottom, #dfdfdf, #cacaca 12px);
     `}
+
+    > video {
+        border-top: solid 1px #a8a8a8;
+    }
 
     width: 1024px;
     max-width: 100%;

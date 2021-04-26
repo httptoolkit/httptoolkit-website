@@ -4,6 +4,8 @@ import { styled, media } from '../styles';
 
 const PhoneOutline = styled.div`
     background-color: #c8c8c8;
+    background: linear-gradient(75deg, #eaeaea, #c8c8c8);
+
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
     border: 1px solid #a8a8a8;
 
@@ -12,22 +14,26 @@ const PhoneOutline = styled.div`
 
     ${media.desktop`
         border-radius: 24px;
-        padding: 40px 6px;
+        padding: 30px 0 40px;
     `}
 
     ${media.tablet`
         border-radius: 18px;
-        padding: 28px 4px;
+        padding: 22px 0 28px;
     `}
 
     ${media.mobile`
         border-radius: 10px;
-        padding: 18px 2px;
+        padding: 14px 0 18px;
     `}
 `;
 
 const PhoneScreen = styled.div`
     background-color: #000;
+
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: #a8a8a8;
 `;
 
 const HomeButton = styled.div`

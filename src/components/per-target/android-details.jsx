@@ -22,7 +22,7 @@ const DetailsContainer = styled.section`
         > ${PhoneContainer} {
             flex-basis: 100%;
             flex-shrink: 0;
-            margin: -40px 20px;
+            margin: -40px 26px;
         }
     `}
 

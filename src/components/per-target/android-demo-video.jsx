@@ -20,7 +20,7 @@ const PhoneDemoVideo = styled.video`
     display: block;
     background-color: #000;
 
-    max-width: 208px;
+    max-width: 220px;
     width: 100%;
 `;
 
