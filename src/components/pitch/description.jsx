@@ -5,6 +5,12 @@ import { Nowrap } from '../nowrap';
 
 const Highlight = styled.span`
     color: ${p => p.theme.popColor};
+    background: linear-gradient(to top,#d04125,#e0421f,#ff5724);
+    font-weight: bold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
     font-weight: bold;
 `;
 

@@ -113,6 +113,13 @@ export const theme = {
 
     popColor: '#e1421f',
     popBackground: '#fff',
+    popGradient: css`
+        background: linear-gradient(to left, #d04125, #e0421f, #ff5724);
+        background-clip: text;
+        -webkit-background-clip: text;
+        text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;
+    `,
 
     primaryInputBackground: '#1076b9',
     primaryInputColor: '#fafafa',

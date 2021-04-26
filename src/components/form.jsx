@@ -71,8 +71,10 @@ const ButtonStyles = css`
     color: ${p => p.theme.primaryInputColor};
     background-color: ${p => p.theme.primaryInputBackground};
 
-    &:hover {
-        background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+    background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+
+    &:hover, &:active {
+        background-image: linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.05) 40%,transparent);
     }
 `;
 

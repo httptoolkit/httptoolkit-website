@@ -18,11 +18,14 @@ const OneClick = styled.div`
     font-family: Courgette;
     text-align: center;
     margin-bottom: 30px;
+
+    ${p => p.theme.popGradient}
 `;
 
 const ShiftDown = styled.span`
     position: relative;
     top: 10px;
+    ${p => p.theme.popGradient}
 `;
 
 const PitchHeading = styled.div`
