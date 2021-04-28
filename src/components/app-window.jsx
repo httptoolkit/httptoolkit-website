@@ -13,13 +13,13 @@ const VideoWindowBorder = styled.div`
     padding: 0;
 
     ${media.desktop`
-        padding-top: 29px;
-        background: linear-gradient(to bottom, #dfdfdf, #cacaca 29px);
+        padding-top: 24px;
+        background: linear-gradient(to bottom, #dfdfdf, #cacaca 24px);
     `}
 
     ${media.tablet`
-        padding-top: 20px;
-        background: linear-gradient(to bottom, #dfdfdf, #cacaca 20px);
+        padding-top: 16px;
+        background: linear-gradient(to bottom, #dfdfdf, #cacaca 16px);
     `}
 
     ${media.mobile`
@@ -48,11 +48,11 @@ const VideoWindowButtons = styled.svg.attrs({
     fill: rgba(103, 113, 121, 0.6);
 
     ${media.desktop`
-        height: 24px;
+        height: 18px;
     `}
 
     ${media.tablet`
-        height: 16px;
+        height: 10px;
     `}
 
     ${media.mobile`
