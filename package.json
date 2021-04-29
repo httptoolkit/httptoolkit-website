@@ -33,7 +33,7 @@
     "@vx/shape": "0.0.160",
     "async-mutex": "^0.1.3",
     "babel-plugin-styled-components": "^1.10.7",
-    "babel-preset-gatsby": "^0.1.6",
+    "babel-preset-gatsby": "^1.3.0",
     "d3": "^5.0.0",
     "d3-scale": "^2.0.0",
     "d3-scale-chromatic": "^1.2.0",
