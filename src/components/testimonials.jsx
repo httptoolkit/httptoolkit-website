@@ -33,10 +33,19 @@ const TestimonialsBlock = styled.section`
     left: 0;
     transition: left 0.2s ease-out;
 
-    &:hover {
-        animation-play-state: paused;
-        left: -5px;
-    }
+    ${media.desktop`
+        &:hover {
+            animation-play-state: paused;
+            left: -5px;
+        }
+    `}
+
+    ${media.mobileOrTablet`
+        &:active {
+            animation-play-state: paused;
+            left: -5px;
+        }
+    `}
 
     @keyframes scrollSlideshow {
         100% {
@@ -346,11 +355,22 @@ const Testimonial = styled.article`
     flex-direction: column;
 
     cursor: default;
-    &:hover {
-        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
-        transform: scale(1.2);
-        z-index: 1;
-    }
+
+    ${media.desktop`
+        &:hover {
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+            transform: scale(1.2);
+            z-index: 1;
+        }
+    `}
+
+    ${media.mobileOrTablet`
+        &:active {
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
+            transform: scale(1.2);
+            z-index: 1;
+        }
+    `}
 
     &::before {
         content: '”';
