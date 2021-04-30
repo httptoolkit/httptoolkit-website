@@ -4,8 +4,6 @@ import { styled, media } from '../styles';
 import { AppWindow } from './app-window';
 
 const ShiftedAppWindow = styled(AppWindow)`
-    margin-bottom: 60px;
-
     ${media.desktop`
         margin-top: -336px;
     `}

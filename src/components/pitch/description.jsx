@@ -17,10 +17,9 @@ const Highlight = styled.span`
 const DescriptionContainer = styled.h2`
     ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.3;
-    margin: 0 auto;
 
     ${media.mobileOrTablet`
-        margin-bottom: 60px;
+        margin: 120px auto;
 
         br {
             display: inline;
@@ -33,16 +32,16 @@ const DescriptionContainer = styled.h2`
         }
     `}
 
+    ${media.desktop`
+        margin: 180px auto;
+    `}
+
     ${media.tablet`
         padding: 0 20px;
     `}
 
     ${media.mobile`
         padding: 0 10px;
-    `}
-
-    ${media.desktop`
-        margin-bottom: 120px;
     `}
 
     text-align: center;

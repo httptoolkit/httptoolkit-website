@@ -82,11 +82,11 @@ const SubHeading = styled.h2`
 
 const Description = styled(SubHeading.withComponent("p"))`
     ${media.mobileOrTablet`
-        margin-bottom: 30px;
+        margin: 30px auto;
     `}
 
     ${media.desktop`
-        margin-bottom: 60px;
+        margin: 60px auto;
     `}
 `;
 

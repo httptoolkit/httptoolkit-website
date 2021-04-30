@@ -52,7 +52,6 @@ export default class ElectronPage extends React.Component {
 
             <DemoVideo name="electron-demo" />
 
-            <SectionSpacer />
             <Description />
             <ElectronGettingStarted />
             <ElectronSupportedTools />

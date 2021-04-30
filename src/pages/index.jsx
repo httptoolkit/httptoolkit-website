@@ -45,8 +45,8 @@ export default class IndexPage extends React.Component {
 
             <DemoVideo />
 
-            <SectionSpacer />
             <Description />
+
             <Testimonials />
             <StandaloneDownloadCTA />
 

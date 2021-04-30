@@ -56,8 +56,8 @@ export default class JSPage extends React.Component {
 
             <DemoVideo />
 
-            <SectionSpacer />
             <Description />
+
             <JSGettingStarted />
             <JSSupportedTools />
             <SectionSpacer />

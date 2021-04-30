@@ -52,8 +52,6 @@ const PhonePlusDesktopContainer = styled.div`
     align-items: center;
     position: relative;
 
-    margin-bottom: 60px;
-
     ${media.desktop`
         margin-top: -336px;
     `}

@@ -54,8 +54,8 @@ export default class PythonPage extends React.Component {
 
             <DemoVideo />
 
-            <SectionSpacer />
             <Description />
+
             <PythonGettingStarted />
             <PythonSupportedTools />
             <SectionSpacer />

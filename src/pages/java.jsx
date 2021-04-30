@@ -123,8 +123,8 @@ export default class JavaPage extends React.Component {
 
             <DemoVideo />
 
-            <SectionSpacer />
             <Description />
+
             <SplitGettingStarted>
                 <GettingStartedIntro>Two ways to get started:</GettingStartedIntro>
                 <JavaLaunchGettingStarted />

@@ -54,8 +54,8 @@ export default class RubyPage extends React.Component {
 
             <DemoVideo />
 
-            <SectionSpacer />
             <Description />
+
             <RubyGettingStarted />
             <RubySupportedTools />
             <SectionSpacer />

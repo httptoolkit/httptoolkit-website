@@ -15,7 +15,6 @@ const DetailsContainer = styled.section`
     position: relative;
 
     ${media.desktop`
-        margin-top: -60px;
         margin-bottom: 20px;
         max-height: 480px;
 
