@@ -12,7 +12,7 @@ Want to know more about HTTP Toolkit subscriptions? Take a look at the FAQ below
 
 There are two types of HTTP Toolkit account subscriptions: Pro & Team (see [Accounts](#accounts) below for the full details on the differences).
 
-For each subscription, you can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
+You can pay either monthly or annually. For either subscription period you can cancel at any time, and the subscription will continue as normal until the end of the paid period.
 
 ### What payment methods are available?
 
@@ -31,7 +31,7 @@ There's no trial option available, however you can use all the core features for
 3. Click "Cancel Subscription".
 4. Confirm the cancellation in the subscription management page that opens in your browser.
 
-### Who're Paddle?
+### Who are Paddle?
 
 HTTP Toolkit's order process is conducted by our online reseller <a href="http://paddle.com">Paddle</a>, who act as the "Merchant of Record" for all orders. In effect, they're the legal seller of HTTP Toolkit subscriptions, and they handle payment processing, most of the required accounting, all customer service related to invoicing, billing, and so on.
 
@@ -83,7 +83,7 @@ In the app, click "Get Pro", then "Log into existing account", and log in with y
 
 ### What's my account's password?
 
-HTTP Toolkit accounts are passwordless. Instead of setting a password, when log in with your email address you'll be asked for a 6-digit code, which will be sent to your email.
+HTTP Toolkit accounts are passwordless. Instead of setting a password, when you log in with your email address you'll be asked for a 6-digit code, which will be sent to your email.
 
 Codes are randomly generated, only the most recent code is valid, and codes expire after 15 minutes.
 
