@@ -5,7 +5,7 @@ import { styled, media } from '../../styles';
 
 import { PhoneContainer } from '../phone-container';
 
-import * as connectedScreenshot from '../../images/android-app-connected.png';
+import connectedScreenshot from '../../images/android-app-connected.png';
 
 const DetailsContainer = styled.section`
     display: flex;
