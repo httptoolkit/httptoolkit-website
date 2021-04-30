@@ -139,25 +139,18 @@ export const Testimonials = () => {
                     node {
                         id_str
                         full_text
-                        created_at
                         entities {
-                            user_mentions {
-                                screen_name
-                            }
                             urls {
                                 url
-                                expanded_url
                                 display_url
                             }
                         }
                         user {
                             profile_image_url_https
                             name
-                            screen_name
                         }
                         extended_entities {
                             media {
-                                media_url_https
                                 url
                             }
                         }
