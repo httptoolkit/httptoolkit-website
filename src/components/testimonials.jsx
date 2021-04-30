@@ -207,18 +207,22 @@ export const Testimonials = () => {
                     // Duplicate content should be aria-hidden:
                     const ariaHidden = i >= content.length;
 
-                    return <Testimonial key={i} aria-hidden={ariaHidden ? 'true' : 'false'}>
+                    return <Testimonial
+                        key={i}
+                        aria-hidden={ariaHidden ? 'true' : 'false'}
+                        cite={testimonial.sourceLink}
+                    >
                         <ContentBlock>
                             { testimonial.quote }
                         </ContentBlock>
                         <SourceBlock>
                             <SourceImage>{ testimonial.image }</SourceImage>
-                            <div>
+                            <cite>
                                 <SourceName>{ testimonial.sourceName }</SourceName>
                                 <SourceLink href={testimonial.sourceLink} tabIndex={ariaHidden ? -1 : 0}>
                                     { testimonial.sourceLinkText }
                                 </SourceLink>
-                            </div>,
+                            </cite>
                         </SourceBlock>
                     </Testimonial>
 }) }
@@ -339,7 +343,7 @@ const TestimonialsHeadline = styled(FeatureTitle)`
     text-align: center;
 `;
 
-const Testimonial = styled.article`
+const Testimonial = styled.blockquote`
     flex-shrink: 1;
     flex-grow: 0;
 
@@ -390,7 +394,7 @@ const Testimonial = styled.article`
     }
 `;
 
-const SourceBlock = styled.address`
+const SourceBlock = styled.footer`
     ${p => p.theme.fontSizeTinyText};
     display: flex;
     align-items: center;
