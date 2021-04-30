@@ -8,14 +8,17 @@ import { styled, media } from '../styles';
 import { FeatureTitle } from './feature';
 
 const ScrollContainer = styled.div`
-    margin-bottom: 30px;
-
     ${media.desktop`
         margin-left: calc(-1 * (100vw - ${p => p.theme.pageWidth.desktop}) / 2);
     `}
 
     width: 100vw;
+
     overflow: hidden;
+
+    padding: 60px 0;
+    margin-top: -60px;
+    margin-bottom: -30px;
 `;
 
 const TestimonialsBlock = styled.section`
@@ -345,11 +348,9 @@ const Testimonial = styled.article`
     cursor: default;
     &:hover {
         box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2);
-        transform: scale(1.15);
+        transform: scale(1.2);
         z-index: 1;
     }
-
-    overflow: hidden;
 
     &::before {
         content: '”';
