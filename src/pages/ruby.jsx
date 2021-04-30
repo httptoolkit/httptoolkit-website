@@ -18,7 +18,7 @@ import { TargetIconContainer } from '../components/per-target/target-icon-contai
 import { RubyGettingStarted } from '../components/per-target/ruby-getting-started';
 import { RubySupportedTools } from '../components/per-target/ruby-supported-tools';
 
-import { FeatureCards } from '../components/features/feature-cards';
+import { Testimonials } from '../components/testimonials.jsx';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -62,7 +62,7 @@ export default class RubyPage extends React.Component {
 
             <StandaloneDownloadCTA />
 
-            <FeatureCards />
+            <Testimonials />
             <SectionSpacer />
 
             <InterceptFeature />

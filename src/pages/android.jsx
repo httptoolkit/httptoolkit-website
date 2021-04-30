@@ -16,6 +16,8 @@ import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
 import { AndroidDetails } from '../components/per-target/android-details';
 
+import { Testimonials } from '../components/testimonials.jsx';
+
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
 import { EditFeature } from '../components/features/edit';
@@ -57,6 +59,9 @@ export default class JSPage extends React.Component {
             <SectionSpacer />
 
             <StandaloneDownloadCTA sendToEmailText={sendToEmailBlurb} />
+
+            <Testimonials />
+            <SectionSpacer />
 
             <InspectFeature reverse />
             <BreakpointFeature />

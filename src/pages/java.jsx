@@ -20,7 +20,7 @@ import { JavaLaunchGettingStarted } from '../components/per-target/java-launch-g
 import { JavaAttachGettingStarted } from '../components/per-target/java-attach-getting-started';
 import { JavaSupportedTools } from '../components/per-target/java-supported-tools';
 
-import { FeatureCards } from '../components/features/feature-cards';
+import { Testimonials } from '../components/testimonials.jsx';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -136,7 +136,7 @@ export default class JavaPage extends React.Component {
 
             <StandaloneDownloadCTA />
 
-            <FeatureCards />
+            <Testimonials />
             <SectionSpacer />
 
             <InterceptFeature />

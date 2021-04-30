@@ -18,7 +18,7 @@ import { TargetIconContainer } from '../components/per-target/target-icon-contai
 import { PythonGettingStarted } from '../components/per-target/python-getting-started';
 import { PythonSupportedTools } from '../components/per-target/python-supported-tools';
 
-import { FeatureCards } from '../components/features/feature-cards';
+import { Testimonials } from '../components/testimonials.jsx';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -62,7 +62,7 @@ export default class PythonPage extends React.Component {
 
             <StandaloneDownloadCTA />
 
-            <FeatureCards />
+            <Testimonials />
             <SectionSpacer />
 
             <InterceptFeature />

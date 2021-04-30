@@ -18,7 +18,7 @@ import { TargetIconContainer } from '../components/per-target/target-icon-contai
 import { ElectronGettingStarted } from '../components/per-target/electron-getting-started';
 import { ElectronSupportedTools } from '../components/per-target/electron-supported-tools';
 
-import { FeatureCards } from '../components/features/feature-cards';
+import { Testimonials } from '../components/testimonials.jsx';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -53,13 +53,14 @@ export default class ElectronPage extends React.Component {
             <DemoVideo name="electron-demo" />
 
             <Description />
+
             <ElectronGettingStarted />
             <ElectronSupportedTools />
             <SectionSpacer />
 
             <StandaloneDownloadCTA />
 
-            <FeatureCards />
+            <Testimonials />
             <SectionSpacer />
 
             <InterceptFeature />

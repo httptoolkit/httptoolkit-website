@@ -16,6 +16,9 @@ import { TopHeroContainer } from '../components/pitch/leading-pitch';
 import { FuturePlans } from '../components/pitch/future-plans';
 import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
 
+import { Testimonials } from '../components/testimonials.jsx';
+import { SectionSpacer } from '../components/section-spacer.jsx';
+
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -198,6 +201,9 @@ export default class FiddlerAlternativePage extends React.Component {
             </Description>
 
             <StandaloneDownloadCTA />
+
+            <Testimonials />
+            <SectionSpacer />
 
             <InterceptFeature />
             <InspectFeature reverse />

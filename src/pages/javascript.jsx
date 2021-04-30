@@ -18,7 +18,7 @@ import { TargetIconContainer } from '../components/per-target/target-icon-contai
 import { JSGettingStarted } from '../components/per-target/js-getting-started';
 import { JSSupportedTools } from '../components/per-target/js-supported-tools';
 
-import { FeatureCards } from '../components/features/feature-cards';
+import { Testimonials } from '../components/testimonials.jsx';
 import { InterceptFeature } from '../components/features/intercept';
 import { InspectFeature } from '../components/features/inspect';
 import { MockFeature } from '../components/features/mock';
@@ -64,7 +64,7 @@ export default class JSPage extends React.Component {
 
             <StandaloneDownloadCTA />
 
-            <FeatureCards />
+            <Testimonials />
             <SectionSpacer />
 
             <InterceptFeature />

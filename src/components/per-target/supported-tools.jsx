@@ -8,7 +8,7 @@ const SupportedToolsContainer = styled.section`
     text-align: center;
     line-height: 1.3;
 
-    margin: 0 auto 60px;
+    margin: 0 auto;
 
     ${media.mobileOrTablet`
         padding: 0 10px;
