@@ -172,32 +172,27 @@ export const Testimonials = () => {
     const tweets = data.allTwitterStatusesLookupTestimonials.edges.map(e => e.node).map((tweet) => ({
         type: "tweet",
         image: <img src={tweet.user.profile_image_url_https} />,
-        source: <div>
-            <SourceName>{ formatContent(tweet.user.name) }</SourceName>
-            <SourceLink href={`https://twitter.com/i/web/status/${tweet.id_str}`}>
-                on Twitter
-            </SourceLink>
-        </div>,
+        sourceName: formatContent(tweet.user.name),
+        sourceLink: `https://twitter.com/i/web/status/${tweet.id_str}`,
+        sourceLinkText: "on Twitter",
         quote: formatContent(...buildTweetText(tweet))
     }));
 
     const articles = ARTICLE_QUOTES.map((articleData) => ({
         type: "article",
         image: <FontAwesomeIcon size='2x' icon={['far', 'newspaper']} />,
-        source: <div>
-            <SourceName>{ articleData.source }</SourceName>
-            <SourceLink href={articleData.link}>{ articleData.articleName }</SourceLink>
-        </div>,
+        sourceName: articleData.source,
+        sourceLink: articleData.link,
+        sourceLinkText: articleData.articleName,
         quote: formatContent(articleData.quote)
     }));
 
     const redditComments = REDDIT_TESTIMONIALS.map((comment) => ({
         type: "reddit",
         image: <FontAwesomeIcon color="#FF4301" size='3x' icon={['fab', 'reddit']} />,
-        source: <div>
-            <SourceName>{ comment.source[0].toUpperCase() + comment.source.slice(1) }</SourceName>
-            <SourceLink href={comment.link}>on Reddit</SourceLink>
-        </div>,
+        sourceName: comment.source[0].toUpperCase() + comment.source.slice(1),
+        sourceLink: comment.link,
+        sourceLinkText: "on Reddit",
         quote: formatContent(comment.quote)
     }));
 
@@ -207,24 +202,37 @@ export const Testimonials = () => {
         <TestimonialsHeadline>Join {downloadTotal.toLocaleString()} happy developers:</TestimonialsHeadline>
         <ScrollContainer>
             <TestimonialsBlock>
-                {/* We double up content to get infinite scrolling, but aria-hidden the duplicates */}
-                { content.concat(content).map((testimonial, i) =>
-                    <Testimonial key={i} aria-hidden={i >= content.length ? 'true' : 'false'}>
+                {/* We double up content to get infinite scrolling */}
+                { content.concat(content).map((testimonial, i) => {
+                    // Duplicate content should be aria-hidden:
+                    const ariaHidden = i >= content.length;
+
+                    return <Testimonial key={i} aria-hidden={ariaHidden ? 'true' : 'false'}>
                         <ContentBlock>
                             { testimonial.quote }
                         </ContentBlock>
                         <SourceBlock>
                             <SourceImage>{ testimonial.image }</SourceImage>
-                            { testimonial.source }
+                            <div>
+                                <SourceName>{ testimonial.sourceName }</SourceName>
+                                <SourceLink href={testimonial.sourceLink} tabIndex={ariaHidden ? -1 : 0}>
+                                    { testimonial.sourceLinkText }
+                                </SourceLink>
+                            </div>,
                         </SourceBlock>
                     </Testimonial>
-                ) }
+}) }
             </TestimonialsBlock>
         </ScrollContainer>
     </>;
 }
 
 const replaceInJsxArray = (elemArray, match, replacement) => {
+    let i = elemArray.length;
+    const getReplacement  = typeof replacement === 'string'
+        ? () => replacement
+        : () => replacement(i++);
+
     const result = _.flatMap(elemArray, (elem) => {
         if (!elem) return [];
         if (!elem.split) return [elem];
@@ -234,7 +242,7 @@ const replaceInJsxArray = (elemArray, match, replacement) => {
 
         // Alternate values: existing element/replacement/element/replacement/element
         let result = _.flatten(
-            _.zip(splitElem, _.times(splitElem.length - 1, () => replacement))
+            _.zip(splitElem, _.times(splitElem.length - 1, getReplacement))
         ).filter(v => !!v);
 
         // Flatten back to a single string, if possible
@@ -310,8 +318,6 @@ const HIGHLIGHT_STRINGS = [
 ];
 
 const formatContent = (...content) => {
-    let i = 0;
-
     // Strip emoji
     content = replaceInJsxArray(content, /\s*\p{Extended_Pictographic}/ug, '');
 
@@ -319,11 +325,11 @@ const formatContent = (...content) => {
     content = replaceInJsxArray(content, /^ +/gm, ' ');
 
     // Create line breaks
-    content = replaceInJsxArray(content, '\n', <br/>);
+    content = replaceInJsxArray(content, '\n', (i) => <br key={i} />);
 
     // Highlight all the best bits
     for (let highlightString of HIGHLIGHT_STRINGS) {
-        content = replaceInJsxArray(content, highlightString, <strong key={i++}>{ highlightString }</strong>);
+        content = replaceInJsxArray(content, highlightString, (i) => <strong key={i}>{ highlightString }</strong>);
     }
 
     return content;
