@@ -119,6 +119,7 @@ const PlanCycle = styled.span`
 
     ${p => p.selected && css`
         background-color: ${p => p.theme.mainBackground};
+        border-bottom: 3px solid ${p => p.theme.containerBorder};
         box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
     `}
     ${p => !p.selected && css`
@@ -479,11 +480,13 @@ export default @observer class PricingPage extends React.Component {
                 </PricingIntroText>
 
                 <PricingIntroText>
-                    Have questions? <a
-                        href='/docs/guides/subscription-faq/'
-                        target="_blank"
-                        rel='noopener noreferrer'
-                    >Read the FAQ</a> or <Link to="/contact/">get in touch</Link>.
+                    <strong>
+                        Have questions? <a
+                            href='/docs/guides/subscription-faq/'
+                            target="_blank"
+                            rel='noopener noreferrer'
+                        >Read the FAQ</a> or <Link to="/contact/">get in touch</Link>.
+                    </strong>
                 </PricingIntroText>
 
                 <PlanCycleToggle onClick={toggleCycle}>
