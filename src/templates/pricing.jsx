@@ -81,8 +81,6 @@ const PlanCycleToggle = styled.button`
         margin: 30px auto 10px;
     `}
 
-    padding: 10px 10px;
-
     font-family: Lato, Arial, sans-serif;
     ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.mainColor};
@@ -93,14 +91,35 @@ const PlanCycleToggle = styled.button`
 
     cursor: pointer;
 
+    @supports selector(:focus-visible) {
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+    }
+
     > svg {
         margin: 0 10px;
+        z-index: 1;
     }
 `;
 
 const PlanCycle = styled.span`
+    padding: 10px 15px;
+    border-radius: 8px;
+
+    &:first-child {
+        padding-right: 40px;
+        margin-right: -40px;
+    }
+
+    &:last-child {
+        padding-left: 40px;
+        margin-left: -40px;
+    }
+
     ${p => p.selected && css`
-        text-decoration: underline;
+        background-color: ${p => p.theme.mainBackground};
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
     `}
     ${p => !p.selected && css`
         opacity: 0.7;
