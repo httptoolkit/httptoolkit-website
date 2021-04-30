@@ -3,7 +3,7 @@ import * as React from 'react';
 import { SupportedTools, SupportedTool } from "./supported-tools";
 
 export const JSSupportedTools = () => <SupportedTools>
-    <SupportedTool>Built-in 'http' & 'https' modules</SupportedTool>
+    <SupportedTool>Http & Https built-in modules</SupportedTool>
     <SupportedTool>Request</SupportedTool>
     <SupportedTool>Axios</SupportedTool>
     <SupportedTool>Fetch & Node-Fetch</SupportedTool>
@@ -13,5 +13,6 @@ export const JSSupportedTools = () => <SupportedTools>
     <SupportedTool>Needle</SupportedTool>
     <SupportedTool>Bent</SupportedTool>
     <SupportedTool>Unirest</SupportedTool>
+    <SupportedTool>Spawned subprocesses</SupportedTool>
     <SupportedTool>npm</SupportedTool>
 </SupportedTools>

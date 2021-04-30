@@ -8,12 +8,12 @@ export const ElectronSupportedTools = () => <SupportedTools>
     <SupportedTool>Request</SupportedTool>
     <SupportedTool>Axios</SupportedTool>
     <SupportedTool>Fetch & Node-Fetch</SupportedTool>
-    <SupportedTool>The built-in 'http' & 'https' modules</SupportedTool>
+    <SupportedTool>Http & Https built-in modules</SupportedTool>
     <SupportedTool>Superagent</SupportedTool>
     <SupportedTool>Reqwest</SupportedTool>
     <SupportedTool>Got</SupportedTool>
     <SupportedTool>Needle</SupportedTool>
     <SupportedTool>Bent</SupportedTool>
     <SupportedTool>Unirest</SupportedTool>
-    <SupportedTool>Requests from spawned processes</SupportedTool>
+    <SupportedTool>Spawned subprocesses</SupportedTool>
 </SupportedTools>
