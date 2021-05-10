@@ -133,6 +133,18 @@ When system interception is installed successfully, it's shown in the app:
 
 The system CA cert is installed using a temporary filesystem in place of the device's real certificate store, and will disappear next time the device reboots. For the full low-level details, see ['The Technical Details'](#the-technical-details) below.
 
+#### Troubleshooting rooted Android device setup
+
+If the system CA certificate is not installed successfully, check that it's possible to run commands as root with ADB via one of the supported mechanisms:
+
+* Running `adb shell` and then `su root whoami`
+* Running `adb shell` and then `su -c whoami`
+* Running `adb root`, then `adb shell` and then `whoami`
+
+If none of those successfully print "root", then either your device is not rooted, it's using an unrecognized root mechanism, or root is not enabled for ADB access (e.g. in Magisk's settings on the device).
+
+If you're sure the device is rooted, but HTTP Toolkit is still not automatically installing the system certificate, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new).
+
 ### Intercepting traffic from 3rd party Android apps with certificate pinning
 
 System interception is not guaranteed to access _all_ HTTPS traffic. It will intercept 99% of apps, including all apps using Android's default network security configurations, but it can be blocked by apps that include their own built-in list of valid certificates & certificate authorities and check these are used by every connection.
