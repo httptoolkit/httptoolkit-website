@@ -42,10 +42,10 @@ This is a whole debate that we can get into elsewhere, but if you really don't l
     * Download the latest HTTP Toolkit server from https://github.com/httptoolkit/httptoolkit-server/releases for your platform
     * Extract it somewhere
     * Run `./bin/httptoolkit-server start` in the extracted folder
-* Open https://app.httptoolkit.tech in Chrome, Edge or Brave:
+* Open https://app.httptoolkit.tech in Chrome, Edge, Brave or Firefox:
     * This is the hosted version of the latest HTTP Toolkit UI
-    * A Chromium-based browser is required, as Firefox & Safari have issues with some of the UI/server communication
-    * The UI will work offline in your browser after the first load, just like the app, as it's built using service workers.
+    * A Chromium or Firefox-based browser is required, as Safari has issues with some of the UI/server communication
+    * The UI will work offline in your browser after the first load, just like the app, as it's built using service workers
 
 ## Interception issues
 
