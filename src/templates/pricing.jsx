@@ -577,7 +577,7 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                             <Feature>
                                 <strong>Advanced customization</strong> including UI themes,
-                                whitelisted & client certificates, and port configuration.
+                                whitelisted & client certificates, ports, and upstream proxies.
                             </Feature>
                             <Feature>
                                 <strong>Support ongoing development!</strong>
