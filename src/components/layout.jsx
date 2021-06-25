@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { styled, ThemeProvider, media, fontStyles, GlobalStyles, theme, css } from '../styles';
+import { styled, ThemeProvider, media, GlobalStyles, theme, css } from '../styles';
 
 import logo from '../images/logo.svg';
 
@@ -199,11 +199,11 @@ export class Layout extends React.Component {
         <Helmet>
           <html lang="en" />
 
-          {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
-          <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-          <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
+          <link rel='preconnect' href='https://cdn.paddle.com' crossOrigin />
           <link rel='preconnect' href='https://checkout.paddle.com' crossOrigin />
-          <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
+          <link rel='preconnect' href='https://accounts.paddle.com' crossOrigin />
+          <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as="style" />
+          <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js' as="script" />
 
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -258,8 +258,6 @@ export class Layout extends React.Component {
               }
           })}
           </script>
-
-          <style>{ fontStyles }</style>
         </Helmet>
 
         <Header {...visibilityProps}>

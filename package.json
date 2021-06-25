@@ -52,6 +52,7 @@
     "gatsby-plugin-sharp": "^2.7.1",
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-styled-components": "^3.2.2",
+    "gatsby-plugin-webfonts": "^2.1.0",
     "gatsby-remark-autolink-headers": "^2.1.21",
     "gatsby-remark-copy-linked-files": "^2.10.0",
     "gatsby-remark-images": "^3.11.1",

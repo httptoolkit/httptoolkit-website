@@ -131,6 +131,29 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Lato",
+              variants: ["400"],
+            },
+            {
+              family: "Merriweather",
+              variants: ["400"],
+              fontDisplay: "fallback"
+            },
+            {
+              family: "Courgette",
+              variants: ["400"],
+              text: "With one click ↴ or"
+            },
+          ],
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-117670723-1',

@@ -9,7 +9,7 @@ import { observer } from 'mobx-react';
 import "prismjs/themes/prism-tomorrow.css";
 import logo from '../images/logo.svg';
 
-import { styled, ThemeProvider, media, fontStyles, GlobalStyles, theme } from '../styles';
+import { styled, ThemeProvider, media, GlobalStyles, theme } from '../styles';
 import {
     ExternalLink,
     getHeaderValue,
@@ -310,11 +310,6 @@ ${
                 <Helmet>
                     <html lang="en" />
 
-                    {/* DNS prefetch in addition to preconnect, for non-supermodern browsers */}
-                    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-                    <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin />
-                    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato|Courgette' />
-
                     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
                     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -341,8 +336,6 @@ ${
                     <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
 
                     <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
-
-                    <style>{ fontStyles }</style>
                 </Helmet>
 
                 <PageContent>
