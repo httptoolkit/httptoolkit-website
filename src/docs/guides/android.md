@@ -153,7 +153,7 @@ This is known as [certificate pinning](https://security.stackexchange.com/questi
 
 If you install a system CA certificate, and find that most HTTPS traffic is intercepted, but some specific apps of interest are still showing HTTPS errors, then you'll need to do further work to disable or remove this logic from the app itself.
 
-The best option to do this is on rooted devices or emulators is [Frida](https://frida.re/). Frida is a framework for dynamic application injection. Once installed, it can rewrite logic inside apps on your device on demand, to remove most cert pinning restrictions.
+The best option to do this is on rooted devices or emulators is [Frida](https://frida.re/). Frida is a framework for dynamic application injection. Once installed, it can rewrite logic inside apps on your device on demand, to remove most cert pinning restrictions. For more information, take a look at the detailed [Frida Android certificate unpinning guide](/blog/frida-certificate-pinning).
 
 Alternatively, it's possible to rewrite the target app externally. To do so, you first need to download an APK for the app. [ApkPure.com](https://apkpure.com/) is a useful site to do this for most apps on the Google Play store. You may also be able to retrieve an APK from a device with the application, by using `adb shell pm list packages -f -3` to get the path to installed applications, and `adb pull <apk path>` to pull the APK itself.
 
