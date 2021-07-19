@@ -104,7 +104,7 @@ const PlanCycleToggle = styled.button`
 `;
 
 const PlanCycle = styled.span`
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 8px;
 
     &:first-child {
@@ -619,8 +619,9 @@ export default @observer class PricingPage extends React.Component {
                             <Feature>
                                 Options available on request:
                                 <ul>
-                                    <li>Self-hosted infrastructure</li>
+                                    <li>Fixed-term bespoke licensing</li>
                                     <li>Private support</li>
+                                    <li>Self-hosted infrastructure</li>
                                     <li>Training & consultancy</li>
                                     <li>Bulk discounts</li>
                                 </ul>
