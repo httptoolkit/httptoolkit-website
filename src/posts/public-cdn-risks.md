@@ -22,19 +22,19 @@ Even in the uncached case, this still offered benefits. Browsers [limit](https:/
 
 Lastly, the main site's cookies aren't sent in requests to 3rd party domains. If you have large cookies stored for your domain, this creates a lot of unnecessary data sent in every request to your domain, again unnecessarily increasing bandwidth usage and load times (honestly I'm not sure if this overhead really had a practical impact, but it was certainly [widely documented](https://www.globaldots.com/resources/blog/googles-web-performance-best-practices-3-minimize-request-overhead/) as an important 'web best practice').
 
-Those are the abstract technical reasons. There were practical reasons too: primarily that these CDNs are offering free bandwidth, and are better equipped for static resource distribution that your servers are. They're offering to dramatically reduce your bandwidth costs, while being they're better prepared to handle sudden spikes in traffic, with servers that are more widely distributed, putting your content closer to end users and reducing latency. What's not to like?
+Those are the abstract technical reasons. There were practical reasons too: primarily that these CDNs are offering free bandwidth, and are better equipped for static resource distribution than your servers are. They're offering to dramatically reduce your bandwidth costs, while being they're better prepared to handle sudden spikes in traffic, with servers that are more widely distributed, putting your content closer to end users and reducing latency. What's not to like?
 
 ## Where did it all go wrong?
 
 That's the idea at least. Unfortunately, since the peak of this concept (around 2016 or so), the web has changed dramatically.
 
-Most importantly: cached content is no longer shared between domains. This is known as cache partitioning, and has been the default in Chrome since October 2020 (v86), Firefox since January 2021 (v85) and Safari since 2013 (v6.1). That means if a visitor visits site A and site B, and both of them load `https://public-cdn.example/my-script.js`, the script will be loaded from scratch both times.
+Most importantly: cached content is no longer shared between domains. This is known as cache partitioning and has been the default in Chrome since October 2020 (v86), Firefox since January 2021 (v85), and Safari since 2013 (v6.1). That means if a visitor visits site A and site B, and both of them load `https://public-cdn.example/my-script.js`, the script will be loaded from scratch both times.
 
 **This means the primary benefit of shared public CDNs is no longer relevant for any modern browsers**.
 
-HTTP/2 has also shaken up the other benefits. By supporting parallel streams within a single connection, the benefits of spreading resources across multiple domains no longer exists. HTTP/2 also introduces header compression, so repeating a large cookie header is extremely efficient, and any possible overhead from that is no longer relevant to performance either.
+HTTP/2 has also shaken up the other benefits. By supporting parallel streams within a single connection, the benefits of spreading resources across multiple domains no longer exist. HTTP/2 also introduces header compression, so repeating a large cookie header is extremely efficient, and any possible overhead from that is no longer relevant to performance either.
 
-This completely kills all the performance benefits of using a shared public CDN (although the cost & performance benefits of using CDNs in general do remain - we'll come back to that later).
+This completely kills all the performance benefits of using a shared public CDN (although the cost & performance benefits of using CDNs in general remain - we'll come back to that later).
 
 On top of the upside going away though, a lot of major downsides have appeared:
 
@@ -52,9 +52,9 @@ So far, there hasn't been a known malicious takeover of a major CDN in the same 
 
 ### Privacy concerns
 
-Public CDNs also create privacy risks. While online privacy was relatively niche topic when public CDNs first became popular, it's now become a major issue for the public at large, and serious legal concern.
+Public CDNs also create privacy risks. While online privacy was a niche topic when public CDNs first became popular, it's now become a major issue for the public at large, and a serious legal concern.
 
-This can be problematic for public CDN usage, because loading resources from a 3rd party leaks information: that the user is loading that 3rd party resource whilst on your site. Specifically, your site's domain (and historically full URL, though generally not nowadays) is sent in the [Referer header](https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns) with all subresource requests, like so:
+This can be problematic for public CDN usage because loading resources from a 3rd party leaks information: that the user is loading that 3rd party resource whilst on your site. Specifically, your site's domain (and historically full URL, though generally not nowadays) is sent in the [Referer header](https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns) with all subresource requests, like so:
 
 <figure>
   <img src="./subresource-referer.png" alt="A subresource request, with a Referer header referencing the main site">
@@ -69,9 +69,9 @@ This is potentially a serious privacy problem, especially for public CDNs provid
 
 CDNs are not infallible. They can [go down entirely](https://status.pyze.com/incidents/5f501e3d), [become inaccessible](https://status.cdnjs.com/incidents/yv1ptjhnp6ky?u=l5wswp7461mz), [throw unexpected errors](https://github.com/jsdelivr/jsdelivr/issues/18090), [timeout under load](https://github.com/mjackson/unpkg/issues/153), or even [serve the wrong content](https://blog.jquery.com/2018/08/30/bad-map-file-for-jquery-1-9-1-in-the-jquery-cdn/).
 
-Of course, your own website can do the same too, as can any alternative infrastructure. In those cases though, you have some recourse: you can fix your site, chase the support team for the CDN service you're paying for, or switch to using a different CDN in front of your content server transparently. When you production site depends on a free public CDN, you're explicitly given zero formal guarantees or support, and you have no control of the CDN at all.
+Of course, your own website can do the same too, as can any alternative infrastructure. In those cases though, you have some recourse: you can fix your site, chase the support team for the CDN service you're paying for, or switch to using a different CDN in front of your content server transparently. When your production site depends on a free public CDN, you're explicitly given zero formal guarantees or support, and you have no control of the CDN at all.
 
-This is worse if you're worried about the long-term, because no CDN will last forever. If you still have the code of your application in 20 years, but the CDN URLs used have gone away, you can't use the application any more without lots of debugging & hunting down old copies of library files. Similarly byt more immediately: if you're on an airplane, you can't reach your CDN, so doing some quick offline development is impossible.
+This is worse if you're worried about the long-term because no CDN will last forever. If you still have the code of your application in 20 years, but the CDN URLs used have gone away, you can't use the application anymore without lots of debugging & hunting down old copies of library files. Similarly but more immediately: if you're on an airplane, you can't reach your CDN, so doing some quick offline development is impossible.
 
 Using a public CDN adds an extra single point of failure to your site. Now, if your servers go down _or_ the public CDNs servers are inaccessible, everything is broken. All else being equal, it's best to keep the circle of critical dependencies small.
 
@@ -136,7 +136,7 @@ A last brief tangent to finish: one technology that I do see being very promisin
 * Each piece of content is loaded entirely independently, with no reference to the referring resource and retrieved from disparate hosts, making tracking challenging.
 * Content is defined by its hash, effectively baking SRI into the protocol itself, and guaranteeing content integrity at all times.
 
-IPFS is remains very new, so none of this is really practical today for production applications, and it will have its own problems in turn that don't appear until it starts to get more real-world use.
+IPFS remains very new, so none of this is really practical today for production applications, and it will have its own problems in turn that don't appear until it starts to get more real-world use.
 
 Still, if it matures and becomes widespread it could plausibly become a far better solution to static content distribution than any of today's options, and I'm excited about its future.
 
