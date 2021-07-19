@@ -140,6 +140,14 @@ IPFS remains very new, so none of this is really practical today for production 
 
 Still, if it matures and becomes widespread it could plausibly become a far better solution to static content distribution than any of today's options, and I'm excited about its future.
 
+## Caveats
+
+Ok, ok, ok, the title is a bit sensationalist, fine. I must admit, I do actually think there's one tiny edge case where public CDNs are useful: prototyping. Being able to drop in a URL and immediately test something out is neat & valuable, and this can be very useful for small coding demos and so on.
+
+I'm also not suggesting that this is a hard rule either, or that every site using a public CDN anywhere is a disaster. It's difficult to excise every single 3rd party resource when they're an official distribution channel for some library or if they're loaded by plugins and similar. I'm guilty of including a couple of these in this page myself, although I'm working towards getting those last few scripts removed as we speak.
+
+Sometimes this is easier said than done, but I do firmly believe that aiming to avoid public CDNs in production applications wherever possible is a valuable goal. In any environment where you're taking development seriously enough that it's worthy of debate, it's worth taking the time to host your own content instead.
+
 ## Wrapping up
 
 Caching is hard, building high-profile websites is complicated, and the sheer quantity of users and potential sources of traffic spikes on the internet today makes everything difficult.
