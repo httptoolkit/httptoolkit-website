@@ -94,6 +94,7 @@ In addition to missing features, Safari has a lot of bugs in its implemented fea
 * 100vh (100% viewport height) means a different thing in mobile Safari to everywhere else: https://bugs.webkit.org/show_bug.cgi?id=141832
 * Fetch request streaming is implemented just enough to pass feature detection, but it doesn't actually work: https://twitter.com/jaffathecake/status/1420306878580547586
 * `Mousemove` events fire when modifier keys are pressed, even if the mouse isn't moved: https://twitter.com/jaffathecake/status/1420315350009356293
+* Appending an element to the shadow DOM in many cases hard crashes the browser process, making sites including redhat.com completely inaccessible: https://bugs.webkit.org/show_bug.cgi?id=224408
 
 There's many many more. Moving from anecdotes to data: the graph below counts the number of [web platform tests](https://wpt.fyi/about) from the full suite that fail in only one browser. The yellow line is Safari, clearly failing far more tests than Firefox & Chrome, for years:
 
