@@ -47,7 +47,7 @@ This isn't true. Here's a quick list of some of the features that every other br
 * Regex lookbehind in JavaScript. Implemented in Chrome in 2017 and Firefox in 2020.
 * `scrollIntoView({ behavior: 'smooth' })` to scroll to an item on the page. Implemented in Firefox in 2015 and Chrome in 2017.
 * Screen orientation JavaScript APIs, allowing pages to dynamically handle screen orientation changes. Implemented in Chrome in 2014 and Firefox in 2016.
-* AV1 video and AVID images, a new efficient and freely licensed compression format. Implemented in Chrome in 2018 and Firefox in 2019.
+* AV1 video and AVIF images, a new efficient and freely licensed compression format. Implemented in Chrome in 2018 and Firefox in 2019.
 
 Each of these has a published standard and is implemented by multiple browser engines, including Firefox, with no concerns I can see anywhere. There's been no specific public objections from the Safari team on any of these that I can see, only silence.
 
