@@ -75,7 +75,7 @@ This interceptor launches a terminal window. This window is preconfigured so tha
 * Package managers like apt-get
 * Node, and anything node-based, including npm itself
 * Python, and python-based tools like pip
-* Java, and anything running on the JVM
+* Java, and anything running on the JVM (v8+)
 * Ruby, and ruby-based tools like gem
 * PHP and PHP-based tools (when started directly from this window)
 * Perl, and perl-based tools
@@ -119,7 +119,9 @@ JVM applications can also be captured by launching them directly from an interce
 
 When you select this option, it'll start scanning for potential targets. Once you select a target it'll turn green and show a tick if interception was successful.
 
-This option requires JDK v9+, and it's only enabled if a suitable Java version is available. HTTP Toolkit looks for Java versions by testing the version of `java` in your `$PATH`, testing the Java version referenced by `$JAVA_HOME` (if any) and testing the version referenced by the `/usr/libexec/java_home` helper on Mac.
+This option supports targets running on JVM 8 and later, and requires JDK v9+ to be available to HTTP Toolkit. It's only enabled if a suitable Java version is found. HTTP Toolkit looks for Java versions by testing the version of `java` in your `$PATH`, testing the Java version referenced by `$JAVA_HOME` (if any) and testing the version referenced by the `/usr/libexec/java_home` helper on Mac.
+
+You can also intercept JVM processes by launching them from an intercepted terminal (see "Fresh Terminal" or "Existing Terminal" above). In that case, just a v8+ JVM is required.
 
 ### Anything
 
