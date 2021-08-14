@@ -113,7 +113,7 @@ Replace the "hello world" line in the previous example with some of these rules,
 
 ![GitHub.com in the URL bar, Wikipedia on the page](./github-as-wikipedia.png)
 
-If you'd like to use more rules like this, the [detailed API docs](https://httptoolkit.github.io/mockttp/interfaces/_mockttp_.mockttp.html) provide more specific information on each of the methods available and how they work.
+If you'd like to use more rules like this, the [detailed API docs](https://httptoolkit.github.io/mockttp/) provide more specific information on each of the methods available and how they work.
 
 By default each rule will only be run for the first matching request it sees, until all matching rules have been run, in which case the last matching rule will repeat indefinitely. You can control this more precisely by adding `.always()`, `.once()`, `.times(n)`, etc, as part of the rule definition. If you're defining overlapping rules, you probably want to use `.always()` every time.
 
@@ -161,7 +161,7 @@ The first rule will handle all Google.com requests by itself. The second rule wi
 
 ![Example.com with extra text appended](./example.com-with-text-appended.png)
 
-You can similarly use `beforeRequest` to change the content of outgoing requests. Check [the docs](https://httptoolkit.github.io/mockttp/interfaces/_rules_requests_request_handlers_.passthroughhandleroptions.html#beforerequest) for a full list of the options and return values available.
+You can similarly use `beforeRequest` to change the content of outgoing requests. Check [the docs](https://httptoolkit.github.io/mockttp/interfaces/requestHandlers.PassThroughHandlerOptions.html) for a full list of the options and return values available.
 
 ## Connecting more clients
 
