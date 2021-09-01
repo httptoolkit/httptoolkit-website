@@ -285,15 +285,12 @@ const HIGHLIGHT_STRINGS = [
     "I switched from AdvancedRestCient and mitmproxy to @HttpToolkit and my life has just changed",
     "Less than 5 minutes to make my Ubuntu intercept https traffic from my smartphone.",
     "a must-have for every single developer tool box",
-    "un proxy pour analyser les requêtes en temps réel open source au design trop beau",
-    "Quite handy a tool, I have to say",
     "Works like a charm!",
     "nice looking and intuitive",
     "the tool working best out of the box",
     "#@!%*€& amazing",
     "Great code in HTTP toolkit",
     "You made my day with httptoolkit.tech",
-    "HTTPToolkit is pretty sweet",
     "Very handy and neatly done",
     "one of the most useful debugging tools EVER!",
     "just submitted a software request to my company!",
@@ -311,7 +308,11 @@ const HIGHLIGHT_STRINGS = [
     "Excellent open-source HTTP debugging!",
     "Very impressed with it, good UI and the automatic certificate setup with emulator is great",
     "Editing requests on the go without doing any extra work is just amazing.",
-    "super helpful"
+    "super helpful",
+    "Saved me a lot of time, a very neat tool",
+    "I love @pimterry's @HttpToolkit so damn much",
+    "I'm just stunned, fantastic work",
+    "today I found an awesome tool #HttpToolkit"
 ];
 
 const formatContent = (...content) => {
