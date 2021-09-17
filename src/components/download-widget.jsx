@@ -214,7 +214,10 @@ export class DownloadWidget extends React.Component {
                 <DownloadSelected
                     onClick={this.downloadNow}
                     as='a'
-                    href='https://github.com/httptoolkit/httptoolkit-desktop/releases/latest'
+                    href={selectedId
+                        ? `/download/${selectedId}/`
+                        : 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest'
+                    }
                     small={small}
                 >
                     { small
@@ -273,16 +276,11 @@ export class DownloadWidget extends React.Component {
     }
 
     downloadNow = (event) => {
-        // Ignore the href link action if JS is working - that only exists for browsers that
-        // can't usefully run our JS for some reason (Seamonkey & similar) or failed JS load.
-        event.preventDefault();
-
         const { selectedId } = this.state;
-
-        if (selectedId) {
-            window.location.href = `/download/${selectedId}`;
-        } else {
+        if (!selectedId) {
+            event.preventDefault();
             this.toggleDropdown();
         }
+        // If not, we just let the normal link behaviour work its magic.
     }
 }
