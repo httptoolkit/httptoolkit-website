@@ -70,6 +70,10 @@ const DownloadSelected = styled(Button)`
     &:focus {
         z-index: 1;
     }
+
+    /* Relevant because we actually render as an <a href>, to provide a fallback for
+       browsers that don't support JS (or other JS failure environments) */
+    text-decoration: none;
 `;
 
 const DownloadOptionsButton = styled(Button)`
@@ -207,7 +211,12 @@ export class DownloadWidget extends React.Component {
                 className={className}
                 ref={(ref) => this.containerRef = ref}
             >
-                <DownloadSelected onClick={this.downloadNow} small={small}>
+                <DownloadSelected
+                    onClick={this.downloadNow}
+                    as='a'
+                    href='https://github.com/httptoolkit/httptoolkit-desktop/releases/latest'
+                    small={small}
+                >
                     { small
                         ? `Download ${selectedDetails ? ` for ${selectedDetails.platform}` : ''}`
                         : <>Download free now{
@@ -263,7 +272,11 @@ export class DownloadWidget extends React.Component {
         });
     }
 
-    downloadNow = () => {
+    downloadNow = (event) => {
+        // Ignore the href link action if JS is working - that only exists for browsers that
+        // can't usefully run our JS for some reason (Seamonkey & similar) or failed JS load.
+        event.preventDefault();
+
         const { selectedId } = this.state;
 
         if (selectedId) {
