@@ -41,10 +41,11 @@
   status = 301
 
 [[redirects]]
-  # Redirect will-it-cors subpage requests to the root
-  from = "/will-it-cors/*"
+  # Redirect will-it-cors step page requests to the root
+  from = "/will-it-cors/steps/*"
   to = "/will-it-cors/"
-  status = 200
+  force = true
+  status = 301
 
 [[headers]]
   for = "/*"
