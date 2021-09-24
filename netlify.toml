@@ -42,7 +42,7 @@
 
 [[redirects]]
   # Redirect will-it-cors step page requests to the root
-  from = "/will-it-cors/steps/*"
+  from = "/will-it-cors/:step/*"
   to = "/will-it-cors/"
   force = true
   status = 301

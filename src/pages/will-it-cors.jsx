@@ -339,17 +339,15 @@ ${
                 </Helmet>
 
                 <PageContent>
-                    <Router basepath="/will-it-cors">
-                        <Breadcrumbs path="/*" />
-                        <Intro path="/" onNext={() => navigate("./steps/source-url")} />
-                    </Router>
+                    <Router basepath="/will-it-cors"><Breadcrumbs path="/*" /></Router>
 
-                    <Router basepath="/will-it-cors/steps/">
+                    <Router basepath="/will-it-cors">
+                        <Intro path="/" onNext={() => navigate("./source-url")} />
                         <SourceUrlQuestion
                             path="/source-url"
                             value={this.sourceUrl}
                             onChange={(newValue) => { this.sourceUrl = newValue }}
-                            onNext={() => navigate("./steps/target-url")}
+                            onNext={() => navigate("./target-url")}
                         />
                         <TargetUrlQuestion
                             path="/target-url"
@@ -357,11 +355,11 @@ ${
                             onChange={(newValue) => { this.targetUrl = newValue }}
                             onNext={() => {
                                 if (!this.isCorsRequest) {
-                                    navigate("./steps/not-cors");
+                                    navigate("./not-cors");
                                 } else if (this.isMixedContentRequest) {
-                                    navigate("./steps/mixed-content");
+                                    navigate("./mixed-content");
                                 } else {
-                                    navigate("./steps/method");
+                                    navigate("./method");
                                 }
                             }}
                         />
@@ -383,7 +381,7 @@ ${
                             targetOrigin={this.targetOrigin}
                             value={this.method}
                             onChange={(newValue) => { this.method = newValue }}
-                            onNext={() => navigate("./steps/request-extras")}
+                            onNext={() => navigate("./request-extras")}
                         />
                         <RequestExtrasQuestion
                             path="/request-extras"
@@ -399,11 +397,11 @@ ${
 
                             onNext={() => {
                                 if (this.method === 'POST' && this.contentType === undefined) {
-                                    navigate("./steps/content-type");
+                                    navigate("./content-type");
                                 } else if (this.isSimpleCorsRequest) {
-                                    navigate("./steps/simple-cors");
+                                    navigate("./simple-cors");
                                 } else {
-                                    navigate("./steps/preflight");
+                                    navigate("./preflight");
                                 }
                             }}
                         />
@@ -419,16 +417,16 @@ ${
                             }}
                             onNext={() => {
                                 if (this.isSimpleCorsRequest) {
-                                    navigate("./steps/simple-cors");
+                                    navigate("./simple-cors");
                                 } else {
-                                    navigate("./steps/preflight");
+                                    navigate("./preflight");
                                 }
                             }}
                         />
                         { this.isSimpleCorsRequest &&
                             <SimpleCorsRequest
                                 path="/simple-cors"
-                                onNext={() => navigate("./steps/server-response")}
+                                onNext={() => navigate("./server-response")}
                             />
                         }
                         <ServerResponseQuestion
@@ -445,9 +443,9 @@ ${
                             onChange={(newValue) => { this.serverResponseHeaders = newValue }}
                             onNext={() => {
                                 if (this.isServerResponseReadable) {
-                                    navigate("./steps/request-success");
+                                    navigate("./request-success");
                                 } else {
-                                    navigate("./steps/request-failure");
+                                    navigate("./request-failure");
                                 }
                             }}
                         />
@@ -459,7 +457,7 @@ ${
                                 responseHeaders={this.serverResponseHeaders}
                                 sendCredentials={this.sendCredentials}
 
-                                onNext={() => navigate('./steps/show-code')}
+                                onNext={() => navigate('./show-code')}
                             />
                         }
 
@@ -483,7 +481,7 @@ ${
                         { !this.isSimpleCorsRequest &&
                             <PreflightRequest
                                 path="/preflight"
-                                onNext={() => navigate("./steps/preflight-response")}
+                                onNext={() => navigate("./preflight-response")}
                             />
                         }
 
@@ -501,9 +499,9 @@ ${
                             onChange={(newValue) => { this.preflightResponseHeaders = newValue }}
                             onNext={() => {
                                 if (this.isPreflightSuccessful) {
-                                    navigate("./steps/preflight-success");
+                                    navigate("./preflight-success");
                                 } else {
-                                    navigate("./steps/preflight-failure");
+                                    navigate("./preflight-failure");
                                 }
                             }}
                         />
@@ -528,7 +526,7 @@ ${
                         { this.isPreflightSuccessful &&
                             <ServerAllowsPreflightRequest
                                 path="/preflight-success"
-                                onNext={() => navigate("./steps/server-response")}
+                                onNext={() => navigate("./server-response")}
                             />
                         }
                     </Router>
