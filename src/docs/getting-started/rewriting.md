@@ -56,7 +56,7 @@ You should see a JSON response returned from httpbin.org, showing the metadata o
 We're barely scratching the surface here, but there's a lot of options to go further and make more dramatic changes:
 
 * Match more specific requests, to surgically edit busy streams of traffic
-* Rewrite requests in more complicated ways; edit headers to simulate different clients or add/remote authentication from requests, edit request bodies to test edge cases, or change HTTP methods entirely.
+* Rewrite requests in more complicated ways; edit headers to simulate different clients or add/remove authentication from requests, edit request bodies to test edge cases, or change HTTP methods entirely.
 * Use the 'Response directly' button on a paused request, to skip sending the request and instead manually provide your own response data.
 * Rewrite responses, or even requests _and_ responses in a single exchange, to receive real response data from other servers and manually tweak it yourself.
 * With [Pro](/get-pro/), add even more powerful & automated HTTP rewriting:
