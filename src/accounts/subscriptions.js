@@ -3,24 +3,31 @@ import { observable } from 'mobx';
 
 import { isSSR } from '../util';
 
-if (!isSSR) import('val-loader!./paddle');
+const paddlePromise = !isSSR
+    ? import('val-loader!./paddle').then((importResult) => {
+        if (importResult?.Paddle?.Setup) {
+            // Some recent Paddle versions seem to use AMD, so that we get
+            // a promise for the module from the import itself?
+            return importResult.Paddle;
+        } else return new Promise((resolve) => {
+            // In the past, we've always needed to load Paddle from a global:
+            const checkForPaddle = () => {
+                if (!!window.Paddle) {
+                    resolve(window.Paddle);
+                } else {
+                    setTimeout(checkForPaddle, 500);
+                }
+            };
+
+            checkForPaddle();
+        });
+    }).then((paddle) => {
+        paddle.Setup({ vendor: PADDLE_VENDOR_ID, enableTracking: false });
+        return paddle;
+    })
+    : new Promise(() => {}); // During SSR, Paddle never becomes available
 
 const PADDLE_VENDOR_ID = 37222;
-
-const waitForPaddle = new Promise((resolve) => {
-    if (isSSR) return;
-
-    const checkForPaddle = () => {
-        if (!!window.Paddle) {
-            window.Paddle.Setup({ vendor: PADDLE_VENDOR_ID, enableTracking: false });
-            resolve(window.Paddle);
-        } else {
-            setTimeout(checkForPaddle, 500);
-        }
-    };
-
-    checkForPaddle();
-});
 
 function formatPrice(currency, price) {
     return Number(price).toLocaleString(undefined, {
@@ -88,7 +95,7 @@ export const getSubscriptionPlanCode = (id) =>
     _.findKey(SubscriptionPlans, { id: id });
 
 export const openCheckout = async (email, plan) => {
-    const paddle = await waitForPaddle;
+    const paddle = await paddlePromise;
 
     return new Promise((resolve) => {
         paddle.Checkout.open({
