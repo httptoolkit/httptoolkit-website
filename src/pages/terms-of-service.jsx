@@ -121,7 +121,11 @@ export default (props) => (<Layout location={props.location}>
 
             <p>'Team' accounts include many licenses. These licenses can each be linked to individual team members, and may transferred between team members. Only the individuals currently linked to the team account may use the features of the account. Each license may only be transferred once every 48 hours.</p>
 
-            <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.tech/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription. Customer support in using HTTP Toolkit may be provided at our discretion, but neither license guarantees such support or any specific level or response time of customer service, unless agreed separately.</p>
+            <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.tech/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription.</p>
+
+            <p>Account subscriptions may be cancelled at any time, either from the Settings page within the tool (for Professional accounts), from the <a href="https://accounts.httptoolkit.tech/">team management dashboard</a> (for Team accounts), or by contacting us or Paddle.com directly. Once cancelled, the subscription will remain active until the end of the previously purchased period, and will then expire without further renewal.</p>
+
+            <p>Customer support in using HTTP Toolkit may be provided at our discretion, but neither license guarantees such support or any specific level or response time of customer service, unless agreed separately.</p>
 
             <p>You are responsible for safeguarding your HTTP Toolkit user account, and for any activities or actions taken using that account.</p>
 
