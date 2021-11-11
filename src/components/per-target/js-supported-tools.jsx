@@ -9,6 +9,7 @@ export const JSSupportedTools = () => <SupportedTools>
     <SupportedTool>Fetch & Node-Fetch</SupportedTool>
     <SupportedTool>Superagent</SupportedTool>
     <SupportedTool>Reqwest</SupportedTool>
+    <SupportedTool>Undici</SupportedTool>
     <SupportedTool>Got</SupportedTool>
     <SupportedTool>Needle</SupportedTool>
     <SupportedTool>Bent</SupportedTool>
