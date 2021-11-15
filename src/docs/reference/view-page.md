@@ -194,20 +194,28 @@ To export as a code snippet, first pick your language or tool of choice from the
 
 * C: Libcurl
 * Clojure: clj-http
-* C#: RestSharp
+* C#:
+    * RestSharp
+    * HttpClient
 * Go: NewRequest
 * Raw HTTP/1.1
 * Java:
     * OkHttp
     * Unirest
+    * AsyncHttp
+    * java.net.http
 * JavaScript
     * jQuery
     * fetch
     * XMLHttpRequest
+    * Axios
+* Kotlin: OkHttp
 * Node.js:
-    * HTTP
+    * Built-in HTTP module
     * Request
     * Unirest
+    * Axios
+    * Fetch
 * Objective-C: NSURLSession
 * OCaml: CoHTTP
 * PHP:
@@ -220,11 +228,13 @@ To export as a code snippet, first pick your language or tool of choice from the
 * Python:
     * http.client
     * Requests
+* R: httr
 * Ruby: net::http
 * Shell:
     * cURL
     * HTTPie
     * Wget
+* Swift:
     * NSURLSession
 
 A short description of the client and a link to its full docs will be shown in the body of the card, followed by the full code snippet (shown in a Monaco editor, with all the same features of the body editors described above).
