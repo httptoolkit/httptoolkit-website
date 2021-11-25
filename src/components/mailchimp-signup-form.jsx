@@ -4,7 +4,6 @@ import { styled, media, css } from '../styles';
 import { TextInput, SubmitInput } from './form';
 
 const PrivacyPolicy = styled.p`
-    flex-basis: 100%;
     padding: 10px 0 0;
     color: ${p => p.theme.mainSubtleColor};
 `;
