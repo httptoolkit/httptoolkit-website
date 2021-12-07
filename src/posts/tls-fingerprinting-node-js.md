@@ -88,9 +88,9 @@ It is practical for real-world use, but the [original research](https://blog.squ
 
 In reality though, it turns out it is used more widely: Akamai use TLS fingerprinting to block bot traffic at the CDN level for some of their customers. I don't know for sure, but I suspect this is part of their optional [bot management](https://www.akamai.com/products/bot-manager) features.
 
-An easy example is available on [the Zolando website](https://en.zalando.de/) (a major online retailer based in Germany).
+An easy example is available on [the Zalando website](https://en.zalando.de/) (a major online retailer based in Germany).
 
-This page makes various requests to the Zolando API, to endpoints like `https://en.zalando.de/api/navigation`, which you can see from your browser console. These work happily in the browser, returning a 200 response with some JSON data.
+This page makes various requests to the Zalando API, to endpoints like `https://en.zalando.de/api/navigation`, which you can see from your browser console. These work happily in the browser, returning a 200 response with some JSON data.
 
 Unfortunately, if you make the same request from Node.js (in Node v12 - v16), it fails:
 
@@ -127,7 +127,7 @@ We get an immediate 403 forbidden response, and a `edge_error: halt` message fro
 
 This applies in all currently supported LTS versions (Node.js v12 to v16) but not in Node.js v10 or v17 (which have different fingerprints) even though they're all sending the exact same content.
 
-Zolando's API, backed by `akamaiedge.net`, is actively detecting & rejecting requests from Node.js clients, regardless of the content, based on the TLS fingerprint.
+Zalando's API, backed by `akamaiedge.net`, is actively detecting & rejecting requests from Node.js clients, regardless of the content, based on the TLS fingerprint.
 
 What can we do about this?
 
