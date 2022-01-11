@@ -76,7 +76,7 @@ These DEX files contain the compiled application, but do not contain all the ori
 
 The external interfaces of each class are generally present here though (assuming that [obfuscation](https://developer.android.com/studio/build/shrink-code#obfuscate) wasn't used). That will usually be enough to find the method that you're interested in. Using those external interfaces you can usually then deduce what each line is trying to do, and progressively rename variables and add your own comments until you have some code that makes sense.
 
-To start that process, we need to convert the DEX file into a format we can mess around with ourselves. The best tool to do this is [JADX](https://github.com/skylot/jadx) (you can download it from their [GitHub release page](https://github.com/skylot/jadx/releases/latest)).
+To start that process, we need to convert the DEX file into a format we can mess around with ourselves. The best tool to do this is [JADX](https://github.com/skylot/jadx), which you can download from their [GitHub release page](https://github.com/skylot/jadx/releases/latest) (or there are many other similar tools too, such as [Androguard](https://github.com/androguard/androguard)).
 
 Once JADX is installed, you run it like so:
 
