@@ -1,0 +1,72 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build & test
+    runs-on: ubuntu-latest
+    container: httptoolkit/act-build-base
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install Node 14
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - run: npm install -g npm@^8
+
+      # Install & build & test:
+      - run: npm ci
+
+      # Build without secrets for previews, in non-push cases:
+      - name: Build for preview
+        if: github.event_name != 'push'
+        run: npm run build
+        env:
+          NODE_ENV: development
+
+      # Build with secrets for production, on push only:
+      - name: Build for production
+        if: github.event_name == 'push'
+        run: npm run build
+        env:
+          NODE_ENV: production
+          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: public
+          path: public/*
+          if-no-files-found: error
+
+  publish:
+    name: Deploy ${{ (github.ref == 'refs/heads/master' && 'to production') || 'preview' }}
+    runs-on: ubuntu-latest
+    container: httptoolkit/act-build-base
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: public
+          path: public
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './public'
+          production-branch: master # Master goes to prod, others do deploy previews
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: GHA Deploy - ${{ github.event.head_commit.message }}
+          enable-commit-status: true
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          netlify-config-path: ./netlify.toml
+          alias: ${{ github.sha }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
