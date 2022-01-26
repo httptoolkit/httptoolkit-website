@@ -161,6 +161,52 @@ Once you have the APK, you'll need to edit the application to trust user certifi
 
 None of this is foolproof, and it will often require manual changes and exploration that vary for each case. If you want to make your own manual changes to the source of an application as part of this, you can also run apk-mitm with the `--wait` argument, which allows you to explore the decompiled source of the application, and edit it manually before resuming repackaging.
 
+## Common Issues
+
+### "Android Device via ADB" interception option is not available
+
+This option is activated only when HTTP Toolkit can access an ADB server which has at least one successfully connected Android device attached.
+
+If this is deactivated, it either means that HTTP Toolkit cannot communicate with ADB on your computer, or that no devices are currently connected successfully.
+
+You can test this yourself by running `adb devices` in a terminal. If there's a connected device, this should show output like:
+
+```
+$ adb devices
+List of devices attached
+<your device name>        device
+```
+
+If the device is missing, or any other status such as "offline" or "unauthorized" is shown, then your device is not properly connected. You may need to accept a permissions prompt to allow debugging on the device, or to disconnect and reconnect your device.
+
+It is possible that devices could be connected but not accessible to HTTP Toolkit if your ADB server runs on a non-default port, so it isn't automatically detected by HTTP Toolkit. HTTP Toolkit attempts to connect to port 5037 by default. If your ADB server is running on a different port, you can launch HTTP Toolkit with the `ANDROID_ADB_SERVER_PORT` environment variable set to the correct port to allow it to be detected correctly.
+
+### System certificates are not trusted
+
+If HTTP Toolkit is not able to inject system certificates, you will see a warning icon and "System trust disabled" in the HTTP Toolkit Android app.
+
+This is common and unavoidable when using HTTP Toolkit on non-rooted devices or locked-down emulators such as the 'Google Play' official emulator builds. On those devices, Android makes it impossible to change the system certificate configuration. In this case many applications will not allow interception by default, and you will need to modify the target application's configuration to capture it's traffic. See [the instructions above](#intercepting-traffic-from-your-own-android-app) for more details.
+
+When ADB interception is used on rooted devices or emulators (except the 'Google Play' version of the official emulators), HTTP Toolkit should be able to inject system certificates for your automatically, so that you don't see this message.
+
+It's possible this could fail however if root access isn't allowed via ADB. Ensure that one of the following steps works on your device and prints 'root':
+
+* `adb shell`, then `su -c whoami`
+* `adb shell`, then `su root whoami`
+* `adb root`, then `adb shell`, then `whoami`
+
+If one of those commands works correctly, HTTP Toolkit should be able to use that to install the system certificates. If none of those work, check the settings on your device to confirm that root access via ADB is enabled.
+
+If one of the above commands prints 'root' but you're still having problems, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new) so this can be investigated and fixed.
+
+### Android setup fails with an "Oh no!" error message
+
+This is shown if an unrecoverable error occurs. There's many possible causes of this:
+
+* Your device may be unable to connect to HTTP Toolkit on your computer (e.g. if they are not on the same network, or connections are blocked by a firewall). Android interception requires network connectivity between your device and your computer, so you will need to ensure they are on the same network.
+* You could have a rule configured in HTTP Toolkit on your computer that blocks the `http://android.httptoolkit.tech/config` request which shares the Android configuration. This request is handled by a rule in the 'Default rules' section, and may be blocked by 'Any request' rules above it. You will need to disable or modify this rule so that it does not match this request during Android setup.
+* Any other errors or unpredictable failures could cause this. You can retry setup to see if the error was temporary. If that does not help, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new) so this can be investigated and fixed.
+
 ## The Technical Details
 
 HTTP Toolkit interception requires two things:
