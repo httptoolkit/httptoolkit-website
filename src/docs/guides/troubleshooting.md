@@ -34,9 +34,9 @@ Any time the server crashes, a notification is shown with the error details and 
 
 If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact/) with any details you have, as this is definitely a bug that needs fixing.
 
-### I hate Electron
+### I can't use/don't like Electron
 
-This is a whole debate that we can get into elsewhere, but if you really don't like Electron apps, it is possible to use HTTP Toolkit without it. To do so:
+In some environments the Electron wrapper can cause problems, and some people prefer to avoid Electron apps entirely to manage their memory usage. The tradeoffs of Electron are a whole debate that we can get into elsewhere, but if you want to, it is entirely possible to use HTTP Toolkit without it. To do so:
 
 * Start a server:
     * Download the latest HTTP Toolkit server from https://github.com/httptoolkit/httptoolkit-server/releases for your platform
