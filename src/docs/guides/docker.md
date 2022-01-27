@@ -282,7 +282,7 @@ Docker consists of two main components: a Docker client and a Docker daemon. The
 
 While the daemon is required, the client is optional, and there's many clients available - the `docker` command is one client, but `docker-compose` is a totally independent client, and tools with Docker integrations available like Visual Studio Code include their own Docker clients.
 
-These Docker clients all talk to the Docker daemon over HTTP. To create the its hooks into Docker containers and intercept traffic, HTTP Toolkit proxies each Docker client's communication with the Docker daemon, and transforms how some API requests work.
+These Docker clients all talk to the Docker daemon over HTTP. To create hook into Docker containers and intercept traffic, HTTP Toolkit proxies each Docker client's communication with the Docker daemon, and transforms how some API requests work.
 
 It does this by running a local HTTP server, and setting the `DOCKER_HOST` environment variable to redirect Docker daemon API traffic there. This server is our Docker proxy (full code [here](https://github.com/httptoolkit/httptoolkit-server/blob/9f54ca6/src/interceptors/docker/docker-proxy.ts)). That env var is set in all intercepted terminals, and so any process started there will inherit it and talk to HTTP Toolkit's Docker proxy instead of the real Docker daemon when it wants to do something with Docker.
 
