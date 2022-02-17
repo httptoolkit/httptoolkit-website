@@ -16,7 +16,8 @@ export const Docsearch = (props) => {
         if (isSSR) return;
 
         window.docsearch({
-            apiKey: "f5b49b1ad3229d305c66fc594c1133a3",
+            appId: 'SYY32YEAY9',
+            apiKey: '36f428abfcd5e46d5c7e79617b3cc06a',
             indexName: "httptoolkit",
             // We need a *unique* id here. Breaks if we use memoized ids if we also
             // try to use SSR, so instead we use an explicit name prop:
