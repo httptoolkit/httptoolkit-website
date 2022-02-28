@@ -47,6 +47,13 @@
   force = true
   status = 301
 
+[[redirects]]
+  from = "/infobox.js"
+  to = "/russian-info-script.js"
+  status = 200
+  force = true
+  conditions = {Country = ["ru"]}
+
 [[headers]]
   for = "/*"
   [headers.values]

@@ -240,4 +240,9 @@ export const GlobalStyles = createGlobalStyle`
             }
         }
     }
+
+    iframe#infowarship {
+        z-index: 1000;
+        border: 3px solid #000;
+    }
 `;
