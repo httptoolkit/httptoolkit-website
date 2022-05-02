@@ -39,7 +39,7 @@ Getting started with Mockttp is easy: install it, define a server, and start it.
         const server = mockttp.getLocal({ https });
 
         // Inject 'Hello world' responses for all requests
-        server.anyRequest().thenReply(200, "Hello world");
+        server.forAnyRequest().thenReply(200, "Hello world");
         await server.start();
 
         // Print out the server details:
@@ -86,25 +86,25 @@ Above, we've created a script that matches all requests, and always returns a fi
 
 ```javascript
 // Proxy all example.com traffic through as normal, untouched:
-server.anyRequest()
-    .forHost("example.com")
+server.forAnyRequest()
+    .forHostname("example.com")
     .thenPassThrough();
 
 // Make all GET requests to google.com time out:
-server.get("google.com").thenTimeout();
+server.forGet("google.com").thenTimeout();
 
 // Redirect any github requests to wikipedia.org:
-server.anyRequest()
-    .forHost("github.com")
+server.forAnyRequest()
+    .forHostname("github.com")
     .thenForwardTo("https://www.wikipedia.org");
 
 // Intercept /api?userId=123 on any host, serve the response from a file:
-server.get("/api")
+server.forGet("/api")
     .withQuery({ userId: 123 })
     .thenFromFile(200, "/path/to/a/file");
 
 // Forcibly close any connection if a POST request is sent:
-server.post().thenCloseConnection();
+server.forPost().thenCloseConnection();
 ```
 
 Rules like these give you the power to rewrite traffic any way you like: pass it through untouched like normal, replace responses, redirect traffic, you name it.
@@ -128,7 +128,7 @@ That looks like this:
 ```javascript
 // Replace targets entirely with custom logic:
 let counter = 0;
-server.anyRequest().forHost("google.com").thenCallback((request) => {
+server.forAnyRequest().forHostname("google.com").thenCallback((request) => {
     // This code will run for all requests to Google.com
     return {
         status: 200,
@@ -138,7 +138,7 @@ server.anyRequest().forHost("google.com").thenCallback((request) => {
 });
 
 // Or wrap targets, transforming real requests & responses:
-server.anyRequest().forHost("example.com").thenPassThrough({
+server.forAnyRequest().forHostname("example.com").thenPassThrough({
     beforeResponse: (response) => {
         // Here you can access the real response:
         console.log(`Got ${response.statusCode} response with body: ${response.body.text}`);
