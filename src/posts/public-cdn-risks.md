@@ -80,7 +80,7 @@ Using a public CDN adds an extra single point of failure to your site. Now, if y
 Public CDNs as standard load every resource as a separate file, without bundling. Whilst HTTP/2 does reduce the need for bundling, this is still suboptimal for non-trivial web applications, for two reasons:
 
 * Worse compression: HTTP response compression is always applied per response. By splitting your script across many responses, instead of compressing it all together, compression performance is reduced. This is especially true for easily compressible content that likely shares lots of common content - i.e. JavaScript files.
-* No tree shaking: a public CDN must send you the entire JavaScript library in your response every time. Meanwhile, modern bundles can intelligently detect while parts of imported scripts are used through [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) at build time, and include only those portions in your application code, which can shrink the total size of your runtime dependencies dramatically.
+* No tree shaking: a public CDN must send you the entire JavaScript library in your response every time. Meanwhile, modern bundles can intelligently detect which parts of imported scripts are used through [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking) at build time, and include only those portions in your application code, which can shrink the total size of your runtime dependencies dramatically.
 
 This is a complicated issue - there'll be times where the above doesn't apply, and it's important to measure the reality for your specific application. That said, dependency bundling is going to be faster 90% of the time and it's a reasonable default if you're building anything substantial.
 
