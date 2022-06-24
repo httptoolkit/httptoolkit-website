@@ -192,7 +192,7 @@ Error: failed to start containers: <your image id>
 To avoid this, you can either launch the container elsewhere and then intercept is using the "Attach to a Docker Container" button in HTTP Toolkit, or you can recreate the container in the intercepted terminal, by either:
 
 * Creating & starting a new container with `docker run <image>`
-* By manually recreating the container with `docker create <image>` and then starting it with `docker
+* By manually recreating the container with `docker create <image>`, and then using the printed id to launch it later via `docker start <container id>`
 
 ### Intercepted images and containers disappear after HTTP Toolkit exits
 
