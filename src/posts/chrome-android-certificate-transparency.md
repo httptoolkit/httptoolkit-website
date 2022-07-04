@@ -12,7 +12,7 @@ This doesn't appear in the main announcements anywhere, but buried deep in the e
 
 And with that small note, Chrome on Android become uninterceptable for all HTTP Toolkit users using rooted devices, and anybody else who actively installs and trusts their own system CA certificates.
 
-If you're running into an `ERR_CERTIFICATE_TRANSPARENCY_REQUIRED` error in Chrome while trying to debug your HTTPS traffic with some MitM debugging proxy, then this affecting you too.
+If you're running into an `ERR_CERTIFICATE_TRANSPARENCY_REQUIRED` error in Chrome while trying to debug your HTTPS traffic with some MitM debugging proxy, then this is affecting you too.
 
 Let's talk about how certificate transparency works, why this breaks, and how you can work around it to keep debugging HTTPS from Chrome on your Android device regardless.
 
