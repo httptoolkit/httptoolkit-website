@@ -75,6 +75,6 @@ Struggling to get interception working? Here's some tips:
 
 * Terminal interception should be available on all machines, but it's possible that browser and other interception options might not be available on your machine, depending on the applications you have installed.
 
-If you have an application installed but the interception option is still disabled, or if an option is enabled but it's not working for you, that's a bug! Please [file an issue](https://github.com/httptoolkit/feedback/issues/new) so we can get this fixed.
+If you have an application installed but the interception option is still disabled, or if an option is enabled but it's not working for you, that's a bug! Please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) so we can get this fixed.
 
 Any other questions? Feel free to [get in touch](/contact/).

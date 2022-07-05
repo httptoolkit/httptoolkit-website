@@ -54,4 +54,4 @@ Having trouble?
 
 Antivirus applications can cause problems or delay installation & startup of HTTP Toolkit. Typically this just requires a little patience, but if you're having issues, disabling your antivirus temporarily may help.
 
-If you're having any other issues, [get in touch](/contact/) or [file a bug](https://github.com/httptoolkit/feedback/issues/new).
+If you're having any other issues, [get in touch](/contact/) or [file a bug](https://github.com/httptoolkit/httptoolkit/issues/new/choose).

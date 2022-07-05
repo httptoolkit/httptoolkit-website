@@ -89,7 +89,7 @@ export default (props) => (<Layout location={props.location}>
             HTTP Toolkit does its best to avoid collecting data about you wherever possible. <strong>The content of your HTTP(S) requests & responses is never collected</strong>, and this is stored only locally on your machine. Users of HTTP Toolkit are typically completely anonymous, except for users who explicitly log into HTTP Toolkit accounts, and HTTP Toolkit takes efforts to preserve the anonymity of collected data wherever possible.
         </PolicyDisclaimer>
         <PolicyDisclaimer>
-            If you have suggestions for ways to improve user privacy, let us know at <a href="https://github.com/httptoolkit/feedback/issues/new">github.com/httptoolkit/feedback</a>. If you'd like to see exactly what data HTTP Toolkit collects up close, feel free to take a look at <a href="https://github.com/httptoolkit">the source</a> for yourself.
+            If you have suggestions for ways to improve user privacy, let us know at <a href="https://github.com/httptoolkit/httptoolkit/issues/new/choose">github.com/httptoolkit/httptoolkit</a>. If you'd like to see exactly what data HTTP Toolkit collects up close, feel free to take a look at <a href="https://github.com/httptoolkit">the source</a> for yourself.
         </PolicyDisclaimer>
         <Policy>
             <h1>Our privacy policy</h1>
@@ -151,7 +151,7 @@ export default (props) => (<Layout location={props.location}>
             <p>We may process or share data based on the following legal basis:</p>
 
             <ul>
-                <li>Consent: We may process your data if you have given us specific consent to use your personal information in a specific purpose.</li> 
+                <li>Consent: We may process your data if you have given us specific consent to use your personal information in a specific purpose.</li>
                 <li>Legitimate Interests: We may process your data when it is reasonably necessary to achieve our legitimate business interests.</li>
                 <li>Performance of a Contract: Where we have entered into a contract with you, we may process your personal information to fulfill the terms of our contract.</li>
                 <li>Legal Obligations: We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).</li>

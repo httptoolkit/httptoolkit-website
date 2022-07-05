@@ -96,6 +96,6 @@ You can do this using the `--ignore-certificate-errors-spki-list=<cert hash>` op
 
 Not convenient at all, but not the worst workaround in the world, and although it requires root in many cases, this only affects rooted devices & emulators so that's no big deal.
 
-This is now integrated into HTTP Toolkit as part of the automated ADB setup in the latest release, so if you're using a rooted device with HTTP Toolkit this will work for you automatically in future! Of course, if you do still have problems do please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new).
+This is now integrated into HTTP Toolkit as part of the automated ADB setup in the latest release, so if you're using a rooted device with HTTP Toolkit this will work for you automatically in future! Of course, if you do still have problems do please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose).
 
 **Want to take your Android reverse engineering to the next level? [HTTP Toolkit](https://httptoolkit.tech/android/) gives you one-click HTTP(S) interception, inspection & mocking for any Android app.**

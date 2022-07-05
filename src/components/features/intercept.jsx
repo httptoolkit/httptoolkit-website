@@ -69,7 +69,7 @@ export const InterceptFeature = (p) => <StaticQuery
                 </Link> applications</li>
                 <li>
                     More coming soon, all powered by <a
-                        href='https://github.com/httptoolkit/feedback'
+                        href='https://github.com/httptoolkit/httptoolkit/issues/new/choose'
                         target="_blank"
                         rel='noopener noreferrer'
                     >

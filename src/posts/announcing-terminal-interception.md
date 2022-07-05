@@ -69,11 +69,11 @@ Out of the box, across Windows, Linux & Mac, this immediately intercepts:
 * More powerful tools built on HTTP(S), including Git, Apt-Get, and [HTTPie](https://httpie.org/).
 * Almost all Ruby, Perl, Go, Bash, or Python scripts.
 * All Node.js tools that correctly observe `HTTP_PROXY` (unlike most tools, [Node.js doesn't do this automatically](https://github.com/nodejs/node/issues/15620)). This does include npm though, and any requests made with libraries like Axios (0.14+) or Request (2.38+), or using [global-tunnel](https://github.com/np-maintain/global-tunnel).
-* Probably much more. [Reports of issues/other working clients are very welcome!](https://github.com/httptoolkit/feedback/issues/new)
+* Probably much more. [Reports of issues/other working clients are very welcome!](https://github.com/httptoolkit/httptoolkit/issues/new/choose)
 
-I suspect there'll be extra cases that could be caught with a few more env vars. If you have one, I'd love to hear from you. Either [file some feedback](https://github.com/httptoolkit/feedback/issues/new), or just open a PR [on the interceptor directly](https://github.com/httptoolkit/httptoolkit-server/blob/v0.1.3/src/interceptors/fresh-terminal.ts#L91-L110).
+I suspect there'll be extra cases that could be caught with a few more env vars. If you have one, I'd love to hear from you. Either [file some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or just open a PR [on the interceptor directly](https://github.com/httptoolkit/httptoolkit-server/blob/v0.1.3/src/interceptors/fresh-terminal.ts#L91-L110).
 
 ![A Lynx browser window being intercepted](./lynx-interception.png)
 ![The HTTP Toolkit view of intercepted Lynx traffic](./lynx-intercepted.png)
 
-If this looks interesting, go [download HTTP Toolkit now](/) and try it out for yourself. Have feedback? File it [on Github](https://github.com/httptoolkit/feedback/issues/new), or get in touch [on Twitter](https://twitter.com/httptoolkit).
+If this looks interesting, go [download HTTP Toolkit now](/) and try it out for yourself. Have feedback? File it [on Github](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or get in touch [on Twitter](https://twitter.com/httptoolkit).

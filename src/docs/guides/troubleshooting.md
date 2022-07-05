@@ -6,7 +6,7 @@ order: 999
 
 Sometimes things go wrong. Below is a list of known issues you might encounter with HTTP Toolkit, and what you can do about them.
 
-**Have any issues not listed here? Please get in touch, either [by email](/contact/) or by filing an issue [on GitHub](https://github.com/httptoolkit/feedback/issues/new).**
+**Have any issues not listed here? Please get in touch, either [by email](/contact/) or by filing an issue [on GitHub](https://github.com/httptoolkit/httptoolkit/issues/new/choose).**
 
 ## General issues
 

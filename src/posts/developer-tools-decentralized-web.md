@@ -224,7 +224,7 @@ In addition, HTTP Toolkit's rule builder UI will be extended to expose the inter
 
 ![A mockup showing two configurable rules for mocking IPFS and WebRTC rules](./dweb-rules-mockup.png)
 
-_Remember these are mockups! Actual UI will vary. Do please [send some feedback](https://github.com/httptoolkit/httptoolkit/issues/new) if you have opinions on this though._
+_Remember these are mockups! Actual UI will vary. Do please [send some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose) if you have opinions on this though._
 
 ## When?
 
@@ -232,7 +232,7 @@ This is going to kick into action over the next few weeks. The first step is to 
 
 That's the plan - hopefully this sounds exciting! Watch this space to hear about all the next developments. If you haven't already, you can subscribe to this blog below, or subscribe to HTTP Toolkit major release announcements [here](httptoolkit.tech/keep-me-updated/).
 
-**If you have opinions on this, especially if you're using one of these protocols today, I would love to hear about them**. Get in touch! Send me your thoughts, questions and feedback either [on Twitter](https://twitter.com/pimterry), as a [GitHub issue](https://github.com/httptoolkit/httptoolkit/issues/new) or [by messaging me directly](https://httptoolkit.tech/contact/).
+**If you have opinions on this, especially if you're using one of these protocols today, I would love to hear about them**. Get in touch! Send me your thoughts, questions and feedback either [on Twitter](https://twitter.com/pimterry), as a [GitHub issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) or [by messaging me directly](https://httptoolkit.tech/contact/).
 
 _This‌ ‌project‌ ‌has‌ ‌received‌ ‌funding‌ ‌from‌ ‌the‌ ‌European‌ ‌Union’s‌ ‌Horizon‌ ‌2020‌‌ research‌ ‌and‌ ‌innovation‌ ‌programme‌ ‌within‌ ‌the‌ ‌framework‌ ‌of‌ ‌the‌ ‌NGI-POINTER‌‌ Project‌ ‌funded‌ ‌under‌ ‌grant‌ ‌agreement‌ ‌No‌ 871528._
 

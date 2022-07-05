@@ -100,7 +100,7 @@ There are a variety of matchers available to filter the requests that a rule wil
 
 After selecting and configuring the matcher, press the + button on the right of the matcher to add it to the set of matchers for this rule, and then use the save button to save the rule.
 
-_Have suggestions for other matchers you'd like to see? File [some feedback](https://github.com/httptoolkit/feedback/issues/new), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
+_Have suggestions for other matchers you'd like to see? File [some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
 
 ## Actions
 
@@ -141,6 +141,6 @@ There are a variety of actions available, to apply different effects to the matc
 
 After selecting and configuring an action, remember to save the rule to begin applying it to matching traffic.
 
-_Have suggestions for other actions you'd like to see? File [some feedback](https://github.com/httptoolkit/feedback/issues/new), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
+_Have suggestions for other actions you'd like to see? File [some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
 
 **Any questions? [Get in touch](/contact/)**

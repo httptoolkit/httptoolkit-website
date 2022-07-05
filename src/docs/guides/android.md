@@ -143,7 +143,7 @@ If the system CA certificate is not installed successfully, check that it's poss
 
 If none of those successfully print "root", then either your device is not rooted, it's using an unrecognized root mechanism, or root is not enabled for ADB access (e.g. in Magisk's settings on the device).
 
-If you're sure the device is rooted, but HTTP Toolkit is still not automatically installing the system certificate, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new).
+If you're sure the device is rooted, but HTTP Toolkit is still not automatically installing the system certificate, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose).
 
 ### Intercepting traffic from 3rd party Android apps with certificate pinning
 
@@ -197,7 +197,7 @@ It's possible this could fail however if root access isn't allowed via ADB. Ensu
 
 If one of those commands works correctly, HTTP Toolkit should be able to use that to install the system certificates. If none of those work, check the settings on your device to confirm that root access via ADB is enabled.
 
-If one of the above commands prints 'root' but you're still having problems, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new) so this can be investigated and fixed.
+If one of the above commands prints 'root' but you're still having problems, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) so this can be investigated and fixed.
 
 ### Android setup fails with an "Oh no!" error message
 
@@ -205,7 +205,7 @@ This is shown if an unrecoverable error occurs. There's many possible causes of 
 
 * Your device may be unable to connect to HTTP Toolkit on your computer (e.g. if they are not on the same network, or connections are blocked by a firewall). Android interception requires network connectivity between your device and your computer, so you will need to ensure they are on the same network.
 * You could have a rule configured in HTTP Toolkit on your computer that blocks the `http://android.httptoolkit.tech/config` request which shares the Android configuration. This request is handled by a rule in the 'Default rules' section, and may be blocked by 'Any request' rules above it. You will need to disable or modify this rule so that it does not match this request during Android setup.
-* Any other errors or unpredictable failures could cause this. You can retry setup to see if the error was temporary. If that does not help, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new) so this can be investigated and fixed.
+* Any other errors or unpredictable failures could cause this. You can retry setup to see if the error was temporary. If that does not help, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) so this can be investigated and fixed.
 
 ## The Technical Details
 

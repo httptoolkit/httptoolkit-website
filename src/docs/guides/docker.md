@@ -208,7 +208,7 @@ This is a known issue right now: HTTP Toolkit can't yet intercept BuildKit build
 
 BuildKit is still disabled by default in many other environments anyway, so this should not be a problem for the vast majority of builds, unless you depend on some specific BuildKit functionality.
 
-If this feature is important to you, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new) with more details, so supporting this can be prioritized.
+If this feature is important to you, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) with more details, so supporting this can be prioritized.
 
 ## The Technical Details
 

@@ -64,4 +64,4 @@ We're barely scratching the surface here, but there's a lot of options to go fur
     * Simulate connection timeouts & resets
     * Forward all requests automatically from one server to another
 
-Enjoy! Have any questions, bugs, or feature requests? Feel free to [file a feedback issue](https://github.com/httptoolkit/feedback/issues/new) on GitHub, or [get in touch directly](/contact/).
+Enjoy! Have any questions, bugs, or feature requests? Feel free to [file a feedback issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) on GitHub, or [get in touch directly](/contact/).
