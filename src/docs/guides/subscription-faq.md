@@ -26,10 +26,22 @@ There's no trial option available, however you can use all the core features for
 
 ### How can I cancel?
 
-1. Install HTTP Toolkit, and log in with your Pro account (if you haven't already).
+You can cancel your HTTP Toolkit subscription either within the app itself, or via the account management web portal.
+
+#### Cancelling from the HTTP Toolkit app
+
+1. Open HTTP Toolkit, and log in with your Pro account (if you haven't already).
 2. Go to "Settings" in the bottom left.
 3. Click "Cancel Subscription".
 4. Confirm the cancellation in the subscription management page that opens in your browser.
+
+#### Cancelling on the web
+
+1. Open [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech) in your browser
+2. Enter the email that you used to sign up (you can check the email address that receives your invoices to confirm this).
+3. Enter the code that will be sent to your email to complete your login.
+4. Click "Cancel Subscription".
+5. Confirm the cancellation in the subscription management page that opens.
 
 ### Who are Paddle?
 
