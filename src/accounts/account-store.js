@@ -72,8 +72,23 @@ export class AccountStore {
         this.reportPlanSelected(tierCode);
         const plan = this.getPlan(tierCode, planCycle);
 
-        const isRiskyPayment = plan.prices?.currency === 'BRL';
-        if (!this.isLoggedIn && isRiskyPayment) {
+        if (!this.isLoggedIn) {
+            this.modal = 'login';
+            yield showLoginDialog();
+        }
+
+        if (!this.isLoggedIn || this.isPaidUser) {
+            // Login cancelled or failed, or they have a plan already
+            this.modal = null;
+            return;
+        }
+
+        const isRiskyPayment = plan.prices?.currency === 'BRL' &&
+            this.user?.email?.endsWith('@gmail.com'); // So far, all chargebacks have been from gmail accounts
+
+        const newUser = !this.user?.subscription; // Even cancelled users will have an expired subscription left
+
+        if (newUser && isRiskyPayment) {
             // This is annoying, I wish we didn't have to do this, but fraudulent BRL payments are now 80% of chargebacks,
             // and we need to tighten this up and block that somehow or payment platforms will eventually block
             // HTTP Toolkit globally. This error message is left intentionally vague to try and discourage fraudsters
@@ -87,17 +102,6 @@ export class AccountStore {
                 "Please email purchase@httptoolkit.tech to begin this process."
             );
 
-            return;
-        }
-
-        if (!this.isLoggedIn) {
-            this.modal = 'login';
-            yield showLoginDialog();
-        }
-
-        if (!this.isLoggedIn || this.isPaidUser) {
-            // Login cancelled or failed, or they have a plan already
-            this.modal = null;
             return;
         }
 
