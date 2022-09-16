@@ -70,6 +70,7 @@ async function loadPlanPrices() {
             : totalPrice;
 
         plan.prices = {
+            currency: currency,
             total: formatPrice(currency, totalPrice),
             monthly: formatPrice(currency, monthlyPrice)
         };

@@ -72,6 +72,24 @@ export class AccountStore {
         this.reportPlanSelected(tierCode);
         const plan = this.getPlan(tierCode, planCycle);
 
+        const isRiskyPayment = plan.prices?.currency === 'BRL';
+        if (!this.isLoggedIn && isRiskyPayment) {
+            // This is annoying, I wish we didn't have to do this, but fraudulent BRL payments are now 80% of chargebacks,
+            // and we need to tighten this up and block that somehow or payment platforms will eventually block
+            // HTTP Toolkit globally. This error message is left intentionally vague to try and discourage fraudsters
+            // from using a VPN to work around it. We do still allow this for existing customers, who are already
+            // logged in - we're attempting to just block the creation of new accounts here.
+            this.reportPlanPurchaseBlocked(tierCode);
+
+            alert(
+                "Unfortunately, due to high levels of recent chargebacks & fraud, subscriptions for new accounts "+
+                "will temporarily require manual validation & processing before setup.\n\n" +
+                "Please email purchase@httptoolkit.tech to begin this process."
+            );
+
+            return;
+        }
+
         if (!this.isLoggedIn) {
             this.modal = 'login';
             yield showLoginDialog();
@@ -115,6 +133,16 @@ export class AccountStore {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
                 eventAction: 'purchased',
+                eventLabel: _.upperFirst(planName), // For historical reasons
+            });
+        }
+    }
+
+    reportPlanPurchaseBlocked(planName) {
+        if (window.ga) {
+            window.ga('send', 'event', {
+                eventCategory: 'plan',
+                eventAction: 'purchase-blocked',
                 eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }
