@@ -83,6 +83,11 @@ export class AccountStore {
             return;
         }
 
+        if (this.user?.banned) {
+            alert('Your account has been blocked for abuse. Please contact help@httptoolkit.tech.');
+            return;
+        }
+
         const isRiskyPayment = plan.prices?.currency === 'BRL' &&
             this.user?.email?.endsWith('@gmail.com'); // So far, all chargebacks have been from gmail accounts
 
