@@ -200,7 +200,9 @@ function parseUserData(userJwt) {
         id: appData.subscription_id,
         status: appData.subscription_status,
         plan: getSubscriptionPlanCode(appData.subscription_plan_id),
-        expiry: new Date(appData.subscription_expiry),
+        expiry: appData.subscription_expiry
+            ? new Date(appData.subscription_expiry)
+            : undefined,
         updateBillingDetailsUrl: appData.update_url,
         cancelSubscriptionUrl: appData.cancel_url,
         lastReceiptUrl: appData.last_receipt_url
