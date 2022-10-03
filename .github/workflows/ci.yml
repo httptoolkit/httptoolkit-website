@@ -70,3 +70,14 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
+
+      - name: Deploy to Bunny CDN
+        uses: ayeressian/bunnycdn-storage-deploy@v1.0.2
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        with:
+          source: './public'
+          storageZoneName: httptoolkit-site
+          accessKey: ${{ secrets.BUNNY_SITE_STORAGE_KEY }}
+        env:
+          BUNNY_SITE_STORAGE_KEY: ${{ secrets.BUNNY_SITE_STORAGE_KEY }}
+        timeout-minutes: 5
