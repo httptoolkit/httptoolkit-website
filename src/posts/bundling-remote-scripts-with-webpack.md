@@ -11,7 +11,7 @@ You could use these scripts from the CDN, as intended. If you do so you'll lose 
 
 Instead, you could download the script directly, save it into your codebase ('vendor' it), and treat it like your own source. What if it changes though? Many of these CDN scripts change frequently, so you'll need to repeatedly update this, and every change is extra noise and mess in your codebase & git history.
 
-I hit this recently working on [HTTP Toolkit](https://httptoolkit.tech) trying to use the JS SDK for a 3rd party service, which is only available from a CDN, and isn't published on npm. Fortunately, there's another option: webpack can solve this for us.
+I hit this recently working on [HTTP Toolkit](https://httptoolkit.com) trying to use the JS SDK for a 3rd party service, which is only available from a CDN, and isn't published on npm. Fortunately, there's another option: webpack can solve this for us.
 
 ## Val Loader
 

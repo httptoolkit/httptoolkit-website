@@ -66,7 +66,7 @@ Next we need to intercept traffic from the emulator.
 
 HTTP Toolkit is an HTTP debugger that can intercept, inspect & rewrite HTTP from any client, including Android. It's open-source and all the core features are completely free.
 
-If you haven't installed it yet, [download it from here](https://httptoolkit.tech/android/).
+If you haven't installed it yet, [download it from here](https://httptoolkit.com/android/).
 
 Once you've installed and started HTTP Toolkit, you should see an ADB option on the 'Intercept' page that looks like this:
 

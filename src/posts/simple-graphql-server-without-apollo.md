@@ -226,4 +226,4 @@ Apollo do have a wide selection of interesting & useful packages, and they shoul
 
 Instead, start simple: build a system that you can fully understand & manage, avoid unnecessary complexity, and keep your project lean & flexible for as long as you can.
 
-**Using GraphQL, and want to debug, rewrite & mock live traffic? [Try out HTTP Toolkit](https://httptoolkit.tech/). One-click HTTP(S) interception & debugging for browsers, servers, Android & more.**
+**Using GraphQL, and want to debug, rewrite & mock live traffic? [Try out HTTP Toolkit](https://httptoolkit.com/). One-click HTTP(S) interception & debugging for browsers, servers, Android & more.**

@@ -10,7 +10,7 @@ This is a privacy problem, which I'm not going to focus on here, but collecting 
 
 TLS provides a particularly good surface for this kind of fingerprinting, which allows a server or proxy to recognize the kind of software (a specific browser version, Python, Ruby, Node.js, etc) that's opening any TLS connection, before the client has even sent any data (such as an HTTP request) within the connection, and purely using unencrypted public data from the connection.
 
-In many cases, this is a problem. **[HTTP Toolkit](https://httptoolkit.tech)** acts as a MitM proxy for HTTP(S) traffic inspection & mocking, and this potentially allows servers to recognize and block it, along with any other similar debugging proxies. Many other automated scripts and tools can also be recognized, blocking web scraping and other requests from anything but a real browser.
+In many cases, this is a problem. **[HTTP Toolkit](https://httptoolkit.com)** acts as a MitM proxy for HTTP(S) traffic inspection & mocking, and this potentially allows servers to recognize and block it, along with any other similar debugging proxies. Many other automated scripts and tools can also be recognized, blocking web scraping and other requests from anything but a real browser.
 
 Until recently, I thought this was fairly theoretical, but last week an HTTP Toolkit user showed me a real-world example, where non-browser traffic is blocked completely, based just on its TLS fingerprint, causing big problems for HTTP Toolkit usage.
 
@@ -219,4 +219,4 @@ These techniques should be enough to get you past any TLS fingerprint block you 
 
 It is unfortunate that perfectly matching a TLS fingerprint or generating a huge set of equivalent random values (by randomizing the extensions order) isn't possible in Node.js. This is possible in other low-level languages such as Go, where libraries like [uTLS](https://github.com/refraction-networking/utls) allow for direct manipulation of the client hello for these purposes, and if you're using other languages it's worth investigating that in more detail. In theory you could alternatively write a native extension for Node.js to do the same, but it's not a quick job, and I suspect the above will be enough to stay ahead of any TLS fingerprint blocks anyway for at least the foreseeable future.
 
-**Spend lots of time sending & debugging HTTPS? [Try out HTTP Toolkit](https://httptoolkit.tech/). One-click HTTP(S) interception, inspection & mocking for browsers, Android apps, Docker containers, Node.js/Python/Ruby/Java applications & more.**
+**Spend lots of time sending & debugging HTTPS? [Try out HTTP Toolkit](https://httptoolkit.com/). One-click HTTP(S) interception, inspection & mocking for browsers, Android apps, Docker containers, Node.js/Python/Ruby/Java applications & more.**

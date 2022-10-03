@@ -323,19 +323,19 @@ ${
                     <title>{ PAGE_TITLE }</title>
                     <meta name="description" content={PAGE_DESCRIPTION} />
 
-                    <meta property="og:url"         content="https://httptoolkit.tech/will-it-cors/" />
+                    <meta property="og:url"         content="https://httptoolkit.com/will-it-cors/" />
                     <meta property="og:type"        content="website" />
                     <meta property="og:title"       content={PAGE_TITLE} />
                     <meta property="og:description" content={PAGE_DESCRIPTION} />
-                    <meta property="og:image"       content="https://httptoolkit.tech/logo-social.png" />
+                    <meta property="og:image"       content="https://httptoolkit.com/logo-social.png" />
 
                     <meta name="twitter:card"        content="summary" />
                     <meta name="twitter:site"        content="@httptoolkit" />
                     <meta name="twitter:title"       content={PAGE_TITLE} />
                     <meta name="twitter:description" content={PAGE_DESCRIPTION} />
-                    <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
+                    <meta name="twitter:image"       content="https://httptoolkit.com/logo-square.png" />
 
-                    <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
+                    <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.com/rss.xml" />
                 </Helmet>
 
                 <PageContent>

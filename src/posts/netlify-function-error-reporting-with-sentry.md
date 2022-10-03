@@ -9,7 +9,7 @@ draft: false
 
 Your code is going to break eventually, and you need the tools to fix it.
 
-[HTTP Toolkit](https://httptoolkit.tech) uses Netlify functions under the hood to manage user account information and Paddle checkout callbacks. If we hit errors here, people's payments will fail, or they'll stop being given access to paid features, so this can be pretty bad! I need to be able to catch errors immediately, debug and work out why they're happening, and confirm that my fixes work.
+[HTTP Toolkit](https://httptoolkit.com) uses Netlify functions under the hood to manage user account information and Paddle checkout callbacks. If we hit errors here, people's payments will fail, or they'll stop being given access to paid features, so this can be pretty bad! I need to be able to catch errors immediately, debug and work out why they're happening, and confirm that my fixes work.
 
 Debugging & fixing issues here is a big topic, but one of the first steps is knowing exactly when & how errors happen. There's a few tools for this, but personally I've had a lot of success on projects recently with [Sentry](https://sentry.io). They've got a generous free plan (5k errors a month), built-in integrations for almost everything, and some good & detailed error reporting tools too.
 

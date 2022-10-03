@@ -171,7 +171,7 @@ This standard is based on the [SEARCH method](https://tools.ietf.org/html/rfc532
 
 This has upsides and downsides.
 
-Because a similar method has existed in the past, it does mean that many existing tools including **[HTTP Toolkit](https://httptoolkit.tech)** itself and infrastructure like proxies & CDNs will already support this, and could accept SEARCH requests immediately without any hassle.
+Because a similar method has existed in the past, it does mean that many existing tools including **[HTTP Toolkit](https://httptoolkit.com)** itself and infrastructure like proxies & CDNs will already support this, and could accept SEARCH requests immediately without any hassle.
 
 On the other hand, adding SEARCH to HTTP itself without breaking WebDAV requires some thought around compatibility. The current workaround for this in the spec is that any request with an `application/xml` or `text/xml` content-type header must follow the specific format rules defined in the WebDAV spec for its query body.
 
@@ -201,4 +201,4 @@ If you'd like to dig into the details further, the current specification is avai
 
 If you have any other questions, or is there anything I've missed? Feel free to [get in touch](https://twitter.com/pimterry) on Twitter, I'd love to hear about it.
 
-_Do you work with HTTP? **[Download HTTP Toolkit now](https://httptoolkit.tech/)** to inspect & mock HTTP from browsers, servers, apps and anywhere else in one click._
+_Do you work with HTTP? **[Download HTTP Toolkit now](https://httptoolkit.com/)** to inspect & mock HTTP from browsers, servers, apps and anywhere else in one click._

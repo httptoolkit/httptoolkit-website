@@ -77,7 +77,7 @@ export default (props) => (<Layout location={props.location}>
             There's some legal text below which formally defines how you're allowed to use HTTP Toolkit, this website, and your HTTP Toolkit user account. It looks serious, but it's all fairly standard boilerplate.
         </TermsDisclaimer>
         <TermsDisclaimer>
-            The rules here apply if you're using the hosted services (e.g. httptoolkit.tech and app.httptoolkit.tech) and user accounts, or the published application binaries. This does not limit your open-source freedoms, and if you're building HTTP Toolkit yourself on your own infrastructure then only the open-source licenses apply.
+            The rules here apply if you're using the hosted services (e.g. httptoolkit.com and app.httptoolkit.tech) and user accounts, or the published application binaries. This does not limit your open-source freedoms, and if you're building HTTP Toolkit yourself on your own infrastructure then only the open-source licenses apply.
         </TermsDisclaimer>
         <TermsDisclaimer>
             Note that the binaries specifically are dual-licensed: they're available under either the <a href="https://github.com/httptoolkit/httptoolkit-desktop/blob/master/LICENSE">AGPL v3</a>, guaranteeing open-source freedoms within the constraints of AGPL, or under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons BY-ND license</a>, allowing unencumbered licensing for simple unmodified use.
@@ -85,7 +85,7 @@ export default (props) => (<Layout location={props.location}>
         <Terms>
             <h1>Terms of Service ("Terms")</h1>
 
-            <p>Please read these Terms of Service ("Terms", "Terms of Service", "Terms of Use") carefully before using the httptoolkit.tech website, any HTTP Tookit user accounts, or the published HTTP Toolkit applications (the "Services") operated by Timothy Perry, trading as HTTP Toolkit ("us", "we", or "our").</p>
+            <p>Please read these Terms of Service ("Terms", "Terms of Service", "Terms of Use") carefully before using the httptoolkit.com website, any HTTP Tookit user accounts, or the published HTTP Toolkit applications (the "Services") operated by Timothy Perry, trading as HTTP Toolkit ("us", "we", or "our").</p>
 
             <p>Your access to and use of the Services is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Services.</p>
 
@@ -97,7 +97,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>The licenses for the source code of open-source software distributed and referenced within the Services is documented primarily by the source code of that software, and the terms here do not limit or otherwise affect those licenses.</p>
 
-            <p>The HTTP Toolkit application downloadable from the httptoolkit.tech may be used under the terms of one of two possible licenses: the GNU Affero General Public License v3.0 (AGPL-3.0) or the Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) license, according to your needs.</p>
+            <p>The HTTP Toolkit application downloadable from httptoolkit.com may be used under the terms of one of two possible licenses: the GNU Affero General Public License v3.0 (AGPL-3.0) or the Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) license, according to your needs.</p>
 
             <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement. Unless you inform us otherwise, you allow HTTP Toolkit to use your company name and logo, exclusively to identify your organization as a user of HTTP Toolkit, without implying any further endorsement or relationship. To opt out of this, please contact us and we'll ensure your name and logo is never used in any future HTTP Toolkit materials, and is removed from any in which they currently appear.</p>
 
@@ -121,7 +121,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>'Team' accounts include many licenses. These licenses can each be linked to individual team members, and may transferred between team members. Only the individuals currently linked to the team account may use the features of the account. Each license may only be transferred once every 48 hours.</p>
 
-            <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.tech/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription.</p>
+            <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.com/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription.</p>
 
             <p>Account subscriptions may be cancelled at any time, either from the Settings page within the tool (for Professional accounts), from the <a href="https://accounts.httptoolkit.tech/">team management dashboard</a> (for Team accounts), or by contacting us or Paddle.com directly. Once cancelled, the subscription will remain active until the end of the previously purchased period, and will then expire without further renewal.</p>
 

@@ -6,7 +6,7 @@ cover_image: './dodgy-padlock.jpg'
 
 Some Android apps go to astounding lengths to ensure that even the owner of a device can never see the content of the app's HTTPS requests.
 
-This is problematic for security research, privacy analysis and debugging, and for control over your own device in general. It's not a purely theoretical problem either - protections like this attempt to directly block HTTPS inspection tools like [HTTP Toolkit](https://httptoolkit.tech/android/), which allow you to automatically intercept HTTPS from Android devices for inspection, testing & mocking, like so:
+This is problematic for security research, privacy analysis and debugging, and for control over your own device in general. It's not a purely theoretical problem either - protections like this attempt to directly block HTTPS inspection tools like [HTTP Toolkit](https://httptoolkit.com/android/), which allow you to automatically intercept HTTPS from Android devices for inspection, testing & mocking, like so:
 
 <center>
     <iframe class="video-embed" src="https://www.youtube.com/embed/ttf8IhfI0Ao" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
@@ -161,7 +161,7 @@ Here's a few high-profile apps that use certificate pinning to protect their HTT
 * [N26's mobile banking app](https://play.google.com/store/apps/details?id=de.number26.android)
 * [The UK NHS's COVID tracing app](https://play.google.com/store/apps/details?id=uk.nhs.covid19.production)
 
-Let's try taking a look at their HTTPS traffic. You'll need an HTTPS debugging proxy to test this - [HTTP Toolkit](https://httptoolkit.tech/android/) will work, or you can use another HTTPS-intercepting proxy like Burp or Charles if you'd prefer.
+Let's try taking a look at their HTTPS traffic. You'll need an HTTPS debugging proxy to test this - [HTTP Toolkit](https://httptoolkit.com/android/) will work, or you can use another HTTPS-intercepting proxy like Burp or Charles if you'd prefer.
 
 Once you're intercepting the device, try opening any of the above apps and you'll see TLS connection errors in the debugging tool, and odd behaviour in the app. For example, when opening Twitter, HTTP Toolkit shows me this:
 
@@ -189,7 +189,7 @@ In theory, Frida is capable of defeating absolutely any certificate pinning you 
 
 That said, this all depends on whether the script you use is aware of the specific certificate pinning code or APIs that are used. Whether this technique works depends entirely on the combination of target app and the Frida script.
 
-The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so [get in touch](https://httptoolkit.tech/contact/) or [file an issue](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose)!
+The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so [get in touch](https://httptoolkit.com/contact/) or [file an issue](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose)!
 
 Notably some apps which will go above and beyond, by implementing their own custom certificate pinning techniques from scratch, to make disabling it as difficult as possible. The prime example of this is the various Facebook apps, which all use their own [custom reimplementation of TLS](https://github.com/facebookincubator/fizz) rather than the standard platform APIs.
 
@@ -203,4 +203,4 @@ Hopefully you've now got Frida working, and you can see, debug & rewrite secret 
 
 The next step is to start exploring further, to examine the APIs used and data leaked by other popular apps, and to help find and fix cases where this Frida script doesn't yet work, so we can stub out every last pinning API. Get testing!
 
-Have any questions, or run into issues? Feel free to get in touch [directly](https://httptoolkit.tech/contact/) or [on Twitter](https://twitter.com/pimterry).
+Have any questions, or run into issues? Feel free to get in touch [directly](https://httptoolkit.com/contact/) or [on Twitter](https://twitter.com/pimterry).

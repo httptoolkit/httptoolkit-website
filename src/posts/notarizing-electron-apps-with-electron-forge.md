@@ -47,7 +47,7 @@ There's a few main steps required for a typical Electron app build:
 
 ## How do I do that in practice?
 
-If you'd like a worked example, I recently added notarization to [HTTP Toolkit](https://httptoolkit.tech), and you can see the commits involved here:
+If you'd like a worked example, I recently added notarization to [HTTP Toolkit](https://httptoolkit.com), and you can see the commits involved here:
 
 * [Update to XCode 10](https://github.com/httptoolkit/httptoolkit-desktop/commit/d8c55a6b42fa9ab67475c03cd497d8eb6d0d5d90)
 * [Complete notarization requirements](https://github.com/httptoolkit/httptoolkit-desktop/commit/c67896837fb50cb635a0a9589052e4fafc48dd64)

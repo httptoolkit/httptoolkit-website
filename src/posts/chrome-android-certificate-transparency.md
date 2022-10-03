@@ -4,7 +4,7 @@ date: '2022-05-11T16:00'
 cover_image: './person-behind-mirror.jpg'
 ---
 
-Certificate transparency is superb improvement to HTTPS certificate security on the web that's great for users and businesses, but on Android it creates a huge problem for the many developer tools like **[HTTP Toolkit](https://httptoolkit.tech)** which install trusted system certificates into Android to intercept & debug app traffic.
+Certificate transparency is superb improvement to HTTPS certificate security on the web that's great for users and businesses, but on Android it creates a huge problem for the many developer tools like **[HTTP Toolkit](https://httptoolkit.com)** which install trusted system certificates into Android to intercept & debug app traffic.
 
 This doesn't appear in the main announcements anywhere, but buried deep in the enterprise [release notes](https://support.google.com/chrome/a/answer/7679408#certTrans&zippy=%2Cchrome) for Chrome v99 there's a small note that says:
 
@@ -52,7 +52,7 @@ That is, not until Chrome 99 was released on Android.
 
 ## Certificate Transparency in Chrome 99 on Android
 
-On Android, there are a few different certificate stores (full details [here](https://httptoolkit.tech/blog/intercepting-android-https/#android-certificate-stores)). You can install your own CA certificates to intercept HTTPS traffic on Android, but intercepting any interesting traffic from an app that isn't explicitly opting-in to interception requires you to put your certificate into the 'system' store, not just the normal 'user' store.
+On Android, there are a few different certificate stores (full details [here](https://httptoolkit.com/blog/intercepting-android-https/#android-certificate-stores)). You can install your own CA certificates to intercept HTTPS traffic on Android, but intercepting any interesting traffic from an app that isn't explicitly opting-in to interception requires you to put your certificate into the 'system' store, not just the normal 'user' store.
 
 Almost all apps will trust the CAs from this system store to issue certificates for HTTPS. That means if you can put your MitM proxy of choice's CA certificate there, then your proxy can intercept all those app's HTTPS, and you can immediately see what traffic any app is sending, and test out what it does with alternate responses. This is great! Writing to the system store is only possible on rooted devices and emulators, but that's fairly standard for reverse engineering work, and many developers & testers have rooted devices too so they can do the same with production builds, or to modify other system settings.
 
@@ -98,4 +98,4 @@ Not convenient at all, but not the worst workaround in the world, and although i
 
 This is now integrated into HTTP Toolkit as part of the automated ADB setup in the latest release, so if you're using a rooted device with HTTP Toolkit this will work for you automatically in future! Of course, if you do still have problems do please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose).
 
-**Want to take your Android reverse engineering to the next level? [HTTP Toolkit](https://httptoolkit.tech/android/) gives you one-click HTTP(S) interception, inspection & mocking for any Android app.**
+**Want to take your Android reverse engineering to the next level? [HTTP Toolkit](https://httptoolkit.com/android/) gives you one-click HTTP(S) interception, inspection & mocking for any Android app.**

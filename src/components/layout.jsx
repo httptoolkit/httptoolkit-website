@@ -222,24 +222,24 @@ export class Layout extends React.Component {
           <meta property="og:type"        content="website" />
           <meta property="og:title"       content={siteMetadata.name} />
           <meta property="og:description" content={siteMetadata.description} />
-          <meta property="og:image"       content="https://httptoolkit.tech/logo-social.png" />
+          <meta property="og:image"       content="https://httptoolkit.com/logo-social.png" />
 
           <meta name="twitter:card"        content="summary" />
           <meta name="twitter:site"        content="@httptoolkit" />
           <meta name="twitter:creator"     content="@pimterry" />
           <meta name="twitter:title"       content={siteMetadata.name} />
           <meta name="twitter:description" content={siteMetadata.description} />
-          <meta name="twitter:image"       content="https://httptoolkit.tech/logo-square.png" />
+          <meta name="twitter:image"       content="https://httptoolkit.com/logo-square.png" />
 
-          <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.tech/rss.xml" />
+          <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.com/rss.xml" />
 
           <script type="application/ld+json">
           {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "image": "https://httptoolkit.tech/logo-square.png",
-              "screenshot": "https://httptoolkit.tech/screenshot.png",
-              "video": "https://httptoolkit.tech/http-mock-demo.mp4",
+              "image": "https://httptoolkit.com/logo-square.png",
+              "screenshot": "https://httptoolkit.com/screenshot.png",
+              "video": "https://httptoolkit.com/http-mock-demo.mp4",
               "name": "HTTP Toolkit",
               "description": "Beautiful & open-source tools to debug, test and develop with HTTP(S)",
               "softwareVersion": siteMetadata.latestAppVersion,
@@ -249,8 +249,8 @@ export class Layout extends React.Component {
                   "Linux",
                   "Android"
               ],
-              "url": "https://httptoolkit.tech/",
-              "downloadUrl": "https://httptoolkit.tech/",
+              "url": "https://httptoolkit.com/",
+              "downloadUrl": "https://httptoolkit.com/",
               "applicationCategory": "DeveloperApplication",
               "offers": {
                   "@type": "Offer",

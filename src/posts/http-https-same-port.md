@@ -10,7 +10,7 @@ This is boring.
 
 What if you could accept everything, from proxied HTTPS to plain-text HTTP/1.0, all on a single port?
 
-**[HTTP Toolkit](https://httptoolkit.tech/)** acts as an HTTP(S) proxy for debugging and interception. With all the possible combinations of clients and configurations, tools like this can be complicated to set up, and getting everything working and properly intercepted is a common pain point.
+**[HTTP Toolkit](https://httptoolkit.com/)** acts as an HTTP(S) proxy for debugging and interception. With all the possible combinations of clients and configurations, tools like this can be complicated to set up, and getting everything working and properly intercepted is a common pain point.
 
 To make setup as easy as possible, HTTP Toolkit uses a single incoming port for absolutely _everything_, for every widespread HTTP format, for both HTTP & HTTPS, for both direct and proxied requests.
 
@@ -120,7 +120,7 @@ rawServer.listen(8000); // Only the raw server is attached to a port
 
 (Simplified for readability, feel free to dig into [the full implementation](https://github.com/httptoolkit/httpolyglot/blob/master/lib/index.js) if you're interested).
 
-It's important to note that HTTP Toolkit can decrypt and intercept TLS connections for any domain using the above TLS server, because it's set up as an HTTPS MitM proxy. Those details are a topic for another blog post ([e.g.](https://httptoolkit.tech/blog/intercepting-android-https/)) but in practice this means the `tlsConfig` here contains a CA certificate trusted by all clients to issue certificates for any host we like, so we can handle and decrypt TLS connections for any host that's requested.
+It's important to note that HTTP Toolkit can decrypt and intercept TLS connections for any domain using the above TLS server, because it's set up as an HTTPS MitM proxy. Those details are a topic for another blog post ([e.g.](https://httptoolkit.com/blog/intercepting-android-https/)) but in practice this means the `tlsConfig` here contains a CA certificate trusted by all clients to issue certificates for any host we like, so we can handle and decrypt TLS connections for any host that's requested.
 
 With that, this gives us enough to immediately handle the first step for all 3 protocols in one place on one port, but there's one big problem.
 
@@ -317,4 +317,4 @@ Lastly, if you want to go further, all the real-world underlying implementation 
 
 I hope all this helps you in your HTTP endeavours! If you build something cool related to this, or if you want to ask lots more questions, feel free to [get in touch on Twitter](https://twitter.com/pimterry).
 
-_Doing interesting things with HTTP? **[Download HTTP Toolkit now](https://httptoolkit.tech/)** to capture, inspect & mock HTTP from browsers, servers, apps and anything else in one click._
+_Doing interesting things with HTTP? **[Download HTTP Toolkit now](https://httptoolkit.com/)** to capture, inspect & mock HTTP from browsers, servers, apps and anything else in one click._

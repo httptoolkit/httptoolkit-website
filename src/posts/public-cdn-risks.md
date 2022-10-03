@@ -58,7 +58,7 @@ This can be problematic for public CDN usage because loading resources from a 3r
 
 <figure>
   <img src="./subresource-referer.png" alt="A subresource request, with a Referer header referencing the main site">
-  <figcaption>A CDN subresource, as intercepted from Chrome v91 with <a href="https://httptoolkit.tech/">HTTP Toolkit</a>, leaking the referring site domain in its Referer header</figcaption>
+  <figcaption>A CDN subresource, as intercepted from Chrome v91 with <a href="https://httptoolkit.com">HTTP Toolkit</a>, leaking the referring site domain in its Referer header</figcaption>
 </figure>
 
 At the very least, this tells the public CDN that a user at the source IP address is currently visiting the site listed in the Referer header. In some cases, it can leak more information: e.g. if a payment provider script is loaded only at checkout time, then 3rd party resource requests like this provide enough information for these CDNs to identify (by IP address and browser fingerprint) which users are purchasing from certain stores.
@@ -158,4 +158,4 @@ The benefits of public CDNs are no longer relevant, and their downsides are sign
 
 Have thoughts, feedback or bonus examples for any of the above? Get in touch [by email](/contact) or [on Twitter](https://twitter.com/pimterry) and let me know.
 
-_Want to test or debug HTTP requests, caching and errors? Intercept, inspect & mock HTTP(S) from anything to anywhere with **[HTTP Toolkit](https://httptoolkit.tech)**._
+_Want to test or debug HTTP requests, caching and errors? Intercept, inspect & mock HTTP(S) from anything to anywhere with **[HTTP Toolkit](https://httptoolkit.com)**._

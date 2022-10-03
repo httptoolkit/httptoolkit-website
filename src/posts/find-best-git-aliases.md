@@ -92,4 +92,4 @@ These aliases can also be a very convenient place to add any extra arguments you
 
 It's a quick trick, but just a little bash magic can tell you a lot about your working habits, and shine a useful light on ways you can make your life easier. Give it a go, and let me know what you think on [Twitter](https://twitter.com/pimterry).
 
-_Want to debug or test HTTP(S) from command line tools, scripts or backend servers? Try out [HTTP Toolkit](https://httptoolkit.tech)_
+_Want to debug or test HTTP(S) from command line tools, scripts or backend servers? Try out [HTTP Toolkit](https://httptoolkit.com)_

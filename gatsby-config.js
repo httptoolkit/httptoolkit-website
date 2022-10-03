@@ -5,8 +5,8 @@ module.exports = {
     name: 'HTTP Toolkit',
     title: 'Intercept, debug & build with HTTP',
     description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
-    siteUrl: 'https://httptoolkit.tech/',
-    blogUrl: 'https://httptoolkit.tech/blog/',
+    siteUrl: 'https://httptoolkit.com/',
+    blogUrl: 'https://httptoolkit.com/blog/',
     latestAppVersion: '1.11.0'
   },
   plugins: [
@@ -78,8 +78,8 @@ module.exports = {
               return allMarkdownRemark.edges.map(edge => {
                 // Hack to make image URLs absolute
                 const html = edge.node.html
-                  .replace(/ src="\/static/g, ' src="https://httptoolkit.tech/static')
-                  .replace(/ href="\/static/g, ' href="https://httptoolkit.tech/static')
+                  .replace(/ src="\/static/g, ' src="https://httptoolkit.com/static')
+                  .replace(/ href="\/static/g, ' href="https://httptoolkit.com/static')
                   .replace(/ class="gatsby-resp-image-background-image"\s+style="[^"]+"/g, '');
 
                 return Object.assign({}, edge.node.frontmatter, {
@@ -165,7 +165,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://httptoolkit.tech',
+        host: 'https://httptoolkit.com',
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
@@ -184,7 +184,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://httptoolkit.tech',
+        siteUrl: 'https://httptoolkit.com',
         stripQueryString: true
       },
     },

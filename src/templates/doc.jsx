@@ -162,7 +162,7 @@ export default ({ data, location }) => {
     const { slug } = doc.fields;
 
     // Links to the raw markdown -> click the edit pencil, and it forks & starts an editor.
-    const editUrl = `https://github.com/httptoolkit/httptoolkit.tech/blob/master/src/docs/${
+    const editUrl = `https://github.com/httptoolkit/httptoolkit.com/blob/master/src/docs/${
         slug.replace(/\/$/, '') // Trim trailing slashes
     }.md`;
 

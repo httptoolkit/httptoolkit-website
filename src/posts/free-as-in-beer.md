@@ -45,12 +45,12 @@ What does that mean? It means that from now on **HTTP Toolkit Pro is free for co
 
 More specifically, I'm giving out free Pro subscriptions in return for any accepted contributions that help HTTP Toolkit to develop & expand. That means things like:
 
-* Writing articles or blog posts about HTTP Toolkit (guest authors for [this very blog](https://httptoolkit.tech/blog/) welcome too!)
+* Writing articles or blog posts about HTTP Toolkit (guest authors for [this very blog](https://httptoolkit.com/blog/) welcome too!)
 * Contributing fixes, features or internal improvements to the core codebases, e.g:
   * The HTTP Toolkit [UI](https://github.com/httptoolkit/httptoolkit-ui)
   * The HTTP Toolkit [server](https://github.com/httptoolkit/httptoolkit-server)
   * The HTTP Toolkit [desktop shell](https://github.com/httptoolkit/httptoolkit-desktop)
-  * The HTTP Toolkit [website & docs](https://github.com/httptoolkit/httptoolkit.tech)
+  * The HTTP Toolkit [website & docs](https://github.com/httptoolkit/httptoolkit.com)
   * [Mockttp](https://github.com/httptoolkit/mockttp) (the HTTP Toolkit proxy itself)
   * Or any other repo in the [HTTP Toolkit github organisation](https://github.com/httptoolkit/)
 * Reporting new bugs or security issues

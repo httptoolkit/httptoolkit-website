@@ -14,7 +14,7 @@ In this post, I'm going to show you why that's important for your bottom line, e
 
 ## Why Localized Pricing Matters
 
-Right now [HTTP Toolkit](https://httptoolkit.tech) costs €5/month, and I'm selling to software engineers. In the US (average software engineer annual salary [$84,000](https://www.payscale.com/research/US/Job=Software_Engineer/Salary) = €76,000 = €200/day) that's extremely cheap. In India however (average software engineer salary [₹502,000](https://www.payscale.com/research/IN/Job=Software_Engineer/Salary) = €6,400 = €17/day) it's completely unaffordable.
+Right now [HTTP Toolkit](https://httptoolkit.com) costs €5/month, and I'm selling to software engineers. In the US (average software engineer annual salary [$84,000](https://www.payscale.com/research/US/Job=Software_Engineer/Salary) = €76,000 = €200/day) that's extremely cheap. In India however (average software engineer salary [₹502,000](https://www.payscale.com/research/IN/Job=Software_Engineer/Salary) = €6,400 = €17/day) it's completely unaffordable.
 
 This is a real problem. These are two very different markets, but they're both full of my target audience (professional software developers). They're also actually very similar-sized markets: India is predicted to have more developers than the entire US [by 2024](https://www.financialexpress.com/industry/technology/india-to-have-worlds-largest-app-developers-base-by-2024/1704821/). Although it's likely the US will be more profitable regardless, it is a crowded & expensive market to enter, and the majority of developers in the world don't live there (notably this is true for _every_ country).
 

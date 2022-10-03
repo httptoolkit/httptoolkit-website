@@ -381,4 +381,4 @@ The full package with all the data that makes this possible is open-source & pub
 
 I hope that was interesting! Have a play with [the demo](http://runkit.com/pimterry/openapi-directory-js-demo), test it out in HTTP Toolkit, and feel free to get in touch [by email](/contact) or [Twitter](https://twitter.com/pimterry) if you have any questions or you start building on this yourself.
 
-_Want to debug, test or mock HTTP(S), from browsers, servers, phones, and everything else? Try out **[HTTP Toolkit](https://httptoolkit.tech)** now._
+_Want to debug, test or mock HTTP(S), from browsers, servers, phones, and everything else? Try out **[HTTP Toolkit](https://httptoolkit.com)** now._

@@ -216,4 +216,4 @@ If you want to use a custom header, just use a custom header name that's not sta
 
 Standardization is _hard_, and HTTP is full of weird corners and odd details when you look closely. Let me know what you think on [Twitter](https://twitter.com/pimterry).
 
-Interested in inspecting & rewriting HTTP for yourself? **[Try out HTTP Toolkit](https://httptoolkit.tech)**.
+Interested in inspecting & rewriting HTTP for yourself? **[Try out HTTP Toolkit](https://httptoolkit.com)**.

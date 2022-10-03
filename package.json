@@ -2,7 +2,7 @@
   "name": "http-toolkit-site",
   "private": true,
   "version": "0.1.0",
-  "description": "httptoolkit.tech",
+  "description": "httptoolkit.com",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/httptoolkit/httptoolkit.tech.git"
+    "url": "git+https://github.com/httptoolkit/httptoolkit.com.git"
   },
   "author": "Tim Perry <tim@httptoolkit.tech>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/httptoolkit/httptoolkit.tech/issues"
+    "url": "https://github.com/httptoolkit/httptoolkit.com/issues"
   },
-  "homepage": "https://github.com/httptoolkit/httptoolkit.tech",
+  "homepage": "https://github.com/httptoolkit/httptoolkit.com",
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",

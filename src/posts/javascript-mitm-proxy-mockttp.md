@@ -19,9 +19,9 @@ It turns out setting this up is super quick & easy to do. Using easily available
 
 ## Putting the basics together
 
-[Mockttp](https://www.npmjs.com/package/mockttp) is the open-source HTTP library that powers all the internals of [HTTP Toolkit](https://httptoolkit.tech/), built in TypeScript. It can act as an HTTP(S) server or proxy, to intercept and mock traffic, transform responses, inject errors, or fire events for all the traffic it receives.
+[Mockttp](https://www.npmjs.com/package/mockttp) is the open-source HTTP library that powers all the internals of [HTTP Toolkit](https://httptoolkit.com/), built in TypeScript. It can act as an HTTP(S) server or proxy, to intercept and mock traffic, transform responses, inject errors, or fire events for all the traffic it receives.
 
-First though, if you want to inspect & edit HTTP manually with a full UI and tools on top, it's better to **[download HTTP Toolkit](https://httptoolkit.tech)** for free right now instead, and start there!
+First though, if you want to inspect & edit HTTP manually with a full UI and tools on top, it's better to **[download HTTP Toolkit](https://httptoolkit.com)** for free right now instead, and start there!
 
 On the other hand, if you do want to build scripts and automations that capture & rewrite HTTPS, or if you've used HTTP Toolkit and now you want to create complex custom behaviour on top of its built-in rules, then Mockttp is perfect, and you're in the right place.
 
@@ -242,7 +242,7 @@ To wrap up then, what can you do with this? Here are some ideas:
 * Proxy traffic during testing to replace some of your internal services or external dependencies with simple mocked versions, with no code changes required in the system under test.
 * Capture and log all traffic sent through your proxy matching certain patterns.
 * Randomly add delays or timeouts to test the reliability of your clients in unstable environments.
-* Combine this with **[HTTP Toolkit](https://httptoolkit.tech)** by redirecting some traffic there to your local proxy, to combine a full debugging UI with any custom logic you please, like so:
+* Combine this with **[HTTP Toolkit](https://httptoolkit.com)** by redirecting some traffic there to your local proxy, to combine a full debugging UI with any custom logic you please, like so:
     ![An HTTP Toolkit rule forwarding traffic to a local proxy](./http-toolkit-to-mockttp-rule.png)
 
 Play around with [the example repo](https://github.com/httptoolkit/mockttp-proxy-demo/), and feel free to get in touch [on Twitter](https://twitter.com/pimterry) if you build anything cool or if you have any questions.

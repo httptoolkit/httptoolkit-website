@@ -46,7 +46,7 @@ const auth0Lock = isSSR ? {} : new Auth0LockPasswordless(AUTH0_CLIENT_ID, AUTH0_
     allowAutocomplete: true,
     theme: {
         primaryColor: theme.popColor,
-        logo: 'https://httptoolkit.tech/icon-600.png'
+        logo: 'https://httptoolkit.com/icon-600.png'
     },
     languageDictionary: {
         title: 'Log in / Sign up'

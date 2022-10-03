@@ -56,7 +56,7 @@ Sometimes, it's less clear. Some tips:
 * For example, if your app fails to load data from the server:
     * Is it requesting the right data from the server?
     * Is the server returning the right data?
-* [HTTP Toolkit](https://httptoolkit.tech) is perfect for doing this, if you're using HTTP!
+* [HTTP Toolkit](https://httptoolkit.com) is perfect for doing this, if you're using HTTP!
 * If you can answer those questions, you immediately know whether the server or the app is at fault (assuming only one is broken...)
 
 ### If the issue is intermittent
@@ -148,7 +148,7 @@ Don't shy away from debugging into your platform itself too. Even if the bug is 
 
 Often, issues will appear in the interactions between systems, and being able to see and interact directly with the communications powering these interactions can quickly solve them.
 
-[HTTP Toolkit](https://httptoolkit.tech) fits in perfectly here. HTTP Toolkit makes it easy to intercept & view HTTP or HTTPS traffic from clients, between backend servers, or sent to APIs, and to then edit that traffic live too, so you can test edge cases and narrow down which part of your inputs is causing you trouble.
+[HTTP Toolkit](https://httptoolkit.com) fits in perfectly here. HTTP Toolkit makes it easy to intercept & view HTTP or HTTPS traffic from clients, between backend servers, or sent to APIs, and to then edit that traffic live too, so you can test edge cases and narrow down which part of your inputs is causing you trouble.
 
 Alternatively, if you're working with a different protocol, or you need to inspect at the raw TCP level, [Wireshark](https://www.wireshark.org/) can be a godsend. Wireshark lets you capture & view raw packet data, and provides tools to interpret & filter packets with an understanding of a variety of protocols, although that can mean it has a steep learning curve.
 

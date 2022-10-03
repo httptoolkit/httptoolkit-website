@@ -129,11 +129,11 @@ That only tends to apply to responses. For requests you'll often need to enable 
 
 Ok, hopefully you're compressing all your non-trivial requests & responses now, for a huge bandwidth boost!
 
-If you're interested in debugging this more closely, check out **[HTTP Toolkit](https://httptoolkit.tech)** to easily inspect and debug all your HTTP. It's fully open-source, and free version will show you everything you need here, while Pro even has a performance section that compares the compression ratios for each encoding on each of your responses so you can see the potential benefits directly inline.
+If you're interested in debugging this more closely, check out **[HTTP Toolkit](https://httptoolkit.com)** to easily inspect and debug all your HTTP. It's fully open-source, and free version will show you everything you need here, while Pro even has a performance section that compares the compression ratios for each encoding on each of your responses so you can see the potential benefits directly inline.
 
 Do keep an eye out for more developments in content encodings in future - it's likely that Zstandard will mature in the coming years, and that there will be even more powerful and performant encodings that come out in down the line.
 
 Have questions, or interesting content-encoding facts you'd like to share? Get in touch [on Twitter](https://twitter.com/pimterry).
 
-_Do you work with HTTP all day? **[Download HTTP Toolkit now](https://httptoolkit.tech/)** to inspect & mock HTTP from browsers, servers, apps and anywhere else in one click._
+_Do you work with HTTP all day? **[Download HTTP Toolkit now](https://httptoolkit.com/)** to inspect & mock HTTP from browsers, servers, apps and anywhere else in one click._
 

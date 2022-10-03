@@ -254,7 +254,7 @@ const replaceInJsxArray = (elemArray, match, replacement) => {
         : result;
 };
 
-const MANUAL_URL_OVERRIDES = { "buff.ly/2mGoIKR": "httptoolkit.tech" };
+const MANUAL_URL_OVERRIDES = { "buff.ly/2mGoIKR": "httptoolkit.com" };
 
 const buildTweetText = (tweet) => {
     let content = [tweet.full_text];

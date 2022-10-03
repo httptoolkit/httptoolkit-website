@@ -14,7 +14,7 @@ This means you can pick any JVM process - your own locally running service, Grad
 
 In this article, I want to walk you through the details of how this is possible, so you can understand some of the secret powers of the JVM, learn how to transform raw bytecode for yourself, and build on the examples and [source code](https://github.com/httptoolkit/jvm-http-proxy-agent) behind this to build your own debugging & instrumentation tools.
 
-**If you just want to try this out right now, [go download HTTP Toolkit](https://httptoolkit.tech/java)**.
+**If you just want to try this out right now, [go download HTTP Toolkit](https://httptoolkit.com/java)**.
 
 If you want to know how on earth this is possible, and how you can write code that does the same, read on:
 
@@ -396,4 +396,4 @@ This does have some caveats: it's quite possible that library changes could brea
 
 In practice, I suspect the fragility issues will be small. The code we're transforming is the low-level internals of connection setup, which changes relatively infrequently. Some git-blaming of the repos of various targets here suggests that in most cases this logic has barely changed since v1, or changes only marginally every 5 years or so, and updating this logic when there are changes is not a huge task. In addition, while new libraries will come out too, most of them build on top of these existing engines, so we can support them for free!
 
-This kind of power is little-known and underused in much of the JVM community, and I'm really excited to see how you use it! **[Test this out now in HTTP Toolkit](https://httptoolkit.tech/java)**, try building your own Java agents, and get in touch [on Twitter](https://twitter.com/pimterry) if you have any thoughts or questions.
+This kind of power is little-known and underused in much of the JVM community, and I'm really excited to see how you use it! **[Test this out now in HTTP Toolkit](https://httptoolkit.com/java)**, try building your own Java agents, and get in touch [on Twitter](https://twitter.com/pimterry) if you have any thoughts or questions.

@@ -133,4 +133,4 @@ How do we do that?
 * Get involved! This is a spec under the umbrella of the new "Building Blocks for HTTP APIs" working group at the IETF. You can [join the mailing list](https://www.ietf.org/mailman/listinfo/httpapi) to start reading and getting involved with discussions around this and other specs for possible API standards, from [rate limiting](https://datatracker.ietf.org/doc/draft-polli-ratelimit-headers/) to [API deprecations](https://datatracker.ietf.org/doc/draft-dalal-deprecation-header/).
 * Spread the word to your colleagues and developer friends, and help make errors a little bit easier to handle for everybody.
 
-**Debugging APIs or HTTP clients, and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.tech/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**
+**Debugging APIs or HTTP clients, and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.com/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**

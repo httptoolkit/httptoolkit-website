@@ -94,7 +94,7 @@ export default (props) => (<Layout location={props.location}>
         <Policy>
             <h1>Our privacy policy</h1>
 
-            <p>This privacy policy covers the httptoolkit.tech website and related services, operated by Timothy Perry, trading as HTTP Toolkit ("us", "we", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us using the details below.</p>
+            <p>This privacy policy covers the httptoolkit.com website and related services, operated by Timothy Perry, trading as HTTP Toolkit ("us", "we", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us using the details below.</p>
 
             <p>This policy applies to all information collected through use of our website, HTTP Tookit user accounts, the published HTTP Toolkit applications (the "Services"), any related services provided, and any other sales, marketing or events (referred to collectively in this privacy policy as the "Services").</p>
 
