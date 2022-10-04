@@ -3,3 +3,7 @@
     file_server
     encode zstd gzip
 }
+
+http://httptoolkit.tech {
+    redir https://httptoolkit.com{uri} permanent
+}
