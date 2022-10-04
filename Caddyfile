@@ -1,4 +1,4 @@
-httptoolkit.com, localhost {
+{$DOMAIN:localhost} {
     root * /site
     file_server
     encode zstd gzip
