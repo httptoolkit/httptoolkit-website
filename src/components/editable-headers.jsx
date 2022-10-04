@@ -60,7 +60,8 @@ const TextInput = styled.input`
 `;
 
 const HeaderDeleteButton = styled(Button).attrs({
-    type: 'button'
+    type: 'button',
+    'aria-label': 'Delete header'
 })`
     font-size: ${p => p.theme.textSize};
 
