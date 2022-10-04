@@ -1,0 +1,5 @@
+httptoolkit.com, localhost {
+    root * /site
+    file_server
+    encode zstd gzip
+}
