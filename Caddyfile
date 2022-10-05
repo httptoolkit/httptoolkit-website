@@ -1,4 +1,4 @@
-{$DOMAIN:localhost} {
+{$DOMAIN:http://localhost} {
     root * /site
     file_server
     encode zstd gzip
