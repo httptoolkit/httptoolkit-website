@@ -84,7 +84,7 @@ export class AccountStore {
         }
 
         if (this.user?.banned) {
-            alert('Your account has been blocked for abuse. Please contact help@httptoolkit.tech.');
+            alert('Your account has been blocked for abuse. Please contact help@httptoolkit.com.');
             return;
         }
 
@@ -104,7 +104,7 @@ export class AccountStore {
             alert(
                 "Unfortunately, due to high levels of recent chargebacks & fraud, subscriptions for new accounts "+
                 "will temporarily require manual validation & processing before setup.\n\n" +
-                "Please email purchase@httptoolkit.tech to begin this process."
+                "Please email purchase@httptoolkit.com to begin this process."
             );
 
             return;

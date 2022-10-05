@@ -232,7 +232,7 @@ export default (props) => (<Layout location={props.location}>
 
             <h1>How can you contact us?</h1>
 
-            <p>If you have questions or comments about this policy, you may email us at contact@httptoolkit.tech, or by post to:</p>
+            <p>If you have questions or comments about this policy, you may email us at privacy@httptoolkit.com, or by post to:</p>
 
             <p>
                 Tim Perry<br/>

@@ -52,6 +52,6 @@ export default (props) => (<Layout location={props.location}>
         <SplashHeader>
             Get in touch
         </SplashHeader>
-        <ContactForm email="contact@httptoolkit.tech" />
+        <ContactForm email="contact@httptoolkit.com" />
     </SplashContainer>
 </Layout>);

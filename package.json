@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/httptoolkit/httptoolkit.com.git"
   },
-  "author": "Tim Perry <tim@httptoolkit.tech>",
+  "author": "Tim Perry <tim@httptoolkit.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/httptoolkit/httptoolkit.com/issues"
