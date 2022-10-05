@@ -113,7 +113,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Redeploy site
-        if: github.event_name == 'push' && github.ref == 'refs/head/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           sleep 30 # Wait for Docker Hub to fully publish
 
