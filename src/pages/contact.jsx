@@ -29,8 +29,8 @@ const SplashHeader = styled.h1`
     `}
 `;
 
-const ContactForm = styled(({ email, ...props }) =>
-    <form action={`https://formspree.io/${ email }`} method="POST" {...props}>
+const ContactForm = styled(({ id, ...props }) =>
+    <form action={`https://formspree.io/f/${ id }`} method="POST" {...props}>
         <TextInput type="text" name="name" placeholder="Your Name" />
         <TextInput type="email" name="_replyto" placeholder="your@email.com" />
         <TextArea name="message" placeholder="Your message..." />
@@ -52,6 +52,6 @@ export default (props) => (<Layout location={props.location}>
         <SplashHeader>
             Get in touch
         </SplashHeader>
-        <ContactForm email="contact@httptoolkit.com" />
+        <ContactForm id="xvoyrlba" />
     </SplashContainer>
 </Layout>);
