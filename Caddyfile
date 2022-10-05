@@ -2,8 +2,24 @@
     root * /site
     file_server
     encode zstd gzip
-}
 
-http://httptoolkit.tech {
-    redir https://httptoolkit.com{uri} permanent
+    # Will-it-cors subpaths are SPA-only, fresh loads must go back to the start:
+    @will-it-cors-step path_regexp ^/will-it-cors/.+
+    redir @will-it-cors-step /will-it-cors/ 301
+
+    # Old URLS that are all now replaced by the new root page:
+    redir /toolkit / 301
+    redir /toolkit/ / 301
+    redir /mock / 301
+    redir /mock/ / 301
+    redir /view / 301
+    redir /view/ / 301
+
+    @view-thankyou-subpath path_regexp subpath ^/view/thank-you/(.+)
+    redir @view-thankyou-subpath /download/{re.subpath.1} 301
+    @view-subpath path_regexp subpath ^/view/(.+)
+    redir @view-subpath /{re.subpath.1} 301
+    @mock-subpath path_regexp subpath ^/mock/(.+)
+    redir @mock-subpath /{re.subpath.1} 301
+
 }
