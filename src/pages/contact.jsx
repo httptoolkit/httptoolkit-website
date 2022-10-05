@@ -31,9 +31,10 @@ const SplashHeader = styled.h1`
 
 const ContactForm = styled(({ id, ...props }) =>
     <form action={`https://formspree.io/f/${ id }`} method="POST" {...props}>
-        <TextInput type="text" name="name" placeholder="Your Name" />
+        <TextInput type="text" name="name" placeholder="Your name" />
         <TextInput type="email" name="_replyto" placeholder="your@email.com" />
         <TextArea name="message" placeholder="Your message..." />
+        <input type="text" name="_gotcha" style={{display: "none"}} />
         <SubmitInput value="Send" />
     </form>
 )`
