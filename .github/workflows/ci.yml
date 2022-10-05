@@ -42,7 +42,7 @@ jobs:
           if-no-files-found: error
 
   publish-netlify:
-    name: Deploy ${{ (github.ref == 'refs/heads/master' && 'to Netlify production') || 'Netlify preview' }}
+    name: Deploy ${{ (github.ref == 'refs/heads/main' && 'to Netlify production') || 'Netlify preview' }}
     runs-on: ubuntu-latest
     container: httptoolkit/act-build-base
     needs: build
@@ -58,7 +58,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: './public'
-          production-branch: master # Master goes to prod, others do deploy previews
+          production-branch: main # Main goes to prod, others do deploy previews
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: GHA Deploy - ${{ github.event.head_commit.message }}
           enable-commit-status: true
@@ -113,7 +113,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Redeploy site
-        if: github.event_name == 'push' && github.ref == 'ref/head/master'
+        if: github.event_name == 'push' && github.ref == 'refs/head/main'
         run: |
           sleep 30 # Wait for Docker Hub to fully publish
 

@@ -147,7 +147,7 @@ export default class CharlesAlternativePage extends React.Component {
             <Description>
                 Is your favorite tool not in the list? Want to know how HTTP Toolkit compares to other options? <a href="https://github.com/httptoolkit/httptoolkit/issues/new/choose">
                     Send in your feedback
-                </a> or submit a PR for <a href="https://github.com/httptoolkit/httptoolkit.com/tree/master/src/pages">
+                </a> or submit a PR for <a href="https://github.com/httptoolkit/httptoolkit-website/tree/main/src/pages">
                     this site
                 </a> directly.
             </Description>

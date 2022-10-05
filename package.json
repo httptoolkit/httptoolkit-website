@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/httptoolkit/httptoolkit.com.git"
+    "url": "git+https://github.com/httptoolkit/httptoolkit-website.git"
   },
   "author": "Tim Perry <tim@httptoolkit.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/httptoolkit/httptoolkit.com/issues"
+    "url": "https://github.com/httptoolkit/httptoolkit-website/issues"
   },
-  "homepage": "https://github.com/httptoolkit/httptoolkit.com",
+  "homepage": "https://github.com/httptoolkit/httptoolkit-website",
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",

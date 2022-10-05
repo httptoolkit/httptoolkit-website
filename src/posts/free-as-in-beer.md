@@ -50,7 +50,7 @@ More specifically, I'm giving out free Pro subscriptions in return for any accep
   * The HTTP Toolkit [UI](https://github.com/httptoolkit/httptoolkit-ui)
   * The HTTP Toolkit [server](https://github.com/httptoolkit/httptoolkit-server)
   * The HTTP Toolkit [desktop shell](https://github.com/httptoolkit/httptoolkit-desktop)
-  * The HTTP Toolkit [website & docs](https://github.com/httptoolkit/httptoolkit.com)
+  * The HTTP Toolkit [website & docs](https://github.com/httptoolkit/httptoolkit-website)
   * [Mockttp](https://github.com/httptoolkit/mockttp) (the HTTP Toolkit proxy itself)
   * Or any other repo in the [HTTP Toolkit github organisation](https://github.com/httptoolkit/)
 * Reporting new bugs or security issues
