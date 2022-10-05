@@ -22,4 +22,10 @@
     @mock-subpath path_regexp subpath ^/mock/(.+)
     redir @mock-subpath /{re.subpath.1} 301
 
+    header X-Clacks-Overhead "GNU Terry Pratchett" # https://xclacksoverhead.org
+
+    # Cache GET responses for 1 minute, validate async during next minute, or continue serving
+    # old data as-is for up to 10 minutes if this server stops responding.
+    @get method GET
+    header @get Cache-Control "public, max-age=60, stale-while-revalidate=60, stale-if-error=600"
 }
