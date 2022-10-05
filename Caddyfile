@@ -28,4 +28,10 @@
     # old data as-is for up to 10 minutes if this server stops responding.
     @get method GET
     header @get Cache-Control "public, max-age=60, stale-while-revalidate=60, stale-if-error=600"
+
+    handle_errors {
+        @404 `{err.status_code} == 404`
+        rewrite @404 /404.html
+        file_server
+    }
 }
