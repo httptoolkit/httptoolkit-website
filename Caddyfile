@@ -24,10 +24,10 @@
 
     header X-Clacks-Overhead "GNU Terry Pratchett" # https://xclacksoverhead.org
 
-    # Cache GET responses for 1 minute, validate async during next minute, or continue serving
-    # old data as-is for up to 10 minutes if this server stops responding.
+    # Cache GET responses for 10 minutes, validate async during next minute, or continue serving
+    # old data as-is for up to 1 hour if this server stops responding/returns errors.
     @get method GET
-    header @get Cache-Control "public, max-age=60, stale-while-revalidate=60, stale-if-error=600"
+    header @get Cache-Control "public, max-age=600, stale-while-revalidate=60, stale-if-error=3600"
 
     handle_errors {
         @404 `{err.status_code} == 404`
