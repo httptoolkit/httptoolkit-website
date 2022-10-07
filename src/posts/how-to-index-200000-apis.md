@@ -76,7 +76,7 @@ To make all these specs consistently and easily usable, and make it possible to 
 This is a potentially endless task, but a few small steps take us a long way:
 
 * You can automatically convert Swagger to OpenAPI using the excellent [Swagger2OpenAPI package](https://www.npmjs.com/package/swagger2openapi).
-* You can bundle external references using API Dev Tool's [@apidevtools/swagger-parser package](@apidevtools/swagger-parser). This also handles the initial parsing and does some validation for us en route, so this is perfect.
+* You can bundle external references using API Dev Tool's [@apidevtools/swagger-parser package](https://www.npmjs.com/package/@apidevtools/swagger-parser). This also handles the initial parsing and does some validation for us en route, so this is perfect.
 * It's possible to [manually transform](https://github.com/httptoolkit/openapi-directory-js/blob/f3976b582b09b70da8493b71080ce594cc4733f0/src/buildtime/generate-apis.ts#L39-L49) many extensions into formats that work for our purposes and are valid enough that we can access the data within consistently with everything else.
 * The OpenAPI directory has a custom `x-preferred` field to indicate the preferred spec for each endpoint, allowing us to filter our specs to just the main official version.
 * Filing bugs and working through them, either with the API team themselves (whose details are listed in each spec, for official specs) or in the OpenAPI Directory directly (for custom or automatically generated specs like [AWS's](https://github.com/APIs-guru/aws2openapi)) has managed to fix up most remaining serious kinks.

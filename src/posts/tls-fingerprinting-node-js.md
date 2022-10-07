@@ -84,7 +84,7 @@ You could extend GREASE to randomize the order of extensions, which would help a
 
 While I've been aware and interested in this for a while, I didn't think it was a major concern for HTTP Toolkit.
 
-It is practical for real-world use, but the [original research](https://blog.squarelemon.com/tls-fingerprinting/) into this in 2015 was focused on malware detection in the presence of encrypted malware traffic. It's also used by [Cloudflare]((https://blog.cloudflare.com/monsters-in-the-middleboxes/)) for TLS interception research and metrics, and by Salesforce and others (unclear how, but Tor & malware detection is [discussed](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967)). None of that should matter for intercepting your own HTTPS on your own network.
+It is practical for real-world use, but the [original research](https://blog.squarelemon.com/tls-fingerprinting/) into this in 2015 was focused on malware detection in the presence of encrypted malware traffic. It's also used by [Cloudflare](https://blog.cloudflare.com/monsters-in-the-middleboxes/) for TLS interception research and metrics, and by Salesforce and others (unclear how, but Tor & malware detection is [discussed](https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967)). None of that should matter for intercepting your own HTTPS on your own network.
 
 In reality though, it turns out it is used more widely: Akamai use TLS fingerprinting to block bot traffic at the CDN level for some of their customers. I don't know for sure, but I suspect this is part of their optional [bot management](https://www.akamai.com/products/bot-manager) features.
 
