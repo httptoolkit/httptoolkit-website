@@ -1,6 +1,6 @@
 ---
 title: How to intercept, observe & mock WebRTC traffic
-date: '2022-10-31T10:00'
+date: '2022-10-13T10:00'
 cover_image: './audio-cables.jpg'
 ---
 
@@ -99,7 +99,7 @@ By doing so, we can sit between two peers, tell both to connect to us instead of
 
 Doing this in the general case is complicated - we'll get into those details in a second - but this is enough to let us start with the simplest use case: creating a mock peer to connect to directly in automated testing.
 
-## How to create a mock WebRTC peer in testing environments
+### How to create a mock WebRTC peer in testing environments
 
 In a web application test environment, you usually have direct control over signalling - you're often mocking setup processes & network traffic in other ways anyway - so in most setups it's easy to tweak your signalling setup to manually provide data for a remote peer who wants to connect. That means we can directly mock traffic to a single peer, which is often what you want to do for simple tests of WebRTC-based application.
 
@@ -148,7 +148,7 @@ This is a neat demo, and useful for testing, but this isn't _really_ interceptio
 
 Fortunately we can extend this! Let's intercept real WebRTC traffic between two real unsuspecting peers.
 
-## How to intercept & debug WebRTC in a real browser environment
+### How to intercept & debug WebRTC in a real browser environment
 
 To intercept traffic between two peers, we need to go further, and inject our signalling configuration into both peers at once.
 
