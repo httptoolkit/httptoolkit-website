@@ -189,7 +189,7 @@ In theory, Frida is capable of defeating absolutely any certificate pinning you 
 
 That said, this all depends on whether the script you use is aware of the specific certificate pinning code or APIs that are used. Whether this technique works depends entirely on the combination of target app and the Frida script.
 
-The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so [get in touch](https://httptoolkit.com/contact/) or [file an issue](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose)!
+The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so do please [file an issue](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose)!
 
 Notably some apps which will go above and beyond, by implementing their own custom certificate pinning techniques from scratch, to make disabling it as difficult as possible. The prime example of this is the various Facebook apps, which all use their own [custom reimplementation of TLS](https://github.com/facebookincubator/fizz) rather than the standard platform APIs.
 
@@ -203,4 +203,4 @@ Hopefully you've now got Frida working, and you can see, debug & rewrite secret 
 
 The next step is to start exploring further, to examine the APIs used and data leaked by other popular apps, and to help find and fix cases where this Frida script doesn't yet work, so we can stub out every last pinning API. Get testing!
 
-Have any questions, or run into issues? Feel free to get in touch [directly](https://httptoolkit.com/contact/) or [on Twitter](https://twitter.com/pimterry).
+Have any questions, or run into problems? Feel free to open an issue [on GitHub](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose) or get in touch [on Twitter](https://twitter.com/pimterry).
