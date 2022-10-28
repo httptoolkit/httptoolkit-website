@@ -81,7 +81,7 @@ To test real IPFS traffic, you'll need an IPFS node running locally. If you have
 
 Once you have a node running, open HTTP Toolkit (check the [Getting Started guide](https://httptoolkit.tech/docs/getting-started/) if you haven't before) and launch any browser.
 
-From your intercepted browser, open your node's WebUI, and you'll immediately start seeing IPFS traffic mixed in with HTTP in HTTP Toolkit. To test this more actively, click 'Files' in the IPFS WebUI, enter `QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco` and click 'Browse'. You'll see the full IPFS interactions, as the web app queries the content type, lists the contents, and then queries the details for each file within:
+From your intercepted browser, open your node's WebUI at [127.0.0.1:5002/webui](http://127.0.0.1:5002/webui) (by default), and you'll immediately start seeing IPFS traffic mixed in with HTTP in HTTP Toolkit. To test this more actively, click 'Files' in the IPFS WebUI, enter `QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco` and click 'Browse'. You'll see the full IPFS interactions, as the web app queries the content type, lists the contents, and then queries the details for each file within:
 
 ![The IPFS queries made by the WebUI when looking up this data](./ipfs-webui-queries.png)
 
