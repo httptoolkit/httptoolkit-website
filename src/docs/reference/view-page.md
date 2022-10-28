@@ -27,10 +27,12 @@ There's a few possible types of event:
 
 * An HTTP exchange. This consists of a request, which might still be in progresss, might be at a breakpoint, might have completed with a response, or might have failed permanently.
 * A failed TLS connection. This is an HTTPS request that has failed to setup the initial connection, perhaps due to the HTTP Toolkit certificate being rejected, or a connection being cancelled.
+* A WebRTC connection, data channel, or media stream. Channels & streams exist within connections, but are shown as separate rows so that you can independently view the connection information, the data in a channel, or the transfer statistics from a stream.
+* An IPFS & Ethereum interaction. This shows the core interaction details in the row itself, and then shows a detailed explanation of the IPFS/Ethereum interaction when selected (in a card at the top) and the raw HTTP data corresponding to this below.
 
 ### HTTP Exchanges
 
-Each exchange row shows:
+Each HTTP exchange row shows:
 
 * A colour marker, giving an at-a-glance summary of each request:
     * <span style='color: #000; font-weight: bold'>Black: Incomplete/failed</span>
@@ -92,6 +94,8 @@ For an HTTP exchange, there's a few cards that will be shown:
 * The performance details (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * The export options (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * Breakpoint cards, for breakpointed requests and responses.
+* IPFS or Ethereum interaction details, for IPFS/Ethereum interactions.
+* WebRTC connection, channel & media cards.
 
 It's also possible to expand the request and response body cards, so they fill the entire pane. In this case, only that card will be shown.
 
@@ -296,5 +300,39 @@ There are a couple of other things about breakpointing worth noting:
 * After your breakpointing is all done, the exchange content shown is always the data from the perspective of the client. That means:
     * The edited request data will not be shown - you'll see the data that the client actually sent, not the data sent to the server.
     * The original response data will not be shown - you'll see the data that the client actually received, not the data received from the server.
+
+### IPFS and Ethereum Cards
+
+When an IPFS or Ethereum interaction is selected, an extra card will be shown above the raw HTTP data, showing the details of the interaction:
+
+![A card showing the details of an IPFS request](./ipfs-card.png)
+
+The details shown will depend on the request and the specific type of interaction, but in general this card will include:
+
+* The service that's being connected to (in this case either IPFS or Ethereum) with some basic information available when expanded, along with links to the general documentation.
+* The specific operation that's happening, with more specific details available when expanded, and a link to the official documentation for this specific type of interaction.
+* The list of parameters that are sent: both explicitly sent parameters, and the default values of omitted default parameters (shown greyed out & italic). Each can be expanded to show a description, and the expected type and other metadata.
+
+If the parameters for an Ethereum or IPFS request are invalid or unrecognized, errors may also be shown here.
+
+### WebRTC Cards
+
+WebRTC traffic is shown in a selection of cards, including:
+
+* A 'WebRTC Connection' card, showing:
+    * The type of connection
+    * The addresses of both ends of the connection
+    * The address of the web page that created this connection
+    * The user agent of the client that created this connection
+* A send or received 'Session Offer' (depending on which end initiated the connection) including the SDP that was offered.
+* A send or received 'Session Answer' (depending on which end answered the connection) including the SDP that answered the offer.
+* 'Datachannel Messages' cards, showing:
+    * The label of the channel, in the card header.
+    * A list of messages, for each message on the channel, along with their size and whether they were sent as text or binary data.
+* 'RTC Video' and 'RTC Audio' cards, showing the bandwidth sent & received per-second for each media channel on the connection.
+
+![RTC connection and data cards](./rtc-connection-and-data-cards.png)
+
+![An RTC media card](./rtc-media-card.png)
 
 **Any questions? [Get in touch](/contact/)**
