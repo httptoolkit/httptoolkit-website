@@ -12,12 +12,6 @@
     @will-it-cors-step path_regexp ^/will-it-cors/.+
     redir @will-it-cors-step /will-it-cors/ 308
 
-    # Extra redirection URLs for testing for Bunny fixes:
-    redir /test-redirect/rel-301/ / 301
-    redir /test-redirect/rel-308/ / 308
-    redir /test-redirect/abs-301/ https://httptoolkit.com/ 301
-    redir /test-redirect/abs-308/ https://httptoolkit.com/ 308
-
     # Old URLS that are all now replaced by the new root page:
     redir /toolkit / 308
     redir /toolkit/ / 308
