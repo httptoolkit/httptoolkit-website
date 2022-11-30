@@ -19,6 +19,8 @@ const SupportedToolsList = styled.ul`
     display: flex;
     flex-wrap: wrap;
 
+    align-items: center;
+
     ${media.desktopOrTablet`
         justify-content: space-evenly;
     `}

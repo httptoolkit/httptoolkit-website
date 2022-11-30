@@ -32,7 +32,8 @@ const LiveDemoVideo = styled.video`
 
     ${media.desktop`
         min-height: 541px;
-        border-radius: 0 0 3px 3px;
+        border-radius: 0 0 9px 9px;
+        overflow: hidden;
     `}
 
     ${media.mobileOrTablet`

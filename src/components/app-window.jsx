@@ -3,7 +3,7 @@ import * as React from 'react';
 import { styled, media } from '../styles';
 
 const VideoWindowBorder = styled.div`
-    border-radius: 4px;
+    border-radius: 4px 4px 9px 9px;
     background-color: #c8c8c8;
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
     border: 1px solid #a8a8a8;

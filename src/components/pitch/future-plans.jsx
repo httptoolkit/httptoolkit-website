@@ -26,7 +26,7 @@ export const FuturePlans = (p) => <FutureContainer>
     <br/><br/>
     Future plans include security analysis & metrics,
     session-wide performance graphs & analysis, HTTP
-    client tooling, Docker integration & more...
+    client tooling, scripting integrations & more...
     <br/><br/>
     Sound good? <LinkButton onClick={(e) => {
         e.preventDefault();

@@ -6,6 +6,8 @@ order: 2
 
 HTTP Toolkit can automatically intercept, inspect & rewrite traffic from any Docker container.
 
+For a quick demo and an outline of how this works, check out the [HTTP Toolkit for Docker](/docker/) page, or read on for a detailed guide.
+
 You can intercept HTTP from Docker containers in two ways:
 
 * By launching an intercepted terminal within HTTP Toolkit, and creating Docker containers or running Docker builds inside that terminal

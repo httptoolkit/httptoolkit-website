@@ -49,11 +49,14 @@ export const InterceptFeature = (p) => <StaticQuery
             </FeatureDescription>
 
             <LinkedFeatureList>
-                <li>Desktop browsers like <strong>Chrome, Edge &amp; Firefox</strong></li>
-                <li><Link to="/android/">
-                    Android
-                </Link> applications and browsers</li>
-                <li>Backend &amp; scripting languages, like&nbsp;
+                <li>
+                    Desktop browsers like <strong>Chrome, Edge, Brave &amp; Firefox</strong>
+                </li>
+                <li>
+                    <Link to="/android/">Android</Link> applications and browsers
+                </li>
+                <li>
+                    Backend &amp; scripting languages, like&nbsp;
                     <Link to="/javascript/">
                         Node.js
                     </Link>, <Link to="/python/">
@@ -64,9 +67,10 @@ export const InterceptFeature = (p) => <StaticQuery
                         Ruby
                     </Link>
                 </li>
-                <li>Almost all terminal or <Link to="/electron/">
-                    Electron-based
-                </Link> applications</li>
+                <li>
+                    <Link to="/docker">Docker containers</Link>, and almost all terminal
+                    or <Link to="/electron/">Electron-based</Link> applications
+                </li>
                 <li>
                     More coming soon, all powered by <a
                         href='https://github.com/httptoolkit/httptoolkit/issues/new/choose'
