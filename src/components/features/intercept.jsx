@@ -68,7 +68,7 @@ export const InterceptFeature = (p) => <StaticQuery
                     </Link>
                 </li>
                 <li>
-                    <Link to="/docker">Docker containers</Link>, and almost all terminal
+                    <Link to="/docker/">Docker containers</Link>, and almost all terminal
                     or <Link to="/electron/">Electron-based</Link> applications
                 </li>
                 <li>
