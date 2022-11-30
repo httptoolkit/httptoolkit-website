@@ -41,25 +41,31 @@ That's it! `docker run` creates and starts a container, and by running it in thi
 
 You can test this with other languages too:
 
-```
+```js
 $ docker run --rm -it node
 > require('https').get('https://amiusing.httptoolkit.tech', (r) => console.log(r.headers));
 /* ... */
 { 'content-type': 'text/html', 'httptoolkit-active': 'true' }
+```
 
+```python
 $ docker run --rm -it python
 > import urllib.request
 > urllib.request.urlopen("https://amiusing.httptoolkit.tech").read()
 #...
 <h1>You\'re being intercepted by HTTP Toolkit</h1>
 #...
+```
 
+```python
 $ docker run --rm -it php
 > print(file_get_contents("https://amiusing.httptoolkit.tech"));
 #...
 <h1>You're being intercepted by HTTP Toolkit</h1>
 #...
+```
 
+```ruby
 $ docker run --rm -it ruby
 > require 'net/http'
 > Net::HTTP.get_print(URI("https://amiusing.httptoolkit.tech"))
