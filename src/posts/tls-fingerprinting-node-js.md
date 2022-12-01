@@ -64,7 +64,7 @@ Taking some quick examples, it's possible to recognize & differentiate TLS clien
 * Node.js v12/14/16: c4aac137ff0b0ac82f3c138cf174b427
 * Node.js v17: 4c319ebb1fb1ef7937f04ac445bbdf86
 
-So it's not perfect, but we can differentiate a lot interesting clients here. You can check your own JA3 TLS fingerprint via [ja3er.com](https://ja3er.com/), and you can search previously seen fingerprints and the associated user agents there too.
+So it's not perfect, but we can differentiate a lot interesting clients here. You can check your own JA3 TLS fingerprint via [ja3.zone](https://ja3.zone/), and you can search previously seen fingerprints to see the associated user agents there too.
 
 Again, this fingerprinting is based on _un_-encrypted content, which is sent the initial client hello. This fingerprint is visible to everybody on the connection path, not just the target server (so everybody on your local wifi, your ISP, your college, your office IT team, you name it) and it's available before your client has completed TLS setup and sent any application data (e.g. any HTTP requests).
 
