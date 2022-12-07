@@ -99,7 +99,8 @@ export default ({ pageContext: {
             }
             <ThankYouDetails>
                 { downloadCommand && "You'll soon be downloading HTTP Toolkit. " }
-                There's a lot more to come soon though, including automated iOS & Docker interception, security linting, and request diffing.
+                There's more coming soon though, like automated iOS interception,
+                HTTP client tools, gRPC & GraphQL support, and request diffing.
             </ThankYouDetails>
             <ThankYouDetails>
                 <strong>Sign up now, so you don't miss new features & releases:</strong>
