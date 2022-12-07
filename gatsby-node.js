@@ -173,11 +173,21 @@ async function createDownloadPages(createPage) {
             );
         }
 
+        const targetName = ({
+            'win-exe': 'Windows',
+            'win-standalone': 'Windows (ZIP)',
+            'linux-deb': 'Linux (Debian and Ubuntu)',
+            'linux-standalone': 'Linux (ZIP)',
+            'osx-dmg': 'Mac'
+        })[downloadId];
+
+        if (!targetName) throw new Error(`No download name for ${downloadId}`);
+
         // Create a page for this download:
         createPage({
             path: `/download/${downloadId}/`,
             component: downloadThankYou,
-            context: { releasePath }
+            context: { targetName, releasePath }
         });
     }));
 
@@ -185,21 +195,30 @@ async function createDownloadPages(createPage) {
     createPage({
         path: `/download/osx-homebrew/`,
         component: downloadThankYou,
-        context: { downloadCommand: 'brew install --cask http-toolkit' }
+        context: {
+            targetName: 'Mac with Homebrew',
+            downloadCommand: 'brew install --cask http-toolkit'
+        }
     });
 
     // Create a 'download' page for the AUR install command
     createPage({
         path: `/download/linux-aur/`,
         component: downloadThankYou,
-        context: { downloadCommand: 'yay -S httptoolkit' }
+        context: {
+            targetname: 'Linux (Arch)',
+            downloadCommand: 'yay -S httptoolkit'
+        }
     });
 
     // Create a 'download' page for the winget install command
     createPage({
         path: `/download/win-winget/`,
         component: downloadThankYou,
-        context: { downloadCommand: 'winget install httptoolkit' }
+        context: {
+            targetName: 'Windows (with WinGet)',
+            downloadCommand: 'winget install httptoolkit'
+        }
     });
 
 }

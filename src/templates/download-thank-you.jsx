@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Helmet from 'react-helmet';
 
 import { styled, media } from '../styles';
 
@@ -58,7 +59,11 @@ const InstallCode = styled.code`
     margin: 0 0 40px;
 `;
 
-export default ({ pageContext: { releasePath, downloadCommand }, location }) => {
+export default ({ pageContext: {
+    releasePath,
+    downloadCommand,
+    targetName
+}, location }) => {
     if (releasePath) {
         useEffect(() => {
             // Trigger a download of the app
@@ -70,6 +75,9 @@ export default ({ pageContext: { releasePath, downloadCommand }, location }) => 
     }
 
     return <Layout location={location}>
+        <Helmet>
+            <title>Download HTTP Toolkit for {targetName}</title>
+        </Helmet>
         <ThankYouContainer leftAlign={!downloadCommand}>
             { downloadCommand
                 ? <InstallCode>
