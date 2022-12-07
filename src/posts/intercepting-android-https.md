@@ -56,7 +56,7 @@ If you want to intercept HTTPS traffic from an app, you need to ensure your CA c
 
 ## How to intercept Android HTTPS
 
-To intercept HTTPS, you first need the TLS connections to come to you. HTTP Toolkit runs as a desktop app on your computer, acting as an HTTP(S) proxy, and does this with an Android VPN app on the device that redirects packets to that proxy. I've written quite a bit of detail about that [over here](/blog/inspecting-android-http), and it's fairly easy to do if you either use the VPN APIs or configure an HTTPS proxy, so let's take that as a given.
+To intercept HTTPS, you first need the TLS connections to come to you. HTTP Toolkit runs as a desktop app on your computer, acting as an HTTP(S) proxy, and does this with an Android VPN app on the device that redirects packets to that proxy. I've written quite a bit of detail about that [over here](/blog/inspecting-android-http/), and it's fairly easy to do if you either use the VPN APIs or configure an HTTPS proxy, so let's take that as a given.
 
 Once you have TLS connections going to our server, you need to be able to respond to the initial client handshake with a certificate that Android will trust. Typically you'll generate a self-signed CA certificate when setting up interception, and then use that to generate TLS certificates for incoming connections, generating a fresh certificate for each requested hostname.
 
@@ -96,7 +96,7 @@ If you have a CA certificate, you can do this for yourself on any device with ro
 
 If you are doing this for yourself though, be careful around permissions, as the default for ADB pushed files is very relaxed. If the CA you inject or the copied system certificates are globally writable, it'd be theoretically possible for another app on the device to change or add a CA during this process, and sneakily get visibility into all HTTPS traffic on the device for itself without you realizing or granting it root access.
 
-All put together, this injects a system certificate without needing emulator startup arguments, and works 100% automatically & immediately, without even needing to reboot. As a nice bonus the tmpfs disappears on reboot, so everything is cleaned up automatically afterwards, and you only trust the inject CA temporarily (wherever possible, it's always a good idea to [limit and/or avoid global developer CAs](/blog/debugging-https-without-global-root-ca-certs)).
+All put together, this injects a system certificate without needing emulator startup arguments, and works 100% automatically & immediately, without even needing to reboot. As a nice bonus the tmpfs disappears on reboot, so everything is cleaned up automatically afterwards, and you only trust the inject CA temporarily (wherever possible, it's always a good idea to [limit and/or avoid global developer CAs](/blog/debugging-https-without-global-root-ca-certs/)).
 
 ### Intercepting HTTPS on non-rooted devices
 
@@ -109,7 +109,7 @@ If you don't have root access, you can't do this. Instead, the best you can do i
     * Open the downloaded certificate, and follow the confirmation prompts.
 * If you're automating/scripting this:
     * On Android up to and including Android 10, you can use the [KeyChain.createInstallIntent()](https://developer.android.com/reference/android/security/KeyChain#createInstallIntent()) to prompt users to trust your CA certificate in your app. There'll be some warnings there, and they'll need to set or confirm the device pin to do so, but it's very straightforward. You can see HTTP Toolkit's code in [httptoolkit-android:MainActivity.kt#L603-L606](https://github.com/httptoolkit/httptoolkit-android/blob/03f10f2eff28f30d8cdbfb9fe86a075891714172/app/src/main/java/tech/httptoolkit/android/MainActivity.kt#L603-L606).
-    * On Android 11, due to [recent changes](/blog/android-11-trust-ca-certificates) you're in trouble. You can't launch the prompt to trust a CA directly, and it must be installed in the settings completely manually. If you do try to use the `createInstallIntent()` API to install the certificate, it just shows "Can't install CA certificates: CA certificates can put your privacy at risk and must be installed in Settings".
+    * On Android 11, due to [recent changes](/blog/android-11-trust-ca-certificates/) you're in trouble. You can't launch the prompt to trust a CA directly, and it must be installed in the settings completely manually. If you do try to use the `createInstallIntent()` API to install the certificate, it just shows "Can't install CA certificates: CA certificates can put your privacy at risk and must be installed in Settings".
 
         If you download the CA certificate to the device though, it's easy enough to explain the process to users, and you can see how HTTP Toolkit does that in [httptoolkit-android:MainActivity.kt#L615-L661](https://github.com/httptoolkit/httptoolkit-android/blob/03f10f2eff28f30d8cdbfb9fe86a075891714172/app/src/main/java/tech/httptoolkit/android/MainActivity.kt#L615-L661).
 
@@ -163,6 +163,6 @@ That should complete the above steps and give you a patched APK. If you've alrea
 
 Hopefully that's a good intro into managing HTTPS trust on Android, and using & abusing it to intercept, inspect and rewrite HTTPS traffic.
 
-Want to see this in action and see exactly what HTTPS your apps and device are sending? Give **[HTTP Toolkit](/android)** a go now.
+Want to see this in action and see exactly what HTTPS your apps and device are sending? Give **[HTTP Toolkit](/android/)** a go now.
 
-Want to know more about how this all works? HTTP Toolkit is 100% open-source, so feel free to check out [HTTP Toolkit on GitHub](http://github.com/httptoolkit), and do [get in touch](/contact) if you have any questions or feedback.
+Want to know more about how this all works? HTTP Toolkit is 100% open-source, so feel free to check out [HTTP Toolkit on GitHub](http://github.com/httptoolkit), and do [get in touch](/contact/) if you have any questions or feedback.

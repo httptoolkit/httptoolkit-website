@@ -131,6 +131,6 @@ In general even if this doesn't help it won't hurt, except for three specific ca
 
 ---
 
-Hopefully that's a useful way to quickly improve the performance & reliability of your node network requests. Have any thoughts or questions? Feel free to in touch on [Twitter](https://twitter.com/pimterry) or [directly](/contact).
+Hopefully that's a useful way to quickly improve the performance & reliability of your node network requests. Have any thoughts or questions? Feel free to in touch on [Twitter](https://twitter.com/pimterry) or [directly](/contact/).
 
 **Debugging APIs or HTTP clients, and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.com/javascript/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**

@@ -235,7 +235,7 @@ For more general use cases, like debugging all traffic from your browser live or
 
 To get you started for now though, there's an example webextension project that you can clone, build & run to immediately test this out here: [github.com/httptoolkit/mockrtc-extension-example/](https://github.com/httptoolkit/mockrtc-extension-example/). This is a barebones example that doesn't do much by itself, but will let you directly observe all data channel traffic from all tabs within the extension, and provides a base to add your own arbitrary logic, and monitor or rewrite WebRTC traffic in any way you like.
 
-This is just the start, and there's more coming here soon! In the meantime, if you run into trouble or have questions, do please [open an issue](https://github.com/httptoolkit/mockrtc/issues/new) or [send me a message directly](/contact), and watch this space for more posts on deeper WebRTC integration in HTTP Toolkit itself...
+This is just the start, and there's more coming here soon! In the meantime, if you run into trouble or have questions, do please [open an issue](https://github.com/httptoolkit/mockrtc/issues/new) or [send me a message directly](/contact/), and watch this space for more posts on deeper WebRTC integration in HTTP Toolkit itself...
 
 ---
 

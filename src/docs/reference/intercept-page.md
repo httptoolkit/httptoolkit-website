@@ -52,7 +52,7 @@ This will attempt to automatically install a temporary system certificate on roo
 
 Interception requires connectivity between your Android device and your computer. They need to be on the same network, the network needs to allow connectivity between them, and if your computer has a firewall it must allow incoming traffic to HTTP Toolkit's proxy port.
 
-For more details, see the in-depth [Android interception guide](/docs/guides/android).
+For more details, see the in-depth [Android interception guide](/docs/guides/android/).
 
 ### Android device connected via QR
 
@@ -64,7 +64,7 @@ The first time you do this, the device may show some permission prompts to activ
 
 Interception requires connectivity between your Android device and your computer. They need to be on the same network, the network needs to allow connectivity between them, and if your computer has a firewall it must allow incoming traffic to HTTP Toolkit's proxy port.
 
-For more details, see the in-depth [Android interception guide](/docs/guides/android).
+For more details, see the in-depth [Android interception guide](/docs/guides/android/).
 
 ### Fresh Terminal
 

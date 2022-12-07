@@ -131,7 +131,7 @@ That's the high-level summary - if you'd like more details then check out the pr
 
 If you're excited by this, you can [get started with HTTP Toolkit right now](/). All the features described here are now live, and they're all free and open-source (check out the source at [github.com/httptoolkit](https://github.com/httptoolkit/) if you're interested).
 
-Of course, this is all still new and experimental! Feedback is very welcome, especially if you run into issues - feel free to [open an issue](https://github.com/httptoolkit/httptoolkit/issues/new), get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message directly](/contact).
+Of course, this is all still new and experimental! Feedback is very welcome, especially if you run into issues - feel free to [open an issue](https://github.com/httptoolkit/httptoolkit/issues/new), get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message directly](/contact/).
 
 ---
 

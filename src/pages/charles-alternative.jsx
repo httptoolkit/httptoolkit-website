@@ -169,16 +169,18 @@ export default class CharlesAlternativePage extends React.Component {
                     certificates required</Link>
                 </UniqueFeature>
                 <UniqueFeature>
-                    <strong>Precisely targeted interception</strong>: capture traffic from just one browser window, without
-                    interfering with (or having to filter though) traffic from the rest of your machine
+                    <strong>Precisely targeted interception</strong>: automatically capture traffic
+                    from just one browser window, without interfering with (or having to filter
+                    though) traffic from the rest of your machine
                 </UniqueFeature>
                 <UniqueFeature>
                     Capture traffic from specific terminals and <strong>intercept scripts & servers</strong>,
-                    with built-in integrations for <Link to="/javascript">Node.js</Link>, <Link to="/python">Python</Link>,{' '}
-                    <Link to="/ruby">Ruby</Link> and more
+                    with built-in integrations for <Link to="/docker/">Docker</Link>,{' '}
+                    <Link to="/javascript/">Node.js</Link>, <Link to="/python/">Python</Link>,{' '}
+                    <Link to="/ruby/">Ruby</Link> and more
                 </UniqueFeature>
                 <UniqueFeature>
-                    <Link to="/docs/guides/android">Android integration</Link> for apps and mobile browsers,
+                    <Link to="/android/">Android integration</Link> for apps and mobile browsers,
                     including automated setup, per-app interception, and system-level certificate injection for
                     complete visibility into emulators and rooted devices
                 </UniqueFeature>

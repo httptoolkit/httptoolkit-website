@@ -208,6 +208,6 @@ public class AddPreflightCacheControlWebFilter implements WebFilter {
 
 ---
 
-I hope this helps improve your CORS performance and reduce your API traffic! Have thoughts or questions? Feel free to in touch on [Twitter](https://twitter.com/pimterry) or [directly](/contact).
+I hope this helps improve your CORS performance and reduce your API traffic! Have thoughts or questions? Feel free to in touch on [Twitter](https://twitter.com/pimterry) or [directly](/contact/).
 
 **Debugging APIs and want to inspect, rewrite & mock live traffic? Try out [HTTP Toolkit](https://httptoolkit.com/javascript/) right now. Open-source one-click HTTP(S) interception & debugging for web, Android, servers & more.**

@@ -90,7 +90,7 @@ To know exactly why your request is failing, you need to inspect the traffic its
 * Change the server's response to follow the rules above
 * If all else fails, proxy the request through your own server on your own origin, so it's not a cross-origin request (proxying avoids the attacks above, because it doesn't let you use the cookies or authentication details from the user's browser, and it requires the target server to be accessible from your source server)
 
-To inspect the traffic, you can use your browser built-in tools, but it's usually easier to use a dedicated HTTP debugger like [HTTP Toolkit](https://httptoolkit.com/). Dedicated tools make it much easier to see the data, rather than (for example) Chrome's very cramped and fiddly network tab, and you can also breakpoint responses and edit the headers to test how the browser will handle changes without actually changing your server. Also, [some Chrome versions](/blog/chrome-79-doesnt-show-cors-preflight) don't show all CORS requests.
+To inspect the traffic, you can use your browser built-in tools, but it's usually easier to use a dedicated HTTP debugger like [HTTP Toolkit](https://httptoolkit.com/). Dedicated tools make it much easier to see the data, rather than (for example) Chrome's very cramped and fiddly network tab, and you can also breakpoint responses and edit the headers to test how the browser will handle changes without actually changing your server. Also, [some Chrome versions](/blog/chrome-79-doesnt-show-cors-preflight/) don't show all CORS requests.
 
 Hopefully, once you examine your CORS requests & responses, it's clear where you're breaking the rules above.
 

@@ -219,7 +219,7 @@ export const AndroidDetails = () => <DetailsContainer>
         </p>
         <p>
             Enable trust in your own app with <a
-                href="/docs/guides/android#intercepting-traffic-from-your-own-android-app"
+                href="/docs/guides/android/#intercepting-traffic-from-your-own-android-app"
                 target="_blank"
                 rel='noopener noreferrer'
             >one tiny manifest change</a>.
@@ -232,7 +232,7 @@ export const AndroidDetails = () => <DetailsContainer>
     <DetailsContent>
         <h3>Want the full details?</h3>
         <p>Take a look at the <strong><a
-            href="/docs/guides/android"
+            href="/docs/guides/android/"
             target="_blank"
             rel='noopener noreferrer'
         >

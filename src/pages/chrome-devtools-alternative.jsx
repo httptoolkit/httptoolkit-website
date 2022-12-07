@@ -172,8 +172,8 @@ export default class CharlesAlternativePage extends React.Component {
                     and breakpoint them, return mock responses, simulate errors, create timeouts, redirect traffic and more
                 </UniqueFeature>
                 <UniqueFeature>
-                    Interception for other browsers and tabs: capture and compare traffic from different sessions,
-                    all in one place.
+                    Interception for other browsers and tabs: capture and compare traffic from
+                    different sessions, all in one place.
                 </UniqueFeature>
                 <UniqueFeature>
                     Powerful filtering, including tools to pin and delete of individual requests, to collect and examine just
@@ -189,8 +189,10 @@ export default class CharlesAlternativePage extends React.Component {
                     configuration
                 </UniqueFeature>
                 <UniqueFeature>
-                    Automatically interception for other clients too, including <Link to="/javascript">Node.js</Link>,{' '}
-                    <Link to="/python">Python</Link>, <Link to="/ruby">Ruby</Link> and <Link to="/android">Android</Link>
+                    Automatically interception for non-browser clients too, including{' '}
+                    <Link to="/docker/">Docker</Link>, <Link to="/javascript/">Node.js</Link>,{' '}
+                    <Link to="/python/">Python</Link>, <Link to="/ruby/">Ruby</Link>, and{' '}
+                    <Link to="/android/">Android</Link>
                 </UniqueFeature>
             </UniqueFeatures>
             <Description>

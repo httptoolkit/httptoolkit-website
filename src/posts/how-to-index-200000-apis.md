@@ -369,7 +369,7 @@ const apiId = findApi(requestUrl);
 const apiSpec = require(`openapi-directory/api/${apiId}`);
 ```
 
-The resulting package, including the index and normalized specifications, is distributed as [an npm package](https://www.npmjs.com/package/openapi-directory) so you can easily use the directory (with the index, or just the raw specs themselves) in JS codebases on the front or back end. It's not currently easily usable in other languages or as an API itself, but if there's interest that'd be easy to do (if you're personally interested, [get in touch](/contact)!).
+The resulting package, including the index and normalized specifications, is distributed as [an npm package](https://www.npmjs.com/package/openapi-directory) so you can easily use the directory (with the index, or just the raw specs themselves) in JS codebases on the front or back end. It's not currently easily usable in other languages or as an API itself, but if there's interest that'd be easy to do (if you're personally interested, [get in touch](/contact/)!).
 
 And with that, HTTP Toolkit and other tools can automatically grab all the metadata data required to do things like this:
 
@@ -379,6 +379,6 @@ That's a request to GitHub, fully annotated with the API endpoint details, links
 
 The full package with all the data that makes this possible is open-source & published [on npm](https://www.npmjs.com/package/openapi-directory) and so the raw content is also available directly [from unpkg](https://unpkg.com/openapi-directory/), so anybody can immediately start building OpenAPI-powered tools on top of this.
 
-I hope that was interesting! Have a play with [the demo](http://runkit.com/pimterry/openapi-directory-js-demo), test it out in HTTP Toolkit, and feel free to get in touch [by email](/contact) or [Twitter](https://twitter.com/pimterry) if you have any questions or you start building on this yourself.
+I hope that was interesting! Have a play with [the demo](http://runkit.com/pimterry/openapi-directory-js-demo), test it out in HTTP Toolkit, and feel free to get in touch [by email](/contact/) or [Twitter](https://twitter.com/pimterry) if you have any questions or you start building on this yourself.
 
 _Want to debug, test or mock HTTP(S), from browsers, servers, phones, and everything else? Try out **[HTTP Toolkit](https://httptoolkit.com)** now._

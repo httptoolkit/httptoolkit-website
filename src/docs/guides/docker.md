@@ -110,7 +110,7 @@ You can also try visiting the interfaces of the other components, such as the ad
 
 ![A mock rule that close the connection whenever a health check request is sent](./docker-healthcheck-rule.png)
 
-([HTTP Toolkit Pro](/get-pro) is required to add automated response rules like this, but you can do the same manually using the "Pause the request to manually edit it" option and manually killing health check requests)
+([HTTP Toolkit Pro](/get-pro/) is required to add automated response rules like this, but you can do the same manually using the "Pause the request to manually edit it" option and manually killing health check requests)
 
 You should quickly see failing requests on the View page, and when you refresh the admin server's status page it will show the entire infrastructure going offline:
 

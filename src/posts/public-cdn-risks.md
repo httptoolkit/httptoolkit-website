@@ -156,6 +156,6 @@ You clearly want to outsource as much of this hard work to others as you possibl
 
 The benefits of public CDNs are no longer relevant, and their downsides are significant, both for individual sites and the security of the web as a whole. It's best to avoid them wherever possible, primarily by self-hosting your content with a caching reverse-proxy in front, to cheaply and easily build high-performance web applications.
 
-Have thoughts, feedback or bonus examples for any of the above? Get in touch [by email](/contact) or [on Twitter](https://twitter.com/pimterry) and let me know.
+Have thoughts, feedback or bonus examples for any of the above? Get in touch [by email](/contact/) or [on Twitter](https://twitter.com/pimterry) and let me know.
 
 _Want to test or debug HTTP requests, caching and errors? Intercept, inspect & mock HTTP(S) from anything to anywhere with **[HTTP Toolkit](https://httptoolkit.com)**._

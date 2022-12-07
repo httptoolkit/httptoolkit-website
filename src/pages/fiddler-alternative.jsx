@@ -169,12 +169,18 @@ export default class FiddlerAlternativePage extends React.Component {
                     required</Link>
                 </UniqueFeature>
                 <UniqueFeature>
-                    <strong>Targeted interception</strong>: automatically capture traffic from just one browser window or from servers and scripts
-                    (including <Link to="/javascript">Node.js</Link>, <Link to="/python">Python</Link> and <Link to="/ruby">Ruby</Link>)
-                    without noise from or interference with the rest of your machine
+                    <strong>Precisely targeted interception</strong>: automatically capture traffic
+                    from just one browser window, without interfering with (or having to filter
+                    though) traffic from the rest of your machine
                 </UniqueFeature>
                 <UniqueFeature>
-                    <Link to="/android">Android integration</Link> for apps and mobile browsers,
+                    Capture traffic from specific terminals and <strong>intercept scripts & servers</strong>,
+                    with built-in integrations for <Link to="/docker/">Docker</Link>,{' '}
+                    <Link to="/javascript/">Node.js</Link>, <Link to="/python/">Python</Link>,{' '}
+                    <Link to="/ruby/">Ruby</Link> and more
+                </UniqueFeature>
+                <UniqueFeature>
+                    <Link to="/android/">Android integration</Link> for apps and mobile browsers,
                     including automated setup, per-app interception, and system-level certificate injection for
                     complete visibility into emulators and rooted devices.
                 </UniqueFeature>

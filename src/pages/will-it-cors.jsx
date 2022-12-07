@@ -81,7 +81,7 @@ const Footer = styled.footer`
     }
 `;
 
-const PAGE_TITLE = "Will It CORS?";
+const PAGE_TITLE = "Will It CORS? - a CORS debugging tool that actually works.";
 const PAGE_DESCRIPTION = "Literally nobody understands CORS, except this one magic web page";
 
 const SAFE_CONTENT_TYPES = [

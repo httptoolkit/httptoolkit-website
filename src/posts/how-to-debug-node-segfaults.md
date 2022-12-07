@@ -9,7 +9,7 @@ Oh no, your JavaScript code isn't just throwing an exception or crashing: it's _
 
 You'll know this happens because node will hard crash, exiting silently without any kind of real stack trace, perhaps printing just `segmentation fault (core dumped)`.
 
-(If you do get a normal JavaScript stack trace on the other hand, then you're dealing with a normal JS error, not a segfault. Lucky you! You might be more interested in the guide on [How to Debug Anything](/blog/how-to-debug-anything)/)
+(If you do get a normal JavaScript stack trace on the other hand, then you're dealing with a normal JS error, not a segfault. Lucky you! You might be more interested in the guide on [How to Debug Anything](/blog/how-to-debug-anything/))
 
 ## What is a Segmentation Fault?
 

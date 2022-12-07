@@ -14,7 +14,7 @@ This means you can pick any JVM process - your own locally running service, Grad
 
 In this article, I want to walk you through the details of how this is possible, so you can understand some of the secret powers of the JVM, learn how to transform raw bytecode for yourself, and build on the examples and [source code](https://github.com/httptoolkit/jvm-http-proxy-agent) behind this to build your own debugging & instrumentation tools.
 
-**If you just want to try this out right now, [go download HTTP Toolkit](https://httptoolkit.com/java)**.
+**If you just want to try this out right now, [go download HTTP Toolkit](https://httptoolkit.com/java/)**.
 
 If you want to know how on earth this is possible, and how you can write code that does the same, read on:
 

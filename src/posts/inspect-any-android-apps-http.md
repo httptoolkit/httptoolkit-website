@@ -6,7 +6,7 @@ cover_image: './android-phone.jpg'
 
 HTTP is used by almost all Android apps to request data, load content, and send changes to backend servers. If you can see and edit these requests & responses then you can understand, debug, and change how any app works, but Android makes this hard to do.
 
-By default, almost all apps will use HTTPS but [won't trust user-installed certificates](/blog/intercepting-android-https). This means that you can't see their traffic with simple proxy tools, and you can't manually trust HTTPS debugging proxies without either editing and rebuilding the entire app, or setting up your own rooted device.
+By default, almost all apps will use HTTPS but [won't trust user-installed certificates](/blog/intercepting-android-https/). This means that you can't see their traffic with simple proxy tools, and you can't manually trust HTTPS debugging proxies without either editing and rebuilding the entire app, or setting up your own rooted device.
 
 Fortunately, there's a quick & easy way around this: you can manually install official APKs into a normal Android emulator, which provides enough access that tools like [HTTP Toolkit](/android/) can capture all traffic for most apps for you totally automatically, and allow you to edit responses in just a couple of clicks.
 
@@ -108,7 +108,7 @@ HTTP Toolkit allows you to rewrite outgoing requests and returned responses.
 
 You can do this from the 'Mock' tab, which allows you to configure rules. Each rule matches against something (an HTTP method, or a specific path, or a header value) and then does something (breakpoints the response to edit manually, redirects the response elsewhere, returns some fixed replacement data, disconnects the connection, etc).
 
-Some of the advanced options here require [HTTP Toolkit Pro](/get-pro) but you can get started with manual breakpointing to immediately test & manipulate apps without that.
+Some of the advanced options here require [HTTP Toolkit Pro](/get-pro/) but you can get started with manual breakpointing to immediately test & manipulate apps without that.
 
 As an example for now, let's try changing some of Duolingo's behaviour. If you log in, pick a language (if you've never used the app before), and start a lesson, you'll see a request like this:
 

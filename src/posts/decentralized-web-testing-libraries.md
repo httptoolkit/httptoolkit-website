@@ -219,7 +219,7 @@ With this configuration, you can use these nodes as your normal node address in 
 
 It's difficult to squeeze everything that's possible with these tools in here while keeping this article short! But if this has piqued your interest already, take a look at the libraries themselves on GitHub for in-depth getting started guides and explanations, along with detailed API documentation covering their full functionality: [MockIPFS](https://github.com/httptoolkit/mockipfs), [Mockthereum](https://github.com/httptoolkit/mockthereum).
 
-Have questions, issues or suggestions? These tools are still in an early stage, and feedback is _very_ welcome! Please file an issue on one of those repos, or get in touch directly [on Twitter](https://twitter.com/pimterry/) or [by email](/contact).
+Have questions, issues or suggestions? These tools are still in an early stage, and feedback is _very_ welcome! Please file an issue on one of those repos, or get in touch directly [on Twitter](https://twitter.com/pimterry/) or [by email](/contact/).
 
 ---
 

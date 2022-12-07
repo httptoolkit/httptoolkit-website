@@ -215,6 +215,6 @@ Now the real fun begins though, as you can begin to extend this setup. Some more
     [![Build Status](https://github.com/$USER/$REPO/workflows/$WORKFLOW/badge.svg)](https://github.com/$USER/$REPO/actions)
     ```
 
-Have further questions or suggestions? Get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message](/contact).
+Have further questions or suggestions? Get in touch [on Twitter](https://twitter.com/pimterry) or [send me a message](/contact/).
 
 _Struggling to debug your code after failing builds, or want to test complicated HTTP interactions locally? Intercept, inspect & mock HTTP from anything with **[HTTP Toolkit](/)**._
