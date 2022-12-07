@@ -49,15 +49,15 @@ const Terms = styled.div`
         width: 70%;
     `}
 
-    h1 {
+    h2 {
         ${p => p.theme.fontSizeHeading};
     }
 
-    h1, h2 {
+    h2, h3 {
         font-weight: bold;
     }
 
-    h1, h2 {
+    h2, h3 {
         margin: 30px 0;
     }
 
@@ -83,7 +83,7 @@ export default (props) => (<Layout location={props.location}>
             Note that the binaries specifically are dual-licensed: they're available under either the <a href="https://github.com/httptoolkit/httptoolkit-desktop/blob/master/LICENSE">AGPL v3</a>, guaranteeing open-source freedoms within the constraints of AGPL, or under the <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons BY-ND license</a>, allowing unencumbered licensing for simple unmodified use.
         </TermsDisclaimer>
         <Terms>
-            <h1>Terms of Service ("Terms")</h1>
+            <h2>Terms of Service ("Terms")</h2>
 
             <p>Please read these Terms of Service ("Terms", "Terms of Service", "Terms of Use") carefully before using the httptoolkit.com website, any HTTP Tookit user accounts, or the published HTTP Toolkit applications (the "Services") operated by Timothy Perry, trading as HTTP Toolkit ("us", "we", or "our").</p>
 
@@ -91,7 +91,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>By accessing or using the Services you agree to be bound by these Terms. If you disagree with any part of the terms please do not access the Services.</p>
 
-            <h2>Use License</h2>
+            <h3>Use License</h3>
 
             <p>All materials provided through the Services are the copyright of HTTP Toolkit, except where explicitly stated. The name, logos and trademarks of HTTP Toolkit may not be used outside of the terms provided without explicit approval from HTTP Toolkit.</p>
 
@@ -101,7 +101,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement. Unless you inform us otherwise, you allow HTTP Toolkit to use your company name and logo, exclusively to identify your organization as a user of HTTP Toolkit, without implying any further endorsement or relationship. To opt out of this, please contact us and we'll ensure your name and logo is never used in any future HTTP Toolkit materials, and is removed from any in which they currently appear.</p>
 
-            <h2>Warranties and Liability</h2>
+            <h3>Warranties and Liability</h3>
 
             <p>The Services are provided on an "as is", "as available" basis, without representations of warranties of any kind, to the fullest extent permitted by law. We specifically dislaim all warranties and conditions, expressed or implied. Furthermore, we do not make any representations concerning the accuracy or reliability of the use of the materials on the Services or otherwise relating to such materials or any sites linked to these Services. HTTP Toolkit shall not have any liability or responsibility for errors or omissions in the Services, errors or omissions caused by your use of the Services, or any other damages you may incur in connection with the Services.</p>
 
@@ -109,11 +109,11 @@ export default (props) => (<Layout location={props.location}>
 
             <p>In some jurisdictions there may be limitations on these limitations, and they may not fully apply. In this case, all other remaining limitations of liability and warranty will continue to apply in full.</p>
 
-            <h2>Purchases</h2>
+            <h3>Purchases</h3>
 
             <p>Our order process is conducted by our online reseller <a href="http://paddle.com">Paddle.com</a>. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
 
-            <h2>User Accounts</h2>
+            <h3>User Accounts</h3>
 
             <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Services.</p>
 
@@ -131,7 +131,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>You agree not to share your user account with any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
 
-            <h2>Links To Other Web Sites</h2>
+            <h3>Links To Other Web Sites</h3>
 
             <p>Our Services may contain links to third-party web sites or services that are not owned or controlled by HTTP Toolkit.</p>
 
@@ -139,7 +139,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.</p>
 
-            <h2>Termination</h2>
+            <h3>Termination</h3>
 
             <p>We may terminate or suspend access to our Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
 
@@ -151,19 +151,19 @@ export default (props) => (<Layout location={props.location}>
 
             <p>All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
 
-            <h2>Governing Law</h2>
+            <h3>Governing Law</h3>
 
             <p>These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions.</p>
 
             <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Services, and supersede and replace any prior agreements we might have between us regarding the Services.</p>
 
-            <h2>Changes</h2>
+            <h3>Changes</h3>
 
             <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 15 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
 
             <p>By continuing to access or use our Services after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Services.</p>
 
-            <h2>Contact Us</h2>
+            <h3>Contact Us</h3>
 
             <p>If you have any questions about these Terms, please contact us.</p>
         </Terms>

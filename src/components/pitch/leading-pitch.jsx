@@ -28,7 +28,7 @@ const ShiftDown = styled.span`
     ${p => p.theme.popGradient}
 `;
 
-const PitchHeading = styled.div`
+const PitchHeading = styled.h1`
     ${p => p.theme.fontSizeHeading};
     font-weight: bold;
 
@@ -50,7 +50,7 @@ const PitchHeading = styled.div`
     }
 `;
 
-const PitchLine = styled.h1`
+const PitchLine = styled.div`
     &:not(:last-child) {
         margin-bottom: 30px;
     }
