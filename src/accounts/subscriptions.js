@@ -3,32 +3,6 @@ import { observable } from 'mobx';
 
 import { isSSR } from '../util';
 
-const paddlePromise = !isSSR
-    ? import('val-loader!./paddle').then((importResult) => {
-        if (importResult?.Paddle?.Setup) {
-            // Some recent Paddle versions seem to use AMD, so that we get
-            // a promise for the module from the import itself?
-            return importResult.Paddle;
-        } else return new Promise((resolve) => {
-            // In the past, we've always needed to load Paddle from a global:
-            const checkForPaddle = () => {
-                if (!!window.Paddle) {
-                    resolve(window.Paddle);
-                } else {
-                    setTimeout(checkForPaddle, 500);
-                }
-            };
-
-            checkForPaddle();
-        });
-    }).then((paddle) => {
-        paddle.Setup({ vendor: PADDLE_VENDOR_ID, enableTracking: false });
-        return paddle;
-    })
-    : new Promise(() => {}); // During SSR, Paddle never becomes available
-
-const PADDLE_VENDOR_ID = 37222;
-
 function formatPrice(currency, price) {
     return Number(price).toLocaleString(undefined, {
         style:"currency",
@@ -92,20 +66,15 @@ if (!isSSR) {
     loadPlanPrices();
 }
 
-export const getSubscriptionPlanCode = (id) =>
-    _.findKey(SubscriptionPlans, { id: id });
+export const getSKU = (paddleId) =>
+    _.findKey(SubscriptionPlans, { id: paddleId });
 
-export const openCheckout = async (email, plan) => {
-    const paddle = await paddlePromise;
-
-    return new Promise((resolve) => {
-        paddle.Checkout.open({
-            product: plan.id,
-            email: email,
-            disableLogout: true,
-            allowQuantity: false,
-            successCallback: () => resolve(true),
-            closeCallback: () => resolve(false)
-        });
-    });
+export const openCheckout = (email, sku) => {
+    // Jump to the checkout page:
+    window.location =
+        `https://accounts.httptoolkit.tech/api/redirect-to-checkout?email=${
+            encodeURIComponent(email)
+        }&sku=${
+            sku
+        }&source=httptoolkit.com`;
 }

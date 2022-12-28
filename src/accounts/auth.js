@@ -7,7 +7,7 @@ import { Auth0LockPasswordless } from '@httptoolkit/auth0-lock';
 
 import { theme } from '../styles';
 import { isSSR } from '../util';
-import { getSubscriptionPlanCode } from './subscriptions';
+import { getSKU } from './subscriptions';
 
 const AUTH0_CLIENT_ID = 'KAJyF1Pq9nfBrv5l3LHjT9CrSQIleujj';
 const AUTH0_DOMAIN = 'login.httptoolkit.tech';
@@ -199,7 +199,7 @@ function parseUserData(userJwt) {
     const subscription = {
         id: appData.subscription_id,
         status: appData.subscription_status,
-        plan: getSubscriptionPlanCode(appData.subscription_plan_id),
+        plan: getSKU(appData.subscription_plan_id),
         expiry: appData.subscription_expiry
             ? new Date(appData.subscription_expiry)
             : undefined,
