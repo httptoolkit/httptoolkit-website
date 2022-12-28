@@ -23,8 +23,8 @@ export class AccountStore {
         this.updateUser();
     }
 
-    getPlan = (tierCode, planCycle) => {
-        return SubscriptionPlans[`${tierCode}-${planCycle}`];
+    getSKU = (tierCode, planCycle) => {
+        return `${tierCode}-${planCycle}`;
     }
 
     @observable
@@ -70,7 +70,8 @@ export class AccountStore {
 
     buyPlan = flow(function * (tierCode, planCycle) {
         this.reportPlanSelected(tierCode);
-        const plan = this.getPlan(tierCode, planCycle);
+        const sku = this.getSKU(tierCode, planCycle);
+        const plan = SubscriptionPlans[sku];
 
         if (!this.isLoggedIn) {
             this.modal = 'login';
@@ -110,21 +111,8 @@ export class AccountStore {
             return;
         }
 
-        this.modal = 'checkout';
-        const purchased = yield openCheckout(this.user.email, plan);
-        this.modal = null;
-
-        if (!purchased) return;
-        this.waitingForPurchase = tierCode;
-
-        yield this.updateUser();
-        while (!this.isPaidUser) {
-            yield delay(1000);
-            yield this.updateUser();
-        }
-
-        this.waitingForPurchase = false;
-        this.reportPlanPurchased(tierCode);
+        // This redirects the entire page to the checkout:
+        return openCheckout(this.user.email, sku);
     }.bind(this));
 
     reportPlanSelected(planName) {
@@ -132,16 +120,6 @@ export class AccountStore {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
                 eventAction: 'select',
-                eventLabel: _.upperFirst(planName), // For historical reasons
-            });
-        }
-    }
-
-    reportPlanPurchased(planName) {
-        if (window.ga) {
-            window.ga('send', 'event', {
-                eventCategory: 'plan',
-                eventAction: 'purchased',
                 eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }

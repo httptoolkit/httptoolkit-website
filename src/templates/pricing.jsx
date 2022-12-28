@@ -13,6 +13,7 @@ import { styled, media, css } from '../styles';
 
 import { AccountStore } from '../accounts/account-store';
 import { logOut } from '../accounts/auth';
+import { SubscriptionPlans } from '../accounts/subscriptions';
 
 import { Layout } from '../components/layout';
 import { FullWidthSection }from '../components/full-width-section';
@@ -384,7 +385,8 @@ export default @observer class PricingPage extends React.Component {
     });
 
     getPlanMonthlyPrice = (tierCode) => {
-        const plan = this.account.getPlan(tierCode, this.planCycle);
+        const sku = this.account.getSKU(tierCode, this.planCycle);
+        const plan = SubscriptionPlans[sku];
         return plan.prices && plan.prices.monthly;
     };
 
