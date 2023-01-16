@@ -383,7 +383,7 @@ For example, to test out our demo hook above:
 * Start Frida server on the device
 * Restart your application with Frida attached by running:
     ```
-    frida --no-pause -U -f tech.httptoolkit.pinning_demo
+    frida -U -f tech.httptoolkit.pinning_demo
     ```
 * This will start the app, and give you a REPL to run Frida commands
 * Run `Java.perform(() => console.log('Attached'))` to attach this process to the VM & class loader (it'll pause briefly, then log 'Attached').
@@ -409,7 +409,7 @@ Java.perform(() => {
 and then you can run this non-interactively with Frida using the `-l` option, for example:
 
 ```bash
-frida --no-pause -U -f tech.httptoolkit.pinning_demo -l ./frida-script.js
+frida -U -f tech.httptoolkit.pinning_demo -l ./frida-script.js
 ```
 
 That command will restart the app with the script injected immediately, so that that certificate pinning behind this button is unpinned straight away, and tapping the button will always show a successful result:

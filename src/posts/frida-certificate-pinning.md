@@ -143,7 +143,7 @@ Fortunately I've been working on a general-purpose Frida script to do this, so y
 To use this, save [frida-script.js](https://raw.githubusercontent.com/httptoolkit/frida-android-unpinning/main/frida-script.js) on your computer, and then run:
 
 ```bash
-frida --no-pause -U -l ./frida-script.js -f $TARGET_PACKAGE_NAME
+frida -U -l ./frida-script.js -f $TARGET_PACKAGE_NAME
 ```
 
 This will restart the app on your phone, and print out a series of libraries where unpinning was attempted, with a `[+]` for libraries that were successfully patched and `[ ]` for libraries that weren't (generally because the app doesn't use those libraries).
@@ -172,7 +172,7 @@ That means that an HTTP client (the Twitter app) is connecting and then rejectin
 To defeat this and intercept Twitter's real API traffic, I just need to run:
 
 ```bash
-frida --no-pause -U -l ./frida-script.js -f com.twitter.android
+frida -U -l ./frida-script.js -f com.twitter.android
 ```
 
 That restarts Twitter on my phone, and I've immediately got traffic:
