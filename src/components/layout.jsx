@@ -258,7 +258,6 @@ export class Layout extends React.Component {
               }
           })}
           </script>
-          <script src="/infobox.js"></script>
         </Helmet>
 
         <Header {...visibilityProps}>
