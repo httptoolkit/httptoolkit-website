@@ -57,6 +57,7 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-catch-links', // Convert Remark relative links to <Link>
     {
       resolve: 'gatsby-plugin-feed',
       options: {
