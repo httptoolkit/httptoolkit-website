@@ -34,6 +34,7 @@ jobs:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
+          GATSBY_POSTHOG_KEY: ${{ secrets.GATSBY_POSTHOG_KEY }}
 
       - uses: actions/upload-artifact@v2
         with:
