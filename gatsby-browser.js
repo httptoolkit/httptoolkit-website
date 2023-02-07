@@ -10,8 +10,11 @@ if (POSTHOG_KEY) {
     });
 }
 
+let lastUrl = location.href;
+
 exports.onRouteUpdate = () => {
-    if (POSTHOG_KEY) {
+    if (POSTHOG_KEY && location.href !== lastUrl) {
         posthog.capture('$pageview');
+        lastUrl = location.href;
     }
 };
