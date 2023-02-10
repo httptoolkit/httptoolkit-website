@@ -69,7 +69,7 @@ export class AccountStore {
     }).bind(this);
 
     buyPlan = flow(function * (tierCode, planCycle) {
-        this.reportPlanSelected(tierCode);
+        this.reportPlanSelected(tierCode, planCycle);
         const plan = this.getPlan(tierCode, planCycle);
 
         if (!this.isLoggedIn) {
@@ -99,7 +99,7 @@ export class AccountStore {
             // HTTP Toolkit globally. This error message is left intentionally vague to try and discourage fraudsters
             // from using a VPN to work around it. We do still allow this for existing customers, who are already
             // logged in - we're attempting to just block the creation of new accounts here.
-            this.reportPlanPurchaseBlocked(tierCode);
+            this.reportPlanPurchaseBlocked(tierCode, planCycle);
 
             alert(
                 "Unfortunately, due to high levels of recent chargebacks & fraud, subscriptions for new accounts "+
@@ -124,10 +124,12 @@ export class AccountStore {
         }
 
         this.waitingForPurchase = false;
-        this.reportPlanPurchased(tierCode);
+        this.reportPlanPurchased(tierCode, planCycle);
     }.bind(this));
 
-    reportPlanSelected(planName) {
+    reportPlanSelected(planName, planCycle) {
+        const sku = `${planName}-${planCycle}`;
+
         if (window.ga) {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
@@ -135,9 +137,19 @@ export class AccountStore {
                 eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }
+
+        if (window.posthog) {
+            posthog.capture(`Select plan: ${sku}`, {
+                planName,
+                planCycle,
+                sku
+            });
+        }
     }
 
-    reportPlanPurchased(planName) {
+    reportPlanPurchased(planName, planCycle) {
+        const sku = `${planName}-${planCycle}`;
+
         if (window.ga) {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
@@ -145,14 +157,32 @@ export class AccountStore {
                 eventLabel: _.upperFirst(planName), // For historical reasons
             });
         }
+
+        if (window.posthog) {
+            posthog.capture(`Plan purchased: ${sku}`, {
+                planName,
+                planCycle,
+                sku
+            });
+        }
     }
 
-    reportPlanPurchaseBlocked(planName) {
+    reportPlanPurchaseBlocked(planNam, planCycle) {
+        const planCode = `${planName}-${planCycle}`;
+
         if (window.ga) {
             window.ga('send', 'event', {
                 eventCategory: 'plan',
                 eventAction: 'purchase-blocked',
                 eventLabel: _.upperFirst(planName), // For historical reasons
+            });
+        }
+
+        if (window.posthog) {
+            posthog.capture(`Plan purchase blocked: ${planCode}`, {
+                planName,
+                planCycle,
+                sku
             });
         }
     }

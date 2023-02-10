@@ -8,6 +8,9 @@ if (POSTHOG_KEY) {
         autocapture: false, // We don't need events here - just page views is fine.
         persistence: "memory" // No cookies/local storage please
     });
+
+    // Make this global, so we can track events elsewhere
+    window.posthog = posthog;
 }
 
 let lastUrl = location.href;
