@@ -139,7 +139,7 @@ export class AccountStore {
         }
 
         if (window.posthog) {
-            posthog.capture(`Select plan: ${sku}`, {
+            posthog.capture('Select plan', {
                 planName,
                 planCycle,
                 sku
@@ -159,7 +159,7 @@ export class AccountStore {
         }
 
         if (window.posthog) {
-            posthog.capture(`Plan purchased: ${sku}`, {
+            posthog.capture('Plan purchased', {
                 planName,
                 planCycle,
                 sku
@@ -179,7 +179,7 @@ export class AccountStore {
         }
 
         if (window.posthog) {
-            posthog.capture(`Plan purchase blocked: ${planCode}`, {
+            posthog.capture('Plan purchase blocked', {
                 planName,
                 planCycle,
                 sku
