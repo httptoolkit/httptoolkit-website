@@ -167,8 +167,8 @@ export class AccountStore {
         }
     }
 
-    reportPlanPurchaseBlocked(planNam, planCycle) {
-        const planCode = `${planName}-${planCycle}`;
+    reportPlanPurchaseBlocked(planName, planCycle) {
+        const sku = `${planName}-${planCycle}`;
 
         if (window.ga) {
             window.ga('send', 'event', {
