@@ -3,6 +3,9 @@ import { observable } from 'mobx';
 
 import { isSSR } from '../util';
 
+export const ACCOUNTS_API = process.env.GATSBY_ACCOUNTS_API ??
+    `https://accounts.httptoolkit.tech/api`;
+
 function formatPrice(currency, price) {
     return Number(price).toLocaleString(undefined, {
         style:"currency",
@@ -14,7 +17,7 @@ function formatPrice(currency, price) {
 
 async function loadPlanPrices() {
     const response = await fetch(
-        `https://accounts.httptoolkit.tech/api/get-prices?product_ids=${
+        `${ACCOUNTS_API}/get-prices?product_ids=${
             Object.values(SubscriptionPlans).map(plan => plan.id).join(',')
         }`
     );
@@ -72,7 +75,7 @@ export const getSKU = (paddleId) =>
 export const openCheckout = (email, sku) => {
     // Jump to the checkout page:
     window.location =
-        `https://accounts.httptoolkit.tech/api/redirect-to-checkout?email=${
+        `${ACCOUNTS_API}/redirect-to-checkout?email=${
             encodeURIComponent(email)
         }&sku=${
             sku

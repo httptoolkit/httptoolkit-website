@@ -7,7 +7,7 @@ import { Auth0LockPasswordless } from '@httptoolkit/auth0-lock';
 
 import { theme } from '../styles';
 import { isSSR } from '../util';
-import { getSKU } from './subscriptions';
+import { getSKU, ACCOUNTS_API } from './subscriptions';
 
 const AUTH0_CLIENT_ID = 'KAJyF1Pq9nfBrv5l3LHjT9CrSQIleujj';
 const AUTH0_DOMAIN = 'login.httptoolkit.tech';
@@ -219,7 +219,7 @@ async function requestUserData() {
     const token = await getToken();
     if (!token) return '';
 
-    const appDataResponse = await fetch('https://accounts.httptoolkit.tech/api/get-app-data', {
+    const appDataResponse = await fetch(`${ACCOUNTS_API}/get-app-data`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
