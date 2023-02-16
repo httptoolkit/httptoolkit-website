@@ -145,6 +145,19 @@ const DocBody = styled.article`
     .gatsby-highlight {
         margin-bottom: 30px;
     }
+
+    iframe.video-embed {
+        margin: 0 auto 30px;
+        width: 100%;
+
+        ${media.desktop`
+            min-height: 390px;
+        `}
+
+        ${media.mobileOrTablet`
+            height: 50vw;
+        `}
+    }
 `;
 
 const MobileDocsearch = styled(Docsearch)`

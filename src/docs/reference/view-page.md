@@ -65,12 +65,8 @@ At the bottom of the list, there's a few useful controls:
 
 * A search bar. This filters the visible events. You can focus it at any time with Ctrl+F (or Cmd+F on Mac).
     * You can type text here and it'll be matched directly against the text of every part of every exchange, except the body itself (for performance reasons).
-    * You can also enter a structured filter, e.g. `status=200`
-        * When you enter text that matches a structured filter, an autosuggest for the filters you can create will appear. Select one with up/down and press enter to create it. You can also press up/down with no text entered to browse the full list of filters available.
-        * The created filters are shown as floating tags in the filter input box.
-        * You can precisely filter for every aspect of a request, from path to the presence of individual headers to body size, including various operators for each filter, such as "starts with" or "greater than".
-        * As you enter text, an explanation of the filter that will be created is shown below to the selected filter.
-        * [HTTP Toolkit Pro](/get-pro/) users can save sets of filters with their own custom name. To do this, create your filters, then type a string that doesn't match an existing filter, and select the 'Save filters' suggestion that's shown.
+    * You can also enter a structured filter, e.g. `status=200` or `body*=content` to precisely match content
+    * See the ['Filtering intercepted traffic'](#filtering-intercepted-traffic) section below for more information on the filtering tools available.
 * The number of events shown, if your current filter is hiding any events.
 * The total number of events in the list.
 * A button to pause/resume interception.
@@ -79,6 +75,76 @@ At the bottom of the list, there's a few useful controls:
 * A button to export the currently visible exchanges as a [HAR file](https://en.wikipedia.org/wiki/HAR_(file_format)), usable with many other tools (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * A button to import a HAR file. These imported exchanges are appended to the list of events, and won't remove any events already present  (_requires [HTTP Toolkit Pro](/get-pro/)_).
 * A button to clear the event list, deleting all events from memory.
+
+#### Filtering intercepted traffic
+
+The search bar on the View page allows you to filter the requests that are shown. It can be used for both free-text searching (which will search all content & metadata of requests and responses except message bodies, for performance) or structured filtering, using filters to precisely match intercepted traffic.
+
+Once you know how to use structured filters, they can be significantly more powerful, and they can be combined together to rapidly find the traffic you're interested in. Here's a quick demo video:
+
+<center>
+    <iframe class="video-embed" src="https://www.youtube.com/embed/gUPxOfEr5HU" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+Some examples of structured filters are:
+
+* `status!=200` - Find all responses where the status is not 200
+* `bodySize>=1000` - Find all response where the body is larger than 1KB
+* `hostname$=google.com` - Find all requests to hostnames that end with `google.com`
+* `header[Authorization]^=Bearer` - Find all requests with an authorization header starting with `Bearer`
+* `body*=error` - Find all exchanges where the request or response body contains `error`
+
+When entering text, if it matches one or more structured filters like this, an autosuggest for the filters you can create will appear, including suggestions for filter values taken from the traffic intercepted so far. Select a suggestion with up/down and press enter to create it. Once a structured filter is created, it will appear as a floating tag in the search bar.
+
+As you enter text into the search bar, the event list will be updated live to match your filters as you create them, filtering against the currently highlighted filter suggestion (if there is one) or using free-text filtering if not.
+
+These full list of structured filters is:
+
+* `method` - Matches requests with a given method
+* `hostname` - Matches requests sent to a given hostname
+* `path` - Matches requests sent to a given path
+* `query` - Matches requests with a given query string
+* `status` - Matches responses with a given status code
+* `headers` - Matches exchanges by all header values
+* `header` - Matches exchanges by a specific header, either:
+    * `header[x]` to match all exchanges including an `x` header
+    * `header[x]=y` to match all exchanges with an `x` header whose value is `y` (`x: y`)
+* `body` - Matches exchanges by body content
+* `bodySize` - Matches exchanges by body size
+* `contains(x)` - Matches traffic that contain a given value anywhere (in method, URL, headers, request or response bodies, WebSocket messages, etc)
+    * Be aware that searching _all_ content like this can be slow when large amounts of traffic have been collected, particularly if the traffic includes any large message bodies
+* `completed` - Matches requests that have received a response
+* `pending` - Matches requests that are still waiting for a response
+* `aborted` - Matches requests whose connection failed before receiving a response
+* `errored` - Matches requests that weren't transmitted successfully
+* `pinned` - Matches exchanges that are pinned
+* `category` - Matches exchanges by their general category (e.g. `image`, `js`, `data`, `mutative`)
+* `port` - Matches requests sent to a given port
+* `protocol` - Matches exchanges by protocol, for example HTTP, HTTPS, WS or WSS
+* `httpVersion` - Matches exchanges using a given version of HTTP
+* `websocket` - Matches websocket streams
+* `not(x)` - Matches exchanges that do not match a given condition
+* `or(a, b)` - Matches exchanges that match any one of multiple conditions
+
+Most of these filters support a few different operators to match against values. To see the available operators for a filter, start entering the filter, and then look at the operator suggestions that appear. The operators may include:
+
+* `=` &nbsp; Exactly matches a given value
+* `!=` &nbsp; Does not match a given value
+* `^=` &nbsp; Value starts with a given string
+* `$=` &nbsp; Value ends with a given string
+* `*=` &nbsp; Value contains a given string
+* `>` &nbsp; Value is greater than a given number
+* `>=` &nbsp; Value is greater than or equal to a given number
+* `<` &nbsp; Value is less than a given number
+* `<=` &nbsp; Value is less than or equal to a given number
+
+To explore all available filters in the app, you can also press up/down with no text entered, which will trigger the autosuggest and show you the full list of filters available.
+
+As you explore the filter suggestions, the selected suggestion will show an autogenerated explanation of what the filter does. For example, initially selecting the `body` filter will show "Match exchanges by body content", entering `body^=` will show "Match exchanges starting with a given value", and `body*=abc` will show "Match exchanges starting with 'abc'". These descriptions allow you to quickly understand the filtering options as you type.
+
+With [HTTP Toolkit Pro](/get-pro) it's also possible to save sets of filters with their own custom name, so you can quickly recreate common filters. To do so, create your filters, then type a string that doesn't match an existing filter, and select the 'Save filters' suggestion that's shown.
+
+Once a custom filter is created, you can create it like any other, by typing the name and pressing enter to select the suggestion. To delete a custom filter, type its name so the suggestion appears, and then click the trash icon shown alongside.
 
 ## The event details pane
 
