@@ -143,11 +143,7 @@ export class AccountStore {
         }
 
         if (window.posthog) {
-            posthog.capture('Select plan', {
-                planName,
-                planCycle,
-                sku
-            });
+            posthog.capture('Select plan', { planName, planCycle, sku });
         }
     }
 
@@ -163,11 +159,7 @@ export class AccountStore {
         }
 
         if (window.posthog) {
-            posthog.capture('Plan purchase blocked', {
-                planName,
-                planCycle,
-                sku
-            });
+            posthog.capture('Plan purchase blocked', { planName, planCycle, sku });
         }
     }
 }

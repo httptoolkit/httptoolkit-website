@@ -75,8 +75,8 @@ export const getSKU = (paddleId) =>
 export const getCheckoutUrl = (email, sku) => {
     // Pass the checkout id, so we can measure completion metrics later on:
     const checkoutId = window.posthog?.get_distinct_id();
-    const returnUrl = `${window.location.origin}/web-purchase-thank-you${
-        checkoutId ? `?checkoutId=${checkoutId}` : ''
+    const returnUrl = `${window.location.origin}/web-purchase-thank-you?sku=${sku}${
+        checkoutId ? `&checkoutId=${checkoutId}` : ''
     }`;
 
     return `${ACCOUNTS_API}/redirect-to-checkout?email=${
@@ -84,10 +84,8 @@ export const getCheckoutUrl = (email, sku) => {
     }&sku=${
         sku
     }&source=httptoolkit.com&returnUrl=${
-        returnUrl
-    }&passthrough=${JSON.stringify({
-        checkoutId: checkoutId
-    })}`;
+        encodeURIComponent(returnUrl)
+    }&passthrough=${JSON.stringify({ checkoutId, sku })}`;
 }
 
 export const openCheckout = (email, sku) => {

@@ -58,9 +58,12 @@ export default (props) => {
     // Match id to the original checkout, so we can measure checkout completion:
     React.useEffect(() => {
         const params = new URLSearchParams(window.location.search);
+        const sku = params.get('sku');
         const checkoutId = params.get('checkoutId');
         if (checkoutId) window.posthog?.identify(checkoutId);
-    }, [])
+        const [planName, planCycle] = sku?.split('-');
+        posthog.capture('Plan purchased', { planName, planCycle, sku });
+    }, []);
 
     return <Layout location={props.location}>
         <ThankYouContainer>
