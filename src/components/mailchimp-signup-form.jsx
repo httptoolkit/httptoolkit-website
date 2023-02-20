@@ -6,6 +6,8 @@ import { TextInput, SubmitInput } from './form';
 const PrivacyPolicy = styled.p`
     padding: 10px 0 0;
     color: ${p => p.theme.mainSubtleColor};
+
+    flex-basis: 100%;
 `;
 
 const FormContainer = styled.form`
@@ -15,8 +17,14 @@ const FormContainer = styled.form`
     justify-content: start;
 
     ${p => p.forceVertical
-        ? css`flex-direction: column;`
-        : media.mobile`flex-direction: column;`
+        ? css`
+            flex-direction: column;
+            flex-wrap: nowrap;
+        `
+        : media.mobile`
+            flex-direction: column;
+            flex-wrap: nowrap;
+        `
     }
 
     > input[type=email], > input[type=email] {
