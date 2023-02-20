@@ -7,6 +7,9 @@ const PrivacyPolicy = styled.p`
     padding: 10px 0 0;
     color: ${p => p.theme.mainSubtleColor};
 
+    font-style: italic;
+    ${p => p.theme.fontSizeTinyText};
+
     flex-basis: 100%;
 `;
 
