@@ -72,22 +72,24 @@ if (!isSSR) {
 export const getSKU = (paddleId) =>
     _.findKey(SubscriptionPlans, { id: paddleId });
 
-export const openCheckout = (email, sku) => {
+export const getCheckoutUrl = (email, sku) => {
     // Pass the checkout id, so we can measure completion metrics later on:
     const checkoutId = window.posthog?.get_distinct_id();
     const returnUrl = `${window.location.origin}/web-purchase-thank-you${
         checkoutId ? `?checkoutId=${checkoutId}` : ''
     }`;
 
-    // Jump to the checkout page:
-    window.location =
-        `${ACCOUNTS_API}/redirect-to-checkout?email=${
-            encodeURIComponent(email)
-        }&sku=${
-            sku
-        }&source=httptoolkit.com&returnUrl=${
-            returnUrl
-        }&passthrough=${JSON.stringify({
-            checkoutId: checkoutId
-        })}`;
+    return `${ACCOUNTS_API}/redirect-to-checkout?email=${
+        encodeURIComponent(email)
+    }&sku=${
+        sku
+    }&source=httptoolkit.com&returnUrl=${
+        returnUrl
+    }&passthrough=${JSON.stringify({
+        checkoutId: checkoutId
+    })}`;
+}
+
+export const openCheckout = (email, sku) => {
+    window.location = getCheckoutUrl(email, sku);
 }

@@ -7,7 +7,6 @@ import { Layout } from '../components/layout';
 import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
 import { DemoVideo } from '../components/demo-video';
-import { SectionSpacer } from '../components/section-spacer';
 
 import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
 import { Description } from '../components/pitch/description';

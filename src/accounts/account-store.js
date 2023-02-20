@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import { flow, observable, computed } from 'mobx';
 
-import { delay, isSSR } from '../util';
+import { prefetchPage, isSSR } from '../util';
 
 import {
     showLoginDialog,
@@ -9,7 +9,7 @@ import {
     getLatestUserData,
     loginEvents
 } from '../accounts/auth';
-import { openCheckout, SubscriptionPlans } from '../accounts/subscriptions';
+import { getCheckoutUrl, openCheckout, SubscriptionPlans } from '../accounts/subscriptions';
 
 export class AccountStore {
     constructor() {
@@ -73,10 +73,26 @@ export class AccountStore {
         const sku = this.getSKU(tierCode, planCycle);
         const plan = SubscriptionPlans[sku];
 
+        let loggingIn = true;
         if (!this.isLoggedIn) {
             this.modal = 'login';
+
+            // Update account data automatically on login, logout & every 10 mins
+            loginEvents.once('authenticated', async (authResult) => {
+                // If a user logs in after picking a plan, they're going to go to the
+                // checkout imminently. The API has to query Paddle to build that checkout,
+                // so we start prefetching the redirect early, to kick that process off ASAP:
+                const initialEmailResult = authResult?.idTokenPayload?.email;
+                if (initialEmailResult && loggingIn) { // Check loggingIn to skip if cancelled
+                    // Start preparing to redirect immediately, without waiting for user_data_loaded.
+                    prefetchPage(getCheckoutUrl(initialEmailResult, sku));
+                }
+            });
+
             yield showLoginDialog();
         }
+
+        loggingIn = false;
 
         if (!this.isLoggedIn || this.isPaidUser) {
             // Login cancelled or failed, or they have a plan already
