@@ -61,7 +61,7 @@ export default (props) => {
         const sku = params.get('sku');
         const checkoutId = params.get('checkoutId');
         if (checkoutId) window.posthog?.identify(checkoutId);
-        const [planName, planCycle] = sku?.split('-');
+        const [planName, planCycle] = sku?.split('-') ?? [];
         posthog.capture('Plan purchased', { planName, planCycle, sku });
     }, []);
 

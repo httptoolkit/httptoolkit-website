@@ -75,7 +75,7 @@ export const getSKU = (paddleId) =>
 export const getCheckoutUrl = (email, sku) => {
     // Pass the checkout id, so we can measure completion metrics later on:
     const checkoutId = window.posthog?.get_distinct_id();
-    const returnUrl = `${window.location.origin}/web-purchase-thank-you?sku=${sku}${
+    const returnUrl = `${window.location.origin}/web-purchase-thank-you/?sku=${sku}${
         checkoutId ? `&checkoutId=${checkoutId}` : ''
     }`;
 
