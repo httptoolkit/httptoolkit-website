@@ -50,10 +50,8 @@ export default (props) => (<Layout location={props.location}>
             access to all the advanced features HTTP Toolkit has to offer.
         </ThankYouDetails>
         <ThankYouDetails>
-            Your support helps to drive HTTP Toolkit and its associated open-source
-            projects moving forwards, and there's lots more coming soon, like
-            automated iOS interception, HTTP client tools, gRPC & GraphQL support,
-            and request diffing.
+            There's lots more HTTP Toolkit features coming soon too, like automated iOS interception,
+            HTTP client tools, gRPC & GraphQL support, and request diffing.
         </ThankYouDetails>
         <ThankYouDetails>
             <strong>Join the mailing list now, so you don't miss new features & releases:</strong>

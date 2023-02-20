@@ -54,14 +54,12 @@ export default (props) => {
                 Thanks for your purchase!
             </ThankYouHeader>
             <ThankYouDetails>
-                To get started, just download & launch HTTP Toolkit, click 'Get Pro' then 'Log into existing account',
-                and enter your email.
+                To get started, just download & launch HTTP Toolkit, click 'Get Pro' then 'Log into
+                existing account', and enter your email.
             </ThankYouDetails>
             <ThankYouDetails>
-                Your support helps to drive HTTP Toolkit and it's associated open-source
-                projects moving forwards, and there's lots more coming soon, like
-                automated iOS interception, HTTP client tools, gRPC & GraphQL support,
-                and request diffing.
+                There's lots more HTTP Toolkit features coming soon too, like automated iOS interception,
+                HTTP client tools, gRPC & GraphQL support, and request diffing.
             </ThankYouDetails>
             <ThankYouDetails>
                 <strong>Join the mailing list now, so you don't miss new features & releases:</strong>

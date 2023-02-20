@@ -99,11 +99,11 @@ export default ({ pageContext: {
             }
             <ThankYouDetails>
                 { downloadCommand && "You'll soon be downloading HTTP Toolkit. " }
-                There's more coming soon though, like automated iOS interception,
+                There's lots more HTTP Toolkit features coming soon too, like automated iOS interception,
                 HTTP client tools, gRPC & GraphQL support, and request diffing.
             </ThankYouDetails>
             <ThankYouDetails>
-                <strong>Sign up now, so you don't miss new features & releases:</strong>
+                <strong>Join the mailing list now, so you don't miss new features & releases:</strong>
             </ThankYouDetails>
             <MailchimpSignupForm
                 action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
