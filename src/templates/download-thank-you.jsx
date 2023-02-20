@@ -18,6 +18,9 @@ const ThankYouContainer = styled(FullWidthSection)`
         align-items: center;
     `}
 
+    padding-top: 20px;
+    padding-bottom: 20px;
+
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
 

@@ -13,15 +13,24 @@ const ThankYouContainer = styled(FullWidthSection)`
     flex-direction: column;
     justify-content: center;
 
+    padding-top: 20px;
+    padding-bottom: 20px;
+
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
+
+    > form {
+        ${media.desktop`
+            width: 80%;
+        `}
+    }
 `;
 
 const ThankYouHeader = styled.h1`
     ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
 
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 `;
 
 const ThankYouDetails = styled.p`
@@ -30,7 +39,7 @@ const ThankYouDetails = styled.p`
     line-height: 1.25;
 
     ${media.desktop`
-        width: 70%;
+        width: 80%;
     `}
 
     > strong {
@@ -46,7 +55,7 @@ export default (props) => (<Layout location={props.location}>
             Thanks for your purchase!
         </ThankYouHeader>
         <ThankYouDetails>
-            You can close this page now. Just go back to the HTTP Toolkit app to get started with
+            You're all done, just go back to the HTTP Toolkit app to get started with
             access to all the advanced features HTTP Toolkit has to offer.
         </ThankYouDetails>
         <ThankYouDetails>

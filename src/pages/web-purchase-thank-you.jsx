@@ -3,8 +3,9 @@ import React from 'react';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import { FullWidthSection }from '../components/full-width-section';
+import { FullWidthSection } from '../components/full-width-section';
 import { MailchimpSignupForm } from '../components/mailchimp-signup-form';
+import { DownloadCTA } from '../components/cta';
 
 const ThankYouContainer = styled(FullWidthSection)`
     flex: 1;
@@ -13,15 +14,28 @@ const ThankYouContainer = styled(FullWidthSection)`
     flex-direction: column;
     justify-content: center;
 
+    padding-top: 20px;
+    padding-bottom: 20px;
+
     color: ${p => p.theme.mainColor};
     background-color: ${p => p.theme.mainBackground};
+
+    > ${DownloadCTA} {
+        margin: 20px 0 40px;
+    }
+
+    > form {
+        ${media.desktop`
+            width: 80%;
+        `}
+    }
 `;
 
 const ThankYouHeader = styled.h1`
     ${p => p.theme.fontSizeUltraHeading};
     font-weight: bolder;
 
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 `;
 
 const ThankYouDetails = styled.p`
@@ -30,7 +44,7 @@ const ThankYouDetails = styled.p`
     line-height: 1.25;
 
     ${media.desktop`
-        width: 70%;
+        width: 80%;
     `}
 
     > strong {
@@ -54,9 +68,12 @@ export default (props) => {
                 Thanks for your purchase!
             </ThankYouHeader>
             <ThankYouDetails>
-                To get started, just download & launch HTTP Toolkit, click 'Get Pro' then 'Log into
+                To get started, download & launch HTTP Toolkit, click 'Get Pro' then 'Log into
                 existing account', and enter your email.
             </ThankYouDetails>
+            <DownloadCTA
+                privacyPolicy="No spam, no newsletters - just a quick & easy download link."
+            />
             <ThankYouDetails>
                 There's lots more HTTP Toolkit features coming soon too, like automated iOS interception,
                 HTTP client tools, gRPC & GraphQL support, and request diffing.
