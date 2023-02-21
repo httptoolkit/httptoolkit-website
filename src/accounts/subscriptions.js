@@ -16,11 +16,7 @@ function formatPrice(currency, price) {
 }
 
 async function loadPlanPrices() {
-    const response = await fetch(
-        `${ACCOUNTS_API}/get-prices?product_ids=${
-            Object.values(SubscriptionPlans).map(plan => plan.id).join(',')
-        }`
-    );
+    const response = await fetch(`${ACCOUNTS_API}/get-prices`);
 
     if (!response.ok) {
         console.log(response);
@@ -57,7 +53,6 @@ async function loadPlanPrices() {
 export const SubscriptionPlans = observable({
     'pro-monthly': { id: 550380 },
     'pro-annual': { id: 550382 },
-    'pro-perpetual': { id: 599788 },
     'team-monthly': { id: 550789 },
     'team-annual': { id: 550788 },
 });
