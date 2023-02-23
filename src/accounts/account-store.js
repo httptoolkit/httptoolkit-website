@@ -134,14 +134,6 @@ export class AccountStore {
     reportPlanSelected(planName, planCycle) {
         const sku = this.getSKU(planName, planCycle);
 
-        if (window.ga) {
-            window.ga('send', 'event', {
-                eventCategory: 'plan',
-                eventAction: 'select',
-                eventLabel: _.upperFirst(planName), // For historical reasons
-            });
-        }
-
         if (window.posthog) {
             posthog.capture('Select plan', { planName, planCycle, sku });
         }
@@ -149,14 +141,6 @@ export class AccountStore {
 
     reportPlanPurchaseBlocked(planName, planCycle) {
         const sku = this.getSKU(planName, planCycle);
-
-        if (window.ga) {
-            window.ga('send', 'event', {
-                eventCategory: 'plan',
-                eventAction: 'purchase-blocked',
-                eventLabel: _.upperFirst(planName), // For historical reasons
-            });
-        }
 
         if (window.posthog) {
             posthog.capture('Plan purchase blocked', { planName, planCycle, sku });

@@ -155,15 +155,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-117670723-1',
-        head: false,
-        anonymize: true,
-        respectDNT: true
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://httptoolkit.com',
