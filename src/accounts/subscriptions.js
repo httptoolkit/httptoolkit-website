@@ -80,7 +80,7 @@ export const getCheckoutUrl = (email, sku) => {
         sku
     }&source=httptoolkit.com&returnUrl=${
         encodeURIComponent(returnUrl)
-    }&passthrough=${JSON.stringify({ checkoutId, sku })}`;
+    }&passthrough=${JSON.stringify({ sku })}`;
 }
 
 export const openCheckout = (email, sku) => {
