@@ -152,7 +152,8 @@ The right pane is made up of a series of 'cards': collapsible sections, which pr
 
 For an HTTP exchange, there's a few cards that will be shown:
 
-* The request details.
+* A summary of the API request, for requests to recognized endpoints of public APIs like AWS, GitHub, Stripe and 2600+ others (_with [HTTP Toolkit Pro](/get-pro/)_).
+* The request non-body content (method, URL & headers).
 * The request body (if there is one).
 * If a response has been received:
     * The response details.
@@ -165,11 +166,12 @@ For an HTTP exchange, there's a few cards that will be shown:
 
 It's also possible to expand the request and response body cards, so they fill the entire pane. In this case, only that card will be shown.
 
-### The Request Card
+### The API Card
+_Only available with [HTTP Toolkit Pro](/get-pro/)_
 
-For [HTTP Toolkit Pro](/get-pro/) users, the request card may show metadata & validation, for requests to recognized APIs. This is powered by the OpenAPI specifications of the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory). As an example:
+For Pro users, only for requests to recognized API endpoints, an API card will be shown summarizing the essential details of each part o fthe API request, linking to the official docs, and validating the request itself. This is powered by the OpenAPI specifications of the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory). As an example:
 
-![An example request card, showing metadata for a request to the GitHub API](./request-card.png)
+![An example API card, showing metadata for a request to the GitHub API](./api-card.png)
 
 Here, a request to the GitHub API is recognized as such, so includes:
 
@@ -180,7 +182,11 @@ Here, a request to the GitHub API is recognized as such, so includes:
     - Documentation for the specific parameter, with a description and the valid possible values
     - Validation & warnings, for invalid or missing values, and deprecated parameters or operations
 
-In addition to API metadata for Pro users, for all users this card shows the core request data: the HTTP method, URL & headers sent.
+### The Request Card
+
+![An example request card, showing the raw data for a request to the GitHub API](./request-card.png)
+
+This card will always appear, and shows all the core request data: the HTTP method, URL & headers sent.
 
 All standard methods and headers will be recognized, and clicking the plus symbol next to them will show a quick explanation of what they mean, with links to the Mozilla Developer Network's full documentation for that method or header.
 

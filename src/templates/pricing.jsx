@@ -574,7 +574,7 @@ export default @observer class PricingPage extends React.Component {
                                 & caching analysis
                             </Feature>
                             <Feature>
-                                <strong>Validation & documentation for more than 1400 APIs</strong>{' '}
+                                <strong>Validation & documentation for more than 2600 APIs</strong>{' '}
                                 from AWS to GitHub to Stripe
                             </Feature>
                             <Feature>
