@@ -111,7 +111,7 @@ export default (props) => (<Layout location={props.location}>
 
             <h3>Purchases</h3>
 
-            <p>Our order process is conducted by our online reseller <a href="http://paddle.com">Paddle.com</a>. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
+            <p>Our order process is conducted by our online resellers <a href="http://paddle.com">Paddle.com</a> and <a href="https://payproglobal.com/">PayPro Global</a> (depending on the region & transaction details). Paddle.com and PayPro Global are the Merchants of Record for all our orders, and they handle all customer service inquiries, returns & billing support.</p>
 
             <h3>User Accounts</h3>
 
@@ -123,7 +123,7 @@ export default (props) => (<Layout location={props.location}>
 
             <p>Both Professional and Team accounts grant the individuals included in the license access to advanced features of HTTP Toolkit, as described on <a href="https://httptoolkit.com/pricing/">our pricing page</a>. Access to these features is contingent on a corresponding active subscription. You agree not to access or attempt to access any such features at any time when you are not personally included in an active subscription.</p>
 
-            <p>Account subscriptions may be cancelled at any time, either from the Settings page within the tool (for Professional accounts), from the <a href="https://accounts.httptoolkit.tech/">team management dashboard</a> (for Team accounts), or by contacting us or Paddle.com directly. Once cancelled, the subscription will remain active until the end of the previously purchased period, and will then expire without further renewal.</p>
+            <p>Account subscriptions may be cancelled at any time, either from the Settings page within the tool (for Professional accounts), from the <a href="https://accounts.httptoolkit.tech/">team management dashboard</a> (for Team accounts), or by contacting us or the reseller used (either Paddle.com or PayPro Global) directly. Once cancelled, the subscription will remain active until the end of the previously purchased period, and will then expire without further renewal.</p>
 
             <p>Customer support in using HTTP Toolkit may be provided at our discretion, but neither license guarantees such support or any specific level or response time of customer service, unless agreed separately.</p>
 

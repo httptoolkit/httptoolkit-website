@@ -43,11 +43,11 @@ You can cancel your HTTP Toolkit subscription either within the app itself, or v
 4. Click "Cancel Subscription".
 5. Confirm the cancellation in the subscription management page that opens.
 
-### Who are Paddle?
+### Who are Paddle & PayPro?
 
-HTTP Toolkit's order process is conducted by our online reseller <a href="http://paddle.com">Paddle</a>, who act as the "Merchant of Record" for all orders. In effect, they're the legal seller of HTTP Toolkit subscriptions, and they handle payment processing, most of the required accounting, all customer service related to invoicing, billing, and so on.
+HTTP Toolkit's order process is conducted by two online resellers: <a href="https://paddle.com">Paddle</a> and <a href="https://payproglobal.com/">PayPro Global</a> (depending on the region). These resellers act as the "Merchants of Record" for all orders. In effect, they're the legal sellers of HTTP Toolkit subscriptions, and they handle payment processing, most of the required accounting, all customer service related to invoicing, billing, and so on.
 
-They're a large & reputable payment provider who handle payments for 1000s of other software businesses, including tools like [Framer](https://www.framer.com/) and [Wallaby.js](https://wallabyjs.com/).
+Both companies are large & reputable payment providers, who handle payments for 1000s of other software businesses, including tools like [Framer](https://www.framer.com/), [AnyChart](https://www.anychart.com/) and [Wallaby.js](https://wallabyjs.com/).
 
 ### Why am I being charged sales tax?
 
@@ -55,7 +55,7 @@ By default you'll be charged sales tax on your transaction, according to the rul
 
 If you're purchasing on behalf of a VAT/GST-registered business you may not need to pay this, and you can enter your VAT/GST id during the checkout to have that removed.
 
-If you forget to do so, you can also reply to the invoice you receive from Paddle, provide your registered ID, and ask them to retroactively refund the sales tax.
+If you forget to do so, you can also reply to the invoice you receive from Paddle/PayPro, provide your registered ID, and ask them to retroactively refund the sales tax.
 
 ### What happens if my payment fails?
 
