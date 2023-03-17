@@ -87,8 +87,7 @@ What we have here is:
 
     Each of these does _not_ return the content - they return 307 redirects to the content! In the case of Docker Hub, they return appear to return redirects to a Cloudflare-backed CDN:
     ![A 307 redirect response, with a Location header pointing to production.cloudflare.docker.com](./docker-pull-nginx-layer-redirect.png)
-    These each contain layers of the image, along with the overall image configuration, which the client then puts back together into a complete image you can use locally.
-* An interleaved set of parallel requests to the real image host (`production.cloudflare.docker.com`) to actually retrieve the image config & layers.
+* An interleaved set of parallel requests to the real image host (`production.cloudflare.docker.com`) to actually retrieve the content of the image config & layers.
 
 Once the client has pulled all the layers and the image config, they're composed back together as a Docker image you can use directly locally.
 
