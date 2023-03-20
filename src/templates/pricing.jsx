@@ -574,8 +574,12 @@ export default @observer class PricingPage extends React.Component {
                                 & caching analysis
                             </Feature>
                             <Feature>
-                                <strong>Validation & documentation for more than 2600 APIs</strong>{' '}
-                                from AWS to GitHub to Stripe
+                                <strong>Validation &amp; API documentation for 2600+ built-in APIs</strong>,
+                                from AWS to GitHub to Stripe, plus your own custom <a
+                                    href="https://swagger.io/docs/specification/about/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >OpenAPI</a> specs.
                             </Feature>
                             <Feature>
                                 <strong>Advanced customization</strong> including UI themes,
