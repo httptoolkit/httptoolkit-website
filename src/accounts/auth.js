@@ -197,9 +197,9 @@ function parseUserData(userJwt) {
     });
 
     const subscription = {
-        id: appData.subscription_id,
         status: appData.subscription_status,
-        plan: getSKU(appData.subscription_plan_id),
+        plan: appData.subscription_sku
+            ?? getSKU(appData.subscription_plan_id),
         expiry: appData.subscription_expiry
             ? new Date(appData.subscription_expiry)
             : undefined,
