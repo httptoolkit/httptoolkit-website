@@ -222,7 +222,7 @@ This says that:
 
 ### Targeted Cache-Control in practice
 
-This is newer and earlier in the standardization process the Cache-Status, so it still might change. If you have feedback, the spec itself is on GitHub [here](https://github.com/httpwg/http-extensions/blob/main/draft-ietf-httpbis-targeted-cache-control.md) and you can file issues in that repo (or send a message to [the Working Group mailing list](https://datatracker.ietf.org/wg/httpbis/about/)) to share your thoughts.
+This is newer and earlier in the standardization process the Cache-Status, so it still might change. If you have feedback, the spec itself is on GitHub [here](https://github.com/httpwg/http-extensions/blob/main/archive/draft-ietf-httpbis-targeted-cache-control.md) and you can file issues in that repo (or send a message to [the Working Group mailing list](https://datatracker.ietf.org/wg/httpbis/about/)) to share your thoughts.
 
 That said, the spec itself is written by authors representing Fastly, Akamai and Cloudflare, so it's got good industry support already, and it's far enough through the process that it's unlikely to change drastically.
 

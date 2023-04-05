@@ -208,7 +208,7 @@ Now the real fun begins though, as you can begin to extend this setup. Some more
 
 * Set up caching, to speed up slow `npm install` steps, with [`actions/cache`](https://github.com/marketplace/actions/cache). GitHub even have a [ready-to-use example for npm](https://github.com/actions/cache/blob/main/examples.md#node---npm).
 * Store build artifacts, as output attached to the workflow, using [`actions/upload-artifact`](https://github.com/marketplace/actions/upload-a-build-artifact).
-* Create GitHub releases from content automatically, with [`actions/create-release`](https://github.com/marketplace/actions/create-a-release).
+* Create GitHub releases from content automatically, with [`actions/create-release`](https://github.com/actions/create-release).
 * Deploy generated content to GitHub Pages, with [`peaceiris/actions-gh-pages`](https://github.com/marketplace/actions/github-pages-action).
 * Add a badge to your readme, with a sprinkle of markdown:
     ```markdown

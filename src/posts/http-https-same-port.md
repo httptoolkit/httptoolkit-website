@@ -118,7 +118,7 @@ rawServer.on('connection', (socket) => {
 rawServer.listen(8000); // Only the raw server is attached to a port
 ```
 
-(Simplified for readability, feel free to dig into [the full implementation](https://github.com/httptoolkit/httpolyglot/blob/master/lib/index.js) if you're interested).
+(Simplified for readability, feel free to dig into [the full implementation](https://github.com/httptoolkit/httpolyglot/blob/master/src/index.ts) if you're interested).
 
 It's important to note that HTTP Toolkit can decrypt and intercept TLS connections for any domain using the above TLS server, because it's set up as an HTTPS MitM proxy. Those details are a topic for another blog post ([e.g.](https://httptoolkit.com/blog/intercepting-android-https/)) but in practice this means the `tlsConfig` here contains a CA certificate trusted by all clients to issue certificates for any host we like, so we can handle and decrypt TLS connections for any host that's requested.
 
@@ -313,7 +313,7 @@ server.start(8000).then(async () => {
 
 Make any requests you like any way you like against port 8000 (making sure you trust the CA certificate first, for HTTPS) and they'll all be intercepted and handled according to your rules.
 
-Lastly, if you want to go further, all the real-world underlying implementation of this is open source. You can go explore [the connection sniffing](https://github.com/httptoolkit/httpolyglot/blob/master/lib/index.js) or [the proxy unwrapping implementation](https://github.com/httptoolkit/mockttp/blob/f58f18f88f5f784e21560dd1b27dfa8810eb0388/src/server/http-combo-server.ts#L224-L274) or [the HTTP normalization logic](https://github.com/httptoolkit/mockttp/blob/f58f18f88f5f784e21560dd1b27dfa8810eb0388/src/server/mockttp-server.ts#L349-L372) to your heart's content.
+Lastly, if you want to go further, all the real-world underlying implementation of this is open source. You can go explore [the connection sniffing](https://github.com/httptoolkit/httpolyglot/blob/master/src/index.ts) or [the proxy unwrapping implementation](https://github.com/httptoolkit/mockttp/blob/f58f18f88f5f784e21560dd1b27dfa8810eb0388/src/server/http-combo-server.ts#L224-L274) or [the HTTP normalization logic](https://github.com/httptoolkit/mockttp/blob/f58f18f88f5f784e21560dd1b27dfa8810eb0388/src/server/mockttp-server.ts#L349-L372) to your heart's content.
 
 I hope all this helps you in your HTTP endeavours! If you build something cool related to this, or if you want to ask lots more questions, feel free to [get in touch on Twitter](https://twitter.com/pimterry).
 
