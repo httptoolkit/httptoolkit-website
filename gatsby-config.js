@@ -158,6 +158,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://httptoolkit.com',
+        sitemap: 'https://httptoolkit.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
     },
