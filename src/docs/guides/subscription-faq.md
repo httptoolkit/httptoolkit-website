@@ -67,10 +67,6 @@ Whilst your subscription is failing to renew like this, the Settings page in the
 
 If you've subscribed to HTTP Toolkit but it doesn't work for you, or if you've been billed incorrectly (e.g. if you've renewed unintentionally or accidentally subscribed twice), please get in touch with billing@httptoolkit.com to explain the situation and request a refund. In general, refunds are available within 30 days of payment for all reasonable requests.
 
-### I really want to pay with crypto
-
-It's possible to pay with [Stellar](https://www.stellar.org/), and it's very easy and extremely cheap to convert your coin of choice to Stellar in all popular exchanges. This is available for annual subscriptions only, on request, and you'll need to repeat this manually in future to renew later. If that's useful to you though, please [get in touch](/contact/).
-
 ## Accounts
 
 ### How do Pro accounts work?
