@@ -16,8 +16,8 @@ import { logOut } from '../accounts/auth';
 import { SubscriptionPlans } from '../accounts/subscriptions';
 
 import { Layout } from '../components/layout';
-import { FullWidthSection }from '../components/full-width-section';
-import { Button, ButtonLink, LinkButton, ButtonExternalLink } from '../components/form';
+import { FullWidthSection } from '../components/full-width-section';
+import { Button, ButtonLink } from '../components/form';
 import { ModalWrapper, getVisibilityProps } from '../components/modal';
 import { DownloadWidget } from '../components/download-widget';
 
@@ -349,12 +349,12 @@ const ExistingAccountBlock = styled.div`
     padding: 10px 0 0;
 
     ${p => p.theme.fontSizeTinyText};
-`;
 
-const ExistingAccountButtons = styled.div`
-    margin-top: 10px;
+    p {
+        margin-bottom: 10px;
+    }
 
-    > * {
+    button {
         ${p => p.theme.fontSizeTinyText};
         margin: 0 5px;
         padding: 5px 10px;
@@ -636,34 +636,22 @@ export default @observer class PricingPage extends React.Component {
                     </PricingTier>
                 </PricingTable>
 
-                { user.email ?
+                { user.email && user.subscription ?
                     <ExistingAccountBlock>
-                        Logged in as { user.email }.
-                        <ExistingAccountButtons>
-                            { user.subscription?.lastReceiptUrl &&
-                                <ButtonExternalLink href={
-                                    user.subscription.lastReceiptUrl
-                                }>View latest receipt</ButtonExternalLink>
-                            }
-                            { user.subscription?.updateBillingDetailsUrl &&
-                                <ButtonExternalLink href={
-                                    user.subscription.updateBillingDetailsUrl
-                                }>Update billing info</ButtonExternalLink>
-                            }
-                            { user.subscription?.cancelSubscriptionUrl &&
-                                <ButtonExternalLink href={
-                                    user.subscription.cancelSubscriptionUrl
-                                }>Cancel subscription</ButtonExternalLink>
-                            }
-                            <Button onClick={logOut}>Log out</Button>
-                        </ExistingAccountButtons>
+                        <p>Logged in as { user.email }.</p>
+                        <p>
+                            To manage your account please visit log into your dashboard at <a
+                                href="https://accounts.httptoolkit.tech/"
+                            >accounts.httptoolkit.tech</a>.
+                        </p>
+                        <Button onClick={logOut}>Log out</Button>
                     </ExistingAccountBlock>
-                : <ExistingAccountBlock>
-                    Already have an account? <LinkButton onClick={login}>
-                        Log in
-                    </LinkButton>.
-                </ExistingAccountBlock> }
-
+                    : <ExistingAccountBlock>
+                        Want to manage an existing account? Log into your dashboard at <a
+                            href="https://accounts.httptoolkit.tech/"
+                        >accounts.httptoolkit.tech</a>.
+                    </ExistingAccountBlock>
+                }
             </PricingContainer>
             {
                 (modal === 'checkout' && <ModalWrapper opacity={0.5}></ModalWrapper>) ||
