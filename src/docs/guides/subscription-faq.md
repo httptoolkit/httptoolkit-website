@@ -16,9 +16,13 @@ You can pay either monthly or annually. For either subscription period you can c
 
 ### What payment methods are available?
 
-You can pay for any subscription by credit card, with PayPal, or with Apple Pay (in Safari on Mac only).
+The payment methods available depend on your region.
 
-Payment by wire transfer is available on request, for payments over $1,000, but may entail significant delays and additional charges.
+Credit cards and PayPal are available for all purchases globally, but in specific regions it's also possible to pay with iDEAL, Giropay, WebMoney, Boleto Bancario, Alipay, Real-time Bank Transfer, CarteBleue, Sofort, MrCash, EPS, Przelewy24, Multibanco-SIBS, Trustly, MercadoPago, ToditoCash, Finnish Online Banking, DragonPay, AmBank, CIMB Clicks, Hong Leong Bank Transfer, Maybank2U, OP-Pohjola, Nordea, Danske, UnionPay, Konbini, WeChat Pay, ApplePay, Pix, Mach Pay, OXXO, and PagoEfectivo.
+
+The available methods will be shown automatically during the checkout when you've selected your country. If your preferred payment method is listed above but isn't available during the checkout, please [get in touch](/contact) as it may be possible to process this manually.
+
+On request it's also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.
 
 ### Can I get a trial?
 
