@@ -20,7 +20,7 @@ The payment methods available depend on your region.
 
 Credit cards and PayPal are available for all purchases globally, but in specific regions it's also possible to pay with iDEAL, Giropay, WebMoney, Boleto Bancario, Alipay, Real-time Bank Transfer, CarteBleue, Sofort, MrCash, EPS, Przelewy24, Multibanco-SIBS, Trustly, MercadoPago, ToditoCash, Finnish Online Banking, DragonPay, AmBank, CIMB Clicks, Hong Leong Bank Transfer, Maybank2U, OP-Pohjola, Nordea, Danske, UnionPay, Konbini, WeChat Pay, ApplePay, Pix, Mach Pay, OXXO, and PagoEfectivo.
 
-The available methods will be shown automatically during the checkout when you've selected your country. If your preferred payment method is listed above but isn't available during the checkout, please [get in touch](/contact) as it may be possible to process this manually.
+The available methods will be shown automatically during the checkout when you've selected your country. If your preferred payment method is listed above but isn't available during the checkout, please [get in touch](/contact/) as it may be possible to process this manually.
 
 On request it's also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.
 
@@ -28,24 +28,34 @@ On request it's also possible to pay by purchase order (PO) and wire transfer, f
 
 There's no trial option available, however you can use all the core features for free, and it's very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately (see the next point).
 
+### How can I manage my subscription?
+
+For common actions like updating billing details or cancelling your subscription (see the next section) it's possible to do this from the 'Settings' page within HTTP Toolkit.
+
+For full control of your account, including access to all historical invoices and to add & remove members from your Team subscription, please log into [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech/) to manage your subscription in the online dashboard.
+
 ### How can I cancel?
 
-You can cancel your HTTP Toolkit subscription either within the app itself, or via the account management web portal.
+You can cancel your HTTP Toolkit subscription either within the app itself, or via the online [account management dashboard](https://accounts.httptoolkit.tech/).
 
 #### Cancelling from the HTTP Toolkit app
 
 1. Open HTTP Toolkit, and log in with your Pro account (if you haven't already).
 2. Go to "Settings" in the bottom left.
 3. Click "Cancel Subscription".
-4. Confirm the cancellation in the subscription management page that opens in your browser.
+4. Confirm the cancellation in the window that appears.
 
 #### Cancelling on the web
 
-1. Open [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech) in your browser
+1. Open [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech/) in your browser
 2. Enter the email that you used to sign up (you can check the email address that receives your invoices to confirm this).
 3. Enter the code that will be sent to your email to complete your login.
 4. Click "Cancel Subscription".
-5. Confirm the cancellation in the subscription management page that opens.
+5. Confirm the cancellation in the window that appears.
+
+Cancelled accounts remain active & usable for the previously paid period, and then expire without renewal.
+
+Your cancellation should be processed within a few seconds, and you'll receive an email to your account's registered email address to confirm once this is complete.
 
 ### Who are Paddle & PayPro?
 
@@ -69,7 +79,7 @@ Whilst your subscription is failing to renew like this, the Settings page in the
 
 ### I would like a refund
 
-If you've subscribed to HTTP Toolkit but it doesn't work for you, or if you've been billed incorrectly (e.g. if you've renewed unintentionally or accidentally subscribed twice), please get in touch with billing@httptoolkit.com to explain the situation and request a refund. In general, refunds are available within 30 days of payment for all reasonable requests.
+If you've subscribed to HTTP Toolkit but it doesn't work for you, or if you've been billed incorrectly (e.g. if you've renewed unintentionally or accidentally subscribed twice) please get in touch with billing@httptoolkit.com to explain the situation and request a refund. In general, refunds are available within 30 days of payment for all reasonable requests.
 
 ## Accounts
 
