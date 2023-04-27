@@ -1,31 +1,49 @@
 import * as _ from 'lodash';
 import { flow, observable, computed } from 'mobx';
 
-import { prefetchPage, isSSR } from '../util';
+import { isSSR } from '../util';
 
 import {
     showLoginDialog,
     getLastUserData,
     getLatestUserData,
-    loginEvents
-} from '../accounts/auth';
-import { getCheckoutUrl, openCheckout, SubscriptionPlans } from '../accounts/subscriptions';
+    loginEvents,
+    goToCheckout,
+    SubscriptionPlans,
+    prefetchCheckout,
+    initializeAuthUi
+} from '@httptoolkit/accounts';
 
 export class AccountStore {
     constructor() {
+        if (!isSSR) {
+            initializeAuthUi({
+                refreshToken: false
+            });
+
+            // The pricing lookup promise is always triggered at first load, within layout.tsx.
+            window.pricingPromise.then((prices) => { this.subscriptionPlans = prices });
+        }
+
         // Update account data automatically on login, logout & every 10 mins
         loginEvents.on('authenticated', async () => {
             await this.updateUser();
             loginEvents.emit('user_data_loaded');
         });
+
+        if (!isSSR) {
+            this.updateUser();
+            setInterval(this.updateUser, 1000 * 60 * 10);
+        }
         loginEvents.on('logout', this.updateUser);
-        if (!isSSR) setInterval(this.updateUser, 1000 * 60 * 10);
-        this.updateUser();
     }
 
     getSKU = (tierCode, planCycle) => {
         return `${tierCode}-${planCycle}`;
     }
+
+    @observable
+    subscriptionPlans; // Set once the price loading has completed
 
     @observable
     modal = null;
@@ -34,7 +52,7 @@ export class AccountStore {
     waitingForPurchase = false;
 
     @observable
-    user = getLastUserData();
+    user = !isSSR ? getLastUserData() : {};
 
     updateUser = flow(function * () {
         this.user = yield getLatestUserData();
@@ -85,7 +103,7 @@ export class AccountStore {
                 const initialEmailResult = authResult?.idTokenPayload?.email;
                 if (initialEmailResult && loggingIn) { // Check loggingIn to skip if cancelled
                     // Start preparing to redirect immediately, without waiting for user_data_loaded.
-                    prefetchPage(getCheckoutUrl(initialEmailResult, sku));
+                    prefetchCheckout(initialEmailResult, sku, 'web');
                 }
             });
 
@@ -106,7 +124,7 @@ export class AccountStore {
         }
 
         // This redirects the entire page to the checkout:
-        return openCheckout(this.user.email, sku);
+        return goToCheckout(this.user.email, sku);
     }.bind(this));
 
     reportPlanSelected(planName, planCycle) {

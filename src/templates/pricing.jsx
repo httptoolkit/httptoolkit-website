@@ -8,12 +8,11 @@ import { observer } from 'mobx-react';
 
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
+import { logOut } from '@httptoolkit/accounts';
 
 import { styled, media, css } from '../styles';
 
 import { AccountStore } from '../accounts/account-store';
-import { logOut } from '../accounts/auth';
-import { SubscriptionPlans } from '../accounts/subscriptions';
 
 import { Layout } from '../components/layout';
 import { FullWidthSection } from '../components/full-width-section';
@@ -386,8 +385,9 @@ export default @observer class PricingPage extends React.Component {
 
     getPlanMonthlyPrice = (tierCode) => {
         const sku = this.account.getSKU(tierCode, this.planCycle);
-        const plan = SubscriptionPlans[sku];
-        return plan.prices && plan.prices.monthly;
+        const subscriptionPlans = this.account.subscriptionPlans;
+        if (!subscriptionPlans) return;
+        return subscriptionPlans[sku].prices.monthly;
     };
 
     getPlanStatus = (tierCode) => {

@@ -1,5 +1,10 @@
-// Make sure subscription data always starts loading ASAP
-import '../accounts/subscriptions';
+// Make sure subscription data always starts loading ASAP:
+import { isSSR } from '../util';
+import { loadPlanPricesUntilSuccess } from '@httptoolkit/accounts';
+
+if (!isSSR) {
+    window.pricingPromise = loadPlanPricesUntilSuccess();
+}
 
 import React from 'react';
 import { Link } from 'gatsby';
