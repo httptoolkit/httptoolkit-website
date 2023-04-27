@@ -636,14 +636,16 @@ export default @observer class PricingPage extends React.Component {
                     </PricingTier>
                 </PricingTable>
 
-                { user.email && user.subscription ?
+                { user.email ?
                     <ExistingAccountBlock>
                         <p>Logged in as { user.email }.</p>
-                        <p>
-                            To manage your account please visit log into your dashboard at <a
-                                href="https://accounts.httptoolkit.tech/"
-                            >accounts.httptoolkit.tech</a>.
-                        </p>
+                        { user.subscription &&
+                            <p>
+                                To manage your account please visit log into your dashboard at <a
+                                    href="https://accounts.httptoolkit.tech/"
+                                >accounts.httptoolkit.tech</a>.
+                            </p>
+                        }
                         <Button onClick={logOut}>Log out</Button>
                     </ExistingAccountBlock>
                     : <ExistingAccountBlock>
