@@ -171,13 +171,12 @@ export default (props) => (<Layout location={props.location}>
 
             <ul>
                 <li>Netlify: as part of our internal infrastructure</li>
-                <li>Hidora: as part of our internal infrastructure</li>
+                <li>Scaleway: as part of our internal infrastructure</li>
                 <li>Bunny.net (BunnyWay d.o.o.): as part of our internal infrastructure</li>
                 <li>Paddle and/or PayPro Global: for purchases, invoicing and billing</li>
                 <li>Auth0: for registration, authentication and storing data associated with your user account</li>
                 <li>Mailchimp: for automated communications and marketing, if applicable</li>
                 <li>Posthog: for site and service event & error monitoring (anonymized)</li>
-                <li>Google Analytics: for site and service event & error monitoring (anonymized)</li>
                 <li>Sentry: for error reporting</li>
             </ul>
 
