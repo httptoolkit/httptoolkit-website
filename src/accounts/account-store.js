@@ -124,7 +124,7 @@ export class AccountStore {
         }
 
         // This redirects the entire page to the checkout:
-        return goToCheckout(this.user.email, sku);
+        return goToCheckout(this.user.email, sku, "web");
     }.bind(this));
 
     reportPlanSelected(planName, planCycle) {
