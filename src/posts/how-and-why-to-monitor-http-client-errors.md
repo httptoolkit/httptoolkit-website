@@ -89,7 +89,7 @@ These generally imply some lower-level failure of basic communications expectati
 
 All of this means that somebody is seriously misinterpreting what your server expects to receive. That usually means a major bug in either the server or the client, and these can have serious consequences.
 
-Overlong headers are a particularly interesting example. Although the HTTP spec doesn't define a maximum, in practice most servers have a limit on the length of headers they'll accept in a request, and will reject requests immediately with a 431 response if they exceed this. Apache defaults to 8KB, IIS to 16KB, and Node.js recently reduced theirs from 80KB to 8KB [as a security fix](https://nodejs.org/en/blog/vulnerability/november-2018-security-releases/#denial-of-service-with-large-http-headers-cve-2018-12121).
+Overlong headers are a particularly interesting example. Although the HTTP spec doesn't define a maximum, in practice most servers have a limit on the length of headers they'll accept in a request, and will reject requests immediately with a 431 response if they exceed this. Apache defaults to 8KB, IIS to 16KB, and Node.js recently reduced theirs from 80KB to 8KB [as a security fix](https://nodejs.org/en/blog/vulnerability/november-2018-security-releases#denial-of-service-with-large-http-headers-cve-2018-12121).
 
 It's surprisingly easy to go over this limit, particularly if you're setting a few large cookies or using a metadata-heavy JWT for authentication. If that happens, then when your users tick over the limit their requests will all be [suddenly, inexplicably and silently rejected](https://medium.com/@evgeni.kisel/troubleshoot-nodejs-application-silently-rejects-requests-without-any-logs-c09c9111656a). On almost all servers this is a simple configuration change to fix (or of course, you could stop sending so much metadata in your requests), but if you're not logging client errors then you won't notice this on the server side at all.
 
@@ -107,7 +107,7 @@ There's a lot of things that can go wrong in a client's requests. Fortunately, i
 * Apache and Nginx won't log TLS handshake issues like other errors, unless you [explicitly configure](https://cwiki.apache.org/confluence/display/HTTPD/DebuggingSSLProblems) them [to do so](https://stackoverflow.com/questions/38934956/nginx-log-ssl-handshake-failures).
 * Puma (the most popular Ruby server) has a [separate error handler](https://puma.io/puma/file.README.html#error-handling) for all low-level (non-application) errors, separate from the error handling in your Rails/Sinatra/etc application.
 * AWS's API Gateway automatically parses and handles many types of client error [for you](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-gatewayResponse-definition.html), making them invisible to your application code.
-* Microsoft's IIS has [a separate log](https://support.microsoft.com/en-us/help/820729/error-logging-in-http-apis) for all HTTP errors that it handles outside the application, from connection resets to parsing issues to TLS failures.
+* Microsoft's IIS has [a separate log](https://learn.microsoft.com/en-US/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis) for all HTTP errors that it handles outside the application, from connection resets to parsing issues to TLS failures.
 
 You get the idea.
 

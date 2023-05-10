@@ -20,7 +20,7 @@ Fortunately, we can work around this. In this article, I want to explain how TLS
 
 TLS provides a huge amount of data for fingerprinting. Every connection secured by TLS (for example, all HTTPS requests) starts with a 'client hello' message from the client, sent unencrypted, with the essential details that the client proposes for the connection. This client hello includes many parameters that can be specified in multiple equivalent ways, and which are independent of the specific server you're talking to.
 
-If you want to see this data up close, this byte-by-byte walkthrough of a TLS connection is a great demo: [tls13.ulfheim.net/](https://tls13.ulfheim.net/)
+If you want to see this data up close, this byte-by-byte walkthrough of a TLS connection is a great demo: [tls13.xargs.org](https://tls13.xargs.org/)
 
 Some of the specific fingerprintable parameters in a client hello include:
 

@@ -136,6 +136,6 @@ Lastly, if you're still having issues with abuse, a rate limit linked to the req
 
 I hope that's clarified some of the benefits and risks around CORS proxies. All of this is manageable, and CORS proxies can be very useful, but always make sure you lock them down tightly to allow only the use case you need, block cookies and credentials, and avoid free hosted proxies for any kind of non-trivial deployments.
 
-**If you want to inspect your HTTP traffic, debug CORS requests, and test out mock CORS headers in 5 seconds flat, give [HTTP Toolkit](/javascript) a try.**
+**If you want to inspect your HTTP traffic, debug CORS requests, and test out mock CORS headers in 5 seconds flat, give [HTTP Toolkit](/javascript/) a try.**
 
 Have questions, or do you think there's other CORS proxy dangers I've missed here? Feel free to get in touch [on Twitter](https://twitter.com/pimterry).

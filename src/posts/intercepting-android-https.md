@@ -48,7 +48,7 @@ There's at least 3 types of Android CA certificate store:
 
 * The OS also has a 'user' certificate store, usually at `/data/misc/user/0/cacerts-added/`, containing trusted CA certificates that were manually installed by the user of the device. Installing one of these certificates requires accepting quite a few warnings, and [became even more difficult in Android 11](/blog/android-11-trust-ca-certificates/).
 
-    Apps targeting Android API level <24, i.e. before Android 7, or applications that specifically opt in will trust CA certificates in this store. Most apps don't, but this is enabled on a few apps where it's widely useful (notably Chrome, [for now](https://www.chromium.org/Home/chromium-security/root-ca-policy)) and it's easy for developers to enable for testing with [a few lines of XML](/docs/guides/android/#if-you-dont-have-a-custom-network-security-config).
+    Apps targeting Android API level <24, i.e. before Android 7, or applications that specifically opt in will trust CA certificates in this store. Most apps don't, but this is enabled on a few apps where it's widely useful (notably Chrome, [for now](https://www.chromium.org/Home/chromium-security/root-ca-policy/)) and it's easy for developers to enable for testing with [a few lines of XML](/docs/guides/android/#if-you-dont-have-a-custom-network-security-config).
 
 * Lastly, each application can include its own CA certificates, embedding its own short list of trusted certificate authorities internally, and refusing to trust HTTPS communication with certificates signed by anybody else. Nowadays this is fairly uncommon, except for apps that are especially security conscious (banking) or very high-profile (facebook), mostly because it's complicated and the changes in Android 7 to untrust the user store make this kind of pinning unnecessary.
 
@@ -165,4 +165,4 @@ Hopefully that's a good intro into managing HTTPS trust on Android, and using & 
 
 Want to see this in action and see exactly what HTTPS your apps and device are sending? Give **[HTTP Toolkit](/android/)** a go now.
 
-Want to know more about how this all works? HTTP Toolkit is 100% open-source, so feel free to check out [HTTP Toolkit on GitHub](http://github.com/httptoolkit), and do [get in touch](/contact/) if you have any questions or feedback.
+Want to know more about how this all works? HTTP Toolkit is 100% open-source, so feel free to check out [HTTP Toolkit on GitHub](https://github.com/httptoolkit), and do [get in touch](/contact/) if you have any questions or feedback.

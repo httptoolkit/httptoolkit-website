@@ -110,7 +110,7 @@ const ARTICLE_QUOTES = [
             "and so avoids capturing irrelevant traffic or disrupting other applications."
     },
     {
-        "link": "https://blog.bearer.sh/api-debugging-tools/",
+        "link": "https://web.archive.org/web/20210711060217/https://blog.bearer.sh/api-debugging-tools/#httptoolkit",
         "source": "Bearer.sh",
         "articleName": "Top Tools to Make Debugging APIs Easier",
         "quote": "Where I had trouble getting Fiddler to recognize calls made from my terminal, " +

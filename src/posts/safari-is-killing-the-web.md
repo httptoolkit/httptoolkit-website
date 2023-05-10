@@ -55,7 +55,7 @@ As far as I'm aware, there's also no signal from the Safari team that any of the
 
 According to [Can I Use](https://caniuse.com/)'s metrics, Safari is lacking about 10% behind Firefox and 15% behind Chrome in feature support. That's including every basic feature like HTML images, forms and links - so it's a major underestimation of the modern feature set.
 
-Meanwhile the web platform tests dashboard (unaffiliated with any vendor, with contributors from Mozilla, Google, Apple and across the industry) has its own metric for this, a count of browser support for their list of core web features most used by web developers. Safari is [not doing well](https://wpt.fyi/compat2021?feature=summary&stable):
+Meanwhile the web platform tests dashboard (unaffiliated with any vendor, with contributors from Mozilla, Google, Apple and across the industry) has its own metric for this, a count of browser support for their list of core web features most used by web developers. Safari is [not doing well](https://wpt.fyi/interop-2021?stable):
 
 ![Safari trailing far behind Firefox and Chrome is core feature support](./wpt-compat-stats.png)
 
@@ -177,7 +177,7 @@ For example, if you buy an [Espruino](https://www.espruino.com/) (a popular prog
 
 ![The Espruino setup instructions](./espruino-bluetooth-setup.png)
 
-Similarly, Excalidraw (a popular online whiteboarding tool) offers [a far better UX](https://blog.excalidraw.com/browser-fs-access/) only to browsers with the filesystem access API (Chromium only), Godot Engine (a open-source game engine) is now building a [web-based editor](https://godotengine.org/article/godot-editor-running-web-browser) which will require filesystem access API support (Chromium only) for convenient saving & loading, and Noteflight (a popular music composition service) shut down their existing MIDI adapter and [moved their primary workflow](https://notes.noteflight.com/web-midi/) onto Web MIDI (Chromium only).
+Similarly, Excalidraw (a popular online whiteboarding tool) offers [a far better UX](https://blog.excalidraw.com/browser-fs-access/) only to browsers with the filesystem access API (Chromium only), Godot Engine (a open-source game engine) is now building a [web-based editor](https://godotengine.org/article/godot-editor-running-web-browser/) which will require filesystem access API support (Chromium only) for convenient saving & loading, and Noteflight (a popular music composition service) shut down their existing MIDI adapter and [moved their primary workflow](https://notes.noteflight.com/web-midi/) onto Web MIDI (Chromium only).
 
 These APIs are already part of the fabric of the web. These are popular webapps (Noteflight has 6 million users, Excalidraw has 22,000 github stars), many users want to use them, and they have core functionality that only works well in Chromium.
 

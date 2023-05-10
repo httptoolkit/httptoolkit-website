@@ -97,7 +97,7 @@ The `Sec-` prefix here may be unfamiliar. This is a general prefix for a [forbid
 
 `Sec-CH-UA` and `Sec-CH-UA-Mobile` are considered ['low-entropy hints'](https://wicg.github.io/client-hints-infrastructure/#low-entropy-table), which will be sent by default. For the others, you'll need to send an `Accept-CH` header, with the header name without the `Sec-CH-` prefix. For example, if you want to know what platform the client is using, send a `Accept-CH: UA-Platform` response.
 
-It's important not to ask for too much, and request only the hints you really need. In addition to potential data transfer concerns (especially for HTTP/1.1 clients or servers), requesting too much information may trip a [privacy budget](https://github.com/bslassey/privacy-budget) or otherwise trigger permission prompts in future, and implies collecting unnecessary personal information about your users.
+It's important not to ask for too much, and request only the hints you really need. In addition to potential data transfer concerns (especially for HTTP/1.1 clients or servers), requesting too much information may trip a [privacy budget](https://github.com/mikewest/privacy-budget) or otherwise trigger permission prompts in future, and implies collecting unnecessary personal information about your users.
 
 The draft also proposes a `navigator.userAgentData` JavaScript API to access this hint data client-side, but that doesn't seem to be implemented anywhere yet.
 
