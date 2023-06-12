@@ -218,7 +218,7 @@ export const Testimonials = () => {
                             </cite>
                         </SourceBlock>
                     </Testimonial>
-}) }
+                }) }
             </TestimonialsBlock>
         </ScrollContainer>
     </>;
@@ -312,12 +312,23 @@ const HIGHLIGHT_STRINGS = [
     "Saved me a lot of time, a very neat tool",
     "I love @pimterry's @HttpToolkit so damn much",
     "I'm just stunned, fantastic work",
-    "today I found an awesome tool #HttpToolkit"
+    "today I found an awesome tool #HttpToolkit",
+    "I like @HttpToolkit's integration with @OpenApiSpec",
+    "Acabo de descubrir HTTP Toolkit y me flipa",
+    "Y además es de código abierto",
+    "I use HTTP Toolkit, it's really nice",
+    "love how you can intercept an individual browser window",
+    "Recently I came across this amazing tool named HTTPtoolkit",
+    "one of the best development tools I've seen in a while",
+    "No need to mess with proxy settings or self-signed certificates",
+    "Works like a charm",
+    "HTTP Toolkit's Github is so delightful",
+    "Must have tool"
 ];
 
 const formatContent = (...content) => {
     // Strip emoji
-    content = replaceInJsxArray(content, /\s*\p{Extended_Pictographic}/ug, '');
+    content = replaceInJsxArray(content, /\p{Extended_Pictographic}|\p{Emoji_Presentation}/ug, '');
 
     // Flatten leading indentation
     content = replaceInJsxArray(content, /^ +/gm, ' ');
