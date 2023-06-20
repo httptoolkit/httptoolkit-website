@@ -206,7 +206,7 @@ const HIGHLIGHT_STRINGS = [
     "Saved me a lot of time, a very neat tool",
     "I love @pimterry's HTTP Toolkit so damn much",
     "I'm just stunned, fantastic work",
-    "today I found an awesome tool #HttpToolkit",
+    "today I found an awesome tool HTTP Toolkit",
     "I like HTTP Toolkit's integration with @OpenApiSpec",
     "Acabo de descubrir HTTP Toolkit y me flipa",
     "Y además es de código abierto",
@@ -223,7 +223,10 @@ const HIGHLIGHT_STRINGS = [
     "QA loves it for Android",
     "You made my day with httptoolkit.com",
     "I have no idea how I built web apps before HTTP Toolkit",
-    "amazing tool named HTTP Toolkit for reverse engineering one of my Android App"
+    "amazing tool named HTTP Toolkit for reverse engineering one of my Android App",
+    "HTTP Toolkit is a valuable tool to have around",
+    "multiple options to collect HTTP traffic",
+    "dead-simple"
 ];
 
 const formatContent = (...content) => {

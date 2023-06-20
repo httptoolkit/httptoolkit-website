@@ -12,6 +12,12 @@
         "quote": "HTTP Toolkit provides automatically targeted interception for specific clients, including HTTPS setup, rather than intercepting everything from your entire computer, and so avoids capturing irrelevant traffic or disrupting other applications."
     },
     {
+        "link": "https://dev-tester.com/test-your-apis-further-using-http-toolkit/",
+        "source": "Dev Tester",
+        "articleName": "Test Your APIs Further Using HTTP Toolkit",
+        "quote": "This overview of HTTP Toolkit barely scratches the surface of what it can do for you...\n\nIf you're a tester or developer who has to check these kinds of applications or services, HTTP Toolkit is a valuable tool to have around."
+    },
+    {
         "link": "https://web.archive.org/web/20210711060217/https://blog.bearer.sh/api-debugging-tools/#httptoolkit",
         "source": "Bearer.sh",
         "articleName": "Top Tools to Make Debugging APIs Easier",
@@ -22,5 +28,11 @@
         "source": "Nordic APIs",
         "articleName": "Top 25+ API Testing Tools",
         "quote": "...super helpful for debugging, testing, and quick API prototyping"
+    },
+    {
+        "link": "https://dev-tester.com/test-your-apis-further-using-http-toolkit/",
+        "source": "Dev Tester",
+        "articleName": "Test Your APIs Further Using HTTP Toolkit",
+        "quote": "Even better than having multiple options to collect HTTP traffic is how dead-simple it is to begin accumulating valuable data from your applications and services."
     }
 ]
