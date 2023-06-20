@@ -4,6 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import * as interleaving from 'interleaving';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import REDDIT_TESTIMONIALS from '../data/reddit-testimonials.json';
+import ARTICLE_QUOTES from '../data/article-testimonials.json';
+import TWEETS from '../data/tweet-testimonials.json';
+
 import { styled, media } from '../styles';
 import { FeatureTitle } from './feature';
 
@@ -54,76 +58,6 @@ const TestimonialsBlock = styled.section`
     }
 `;
 
-const REDDIT_TESTIMONIALS = [
-    {
-        "link": "https://www.reddit.com/r/javascript/comments/fh0e38/intercept_debug_rewrite_all_https_from_any/fk9idvz/",
-        "source": "ElijahLynn",
-        "quote": `
-            I've been using this for the past year and it is amazing!
-            ...
-            HTTP toolkit is a must-have for every single developer tool box.
-        `.trim()
-    },
-    {
-        "link": "https://www.reddit.com/r/androiddev/comments/himokx/http_toolkit_for_android_inspect_mock_debug_https/fwh452o/",
-        "source": "mahmozilla",
-        "quote": "Dude your tool is #@!%*€& amazing thank you so much!"
-    },
-    {
-        "link": "https://www.reddit.com/r/androiddev/comments/himokx/http_toolkit_for_android_inspect_mock_debug_https/fynnlex/",
-        "source": "catalinghita8",
-        "quote": "Awesome tool! Really makes your life easier than having to intercept with Charles."
-    },
-    {
-        "link": "https://www.reddit.com/r/androiddev/comments/himokx/http_toolkit_for_android_inspect_mock_debug_https/fwlp0ie/",
-        "source": "aestran",
-        "quote": "Amazing tool! Super simple to setup, and just works."
-    },
-    {
-        "link": "https://www.reddit.com/r/androiddev/comments/himokx/http_toolkit_for_android_inspect_mock_debug_https/fwl4kzz/",
-        "source": "postal_card",
-        "quote": `
-            Your tool is way better than Charles
-            ...
-            Editing requests on the go without doing any extra work is just amazing.
-        `.trim()
-    }
-];
-
-const ARTICLE_QUOTES = [
-    {
-        "link": "https://blog.logrocket.com/debug-encrypted-network-traffic-react-native/",
-        "source": "Logrocket",
-        "articleName": "How to debug encrypted network traffic in React Native",
-        "quote": "HTTP Toolkit is a nice looking and intuitive tool to intercept, view, and debug "+
-            "HTTP(S) endpoints..." +
-            "\n\n"+
-            "During the preparation of this article, HTTP Toolkit has been the tool working best out of "+
-            "the box — no configuration was necessary."
-    },
-    {
-        "link": "https://geekflare.com/http-client-tools/",
-        "source": "Geekflare",
-        "articleName": "HTTP Client and Web Debugging Proxy to Troubleshoot Applications",
-        "quote": "HTTP Toolkit provides automatically targeted interception for specific clients, " +
-            "including HTTPS setup, rather than intercepting everything from your entire computer, " +
-            "and so avoids capturing irrelevant traffic or disrupting other applications."
-    },
-    {
-        "link": "https://web.archive.org/web/20210711060217/https://blog.bearer.sh/api-debugging-tools/#httptoolkit",
-        "source": "Bearer.sh",
-        "articleName": "Top Tools to Make Debugging APIs Easier",
-        "quote": "Where I had trouble getting Fiddler to recognize calls made from my terminal, " +
-            "HTTP Toolkit just worked immediately.",
-    },
-    {
-        "link": "https://nordicapis.com/top-25-api-testing-tools/",
-        "source": "Nordic APIs",
-        "articleName": "Top 25+ API Testing Tools",
-        "quote": "...super helpful for debugging, testing, and quick API prototyping"
-    }
-];
-
 export const Testimonials = () => {
     const data = (useStaticQuery(graphql`
         query {
@@ -134,39 +68,16 @@ export const Testimonials = () => {
                     }
                 }
             }
-            allTwitterStatusesLookupTestimonials {
-                edges {
-                    node {
-                        id_str
-                        full_text
-                        entities {
-                            urls {
-                                url
-                                display_url
-                            }
-                        }
-                        user {
-                            profile_image_url_https
-                            name
-                        }
-                        extended_entities {
-                            media {
-                                url
-                            }
-                        }
-                    }
-                }
-            }
         }
-    `))
+    `));
 
     const downloadTotal = Math.floor(data.allGhDownloadStat.edges[0].node.value / 1000) * 1000;
 
-    const tweets = data.allTwitterStatusesLookupTestimonials.edges.map(e => e.node).map((tweet) => ({
+    const tweets = TWEETS.map((tweet) => ({
         type: "tweet",
-        image: <img src={tweet.user.profile_image_url_https} />,
-        sourceName: formatContent(tweet.user.name),
-        sourceLink: `https://twitter.com/i/web/status/${tweet.id_str}`,
+        image: <FontAwesomeIcon color="#1DA1F2" size='2x' icon={['fab', 'twitter']} />,
+        sourceName: formatContent(tweet.name),
+        sourceLink: `https://twitter.com/i/web/status/${tweet.id}`,
         sourceLinkText: "on Twitter",
         quote: formatContent(...buildTweetText(tweet))
     }));
@@ -254,35 +165,18 @@ const replaceInJsxArray = (elemArray, match, replacement) => {
         : result;
 };
 
-const MANUAL_URL_OVERRIDES = { "buff.ly/2mGoIKR": "httptoolkit.com" };
-
 const buildTweetText = (tweet) => {
-    let content = [tweet.full_text];
-
-    // Replace t.co with real URLs throughout
-    tweet.entities.urls.forEach((url) => {
-        const realUrl = MANUAL_URL_OVERRIDES[url.display_url] || url.display_url;
-        content = replaceInJsxArray(content, url.url, realUrl);
-    });
-
-    // Remove trailing Twitter URLs (i.e. retweeted content references)
-    content = replaceInJsxArray(content, /\s+twitter.com\/\S+$/, '');
+    let content = [tweet.text];
 
     // Remove lines of only hashtags
     content = replaceInJsxArray(content, /^(?:#\S+\s*)+$/m, '');
-
-    // Drop image URL placeholders entirely - they're not contributing here.
-    (tweet.extended_entities || { media: [] }).media.forEach((media) => {
-        content = replaceInJsxArray(content, media.url, '');
-    });
-
 
     return content;
 }
 
 const HIGHLIGHT_STRINGS = [
     "you should definitely be adding HTTP Toolkit to your developer toolbox!",
-    "I switched from AdvancedRestCient and mitmproxy to @HttpToolkit and my life has just changed",
+    "I switched from AdvancedRestCient and mitmproxy to HTTP Toolkit and my life has just changed",
     "Less than 5 minutes to make my Ubuntu intercept https traffic from my smartphone.",
     "a must-have for every single developer tool box",
     "Works like a charm!",
@@ -303,17 +197,17 @@ const HIGHLIGHT_STRINGS = [
     "avoids capturing irrelevant traffic or disrupting other applications",
     "I really like your tool",
     "Great tool for debugging and mocking HTTP requests",
-    "confirmed by @HttpToolkit (which is ace BTW!)",
+    "confirmed by HTTP Toolkit (which is ace BTW!)",
     "Super simple to setup, and just works",
     "Excellent open-source HTTP debugging!",
     "Very impressed with it, good UI and the automatic certificate setup with emulator is great",
     "Editing requests on the go without doing any extra work is just amazing.",
     "super helpful",
     "Saved me a lot of time, a very neat tool",
-    "I love @pimterry's @HttpToolkit so damn much",
+    "I love @pimterry's HTTP Toolkit so damn much",
     "I'm just stunned, fantastic work",
     "today I found an awesome tool #HttpToolkit",
-    "I like @HttpToolkit's integration with @OpenApiSpec",
+    "I like HTTP Toolkit's integration with @OpenApiSpec",
     "Acabo de descubrir HTTP Toolkit y me flipa",
     "Y además es de código abierto",
     "I use HTTP Toolkit, it's really nice",
@@ -323,7 +217,13 @@ const HIGHLIGHT_STRINGS = [
     "No need to mess with proxy settings or self-signed certificates",
     "Works like a charm",
     "HTTP Toolkit's Github is so delightful",
-    "Must have tool"
+    "Must have tool",
+    "I highly recommend HTTP Toolkit",
+    "really good experience with Http Toolkit",
+    "QA loves it for Android",
+    "You made my day with httptoolkit.com",
+    "I have no idea how I built web apps before HTTP Toolkit",
+    "amazing tool named HTTP Toolkit for reverse engineering one of my Android App"
 ];
 
 const formatContent = (...content) => {
@@ -335,6 +235,13 @@ const formatContent = (...content) => {
 
     // Create line breaks
     content = replaceInJsxArray(content, '\n', (i) => <br key={i} />);
+
+    // Update URL references
+    content = replaceInJsxArray(content, /https:\/\/httptoolkit\.tech/gi, 'httptoolkit.com');
+
+    // Update product direct references
+    content = replaceInJsxArray(content, /@httptoolkit/gi, 'HTTP Toolkit');
+    content = replaceInJsxArray(content, /#?Httptoolkit /gi, 'HTTP Toolkit ');
 
     // Highlight all the best bits
     for (let highlightString of HIGHLIGHT_STRINGS) {

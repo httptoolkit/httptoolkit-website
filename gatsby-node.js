@@ -25,7 +25,6 @@ exports.sourceNodes = async ({ actions, createContentDigest, createNodeId }) => 
     const { createNode } = actions;
 
     await loadGithubDownloadStats(createNode, createContentDigest, createNodeId);
-    await loadTwitterDummyData(createNode, createContentDigest, createNodeId);
 }
 
 async function loadGithubDownloadStats(createNode, createContentDigest, createNodeId) {
@@ -62,44 +61,6 @@ async function loadGithubDownloadStats(createNode, createContentDigest, createNo
         }
     });
 };
-
-function loadTwitterDummyData(createNode, createContentDigest, createNodeId) {
-    if (
-        process.env.TWITTER_CONSUMER_SECRET &&
-        process.env.TWITTER_CONSUMER_KEY &&
-        process.env.TWITTER_BEARER_TOKEN
-    ) {
-        // We have all the Twitter config, we're all good.
-        return;
-    } else if (process.env.NODE_ENV === 'production') {
-        throw new Error("No Twitter secret configured for production build");
-    } else {
-        // In dev, we use placeholders if there's no Twitter key configured:
-        console.log("\n** No Twitter secret configured, falling back to placeholder data **\n");
-
-        _.range(10).forEach((i) => {
-            const data = {
-                id_str: `tweet-${i}`,
-                full_text: "Placeholder tweet",
-                entities: { urls: [{url:"QQ", display_url: "QQ"}] },
-                user: { profile_image_url_https: "", name: "Placeholder" },
-                extended_entities: { media: [{url: "QQ"}] }
-            };
-
-            createNode({
-                ...data,
-                id: createNodeId(`twitter-dummy-data-${i}`),
-                parent: null,
-                children: [],
-                internal: {
-                    type: "TwitterStatusesLookupTestimonials",
-                    content: JSON.stringify(data),
-                    contentDigest: createContentDigest(data)
-                }
-            });
-        });
-    }
-}
 
 const blogPostsFolder = path.join(__dirname, 'src', 'posts')
 const docsFolder = path.join(__dirname, 'src', 'docs')
