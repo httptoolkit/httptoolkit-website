@@ -15,7 +15,7 @@ To manually intercept HTTP, HTTPS & WebSocket traffic from an iPhone or iPad:
 1. [Download](/) and install HTTP Toolkit on your computer, if you haven't already.
 1. Start HTTP Toolkit on your computer and click the 'Anything' option on the Intercept page, to show the manual configuration details.
 1. Ensure your iOS device is connected to the same WiFi network as your computer.
-1. In the iOS WiFi settings, manually set your device's proxy configuration to use your HTTP Toolkit's proxy port (as shown in the 'Anything' area, 8000 by default) and your computer's IP address on your local network.
+1. In the iOS WiFi settings, select the Wifi network -> Configure Proxy, and select Manual and set your device's proxy configuration to use your HTTP Toolkit's proxy port (as shown in the 'Anything' area, 8000 by default) and your computer's IP address on your local network.
 1. Visit http://amiusing.httptoolkit.tech/certificate (n.b. HTTP, not HTTPS) in Safari on your iOS device when connected to the proxy, and it will download HTTP Toolkit's profile (the HTTPS CA certificate) and prompt you to install it.
     * Alternatively, you can export the certificate manually using the button in the 'Anything' option, transfer it to your phone and open it there to install the certificate.
 1. Then go to Settings -> General -> About -> Certificate Trust, and enable "Full trust" for the HTTP Toolkit certificate.
