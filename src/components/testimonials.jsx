@@ -227,7 +227,8 @@ const HIGHLIGHT_STRINGS = [
     "amazing tool named HTTP Toolkit for reverse engineering one of my Android App",
     "HTTP Toolkit is a valuable tool to have around",
     "multiple options to collect HTTP traffic",
-    "dead-simple"
+    "dead-simple",
+    "HTTP Toolkit is a must-have for developers and security enthusiasts!"
 ];
 
 const formatContent = (...content) => {
