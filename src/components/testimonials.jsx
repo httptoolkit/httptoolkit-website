@@ -77,7 +77,8 @@ export const Testimonials = () => {
         type: "tweet",
         image: <FontAwesomeIcon color="#1DA1F2" size='2x' icon={['fab', 'twitter']} />,
         sourceName: formatContent(tweet.name),
-        sourceLink: `https://twitter.com/i/web/status/${tweet.id}`,
+        sourceLink: tweet.archiveUrl
+            ?? `https://twitter.com/i/web/status/${tweet.id}`,
         sourceLinkText: "on Twitter",
         quote: formatContent(...buildTweetText(tweet))
     }));
