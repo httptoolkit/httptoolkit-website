@@ -21,9 +21,9 @@ It is possible to create and start one using the Android SDK directly (see [this
 To create an interceptable Android emulator, you should create an AVD, that:
 
 * Can be any device model, though things may be smoother with a popular device like a Pixel 4.
-* Uses an x86-based image, since the performance will be far better on most computers.
-* Uses a relatively recent Android version - Android 10 or 11 is fine.
-* Uses a 'Google APIs' target image. **The 'Google Play' target includes extra restrictions and is not easily interceptable.**
+* Uses an image matching your computer's architecture (ARM64 on M1/M2 Macs, x86_64 on most other computers) since the performance will be far better.
+* Uses a relatively recent stable Android version - Android 7 to 13 should be fine.
+* Uses a 'Google APIs' or 'Android Open Source Project' target image. **The 'Google Play' target includes extra restrictions and is not easily interceptable.**
 
 Once you've created your emulator, start it, and then we need to install the target app.
 
