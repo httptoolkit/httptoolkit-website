@@ -199,7 +199,9 @@ It's possible this could fail however if root access isn't allowed via ADB. Ensu
 
 If one of those commands works correctly, HTTP Toolkit should be able to use that to install the system certificates. If none of those work, check the settings on your device to confirm that root access via ADB is enabled.
 
-If one of the above commands prints 'root' but you're still having problems, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) so this can be investigated and fixed.
+If one of the above commands prints 'root' but you're still having problems, you may find more information in HTTP Toolkit's logs. These can be found in the menu under "Help" -> "View HTTP Toolkit logs". These logs only store the most recent run of HTTP Toolkit, so you will want to start the app, re-run ADB interception setup from scratch, and then check the logs, to ensure the output is correctly logged there.
+
+If you're still not sure what's failing, or you think you've run into a bug here, please [file an issue](https://github.com/httptoolkit/httptoolkit/issues/new/choose) so this can be investigated & fixed.
 
 ### Android setup fails with an "Oh no!" error message
 
