@@ -8,7 +8,7 @@ import { siteMetadata } from '../../gatsby-config.js';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
+import { EmailSignupModal } from '../components/email-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
 import { DemoVideo } from '../components/demo-video';
 
@@ -213,8 +213,8 @@ export default class CharlesAlternativePage extends React.Component {
             <FuturePlans onSignupUpdate={() => this.setState({ updateModalOpen: true })}/>
             <TrailingPitchBlock />
 
-            <MailchimpSignupModal
-                source='view-signup'
+            <EmailSignupModal
+                source='devtools-footer-modal'
                 isOpen={!!this.state.updateModalOpen}
                 onClose={() => this.setState({updateModalOpen: false })}
             />

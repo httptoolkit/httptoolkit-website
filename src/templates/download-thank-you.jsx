@@ -5,7 +5,7 @@ import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
 import { FullWidthSection } from '../components/full-width-section';
-import { MailchimpSignupForm } from '../components/mailchimp-signup-form';
+import { EmailSignupForm } from '../components/email-signup-form';
 
 const ThankYouContainer = styled(FullWidthSection)`
     flex: 1;
@@ -108,10 +108,10 @@ export default ({ pageContext: {
             <ThankYouDetails>
                 <strong>Join the mailing list now, so you don't miss new features & releases:</strong>
             </ThankYouDetails>
-            <MailchimpSignupForm
-                action="https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&amp;SOURCE=view-thank-you"
+            <EmailSignupForm
+                action="https://http-toolkit.mailcoach.app/subscribe/a63464bc-1d3f-4318-9229-91061d658373"
+                source="download-thank-you"
                 emailTitle={"Enter your email"}
-                hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
                 submitText={"Sign up"}
             />
         </ThankYouContainer>

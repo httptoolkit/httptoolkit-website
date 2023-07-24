@@ -2,24 +2,24 @@ import * as React from 'react';
 
 import { styled } from '../styles';
 import { Modal } from './modal';
-import { MailchimpSignupForm } from './mailchimp-signup-form';
+import { EmailSignupForm } from './email-signup-form';
 
 const ModalTitle = styled.h2`
     margin-bottom: 30px;
 `;
 
-export const MailchimpSignupModal = (p) =>
+export const EmailSignupModal = (p) =>
     <Modal
         isOpen={p.isOpen}
         onClose={p.onClose}
     >
         <ModalTitle>Sign up for updates</ModalTitle>
 
-        <MailchimpSignupForm
+        <EmailSignupForm
             autoFocus
-            action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=32dc875c8b&SOURCE=${p.source}`}
+            action="https://http-toolkit.mailcoach.app/subscribe/a63464bc-1d3f-4318-9229-91061d658373"
+            source={p.source}
             emailTitle={`Enter your email to get updates on new releases`}
-            hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_32dc875c8b"}
             submitText={"Sign up now"}
             forceVertical={true}
         />

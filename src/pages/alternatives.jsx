@@ -7,7 +7,7 @@ import { siteMetadata } from '../../gatsby-config.js';
 import { styled, media } from '../styles';
 
 import { Layout } from '../components/layout';
-import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
+import { EmailSignupModal } from '../components/email-signup-modal';
 
 import { HeroBlockContainer } from '../components/pitch/hero-block-container';
 import { TrailingPitchBlock } from '../components/pitch/trailing-pitch';
@@ -154,8 +154,8 @@ export default class CharlesAlternativePage extends React.Component {
 
             <TrailingPitchBlock />
 
-            <MailchimpSignupModal
-                source='view-signup'
+            <EmailSignupModal
+                source='alternatives-footer-modal'
                 isOpen={!!this.state.updateModalOpen}
                 onClose={() => this.setState({updateModalOpen: false })}
             />

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { siteMetadata } from '../../gatsby-config.js';
 
 import { Layout } from '../components/layout';
-import { MailchimpSignupModal } from '../components/mailchimp-signup-modal';
+import { EmailSignupModal } from '../components/email-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
 import { DemoVideo } from '../components/demo-video';
 import { SectionSpacer } from '../components/section-spacer';
@@ -76,8 +76,8 @@ export default class JSPage extends React.Component {
             <FuturePlans onSignupUpdate={() => this.setState({ updateModalOpen: true })}/>
             <TrailingPitchBlock />
 
-            <MailchimpSignupModal
-                source='view-signup'
+            <EmailSignupModal
+                source='js-footer-modal'
                 isOpen={!!this.state.updateModalOpen}
                 onClose={() => this.setState({updateModalOpen: false })}
             />
