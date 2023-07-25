@@ -1,7 +1,7 @@
 ---
 title: "The right way to turn off your old APIs"
 date: '2021-01-21T10:30'
-cover_image: './goodbye.jpg'
+cover_image: './header-images/goodbye.jpg'
 ---
 
 All things come to an end, even HTTP APIs. However great your API may be today, one day you'll want to release a completely new version, an improved but incompatible endpoint, a new parameter that solves the same problem better, or to shut down your API entirely. Your current API will not be live forever.

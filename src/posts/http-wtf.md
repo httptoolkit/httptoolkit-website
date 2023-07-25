@@ -1,7 +1,7 @@
 ---
 title: HTTPWTF
 date: '2021-03-04T15:00'
-cover_image: './why.jpg'
+cover_image: './header-images/why.jpg'
 ---
 
 HTTP is fundamental to modern development, from frontend to backend to mobile. But like any widespread mature standard, it's got some funky skeletons in the closet.

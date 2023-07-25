@@ -1,7 +1,7 @@
 ---
 title: "Global developer CAs considered harmful"
 date: '2020-01-14T13:00'
-cover_image: './locks.jpg'
+cover_image: './header-images/locks.jpg'
 redditUrl: https://www.reddit.com/r/programming/comments/eol0il/global_developer_cas_considered_harmful/
 hackerNewsUrl: https://news.ycombinator.com/item?id=22044381
 ---

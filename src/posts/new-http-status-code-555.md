@@ -1,7 +1,7 @@
 ---
 title: 'HTTP 555: User-Defined Resource Error'
 date: '2020-03-27T13:30'
-cover_image: './ice-cream.jpg'
+cover_image: './header-images/ice-cream.jpg'
 twitterUrl: https://twitter.com/HttpToolkit/status/1243530782653759490
 redditUrl: https://www.reddit.com/r/programming/comments/fpwyjo/http_555_userdefined_resource_error/
 hackerNewsUrl: https://news.ycombinator.com/item?id=22702658

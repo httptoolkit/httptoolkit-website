@@ -1,7 +1,7 @@
 ---
 title: "Testing libraries for the Decentralized Web"
 date: '2022-10-24T17:00'
-cover_image: './people-network-graph.jpg'
+cover_image: './header-images/people-network-graph.jpg'
 ---
 
 The world of decentralized web applications is an exciting place that has exploded in recent years, with technologies such as IPFS and Ethereum opening up possibilities for a peer-to-peer web - creating applications that live outside the traditional client/server model, where users to interact and control their own data directly.

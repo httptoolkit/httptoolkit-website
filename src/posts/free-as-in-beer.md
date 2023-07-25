@@ -1,7 +1,7 @@
 ---
 title: 'Free as in Beer'
 date: '2020-01-06T18:00'
-cover_image: './open.jpg'
+cover_image: './header-images/open.jpg'
 ---
 
 HTTP Toolkit is a bootstrapped commercial open-source project. It takes work from me, and it needs to make money to survive, but it's also directly powered by the feedback, testing & contributions of its users.

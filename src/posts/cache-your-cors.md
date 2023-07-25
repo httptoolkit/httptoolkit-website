@@ -1,7 +1,7 @@
 ---
 title: Cache your CORS, for performance & profit
 date: '2021-02-17T17:00'
-cover_image: './library.jpg'
+cover_image: './header-images/library.jpg'
 ---
 
 CORS is a necessity for many APIs, but basic configurations can create a huge number of extra requests, slowing down every browser API client, and sending unnecessary traffic to your backend.

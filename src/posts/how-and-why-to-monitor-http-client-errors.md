@@ -1,7 +1,7 @@
 ---
 title: "Ignore HTTP Client Errors At Your Peril"
 date: '2020-04-16T17:45'
-cover_image: './wrong-way.jpg'
+cover_image: './header-images/wrong-way.jpg'
 ---
 
 There's a lot that can go wrong when talking to servers on the web. When you're building and running a web service, keeping an eye on errors is essential to finding bugs, and understanding the experience of your end users (and hopefully even improving it).

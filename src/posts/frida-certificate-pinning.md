@@ -1,7 +1,7 @@
 ---
 title: 'Defeating Android Certificate Pinning with Frida'
 date: '2021-07-06T13:30'
-cover_image: './dodgy-padlock.jpg'
+cover_image: './header-images/dodgy-padlock.jpg'
 ---
 
 Some Android apps go to astounding lengths to ensure that even the owner of a device can never see the content of the app's HTTPS requests.

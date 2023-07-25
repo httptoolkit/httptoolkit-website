@@ -1,7 +1,7 @@
 ---
 title: 'Welcome to the HTTP Toolkit blog'
 date: '2019-01-17T19:08'
-cover_image: './notepad.jpg'
+cover_image: './header-images/notepad.jpg'
 draft: false
 ---
 

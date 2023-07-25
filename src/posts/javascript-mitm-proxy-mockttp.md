@@ -1,7 +1,7 @@
 ---
 title: 'Build an HTTPS-intercepting JavaScript proxy in 30 seconds flat'
 date: '2021-04-27T14:00'
-cover_image: './network.jpg'
+cover_image: './header-images/network.jpg'
 ---
 
 HTTP(S) is the glue that binds together modern architectures, passing requests between microservices and connecting web & mobile apps alike to the APIs they depend on.

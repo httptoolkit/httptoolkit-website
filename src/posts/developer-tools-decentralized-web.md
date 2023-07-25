@@ -1,7 +1,7 @@
 ---
 title: "EU Funding for Dev Tools for the Decentralized Web"
 date: '2021-09-15T12:00'
-cover_image: './cubes-splash.jpg'
+cover_image: './header-images/cubes-splash.jpg'
 ---
 
 Through the [Next Generation Internet (NGI) initiative](https://www.ngi.eu/), HTTP Toolkit has been selected for funding from the EU's Horizon research & innovation program, to expand beyond HTTP and offer the same interception, debugging & testing functionality for applications built on top of the decentralized web.

@@ -1,7 +1,7 @@
 ---
 title: 'How will user-agent client hints work?'
 date: '2020-05-06T17:00'
-cover_image: './code.jpg'
+cover_image: './header-images/code.jpg'
 ---
 
 In the coming months, browsers are going to start killing the `User-Agent` HTTP header to replace it with user-agent client hints, a set of opt-in `Sec-CH-UA-*` headers.

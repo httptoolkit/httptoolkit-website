@@ -1,7 +1,7 @@
 ---
 title: "Inspecting Android HTTP with a fake VPN"
 date: '2020-08-25T12:20'
-cover_image: './vpn-active.jpg'
+cover_image: './header-images/vpn-active.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=24270698
 redditUrl: https://www.reddit.com/r/androiddev/comments/igbe2p/inspecting_android_http_with_a_fake_vpn/
 twitterUrl: https://twitter.com/HttpToolkit/status/1298241363444727808

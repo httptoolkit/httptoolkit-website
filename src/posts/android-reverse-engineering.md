@@ -1,7 +1,7 @@
 ---
 title: 'Reverse engineering & modifying Android apps with JADX & Frida'
 date: '2021-11-22T12:30'
-cover_image: './frida.jpg'
+cover_image: './header-images/frida.jpg'
 ---
 
 I get a _lot_ of emails from users who want to know exactly what their favourite Android app is doing, and want to tweak and change how that works for themselves.

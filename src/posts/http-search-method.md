@@ -1,7 +1,7 @@
 ---
 title: 'Defining a new HTTP method: HTTP SEARCH'
 date: '2021-04-12T15:00'
-cover_image: './binoculars.jpg'
+cover_image: './header-images/binoculars.jpg'
 ---
 
 Nothing is ever finished or perfect, and HTTP is no exception.

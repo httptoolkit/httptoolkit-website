@@ -1,7 +1,7 @@
 ---
 title: "A Crash Course in Price Localization"
 date: '2019-10-28T14:30'
-cover_image: './world-pins.jpg'
+cover_image: './header-images/world-pins.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=21377504
 twitterUrl: https://twitter.com/HttpToolkit/status/1188835868355825672
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'X-Ray Debugging for HTTP'
 date: '2019-04-24T12:00'
-cover_image: './xray.jpg'
+cover_image: './header-images/xray.jpg'
 draft: false
 productHuntUrl: 'https://producthunt.com/posts/http-view'
 ---

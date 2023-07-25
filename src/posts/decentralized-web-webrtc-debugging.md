@@ -1,7 +1,7 @@
 ---
 title: Debugging WebRTC, IPFS & Ethereum with HTTP Toolkit
 date: '2022-10-28T13:30'
-cover_image: './glasses-flowchart.jpg'
+cover_image: './header-images/glasses-flowchart.jpg'
 ---
 
 HTTP is important on the web, but as other alternative protocols grow popular in networked applications, it's often important to be able to capture, debug and mock those too.

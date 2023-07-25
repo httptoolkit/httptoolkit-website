@@ -1,7 +1,7 @@
 ---
 title: "Chrome 79+ no longer shows preflight CORS requests"
 date: '2020-02-13T16:25'
-cover_image: './datacenter.jpg'
+cover_image: './header-images/datacenter.jpg'
 draft: false
 twitterUrl: https://twitter.com/HttpToolkit/status/1227974900561981440
 hackerNewsUrl: https://news.ycombinator.com/item?id=22319054

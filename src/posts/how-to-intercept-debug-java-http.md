@@ -1,7 +1,7 @@
 ---
 title: How to intercept & debug all Java HTTPS
 date: '2021-03-17T18:00'
-cover_image: './java.jpg'
+cover_image: './header-images/java.jpg'
 ---
 
 Java and the JVM more generally are widely used for services everywhere, but often challenging to debug and manually test, particularly in complicated microservice architectures.

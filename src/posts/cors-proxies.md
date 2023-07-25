@@ -1,7 +1,7 @@
 ---
 title: What are CORS proxies, and when are they safe?
 date: '2021-04-01T09:30'
-cover_image: './broken-paperclip.png'
+cover_image: './header-images/broken-paperclip.png'
 ---
 
 CORS can be complicated. If you're struggling with it, you might discover the concept of a 'CORS proxy' that promises to solve this, like [cors-anywhere](https://github.com/Rob--W/cors-anywhere) or one of the many 'free CORS proxy' hosted services.

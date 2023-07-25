@@ -1,7 +1,7 @@
 ---
 title: "Android Chrome 99 expands Certificate Transparency, breaking all MitM dev tools"
 date: '2022-05-11T16:00'
-cover_image: './person-behind-mirror.jpg'
+cover_image: './header-images/person-behind-mirror.jpg'
 ---
 
 Certificate transparency is superb improvement to HTTPS certificate security on the web that's great for users and businesses, but on Android it creates a huge problem for the many developer tools like **[HTTP Toolkit](https://httptoolkit.com)** which install trusted system certificates into Android to intercept & debug app traffic.

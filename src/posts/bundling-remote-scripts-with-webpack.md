@@ -1,7 +1,7 @@
 ---
 title: 'Bundling Remote Scripts with Webpack'
 date: '2019-02-07T16:45'
-cover_image: './boxes.jpg'
+cover_image: './header-images/boxes.jpg'
 draft: false
 ---
 

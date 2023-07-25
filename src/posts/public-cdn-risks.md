@@ -1,7 +1,7 @@
 ---
 title: 'Public CDNs Are Useless and Dangerous'
 date: '2021-07-19T14:15'
-cover_image: './danger.jpg'
+cover_image: './header-images/danger.jpg'
 ---
 
 Once upon a time, loading common scripts & styles from a public CDN like cdnjs or Google's Hosted Libraries was a 'best practice' - a great way to instantly speed up your page loads, optimize caching, and reduce costs.

@@ -1,7 +1,7 @@
 ---
 title: "Safari isn't protecting the web, it's killing it"
 date: '2021-07-28T15:50'
-cover_image: './broken-iphone.jpg'
+cover_image: './header-images/broken-iphone.jpg'
 ---
 
 There's been a lot of discussion recently about how "Safari is the new IE" ([1](https://blog.perrysun.com/2021/07/15/for-developers-safari-is-crap-and-outdated/), [2](https://daverupert.com/2021/07/safari-one-offs/), [3](https://www.safari-is-the-new-ie.com/), [4](https://blog.logrocket.com/safari-next-internet-explorer/), [5](https://nolanlawson.com/2015/06/30/safari-is-the-new-ie/)).

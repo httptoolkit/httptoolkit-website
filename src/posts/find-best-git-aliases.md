@@ -1,7 +1,7 @@
 ---
 title: Mining your CLI history for good git aliases
 date: '2020-11-30T13:35'
-cover_image: './old-records.jpg'
+cover_image: './header-images/old-records.jpg'
 ---
 
 If you use the command-line all day, CLI improvements can add a huge boost to your workflow. One of the simplest ways to improve things is to make your most used commands easier & faster to type, by creating aliases.

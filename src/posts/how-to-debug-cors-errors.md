@@ -1,7 +1,7 @@
 ---
 title: "How to Debug Any CORS Error"
 date: '2020-10-07T14:30'
-cover_image: './crossing.jpg'
+cover_image: './header-images/crossing.jpg'
 ---
 
 Your request is hitting an error due to CORS. Not all is lost! Most CORS errors are quick & easy to debug and fix, once you understand the basics. Let's sort it out.
