@@ -228,7 +228,8 @@ const HIGHLIGHT_STRINGS = [
     "HTTP Toolkit is a valuable tool to have around",
     "multiple options to collect HTTP traffic",
     "dead-simple",
-    "HTTP Toolkit is a must-have for developers and security enthusiasts!"
+    "HTTP Toolkit is a must-have for developers and security enthusiasts!",
+    "HTTP Toolkit is your best friend"
 ];
 
 const formatContent = (...content) => {
