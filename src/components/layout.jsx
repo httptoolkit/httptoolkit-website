@@ -244,7 +244,14 @@ export class Layout extends React.Component {
               "@type": "SoftwareApplication",
               "image": "https://httptoolkit.com/logo-square.png",
               "screenshot": "https://httptoolkit.com/screenshot.png",
-              "video": "https://httptoolkit.com/http-mock-demo.mp4",
+              "video": {
+                "@type": "VideoObject",
+                "name": "HTTP Toolkit",
+                "description": "A short demo of HTTP Toolkit in action",
+                "contentUrl": "https://httptoolkit.com/http-mock-demo.mp4",
+                "thumbnailUrl": "https://httptoolkit.com/http-mock-demo-thumbnail.png",
+                "uploadDate": "2019-09-25"
+              },
               "name": "HTTP Toolkit",
               "description": "Beautiful & open-source tools to debug, test and develop with HTTP(S)",
               "softwareVersion": siteMetadata.latestAppVersion,
