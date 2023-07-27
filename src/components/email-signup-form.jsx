@@ -98,8 +98,8 @@ export class EmailSignupForm extends React.Component {
                 receive a "successfully subscribed" page to fool spam bots.
             */}
             <div style={{position: 'absolute', left: '-9999px'}}>
-                <label for="extra-info">An extra form field you should ignore</label>
-                <input type="text" id="extra-info" name="first-name" tabindex="-1" autocomplete="nope" />
+                <label htmlFor="extra-info">An extra form field you should ignore</label>
+                <input type="text" id="extra-info" name="first-name" tabIndex="-1" autoComplete="nope" />
             </div>
 
             { this.props.source &&
