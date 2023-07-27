@@ -40,6 +40,60 @@ jobs:
           path: public/*
           if-no-files-found: error
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: rss
+          path: public/rss.xml
+          if-no-files-found: error
+
+  check-blog-changes:
+    name: Check for new blog posts to announce
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    container: httptoolkit/act-build-base:v3.0.0
+    needs: build
+    outputs:
+      new-blog-post: ${{ steps.detect-changes.outputs.new-blog-post }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: rss
+          path: local-rss
+
+      - id: detect-changes
+        name: 'Check for RSS differences'
+        shell: bash
+        run: |
+          curl -f https://httptoolkit.com/rss.xml > remote-rss.xml
+
+          sudo apt-get update && sudo apt-get install xmlstarlet
+
+          LOCAL_POSTS=$(xmlstarlet sel -t -v '//rss/channel/item/link' local-rss/rss.xml)
+          REMOTE_POSTS=$(xmlstarlet sel -t -v '//rss/channel/item/link' remote-rss.xml)
+
+          # Matches remote posts against each local post, excludes those matches,
+          # and returns the remaining lines (or nothing, if there are none):
+          NEW_POSTS=$(grep -vFxf <(echo "$REMOTE_POSTS") <(echo "$LOCAL_POSTS") || true)
+
+          if [[ $(echo "$NEW_POSTS" | wc -l) -gt 1 ]]; then
+              echo "More than one new post found - something odd is happening, failing the job"
+              exit 1
+          fi
+
+          # Grab the slug (the last path chunk) from each URL:
+          NEW_POST_SLUGS=$(echo $NEW_POSTS | sed -E 's|.*/([^/]+)/?$|\1|')
+
+          # Ensure the output is exactly an empty string, if not a post (trim newlines etc):
+          if [[ ! -z "$(echo "$NEW_POST_SLUGS" | tr -d '\n')" ]]; then
+            echo "New blog post: $NEW_POST_SLUGS"
+            echo "new-blog-post=$(echo $NEW_POST_SLUGS)" >> "$GITHUB_OUTPUT"
+          else
+            echo "No new blog posts"
+            echo "new-blog-post=" >> "$GITHUB_OUTPUT"
+          fi
+
   publish-docker:
     name: Build & publish container to Docker Hub
     if: github.event_name == 'push' && !startsWith(github.ref, 'refs/heads/dependabot/')
@@ -103,3 +157,40 @@ jobs:
         env:
           PULL_ZONE_ID: 960393
           BUNNY_SITE_API_KEY: ${{ secrets.BUNNY_SITE_API_KEY }}
+
+  announce-blog-changes:
+    name: Announce new blog posts
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.check-blog-changes.outputs.new-blog-post != ''
+    runs-on: ubuntu-latest
+    container: httptoolkit/act-build-base:v3.0.0
+    needs:
+      - check-blog-changes
+      - publish-scaleway
+    steps:
+      - name: Get title & content for the changed post
+        id: read-post
+        run: |
+          SLUG="${{ needs.check-blog-changes.outputs.new-blog-post }}"
+          MARKDOWN=$(cat "src/posts/$SLUG.md")
+          FRONTMATTER=$(echo $MARKDOWN | sed -n '/^---$/,/^---$/p')
+
+          # Get the title - stripping any surrounding quotes if required
+          TITLE=$(echo $FRONTMATTER |
+            sed -n 's/^title: //p' |
+            sed 's/^"//; s/"$//' |
+            sed "s/^'//; s/'$//"
+          )
+          echo "::set-output name=title::$TITLE"
+
+          # Get the post content, stripping out frontmatter:
+          CONTENT=$(echo $MARKDOWN | sed '0,/^---$/d; 0,/^---$/d')
+          echo "::set-output name=content::$CONTENT"
+
+          URL="https://httptoolkit.com/blog/$SLUG/"
+          echo "::set-output name=c::$URL"
+
+      - name: WIP - log the results
+        run: |
+          echo "Title: ${{ steps.read-post.outputs.title }}"
+          echo "URL: ${{ steps.read-post.outputs.title }}"
+          echo "Content: ${{ steps.read-post.outputs.title }}"
