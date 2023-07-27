@@ -40,36 +40,6 @@ jobs:
           path: public/*
           if-no-files-found: error
 
-  publish-netlify:
-    name: Deploy ${{ (github.ref == 'refs/heads/main' && 'to Netlify production') || 'Netlify preview' }}
-    runs-on: ubuntu-latest
-    container: httptoolkit/act-build-base
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/download-artifact@v3
-        with:
-          name: public
-          path: public
-
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.1
-        with:
-          publish-dir: './public'
-          production-branch: main # Main goes to prod, others do deploy previews
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: GHA Deploy - ${{ github.event.head_commit.message }}
-          enable-commit-status: true
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-          netlify-config-path: ./netlify.toml
-          alias: ${{ github.sha }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 5
-
   publish-docker:
     name: Build & publish container to Docker Hub
     if: github.event_name == 'push' && !startsWith(github.ref, 'refs/heads/dependabot/')
@@ -109,7 +79,6 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
 
   publish-scaleway:
     name: Deploy to Scaleway
