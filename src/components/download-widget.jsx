@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 
 import { styled, css } from '../styles';
 import { Button } from './form';
-import { MailchimpSignupForm } from './mailchimp-signup-form';
+import { EmailSignupForm } from './email-signup-form';
 
 const DOWNLOAD_OPTIONS = {
     'win-exe': { name: 'Windows Installer', platform: 'Windows', icon: 'windows' },
@@ -186,13 +186,12 @@ export class DownloadWidget extends React.Component {
                             On mobile? Send this to your computer and try it out there:
                         </>
                     }</SendToEmailExplanation>
-                    <MailchimpSignupForm
+                    <EmailSignupForm
                         autoFocus
-                        action={`https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&amp;id=358164ab38&SOURCE=download-widget`}
+                        action="https://http-toolkit.mailcoach.app/subscribe/411aab08-147f-4c98-824a-ef3ba95fd263"
                         emailTitle={`Enter your email to get download links sent straight to your inbox`}
-                        hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_358164ab38"}
                         submitText={'Send me a download link'}
-                        privacyPolicy={ privacyPolicy || '' }
+                        privacyPolicy={privacyPolicy || ''}
                         forceVertical={true}
                     />
                 </SendToEmailWrapper>
