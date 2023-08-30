@@ -12,5 +12,6 @@ export const PythonSupportedTools = () => <SupportedTools>
     <SupportedTool>httplib2</SupportedTool>
     <SupportedTool>httpx</SupportedTool>
     <SupportedTool>grequests</SupportedTool>
+    <SupportedTool>aiohttp</SupportedTool>
     <SupportedTool>Boto</SupportedTool>
 </SupportedTools>
