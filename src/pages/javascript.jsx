@@ -28,6 +28,8 @@ import { BreakpointFeature } from '../components/features/breakpoint';
 import ChromeLogo from '../images/3rd-party-logos/chrome.png';
 import NodeJSLogo from '../images/3rd-party-logos/nodejs.png';
 import FirefoxLogo from '../images/3rd-party-logos/firefox.png';
+import DenoLogo from '../images/3rd-party-logos/deno.png';
+import BunLogo from '../images/3rd-party-logos/bun.png';
 
 export default class JSPage extends React.Component {
     constructor(props) {
@@ -48,8 +50,10 @@ export default class JSPage extends React.Component {
                 <Pitch target='JavaScript' />
                 <TargetIconContainer>
                     <img src={ChromeLogo} alt="The Chrome logo" />
-                    <img src={NodeJSLogo} alt="The Node.js logo" />
                     <img src={FirefoxLogo} alt="The Firefox logo" />
+                    <img src={NodeJSLogo} alt="The Node.js logo" />
+                    <img src={DenoLogo} alt="The Deno logo" />
+                    <img src={BunLogo} alt="The Bun logo" />
                 </TargetIconContainer>
                 <StandaloneDownloadCTA />
             </TopHeroContainer>

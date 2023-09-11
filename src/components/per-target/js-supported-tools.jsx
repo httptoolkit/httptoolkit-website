@@ -3,10 +3,12 @@ import * as React from 'react';
 import { SupportedTools, SupportedTool } from "./supported-tools";
 
 export const JSSupportedTools = () => <SupportedTools>
-    <SupportedTool>Http & Https built-in modules</SupportedTool>
+    <SupportedTool>Node.js's Http & Https modules</SupportedTool>
+    <SupportedTool>Bun</SupportedTool>
+    <SupportedTool>Deno</SupportedTool>
+    <SupportedTool>Fetch & Node-Fetch</SupportedTool>
     <SupportedTool>Request</SupportedTool>
     <SupportedTool>Axios</SupportedTool>
-    <SupportedTool>Fetch & Node-Fetch</SupportedTool>
     <SupportedTool>Superagent</SupportedTool>
     <SupportedTool>Reqwest</SupportedTool>
     <SupportedTool>Undici</SupportedTool>
