@@ -7,7 +7,7 @@ module.exports = {
     description: 'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
     siteUrl: 'https://httptoolkit.com/',
     blogUrl: 'https://httptoolkit.com/blog/',
-    latestAppVersion: '1.14.1'
+    latestAppVersion: '1.14.2'
   },
   plugins: [
     'gatsby-plugin-styled-components',
