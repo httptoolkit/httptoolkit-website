@@ -150,6 +150,9 @@ jobs:
 
       - name: Flush CDN cache
         run: |
+          # Wait a little - the reploy command doesn't wait for the container to start up
+          sleep 30
+
           # Clear CDN cache to re-request content:
           curl -f --request POST \
             --url https://api.bunny.net/pullzone/$PULL_ZONE_ID/purgeCache \
