@@ -1,7 +1,11 @@
 ---
-title: "Android 14 blocks all modification of system certificates, even as root"
+title: "Android 14 blocks modification of system certificates, even as root"
 date: '2023-09-05T14:00'
 cover_image: './header-images/broken-android-phone.jpg'
+---
+
+_**Update**: This post sparked a lot of excellent discussion and debate on workarounds, and there are now multple working solutions to allow certificate injection on Android 14, despite the restrictions discussed here. See [the update post](https://httptoolkit.com/blog/android-14-install-system-ca-certificate) for more details._
+
 ---
 
 When Android was [initially announced](http://www.openhandsetalliance.com/press_110507.html) in 2007 by the Open Handset Alliance (headed by Google) their flagship project was billed as an "open platform", "providing developers a new level of openness", and giving them "complete access to handset capabilities and tools".
