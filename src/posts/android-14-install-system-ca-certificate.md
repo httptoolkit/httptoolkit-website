@@ -4,9 +4,9 @@ date: '2023-09-21T12:00'
 cover_image: './header-images/android-phone.jpg'
 ---
 
-A couple of weeks ago I published a post about [changes in Android 14](https://httptoolkit.com/blog/android-14-breaks-system-certificate-installation/) that fundamentally breaks existing approaches to installing system-level CA certificates, even with root access. This has triggered some fascinating discussion! I highly recommend a skim through the debate on [Mastodon](https://toot.cafe/@pimterry/111012860794214522) and [Hacker News](https://news.ycombinator.com/item?id=37391521).
+A couple of weeks ago I published a post about [changes in Android 14](https://httptoolkit.com/blog/android-14-breaks-system-certificate-installation/) that fundamentally break existing approaches to installing system-level CA certificates, even with root access. This has triggered some fascinating discussion! I highly recommend a skim through the debate on [Mastodon](https://toot.cafe/@pimterry/111012860794214522) and [Hacker News](https://news.ycombinator.com/item?id=37391521).
 
-Since that was posted, quite a few people have talked to me about possible solutions, going beyond the previous existing approaches with new mechanisms that make it practical to do this in Android 14+, and there some good options here.
+Since that was posted, quite a few people have talked to me about possible solutions, going beyond the previous approaches with new mechanisms that make it practical to do this in Android 14+, and there are some good options here.
 
 While direct root access to change these certificates by simply writing to a directory is indeed no longer possible, root is root, and so with a bit of work there are still some practical & effective ways to dig down into the internals of Android and seize control of these certs once more.
 
@@ -20,7 +20,7 @@ If you want the full background, so you can understand how & why this all works,
 
 ## Clearing up confusion
 
-Before digging into this, I do just want to explicitly clear up a few misunderstandings that I've seen repeatedly pop up from the previous article:
+Before digging into this, I do want to explicitly clear up a few misunderstandings that I've seen repeatedly pop up from the previous article:
 
 * These changes don't affect installation of CAs in other scenarios. As far as I'm aware, CA installation for fully managed enterprise-provisioned devices and the limited user-installed (as opposed to system-level) CA certificates will continue functioning as before. If you're not using root access to inject system-level CA certificates into a rooted device or emulator, you don't need to worry about this.
 * Similarly, it is still possible to soft-remove system CA certificates using the existing toggle in the Settings UI.
