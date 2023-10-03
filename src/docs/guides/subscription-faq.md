@@ -24,15 +24,15 @@ The available methods will be shown automatically during the checkout when you'v
 
 On request it's also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.
 
-### Can I get a trial?
-
-There's no trial option available, however you can use all the core features for free, and it's very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately (see the next point).
-
 ### How can I manage my subscription?
 
 For common actions like updating billing details or cancelling your subscription (see the next section) it's possible to do this from the 'Settings' page within HTTP Toolkit.
 
 For full control of your account, including access to all historical invoices and to add & remove members from your Team subscription, please log into [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech/) to manage your subscription in the online dashboard.
+
+### Can I get a trial?
+
+There's no trial option available, however you can use all the core features for free, and it's very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately (see the next point).
 
 ### How can I cancel?
 
