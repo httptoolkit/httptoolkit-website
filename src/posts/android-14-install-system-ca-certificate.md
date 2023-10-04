@@ -12,7 +12,7 @@ While direct root access to change these certificates by simply writing to a dir
 
 ### Choose your own adventure:
 
-If you just want to intercept an Android 14+ device right now, stop reading this, **[download the latest HTTP Toolkit](https://httptoolkit/android/)**, connect your device to ADB, click the 'Android Device via ADB' interception option for automatic setup, and dive into your traffic.
+If you just want to intercept an Android 14+ device right now, stop reading this, **[download the latest HTTP Toolkit](https://httptoolkit.com/android/)**, connect your device to ADB, click the 'Android Device via ADB' interception option for automatic setup, and dive into your traffic.
 
 If you just want to know the steps to manually do system certificate injection on Android 14 for yourself, **jump down to [How to install system CA certificates in Android 14](#how-to-install-system-ca-certificates-in-android-14)**.
 
