@@ -24,7 +24,7 @@ const SplashHeader = styled.h1`
     margin: 60px 0;
 `;
 
-const PolicyDisclaimer = styled.div`
+const PolicyDisclaimer = styled.p`
     ${p => p.theme.fontSizeSubheading};
     color: ${p => p.theme.mainColor};
     line-height: 1.25;
@@ -40,7 +40,7 @@ const PolicyDisclaimer = styled.div`
     margin: 0 0 20px;
 `;
 
-const Policy = styled.div`
+const Policy = styled.article`
     ${p => p.theme.fontSizeText};
     color: ${p => p.theme.mainColor};
     line-height: 1.25;

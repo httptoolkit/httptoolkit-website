@@ -238,6 +238,9 @@ export class Layout extends React.Component {
 
           <link rel="alternate" type="application/rss+xml" href="https://httptoolkit.com/rss.xml" />
 
+          <link rel="privacy-policy" href="/privacy-policy/" />
+          <link rel="terms-of-service" href="/terms-of-service/" />
+
           <script type="application/ld+json">
           {JSON.stringify({
               "@context": "https://schema.org",
