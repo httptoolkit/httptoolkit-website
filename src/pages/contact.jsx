@@ -29,6 +29,22 @@ const SplashHeader = styled.h1`
     `}
 `;
 
+const Blurb = styled.p`
+    ${p => p.theme.fontSizeSubheading};
+    color: ${p => p.theme.mainColor};
+    line-height: 1.25;
+
+    ${media.desktop`
+        width: 70%;
+    `}
+
+    > strong {
+        color: ${p => p.theme.popColor};
+    }
+
+    margin: 0 0 20px;
+`;
+
 const ContactForm = styled(({ id, ...props }) =>
     <form action={`https://formspree.io/f/${ id }`} method="POST" {...props}>
         <TextInput required type="text" name="name" placeholder="Your name" />
@@ -53,6 +69,12 @@ export default (props) => (<Layout location={props.location}>
         <SplashHeader>
             Get in touch
         </SplashHeader>
+        <Blurb>
+            <strong>Having issues?</strong> Head to <a href="https://github.com/httptoolkit/httptoolkit/issues">
+                the GitHub issue repo
+            </a>, as many questions and bugs already have answers there, and new bugs or
+            feature requests posted there get more feedback & support from the wider community.
+        </Blurb>
         <ContactForm id="xvoyrlba" />
     </SplashContainer>
 </Layout>);
