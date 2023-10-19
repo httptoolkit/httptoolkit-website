@@ -1,5 +1,11 @@
 [
     {
+        "id": "1702319616352305389",
+        "name": "HassanMunene",
+        "username": "Awanzii",
+        "text": "Today I discovered this amazing open source tool call HTTP Toolkit that you can use to intercept HTTP and HTTPS traffic for analysing and debugging. In case you want to look at header and body of your HTTP messages then this tool is really amazing."
+    },
+    {
         "id": "1683567006111367169",
         "name": "Darasus",
         "username": "darasus_",
@@ -10,6 +16,12 @@
         "name": "Toni Castillo",
         "username": "ToniCastillo_",
         "text": "Acabo de descubrir HTTP Toolkit y me flipa: https://httptoolkit.tech. Una herramienta para interceptar, depurar, testear y simular con HTTP. Y además es de código abierto."
+    },
+    {
+        "id": "1685492486456881152",
+        "name": "Yi Ding",
+        "username": "yi_ding",
+        "text": "Totally unpaid product endorsement: really really like @HttpToolkit for debugging LLM requests/responses. One click copy-paste into your terminal and all requests/responses including SSL are automatically proxied and viewable."
     },
     {
         "id": "1417242969183227907",

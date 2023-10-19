@@ -231,7 +231,11 @@ const HIGHLIGHT_STRINGS = [
     "HTTP Toolkit is a must-have for developers and security enthusiasts!",
     "HTTP Toolkit is your best friend",
     "a powerful tool for examining HTTP traffic",
-    "ideal for monitoring traffic and prototyping new endpoints or services"
+    "ideal for monitoring traffic and prototyping new endpoints or services",
+    "amazing open source tool",
+    "this tool is really amazing",
+    "One click copy-paste into your terminal",
+    "really really like HTTP Toolkit"
 ];
 
 const formatContent = (...content) => {
