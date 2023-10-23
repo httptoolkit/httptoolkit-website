@@ -128,27 +128,38 @@ You can test this by running `frida-ps -U`. This will connect to the server via 
 
 The last and most important step: we need to tell Frida to transform the target application, removing certificate pinning so we can see the traffic it's sending.
 
-To do so, we first need the package name of the target process. You can see this listed somewhere in the output of `frida-ps -U` for every process that's currently running, or you can find it from the app's play store URL.
+To do so, we first need the package id of the target process. This will be something like `com.httptoolkit.android` (like a domain name backwards).
 
-For example, HTTP Toolkit's Play Store page is [play.google.com/store/apps/details?id=tech.httptoolkit.android.v1](https://play.google.com/store/apps/details?id=tech.httptoolkit.android.v1) and the package name is `tech.httptoolkit.android.v1`.
+You can find this listed somewhere in:
 
-(If you want to test this, but you're not sure what to un-pin, I've published a demo certificate pinning app at [httptoolkit/android-ssl-pinning-demo](https://github.com/httptoolkit/android-ssl-pinning-demo). You can download a built APK of that app from its [GitHub releases page](https://github.com/httptoolkit/android-ssl-pinning-demo/releases/) and install it with `adb install ./ssl-pinning-demo.apk`)
+* The output of `frida-ps -U -a`, which lists every app that's currently running.
+* The output of running `adb shell` then `pm list packages -f`, to see the full raw list of packages on the device.
+* The app's play store URL (for example, HTTP Toolkit's Play Store page is [play.google.com/store/apps/details?id=tech.httptoolkit.android.v1](https://play.google.com/store/apps/details?id=tech.httptoolkit.android.v1) and the package id is `tech.httptoolkit.android.v1`).
 
-We then need a script, which will rewrite the application. Frida scripts are simple JavaScript which can use Frida's API to define replacements for methods in the target application. By doing so, they can make a certificate-checking method do nothing, make a class ignore certificate pinning configuration, or almost anything else.
+If you want to test this, but you're not sure what to un-pin, I've published a demo certificate pinning app at [httptoolkit/android-ssl-pinning-demo](https://github.com/httptoolkit/android-ssl-pinning-demo). You can download a built APK of that app from its [GitHub releases page](https://github.com/httptoolkit/android-ssl-pinning-demo/releases/) and install it with `adb install ./ssl-pinning-demo.apk`. The package id is `tech.httptoolkit.pinning_demo`.
+
+Once we have a target app, we need a script, which will rewrite the application. Frida scripts are simple JavaScript which can use Frida's API to define replacements for methods in the target application. By doing so, they can make a certificate-checking method do nothing, make a class ignore certificate pinning configuration, or almost anything else.
 
 Writing these scripts is quite complicated. There's many small individual scripts available, designed to remove pinning from specific target apps or certain HTTPS libraries, but not many that try to remove pinning for _all_ HTTPS traffic.
 
-Fortunately I've been working on a general-purpose Frida script to do this, so you can just use that. It's available as `frida-script.js` in the [httptoolkit/frida-android-unpinning GitHub repo](https://github.com/httptoolkit/frida-android-unpinning). This combines many other public scripts, it's been tested against a variety of different targets already, and contributions to extend it to cover any new libraries or techniques that aren't currently covered are very welcome!
+Fortunately I've been working on a set of general-purpose Frida scripts to do this, so you can just use that. These are available in the [httptoolkit/frida-interception-and-unpinning GitHub repo](https://github.com/httptoolkit/frida-interception-and-unpinning).
 
-To use this, save [frida-script.js](https://raw.githubusercontent.com/httptoolkit/frida-android-unpinning/main/frida-script.js) on your computer, and then run:
+These scripts actually fully implement _everything_ required for HTTPS interception (including proxy configuration and system certificate installation) but you can also use them independently for unpinning by itself. The script for Android certificate unpinning specifically is in the `android` directory as [android-certificate-unpinning.js](https://github.com/httptoolkit/frida-interception-and-unpinning/blob/main/android/android-certificate-unpinning.js). You'll also need to include the configuration in [config.js](https://github.com/httptoolkit/frida-interception-and-unpinning/blob/main/config.js).
 
-```bash
-frida -U -l ./frida-script.js -f $TARGET_PACKAGE_NAME
-```
+This script draws approaches and tricks from a wide range other public unpinning scripts, it's been tested against a huge variety of different targets already, and covers the vast majority of cases you'll find (and contributions to extend it to cover any new libraries or techniques that aren't currently covered are very welcome!). You can also go further, and use the [android-certificate-unpinning-fallback.js](https://github.com/httptoolkit/frida-interception-and-unpinning/blob/main/android/android-certificate-unpinning-fallback.js) script, which includes experimental auto-patching for obfuscated and unusual approaches that can't be covered with static rules.
 
-This will restart the app on your phone, and print out a series of libraries where unpinning was attempted, with a `[+]` for libraries that were successfully patched and `[ ]` for libraries that weren't (generally because the app doesn't use those libraries).
+To use this:
 
-When any unpinned methods are called later on, you'll also see a `--> Bypassing [pinning method]` message, to let you know which APIs this app is using.
+* Save `config.js` and `android-certificate-unpinning.js` from [github.com/httptoolkit/frida-interception-and-unpinning/](https://github.com/httptoolkit/frida-interception-and-unpinning/) on your computer.
+* Modify `config.js`, and put the contents of your interception CA certificate into the `CERT_PEM` variable.
+* Then run:
+    ```bash
+    frida -U -l ./config -l ./android-certificate-unpinning.js -f $TARGET_PACKAGE_NAME
+    ```
+
+This will restart the app on your phone and immediately disable all unpinning so that traffic can be captured.
+
+If you'd like to know more about what's detected and unpinned, you can set the `DEBUG_MODE` variable in `config.js`, and you'll see output showing every detected script and whether it was patched, along with logs each time a hooked method is used.
 
 ## Testing certificate unpinning
 
@@ -172,7 +183,7 @@ That means that an HTTP client (the Twitter app) is connecting and then rejectin
 To defeat this and intercept Twitter's real API traffic, I just need to run:
 
 ```bash
-frida -U -l ./frida-script.js -f com.twitter.android
+frida -U -l ./android-certificate-unpinning.js -f com.twitter.android
 ```
 
 That restarts Twitter on my phone, and I've immediately got traffic:
@@ -189,7 +200,7 @@ In theory, Frida is capable of defeating absolutely any certificate pinning you 
 
 That said, this all depends on whether the script you use is aware of the specific certificate pinning code or APIs that are used. Whether this technique works depends entirely on the combination of target app and the Frida script.
 
-The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so do please [file an issue](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose)!
+The above script does remove certificate pinning from every built-in API or widely used library I'm aware of, and I've tested it successfully against the apps listed here and a long list of others. It's a good general-purpose script for most cases, but it won't work in absolutely 100% of certificate-pinned apps today. If you do find cases that aren't handled, I'm very interested in examples and contributions to cover more cases to help strip out as many certificate pinning implementations as possible, so do please [file an issue](https://github.com/httptoolkit/frida-interception-and-unpinning/issues/new/choose)!
 
 Notably some apps which will go above and beyond, by implementing their own custom certificate pinning techniques from scratch, to make disabling it as difficult as possible. The prime example of this is the various Facebook apps, which all use their own [custom reimplementation of TLS](https://github.com/facebookincubator/fizz) rather than the standard platform APIs.
 
@@ -203,4 +214,4 @@ Hopefully you've now got Frida working, and you can see, debug & rewrite secret 
 
 The next step is to start exploring further, to examine the APIs used and data leaked by other popular apps, and to help find and fix cases where this Frida script doesn't yet work, so we can stub out every last pinning API. Get testing!
 
-Have any questions, or run into problems? Feel free to open an issue [on GitHub](https://github.com/httptoolkit/frida-android-unpinning/issues/new/choose) or get in touch [on Twitter](https://twitter.com/pimterry).
+Have any questions, or run into problems? Feel free to open an issue [on GitHub](https://github.com/httptoolkit/frida-interception-and-unpinning/issues/new/choose) or get in touch [on Mastodon](https://toot.cafe/@pimterry) or [on Twitter](https://twitter.com/pimterry).
