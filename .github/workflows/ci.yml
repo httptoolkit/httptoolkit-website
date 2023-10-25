@@ -170,6 +170,8 @@ jobs:
       - check-blog-changes
       - publish-scaleway
     steps:
+      - uses: actions/checkout@v3
+
       - name: Get title & content for the changed post
         id: read-post
         run: |
@@ -190,10 +192,54 @@ jobs:
           echo "::set-output name=content::$CONTENT"
 
           URL="https://httptoolkit.com/blog/$SLUG/"
-          echo "::set-output name=c::$URL"
+          echo "::set-output name=url::$URL"
 
-      - name: WIP - log the results
+      - name: Log the results for debugging
         run: |
           echo "Title: ${{ steps.read-post.outputs.title }}"
-          echo "URL: ${{ steps.read-post.outputs.title }}"
-          echo "Content: ${{ steps.read-post.outputs.title }}"
+          echo "URL: ${{ steps.read-post.outputs.url }}"
+          echo "Content: ${{ steps.read-post.outputs.content }}"
+
+      - name: Send an email about the new blog post with Mailcoach
+        run: |
+          API_ENDPOINT="https://http-toolkit.mailcoach.app/api/campaigns"
+
+          # Create a Mailcoach campaign for this blog post email:
+          CAMPAIGN_ID=$(curl
+            -f
+            -X POST $API_ENDPOINT
+            -H "Authorization: Bearer $MAILCOACH_TOKEN"
+            -H 'Accept: application/json'
+            -H 'Content-Type: application/json'
+            -d '{
+              "name": "Blog post: ${{ steps.read-post.outputs.title }}",
+              "email_list_uuid": "'$MAILING_LIST_UUID'",
+              "template_uuid": "'$EMAIL_TEMPLATE_ID'",
+              "fields": [
+                {
+                  "title": "${{ steps.read-post.outputs.title }}",
+                  "content": "${{ steps.read-post.outputs.content }}",
+                  "url": "${{ steps.read-post.outputs.url }}"
+                }
+              ]
+            }'
+          )
+
+          # Send a test email with this content immediately:
+          curl -f -X POST "$API_ENDPOINT/$CAMPAIGN_ID/send-test" \
+            -H "Authorization: Bearer $MAILCOACH_TOKEN" \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{"email":"'$TEST_EMAIL'"}'
+
+          # Schedule the email to send in 3 hours:
+          curl -X PUT "$API_ENDPOINT/$CAMPAIGN_ID" \
+            -H "Authorization: Bearer $MAILCOACH_TOKEN" \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d '{"schedule_at":"'$(date -u -d "3 hours" +"%Y-%m-%d %H:%M:%S")'"}'
+        env:
+          MAILCOACH_TOKEN: ${{ secrets.MAILCOACH_TOKEN }}
+          EMAIL_TEMPLATE_ID: ${{ vars.BLOG_POST_EMAIL_TEMPLATE_ID }}
+          MAILING_LIST_UUID: ${{ vars.BLOG_POST_MAILING_LIST_UUID }}
+          TEST_EMAIL: ${{ vars.BLOG_POST_TEST_EMAIL }}
