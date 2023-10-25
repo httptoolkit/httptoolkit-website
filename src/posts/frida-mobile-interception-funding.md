@@ -104,7 +104,7 @@ Java.perform(function () {
 });
 ```
 
-_(Examples from [github.com/iddoeldor/frida-snippets](https://github.com/iddoeldor/frida-snippets) and [github.com/httptoolkit/frida-android-unpinning/](https://github.com/httptoolkit/frida-android-unpinning/))_
+_(Examples from [github.com/iddoeldor/frida-snippets](https://github.com/iddoeldor/frida-snippets) and [github.com/httptoolkit/frida-interception-and-unpinning/](https://github.com/httptoolkit/frida-interception-and-unpinning/tree/4d477da))_
 
 This is just a quick intro to the power of Frida. Take a look through the [full docs](https://frida.re/docs/home/) or one of the [many guides](https://learnfrida.info/) for more. Using this, we can make arbitrary changes to how a target application works. Neat! But why?
 
@@ -138,7 +138,7 @@ En route this is going to involve creating quite a few standalone components, al
 * A Frida script to reconfigure proxy & CA configuration in a target iOS app
 * A Frida script to reconfigure proxy & CA configuration in a target Android app
 * A Frida script to disable certificate pinning in a target iOS app
-* ~~A Frida script to disable certificate pinning in a target Android app~~ (I've already built this: https://github.com/httptoolkit/frida-android-unpinning/)
+* ~~A Frida script to disable certificate pinning in a target Android app~~ (I've already built this: https://github.com/httptoolkit/frida-interception-and-unpinning/)
 
 _Everything_ in this project will be fully open-source (this is a requirement of the funding, but HTTP Toolkit is 100% open-source anyway) and so in addition to those general-use components, the details of the integration into HTTP Toolkit will be available for any other tools or services interested in further exploring the same kinds of workflows too (and I've already been talking to [one of the other funded projects](https://nlnet.nl/project/TrackingWeasel/) about exactly this).
 
