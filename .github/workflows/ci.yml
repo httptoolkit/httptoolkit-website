@@ -172,57 +172,48 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get title & content for the changed post
-        id: read-post
+      - name: Send an email about the new blog post with Mailcoach
         run: |
           SLUG="${{ needs.check-blog-changes.outputs.new-blog-post }}"
+
+          URL="https://httptoolkit.com/blog/$SLUG/"
+
           MARKDOWN=$(cat "src/posts/$SLUG.md")
-          FRONTMATTER=$(echo $MARKDOWN | sed -n '/^---$/,/^---$/p')
+          FRONTMATTER=$(echo "$MARKDOWN" | sed -n '/^---$/,/^---$/p')
 
           # Get the title - stripping any surrounding quotes if required
-          TITLE=$(echo $FRONTMATTER |
+          TITLE=$(echo "$FRONTMATTER" |
             sed -n 's/^title: //p' |
             sed 's/^"//; s/"$//' |
             sed "s/^'//; s/'$//"
           )
-          echo "::set-output name=title::$TITLE"
 
           # Get the post content, stripping out frontmatter:
-          CONTENT=$(echo $MARKDOWN | sed '0,/^---$/d; 0,/^---$/d')
-          echo "::set-output name=content::$CONTENT"
+          CONTENT=$(echo "$MARKDOWN" | sed '0,/^---$/d; 0,/^---$/d')
 
-          URL="https://httptoolkit.com/blog/$SLUG/"
-          echo "::set-output name=url::$URL"
-
-      - name: Log the results for debugging
-        run: |
-          echo "Title: ${{ steps.read-post.outputs.title }}"
-          echo "URL: ${{ steps.read-post.outputs.url }}"
-          echo "Content: ${{ steps.read-post.outputs.content }}"
-
-      - name: Send an email about the new blog post with Mailcoach
-        run: |
           API_ENDPOINT="https://http-toolkit.mailcoach.app/api/campaigns"
 
-          # Create a Mailcoach campaign for this blog post email:
-          CAMPAIGN_ID=$(curl
-            -f
-            -X POST $API_ENDPOINT
-            -H "Authorization: Bearer $MAILCOACH_TOKEN"
-            -H 'Accept: application/json'
-            -H 'Content-Type: application/json'
-            -d '{
-              "name": "Blog post: ${{ steps.read-post.outputs.title }}",
-              "email_list_uuid": "'$MAILING_LIST_UUID'",
-              "template_uuid": "'$EMAIL_TEMPLATE_ID'",
-              "fields": [
-                {
-                  "title": "${{ steps.read-post.outputs.title }}",
-                  "content": "${{ steps.read-post.outputs.content }}",
-                  "url": "${{ steps.read-post.outputs.url }}"
+          # Create a Mailcoach campaign for this blog post email, scheduled to send
+          # in 3 hours from now:
+          CAMPAIGN_ID=$(
+            curl \
+            -f -X POST $API_ENDPOINT \
+            -H "Authorization: Bearer $MAILCOACH_TOKEN" \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -d "{
+                \"name\": \"Blog post: $TITLE\",
+                \"subject\": \"$TITLE\",
+                \"schedule_at\":\"$(date -u -d "3 hours" +"%Y-%m-%d %H:%M:%S")\",
+                \"email_list_uuid\": \"$MAILING_LIST_UUID\",
+                \"template_uuid\": \"$EMAIL_TEMPLATE_ID\",
+                \"fields\": {
+                    \"url\": \"$URL\",
+                    \"title\": \"$TITLE\",
+                    \"content\": $(echo "$CONTENT" | jq -R -r -s @json)
                 }
-              ]
-            }'
+              }" \
+            | jq -r .data.uuid
           )
 
           # Send a test email with this content immediately:
@@ -231,13 +222,6 @@ jobs:
             -H 'Accept: application/json' \
             -H 'Content-Type: application/json' \
             -d '{"email":"'$TEST_EMAIL'"}'
-
-          # Schedule the email to send in 3 hours:
-          curl -X PUT "$API_ENDPOINT/$CAMPAIGN_ID" \
-            -H "Authorization: Bearer $MAILCOACH_TOKEN" \
-            -H 'Accept: application/json' \
-            -H 'Content-Type: application/json' \
-            -d '{"schedule_at":"'$(date -u -d "3 hours" +"%Y-%m-%d %H:%M:%S")'"}'
         env:
           MAILCOACH_TOKEN: ${{ secrets.MAILCOACH_TOKEN }}
           EMAIL_TEMPLATE_ID: ${{ vars.BLOG_POST_EMAIL_TEMPLATE_ID }}
