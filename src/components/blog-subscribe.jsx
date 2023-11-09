@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled, media } from '../styles';
 
-import { MailchimpSignupForm } from './mailchimp-signup-form';
+import { EmailSignupForm } from './email-signup-form';
 
 const SubscribeText = styled.div`
     ${p => p.theme.fontSizeSubheading};
@@ -39,11 +39,10 @@ export const BlogSubscribe = (props) => {
                     ? 'more posts like this'
                     : 'new posts like these'
             } emailed straight to your inbox:
-            <MailchimpSignupForm
-                action={'https://tech.us18.list-manage.com/subscribe/post?u=f6e81ee3f567741ec9800aa56&id=001b24c3da&SOURCE=blog:subscribe'}
-                emailTitle={'Enter your email to stay up to date with new blog posts & updates'}
+            <EmailSignupForm
+                action="https://http-toolkit.mailcoach.app/subscribe/1bc7e8da-ebc9-445e-b746-afe83016d607"
                 privacyPolicy={'No spam, just new blog posts hot off the press'}
-                hiddenFieldName={"b_f6e81ee3f567741ec9800aa56_001b24c3da"}
+                emailTitle={'Enter your email to stay up to date with new blog posts & updates'}
                 submitText={'Subscribe'}
             />
         </SubscribeText>

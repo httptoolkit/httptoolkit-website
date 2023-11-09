@@ -175,7 +175,7 @@ export default (props) => (<Layout location={props.location}>
                 <li>Bunny.net (BunnyWay d.o.o.): as part of our internal infrastructure</li>
                 <li>Paddle and/or PayPro Global: for purchases, invoicing and billing</li>
                 <li>Auth0: for registration, authentication and storing data associated with your user account</li>
-                <li>Mailchimp and/or Mailcoach: for automated communications and marketing, if you subscribe to these</li>
+                <li>Mailcoach: for automated communications and marketing, if you subscribe to these</li>
                 <li>Posthog: for site and service event & error monitoring (anonymized)</li>
                 <li>Sentry: for error reporting</li>
             </ul>
