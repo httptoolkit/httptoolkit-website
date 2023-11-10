@@ -123,7 +123,7 @@ info:
   title: Your Awesome API
   version: '1.0.3'
   description: > 
-	  More information, getting started, etc. *with Markdown!*
+    More information, getting started, etc. *with Markdown!*
   contact:
     name: Who Owns the API
     url: https://www.example.org/support
@@ -192,16 +192,16 @@ webhooks:
         content:
           application/json: 
             schema: 
-	            type: object
-	            properties:
-		            winner: https://example.org/api/users/Tim
-		            loser: https://example.org/api/users/Phil
-		            duration: 30
+              type: object
+              properties:
+                winner: https://example.org/api/users/Tim
+                loser: https://example.org/api/users/Phil
+                duration: 30
       responses:
         '200':
           description: "OK"
 ```
-	
+  
 That lets the API client know they should return a 200 in order to mark it as a success, and might suggest other statuses for other scenarios. 
 
 ### components
