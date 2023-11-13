@@ -104,7 +104,13 @@ There are 5 available configurations:
 * HTTPS - a custom HTTPS proxy and no-proxy list will be used
 * SOCKS - a custom SOCKS proxy and no-proxy list will be used
 
-When HTTP, HTTPS or SOCKS is selected, additional configuration options are shown, to allow you to enter the proxy hostname and port, and to add a list of hosts whose traffic should always be sent directly, ignoring the proxy.
+When HTTP, HTTPS or SOCKS is selected, additional configuration options are shown, to allow you to enter the proxy address, and to add a list of hosts whose traffic should always be sent directly, ignoring the proxy.
+
+The proxy address should be entered as a standard proxy URL, but skipping the protocol that was already selected in the dropdown. For example:
+
+* `example.com` - a hostname by itself, using the default port for the protocol
+* `123.1.2.3` - an ip address by itself, using the default port
+* `username:password@proxy.example.com:8080` - a proxy hostname (`proxy.example.com`), with a specific port (`8080`), and authenticating with a given username and password.
 
 When using system mode, the system proxy settings will generally be used as defined in your operating system configuration, with one exception: if the system is configured to use a localhost proxy. In this case, the proxy is ignored and a warning is shown, to avoid common issues when HTTP Toolkit itself is configured as the system proxy, resulting in a recursive proxy loop. If you do want to use a localhost proxy, you can do so by manually configuring the proxy instead.
 
