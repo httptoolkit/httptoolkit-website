@@ -4,6 +4,8 @@ date: '2023-11-11T10:30'
 # cover_image: 
 # hackerNewsUrl: 
 # twitterUrl: 
+author: Phil Sturgeon
+authorUrl: https://philsturgeon.com/
 ---
 
 It's hard to work on an API without hearing about OpenAPI. OpenAPI is an API Description Format, which is essentially metadata that describes an HTTP API: where it lives, how it works, what data is available, how it's authenticated. Different keywords provide all sorts of validation information, adding a type system to what would otherwise just be arbitrary JSON flying around the internet. 
@@ -62,7 +64,7 @@ paths:
 
 The OpenAPI descriptions are used by many API teams to make API Reference Documentation, which helps end-users learn about the API in the same sort of what you'd look up functions and classes to work with a code package.
 
-redoc-demo.png
+![Preview of the popular OpenAPI documentation tool Redoc](./introduction-to-openapi-redoc.png)
 
 API developers and API end-users all find this pretty helpful, but increasingly OpenAPI is being used throughout the entire API lifecycle. 
 
@@ -72,7 +74,7 @@ Before getting too much further, how does OpenAPI actually work?
 
 ## OpenAPI Documents
 
-OpenAPI generally exists as YAML or JSON document usually called something like `openapi.yaml`. The simple example above showed how to describe a POST` with a response, but you can do a lot more, describing any HTTP method, and defining path parameters, query string parameters, and headers, providing their validation rules too if you like. 
+OpenAPI generally exists as YAML or JSON document usually called something like `openapi.yaml`. The simple example above showed how to describe a POST with a response, but you can do a lot more, describing any HTTP method, and defining path parameters, query string parameters, and headers, providing their validation rules too if you like. 
 
 ```yaml
 openapi: 3.1.3
@@ -174,9 +176,9 @@ The `$ref` is a Reference to another component, which helps us reduce repetition
 
 ### webhooks
 
-Describing webhooks is almost identical to describing paths, but instead of describing a request that comes from the API client, and a response made by the API provider, you flip that around.
+A webhook is a way for two systems to communicate in real-time. Instead of an API client repeatedly making requests to the other for updates, the API client provides a URL to the API, and the API will send a HTTP request to that URL when a relevant event occurs.
 
-The API Provider will send the API client a request, and the API client should respond with a response as described in the webhook.
+Describing webhooks is almost identical to describing paths, but instead of describing a request that comes from the API client, and a response made by the API provider, you flip that around: The API provider will send the API client a request, and the API client should respond with a response as described in the webhook.
 
 If a Tic Tac Toe game had a webhook, maybe it is letting another backend system know who won a game.
 
@@ -201,8 +203,8 @@ webhooks:
         '200':
           description: "OK"
 ```
-  
-That lets the API client know they should return a 200 in order to mark it as a success, and might suggest other statuses for other scenarios. 
+
+For a webhook, the requestBody is now explaining what HTTP body the API client can expect in the webhook messages, and the responses section now explains that the API client should return a 200 in order to mark it as a success. 
 
 ### components
 
@@ -279,6 +281,8 @@ properties:
 
 ## How to use this as an API developer
 
+Creating this OpenAPI description might seem like extra work, but being able to generate beautiful interactive documentation, reduce the redundancy in contract tests, automatically build SDKs, and even reduce how much code needs to be written for validation, overall you'll save a lot more time that you ever put in.
+
 The most common workflow is to create it manually with [text editors](https://openapi.tools/#text-editors) or [graphical editors](https://openapi.tools/#gui-editors). Whilst this is a fair bit of up front work, it can then be used to reduce repetitive tasks throughout the rest of the API Lifecycle, like [contract testing](https://openapi.tools/#testing) and [server-side validation](https://openapi.tools/#data-validators). This is known as the [API Design-first workflow](https://apisyouwonthate.com/blog/api-design-first-vs-code-first).
 
 Whilst most OpenAPI is built up front, there are plenty of options for other workflows. OpenAPI can generated from code via annotations or educated guesses. This is known as code-first (or contract-first).
@@ -288,6 +292,25 @@ Other workflows can be [guesstimated from HTTP traffic](https://apisyouwonthate.
 It can also be converted from other formats like Postman Collections or HAR, using something like [API Transformer](https://www.apimatic.io/transformer/) or via [OpenAPI conversion tools](https://openapi.tools/#converters). 
 
 Having this machine-readable API description sitting around in the source code means your API code and API description are always being updated with each pull request, and by powering your contract testing you know it's accurate.
+
+## How to use this as an API consumer
+
+OpenAPI is often discussed as if its for API developers only, but it has plenty of benefits for API consumers too. 
+
+IF you are working with API developers using the API design-first workflow, they'll likely get you involved earlier on to work with mock servers. This might be a hosted mock server they control, or perhaps they'll give you the OpenAPI and let you run your own mock server, which could be as simple as running 
+
+```
+npm install -g @stoplight/prism-cli
+
+prism mock openapi.yaml
+```
+
+Now you'll have a pretend API running locally that you can try integrating with, and whilst it might not have any business logic it'll help you make sure your code is about right, and identify where data is missing for the sort of work you're trying to do, before they waste loads of your time building something that doesn't work for you.
+
+If the team does not provide OpenAPI, you can record your own from [sniffing HTTP traffic](https://apisyouwonthate.com/blog/turn-http-traffic-into-openapi-with-optic/). 
+
+Either way once you've got some OpenAPI you could even generate your own SDK from it if the one they provide is not good (or does not even exist at all).
+
 
 I hope that's been an interesting introduction! If you'd like some real examples take a look at these large companies' downloadable versions, and get in touch if you have any questions.
 
