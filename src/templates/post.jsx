@@ -328,7 +328,7 @@ export default ({ data, location }) => {
   const { slug } = post.fields;
   const postUrl = `https://httptoolkit.com/blog/${slug}`;
   const { frontmatter } = post;
-  const { title } = frontmatter;
+  const { title, author, authorUrl } = frontmatter;
   const publishDate = moment.utc(post.frontmatter.date, 'YYYY-MM-DDTHH:mm');
 
   const twitterUrl = frontmatter.twitterUrl ||
@@ -367,12 +367,17 @@ export default ({ data, location }) => {
         <PublishDate title={publishDate.format('MMM Do YYYY')}>
           <span>
             Published { publishDate.fromNow() } by <a
-              href="https://twitter.com/pimterry"
+              href={!author
+                ? "https://tim.fyi/"
+                : authorUrl
+              }
             >
-              Tim Perry
+              { author || 'Tim Perry' }
             </a>
           </span>
-          <Headshot />
+          { !author || author === 'Tim Perry'
+            ? <Headshot /> : null
+          }
         </PublishDate>
       </BlogPost>
 
@@ -401,6 +406,8 @@ export const query = graphql`
       frontmatter {
         title
         date
+        author
+        authorUrl
         cover_image {
           childImageSharp {
             fluid(maxWidth: 2560, quality: 85) {
