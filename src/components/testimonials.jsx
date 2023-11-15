@@ -235,7 +235,9 @@ const HIGHLIGHT_STRINGS = [
     "amazing open source tool",
     "this tool is really amazing",
     "One click copy-paste into your terminal",
-    "really really like HTTP Toolkit"
+    "really really like HTTP Toolkit",
+    "The setup is a breeze",
+    "you will definitely love the simplicity"
 ];
 
 const formatContent = (...content) => {
