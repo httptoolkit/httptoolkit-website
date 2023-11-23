@@ -181,3 +181,7 @@ Keys will be reused so if two random people send "foo" it might reuse it. Idempo
 Firstly, if everyone is using UUIDv4 for Idempotency-Key's then it should be fairly hard to match somebody elses' key unless you're sniffing traffic, but it's something to think about. 
 
 You can get your auth middleware doing the job, or run security checks in the route before you check for idempotency keys, but however you go about it just make sure you can't steal responses by guessing a key.
+
+## Source Code
+
+If you'd like to play with the example code, the source code is available [over here](https://github.com/philsturgeon/express-idempotency-key-demo). 
