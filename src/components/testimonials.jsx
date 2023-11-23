@@ -237,7 +237,8 @@ const HIGHLIGHT_STRINGS = [
     "One click copy-paste into your terminal",
     "really really like HTTP Toolkit",
     "The setup is a breeze",
-    "you will definitely love the simplicity"
+    "you will definitely love the simplicity",
+    "the first thing I install"
 ];
 
 const formatContent = (...content) => {
