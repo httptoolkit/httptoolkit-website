@@ -26,32 +26,6 @@ import "prismjs/themes/prism-tomorrow.css";
 import { LinkButton } from './form';
 import { getVisibilityProps } from './modal';
 
-import { FullWidthSection } from './full-width-section';
-
-const BlackFridayHeader = styled(FullWidthSection)`
-  min-height: 40px;
-  background-color: #202020;
-  color: #fafafa
-  ${p => p.theme.fontSizeText};
-
-  padding: 10px;
-
-  display: flex;
-  flex-direction: vertical;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  text-align: center;
-
-  p {
-    margin: 3px 3px;
-  }
-
-  a {
-    color: #fff;
-  }
-`;
-
 const Main = styled.main`
   font-family: Lato, Helvetica, Arial, sans-serif;
 
@@ -314,12 +288,6 @@ export class Layout extends React.Component {
             <NavItem to='/contact/' onClick={this.hideMenu}>Contact</NavItem>
           </Nav>
         </Header>
-
-        <BlackFridayHeader>
-          <p>
-            Use code <strong>BLACKFRIDAY</strong> before Tuesday for <strong>50% off annual purchases</strong> of <a href="/get-pro/">HTTP Toolkit Pro</a>!
-          </p>
-        </BlackFridayHeader>
 
         {this.props.children}
 
