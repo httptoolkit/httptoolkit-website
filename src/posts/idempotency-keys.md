@@ -1,37 +1,65 @@
 ---
-title: 'Working with Idempotecy Keys'
+title: 'Working with Idempotency Keys'
 date: '2023-11-23T19:08'
 # cover_image: './header-images/notepad.jpg'
 draft: true
 ---
 
-Idempotency is the idea that doing something multiple times should have no different affects as doing it once. This is exceptionally helpful on a slow or unreliable internet connection, or when dealing with particularly sensitive actions such as making payments. This is why most payment gateway APIs like [Stripe](https://stripe.com/docs/api/idempotent_requests) and [Adyen](https://docs.adyen.com/development-resources/api-idempotency/) support offer "idempotency keys".
+Idempotency is the idea that doing something multiple times should have no different affects as doing it once. When working with APIs this is exceptionally helpful on a slow or unreliable internet connection, or when dealing with particularly sensitive actions such as payments. This is why most payment gateway APIs like [Stripe](https://stripe.com/docs/api/idempotent_requests) and [Adyen](https://docs.adyen.com/development-resources/api-idempotency/) support offer "idempotency keys".
 
 ## Idempotency in HTTP
 
-Different HTTP methods have idempotency baked in. GET, HEAD, PUT, DELETE, OPTIONS, and TRACE can all be executed multiple times without any unintended side effects occurring, but for POST and PATCH do not provide that same level of confidence out of the box because it might not actually not wanted. It depends on what is being done.
+Different HTTP methods have idempotency baked in. GET, HEAD, PUT, DELETE, OPTIONS, and TRACE can all be executed multiple times without any unintended side effects occurring, because `DELETE /users/123` clearly wants to delete that user. If it accidentally happens twice then thats fine, user 123 has been deleted. 
 
-Sending a series of POST requests might be a client quite genuinely trying to create multiple similar or identical things, and the business logic could legitimately want all of those multiple things created. Where it gets tricky is if a connection fails, or a client-side HTTP timeout kicks in. They might then retry the request, and then you're into unexpected territory where the server might have created the thing even if the client thinks the request failed... 
+It's a lot more complicated for POST and PATCH do not provide that same level of confidence out of the box, instead both the client and server need to add that intent in by using "Idempotency Keys". 
 
-Idempotency Key's are how you give them a choice, letting them have certainty the if they try again then they don't need to worry about the thing being done twice.
+Whether or not a similar request showing up twice is what the client wants or not is almost impossible to guess. I might build a payment sending client app which has a timeout set to 2 seconds like this:
+
+```
+await axios({
+    method: 'post',
+    url: '/payments',
+    timeout: 2000,
+});
+```
+
+The HTTP client is going to show the request failed, and ask me if I'd like to try again, or maybe it will automatically retry. 
+
+What the client doesn't know is that the the server had successfully completed the payment. It was running a little slow sure, but it got the payment sent and just hadn't quite finished spitting out the JSON yet. The server has no idea the client gave up and told the end-user the didn't work. The server thinks the payment is done, but the client does not.
+
+The server could try to write some logic to detect duplicate payments, but is that something you want to automatically block? 
+
+```
+POST /payments 
+
+{
+  "amount": 5.00, 
+  "to": "julian1342",
+  "reason": "cider"
+}
+```
+
+If this request is sent twice it could just as easily be a retry as it is me owing Julian for a second cider.
+
+Idempotency Key's are how you give everyone some clarity. They let the client specify if it is reattempting a failed request, or doing a whole new thing.
 
 Here's an example of that in the Stripe API using curl and setting an `Idempotency-Key`.
 
 ```
 curl https://api.stripe.com/v1/charges \
-  -u sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
-  -H "Idempotency-Key: uWeBuDsZPxxvdhND" \
-  -d amount=2000 \
-  -d currency=usd \
-  -d source=tok_mastercard \
+  --user sk_test_4eC39HqLyjWDarjtT1zdp7dc: \
+  --header "Idempotency-Key: uWeBuDsZPxxvdhND" \
+  --data amount=2000 \
+  --data currency=usd \
+  --data source=tok_mastercard \
   --data-urlencode description="Creating a charge"
 ```
 
-Anyone can implement this in their API to make lives easier for API clients, so let's have a look at how that works.
+Anyone can implement this logic to make life easier for everyone involved, the API developers, the API clients, and the end users. 
 
-## Sample Code
+## How does it work?
 
-To practice working with Idempotency Keys we can look at how it works for both the server and client, starting with a basic HTTP API written with using ExpressJS.
+To practice working with idempotency keys we can look at how it works for both the server and client, starting with a basic HTTP API written with using ExpressJS.
 
 ```js
 const express = require("express");
@@ -147,6 +175,10 @@ fetch("https://example.org/api/things", {
 	.then((response) => response.json())
 ```
 
+## PATCH
+
+All the examples here have used POST, but it can help with PATCH too. This is especially useful if you're using [JSON Patch](https://jsonpatch.com/) or something similar, with atomic actions like `incrementBy: 1` which you want to make sure only increments one time. Learn more about making PATCH idempotent [in this article](https://apisyouwonthate.com/blog/idemptoency-keys/).
+
 ## Data Adapter
 
 The idempotency keys here are stored and checked in memory, which is fine for the demo but not so good in production as you might have multiple servers behind a load balancer with different memory.
@@ -176,12 +208,18 @@ app.use(
 
 ## Security Considerations
 
-Keys will be reused so if two random people send "foo" it might reuse it. Idempotency keys should expire so cannot be reused for long, but it's something to think about.
+Keys will be reused, so if two different client A and client B both send `Idempotency-Key: same-thing` it might reuse the client A response for client B... 
 
-Firstly, if everyone is using UUIDv4 for Idempotency-Key's then it should be fairly hard to match somebody elses' key unless you're sniffing traffic, but it's something to think about. 
+Idempotency keys should expire so cannot be reused for long, but it's something to think about. This can be mitigated by recommending clients use UUID's for their Idempotency-Key, which would make it pretty unlikely for multiple clients to clash on the same key unless somebody is sniffing traffic.
 
-You can get your auth middleware doing the job, or run security checks in the route before you check for idempotency keys, but however you go about it just make sure you can't steal responses by guessing a key.
+Thankfully generally your authentication logic should help solve the problem. If you register multiple middlewares you can make sure the auth is happening before the idempotency middleware, and if you run the code yourself in controllers/routes then just run the security checks before you check for idempotency keys. However you go about it, just make sure you can't steal responses by clashing/guessing/stealing a key.
 
 ## Source Code
 
-If you'd like to play with the example code, the source code is available [over here](https://github.com/philsturgeon/express-idempotency-key-demo). 
+Give this a go for yourself to see if you can get the hang of using Idempotency Keys for real, and save your end-users and support staff the headache of unpicking mistakes. The source code is available [over here](https://github.com/philsturgeon/express-idempotency-key-demo) and you can clone it down to see how it works.
+
+There's many libraries similar to [express-idempotency](https://www.npmjs.com/package/express-idempotency) for other frameworks to make this easy elsewhere too. See what you can find, and if there's nothing for your framework consider knocking up an open-source library to help others out too.
+
+## Further Reading
+
+Simple idempotency key implementations like this can get you a long way very quickly, but if you have complex multi-step processes that mix up database interactions, calls to other APIs, emails, etc, then you might need [a more comprehensive implementation](https://medusajs.com/blog/idempotency-nodejs-express-open-source/) which tracks progress for each key.
