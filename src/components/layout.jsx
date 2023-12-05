@@ -253,7 +253,7 @@ export class Layout extends React.Component {
                 "description": "A short demo of HTTP Toolkit in action",
                 "contentUrl": "https://httptoolkit.com/http-mock-demo.mp4",
                 "thumbnailUrl": "https://httptoolkit.com/http-mock-demo-thumbnail.png",
-                "uploadDate": "2019-09-25"
+                "uploadDate": "2019-09-25T00:00:00Z"
               },
               "name": "HTTP Toolkit",
               "description": "Beautiful & open-source tools to debug, test and develop with HTTP(S)",
@@ -269,7 +269,8 @@ export class Layout extends React.Component {
               "applicationCategory": "DeveloperApplication",
               "offers": {
                   "@type": "Offer",
-                  "price": "0"
+                  "price": "0",
+                  "priceCurrency": "USD"
               }
           })}
           </script>
