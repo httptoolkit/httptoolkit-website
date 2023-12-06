@@ -247,6 +247,7 @@ export class Layout extends React.Component {
               "@type": "SoftwareApplication",
               "image": "https://httptoolkit.com/logo-square.png",
               "screenshot": "https://httptoolkit.com/screenshot.png",
+              "dateModified": siteMetadata.latestSiteUpdate, // Bit hacky - we should really pull this from the GH releases API
               "video": {
                 "@type": "VideoObject",
                 "name": "HTTP Toolkit",
