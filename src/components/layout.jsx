@@ -240,41 +240,6 @@ export class Layout extends React.Component {
 
           <link rel="privacy-policy" href="/privacy-policy/" />
           <link rel="terms-of-service" href="/terms-of-service/" />
-
-          <script type="application/ld+json">
-          {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              "image": "https://httptoolkit.com/logo-square.png",
-              "screenshot": "https://httptoolkit.com/screenshot.png",
-              "dateModified": siteMetadata.latestSiteUpdate, // Bit hacky - we should really pull this from the GH releases API
-              "video": {
-                "@type": "VideoObject",
-                "name": "HTTP Toolkit",
-                "description": "A short demo of HTTP Toolkit in action",
-                "contentUrl": "https://httptoolkit.com/http-mock-demo.mp4",
-                "thumbnailUrl": "https://httptoolkit.com/http-mock-demo-thumbnail.png",
-                "uploadDate": "2019-09-25T00:00:00Z"
-              },
-              "name": "HTTP Toolkit",
-              "description": "Beautiful & open-source tools to debug, test and develop with HTTP(S)",
-              "softwareVersion": siteMetadata.latestAppVersion,
-              "operatingSystem": [
-                  "Windows",
-                  "Mac",
-                  "Linux",
-                  "Android"
-              ],
-              "url": "https://httptoolkit.com/",
-              "downloadUrl": "https://httptoolkit.com/",
-              "applicationCategory": "DeveloperApplication",
-              "offers": {
-                  "@type": "Offer",
-                  "price": "0",
-                  "priceCurrency": "USD"
-              }
-          })}
-          </script>
         </Helmet>
 
         <Header {...visibilityProps}>

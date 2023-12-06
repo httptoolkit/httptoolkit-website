@@ -8,6 +8,7 @@ import { EmailSignupModal } from '../components/email-signup-modal';
 import { StandaloneDownloadCTA } from '../components/cta';
 import { DemoVideo } from '../components/demo-video';
 import { SectionSpacer } from '../components/section-spacer';
+import { ProductLdData } from '../components/product-ld-data.jsx';
 
 import { TopHeroContainer, Pitch } from '../components/pitch/leading-pitch';
 import { Description } from '../components/pitch/description';
@@ -41,6 +42,7 @@ export default class ElectronPage extends React.Component {
                 <meta property="og:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
                 <meta name="twitter:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
                 <meta name="twitter:card" content="summary_large_image" />
+                { ProductLdData() }
             </Helmet>
             <TopHeroContainer>
                 <Pitch target='Electron' />
