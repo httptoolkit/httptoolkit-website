@@ -1,5 +1,5 @@
 ---
-title: "A Brief Introduction to OpenAPI for Everybody"
+title: "A brief introduction to OpenAPI"
 date: '2023-11-28T9:30'
 cover_image: './header-images/network-cables.jpg'
 author: Phil Sturgeon
