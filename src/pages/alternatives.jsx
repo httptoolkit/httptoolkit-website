@@ -80,7 +80,7 @@ const Description = styled(SubHeading.withComponent("p"))`
     `}
 `;
 
-const Comparisons = styled.ul`
+const Alternatives = styled.ul`
     ${p => p.theme.fontSizeNearlyHeading};
     line-height: 1.5;
     max-width: 760px;
@@ -106,7 +106,7 @@ export const Comparison = styled((p) =>
     }
 `;
 
-export default class CharlesAlternativePage extends React.Component {
+export default class AlternativePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { updateModalOpen: false };
@@ -133,7 +133,7 @@ export default class CharlesAlternativePage extends React.Component {
             <Description>
                 Let's look at the value of HTTP Toolkit as a:
             </Description>
-            <Comparisons>
+            <Alternatives>
                 <Comparison>
                     <Link to="/fiddler-alternative/">Fiddler alternative</Link>
                 </Comparison>
@@ -143,9 +143,9 @@ export default class CharlesAlternativePage extends React.Component {
                 <Comparison>
                     <Link to="/chrome-devtools-alternative/">Chrome Devtools alternative</Link>
                 </Comparison>
-            </Comparisons>
+            </Alternatives>
             <Description>
-                Is your favorite tool not in the list? Want to know how HTTP Toolkit compares to other options? <a href="https://github.com/httptoolkit/httptoolkit/issues/new/choose">
+                Is your favorite alternative tool not in the list? Want to know how HTTP Toolkit compares to other options? <a href="https://github.com/httptoolkit/httptoolkit/issues/new/choose">
                     Send in your feedback
                 </a> or submit a PR for <a href="https://github.com/httptoolkit/httptoolkit-website/tree/main/src/pages">
                     this site

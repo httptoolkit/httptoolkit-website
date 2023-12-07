@@ -130,7 +130,7 @@ export const UniqueFeature = styled((p) =>
     }
 `;
 
-export default class CharlesAlternativePage extends React.Component {
+export default class ChromeDevToolsAlternativePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { updateModalOpen: false };
