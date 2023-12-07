@@ -359,29 +359,31 @@ export default ({ data, location }) => {
 
         <script type="application/ld+json">{
           JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "headline": title,
-              "image": [socialImage],
-              "datePublished": publishDate.toISOString(),
-              "dateModified": siteMetadata.latestSiteUpdate,
-              "author": [
-                {
-                  "@type": "Organization",
-                  "name": "HTTP Toolkit",
-                  "url": "https://httptoolkit.com/blog/"
-                },
-                {
-                  "@type": "Person",
-                  "name": author || 'Tim Perry',
-                  "url": authorUrl || 'https://tim.fyi'
-                }
-              ],
-              "publisher": {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": title,
+            "image": [socialImage],
+            "datePublished": publishDate.toISOString(),
+            "dateModified": siteMetadata.latestSiteUpdate,
+            "author": [
+              {
                 "@type": "Organization",
                 "name": "HTTP Toolkit",
-                "url": "https://httptoolkit.com/blog/"
+                "url": "https://httptoolkit.com/blog/",
+                "logo": "https://httptoolkit.com/logo-square.png"
+              },
+              {
+                "@type": "Person",
+                "name": author || 'Tim Perry',
+                "url": authorUrl || 'https://tim.fyi'
               }
+            ],
+            "publisher": {
+              "@type": "Organization",
+              "name": "HTTP Toolkit",
+              "url": "https://httptoolkit.com/blog/",
+              "logo": "https://httptoolkit.com/logo-square.png"
+            }
           })
         }</script>
       </Helmet>

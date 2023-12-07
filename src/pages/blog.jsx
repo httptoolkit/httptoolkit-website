@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
 import { styled, media } from '../styles';
 
@@ -104,6 +105,20 @@ export default ({ data, location }) => {
     const posts = data.allMarkdownRemark.edges;
 
     return <Layout location={location}>
+        <Helmet>
+            <script type="application/ld+json">{
+                JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Blog",
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "HTTP Toolkit",
+                        "url": "https://httptoolkit.com/blog/",
+                        "logo": "https://httptoolkit.com/logo-square.png"
+                    }
+                })
+            }</script>
+        </Helmet>
         <BlogListContainer width='780px'>
             <BlogHeader>
                 <BlogHeading>Read the Blog</BlogHeading>
