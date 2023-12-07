@@ -356,6 +356,34 @@ export default ({ data, location }) => {
         <meta name="twitter:title"       content={title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image"       content={socialImage} />
+
+        <script type="application/ld+json">{
+          JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": title,
+              "image": [socialImage],
+              "datePublished": publishDate.toISOString(),
+              "dateModified": siteMetadata.latestSiteUpdate,
+              "author": [
+                {
+                  "@type": "Organization",
+                  "name": "HTTP Toolkit",
+                  "url": "https://httptoolkit.com/blog/"
+                },
+                {
+                  "@type": "Person",
+                  "name": author || 'Tim Perry',
+                  "url": authorUrl || 'https://tim.fyi'
+                }
+              ],
+              "publisher": {
+                "@type": "Organization",
+                "name": "HTTP Toolkit",
+                "url": "https://httptoolkit.com/blog/"
+              }
+          })
+        }</script>
       </Helmet>
 
       <BlogPost>
