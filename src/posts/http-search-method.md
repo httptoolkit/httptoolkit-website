@@ -1,14 +1,16 @@
 ---
-title: 'Defining a new HTTP method: HTTP SEARCH'
+title: 'Defining a new HTTP method: HTTP QUERY'
 date: '2021-04-12T15:00'
 cover_image: './header-images/binoculars.jpg'
 ---
 
 Nothing is ever finished or perfect, and HTTP is no exception.
 
-HTTP SEARCH is a new HTTP method, for safe requests that include a request body. It's still early & evolving, but it was recently adopted as an IETF draft standard, and it's going to add some great new tools for HTTP development everywhere.
+HTTP QUERY is a new HTTP method, for safe requests that include a request body. It's still early & evolving, but it was recently adopted as an IETF draft standard, and it's going to add some great new tools for HTTP development everywhere.
 
-What does that mean, why do we need a new HTTP method, how would HTTP SEARCH work?
+What does that mean, why do we need a new HTTP method, how would HTTP QUERY work?
+
+_**Update**: This post previously called this method `SEARCH`, but since it was originally published the spec has been updated, and the method is now called `QUERY`. This post has been updated accordingly._
 
 ## HTTP methods today
 
@@ -98,22 +100,22 @@ In addition, the kind of resources to which you might want to send a complex que
 
 Fortunately, HTTP is a living and evolving standard, so we can fix this.
 
-## Enter HTTP SEARCH
+## Enter HTTP QUERY
 
-[HTTP SEARCH](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/?include_text=1) is a proposed new HTTP method that's intended to solve this problem.
+[HTTP QUERY](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/?include_text=1) is a proposed new HTTP method that's intended to solve this problem.
 
-A SEARCH request is a request that's safe (does not change the target resource) that can include a body.
+A QUERY request is a request that's safe (does not change the target resource) that can include a body.
 
-This helps because with SEARCH we can implement the above: we can send complex data queries clearly, without either encoding them in a URL or using a POST request.
+This helps because with QUERY we can implement the above: we can send complex data queries clearly, without either encoding them in a URL or using a POST request.
 
-**Note that this is still only a draft standard**. The details will probably change, and even the name isn't 100% fixed yet (the draft is officially named "safe method with body", rather than referencing SEARCH, to make that easy to change).
+**Note that this is still only a draft standard**. The details will probably change, and even the name isn't 100% fixed yet (the draft is officially named "safe method with body", rather than referencing QUERY, to make that easy to change).
 
 Take all this with a grain of salt, but as of March 2021 it's now an officially adopted IETF HTTP _draft_ specification, so it is on an official path towards eventual standardization, if all goes well.
 
-A raw HTTP/1.1 request using SEARCH, as specified today, might look something like this:
+A raw HTTP/1.1 request using QUERY, as specified today, might look something like this:
 
 ```
-SEARCH /customers HTTP/1.1
+QUERY /customers HTTP/1.1
 Host: example.com
 Content-Type: application/sql
 
@@ -125,19 +127,19 @@ WHERE DATEDIFF(DAY, GETDATE(), signup_date) > 7
 
 Right now the spec does _not_ define the result of this query as cacheable. It's not completely clear why, but I suspect this is because caches today never take the body into account, and starting to do so would be a major change that needs some careful thought and consultation.
 
-That said, it does avoid the cache invalidation of the equivalent POST requests. The above request as a POST would require every cache en route to drop any cached data it has for `/customers`, forcing all that data to be reloaded. SEARCH does not, and that alone will be a big boost to many caching setups.
+That said, it does avoid the cache invalidation of the equivalent POST requests. The above request as a POST would require every cache en route to drop any cached data it has for `/customers`, forcing all that data to be reloaded. QUERY does not, and that alone will be a big boost to many caching setups.
 
 This has a few benefits:
 
 * The request body is clearly readable and manageable - no special encoding or length limits involved
 * The semantics are clear: it's just querying data
-* You're now free to have separate semantics for GET, SEARCH & POST on the same URL
+* You're now free to have separate semantics for GET, QUERY & POST on the same URL
 
 ### Use cases
 
 You can use this to support complex querying in any language you like, from GraphQL to SQL to OData. Of course the server needs to understand whichever query language you're using, and you should indicate the format clearly in the Content-Type header of the request to make that possible.
 
-This is especially interesting for GraphQL. GraphQL currently falls perfectly into the above trap, supporting both GET requests or POST requests, but with awkward caveats in either case. Moving to SEARCH for read-only GraphQL requests would improve the UX significantly, and could allow GraphQL to better integrate with built-in HTTP features like caching in future.
+This is especially interesting for GraphQL. GraphQL currently falls perfectly into the above trap, supporting both GET requests or POST requests, but with awkward caveats in either case. Moving to QUERY for read-only GraphQL requests would improve the UX significantly, and could allow GraphQL to better integrate with built-in HTTP features like caching in future.
 
 Query languages like this are the most obvious use case, but you can go well beyond that too: this supports anything that sends a body to request data from the server without side effects.
 
@@ -145,19 +147,19 @@ RPC-style APIs using HTTP or other APIs that don't really 'query' data as such w
 
 You could even use this to support things like a dry-run API for POST requests (don't change anything yet, but tell me what would happen if I did POST this data). There's a long list of possibilities!
 
-### Accept-Search
+### Accept-Query
 
-In addition to SEARCH, the specification also defines an Accept-Search header. That can be used in responses like so:
+In addition to QUERY, the specification also defines an Accept-Query header. That can be used in responses like so:
 
 ```
 HTTP/1.1 200 OK
 <other headers>
-Accept-Search: application/sql, application/graphql
+Accept-Query: application/sql, application/graphql
 
 <normal response>
 ```
 
-This allows a server to advertise that it accepts SEARCH requests, and signal the specific format(s) of query that it will accept. This is similar to the existing [Accept-Patch](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Patch) header.
+This allows a server to advertise that it accepts QUERY requests, and signal the specific format(s) of query that it will accept. This is similar to the existing [Accept-Patch](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Patch) header.
 
 The server could include this in any responses, but it's particularly useful in responses to OPTIONS requests, where the client queries a resource to ask what functionality is supported.
 
@@ -167,7 +169,9 @@ This is the start of a great proposal imo, but there are things you need to be a
 
 ### SEARCH has a history
 
-This standard is based on the [SEARCH method](https://tools.ietf.org/html/rfc5323) from WebDAV (an HTTP extension designed for document authoring & versioning on the web).
+_(**Update**: this section is no longer wholly correct, but is kept because it's interesting context. These benefits and conflicts described here disappeared when the method was changed from `SEARCH` to `QUERY`, which has no such history.)_
+
+This standard was originaly based on the [SEARCH method](https://tools.ietf.org/html/rfc5323) from WebDAV (an HTTP extension designed for document authoring & versioning on the web).
 
 This has upsides and downsides.
 
@@ -179,13 +183,15 @@ Anything else would not be a valid WebDAV request, so can freely ignore that, bu
 
 ### Caching is hard
 
-While not invalidating caches is a good start, the results of a SEARCH aren't actually cacheable themselves. That doesn't just mean they're not cacheable by default: even with explicit cache headers, they are not cacheable.
+While not invalidating caches is a good start, the results of a QUERY aren't actually cacheable themselves. That doesn't just mean they're not cacheable by default: even with explicit cache headers, they are not cacheable.
 
 This is unfortunate because it's a clear limitation when compared with GET, and caching query results is a super common use case.
 
-There's ongoing work here to specify exactly under what conditions SEARCH could become cacheable, which would unlock a lot more benefit from this standard. I think the likely result is that it won't be cacheable by default, but will be cacheable given the appropriate headers, but again that's not yet specified, so let's wait & see.
+There's ongoing work here to specify exactly under what conditions QUERY could become cacheable, which would unlock a lot more benefit from this standard. I think the likely result is that it won't be cacheable by default, but will be cacheable given the appropriate headers, but again that's not yet specified, so let's wait & see.
 
 ### Naming is hard
+
+_(**Update**: this section is also no longer relevant, but is kept because it's interesting context too - in the end the name has indeed been changed!)_
 
 SEARCH isn't a great name. Not every query is a search, and there's a wide variety of other uses for "safe method with a body" that go entirely beyond simple querying of a data set, as discussed above.
 
@@ -195,7 +201,7 @@ Changing the name would slow down adoption in all existing software, but might m
 
 ## What's next?
 
-Personally, I think SEARCH would be valuable in itself already, despite these caveats, and there are good options available here to quickly improve the standard further.
+Personally, I think QUERY would be valuable in itself already, despite these caveats, and there are good options available here to quickly improve the standard further.
 
 If you'd like to dig into the details further, the current specification is available [from the IETF website](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/?include_text=1), and you can get involved by [joining the IETF HTTP Working Group mailing list](https://lists.w3.org/Archives/Public/ietf-http-wg/) or opening issues/PRs directly via the [http-extensions GitHub repo](https://github.com/httpwg/http-extensions/) (an umbrella repo for this spec plus a few other prospective HTTP additions). Share your thoughts and help shape the HTTP of the future!
 
