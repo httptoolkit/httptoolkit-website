@@ -345,7 +345,7 @@ export default ({ data, location }) => {
   return <Layout location={location}>
     <BlogPostContainer width='780px'>
       <Helmet>
-        <title>{title} | HTTP Toolkit</title>
+        <title>{title}</title>
         <meta name="description" content={post.excerpt} />
 
         <meta property="og:title"       content={title} />
