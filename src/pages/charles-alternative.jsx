@@ -139,7 +139,7 @@ export default class CharlesAlternativePage extends React.Component {
     render() {
         return <Layout location={this.props.location}>
             <Helmet>
-                <title>Charles alternative → HTTP Toolkit</title>
+                <title>Charles Proxy alternative → HTTP Toolkit</title>
 
                 <meta property="og:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
                 <meta name="twitter:image" content={siteMetadata.siteUrl + 'screenshot-social.png'} />
@@ -148,7 +148,7 @@ export default class CharlesAlternativePage extends React.Component {
             </Helmet>
             <TopHeroContainer>
                 <Heading>
-                    Looking for a Charles alternative?
+                    Looking for a Charles Proxy alternative?
                 </Heading>
                 <SubHeading>
                     <Highlight>HTTP Toolkit</Highlight> is a modern powerful alternative to Charles<br/>
