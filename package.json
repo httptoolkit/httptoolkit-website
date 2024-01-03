@@ -27,7 +27,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@httptoolkit/accounts": "^1.0.0",
+    "@httptoolkit/accounts": "^1.1.1",
     "@httptoolkit/auth0-lock": "^11.14.0",
     "@vx/curve": "0.0.153",
     "@vx/responsive": "0.0.158",
