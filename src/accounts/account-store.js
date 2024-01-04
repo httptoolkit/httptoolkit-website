@@ -87,7 +87,7 @@ export class AccountStore {
     }).bind(this);
 
     buyPlan = flow(function * (tierCode, planCycle) {
-        this.reportPlanSelected(tierCode, planCycle);
+        this.reportPurchaseEvent('Select plan', tierCode, planCycle);
         const sku = this.getSKU(tierCode, planCycle);
         const plan = SubscriptionPlans[sku];
 
@@ -107,7 +107,15 @@ export class AccountStore {
                 }
             });
 
+            this.reportPurchaseEvent('Login started', tierCode, planCycle);
             yield showLoginDialog();
+            if (this.isLoggedIn) {
+                this.reportPurchaseEvent('Login completed', tierCode, planCycle);
+            } else {
+                this.reportPurchaseEvent('Login cancelled', tierCode, planCycle);
+            }
+        } else {
+            this.reportPurchaseEvent('Already logged in', tierCode, planCycle);
         }
 
         loggingIn = false;
@@ -123,23 +131,16 @@ export class AccountStore {
             return;
         }
 
+        this.reportPurchaseEvent('Checkout started', tierCode, planCycle);
+
         // This redirects the entire page to the checkout:
         return goToCheckout(this.user.email, sku, "web");
     }.bind(this));
 
-    reportPlanSelected(planName, planCycle) {
+    reportPurchaseEvent(name, planName, planCycle) {
         const sku = this.getSKU(planName, planCycle);
-
         if (window.posthog) {
-            posthog.capture('Select plan', { planName, planCycle, sku });
-        }
-    }
-
-    reportPlanPurchaseBlocked(planName, planCycle) {
-        const sku = this.getSKU(planName, planCycle);
-
-        if (window.posthog) {
-            posthog.capture('Plan purchase blocked', { planName, planCycle, sku });
+            posthog.capture(name, { planName, planCycle, sku });
         }
     }
 }
