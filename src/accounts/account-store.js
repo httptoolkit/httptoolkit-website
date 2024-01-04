@@ -89,7 +89,6 @@ export class AccountStore {
     buyPlan = flow(function * (tierCode, planCycle) {
         this.reportPurchaseEvent('Select plan', tierCode, planCycle);
         const sku = this.getSKU(tierCode, planCycle);
-        const plan = SubscriptionPlans[sku];
 
         let loggingIn = true;
         if (!this.isLoggedIn) {
