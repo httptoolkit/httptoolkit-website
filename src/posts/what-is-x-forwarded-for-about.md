@@ -21,10 +21,10 @@ sequenceDiagram
     LB->>B: 198.40.10.102
 </mermaid-js>
 
-By the time the backend application is seeing an incoming request, the IP address of the client is long forgotten, which is where `X-Forwarded-By` can help out.
+By the time the backend application is seeing an incoming request, the IP address of the client is long forgotten, which is where `X-Forwarded-For` can help out.
 
 ```http
-X-Forwarded-By: 28.178.124.142, 198.40.10.101, 198.40.10.102
+X-Forwarded-For: 28.178.124.142, 198.40.10.101, 198.40.10.102
 ```
 
 This header keeps a record of each IP in the chain, in the order from left to right that the request was made. This has a whole load of use cases depending on what you're building.
