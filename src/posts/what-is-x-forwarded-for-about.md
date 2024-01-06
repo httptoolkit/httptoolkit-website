@@ -21,7 +21,7 @@ sequenceDiagram
     LB->>B: 198.40.10.102
 </mermaid-js>
 
-By the time the backend application is seeing an incoming request, the IP address is long forgotten, which is where `X-Forwarded-By` can help out.
+By the time the backend application is seeing an incoming request, the IP address of the client is long forgotten, which is where `X-Forwarded-By` can help out.
 
 ```http
 X-Forwarded-By: 28.178.124.142, 198.40.10.101, 198.40.10.102
@@ -31,7 +31,7 @@ This header keeps a record of each IP in the chain, in the order from left to ri
 
 - **User Authentication:** Use the header information to ensure that login attempts originate from recognized and authorized locations, and flag the login as suspect if not, triggering 2FA check.
 
-- **Load Balancing:** Even distribute incoming traffic across servers, to ensure optimal performance during busy periods.
+- **Load Balancing:** Evenly distribute incoming traffic across servers, to ensure optimal performance during busy periods.
 
 - **Data localization:** European Union, Brazil, and China all have privacy laws about keeping data within their zones, and this can help identify those users who need special treatment.
 
@@ -186,7 +186,7 @@ const config = {
   trusted_proxy_count: 2 
 }
 
-const clientIp = headers["X-Fowarded-For"]
+const clientIp = headers["X-Forwarded-For"]
 	// Split the string into multiple parts
 	.split(',')
 	// If the count is 2, we want the 3rd from the end,
