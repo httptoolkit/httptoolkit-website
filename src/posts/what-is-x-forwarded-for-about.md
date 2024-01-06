@@ -78,7 +78,7 @@ sequenceDiagram
     LB->>B: X-Forwarded-For<br>28.178.124.142 ,198.40.10.101 198.40.10.102
 </mermaid-js>
 
-This is the safest approach for when you're not sure how securely and reliably the rest of your call chain is going to be. If other proxies and backend apps are likely to blindly trust the incoming information, or generally make insecure choices (which we'll get into more later) then it's probably safest to completely replace the `X-Forwarded-For` header at that outside-world facing reverse proxy, and ditch any untrustworthy data in the process. Unfortunately 
+This is the safest approach for when you're not sure how securely and reliably the rest of your call chain is going to be. If other proxies and backend apps are likely to blindly trust the incoming information, or generally make insecure choices (which we'll get into more later) then it's probably safest to completely replace the `X-Forwarded-For` header at that outside-world facing reverse proxy, and ditch any untrustworthy data in the process.  
 
 If you're confident the backend app is able to handle it, you can take whatever they provide, and simply append the IP address being seen by the server on the end of the chain.
 
@@ -129,7 +129,7 @@ Whichever approach you pick for the client-facing proxy, make sure every other s
 
 ## Picking the right IP
 
-You might be looking at that list of IPs wondering "which is THE client IP". The answer is "the furthest IP to the right that is not yours". When it comes to logging you want to log all of them (escaped and limited), but when it comes to security based use cases there is only one "client IP" you can trust: the one immediately to the left of the last known private/internal IP address, as in, the last "not one of ours" server that's valid, and not internal.
+You might be looking at that list of IPs wondering "which is THE client IP". The answer is "Reading right to left, it's first IP address that is not one of yours". When it comes to logging you want to log all of them (escaped and limited), but when it comes to security based use cases there is only one "client IP" you can trust: the one immediately to the left of the last known private/internal IP address, as in, the last "not one of ours" server that's valid, and not internal.
 
 So if we got a request like this, which one do we use for security checks or geolocation?
 
@@ -263,9 +263,3 @@ Use these powers wisely, and don't sneak them in at the infrastructure changes w
 - [MDN Web Docs: Forwarded](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded)
 - [Using Forwarded in NGINX](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)
 - [Cloudflare Fundamentals: HTTP request headers](https://developers.cloudflare.com/fundamentals/reference/http-request-headers/)
-
----
-Annotations: 0,17739 SHA-256 495b615804081cb5dce9b058f11ba99f  
-@AI: 38,113 171,71 327,37 372,36 409,2 420,13 461,8 472,68 553,15 569,41 614,89  
-@Phil Sturgeon <me@philsturgeon.com>: 0,38 151,20 242,85 364,8 408 411,9 433,28 469,3 540,13 568 610,4 703,187 894,2 897,2 902,14 920,2 923,2 928,205 1137,2 1140,2 1145,3 1152,2 1155,2 1160,193 1372,5 1379,4 1483,62 1546,4 1564,8 1615 1654,5 1667,6 1690,171 1887,4 1896,4 1901 1917 1993,19 2014,4 2045,4 2062 2078 2168,8 2195,5 2297,4 2332,28 2366,3 2434 2450 2454,4 2474,4 2505 2521 2589,6 2603,4 2712,4 2733,4 2809 2928,13 2953,4 2969,4 2974 2990 3061,2 3064,4 3089,3 3168,10 3243,1648 4937,386 5327,2 5330,2 5335,44 5383,2 5386,2 5391,129 5521 5526,2 5529,2 5534,47 5582 5587,2 5590,2 5595 5601,2 5604,2 5609,665 6334,451 6789,2 6792,2 6797,44 6845,2 6848,2 6853,36 6890,7 6901,2 6904,2 6909,39 6950 6952,37 6991 6993,19 7016,2 7019,2 7024,33 7059 7061,19 7084,2 7087,2 7092 7098,2 7101,2 7106,1026 8146,9 8165,2 8250,37 8289 8291,28 8320,8 8356 8370,327 8717,2 8762,13 8785,2 8820,2 8909,831 9747,6 9781 9795,222 10030,131 10174,57 10245,339 10591,51 10703,337 11041,496 11549 11555,8 11570,3 11586,15 11614,11 11626,56 11689,6 11723 11737,209 11959,22 11994,12 12020,219 12256,3 12657,2 12705,15 12728,5 12749,536 13289,2 13306 13341,2 13388,94 13510,9 13558,514 14080,28 14153,15 14172,6 14232,131 14371,173 14700,36 14740,3 14755,14 14836,733 15638,440 16115,768 16934,323 17302,9 17314,7 17336,2 17411,30 17508,105 17636 17658,2 17738  
-...
