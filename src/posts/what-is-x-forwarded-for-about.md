@@ -12,10 +12,10 @@ A typical HTTP request goes on a bit of a journey, traversing multiple layers of
 
 <mermaid-js>
 sequenceDiagram
-    actor Client
-    participant CDN
-    participant LB as Load Balancer
-    participant B as Backend App X
+    actor Client as Client<br>IP 28.178.124
+    participant CDN as CDN<br>IP 198.40.10.101
+    participant LB as Load Balancer<br>IP 198.40.10.102
+    participant B as Backend App X <br>IP 198.40.10.103
     Client->>CDN: 28.178.124.142
     CDN->>LB: 198.40.10.101
     LB->>B: 198.40.10.102
