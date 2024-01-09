@@ -12,22 +12,26 @@ A typical HTTP request goes on a bit of a journey, traversing multiple layers of
 
 <mermaid-js>
 sequenceDiagram
-    actor Client as Client<br>IP 28.178.124
-    participant CDN as CDN<br>IP 198.40.10.101
-    participant LB as Load Balancer<br>IP 198.40.10.102
-    participant B as Backend App X <br>IP 198.40.10.103
+    actor Client as Client
+    participant CDN as CDN
+    participant LB as Load Balancer
+    participant B as Backend App X
     Client->>CDN: 28.178.124.142
     CDN->>LB: 198.40.10.101
     LB->>B: 198.40.10.102
 </mermaid-js>
 
-By the time the backend application is seeing an incoming request, the IP address of the client is long forgotten, which is where `X-Forwarded-For` can help out.
+By the time the backend application is seeing an incoming request the IP address of the original client is long forgotten. This is where `X-Forwarded-For` can help out.
 
 ```http
-X-Forwarded-For: 28.178.124.142, 198.40.10.101, 198.40.10.102
+X-Forwarded-For: 28.178.124.142, 198.40.10.101
 ```
 
-This header keeps a record of each IP in the chain, in the order from left to right that the request was made. This has a whole load of use cases depending on what you're building.
+The goal here is to give a proxy the chance to say "Alright hang on, I'm forwarding you a request, and this the history of where it came from as far as I know". The proxy will not add its own IP address to the list, because if the receiver of that request cares about who is calling it they can combine the `X-Forwarded-For` with the requests source IP address, e.g.: `req.connection.remoteAddress` in NodeJS. So in this example, the load balancer has said "Hey backend app, I am forwarding you a request that came from this client via the CDN, but it does not pop its own IP in there because the backend app can tell if it's coming from the load balancer or not. 
+
+## What is X-Forwarded-For Used For?
+
+This has a whole load of use cases depending on what you're building.
 
 - **User Authentication:** Use the header information to ensure that login attempts originate from recognized and authorized locations, and flag the login as suspect if not, triggering 2FA check.
 
@@ -43,7 +47,7 @@ This header keeps a record of each IP in the chain, in the order from left to ri
 
 - **Fraud Prevention:** Financial institutions use `X-Forwarded-For` to detect and prevent fraudulent activities based on user location, e.g. identifying an unusual login attempt from a location that is inconsistent with the user's typical access patterns.
 
-- **API Rate Limiting:** APIs use X-Forwarded-For to enforce rate limiting on a per-client basis. An API provider limits the number of requests from a specific IP address within a given time frame to prevent abuse.
+- **API Rate Limiting:** APIs use `X-Forwarded-For` to enforce rate limiting on a per-client basis. An API provider limits the number of requests from a specific IP address within a given time frame to prevent abuse.
 
 - **Localized Advertising:** Ad platforms use `X-Forwarded-For` to customize and target ads based on the user's geographical location.
 
@@ -53,7 +57,7 @@ We're talking about security here, but this is a HTTP Request header... so can i
 
 ## Can You Trust X-Forwarded-For?  
 
-You should never trust anything in a HTTP request that is coming from the outside world. Actors can be malicious or misconfigured, but either way the contents of a HTTP request can be completely made up, and somebody could use X-Forwarded-For to pretend they're coming from inside your corporate VPN once they know the IP, pretend they're in the same geographic region as a user who's bank account they're trying to log into, or all sorts of other shenanigans. 
+You should never trust anything in a HTTP request that is coming from the outside world. Actors can be malicious or misconfigured, but either way the contents of a HTTP request can be completely made up, and somebody could use `X-Forwarded-For` to pretend they're coming from inside your corporate VPN once they know the IP, pretend they're in the same geographic region as a user who's bank account they're trying to log into, or all sorts of other shenanigans. 
 
 One way to add some control to the `X-Forwarded-For` header is to involve a trusted reverse proxy, and disable direct access to the other proxies/servers/load balancers other than through that proxy. For API developers this might be an API Gateway, but it could also be a CDN like Fastly, Squid Proxy, Cloudflare, etc. If the request is coming through here, assuming that reverse proxy hasn't been hacked, you're probably ok to believe at least some of the IP chain you're seeing. But how?
 
@@ -74,8 +78,8 @@ sequenceDiagram
     participant LB as Load Balancer<br>IP 198.40.10.102
     participant B as Backend App X
     Client->>CDN: X-Forwarded-For<br>1.1.1.1
-    CDN->>LB: X-Forwarded-For<br>28.178.124.142 ,198.40.10.101
-    LB->>B: X-Forwarded-For<br>28.178.124.142 ,198.40.10.101 198.40.10.102
+    CDN->>LB: X-Forwarded-For<br>28.178.124.142
+    LB->>B: X-Forwarded-For<br>28.178.124.142 ,198.40.10.101
 </mermaid-js>
 
 This is the safest approach for when you're not sure how securely and reliably the rest of your call chain is going to be. If other proxies and backend apps are likely to blindly trust the incoming information, or generally make insecure choices (which we'll get into more later) then it's probably safest to completely replace the `X-Forwarded-For` header at that outside-world facing reverse proxy, and ditch any untrustworthy data in the process.  
@@ -95,8 +99,8 @@ sequenceDiagram
     participant LB as Load Balancer<br>IP 198.40.10.102
     participant B as Backend App X <br>IP 198.40.10.103
     Client->>CDN: X-Forwarded-For<br>1.2.3.4
-    CDN->>LB: X-Forwarded-For<br>1.2.3.4,28.178.124.142,198.40.10.101
-    LB->>B: X-Forwarded-For<br>1.2.3.4,28.178.124.142,198.40.10.101 198.40.10.102
+    CDN->>LB: X-Forwarded-For<br>1.2.3.4,28.178.124.142
+    LB->>B: X-Forwarded-For<br>1.2.3.4,28.178.124.142,198.40.10.101
 </mermaid-js>
 
 This means you've got the whole chain of everything that is reported to you, for good or bad, and you need to hope everyone using it knows there can be a fair few problems with this data.
@@ -118,7 +122,7 @@ If a bad actor knew (or guessed) the programming language and logging frameworks
 This has been known to happen ([CVE-2021-44228 a.k.a. "Log4Shell”](https://blog.shiftleft.io/log4shell-apache-log4j-remote-code-execution-4f58ed7e74f9)).
 
 ```nohighlight
-X-Forwarded-For: 1.2.3.4,nonsense,${mailicious()},2.2.2.2,28.178.124.142,198.40.10.101,198.40.10.102
+X-Forwarded-For: 1.2.3.4,nonsense,${mailicious()},2.2.2.2,28.178.124.142,198.40.10.101
 ```
 
 Any logic using this field should ignore anything that is not a valid IP address, and beyond that it needs to do some basic checks before logging it to a database, like checking the length of string so you're not filling up your DB with trash and potentially making other DDoS and resource management issues.
@@ -134,7 +138,7 @@ You might be looking at that list of IPs wondering "which is THE client IP". The
 So if we got a request like this, which one do we use for security checks or geolocation?
 
 ```nohighlight
-X-Forwarded-For:1.2.3.4,172.16.1.101,28.178.124.142,198.40.10.101,198.40.10.102
+X-Forwarded-For:1.2.3.4,172.16.1.101,28.178.124.142,198.40.10.101
 ```
 
 There are two common approaches.
@@ -143,7 +147,6 @@ There are two common approaches.
 
 One approach is to look at the specific IPs and see if they are recognized, going from the right until you see an IP you don't recognize. 
 
-- `198.40.10.102` would be detected as internal by some sort of lookup on your end. A list of IPs or ranges stored in code would flag that up. 
 - `198.40.10.101` would be flagged as one of yours buy the same list.
 - `28.178.124.142`. Not one of yours? Not invalid? Not internal? Great, that's the client, and it looks like they're in Ohio, USA. Serve them content from the American servers, and no data protection required because they don't care about privacy laws.
 
@@ -166,7 +169,7 @@ flowchart LR
 
 
 ```nohighlight
-X-Forwarded-For:1.2.3.4,172.16.1.101,28.178.124.142,198.40.10.101,198.40.10.102
+X-Forwarded-For:1.2.3.4,172.16.1.101,28.178.124.142,198.40.10.101
 ```
 
 Seeing as the IP address of the backend is not in X-Forwarded-For, it is not included in the count, so we're going to look at how many proxies are to the left before we get to the outside Internet.
