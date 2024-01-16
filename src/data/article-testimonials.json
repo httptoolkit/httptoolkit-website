@@ -12,6 +12,12 @@
         "quote": "There are many proxy servers to choose from for Android, the most easy to use I would say from the lot is HTTP Toolkit. The setup is a breeze, if you are coming from Charles Proxy or Proxyman etc, you will definitely love the simplicity."
     },
     {
+        "link": "https://web.archive.org/web/20210711060217/https://blog.bearer.sh/api-debugging-tools/#httptoolkit",
+        "source": "Bearer.sh",
+        "articleName": "Top Tools to Make Debugging APIs Easier",
+        "quote": "Where I had trouble getting Fiddler to recognize calls made from my terminal, HTTP Toolkit just worked immediately."
+    },
+    {
         "link": "https://blog.logrocket.com/debug-encrypted-network-traffic-react-native/",
         "source": "Logrocket",
         "articleName": "How to debug encrypted network traffic in React Native",
@@ -23,17 +29,18 @@
         "articleName": "HTTP Client and Web Debugging Proxy to Troubleshoot Applications",
         "quote": "Unlike other HTTP debuggers, HTTP Toolkit provides automatically targeted interception for specific clients, including HTTPS setup, rather than intercepting everything from your entire computer, and so avoids capturing irrelevant traffic or disrupting other applications."
     },
+
+    {
+        "link": "https://infear.org/#rec688035858",
+        "source": "Kids Without Fear",
+        "articleName": "How we use technologies to help kids alleviate anxiety",
+        "quote": "Httptoolkit is the only app that can debug connections issues within a LIVE Docker container with SSL! We are able to resolve issues in minutes instead of days."
+    },
     {
         "link": "https://dev-tester.com/test-your-apis-further-using-http-toolkit/",
         "source": "Dev Tester",
         "articleName": "Test Your APIs Further Using HTTP Toolkit",
         "quote": "This overview of HTTP Toolkit barely scratches the surface of what it can do for you...\n\nIf you're a tester or developer who has to check these kinds of applications or services, HTTP Toolkit is a valuable tool to have around."
-    },
-    {
-        "link": "https://web.archive.org/web/20210711060217/https://blog.bearer.sh/api-debugging-tools/#httptoolkit",
-        "source": "Bearer.sh",
-        "articleName": "Top Tools to Make Debugging APIs Easier",
-        "quote": "Where I had trouble getting Fiddler to recognize calls made from my terminal, HTTP Toolkit just worked immediately."
     },
     {
         "link": "https://nordicapis.com/top-25-api-testing-tools/",

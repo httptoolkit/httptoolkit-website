@@ -238,7 +238,9 @@ const HIGHLIGHT_STRINGS = [
     "really really like HTTP Toolkit",
     "The setup is a breeze",
     "you will definitely love the simplicity",
-    "the first thing I install"
+    "the first thing I install",
+    "debug connections issues within a LIVE Docker container",
+    "minutes instead of days"
 ];
 
 const formatContent = (...content) => {
