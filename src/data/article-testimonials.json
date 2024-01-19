@@ -6,6 +6,12 @@
         "quote": "HTTP Toolkit is a powerful tool for examining HTTP traffic...\n\nIt's a versatile tool ideal for monitoring traffic and prototyping new endpoints or services."
     },
     {
+        "link": "https://medium.com/@xandebianchi/http-toolkit-get-post-and-put-it-into-your-programming-or-testing-routine-47aa98a8b672",
+        "source": "Alexandre Bianchi",
+        "articleName": "HTTP Toolkit: GET, POST and PUT it into your programming or testing routine",
+        "quote": "I came across the HTTP Toolkit, a free and also an open-source tool that is very quick to install and use, which gets right to the point"
+    },
+    {
         "link": "https://medium.com/@veeresh.charantimath8/https-in-android-a-false-sense-of-security-man-in-the-middle-669d8751bbd6",
         "source": "Veeresh Charantimath on Medium",
         "articleName": "HTTPS in Android: A false sense of security (Man in the Middle)",

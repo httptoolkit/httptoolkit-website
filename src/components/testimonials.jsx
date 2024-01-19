@@ -240,7 +240,8 @@ const HIGHLIGHT_STRINGS = [
     "you will definitely love the simplicity",
     "the first thing I install",
     "debug connections issues within a LIVE Docker container",
-    "minutes instead of days"
+    "minutes instead of days",
+    "very quick to install and use"
 ];
 
 const formatContent = (...content) => {
