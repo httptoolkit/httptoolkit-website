@@ -101,6 +101,21 @@ export default (props) => (<Layout location={props.location}>
 
             <p>Other product and company names, brands or logos used within the Services are the property of their respective owners, and are used for identification purposes only. Use of these marks does not imply endorsement. Unless you inform us otherwise, you allow HTTP Toolkit to use your company name and logo, exclusively to identify your organization as a user of HTTP Toolkit, without implying any further endorsement or relationship. To opt out of this, please contact us and we'll ensure your name and logo is never used in any future HTTP Toolkit materials, and is removed from any in which they currently appear.</p>
 
+            <h3>Acceptable Use</h3>
+
+            <p>Your use of the Services must not violate any applicable laws, including copyright or trademark laws, or other laws in your jurisdiction. You are responsible for making sure that your use of the Service is in compliance with laws and any applicable regulations.</p>
+
+            <p>The Services are not to be used in relation with:</p>
+
+            <ul>
+                <li>Surveillance or tracking of individuals without consent or other legal basis under EU GDPR</li>
+                <li>Intentional dissemination of misinformation, hate speech or glorification of violence</li>
+                <li>Harassment or abuse of individuals or groups</li>
+                <li>Intentionally inflicting bodily harm on others or creating tools or equipment to do so (outside of consenting medical procedures)</li>
+                <li>Distribution or creation of content that is illegal in either your jurisdiction or Ours (Spain)</li>
+                <li>Any violation of human rights under the UN UDHR</li>
+            </ul>
+
             <h3>Warranties and Liability</h3>
 
             <p>The Services are provided on an "as is", "as available" basis, without representations of warranties of any kind, to the fullest extent permitted by law. We specifically dislaim all warranties and conditions, expressed or implied. Furthermore, we do not make any representations concerning the accuracy or reliability of the use of the materials on the Services or otherwise relating to such materials or any sites linked to these Services. HTTP Toolkit shall not have any liability or responsibility for errors or omissions in the Services, errors or omissions caused by your use of the Services, or any other damages you may incur in connection with the Services.</p>
