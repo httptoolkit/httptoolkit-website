@@ -65,6 +65,10 @@ const Terms = styled.div`
         margin-bottom: 20px;
     }
 
+    ul {
+        list-style: initial;
+    }
+
     margin: 30px 0 60px;
 `;
 
