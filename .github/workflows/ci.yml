@@ -134,6 +134,7 @@ jobs:
   publish-scaleway:
     name: Deploy to Scaleway
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
     runs-on: ubuntu-latest
     needs: publish-docker
     steps:
