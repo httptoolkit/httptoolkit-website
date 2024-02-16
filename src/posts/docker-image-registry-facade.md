@@ -2,6 +2,7 @@
 title: "Dodge the next Dockerpocalypse: how to own your own Docker Registry address"
 date: '2023-03-17T11:00'
 cover_image: './header-images/container-ship.jpg'
+tags: docker
 ---
 
 As you [may](https://blog.alexellis.io/docker-is-deleting-open-source-images/) [have](https://woju.eu/blog/2023/03/foss-and-docker-hub/) [seen](https://news.ycombinator.com/item?id=35154025), Docker Hub made a dramatic shift in policy this week, and effectively gave a 30 day eviction notice to almost all community-run images.

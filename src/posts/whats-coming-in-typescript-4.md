@@ -5,6 +5,7 @@ cover_image: './header-images/code.jpg'
 redditUrl: https://www.reddit.com/r/typescript/comments/hdvk70/whats_coming_in_typescript_4/
 hackerNewsUrl: https://news.ycombinator.com/item?id=23602115
 devToUrl: https://dev.to/pimterry/what-s-coming-in-typescript-4-1024
+tags: typescript, javascript
 ---
 
 TypeScript 4 is coming up fast: a first beta release is planned for this week (June 25th), with the final release aiming for mid-August.

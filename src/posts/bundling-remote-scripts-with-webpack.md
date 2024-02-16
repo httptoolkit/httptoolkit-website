@@ -3,6 +3,7 @@ title: 'Bundling Remote Scripts with Webpack'
 date: '2019-02-07T16:45'
 cover_image: './header-images/boxes.jpg'
 draft: false
+tags: webpack, javascript
 ---
 
 As a JavaScript developer nowadays, almost everything you use comes from npm. Unfortunately, not absolutely everything: there's still a small subset of scripts that expect to be included from a remote CDN somewhere, and when bundling your application these pose a problem.

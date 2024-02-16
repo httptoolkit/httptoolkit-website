@@ -2,6 +2,7 @@
 title: How to intercept, observe & mock WebRTC traffic
 date: '2022-10-13T10:00'
 cover_image: './header-images/audio-cables.jpg'
+tags: interception, webrtc, javascript
 ---
 
 WebRTC allows two users on the web to communicate directly, sending real-time streams of video, audio & data peer-to-peer, from within a browser environment.

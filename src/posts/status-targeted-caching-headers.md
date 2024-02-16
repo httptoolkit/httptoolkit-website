@@ -2,6 +2,7 @@
 title: 'New HTTP standards for caching on the modern web'
 date: '2021-10-20T14:00'
 cover_image: './header-images/fancy-library.jpg'
+tags: caching, http, standards, performance
 ---
 
 

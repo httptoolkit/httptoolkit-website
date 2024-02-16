@@ -4,6 +4,7 @@ date: '2023-11-28T09:30'
 cover_image: './header-images/network-cables.jpg'
 author: Phil Sturgeon
 authorUrl: https://philsturgeon.com/
+tags: openapi, apis, standards
 ---
 
 It's hard to work on APIs without hearing about OpenAPI.

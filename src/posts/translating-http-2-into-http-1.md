@@ -2,6 +2,7 @@
 title: 'Translating between HTTP/1 and HTTP/2'
 date: '2020-07-15T14:00'
 cover_image: './header-images/translation.jpg'
+tags: http, standards
 ---
 
 Semantically, what changed in HTTP/2?

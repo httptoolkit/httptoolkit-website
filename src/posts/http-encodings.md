@@ -2,6 +2,7 @@
 title: 'Encoding your HTTP for fun and profit'
 date: '2021-06-10T14:00'
 cover_image: './header-images/messy-boxes.jpg'
+tags: http, performance
 ---
 
 HTTP content encoding is an incredibly powerful tool that can save you huge amounts of bandwidth and make your web or mobile application faster, basically for free.

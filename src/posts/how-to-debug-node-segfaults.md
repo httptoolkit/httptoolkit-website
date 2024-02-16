@@ -3,6 +3,7 @@ title: 'How to Debug Node.js Segmentation Faults'
 date: '2020-08-12T11:20'
 cover_image: './header-images/wrecked-car.jpg'
 draft: false
+tags: cors, node.js
 ---
 
 Oh no, your JavaScript code isn't just throwing an exception or crashing: it's _segfaulting_. What does that mean, and how can you fix it?

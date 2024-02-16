@@ -4,6 +4,7 @@ date: '2024-01-31T17:00'
 cover_image: './header-images/chain.jpg'
 author: Phil Sturgeon
 authorUrl: https://philsturgeon.com/
+tags: http, standards, apis
 ---
 
 The X-Forwarded-For (XFF) HTTP header provides crucial insight into the origin of web requests. The header works as a mechanism for conveying the original source IP addresses of clients, and not just across one hop, but through chains of multiple intermediaries. This list of IPv4 and IPv6 addresses is helpful to understand where requests have really come from in scenarios where they traverse several servers, proxies, or load balancers.

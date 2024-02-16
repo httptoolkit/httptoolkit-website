@@ -3,6 +3,7 @@ title: 'Notarize your Electron App with Electron Forge'
 date: '2019-08-06T13:00'
 cover_image: './header-images/signing.jpg'
 draft: false
+tags: electron, javascript, certificates
 ---
 
 In the next release of macOS (10.15), if your app isn't notarized, your users can't run it. If you're distributing Mac apps, you need to deal with this. Fortunately, for Electron apps the process is fairly easy.

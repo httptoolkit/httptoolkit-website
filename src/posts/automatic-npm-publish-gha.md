@@ -2,6 +2,7 @@
 title: Automatic npm publishing, with GitHub Actions & npm granular tokens
 date: '2023-03-22T10:00'
 cover_image: './header-images/postage-stamps.jpg'
+tags: node.js, javascript
 ---
 
 This week, at long last, GitHub [announced granular access tokens for npm](https://github.blog/changelog/2023-03-21-general-availability-of-granular-access-token-on-npm/). This is a big deal! It's great for security generally, but also particularly useful if you maintain any npm packages, as it removes the main downside of automating npm publishing, by allowing you to give CI jobs only a very limited token instead of full 2FA-free access to your account.

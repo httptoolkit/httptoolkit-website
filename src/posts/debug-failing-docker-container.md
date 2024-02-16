@@ -4,6 +4,7 @@ date: '2023-10-31T14:00'
 cover_image: './header-images/container-shipwreck.jpg'
 author: 'Tim Perry'
 authorUrl: 'https://tim.fyi/'
+tags: debugging, docker, errors
 ---
 
 Everything crashes.

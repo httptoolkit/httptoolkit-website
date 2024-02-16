@@ -2,6 +2,7 @@
 title: 'Unblocking Node With Unref()'
 date: '2019-09-11T13:30'
 cover_image: './header-images/rollercoaster.jpg'
+tags: node.js, errors
 ---
 
 Node.js runs on an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop). It holds a queue of tasks to run, and runs them, one by one. New tasks appear on the queue while it runs, added by your code (setTimeout) or outside events (a network connection), and the process simply continues until the queue is empty.

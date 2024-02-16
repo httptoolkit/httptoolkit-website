@@ -5,6 +5,7 @@ cover_image: './header-images/network.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=24352433
 redditUrl: https://www.reddit.com/r/programming/comments/il5lvb/graphql_the_simple_way_or_dont_use_apollo/
 twitterUrl: https://twitter.com/HttpToolkit/status/1301131264569872384
+tags: apis, javascript
 ---
 
 The fundamentals of GraphQL are remarkably simple. Nonetheless, a busy hype train & rocket-speed ecosystem means that building a GraphQL API in the real world can be a tricky balancing act of piling complex interacting components a mile high, none of which anybody fully understands.

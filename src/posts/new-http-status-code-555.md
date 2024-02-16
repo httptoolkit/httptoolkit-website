@@ -6,6 +6,7 @@ twitterUrl: https://twitter.com/HttpToolkit/status/1243530782653759490
 redditUrl: https://www.reddit.com/r/programming/comments/fpwyjo/http_555_userdefined_resource_error/
 hackerNewsUrl: https://news.ycombinator.com/item?id=22702658
 devToUrl: https://dev.to/pimterry/http-555-user-defined-resource-error-54ei
+tags: http, standards, errors
 ---
 
 Does the rise of serverless mean we need a new HTTP status code?

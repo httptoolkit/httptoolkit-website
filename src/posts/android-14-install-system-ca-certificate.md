@@ -2,6 +2,7 @@
 title: "New ways to inject system CA certificates in Android 14"
 date: '2023-09-21T12:00'
 cover_image: './header-images/android-phone.jpg'
+tags: android, interception, tls, certificates
 ---
 
 A couple of weeks ago I published a post about [changes in Android 14](https://httptoolkit.com/blog/android-14-breaks-system-certificate-installation/) that fundamentally break existing approaches to installing system-level CA certificates, even with root access. This has triggered some fascinating discussion! I highly recommend a skim through the debate on [Mastodon](https://toot.cafe/@pimterry/111012860794214522) and [Hacker News](https://news.ycombinator.com/item?id=37391521).

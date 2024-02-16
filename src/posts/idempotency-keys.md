@@ -4,6 +4,7 @@ date: '2023-12-12T15:00'
 cover_image: './header-images/repeated-network-failures.jpg'
 author: Phil Sturgeon
 authorUrl: https://philsturgeon.com/
+tags: http, standards, apis
 ---
 
 Idempotency is when doing an operation multiple times is guaranteed to have the same effect as doing it just once.

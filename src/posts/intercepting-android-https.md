@@ -2,6 +2,7 @@
 title: 'Intercepting HTTPS on Android'
 date: '2020-11-05T16:45'
 cover_image: './header-images/signing.jpg'
+tags: android, interception, tls, certificates
 ---
 
 To intercept, inspect or manipulate HTTPS traffic, you need the HTTPS client to trust you.

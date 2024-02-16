@@ -2,6 +2,7 @@
 title: Fixing DNS in Node.js
 date: '2021-02-17T16:00'
 cover_image: './header-images/forest-look-up.jpg'
+tags: node.js, javascript, performance
 ---
 
 DNS is one of those invisible technologies that you use every day, but which works so well that you can conveniently ignore it.

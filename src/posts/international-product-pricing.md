@@ -4,6 +4,7 @@ date: '2019-10-28T14:30'
 cover_image: './header-images/world-pins.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=21377504
 twitterUrl: https://twitter.com/HttpToolkit/status/1188835868355825672
+tags: business
 ---
 
 Naming a price for your latest magnum opus is one of the hardest decisions in releasing a product. In theory you price on the value you're providing, but wow that's hard to measure. Instead it's better (and often easier) to experiment: try a price, see how it converts and what that means for the bottom line, try another, compare, repeat.

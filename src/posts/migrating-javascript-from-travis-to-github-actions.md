@@ -2,6 +2,7 @@
 title: 'Migrating a JS project from Travis to GitHub Actions'
 date: '2020-10-27T11:45'
 cover_image: './header-images/factory.jpg'
+tags: cli, testing
 ---
 
 Travis has been the most popular place to build open-source code for a long time, but the world is moving on. GitHub Actions is modern, tightly integrated with the most popular code hosting platform in the world, flexible, fast, and free (for public repos).

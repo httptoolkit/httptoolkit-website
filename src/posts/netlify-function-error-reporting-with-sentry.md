@@ -3,6 +3,7 @@ title: 'Debugging Netlify Function Errors with Sentry'
 date: '2019-01-31T19:30'
 cover_image: './header-images/lost-plane.jpg'
 draft: false
+tags: debugging, javascript, errors
 ---
 
 [Netlify functions](https://www.netlify.com/docs/functions/) are a quick, easy & powerful tool, but like most serverless platforms, they can be even more difficult to debug & monitor than traditional server applications. It's a hard environment to precisely recreate locally, there's no machine you can SSH into in a pinch, and no built-in error notifications.

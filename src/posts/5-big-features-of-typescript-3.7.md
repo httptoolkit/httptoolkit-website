@@ -6,6 +6,7 @@ twitterUrl: https://twitter.com/HttpToolkit/status/1172151468721344517
 redditUrl: https://www.reddit.com/r/programming/comments/d38rp9/typescript_37_the_5_biggest_features_how_to_use/
 hackerNewsUrl: https://news.ycombinator.com/item?id=20956450
 devToUrl: https://dev.to/pimterry/the-5-big-features-of-typescript-3-7-and-how-to-use-them-1bfn
+tags: typescript, javascript
 ---
 
 The TypeScript 3.7 release is coming soon, and it's going to be a big one.

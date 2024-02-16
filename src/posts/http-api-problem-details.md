@@ -2,6 +2,7 @@
 title: How do you know what's gone wrong when your API request fails?
 date: '2020-11-24T13:35'
 cover_image: './header-images/wrecked-car.jpg'
+tags: apis, standards, errors
 ---
 
 When an API request doesn't work, hopefully the client receives a sensible HTTP error status, like 409 or 500, which is a good start. Unfortunately though, whilst `400 Bad Request` might be enough to know who's at fault, it's rarely enough information to understand or fix the actual problem.

@@ -2,6 +2,7 @@
 title: "How to Index 226,379 API Endpoints"
 date: '2021-02-11T13:00'
 cover_image: './header-images/library.jpg'
+tags: apis, openapi
 ---
 
 Wouldn't it be neat if you could take any HTTP request URL, and immediately find the matching API documentation, along with a detailed specification of the endpoint you're talking to?

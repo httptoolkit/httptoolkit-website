@@ -2,6 +2,7 @@
 title: 'Defining a new HTTP method: HTTP QUERY'
 date: '2021-04-12T15:00'
 cover_image: './header-images/binoculars.jpg'
+tags: http, apis, standards
 ---
 
 Nothing is ever finished or perfect, and HTTP is no exception.

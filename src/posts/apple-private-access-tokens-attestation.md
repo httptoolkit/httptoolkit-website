@@ -2,6 +2,7 @@
 title: "Apple already shipped attestation on the web, and we barely noticed"
 date: '2023-07-25T14:00'
 cover_image: './header-images/signing.jpg'
+tags: apple, browsers
 ---
 
 There's been a lot of concern recently about the [Web Environment Integrity](https://github.com/RupertBenWiser/Web-Environment-Integrity) proposal, developed by a selection of authors from Google, and apparently being prototyped in Chromium.

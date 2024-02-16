@@ -3,6 +3,7 @@ title: 'One-click HTTP debugging for any CLI tool'
 date: '2019-01-22T14:50'
 cover_image: './header-images/shell.jpg'
 draft: false
+tags: cli, interception
 ---
 
 ## Debug HTTP(S) from git, npm, apt-get, or any other CLI tool.

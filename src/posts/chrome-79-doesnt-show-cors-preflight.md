@@ -7,6 +7,7 @@ twitterUrl: https://twitter.com/HttpToolkit/status/1227974900561981440
 hackerNewsUrl: https://news.ycombinator.com/item?id=22319054
 redditUrl: https://www.reddit.com/r/javascript/comments/f3clz5/chrome_79_no_longer_shows_preflight_cors_requests/
 devToUrl: https://dev.to/pimterry/chrome-79-no-longer-shows-preflight-cors-requests-4k7e
+tags: cors, browsers, chrome
 ---
 
 Chrome 79 brings some important changes in its CORS implementation, rolling out now, which mean that CORS preflight OPTIONS requests will no longer appear in the network tab of the Chrome developer tools.

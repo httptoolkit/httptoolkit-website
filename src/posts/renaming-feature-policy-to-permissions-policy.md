@@ -5,6 +5,7 @@ cover_image: './header-images/wrong-way.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=23323044
 redditUrl: https://www.reddit.com/r/webdev/comments/grjydl/bye_bye_featurepolicy_hello_permissionspolicy/
 devToUrl: https://dev.to/pimterry/bye-bye-feature-policy-hello-permissions-policy-31gd
+tags: browsers, standards, http
 ---
 
 Ever heard of [`Feature-Policy`](https://w3c.github.io/webappsec-feature-policy/)? It's a draft W3C web security standard, defining an HTTP header and iframe attribute that sets limits on the browser features a page can use.

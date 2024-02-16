@@ -5,6 +5,7 @@ cover_image: './header-images/vpn-active.jpg'
 hackerNewsUrl: https://news.ycombinator.com/item?id=24270698
 redditUrl: https://www.reddit.com/r/androiddev/comments/igbe2p/inspecting_android_http_with_a_fake_vpn/
 twitterUrl: https://twitter.com/HttpToolkit/status/1298241363444727808
+tags: android, interception
 ---
 
 **Can you build an Android app that can inspect & rewrite the network traffic from every other app on the device?**
