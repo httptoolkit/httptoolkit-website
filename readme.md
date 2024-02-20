@@ -4,8 +4,8 @@
 
 ```bash
 # Install deps
-npm install
+npm install && npm run prepare
 
 # Run for local dev
-npm start
+npm run dev
 ```
