@@ -206,7 +206,6 @@ export class Layout extends React.Component {
 
           <link rel='preconnect' href='https://cdn.paddle.com' crossOrigin />
           <link rel='preconnect' href='https://checkout.paddle.com' crossOrigin />
-          <link rel='preconnect' href='https://accounts.paddle.com' crossOrigin />
           <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as="style" />
           <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js' as="script" />
 
