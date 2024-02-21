@@ -8,4 +8,5 @@ export interface HeadingProps {
   color?: TextColor;
   fontSize?: headingSize;
   fontWeight?: FontWeigth;
+  textAlign?: CanvasTextAlign;
 }
