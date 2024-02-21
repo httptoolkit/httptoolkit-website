@@ -5,4 +5,5 @@ export interface TextProps {
   color?: TextColor;
   fontSize?: FontSize;
   fontWeight?: FontWeigth;
+  textAlign?: CanvasTextAlign;
 }

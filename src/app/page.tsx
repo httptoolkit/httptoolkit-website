@@ -18,7 +18,7 @@ export default async function Home() {
       <Heading as="h5" fontSize="xs">
         What is HTTP Toolkit? - XS
       </Heading>
-      <Text>
+      <Text textAlign="center">
         This is a paragraph Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or
         inject errors
       </Text>
