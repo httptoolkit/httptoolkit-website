@@ -1,10 +1,6 @@
-import { CaretDown, RocketLaunch } from '@phosphor-icons/react/dist/ssr';
-
-import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
-import { Dropdown } from '@/components/modules/dropdown';
 
 export default async function Home() {
   return (
@@ -34,42 +30,6 @@ export default async function Home() {
         This is a paragraph orange and bold, Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite,
         redirect, or inject errors
       </Text>
-      <Button target="_blank" icon={CaretDown} as="link" href="/eso">
-        Download for macOs
-      </Button>
-      <Button as="button" withBorder icon={CaretDown}>
-        Download for macOs
-      </Button>
-      <Button as="button" variant="secondary" icon={RocketLaunch}>
-        Go Pro!
-      </Button>
-      <Button as="button" small variant="secondary" icon={RocketLaunch}>
-        Go Pro!
-      </Button>
-      <Dropdown
-        as="button"
-        variant="secondary"
-        small
-        items={[
-          {
-            content: 'Example',
-            as: 'button',
-          },
-          {
-            content: 'Example',
-            as: 'a',
-            href: '/',
-          },
-          {
-            content: 'Example',
-            as: 'Link',
-            href: '/',
-            target: '_blank',
-          },
-        ]}
-      >
-        Download for macOS
-      </Dropdown>
     </Container>
   );
 }
