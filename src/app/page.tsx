@@ -86,19 +86,23 @@ export default async function Home() {
           Pro Feature
         </Badge>
       </ShowCase>
-      <ShowCase title="Buttons">
+      <ShowCase title="Button Primary">
         <Button as="button" withBorder icon={CaretDown}>
           Download for macOs
         </Button>
         <Button icon={CaretDown} as="link" href="/blog">
           Download for macOs
         </Button>
+      </ShowCase>
+      <ShowCase title="Button Secondary">
         <Button as="button" variant="secondary" icon={RocketLaunch}>
           Go Pro!
         </Button>
         <Button as="button" small variant="secondary" icon={RocketLaunch}>
           Go Pro!
         </Button>
+      </ShowCase>
+      <ShowCase title="Dropdown">
         <Dropdown
           as="button"
           variant="secondary"
