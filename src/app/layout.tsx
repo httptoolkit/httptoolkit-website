@@ -5,7 +5,7 @@ import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
 
-const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
+const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-dmSans' });
 
 export const metadata: Metadata = {
   title: 'Intercept, debug &amp; mock HTTP with HTTP Toolkit',
@@ -41,7 +41,7 @@ export default function RootLayout({
 
       <link rel="privacy-policy" href="/privacy-policy/" />
       <link rel="terms-of-service" href="/terms-of-service/" />
-      <body className={dmSansFont.className}>
+      <body className={dmSansFont.variable}>
         <StyledComponentsRegistry>
           <StyledLayout>{children} </StyledLayout>
         </StyledComponentsRegistry>

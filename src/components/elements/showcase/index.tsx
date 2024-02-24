@@ -8,7 +8,7 @@ const ShowCaseWrapper = styled.fieldset`
   margin: 20px 0;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   border-radius: 5px;
 `;
 
