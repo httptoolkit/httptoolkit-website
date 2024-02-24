@@ -1,8 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const withMDX = require('@next/mdx')();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  experimental: {
+    optimizePackageImports: ['@phosphor-icons/react'],
+  },
   compiler: {
     styledComponents: true,
   },
