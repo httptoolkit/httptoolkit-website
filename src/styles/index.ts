@@ -82,6 +82,21 @@ export const theme = {
       m: '1rem', // 16px / 16px = 1rem
       s: '0.875rem', // 14px / 16px = 0.875
     },
+    button: {
+      default: '1.125rem', // 18px / 16px = 1.125.5rem
+      small: '1rem', // 16px / 16px = 1rem
+    },
+    label: {
+      xl: '1.5rem', // 24px / 16px = 1.5rem
+      l: '1rem', // 16px / 16px = 1rem
+      m: '0.875rem', // 14px / 16px = 0.875
+    },
+  },
+  lineHeight: {
+    label: '110%',
+  },
+  letterSpacing: {
+    label: '0.06em',
   },
   space: {
     xs: '4px',
@@ -109,7 +124,7 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #D93815, #F65430);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
-      --border-gradient: linear-gradient(to bottom, rgba(103, 108, 129, 0.2), rgba(93, 97, 112, 0.04));
+      --border-gradient: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
       --text-cinnabar-red: #EC502D;
@@ -133,7 +148,7 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
-      --border-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      --border-gradient: transparent;
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
       --text-cinnabar-red: #D93E1C;

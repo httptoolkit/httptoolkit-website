@@ -1,3 +1,6 @@
+import { Sparkle } from '@phosphor-icons/react/dist/ssr';
+
+import { Badge } from '@/components/elements/badge';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import ShowCase from '@/components/elements/showcase';
@@ -74,6 +77,12 @@ export default async function Home() {
         <Text as="span" fontSize="s" fontWeight="bold">
           Label M
         </Text>
+      </ShowCase>
+      <ShowCase title="Badge">
+        <Badge icon={Sparkle}>Intercept</Badge>
+        <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
+          Pro Feature
+        </Badge>
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
