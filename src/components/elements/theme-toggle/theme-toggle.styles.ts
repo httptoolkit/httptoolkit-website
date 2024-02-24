@@ -52,7 +52,7 @@ export const StyledSwitch = styled.div`
     border-radius: 11px;
     background: ${({ theme }) => theme.colors.darkGrey};
     transform: translate(0, -50%);
-    transition: 350ms all ease-in;
+    transition: 300ms transform cubic-bezier(0.25, 0.1, 0.52, 0.95);
   }
 `;
 
