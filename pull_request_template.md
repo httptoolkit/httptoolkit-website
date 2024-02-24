@@ -1,6 +1,4 @@
-# Pull Request Description
-
-## Description
+## Pull Request Description
 
 <!-- Give an explanation of the changes introduced in this PR -->
 <!-- Help other developers understood why it is done that way, how it works and why do you think that is the best way of doing it at the moment -->
