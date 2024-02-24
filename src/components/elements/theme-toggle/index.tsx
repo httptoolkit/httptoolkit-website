@@ -35,12 +35,19 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <StyledLabel tabIndex={1} onKeyDown={handleKeyPress}>
+    <StyledLabel htmlFor="themetoggle" onKeyDown={handleKeyPress}>
       <StyledIconsWrapper>
         <StyledMoon weight="fill" data-is-active={!isLight} />
         <StyledSun weight="fill" data-is-active={isLight} />
       </StyledIconsWrapper>
-      <StyledInput checked={isLight} type="checkbox" aria-checked={isLight} onChange={handleThemeChange} />
+      <StyledInput
+        id="themetoggle"
+        name="themetoggle"
+        checked={isLight}
+        type="checkbox"
+        aria-checked={isLight}
+        onChange={handleThemeChange}
+      />
       <StyledSwitch />
     </StyledLabel>
   );
