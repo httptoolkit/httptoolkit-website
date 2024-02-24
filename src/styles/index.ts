@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-nocheck
-
 import styled, { createGlobalStyle, css, ThemeProvider } from 'styled-components';
 import reset from 'styled-reset';
 
@@ -14,61 +11,45 @@ export const screens = {
   '2xl': '1440px',
 };
 
-export const lightTheme = {
-  inkBlack: '#16181E',
-  darkGrey: '#1E2028',
-  mediumGrey: '#32343B',
-  lightGrey: '#E6E8F2',
-  white: '#ffffff',
-  electricBlue: '#5175F2',
-  electricLightBlue: '#6284FA',
-  cinnarbarRed: '#D93E1C',
-  orangeGradient: '#D93815, #F65430',
-  blueGradient: '#4064E2, #3556CA',
-  darkGradient: '#1E2028, #30333E 70%',
+const TextGradient = css`
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+const colorTheme = {
+  inkBlack: 'var(--ink-black)',
+  darkGrey: 'var(--dark-grey)',
+  mediumGrey: 'var(--medium-grey)',
+  lightGrey: 'var(--light-grey)',
+  white: 'var(--white)',
+  electricBlue: 'var(--electric-blue)',
+  electricLightBlue: 'var(--electric-light-blue)',
+  cinnarbarRed: 'var(--cinnabar-red)',
+  orangeGradient: 'var(--orange-gradient)',
+  blueGradient: 'var(--blue-gradient)',
+  darkGradient: 'var(--dark-gradient)',
+  borderGradient: 'var(--border-gradient)',
   text: {
-    lightGrey: '#16181E',
-    darkGrey: '#595D68',
-    cinnarbarRed: '#D93E1C',
-    white: '#000000',
-    alwayWhite: '#ffffff',
-    alwayLightGrey: '#E6E8F2',
-    electricLightBlue: '#6284FA',
+    lightGrey: 'var(--text-light-grey)',
+    darkGrey: 'var(--text-dark-grey)',
+    cinnarbarRed: 'var(--text-cinnabar-red)',
+    white: 'var(--text-white)',
+    alwayWhite: 'var(--text-always-white)',
+    alwayLightGrey: 'var(--text-always-light-grey)',
+    electricLightBlue: 'var(--text-electric-light-blue)',
+    textGradient: TextGradient,
   },
+  shadowDefault: 'var(--shadow-default)',
 } as const;
 
-export const darkTheme = {
-  inkBlack: '#16181E',
-  darkGrey: '#1E2028',
-  mediumGrey: '#32343B',
-  lightGrey: '#E6E8F2',
-  white: '#ffffff',
-  electricBlue: '#5175F2',
-  electricLightBlue: '#6284FA',
-  cinnarbarRed: '#EC502D',
-  orangeGradient: '#D93815, #F65430',
-  blueGradient: '#4064E2, #3556CA',
-  darkGradient: '#1E2028, #30333E 70%',
-  text: {
-    lightGrey: '#E6E8F2',
-    darkGrey: '#C5C6CA',
-    cinnarbarRed: '#EC502D',
-    white: '#ffffff',
-    alwayWhite: '#ffffff',
-    alwayLightGrey: '#E6E8F2',
-    electricLightBlue: '#6284FA',
-  },
-};
-
-export type TextColor = keyof (typeof lightTheme)['text'];
+export type TextColor = keyof (typeof colorTheme)['text'];
 export type FontWeigth = keyof (typeof theme)['fontWeight'];
 export type FontSize = keyof (typeof theme)['fontSizes']['text'];
 
 export const theme = {
   screens,
   colors: {
-    // TODO: implement swicht theme
-    ...darkTheme,
+    ...colorTheme,
   },
   fontWeight: {
     light: '300',
@@ -116,12 +97,60 @@ export const theme = {
 export const GlobalStyles = createGlobalStyle`
     ${reset};
 
+    :root {
+      --ink-black: #16181E;
+      --dark-grey: #1E2028;
+      --medium-grey: #32343B;
+      --light-grey: #E6E8F2;
+      --white: #ffffff;
+      --electric-blue: #5175F2;
+      --electric-light-blue: #6284FA;
+      --cinnabar-red: #EC502D;
+      --orange-gradient: linear-gradient(to bottom, #D93815, #F65430);
+      --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
+      --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
+      --border-gradient: linear-gradient(to bottom, rgba(103, 108, 129, 0.2), rgba(93, 97, 112, 0.04));
+      --text-light-grey: #E6E8F2;
+      --text-dark-grey: #C5C6CA;
+      --text-cinnabar-red: #EC502D;
+      --text-white: #ffffff;
+      --text-always-white: #ffffff;
+      --text-always-light-grey: #E6E8F2;
+      --text-electric-light-blue: #6284FA;
+      --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
+      --shadow-default: rgba(230, 232, 242, 0.05);
+    }
+
+    .light {
+      --ink-black: #FBFAF9;
+      --dark-grey: #ffffff;
+      --medium-grey: #f2f2f2;
+      --light-grey: #333333;
+      --white: #16181E;
+      --electric-blue: #5175F2;
+      --electric-light-blue: #6284FA;
+      --cinnabar-red: #D93E1C;
+      --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
+      --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
+      --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
+      --border-gradient: linear-gradient(to bottom, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      --text-light-grey: #16181E;
+      --text-dark-grey: #595D68;
+      --text-cinnabar-red: #D93E1C;
+      --text-white: #ffffff;
+      --text-always-white: #ffffff;
+      --text-always-light-grey: #E6E8F2;
+      --text-electric-light-blue: #5175F2;
+      --text-gradient: linear-gradient(to bottom,rgba(30, 32, 40, 1),rgba(48, 51, 62, 0.7));
+      --shadow-default: rgba(0, 0, 0, 0.05);
+    }
+
     * {
         box-sizing: border-box;
     }
 
     a {
-      color: ${theme.colors.gray};
+      color: ${theme.colors.text.lightGrey};
     }
 
     strong {
@@ -130,9 +159,9 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         background-color: ${theme.colors.darkGrey};
-        color: ${theme.colors.text.darkGrey};
+        color: ${theme.colors.text.lightGrey};
         overflow-x: hidden;
-        font-size: calc(100% / 1.6);
+        font-size: 16px;
         line-height: 1.5;
     }
 

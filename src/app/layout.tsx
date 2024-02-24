@@ -5,7 +5,7 @@ import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
 
-const dmSansFont = DM_Sans({ subsets: ['latin'] });
+const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
