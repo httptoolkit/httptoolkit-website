@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-
 import type { DropdownOptionProps } from './dropdown.types';
 
+import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
 import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
@@ -38,7 +37,6 @@ export const DropdownWrapper = styled.div`
   position: relative;
   width: 100%;
   border-radius: 12px;
-  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
   justify-content: center;
 
   &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {

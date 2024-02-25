@@ -1,33 +1,31 @@
 import type { Icon, IconWeight } from '@phosphor-icons/react';
 import type { AnchorHTMLAttributes, AriaAttributes, ButtonHTMLAttributes } from 'react';
 
-type ButtonProperties = {
+export type ButtonWithoutHrefProps = {
   href?: never;
   target?: never;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-type LinkProperties = {
+export type LinkWithHrefProps = {
   href: string;
   type?: never;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export type ButtonProps<T> = {
-  as: T;
-  variant?: 'primary' | 'secondary';
-  withBorder?: boolean;
-  small?: boolean;
+export type ButtonType = 'link' | 'button';
+
+export type StyledButtonProps = {
+  $isDropdown?: boolean;
+  $variant?: 'primary' | 'secondary';
+  $withBorder?: boolean;
+  $small?: boolean;
+};
+
+export type ButtonProps = {
+  as?: ButtonType;
   icon?: Icon;
   iconWeight?: IconWeight;
-  isDropdown?: boolean;
-} & AriaAttributes &
-  (T extends 'button' ? ButtonProperties : LinkProperties);
+} & StyledButtonProps &
+  AriaAttributes &
+  (ButtonWithoutHrefProps | LinkWithHrefProps);
 
-export type ButtonType = <T extends 'button' | 'link'>(props: Component<ButtonProps<T>>) => JSX.Element;
-
-export type ButtonComponentType<T extends 'button' | 'link'> = (
-  props: Component<
-    Omit<ButtonProps<T>, 'as'> & {
-      as: 'button' | 'a';
-    }
-  >,
-) => JSX.Element;
+export type ButtonComponentType = (props: Component<Omit<ButtonProps, 'HTMLAnchorElement'>>) => JSX.Element;
