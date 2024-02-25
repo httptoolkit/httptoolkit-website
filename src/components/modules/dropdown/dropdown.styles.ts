@@ -1,24 +1,24 @@
 'use client';
 
-import type { DropdownOptionProps } from './dropdown.types';
+import type { DropdownOptionProps, DropdownProps } from './dropdown.types';
 
 import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
-import { adjustOpacity } from '@/styles/helpers/adjust-opacity';
 
-const openDropdown = css`
+const openDropdown = css<Pick<DropdownProps, '$variant'>>`
   padding: 4px;
   max-height: 300px;
-  border: 1px solid ${({ theme }) => adjustOpacity(theme.colors.white, 0.12)};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+  box-shadow: 0 0 0 1px
+    ${({ theme, $variant }) => ($variant === 'secondary' ? theme.colors.borderGradient : theme.colors.cinnarbarRed)};
 `;
 
-export const DropdownOptionsWrapper = styled.div`
+export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
   display: grid;
   position: absolute;
   top: calc(100% + 4px);
   border-radius: 12px;
-  background: ${({ theme }) => theme.colors.inkBlack};
+  background: ${({ theme, $variant }) =>
+    $variant === 'secondary' ? theme.colors.inkBlack : theme.colors.orangeGradient};
   padding: 0 4px;
   gap: 4px;
   min-width: 100%;
@@ -26,14 +26,15 @@ export const DropdownOptionsWrapper = styled.div`
   transition: all 0.5s linear;
   overflow: hidden;
   z-index: 33;
-  box-shadow: 0px 0px 8px 0px rgba(230, 232, 242, 0.05);
+  box-shadow: ${({ $variant }) =>
+    $variant === 'secondary' ? '0px 0px 8px 0px rgba(230, 232, 242, 0.05)' : '0px 0px 8px 0px rgba(225, 66, 31, 0.05)'};
 
   &:hover {
     ${openDropdown}
   }
 `;
 
-export const DropdownWrapper = styled.div`
+export const DropdownWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
   position: relative;
   width: 100%;
   border-radius: 12px;
@@ -49,12 +50,13 @@ export const DropdownWrapper = styled.div`
   }
 `;
 
-const baseOption = css`
+const baseOption = css<DropdownOptionProps>`
   background-color: transparent;
   border: none;
   border-radius: 10px;
   padding: 14px;
-  color: ${({ theme }) => theme.colors.text.lightGrey};
+  color: ${({ theme, $variant }) =>
+    $variant === 'secondary' ? theme.colors.text.lightGrey : theme.colors.text.alwayWhite};
   font-size: ${({ theme }) => theme.fontSizes.text.m};
   line-height: 1;
   text-align: center;
@@ -67,9 +69,11 @@ const baseOption = css`
 
   &:hover,
   &:focus {
-    background-color: ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme, $variant }) =>
+      $variant === 'secondary' ? theme.colors.darkGrey : theme.colors.cinnarbarRedDark};
   }
 `;
+
 export const LinkDropdownOption = styled(Link)<DropdownOptionProps>`
   ${baseOption}
 `;

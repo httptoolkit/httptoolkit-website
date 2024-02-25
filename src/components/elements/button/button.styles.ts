@@ -16,7 +16,6 @@ const base = css<StyledButtonProps>`
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-decoration: none;
   line-height: 1;
-  padding: ${({ $small }) => ($small ? '14px 24px' : '18px 24px')};
   border-radius: 12px;
   gap: 8px;
   align-items: center;
@@ -39,6 +38,7 @@ const base = css<StyledButtonProps>`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
           background: ${({ theme }) => theme.colors.orangeGradient};
           border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
+          padding: ${props.$small ? '16px 24px' : '19px 24px'};
           box-shadow:
             0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
             0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
@@ -84,6 +84,7 @@ const base = css<StyledButtonProps>`
         return css`
           color: ${({ theme }) => theme.colors.text.lightGrey};
           background-color: ${({ theme }) => theme.colors.button.secondaryDefault};
+          padding: ${props.$small ? '16px 24px' : '20px 24px'};
           box-shadow:
             0 0 0 1px ${({ theme }) => theme.colors.button.border},
             0px 0px 8px 0px rgba(230, 232, 242, 0.05);
