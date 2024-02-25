@@ -25,6 +25,7 @@ const colorTheme = {
   electricBlue: 'var(--electric-blue)',
   electricLightBlue: 'var(--electric-light-blue)',
   cinnarbarRed: 'var(--cinnabar-red)',
+  cinnarbarRedDark: 'var(--cinnabar-red-dark)',
   orangeGradient: 'var(--orange-gradient)',
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
@@ -141,6 +142,7 @@ export const GlobalStyles = createGlobalStyle`
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
       --cinnabar-red: #EC502D;
+      --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
@@ -168,6 +170,7 @@ export const GlobalStyles = createGlobalStyle`
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
       --cinnabar-red: #D93E1C;
+      --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
