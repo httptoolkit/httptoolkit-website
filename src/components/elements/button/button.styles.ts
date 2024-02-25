@@ -1,23 +1,22 @@
 'use client';
 
-import Link from 'next/link';
+import type { StyledButtonProps } from './button.types';
 
-import type { ButtonProps } from './button.types';
-
+// import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
 
-const base = css<ButtonProps<'button'>>`
+const base = css<StyledButtonProps>`
   position: relative;
   z-index: 1;
   display: flex;
   width: 100%;
   outline: none;
   border: 0;
-  font-size: ${({ theme, small }) => theme.fontSizes.button[small ? 'small' : 'default']};
+  font-size: ${({ theme, $small }) => theme.fontSizes.button[$small ? 'small' : 'default']};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   text-decoration: none;
   line-height: 1;
-  padding: ${({ small }) => (small ? '14px 24px' : '18px 24px')};
+  padding: ${({ $small }) => ($small ? '14px 24px' : '18px 24px')};
   border-radius: 12px;
   gap: 8px;
   align-items: center;
@@ -34,7 +33,7 @@ const base = css<ButtonProps<'button'>>`
   }
 
   ${props => {
-    switch (props.variant) {
+    switch (props.$variant) {
       case 'primary':
         return css`
           color: ${({ theme }) => theme.colors.text.alwayWhite};
@@ -44,7 +43,7 @@ const base = css<ButtonProps<'button'>>`
             0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
             0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
 
-          ${props.withBorder &&
+          ${props.$withBorder &&
           `
             box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 4px 24px 0px rgba(245, 109, 79, 0.15), 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
           `}
@@ -52,7 +51,7 @@ const base = css<ButtonProps<'button'>>`
           &:hover {
             transition: border ease-in 0.3s;
             ${() =>
-              !props.withBorder &&
+              !props.$withBorder &&
               `
               border: 1px solid ${props.theme.colors.text.white};
             `}
@@ -60,7 +59,7 @@ const base = css<ButtonProps<'button'>>`
 
           &:focus {
             ${() =>
-              props.withBorder
+              props.$withBorder
                 ? `
                 box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 8px rgba(50, 52, 59, 0.6);
                 `
@@ -90,7 +89,7 @@ const base = css<ButtonProps<'button'>>`
             0px 0px 8px 0px rgba(230, 232, 242, 0.05);
           &:hover {
             ${() =>
-              !props.isDropdown &&
+              !props.$isDropdown &&
               `
               box-shadow:  0 0 0 1px ${props.theme.colors.text.lightGrey};
               `}
@@ -98,7 +97,7 @@ const base = css<ButtonProps<'button'>>`
 
           &:focus {
             ${() =>
-              !props.isDropdown &&
+              !props.$isDropdown &&
               `
               border: 1px solid ${props.theme.colors.text.lightGrey};
               box-shadow:
@@ -110,7 +109,7 @@ const base = css<ButtonProps<'button'>>`
           &:active {
             background-color: ${({ theme }) => theme.colors.darkGrey};
             ${() =>
-              !props.isDropdown &&
+              !props.$isDropdown &&
               `
             border: 1px solid ${props.theme.colors.text.lightGrey};
             `}
@@ -120,11 +119,11 @@ const base = css<ButtonProps<'button'>>`
   }}
 `;
 
-export const StyledLink = styled(Link)<ButtonProps<'button'>>`
+export const StyledLink = styled.a<StyledButtonProps>`
   ${base}
 `;
 
-export const StyledButton = styled.button<ButtonProps<'button'>>`
+export const StyledButton = styled.button<StyledButtonProps>`
   ${base}
 `;
 

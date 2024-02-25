@@ -9,8 +9,8 @@ import { Button } from '@/components/elements/button';
 
 const renderOptions = (items: DropdownOptionProps[]) => {
   return items.map(({ content, as, href, onClick, ...aria }) => {
-    const OptionComponent: OptionComponentType = as === 'Link' ? LinkDropdownOption : DropdownOption;
-    const newAs = as === 'Link' ? undefined : as;
+    const OptionComponent: OptionComponentType = as === 'link' ? LinkDropdownOption : DropdownOption;
+    const newAs = as === 'link' ? undefined : as;
 
     return (
       <OptionComponent key={content} as={newAs} href={href} onClick={onClick} {...aria}>
@@ -29,7 +29,7 @@ export const Dropdown = ({
 }: Component<DropdownProps>) => {
   return (
     <DropdownWrapper>
-      <Button isDropdown icon={icon} iconWeight={iconWeight} {...buttonProps}>
+      <Button icon={icon} iconWeight={iconWeight} $isDropdown {...buttonProps}>
         {children}
       </Button>
       <DropdownOptionsWrapper>{Array.isArray(items) && renderOptions(items)}</DropdownOptionsWrapper>

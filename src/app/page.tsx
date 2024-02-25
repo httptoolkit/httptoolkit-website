@@ -8,8 +8,26 @@ import ShowCase from '@/components/elements/showcase';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Dropdown } from '@/components/modules/dropdown';
+import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 
 export default async function Home() {
+  const dropdownItems: DropdownOptionProps[] = [
+    {
+      content: 'Download for Android',
+    },
+    {
+      content: 'Download for Linux',
+      as: 'link',
+      target: '_blank',
+      href: 'https://www.google.com/',
+    },
+    {
+      content: 'Download for Mac',
+      as: 'link',
+      href: '/blog',
+    },
+  ];
+
   return (
     <Container>
       <ShowCase title="Heading">
@@ -87,7 +105,7 @@ export default async function Home() {
         </Badge>
       </ShowCase>
       <ShowCase title="Button Primary">
-        <Button as="button" withBorder icon={CaretDown}>
+        <Button as="button" $withBorder icon={CaretDown}>
           Download for macOs
         </Button>
         <Button icon={CaretDown} as="link" href="/blog">
@@ -95,36 +113,18 @@ export default async function Home() {
         </Button>
       </ShowCase>
       <ShowCase title="Button Secondary">
-        <Button as="button" variant="secondary" icon={RocketLaunch}>
+        <Button icon={RocketLaunch} $variant="secondary">
           Go Pro!
         </Button>
-        <Button as="button" small variant="secondary" icon={RocketLaunch}>
+        <Button icon={RocketLaunch} $small $variant="secondary">
           Go Pro!
         </Button>
       </ShowCase>
       <ShowCase title="Dropdown">
-        <Dropdown
-          as="button"
-          variant="secondary"
-          small
-          items={[
-            {
-              content: 'Download for Android',
-              as: 'button',
-            },
-            {
-              content: 'Download for Linux',
-              as: 'a',
-              target: '_blank',
-              href: 'https://www.google.com/',
-            },
-            {
-              content: 'Download for Mac',
-              as: 'Link',
-              href: '/blog',
-            },
-          ]}
-        >
+        <Dropdown $variant="secondary" $small items={dropdownItems}>
+          Download for macOS
+        </Dropdown>
+        <Dropdown $variant="primary" $withBorder items={dropdownItems}>
           Download for macOS
         </Dropdown>
       </ShowCase>
