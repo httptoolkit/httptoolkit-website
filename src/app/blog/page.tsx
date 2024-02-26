@@ -1,8 +1,8 @@
-import { Book } from '@phosphor-icons/react/dist/ssr';
 import Link from 'next/link';
 
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { Book } from '@/components/elements/icon';
 import { getAllPostsMeta } from '@/lib/mdx';
 
 export default async function Blog() {
