@@ -52,8 +52,7 @@ const baseOption = css<DropdownOptionProps>`
   border: none;
   border-radius: 10px;
   padding: 14px;
-  color: ${({ theme, $variant }) =>
-    $variant === 'secondary' ? theme.colors.text.lightGrey : theme.colors.text.alwayWhite};
+  color: ${({ theme }) => theme.colors.text.lightGrey};
   font-size: ${({ theme }) => theme.fontSizes.text.m};
   line-height: 1;
   text-align: center;
