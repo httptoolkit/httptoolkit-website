@@ -1,10 +1,10 @@
-import { CaretDown, RocketLaunch, Sparkle } from '@phosphor-icons/react/dist/ssr';
-
 import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
+import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Dropdown } from '@/components/modules/dropdown';
@@ -103,6 +103,12 @@ export default async function Home() {
         <Badge icon={Sparkle} variant="secondary" additionalText="Edit">
           Pro Feature
         </Badge>
+      </ShowCase>
+      <ShowCase title="Icon">
+        <SquareIcon icon={Alien} />
+        <SquareIcon icon={Alien} $size="large" />
+        <SquareIcon icon={Logo} $variant="secondary" />
+        <SquareIcon icon={Alien} $variant="tertiary" />
       </ShowCase>
       <ShowCase title="Button Primary">
         <Button as="button" $withBorder icon={CaretDown}>
