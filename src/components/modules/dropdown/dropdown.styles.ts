@@ -5,20 +5,18 @@ import type { DropdownOptionProps, DropdownProps } from './dropdown.types';
 import { Link } from '@/components/elements/link';
 import { css, screens, styled } from '@/styles';
 
-const openDropdown = css<Pick<DropdownProps, '$variant'>>`
+const openDropdown = css`
   padding: 4px;
   max-height: 300px;
-  box-shadow: 0 0 0 1px
-    ${({ theme, $variant }) => ($variant === 'secondary' ? theme.colors.borderGradient : theme.colors.cinnarbarRed)};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
 `;
 
-export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
+export const DropdownOptionsWrapper = styled.div`
   display: grid;
   position: absolute;
   top: calc(100% + 4px);
   border-radius: 12px;
-  background: ${({ theme, $variant }) =>
-    $variant === 'secondary' ? theme.colors.inkBlack : theme.colors.orangeGradient};
+  background: ${({ theme }) => theme.colors.inkBlack};
   padding: 0 4px;
   gap: 4px;
   min-width: 100%;
@@ -26,8 +24,7 @@ export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$variant'>
   transition: all 0.5s linear;
   overflow: hidden;
   z-index: 33;
-  box-shadow: ${({ $variant }) =>
-    $variant === 'secondary' ? '0px 0px 8px 0px rgba(230, 232, 242, 0.05)' : '0px 0px 8px 0px rgba(225, 66, 31, 0.05)'};
+  box-shadow: '0px 0px 8px 0px rgba(230, 232, 242, 0.05)';
 
   &:hover {
     ${openDropdown}
@@ -69,8 +66,7 @@ const baseOption = css<DropdownOptionProps>`
 
   &:hover,
   &:focus {
-    background: ${({ theme, $variant }) =>
-      $variant === 'secondary' ? theme.colors.darkGrey : theme.colors.cinnarbarRedDark};
+    background: ${({ theme }) => theme.colors.darkGrey};
   }
 `;
 
