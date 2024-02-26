@@ -127,7 +127,7 @@ export default async function Home() {
         </Button>
       </ShowCase>
       <ShowCase title="Dropdown">
-        <Dropdown $variant="secondary" $small items={dropdownItems} aria-label="Download Items">
+        <Dropdown $small items={dropdownItems} aria-label="Download Items">
           Download for macOS
         </Dropdown>
         <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">

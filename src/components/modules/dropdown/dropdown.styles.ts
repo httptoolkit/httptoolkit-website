@@ -7,14 +7,15 @@ import { css, screens, styled } from '@/styles';
 
 const openDropdown = css`
   padding: 4px;
-  max-height: 300px;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+  max-height: fit-content;
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
 `;
 
-export const DropdownOptionsWrapper = styled.div`
+export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction'>>`
   display: grid;
   position: absolute;
-  top: calc(100% + 4px);
+  top: ${({ $direction }) => ($direction === 'bottom' ? 'calc(100% + 4px)' : 'auto')};
+  bottom: ${({ $direction }) => ($direction === 'top' ? 'calc(100% + 4px)' : 'auto')};
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.inkBlack};
   padding: 0 4px;
