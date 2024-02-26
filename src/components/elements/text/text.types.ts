@@ -1,7 +1,11 @@
 import type { FontSize, FontWeigth, TextColor } from '@/styles';
 
-export interface TextProps {
-  as?: 'span' | 'p';
+export interface StyledTextProps {
+  $isLabel?: boolean;
+}
+
+export interface TextProps extends StyledTextProps {
+  as?: 'span' | 'p' | 'label';
   color?: TextColor;
   fontSize?: FontSize;
   fontWeight?: FontWeigth;
