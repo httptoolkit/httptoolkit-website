@@ -4,7 +4,7 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledHeaderWrapper = styled.section`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 `;
 
 export const StyledLogoWrapper = styled.div`
@@ -19,6 +19,7 @@ export const StyledHeaderContainer = styled(Container)`
   padding-top: 22px;
   padding-bottom: 22px;
   gap: 56px;
+  max-height: 70px;
 
   justify-content: space-between;
 `;

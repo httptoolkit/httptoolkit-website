@@ -24,14 +24,14 @@ export const MobileHeader = ({ navigationItems, dropdownItems }: MobileHeaderPro
           {navigationItems.map(navItem => {
             return (
               <Link key={`${navItem.label}-${navItem.href}`} href={navItem.href}>
-                <Text as="label" fontSize="xl" fontWeight="bold">
+                <Text as="label" fontSize="xll" fontWeight="bold" color="lightGrey">
                   {navItem.label}
                 </Text>
               </Link>
             );
           })}
         </StyledNavMobileItems>
-        <Dropdown items={dropdownItems} aria-label="Download Items" $variant="secondary" $small $direction="top">
+        <Dropdown items={dropdownItems} aria-label="Download Items" $variant="secondary" $direction="top">
           Download for macOS
         </Dropdown>
       </MobileDrawerMenu>
