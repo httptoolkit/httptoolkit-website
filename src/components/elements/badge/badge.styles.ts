@@ -19,12 +19,10 @@ export const AdditionalText = styled.span`
   text-transform: uppercase;
 `;
 
-export const StyledBadge = styled.span<BadgeProps>`
+export const StyledBadge = styled.h3<BadgeProps>`
   display: flex;
   align-items: center;
-
   gap: 6px;
-
   font-size: ${({ theme }) => theme.fontSizes.label.m};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: ${({ theme }) => theme.lineHeight.label};
@@ -39,7 +37,7 @@ export const StyledBadge = styled.span<BadgeProps>`
           padding: 6px 10px;
           color: ${({ theme }) => theme.colors.text.lightGrey};
           background-color: ${({ theme }) => theme.colors.mediumGrey};
-          box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderGradient};
+          box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderDark} inset;
         `;
 
       case 'secondary':
@@ -49,8 +47,8 @@ export const StyledBadge = styled.span<BadgeProps>`
           color: ${({ theme }) => theme.colors.text.alwayLightGrey};
           background: ${({ theme }) => theme.colors.blueGradient};
           box-shadow:
-            0px 1.66px 0.83px 0px rgba(201, 212, 251, 0.1) inset,
-            0px -0.83px 0.83px 0px rgba(16, 46, 151, 0.1) inset;
+            0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+            0px 1.66px 0.83px 0px rgba(201, 212, 251, 0.1) inset;
         `;
     }
   }}
