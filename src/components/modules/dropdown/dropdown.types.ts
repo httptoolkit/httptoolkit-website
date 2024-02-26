@@ -21,4 +21,5 @@ export interface DropdownProps extends StyledButtonProps, AriaAttributes {
   icon?: Icon;
   iconWeight?: IconWeight;
   items: DropdownOptionProps[];
+  $direction?: 'top' | 'bottom';
 }

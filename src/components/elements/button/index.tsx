@@ -16,6 +16,7 @@ export const Button = ({
   $variant = 'primary',
   $withBorder = false,
   $isDropdown = false,
+  className,
   ...aria
 }: ButtonProps) => {
   const BaseButton = () => {
@@ -23,6 +24,7 @@ export const Button = ({
 
     return (
       <ButtonComponent
+        className={className}
         type={type}
         onClick={onClick}
         href={href}

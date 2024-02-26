@@ -9,6 +9,7 @@ export default async function Blog() {
   const posts = await getAllPostsMeta();
   return (
     <Container>
+      <Heading color="textGradient">Blog</Heading>
       {posts?.map((post, i) => (
         <Link href={`/blog/${post.slug}`} style={{ marginBottom: 10, display: 'block', textDecoration: 'none' }}>
           <Heading as="h3" fontSize="xs" key={post.slug}>

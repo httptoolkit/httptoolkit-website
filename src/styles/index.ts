@@ -198,6 +198,7 @@ export const GlobalStyles = createGlobalStyle`
 
     a {
       color: ${theme.colors.text.lightGrey};
+      text-decoration: none;
     }
 
     strong {

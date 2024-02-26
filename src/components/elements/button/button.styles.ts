@@ -31,6 +31,10 @@ const base = css<StyledButtonProps>`
     transition: all ease-in 0.3s;
   }
 
+  & svg {
+    fill: currentColor;
+  }
+
   ${props => {
     switch (props.$variant) {
       case 'primary':
