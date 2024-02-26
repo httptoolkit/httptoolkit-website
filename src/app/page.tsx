@@ -3,6 +3,7 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
+import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
@@ -133,6 +134,12 @@ export default async function Home() {
         <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
           Download for macOS
         </Dropdown>
+      </ShowCase>
+      <ShowCase title="Input">
+        <Input placeholder="Email address" />
+        <Input placeholder="Search" type="search" />
+        <Input as="textarea" placeholder="Email address" />
+        <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
