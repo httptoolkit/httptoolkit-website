@@ -88,13 +88,13 @@ export default async function Home() {
           S Semibold: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
           errors
         </Text>
-        <Text as="span" fontSize="xll" fontWeight="bold">
+        <Text as="label" fontSize="xll" fontWeight="bold">
           Label XL
         </Text>
-        <Text as="span" fontSize="l" fontWeight="bold">
+        <Text as="label" fontSize="m" fontWeight="bold">
           Label L
         </Text>
-        <Text as="span" fontSize="s" fontWeight="bold">
+        <Text as="label" fontSize="s" fontWeight="bold">
           Label M
         </Text>
       </ShowCase>
