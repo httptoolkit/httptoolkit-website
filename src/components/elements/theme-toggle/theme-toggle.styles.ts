@@ -67,6 +67,13 @@ export const StyledInput = styled.input`
       transform: translate(var(--icon-size), -50%);
     }
   }
+
+  &:focus-visible + ${StyledSwitch} {
+    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    box-shadow:
+      0px 0px 8px 0px rgba(230, 232, 242, 0.05),
+      0px 0px 0px 8px rgba(50, 52, 59, 0.6);
+  }
 `;
 
 export const StyledIconsWrapper = styled.span`
