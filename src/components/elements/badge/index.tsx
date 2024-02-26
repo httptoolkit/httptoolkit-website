@@ -15,7 +15,7 @@ export const Badge = ({
       {hasAdditionalText && <AdditionalText>{additionalText}</AdditionalText>}
       <StyledBadge variant={variant}>
         {Icon && <Icon size={16} weight={iconWeight} />}
-        <h3>{children}</h3>
+        {children}
       </StyledBadge>
     </BadgeWrapper>
   );
