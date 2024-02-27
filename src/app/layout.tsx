@@ -46,7 +46,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <StyledLayout>
             <Header />
-            {children}
+            <main>{children}</main>
           </StyledLayout>
         </StyledComponentsRegistry>
       </body>
