@@ -4,6 +4,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, AriaA
   as?: 'input' | 'textarea';
   errorMessage?: string;
   $hasError?: boolean;
+  onClickSearch?: () => void;
 }
 
 export interface InputBorderProps {

@@ -29,14 +29,18 @@ export const StyledInputBorder = styled.span<InputBorderProps>`
     `
       background: ${theme.colors.orangeGradient};
     `}
+`;
 
-  & > svg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 12px;
-    margin: auto;
-  }
+export const StyledSearchButton = styled.button`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 12px;
+  margin: auto;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.text.alwayWhite};
 `;
 
 export const StyledInput = styled.input<InputProps>`
