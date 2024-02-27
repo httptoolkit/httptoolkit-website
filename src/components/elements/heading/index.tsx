@@ -8,9 +8,17 @@ export const Heading = ({
   color,
   fontSize = 'xl',
   fontWeight,
+  textAlign,
 }: Component<HeadingProps>) => {
   return (
-    <StyledHeading as={as} fontSize={fontSize} color={color} fontWeight={fontWeight} className={className}>
+    <StyledHeading
+      as={as}
+      textAlign={textAlign}
+      fontSize={fontSize}
+      color={color}
+      fontWeight={fontWeight}
+      className={className}
+    >
       {children}
     </StyledHeading>
   );
