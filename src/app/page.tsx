@@ -2,7 +2,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { Sparkle, Alien, Logo, CaretDown, RocketLaunch } from '@/components/elements/icon';
+import { Sparkle, Alien, CaretDown, RocketLaunch, Logo } from '@/components/elements/icon';
 import { Input } from '@/components/elements/input';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
