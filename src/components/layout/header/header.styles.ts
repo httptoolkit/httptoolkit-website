@@ -3,7 +3,7 @@
 import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
-export const StyledHeaderWrapper = styled.section`
+export const StyledHeader = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 `;
 
