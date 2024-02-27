@@ -30,6 +30,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.1.0",
     "@phosphor-icons/react": "^2.0.15",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@types/mdx": "^2.0.11",
     "date-fns": "^1.29.0",
     "framer-motion": "^11.0.5",

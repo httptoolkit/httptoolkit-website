@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 
 import { Header } from '@/components/layout/header';
+import { RadixProviders } from '@/components/layout/radix-layout';
 import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
@@ -45,8 +46,10 @@ export default function RootLayout({
       <body className={dmSansFont.variable}>
         <StyledComponentsRegistry>
           <StyledLayout>
-            <Header />
-            <main>{children}</main>
+            <RadixProviders>
+              <Header />
+              <main>{children}</main>
+            </RadixProviders>
           </StyledLayout>
         </StyledComponentsRegistry>
       </body>
