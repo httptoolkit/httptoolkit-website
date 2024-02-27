@@ -145,7 +145,7 @@ export const GlobalStyles = createGlobalStyle`
       --white: #ffffff;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #EC502D;
+      --cinnabar-red: #F2522E;
       --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
@@ -214,7 +214,7 @@ export const GlobalStyles = createGlobalStyle`
       line-height: 0;
     }
 
-    button {
+    button, textarea {
       font-family: ${theme.fontFamily.dmSans};
     }
 
