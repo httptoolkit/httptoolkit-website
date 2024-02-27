@@ -1,7 +1,7 @@
 import { MobileHeader } from './header-mobile';
 import {
   StyledHeaderContainer,
-  StyledHeaderWrapper,
+  StyledHeader,
   StyledLogoWrapper,
   StyledNavItems,
   StyledNavigation,
@@ -48,7 +48,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   ];
 
   return (
-    <StyledHeaderWrapper>
+    <StyledHeader>
       <StyledHeaderContainer>
         <StyledLogoWrapper>
           <Link href="/" aria-label="Go to home">
@@ -75,6 +75,6 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
           </StyledNavigation>
         ) : null}
       </StyledHeaderContainer>
-    </StyledHeaderWrapper>
+    </StyledHeader>
   );
 };
