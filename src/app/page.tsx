@@ -1,6 +1,7 @@
 import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
+import { Copy } from '@/components/elements/copy';
 import { Heading } from '@/components/elements/heading';
 import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
@@ -209,6 +210,9 @@ export default async function Home() {
           $align="center"
           $isContentCentered
         />
+      </ShowCase>
+      <ShowCase title="Copy">
+        <Copy text="brew install --cask http-toolkit" />
       </ShowCase>
       <ShowCase title="Theme toggle">
         <ThemeToggle />
