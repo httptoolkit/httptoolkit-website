@@ -1,7 +1,7 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import type { ChangeEvent, KeyboardEvent } from 'react';
-import { useEffect, useState } from 'react';
 
 import {
   StyledIconsWrapper,
@@ -12,44 +12,45 @@ import {
   StyledSwitch,
 } from './theme-toggle.styles';
 
-export const ThemeToggle = () => {
-  const [isLight, setIsLight] = useState(false);
+import { useMounted } from '@/lib/hooks/use-mounted';
 
-  useEffect(() => {
-    const html = document.querySelector('html') as HTMLHtmlElement;
-    if (isLight) {
-      html.classList.add('light');
-    } else {
-      html.classList.remove('light');
-    }
-  }, [isLight]);
+export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
+  const { isMounted } = useMounted();
+  const { theme, setTheme } = useTheme();
+
+  if (!isMounted) {
+    return null;
+  }
 
   const handleThemeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setIsLight(e.target.checked);
+    const isChecked = e.target.checked;
+    setTheme(isChecked ? 'light' : 'dark');
   };
+
+  const isLightMode = theme === 'light';
 
   const handleKeyPress = (event: KeyboardEvent<HTMLLabelElement>) => {
     if (event.key === 'Enter') {
-      setIsLight(v => !v);
+      setTheme(isLightMode ? 'dark' : 'light');
     }
   };
 
-  const changeThemeText = isLight ? 'dark' : 'light';
+  const changeThemeText = isLightMode ? 'dark' : 'light';
 
   return (
-    <StyledLabel htmlFor="themetoggle" onKeyDown={handleKeyPress}>
+    <StyledLabel htmlFor={id} onKeyDown={handleKeyPress}>
       <span className="visually-hidden">Enable {changeThemeText} mode</span>
       <StyledIconsWrapper>
-        <StyledMoon aria-label="Dark theme" weight="fill" data-is-active={!isLight} />
-        <StyledSun aria-label="Light theme" weight="fill" data-is-active={isLight} />
+        <StyledMoon aria-label="Dark theme" weight="fill" data-is-active={!isLightMode} />
+        <StyledSun aria-label="Light theme" weight="fill" data-is-active={isLightMode} />
       </StyledIconsWrapper>
       <StyledInput
-        id="themetoggle"
+        id={id}
         role="switch"
-        name="theme-toggle"
-        checked={isLight}
+        name="{id}"
+        checked={isLightMode}
         type="checkbox"
-        aria-checked={isLight}
+        aria-checked={isLightMode}
         onChange={handleThemeChange}
       />
       <StyledSwitch />

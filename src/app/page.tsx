@@ -7,8 +7,8 @@ import { Sparkle, Alien, Logo, CaretDown, RocketLaunch, AndroidLogo } from '@/co
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
-import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Tooltip } from '@/components/elements/tooltip';
+import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -214,8 +214,8 @@ export default async function Home() {
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
       </ShowCase>
-      <ShowCase title="Theme toggle">
-        <ThemeToggle />
+      <ShowCase title="Simple Footer">
+        <SimpleFooter />
       </ShowCase>
     </Container>
   );

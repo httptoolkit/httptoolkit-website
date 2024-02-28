@@ -1,5 +1,7 @@
 'use client';
 
+import { ThemeProvider as NextThemeProvider } from 'next-themes';
+
 import { ThemeProvider, GlobalStyles, theme } from '@/styles';
 
 interface MainLayoutProps {
@@ -9,8 +11,10 @@ interface MainLayoutProps {
 export const StyledLayout = ({ children }: MainLayoutProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      {children}
+      <NextThemeProvider>
+        <GlobalStyles />
+        {children}
+      </NextThemeProvider>
     </ThemeProvider>
   );
 };
