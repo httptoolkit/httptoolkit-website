@@ -167,7 +167,7 @@ export const GlobalStyles = createGlobalStyle`
       --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
     }
 
-    .light {
+    [data-theme="light"] {
       --ink-black: #FBFAF9;
       --dark-grey: #ffffff;
       --medium-grey: #f2f2f2;
@@ -225,6 +225,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
         font-size: 16px;
         line-height: 1.5;
+        /* -webkit-font-smoothing: antialiased; */
     }
 
     em {

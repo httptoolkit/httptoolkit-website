@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo } from './custom';
+import { FullLogo, Logo, Github, TwitterX } from './custom';
 
 export {
   Alien,
@@ -26,4 +26,6 @@ export {
   CheckCircle,
   AndroidLogo,
   ArrowRight,
+  Github,
+  TwitterX,
 };

@@ -19,6 +19,7 @@ export const StyledLabel = styled.label`
   border-radius: 12px;
   display: flex;
   align-items: center;
+  height: fit-content;
   gap: 10px;
   cursor: pointer;
   box-shadow: 0 0 8px ${({ theme }) => theme.colors.shadowDefault};
