@@ -156,7 +156,7 @@ export default async function Home() {
           </Button>
         </Tooltip>
       </ShowCase>
-      <ShowCase title="Integration Card">
+      <ShowCase title="Integration Card" $flexDirection="row">
         <IntegrationCard
           $showBadge
           icon={AndroidLogo}

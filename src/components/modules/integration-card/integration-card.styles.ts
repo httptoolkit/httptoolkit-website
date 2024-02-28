@@ -46,7 +46,7 @@ export const StyledIntegrationCardLink = styled(Link)`
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.button.default};
+  font-size: ${({ theme }) => theme.fontSizes.button.small};
   font-weight: ${({ theme }) => theme.fontWeight.medium};
   color: ${({ theme }) => theme.colors.lightGrey};
 `;
