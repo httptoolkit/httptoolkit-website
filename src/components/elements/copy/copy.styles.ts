@@ -27,4 +27,6 @@ export const StyledCopy = styled.div`
 export const StyledCopyButton = styled.button`
   border: none;
   background-color: transparent;
+  width: fit-content;
+  padding: 0;
 `;
