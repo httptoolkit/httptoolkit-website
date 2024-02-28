@@ -11,16 +11,18 @@ export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
       <Text as="label" fontSize="m" color="cinnarbarRed" fontWeight="bold">
         {column.title}
       </Text>
-      <StyledMenuItems>
+      <StyledMenuItems role="list">
         {column.links.map(link => {
           if (!link) {
             return null;
           }
 
           return (
-            <Link key={link.href} href={link.href}>
-              {link.label}
-            </Link>
+            <li role="listitem">
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            </li>
           );
         })}
       </StyledMenuItems>

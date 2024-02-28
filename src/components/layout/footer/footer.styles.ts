@@ -67,6 +67,12 @@ export const StyledMenuItems = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 23px;
+
+  & a:hover,
+  & a:focus {
+    transition: color ease-in 200ms;
+    color: ${({ theme }) => theme.colors.cinnarbarRed};
+  }
 `;
 
 export const StyledSeparator = styled.hr`

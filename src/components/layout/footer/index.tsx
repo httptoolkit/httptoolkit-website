@@ -41,7 +41,7 @@ export const Footer = () => {
             <ThemeToggle id="themetogglefooter" />
           </StyledIconsWrapper>
         </StyledColumn>
-        <StyledColumn>
+        <StyledColumn as="nav" aria-label="Httptoolkit directory" role="navigation">
           {footerColumns.map(column => {
             const hasSubHeading = !!column.subHeading;
             return (
