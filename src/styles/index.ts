@@ -154,7 +154,7 @@ export const GlobalStyles = createGlobalStyle`
       --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
-      --text-cinnabar-red: #EC502D;
+      --text-cinnabar-red: #F2522E;
       --text-white: #ffffff;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
@@ -175,7 +175,7 @@ export const GlobalStyles = createGlobalStyle`
       --white: #16181E;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #D93E1C;
+      --cinnabar-red: #D43D1B;
       --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
@@ -184,7 +184,7 @@ export const GlobalStyles = createGlobalStyle`
       --border-dark: rgba(103, 108, 129, 0.2);
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;
-      --text-cinnabar-red: #D93E1C;
+      --text-cinnabar-red: #D43D1B;
       --text-white: #000000;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
