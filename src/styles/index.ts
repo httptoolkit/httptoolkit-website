@@ -214,7 +214,7 @@ export const GlobalStyles = createGlobalStyle`
       line-height: 0;
     }
 
-    button, textarea {
+    button, textarea, input {
       font-family: ${theme.fontFamily.dmSans};
     }
 
