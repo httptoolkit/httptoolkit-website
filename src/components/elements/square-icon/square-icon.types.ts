@@ -8,7 +8,7 @@ export const SquareIconSizes = {
 };
 
 export interface StyledSquareIconProps {
-  $variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary';
+  $variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary' | 'tertiary-bigger';
   $size?: keyof typeof SquareIconSizes;
 }
 

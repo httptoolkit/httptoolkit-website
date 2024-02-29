@@ -38,6 +38,7 @@
     "interleaving": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
+    "marked": "^12.0.0",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
     "next": "14.1.0",

@@ -68,6 +68,15 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
           background-color: ${({ theme }) => theme.colors.mediumGrey};
           box-shadow: 0px 0px 24px 0px #8082891a inset;
         `;
+
+      case 'tertiary-bigger':
+        return css`
+          color: ${({ theme }) => theme.colors.white}
+          border-radius: 8px;
+          padding: 15px;
+          background-color: ${({ theme }) => theme.colors.mediumGrey};
+          box-shadow: 0px 0px 24px 0px #8082891a inset;
+        `;
     }
   }}
 `;
