@@ -21,6 +21,7 @@ import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
+import { BlogCard } from '@/components/modules/blog-card';
 import { ContentCard } from '@/components/modules/content-card';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
@@ -28,6 +29,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -226,6 +228,18 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Blog card">
+        <BlogCard
+          title="How do you know what's gone wrong when your API request fails?"
+          text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
+          slug="5-big-features-of-typescript-3.7"
+          tag="engineering"
+          date="2020-09-10T16:30"
+          image={{
+            src: BlogPostImage.src,
+          }}
+        />
       </ShowCase>
       <ShowCase title="Content Card">
         <ContentCard title="Join the mailing list now, so you don't miss new features & releases:" $isNewsletter />
