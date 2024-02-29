@@ -48,7 +48,7 @@ export const StyledInput = styled.input<InputProps>`
   border: none;
   font-size: ${({ theme }) => theme.fontSizes.text.s};
   line-height: 150%;
-  color: ${({ theme, $hasError }) => ($hasError ? theme.colors.text.cinnarbarRed : theme.colors.text.darkGrey)};
+  color: ${({ theme, $hasError }) => ($hasError ? theme.colors.text.cinnarbarRed : theme.colors.text.lightGrey)};
   outline: 0;
   width: 100%;
   height: ${({ as }) => (as === 'textarea' ? '100%' : '46px')};
