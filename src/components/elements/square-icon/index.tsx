@@ -9,6 +9,7 @@ export const SquareIcon = ({ icon: Icon, $size = 'medium', $variant = 'primary' 
         size={SquareIconSizes[$size]}
         width={`${SquareIconSizes[$size]}px`}
         height={`${SquareIconSizes[$size]}px`}
+        weight="fill"
       />
     </StyledSquareIcon>
   );
