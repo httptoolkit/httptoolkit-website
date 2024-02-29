@@ -4,6 +4,8 @@ const withMDX = require('@next/mdx')();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  // Images optimization API does not work with output export https://nextjs.org/docs/messages/export-image-api
+  images: { unoptimized: true },
   experimental: {
     optimizePackageImports: ['@phosphor-icons/react'],
   },
