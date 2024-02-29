@@ -6,10 +6,15 @@ import { Link } from '@/components/elements/link';
 import { styled } from '@/styles';
 
 export const StyledIntegrationCardBorder = styled.div<StyledIntegrationCardProps>`
-  background: ${({ theme, $showBadge }) => ($showBadge ? theme.colors.blueGradient : theme.colors.button.border)};
+  background: ${({ theme }) => theme.colors.button.border};
   padding: 1px;
   border-radius: 12px;
-  ${({ theme, $showBadge }) => `box-shadow: 0px 0px 8px 0px ${!$showBadge && theme.colors.shadowDefault}`};
+  box-shadow: 0px 0px 8px 0px ${({ theme }) => ` ${theme.colors.shadowDefault}`};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.blueGradient};
+    box-shadow: none;
+  }
 `;
 
 export const StyledIntegrationCardWrapper = styled.div<StyledIntegrationCardProps>`
