@@ -12,6 +12,7 @@ import {
   AndroidLogo,
   SealCheck,
   LinkSimpleBreak,
+  GithubLogo,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -20,6 +21,7 @@ import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
+import { ContentCard } from '@/components/modules/content-card';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -69,7 +71,6 @@ export default async function Home() {
           What is HTTP Toolkit? - XS Medium
         </Heading>
       </ShowCase>
-
       <ShowCase title="Text">
         <Text fontSize="xl">
           XL Regular: Intercept & view all your HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject
@@ -225,6 +226,16 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Content Card">
+        <ContentCard title="Join the mailing list now, so you don't miss new features & releases:" $isNewsletter />
+        <ContentCard
+          title="Having issues?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
+          buttonHref="https://github.com/httptoolkit/httptoolkit-website"
+        />
       </ShowCase>
       <ShowCase title="Fluid Cards">
         <FluidCard
