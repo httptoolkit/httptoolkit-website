@@ -167,15 +167,15 @@ export default async function Home() {
         <Card
           title="Simulate Network Issues & Redirect Traffic"
           text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
-          darkImage="/illustration/card.svg"
-          lightImage="/illustration/card-light.svg"
+          darkImage="/images/illustration.svg"
+          lightImage="/images/illustration-light.svg"
           imageAlt="Simulate"
         />
         <Card
           title="Targeted Request Handling: Proxy & Mock Server Capabilities"
           text="Precise matching lets you target the requests you care about. Match any requests sent anywhere by using HTTP Toolkit as a proxy, send requests directly to use it as a mock server."
-          darkImage="/illustration/card-1.svg"
-          lightImage="/illustration/card-1-light.svg"
+          darkImage="/images/illustration-1.svg"
+          lightImage="/images/illustration-1-light.svg"
           imageAlt="Simulate"
         />
       </ShowCase>
