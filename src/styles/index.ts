@@ -45,9 +45,15 @@ const colorTheme = {
   button: {
     secondaryDefault: 'var(--button-secondary-default)',
     secondarySection: 'var(--button-secondary-section)',
-    border: 'var(--button-boder)',
+    border: 'var(--button-border)',
   },
   shadowDefault: 'var(--shadow-default)',
+} as const;
+
+const backgroundImagesTheme = {
+  backgroundDots: 'var(--background-dots)',
+  backgroundGradient: 'var(--background-gradient)',
+  backgroundFuncGradient: 'var(--background-func-gradient)',
 } as const;
 
 export type TextColor = keyof (typeof colorTheme)['text'];
@@ -121,6 +127,9 @@ export const theme = {
   shadow: {
     box: 'var(--shadow-box)',
   },
+  backgroundImages: {
+    ...backgroundImagesTheme,
+  },
 };
 
 export const Keyframes = {
@@ -163,10 +172,13 @@ export const GlobalStyles = createGlobalStyle`
       --text-gradient: linear-gradient(to bottom,rgba(231,235,253,0.7),rgba(230,232,242,1));
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
-      --button-boder: rgba(255, 255, 255, 4%);
+      --button-border: rgba(255, 255, 255, 4%);
       --shadow-default: rgba(230, 232, 242, 0.05);
       --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
-      --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)
+      --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4);
+      --background-dots: url('/dots_dark.svg');
+      --background-gradient: url('/gradient_dark.png');
+      --background-func-gradient: url('/func_gradient_dark.png');
     }
 
     [data-theme="light"] {
@@ -194,10 +206,13 @@ export const GlobalStyles = createGlobalStyle`
       --text-gradient: linear-gradient(to bottom,rgba(30, 32, 40, 1),rgba(48, 51, 62, 0.7));
       --button-secondary-default: #F2F2F2;
       --button-secondary-section: #ffffff;
-      --button-boder: rgba(103, 108, 129, 20%);
+      --button-border: rgba(103, 108, 129, 20%);
       --shadow-default: rgba(0, 0, 0, 0.05);
       --shadow-box: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
       --moving-border-dark: rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 70%,  rgba(0, 0, 0, 0.1),  rgba(51, 60, 255, 0.4);
+      --background-dots: url('/dots-light.svg');
+      --background-gradient: url('/gradient-light.png');
+      --background-func-gradient: url('/func-gradient-dark.png');
     }
 
     * {

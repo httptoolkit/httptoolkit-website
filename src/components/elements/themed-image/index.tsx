@@ -13,9 +13,17 @@ interface ThemeImageProps extends Omit<ImageProps, 'src'> {
   lightSrc: string | StaticImport;
   darkSrc: string | StaticImport;
   withBorderAnimation?: boolean;
+  withoutStyles?: boolean;
 }
 
-export const ThemedImage = ({ lightSrc, darkSrc, withBorderAnimation, alt = 'image', ...props }: ThemeImageProps) => {
+export const ThemedImage = ({
+  lightSrc,
+  darkSrc,
+  withBorderAnimation,
+  withoutStyles,
+  alt = 'image',
+  ...props
+}: ThemeImageProps) => {
   const { resolvedTheme } = useTheme();
   const { isMounted } = useMounted();
   let src;
@@ -46,6 +54,10 @@ export const ThemedImage = ({ lightSrc, darkSrc, withBorderAnimation, alt = 'ima
         <Image alt={alt} src={src} {...imageProps} />
       </ThemedImageMovingBorder>
     );
+  }
+
+  if (withoutStyles) {
+    return <Image alt={alt} src={src} {...imageProps} />;
   }
 
   return (

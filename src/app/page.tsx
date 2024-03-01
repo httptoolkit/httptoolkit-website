@@ -22,6 +22,7 @@ import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { BlogCard } from '@/components/modules/blog-card';
+import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
@@ -159,6 +160,22 @@ export default async function Home() {
         <Input placeholder="Search" type="search" />
         <Input as="textarea" placeholder="Email address" />
         <Input $hasError placeholder="Email address" errorMessage="This is an error message." />
+      </ShowCase>
+      <ShowCase title="Card">
+        <Card
+          title="Simulate Network Issues & Redirect Traffic"
+          text="Inject request timeouts, simulate connection failures, and silently redirect requests from one server to another. These features also ensure API stability and failover efficacy."
+          darkImage="/illustration/card.svg"
+          lightImage="/illustration/card-light.svg"
+          imageAlt="Simulate"
+        />
+        <Card
+          title="Targeted Request Handling: Proxy & Mock Server Capabilities"
+          text="Precise matching lets you target the requests you care about. Match any requests sent anywhere by using HTTP Toolkit as a proxy, send requests directly to use it as a mock server."
+          darkImage="/illustration/card-1.svg"
+          lightImage="/illustration/card-1-light.svg"
+          imageAlt="Simulate"
+        />
       </ShowCase>
       <ShowCase title="Tooltip">
         <Tooltip text="example">
