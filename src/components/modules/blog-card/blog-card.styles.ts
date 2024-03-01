@@ -10,7 +10,7 @@ export const StyledBlogCardWrapper = styled.article`
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.inkBlack};
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border},
+    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
     0px 0px 8px 0px ${({ theme }) => theme.colors.shadowDefault};
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
@@ -39,6 +39,7 @@ export const StyledBlogCardTag = styled.span`
   background-color: ${({ theme }) => theme.colors.inkBlack};
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
   font-size: ${({ theme }) => theme.fontSizes.label.m};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   color: ${({ theme }) => theme.colors.text.lightGrey};
   line-height: 1.1;
   letter-spacing: 0.6;
