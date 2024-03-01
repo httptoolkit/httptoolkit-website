@@ -52,6 +52,7 @@ const colorTheme = {
 
 const backgroundImagesTheme = {
   backgroundDots: 'var(--background-dots)',
+  backgroundAlwaysDarkDots: 'var(--background-always-dark-dots)',
   backgroundGradient: 'var(--background-gradient)',
   backgroundFuncGradient: 'var(--background-func-gradient)',
 } as const;
@@ -177,6 +178,7 @@ export const GlobalStyles = createGlobalStyle`
       --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
       --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4);
       --background-dots: url('/images/backgrounds/dots_dark.svg');
+      --background-always-dark-dots: url('/images/backgrounds/dots_dark.svg');
       --background-gradient: url('/images/backgrounds/gradient_dark.png');
       --background-func-gradient: url('/images/backgrounds/func_gradient_dark.png');
     }
