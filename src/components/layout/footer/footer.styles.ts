@@ -40,7 +40,7 @@ export const StyledColumn = styled.div`
   &:last-child {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 54px;
 
     @media (min-width: ${screens.md}) {
       grid-template-columns: repeat(3, 1fr);
@@ -58,7 +58,41 @@ export const StyledColumn = styled.div`
     }
 
     & div {
-      min-width: max-content;
+      @media (min-width: ${screens.md}) {
+        min-width: max-content;
+      }
+
+      &:nth-of-type(1) {
+        order: 2;
+
+        @media (min-width: ${screens['2xl']}) {
+          order: 1;
+        }
+      }
+
+      &:nth-of-type(2) {
+        order: 3;
+
+        @media (min-width: ${screens['2xl']}) {
+          order: 2;
+        }
+      }
+
+      &:nth-of-type(3) {
+        order: 2;
+
+        @media (min-width: ${screens['2xl']}) {
+          order: 3;
+        }
+      }
+
+      &:nth-of-type(4) {
+        order: 1;
+
+        @media (min-width: ${screens['2xl']}) {
+          order: 4;
+        }
+      }
     }
   }
 `;

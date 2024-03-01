@@ -10,6 +10,6 @@ export const StyledStack = styled.div<StyledStackProps>`
   gap: ${props => props.$gap || '16px'};
 
   @media (min-width: ${screens.lg}) {
-    gap: ${props => props.$gapxl || '20px'};
+    gap: ${props => props.$gapxl || '16px'};
   }
 `;

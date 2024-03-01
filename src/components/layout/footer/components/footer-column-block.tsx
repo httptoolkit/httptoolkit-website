@@ -7,7 +7,7 @@ import type { FooterColumn } from '@/content/data/footer-columns';
 
 export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
   return (
-    <Stack>
+    <Stack $gapxl="20px">
       <Text as="label" fontSize="m" color="cinnarbarRed" fontWeight="bold">
         {column.title}
       </Text>

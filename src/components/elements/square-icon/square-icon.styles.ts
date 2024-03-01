@@ -1,6 +1,7 @@
 'use client';
 
 import type { StyledSquareIconProps } from './square-icon.types';
+import { SquareIconSizes } from './square-icon.types';
 
 import { css, styled } from '@/styles';
 
@@ -10,6 +11,8 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
   border-radius: 12px;
   padding: 11px;
   border: 1px solid ${({ theme }) => theme.colors.button.border};
+  width: ${({ $size }) => SquareIconSizes[$size || 'medium']}px;
+  height: ${({ $size }) => SquareIconSizes[$size || 'medium']}px;
 
   ${({ $variant, $size }) => {
     switch ($variant) {
@@ -37,8 +40,6 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
               border-radius: 16px;
               align-items: center;
               justify-content: center;
-              width: 74px;
-              height: 74px;
             `}
         `;
 
