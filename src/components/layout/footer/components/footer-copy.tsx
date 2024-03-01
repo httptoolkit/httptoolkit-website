@@ -10,7 +10,7 @@ export const FooterCopy = () => {
   return (
     <StyledFooterCopySection>
       <Text fontSize="m">© {new Date().getFullYear()} HTTP Toolkit All rights reserved.</Text>
-      <Stack $direction="row">
+      <Stack $gapxl="48px" $direction="row">
         <Link href={TERM_OF_SERVICES.href}>{TERM_OF_SERVICES.label}</Link>
         <Link href={PRIVACY_POLICY.href}>{PRIVACY_POLICY.label}</Link>
       </Stack>

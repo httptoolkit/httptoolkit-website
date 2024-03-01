@@ -26,15 +26,15 @@ export const Footer = () => {
           </Stack>
           <StyledIconsWrapper>
             <Stack>
-              <Text as="label" fontSize="l" fontWeight="bold">
+              <Text as="label" fontSize="m" fontWeight="bold">
                 FOLLOW US
               </Text>
               <Stack $direction="row">
-                <Link href="https://github.com/httptoolkit">
-                  <SquareIcon icon={Github} />
+                <Link href="https://github.com/httptoolkit" title="Github" aria-label="Github">
+                  <SquareIcon $size="small" icon={Github} />
                 </Link>
-                <Link href="https://twitter.com/httptoolkit">
-                  <SquareIcon icon={TwitterX} />
+                <Link href="https://twitter.com/httptoolkit" title="Twitter" aria-label="Twitter">
+                  <SquareIcon $size="small" icon={TwitterX} />
                 </Link>
               </Stack>
             </Stack>
@@ -47,7 +47,7 @@ export const Footer = () => {
             return (
               <Stack key={column.title} $gapxl={hasSubHeading ? '64px' : '16px'}>
                 <FooterColumnBlock column={column} />
-                {column.subHeading && <FooterColumnBlock column={column} />}
+                {column.subHeading && <FooterColumnBlock column={column.subHeading} />}
               </Stack>
             );
           })}

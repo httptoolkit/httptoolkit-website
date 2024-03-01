@@ -128,10 +128,15 @@ export default async function Home() {
         </Badge>
       </ShowCase>
       <ShowCase title="Icon">
+        48x48
+        <SquareIcon icon={Alien} $size="small" />
+        56x56
         <SquareIcon icon={Alien} />
-        <SquareIcon icon={Alien} $size="large" />
         <SquareIcon icon={Logo} $variant="secondary" />
-        <SquareIcon icon={Alien} $variant="tertiary" />
+        64x64
+        <SquareIcon icon={Alien} $size="large" />
+        72x72
+        <SquareIcon icon={Alien} $size="xLarge" $variant="tertiary" />
       </ShowCase>
       <ShowCase title="Button Primary">
         <Button as="button" $withBorder icon={CaretDown}>
