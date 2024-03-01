@@ -235,6 +235,21 @@ export const GlobalStyles = createGlobalStyle`
       font-style: italic;
     }
 
+    .skip-button {
+      position: absolute!important;
+      left: 7px;
+      top: -16rem;
+      transform: translateX(-50%);
+      transition: top 400ms ease-in;
+    }
+
+    .skip-button:focus-within,
+    .skip-button:focus {
+      left: 50%;
+      top: 1rem;
+      transform: translateX(-50%);
+    }
+
     .visually-hidden {
       border: 0;
       padding: 0;

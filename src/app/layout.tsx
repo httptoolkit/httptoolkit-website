@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 
+import { Button } from '@/components/elements/button';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
 import { RadixProviders } from '@/components/layout/radix-layout';
@@ -48,8 +49,11 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <StyledLayout>
             <RadixProviders>
+              <Button as="link" href="#main-content" $small className="skip-button">
+                Skip to main content
+              </Button>
               <Header />
-              <main>{children}</main>
+              <main id="main-content">{children}</main>
               <Footer />
             </RadixProviders>
           </StyledLayout>

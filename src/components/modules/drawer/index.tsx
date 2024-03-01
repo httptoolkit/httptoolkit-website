@@ -13,7 +13,7 @@ export const Drawer = ({ $isOpen = false, onClose, children }: Component<DrawerP
           style={{ width: 48, height: 48, padding: 0 }}
           $variant="secondary"
           onClick={onClose}
-          aria-label="closemobilemenu"
+          aria-label="Close mobile menu"
         >
           <CaretLeft aria-hidden="true" size={16} color="#fff" weight="fill" />
         </Button>
