@@ -27,9 +27,11 @@ export const StyledFluidCardWrapper = styled.div<StyledFluidCardProps>`
         `;
       case 'highlighted':
         return css`
-          background-image: url('/dots_dark.svg'), ${theme.colors.blueGradient};
-          background-size: 120% 150%;
-          background-position: bottom 0% center;
+          background-image: ${({ theme }) => theme.backgroundImages.backgroundAlwaysDarkDots},
+            ${theme.colors.blueGradient};
+          background-size: 450px 450px;
+          background-repeat: repeat repeat;
+          background-position: center;
           box-shadow:
             0px 2.4px 1.2px 0px rgba(201, 212, 251, 0.1) inset,
             0px -1.2px 1.2px 0px rgba(16, 46, 151, 0.1) inset,
