@@ -51,7 +51,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
     <StyledHeader>
       <StyledHeaderContainer>
         <StyledLogoWrapper>
-          <Link href="/" aria-label="Go to home">
+          <Link href="/" aria-label="Http Toolkit homepage">
             <Logo />
           </Link>
         </StyledLogoWrapper>
