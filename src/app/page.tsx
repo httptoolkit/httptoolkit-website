@@ -10,6 +10,7 @@ import {
   CaretDown,
   RocketLaunch,
   AndroidLogo,
+  CaretRight,
   SealCheck,
   LinkSimpleBreak,
   GithubLogo,
@@ -24,6 +25,7 @@ import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { BlogCard } from '@/components/modules/blog-card';
 import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
+import { CTABox } from '@/components/modules/cta-box';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -245,6 +247,24 @@ export default async function Home() {
       </ShowCase>
       <ShowCase title="Copy">
         <Copy text="brew install --cask http-toolkit" />
+      </ShowCase>
+      <ShowCase title="Blog CTA Block">
+        <CTABox
+          title="A brief introduction to OpenAPI"
+          subtitle="see also"
+          buttonHref="/example"
+          buttonText="Learn more"
+          buttonIcon={CaretRight}
+        />
+        <CTABox
+          $variant="faq"
+          title="Still have questions?"
+          text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+          textOverButton="You can also read more in the docs:"
+          buttonHref="https://example.com"
+          buttonText="Github HTTP Toolkit"
+          buttonIcon={GithubLogo}
+        />
       </ShowCase>
       <ShowCase title="Blog card">
         <BlogCard
