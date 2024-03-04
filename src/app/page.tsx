@@ -34,6 +34,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
@@ -53,6 +54,63 @@ export default async function Home() {
       as: 'link',
       href: '/blog',
       $variant: 'primary',
+    },
+  ];
+
+  const commonSubItems = [
+    {
+      text: 'The Intercept Page',
+      href: '#interceptor-page',
+    },
+    {
+      text: 'Single Project',
+      href: '#interceptor-page',
+    },
+    {
+      text: 'Payments',
+      href: '#interceptor-page',
+    },
+  ];
+  const collapsibleTableContent = [
+    {
+      text: 'Getting Started',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'Reference',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'Guides',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'CE Admin APIs',
+      subItems: commonSubItems,
+    },
+    {
+      text: 'FAQs',
+      subItems: commonSubItems,
+    },
+  ];
+  const nonCollapsibleTableContent = [
+    {
+      text: 'Terms Of Service',
+      href: '#example',
+    },
+    {
+      text: 'Terms Of Service (“Terms”)',
+      href: '#example',
+    },
+    {
+      text: 'What information do we collect?',
+      href: '#example',
+      subItems: [
+        {
+          text: 'Information automatically collected',
+          href: '#example',
+        },
+      ],
     },
   ];
 
@@ -350,6 +408,10 @@ export default async function Home() {
             buttonHref="https://example.com"
             buttonText="Learn more"
           />
+        </ShowCase>
+        <ShowCase title="Navigation content sidebar">
+          <TableContent isCollapsible links={collapsibleTableContent} />
+          <TableContent links={nonCollapsibleTableContent} />
         </ShowCase>
         <ShowCase title="Theme toggle">
           <ThemeToggle />
