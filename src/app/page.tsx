@@ -23,6 +23,7 @@ import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
+import { BlockCode } from '@/components/modules/block-code';
 import { BlogCard } from '@/components/modules/blog-card';
 import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
@@ -364,6 +365,17 @@ export default async function Home() {
             alt="Example themed image"
             darkSrc="https://picsum.photos/id/1019/1024"
             lightSrc="https://picsum.photos/id/1035/1024"
+          />
+        </ShowCase>
+        <ShowCase title="Blog block code">
+          <BlockCode
+            title="Response example"
+            language="javascript"
+            content={`await axios.post(
+  '/payments',
+  { to: 'user@example', value: 2000 },
+  { timeout: 2000 }
+);`}
           />
         </ShowCase>
         <ShowCase title="Simple Footer">
