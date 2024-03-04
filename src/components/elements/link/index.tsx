@@ -8,8 +8,9 @@ export const Link = ({ href, children, ...rest }: Component<LinkProps>) => {
   const anchorProps = rest as AnchorProps;
   if (isExternalUrl(href)) {
     return (
-      <a href={href} target="_blank" aria-label="opens in a new tab" rel="noopener noreferrer" {...anchorProps}>
+      <a href={href} target="_blank" rel="noopener noreferrer" {...anchorProps}>
         {children}
+        <span className="visually-hidden">opens in a new tab</span>
       </a>
     );
   }
