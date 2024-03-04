@@ -6,10 +6,9 @@ import { styled } from '@/styles';
 
 export const StyledThemedImage = styled.div`
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: auto;
   position: relative;
-
-  & img {
+  object-fit: 'cover' & img {
     border-radius: 12px;
     border: 1px solid ${({ theme }) => theme.colors.borderDark};
   }
@@ -20,13 +19,15 @@ export const ThemedImageMovingBorder = styled(MovingBorder)`
   --radius: 16px;
   line-height: 0;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
 
   &:hover {
     border: var(--border-width) solid transparent;
   }
 
   & img {
+    position: relative !important;
     padding: 10px;
     border-radius: 22px;
     border: 1px solid linear-gradient(270deg, #ffffff -0.8%, rgba(255, 255, 255, 0) 93.82%);
