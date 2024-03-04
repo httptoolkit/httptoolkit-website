@@ -19,7 +19,7 @@ export const AdditionalText = styled.span`
   text-transform: uppercase;
 `;
 
-export const StyledBadge = styled.h3<BadgeProps>`
+export const StyledBadge = styled.p<BadgeProps>`
   display: flex;
   align-items: center;
   gap: 6px;
