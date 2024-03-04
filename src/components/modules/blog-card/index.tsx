@@ -18,7 +18,7 @@ export const BlogCard = ({ title, text, image, date, tag }: BlogCardProps) => {
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
-        <StyledBlogCardImage src={image.src} alt={image.alt} />
+        <StyledBlogCardImage src={image.src} alt={image.alt} loading="lazy" />
         <StyledBlogCardTag>{tag}</StyledBlogCardTag>
       </StyledBlogCardFigure>
       <StyledBlogCardContentWrapper>

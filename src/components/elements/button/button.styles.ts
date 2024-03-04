@@ -10,6 +10,7 @@ const base = css<StyledButtonProps>`
   z-index: 1;
   display: flex;
   width: 100%;
+  height: fit-content;
   outline: none;
   border: 0;
   font-size: ${({ theme, $small }) => theme.fontSizes.button[$small ? 'small' : 'default']};

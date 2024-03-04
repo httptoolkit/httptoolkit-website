@@ -15,37 +15,37 @@ import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown
 import Logo from '@/images/logo.svg';
 import { pageRoutes } from '@/lib/constants/routes';
 
+// TODO: move to it's own component when working in the download feature
+export const dropdownItems: DropdownOptionProps[] = [
+  {
+    content: 'for MacOS DMG',
+  },
+  {
+    content: 'MacOS via Homebrew',
+  },
+  {
+    content: 'Windows Installer',
+  },
+  {
+    content: 'Windows Standalone Zip',
+  },
+  {
+    content: 'Windows via Winget',
+  },
+  {
+    content: 'Linux Debian package',
+  },
+  {
+    content: 'Linux Arch Package via Aur',
+  },
+  {
+    content: 'Linux Standalone Zip',
+  },
+];
+
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   const { PRICING, DOCS, BLOG, CONTACT, INTEGRATION } = pageRoutes;
   const navigationItems = [PRICING, DOCS, BLOG, CONTACT, INTEGRATION];
-
-  // TODO: move to it's own component when working in the download feature
-  const dropdownItems: DropdownOptionProps[] = [
-    {
-      content: 'for MacOS DMG',
-    },
-    {
-      content: 'MacOS via Homebrew',
-    },
-    {
-      content: 'Windows Installer',
-    },
-    {
-      content: 'Windows Standalone Zip',
-    },
-    {
-      content: 'Windows via Winget',
-    },
-    {
-      content: 'Linux Debian package',
-    },
-    {
-      content: 'Linux Arch Package via Aur',
-    },
-    {
-      content: 'Linux Standalone Zip',
-    },
-  ];
 
   return (
     <StyledHeader>

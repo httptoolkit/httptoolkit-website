@@ -14,6 +14,8 @@ export interface StyledSquareIconProps {
   $size?: keyof typeof SquareIconSizes;
 }
 
+export type IconType = Icon | CustomIcon;
+
 export interface SquareIconProps extends StyledSquareIconProps {
-  icon: Icon | CustomIcon;
+  icon: IconType;
 }
