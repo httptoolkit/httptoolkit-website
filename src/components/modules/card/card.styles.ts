@@ -8,6 +8,7 @@ export const StyledCardWrapper = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.inkBlack};
   border-radius: 12px;
+  overflow: hidden;
   box-shadow:
     0px 2px 24px 0px rgba(230, 232, 242, 0.05),
     0 0 0 1px ${({ theme }) => theme.colors.button.border};
@@ -34,6 +35,7 @@ export const StyledCardImageWrapper = styled.div`
 export const StyledCardImage = styled(ThemedImage)`
   height: 216px !important;
   position: relative !important;
+  padding: 0 16px;
 `;
 
 export const StyledCardTextWrapper = styled.div`

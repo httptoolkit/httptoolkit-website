@@ -4,11 +4,11 @@ import type { CardProps } from './card.types';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 
-export const Card = ({ title, text, darkImage, lightImage, imageAlt }: CardProps) => {
+export const Card = ({ title, text, darkImage, lightImage }: CardProps) => {
   return (
     <StyledCardWrapper>
       <StyledCardImageWrapper>
-        <StyledCardImage withoutStyles lightSrc={lightImage} darkSrc={darkImage} alt={imageAlt} />
+        <StyledCardImage withoutStyles lightSrc={lightImage} darkSrc={darkImage} alt="" />
       </StyledCardImageWrapper>
       <StyledCardTextWrapper>
         <Heading textAlign="center" fontSize="m" color="lightGrey" as="h3">

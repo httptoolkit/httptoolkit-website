@@ -3,5 +3,4 @@ export interface CardProps {
   text: string;
   darkImage: string;
   lightImage: string;
-  imageAlt: string;
 }
