@@ -34,6 +34,7 @@ import { FluidCard } from '@/components/modules/fluid-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { Input } from '@/components/modules/input';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import BlogPostImage from '@/content/posts/analytics-map.png';
@@ -108,6 +109,39 @@ export default async function Home() {
       subItems: [
         {
           text: 'Information automatically collected',
+          href: '#example',
+        },
+      ],
+    },
+  ];
+
+  const navigationContentSidebar = [
+    {
+      text: 'Payments processing',
+      subitems: [
+        {
+          text: 'Standard checkout',
+          href: '#example',
+        },
+        {
+          text: 'Internet transfer',
+          href: '#example',
+        },
+      ],
+    },
+    {
+      text: 'How to pay?',
+      href: '#example',
+    },
+    {
+      text: 'Troubles with payment',
+      subitems: [
+        {
+          text: 'How to find your money',
+          href: '#example',
+        },
+        {
+          text: 'My money has gone',
           href: '#example',
         },
       ],
@@ -439,6 +473,9 @@ export default async function Home() {
   { timeout: 2000 }
 );`}
           />
+        </ShowCase>
+        <ShowCase title="Navigation content sidebar links">
+          <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
         <ShowCase title="Simple Footer">
           <SimpleFooter />
