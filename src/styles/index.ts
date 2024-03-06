@@ -30,6 +30,7 @@ const colorTheme = {
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
   borderGradient: 'var(--border-gradient)',
+  borderAlwaysGradient: 'var(--border-always-gradient)',
   borderDark: 'var(--border-dark)',
   borderMovingDark: 'var(--moving-border-dark)',
   text: {
@@ -164,6 +165,7 @@ export const GlobalStyles = createGlobalStyle`
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
       --border-gradient: rgba(255, 255, 255, 0.1);
+      --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
@@ -201,6 +203,7 @@ export const GlobalStyles = createGlobalStyle`
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
       --border-gradient: transparent;
+      --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(103, 108, 129, 0.2);
       --text-light-grey: #16181E;
       --text-dark-grey: #595D68;

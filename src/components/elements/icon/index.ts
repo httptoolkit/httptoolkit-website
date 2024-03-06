@@ -15,6 +15,7 @@ import {
   Globe,
   SealCheck,
   LinkSimpleBreak,
+  Check,
   CursorClick,
   AppleLogo,
 } from '@phosphor-icons/react/dist/ssr';
@@ -39,6 +40,7 @@ export {
   LinkSimpleBreak,
   Github,
   TwitterX,
+  Check,
   CaretRight,
   GithubLogo,
   CaretUp,
