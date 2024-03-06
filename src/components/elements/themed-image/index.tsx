@@ -10,6 +10,7 @@ export interface ThemeImageProps extends Omit<ImageProps, 'src'> {
   lightSrc: string | StaticImport;
   darkSrc: string | StaticImport;
   withBorderAnimation?: boolean;
+  withBorder?: boolean;
   withoutStyles?: boolean;
 }
 
@@ -17,6 +18,7 @@ export const ThemedImage = ({
   lightSrc,
   darkSrc,
   withBorderAnimation,
+  withBorder,
   withoutStyles,
   alt = 'image',
   width,
@@ -42,9 +44,9 @@ export const ThemedImage = ({
     );
   };
 
-  if (withBorderAnimation) {
+  if (withBorderAnimation || withBorder) {
     return (
-      <ThemedImageMovingBorder style={{ minHeight: height }}>
+      <ThemedImageMovingBorder style={{ minHeight: height }} $withBorder={Boolean(withBorder)}>
         <FinalImage />
       </ThemedImageMovingBorder>
     );

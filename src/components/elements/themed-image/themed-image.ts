@@ -1,6 +1,7 @@
 'use client';
 
 import { MovingBorder } from '../moving-border';
+import type { MovingBorderProps } from '../moving-border/moving-border.types';
 
 import { styled } from '@/styles';
 
@@ -14,7 +15,7 @@ export const StyledThemedImage = styled.div`
   }
 `;
 
-export const ThemedImageMovingBorder = styled(MovingBorder)`
+export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
   --border-width: 2px;
   --radius: 16px;
   line-height: 0;
@@ -22,8 +23,19 @@ export const ThemedImageMovingBorder = styled(MovingBorder)`
   height: auto;
   object-fit: cover;
 
+  ${({ theme, $withBorder }) =>
+    $withBorder &&
+    `
+    border: var(--border-width) solid ${theme.colors.button.border};
+
+    &::before {
+      content: none;
+    }
+  `}
+
   &:hover {
-    border: var(--border-width) solid transparent;
+    border: var(--border-width) solid
+      ${({ $withBorder, theme }) => (!$withBorder ? 'transparent' : theme.colors.button.border)};
   }
 
   & img {
