@@ -16,10 +16,21 @@ To manually intercept HTTP, HTTPS & WebSocket traffic from an iPhone or iPad:
 1. Start HTTP Toolkit on your computer and click the 'Anything' option on the Intercept page, to show the manual configuration details.
 1. Ensure your iOS device is connected to the same WiFi network as your computer.
 1. In the iOS WiFi settings, select the Wifi network -> Configure Proxy, and select Manual and set your device's proxy configuration to use your HTTP Toolkit's proxy port (as shown in the 'Anything' area, 8000 by default) and your computer's IP address on your local network.
-1. Visit http://amiusing.httptoolkit.tech/certificate (n.b. HTTP, not HTTPS) in Safari on your iOS device when connected to the proxy, and it will download HTTP Toolkit's profile (the HTTPS CA certificate) and prompt you to install it.
-    * Alternatively, you can export the certificate manually using the button in the 'Anything' option, transfer it to your phone and open it there to install the certificate.
-1. Then go to Settings -> General -> About -> Certificate Trust, and enable "Full trust" for the HTTP Toolkit certificate.
+1. Scan the below QR code to download your CA certificate from HTTP Toolkit:
 
+    <p class="narrow">
+        <img
+            class="test-class"
+            alt="A QR code linking to http://amiusing.httptoolkit.tech/certificate"
+            src="./ios-certificate-qr.png"
+        />
+    </p>
+
+    * This connects to HTTP Toolkit using your proxy settings to download your CA certificate from `http://amiusing.httptoolkit.tech/certificate`. You can also open that URL in Safari manually, but note that it must be plain HTTP and recent Safari releases may redirect you to HTTPS.
+    * Alternatively, you can export your CA certificate manually from the 'Anything' option in HTTP Toolkit, transfer it to your phone and open it there directly.
+1. Press 'Allow' to download the CA certificate to your device.
+1. Go to Settings -> General -> Profile -> HTTP Toolkit CA -> Install, to install the CA certificate.
+1. Go to Settings -> General -> About -> Certificate Trust, and enable "Full trust" for the HTTP Toolkit certificate.
 
 You can confirm that the setup is working by visiting https://amiusing.httptoolkit.tech (note the HTTPS) in Safari. If this loads correctly showing the "You're being intercepted by HTTP Toolkit" message, then you're all set up and all traffic is being sent through HTTP Toolkit.
 

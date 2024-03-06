@@ -158,6 +158,14 @@ const DocBody = styled.article`
             height: 50vw;
         `}
     }
+
+    ${media.desktop`
+        .narrow {
+            max-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    `}
 `;
 
 const MobileDocsearch = styled(Docsearch)`
