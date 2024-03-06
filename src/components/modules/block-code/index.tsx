@@ -17,7 +17,9 @@ export const BlockCode = ({ title, content }: BlockCodeProps) => {
         </Text>
       </StyledBlockCodeTitleWrapper>
       <StyledBlockCodeContent>
-        <Code language="javascript">{content}</Code>
+        <Code title={title} language="javascript">
+          {content}
+        </Code>
       </StyledBlockCodeContent>
     </StyledBlockCodeWrapper>
   );
