@@ -39,6 +39,7 @@ const TriggerStyles = css`
   & > p > a {
     display: inline-block;
     width: 100%;
+    text-align: left;
   }
 `;
 
@@ -93,6 +94,8 @@ export const StyledTableContentSubitem = styled(Link)`
   padding: 8px 32px;
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   color: ${({ theme }) => theme.colors.text.lightGrey};
+  transition: all 0.1s;
+  outline: none;
 
   &:hover,
   &:focus {
