@@ -39,6 +39,7 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
+import { IntegrationGrid } from '@/components/sections/integration/grid';
 import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
@@ -115,6 +116,28 @@ export default async function Home() {
           href: '#example',
         },
       ],
+    },
+  ];
+
+  const integrationsCard = [
+    {
+      $showBadge: true,
+      icon: AndroidLogo,
+      title: 'Android',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
+    },
+    {
+      icon: AndroidLogo,
+      title: 'Javascript',
+      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+      link: {
+        href: '/example',
+        target: '_blank',
+      },
     },
   ];
 
@@ -525,6 +548,7 @@ export default async function Home() {
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
+        <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
