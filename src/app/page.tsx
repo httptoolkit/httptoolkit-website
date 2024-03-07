@@ -29,6 +29,7 @@ import { BlogCard } from '@/components/modules/blog-card';
 import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
 import { CTABox } from '@/components/modules/cta-box';
+import { DownloadButton } from '@/components/modules/download-button';
 import { Dropdown } from '@/components/modules/dropdown';
 import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
 import { FluidCard } from '@/components/modules/fluid-card';
@@ -547,6 +548,10 @@ export default async function Home() {
         </Stack>
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
+        </ShowCase>
+        <ShowCase title="Download button">
+          <DownloadButton $small $variant="secondary" />
+          <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
         <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
