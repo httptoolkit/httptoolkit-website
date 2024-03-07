@@ -35,6 +35,8 @@ const colorTheme = {
   orangeGradient: 'var(--orange-gradient)',
   blueGradient: 'var(--blue-gradient)',
   darkGradient: 'var(--dark-gradient)',
+  circleGradient: 'var(--circle-gradient)',
+  ellipseGradient: 'var(--ellipse-gradient)',
   borderGradient: 'var(--border-gradient)',
   borderAlwaysGradient: 'var(--border-always-gradient)',
   borderDark: 'var(--border-dark)',
@@ -171,6 +173,8 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
       --dark-gradient: linear-gradient(to bottom, #1E2028, #30333E 70%);
+      --circle-gradient: rgba(163, 105, 190, 1);
+      --ellipse-gradient: rgba(31, 74, 255, 1);
       --border-gradient: rgba(255, 255, 255, 0.1);
       --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(255, 255, 255, 0.2);
@@ -211,6 +215,8 @@ export const GlobalStyles = createGlobalStyle`
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);
+      --circle-gradient: rgba(182, 99, 248, 1);
+      --ellipse-gradient: rgba(0, 183, 241, 1);
       --border-gradient: transparent;
       --border-always-gradient: rgba(255, 255, 255, 0.1);
       --border-dark: rgba(103, 108, 129, 0.2);

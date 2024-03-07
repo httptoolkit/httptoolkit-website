@@ -1,6 +1,11 @@
-import { StyledStatisticsWrapper } from './stadistics.styles';
+import {
+  StyledStatisticsGradient,
+  StyledStatisticsGradientWrapper,
+  StyledStatisticsWrapper,
+} from './stadistics.styles';
 import type { StatisticsProps } from './stadistics.types';
 
+import { Gradient } from '@/components/elements/gradient';
 import { GrowingNumbers } from '@/components/modules/growing-numbers';
 import type { GrowingNumbersStat } from '@/components/modules/growing-numbers/growing-numbers.types';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -35,9 +40,14 @@ export const Statistics = async ({ title, text }: StatisticsProps) => {
     },
   ];
   return (
-    <StyledStatisticsWrapper>
-      <HeadingBlock $align="left" title={title} text={text} />
-      <GrowingNumbers stats={stats} />
-    </StyledStatisticsWrapper>
+    <StyledStatisticsGradientWrapper>
+      <StyledStatisticsGradient>
+        <Gradient />
+      </StyledStatisticsGradient>
+      <StyledStatisticsWrapper>
+        <HeadingBlock $align="left" title={title} text={text} />
+        <GrowingNumbers stats={stats} />
+      </StyledStatisticsWrapper>
+    </StyledStatisticsGradientWrapper>
   );
 };

@@ -524,7 +524,6 @@ export default async function Home() {
 );`}
           />
         </ShowCase>
-        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
         <ShowCase title="Feature line">
           <FeatureLine
             $align="right"
@@ -583,6 +582,7 @@ export default async function Home() {
           <SimpleFooter />
         </ShowCase>
       </Container>
+      <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
     </>
   );
 }
