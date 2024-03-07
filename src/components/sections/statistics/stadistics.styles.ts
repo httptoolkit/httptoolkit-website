@@ -1,12 +1,25 @@
 'use client';
 
+import { Container } from '@/components/elements/container';
 import { styled } from '@/styles';
 
-export const StyledStatisticsWrapper = styled.section`
+export const StyledStatisticsGradient = styled.div`
+  position: absolute;
+  top: 0;
+  height: 110%;
+  left: 0;
+`;
+
+export const StyledStatisticsGradientWrapper = styled.section`
+  position: relative;
+`;
+
+export const StyledStatisticsWrapper = styled(Container)`
   display: flex;
   justify-content: space-between;
   gap: 32px;
   padding: 96px 48px;
+  position: relative;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: column;
