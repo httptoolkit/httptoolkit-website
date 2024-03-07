@@ -39,6 +39,7 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
+import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function Home() {
@@ -476,6 +477,7 @@ export default async function Home() {
 );`}
           />
         </ShowCase>
+        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
         <ShowCase title="Feature line">
           <FeatureLine
             $align="right"
