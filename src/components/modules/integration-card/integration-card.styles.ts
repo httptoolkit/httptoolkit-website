@@ -5,7 +5,8 @@ import type { StyledIntegrationCardProps } from './integration-card.types';
 import { Link } from '@/components/elements/link';
 import { styled } from '@/styles';
 
-export const StyledIntegrationCardBorder = styled.div<StyledIntegrationCardProps>`
+export const StyledIntegrationCardBorder = styled(Link)<StyledIntegrationCardProps>`
+  display: block;
   background: ${({ theme }) => theme.colors.button.border};
   padding: 1px;
   border-radius: 12px;
