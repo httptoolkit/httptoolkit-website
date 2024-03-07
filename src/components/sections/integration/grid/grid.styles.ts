@@ -2,7 +2,7 @@
 
 import { styled } from '@/styles';
 
-export const StyledIntegrationGrid = styled.section`
+export const StyledIntegrationGrid = styled.div`
   display: grid;
   gap: 16px;
 

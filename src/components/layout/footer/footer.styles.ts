@@ -35,6 +35,11 @@ export const StyledColumn = styled.div`
       min-width: 398px;
       gap: 76px;
     }
+
+    & *:first-child > svg {
+      width: fit-content;
+      height: 26px;
+    }
   }
 
   &:last-child {
@@ -133,6 +138,11 @@ export const StyledFooterCopySection = styled.div`
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
   gap: 32px;
+
+  & > svg {
+    width: fit-content;
+    height: 26px;
+  }
 `;
 
 export const StyledIconsWrapper = styled.div`

@@ -10,6 +10,8 @@ export const StyledHeader = styled.header`
 export const StyledLogoWrapper = styled.div`
   & svg {
     fill: currentColor;
+    width: fit-content;
+    height: 26px;
   }
 `;
 
