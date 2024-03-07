@@ -23,8 +23,12 @@ export const StyledIntegrationCardWrapper = styled.div<StyledIntegrationCardProp
   flex-direction: column;
   gap: 24px;
   border-radius: 12px;
-  padding: 31px;
+  padding: 15px 15px 23px;
   background-color: ${({ theme }) => theme.colors.inkBlack};
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 31px;
+  }
 `;
 
 export const StyledIntegrationCardContentWrapper = styled.div`
@@ -36,6 +40,8 @@ export const StyledIntegrationCardContentWrapper = styled.div`
 export const StyledIntegrationCardTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
 
   & *:nth-child(2) {
     flex-shrink: 0;
