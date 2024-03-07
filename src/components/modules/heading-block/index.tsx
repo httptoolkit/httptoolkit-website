@@ -2,6 +2,7 @@ import { StyledHeadingBlockWrapper, StyledHeadingBlockTitle } from './heading-bl
 import type { HeadingBlockProps } from './heading-block.types';
 
 import { Badge } from '@/components/elements/badge';
+import { HighlightedText } from '@/components/elements/highlighted-text';
 import { Text } from '@/components/elements/text';
 
 /**
@@ -17,14 +18,6 @@ export const HeadingBlock = ({
   badgeAdditionalText,
   badgeIcon,
 }: HeadingBlockProps) => {
-  const formattedTitle = title.split('`').map(segment => {
-    const isHighlighted = segment.includes('*');
-    if (!isHighlighted) {
-      return segment;
-    }
-    return <span>{segment.replaceAll('*', '')}</span>;
-  });
-
   return (
     <StyledHeadingBlockWrapper $align={$align} $isContentCentered={$isContentCentered}>
       {badgeTitle && (
@@ -33,7 +26,7 @@ export const HeadingBlock = ({
         </Badge>
       )}
       <StyledHeadingBlockTitle forwardedAs="h2" fontSize="l" textAlign={$align} color="textGradient">
-        {...formattedTitle}
+        <HighlightedText title={title} />
       </StyledHeadingBlockTitle>
       {text && (
         <Text fontSize="l" textAlign={$align}>

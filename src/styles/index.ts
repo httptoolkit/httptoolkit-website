@@ -16,6 +16,12 @@ const TextGradient = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
+
+const TextOrangeGradient = css`
+  background: var(--text-orange-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
 const colorTheme = {
   inkBlack: 'var(--ink-black)',
   darkGrey: 'var(--dark-grey)',
@@ -42,6 +48,7 @@ const colorTheme = {
     alwayLightGrey: 'var(--text-always-light-grey)',
     electricLightBlue: 'var(--text-electric-light-blue)',
     textGradient: TextGradient,
+    textOrangeGradient: TextOrangeGradient,
   },
   button: {
     secondaryDefault: 'var(--button-secondary-default)',
@@ -175,6 +182,8 @@ export const GlobalStyles = createGlobalStyle`
       --text-always-light-grey: #E6E8F2;
       --text-electric-light-blue: #6284FA;
       --text-gradient: linear-gradient(to bottom,rgba(230,232,242,1), rgba(231,235,253,0.7));
+      --text-orange-gradient: linear-gradient(345.32deg, #D93815 10.67%, #F65430 89.91%);
+;
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
       --button-border: rgba(255, 255, 255, 4%);

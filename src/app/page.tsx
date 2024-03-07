@@ -41,6 +41,7 @@ import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
+import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
@@ -173,6 +174,28 @@ export default async function Home() {
         },
       ],
     },
+  ];
+
+  const stepsData = [
+    [
+      'Open a terminal via HTTP Toolkit',
+      'Run any command in that terminal to build or create a Docker container',
+      'The build or container is automatically intercepted',
+      "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
+    ],
+    [
+      'Launch a Docker container anywhere',
+      "Click 'Attach to Docker' in HTTP Toolkit, and pick your container",
+      'HTTP Toolkit recreates & restarts the container with interception injected',
+      "Instantly inspect, debug & rewrite all your container's HTTP(S) traffic",
+    ],
+  ];
+  const stepsData1 = [
+    [
+      'Open a terminal via HTTP Toolkit',
+      'Run any Python script, tool or server from that terminal',
+      "Instantly see, debug & rewrite all Python's HTTP traffic",
+    ],
   ];
 
   return (
@@ -546,6 +569,8 @@ export default async function Home() {
             icon={Sparkle}
           />
         </Stack>
+        <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={stepsData} />
+        <IntegrationSteps title="Getting `*started*`" steps={stepsData1} />
         <ShowCase title="Navigation content sidebar links">
           <NavigationSidebarLinks title="On this page" links={navigationContentSidebar} />
         </ShowCase>
