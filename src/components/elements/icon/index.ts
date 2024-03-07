@@ -18,9 +18,21 @@ import {
   Check,
   CursorClick,
   AppleLogo,
+  X,
 } from '@phosphor-icons/react/dist/ssr';
 
-import { FullLogo, Logo, Github, TwitterX } from './custom';
+import {
+  FullLogo,
+  Logo,
+  Github,
+  TwitterX,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+} from './custom';
 
 export {
   Alien,
@@ -46,4 +58,11 @@ export {
   CaretUp,
   CursorClick,
   AppleLogo,
+  DockerLogo,
+  ElectronLogo,
+  JavaLogo,
+  RubyLogo,
+  SquareJSLogo,
+  PythonLogo,
+  X,
 };

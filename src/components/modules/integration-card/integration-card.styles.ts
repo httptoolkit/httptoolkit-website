@@ -54,7 +54,7 @@ export const StyledIntegrationCardTitle = styled.div`
   align-items: center;
 `;
 
-export const StyledIntegrationCardLink = styled(Link)`
+export const StyledIntegrationCardLink = styled.p`
   display: inline-flex;
   gap: 8px;
   align-items: center;

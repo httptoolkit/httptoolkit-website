@@ -15,6 +15,7 @@ import {
   LinkSimpleBreak,
   GithubLogo,
   CursorClick,
+  DockerLogo,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -41,6 +42,7 @@ import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
+import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
@@ -577,11 +579,17 @@ export default async function Home() {
           <DownloadButton $small $variant="secondary" />
           <DownloadButton $variant="primary" $withBorder />
         </ShowCase>
-        <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
         <ShowCase title="Simple Footer">
           <SimpleFooter />
         </ShowCase>
       </Container>
+      <IntegrationSinglePageHero
+        title="Http Toolkit and Docker integrated"
+        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        icon={DockerLogo}
+        breadcrumbText="docker"
+      />
+      <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
     </>
   );

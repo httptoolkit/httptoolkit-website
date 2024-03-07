@@ -14,7 +14,7 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
       </StyledTableContentItemLink>
       {hasSubItems &&
         link?.subItems?.map(item => (
-          <Text fontSize="m" fontWeight="bold" color="lightGrey">
+          <Text fontSize="m" fontWeight="bold" color="lightGrey" key={link.text}>
             <StyledTableContentSubitem href={item.href}>{item.text}</StyledTableContentSubitem>
           </Text>
         ))}

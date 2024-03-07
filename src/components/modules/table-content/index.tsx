@@ -19,10 +19,10 @@ const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boo
   const hasSubItems = Boolean(Array.isArray(link.subItems) && link.subItems?.length);
   const showCaret = isCollapsible && hasSubItems;
 
-  if (!isCollapsible) return <TableContentAccordionFixed link={link} hasSubItems={hasSubItems} />;
+  if (!isCollapsible) return <TableContentAccordionFixed key={link.text} link={link} hasSubItems={hasSubItems} />;
 
   return (
-    <Accordion.Item value={link.text}>
+    <Accordion.Item value={link.text} key={link.text}>
       <StyledTableContentItemTrigger>
         <TableContentTriggerComponent text={link.text} href={!hasSubItems ? link.href : undefined} />{' '}
         {showCaret && <CaretDown size={16} weight="fill" />}
@@ -30,7 +30,7 @@ const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boo
       {hasSubItems && (
         <StyledTableContentContent>
           {link?.subItems?.map(item => (
-            <Text fontSize="m" fontWeight="bold" color="lightGrey">
+            <Text key={item.text} fontSize="m" fontWeight="bold" color="lightGrey">
               <StyledTableContentSubitem href={item.href}>{item.text}</StyledTableContentSubitem>
             </Text>
           ))}
