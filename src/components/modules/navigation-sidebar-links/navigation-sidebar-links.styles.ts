@@ -28,6 +28,16 @@ export const StyledNavigationSidebarLinksContentItem = styled.div`
 export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
   display: inline-block;
   padding: 8px 16px;
+
+  & > a {
+    color: ${({ theme }) => theme.colors.text.white};
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: ${({ theme }) => theme.colors.text.lightGrey};
+    }
+  }
 `;
 
 export const StyledNavigationSidebarLinksContentLink = styled(Link)`
@@ -37,7 +47,9 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text.lightGrey};
   padding: 8px 32px;
 
+  &:focus,
   &:hover {
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
     color: ${({ theme }) => theme.colors.text.white};
   }
 `;
