@@ -2,7 +2,7 @@
 
 import type { StyledIntegrationStepNumberProps } from './steps.types';
 
-import { styled } from '@/styles';
+import { css, styled } from '@/styles';
 
 export const StyledIntegrationStepsWrapper = styled.section`
   display: flex;
@@ -49,7 +49,7 @@ export const StyledIntegrationStepsItemStep = styled.div`
   gap: 16px;
 `;
 
-export const StyledIntegrationStepsItemStepNumber = styled.div<StyledIntegrationStepNumberProps>`
+export const StyledIntegrationStepsItemStepNumber = styled.div`
   width: 64px;
   height: 64px;
   font-size: 40px;
@@ -63,13 +63,18 @@ export const StyledIntegrationStepsItemStepNumber = styled.div<StyledIntegration
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
     0px 0px 24px 0px ${({ theme }) => theme.shadow.innerBox} inset;
+`;
 
-  & > span {
-    ${({ theme, $variation }) =>
-      $variation === 'blue'
-        ? `
-      color: ${theme.colors.electricBlue};
-    `
-        : theme.colors.text.textOrangeGradient}
-  }
+export const StyledIntegrationStepsItemStepNumberText = styled.span<StyledIntegrationStepNumberProps>`
+  line-height: 1;
+  ${({ theme, $variation }) => {
+    switch ($variation) {
+      case 'blue':
+        return css`
+          color: ${theme.colors.electricBlue};
+        `;
+      case 'orange':
+        return theme.colors.text.textOrangeGradient;
+    }
+  }}
 `;

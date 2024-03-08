@@ -3,6 +3,7 @@ import {
   StyledIntegrationStepsItem,
   StyledIntegrationStepsItemStep,
   StyledIntegrationStepsItemStepNumber,
+  StyledIntegrationStepsItemStepNumberText,
   StyledIntegrationStepsWrapper,
 } from './steps.styles';
 import type { IntegrationStepsProps } from './steps.types';
@@ -26,8 +27,10 @@ export const IntegrationSteps = ({ title, subtitle, steps }: IntegrationStepsPro
                 step.length > 0 &&
                 step.map((item, index) => (
                   <StyledIntegrationStepsItemStep key={item}>
-                    <StyledIntegrationStepsItemStepNumber $variation={stepIndex % 2 === 0 ? 'blue' : 'orange'}>
-                      <span>{index + 1}</span>
+                    <StyledIntegrationStepsItemStepNumber>
+                      <StyledIntegrationStepsItemStepNumberText $variation={stepIndex % 2 === 0 ? 'blue' : 'orange'}>
+                        {index + 1}
+                      </StyledIntegrationStepsItemStepNumberText>
                     </StyledIntegrationStepsItemStepNumber>
                     <Text fontSize="l" color="darkGrey">
                       {item}
