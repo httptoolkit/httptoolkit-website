@@ -18,7 +18,7 @@ export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
           }
 
           return (
-            <li role="listitem">
+            <li role="listitem" key={link.label}>
               <Link key={link.href} href={link.href}>
                 {link.label}
               </Link>
