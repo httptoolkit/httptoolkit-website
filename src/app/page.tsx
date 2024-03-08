@@ -44,6 +44,7 @@ import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationGrid } from '@/components/sections/integration/grid';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
+import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Statistics } from '@/components/sections/statistics';
 import BlogPostImage from '@/content/posts/analytics-map.png';
 
@@ -591,6 +592,15 @@ export default async function Home() {
       />
       <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+      <IntegrationTextImage
+        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+        subtitle="what is http toolkit?"
+        image={{
+          darkSrc: '/images/mockup-image.webp',
+          lightSrc: '/images/mockup-image-light.webp',
+          alt: 'Mockup image',
+        }}
+      />
     </>
   );
 }
