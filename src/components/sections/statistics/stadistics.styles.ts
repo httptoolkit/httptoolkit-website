@@ -12,6 +12,7 @@ export const StyledStatisticsGradient = styled.div`
 
 export const StyledStatisticsGradientWrapper = styled.section`
   position: relative;
+  overflow: hidden;
 `;
 
 export const StyledStatisticsWrapper = styled(Container)`

@@ -1,34 +1,13 @@
 import { StyledCTAWrapper, StyledContainer, StyledExcerpt, StyledHeroWrapper } from './cta.styles';
+import type { CTAProps } from './cta.types';
 
 import { Button } from '@/components/elements/button';
-import type { ButtonProps } from '@/components/elements/button/button.types';
 import { Heading } from '@/components/elements/heading';
 import { SquareIcon } from '@/components/elements/square-icon';
-import type { IconType } from '@/components/elements/square-icon/square-icon.types';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
-import { ThemedImage, type ThemeImageProps } from '@/components/elements/themed-image';
-import { dropdownItems } from '@/components/layout/header';
-import { Dropdown } from '@/components/modules/dropdown';
-
-export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant'> & {
-  title: string;
-};
-
-export interface CTAProps {
-  isHero?: boolean;
-  heading: string;
-  textAppearance?: 'small' | 'large';
-  subHeading?: {
-    text: string;
-    icon?: IconType;
-  };
-  excerpt?: string;
-  withDownload?: boolean;
-  cta?: CTA;
-  icon?: IconType;
-  image?: ThemeImageProps;
-}
+import { ThemedImage } from '@/components/elements/themed-image';
+import { DownloadButton } from '@/components/modules/download-button';
 
 export const CTA = ({
   icon,
@@ -37,48 +16,51 @@ export const CTA = ({
   excerpt,
   cta,
   withDownload = true,
-  isHero = true,
   textAppearance = 'large',
   image,
+  $variant = 'cta-hero',
+  $bgVariant = 'default',
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
+  const isHero = $variant === 'cta-hero';
   const asTitle = isHero ? 'h1' : 'h3';
   const isLargeText = textAppearance === 'large';
 
   return (
-    <StyledHeroWrapper $isHero={isHero} $isLargeText={isLargeText}>
+    <StyledHeroWrapper $variant={$variant} $bgVariant={$bgVariant}>
       <StyledContainer>
         {icon && (
-          <SquareIcon $size={isHero ? 'xLarge' : 'large'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
+          <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
-          <Text as="label" color="cinnarbarRed" fontSize={isLargeText ? 'xll' : 'm'} fontWeight="bold">
+          <Text as="label" color="cinnarbarRed" fontSize="xll" fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
-        <Stack $gapxl={isLargeText ? '32px' : '16px'}>
-          <Heading color="textGradient" as={asTitle} fontSize={isLargeText ? 'xl' : 'l'}>
+        <Stack $gapxl="24px">
+          <Heading color="textGradient" as={asTitle} fontSize="xl">
             {heading}
           </Heading>
-          {excerpt && <StyledExcerpt fontSize="l">{excerpt}</StyledExcerpt>}
-
-          {/* TODO: Use the download feature instead when is ready */}
-          {(withDownload || cta) && (
-            <StyledCTAWrapper $isLargeText={isLargeText}>
-              {withDownload ? (
-                <Dropdown $variant="primary" $withBorder items={dropdownItems} aria-label="Download Items">
-                  Download for macOS
-                </Dropdown>
-              ) : null}
-
-              {cta && (
-                <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
-                  {cta.title}
-                </Button>
-              )}
-            </StyledCTAWrapper>
+          {excerpt && (
+            <StyledExcerpt fontSize="l" $isLargeText={isLargeText}>
+              {excerpt}
+            </StyledExcerpt>
           )}
         </Stack>
+        {(withDownload || cta) && (
+          <StyledCTAWrapper $isLargeText={isLargeText}>
+            {withDownload ? (
+              <DownloadButton $variant="primary" $withBorder={isHero} aria-label="Download Items" />
+            ) : null}
+
+            {cta && (
+              <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
+                {cta.title}
+              </Button>
+            )}
+          </StyledCTAWrapper>
+        )}
+
         {image && <ThemedImage title={heading || image.title} {...image} />}
       </StyledContainer>
     </StyledHeroWrapper>

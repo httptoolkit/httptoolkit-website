@@ -5,6 +5,7 @@ export default async function ForMacOsPage() {
   return (
     <>
       <CTA
+        $bgVariant="left-bottom-to-top-right"
         icon={AppleLogo}
         heading="Intercept, debug & mock HTTP(S) on macOS"
         excerpt="HTTP Toolkit lets you easily see and modify HTTP & HTTPS messages from applications, browsers, scripts & more on your macOS computer."
