@@ -16,6 +16,9 @@ import {
   GithubLogo,
   CursorClick,
   DockerLogo,
+  ShieldCheck,
+  ArrowsLeftRight,
+  Gear,
 } from '@/components/elements/icon';
 import ShowCase from '@/components/elements/showcase';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -552,7 +555,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Customize Responses with Prototyping Rules for Endpoints"
             text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
-            icon={Sparkle}
+            icon={Gear}
           />
           <FeatureLine
             darkImage="/images/mockup-image.webp"
@@ -560,7 +563,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Endpoint Management for Testing Edge Cases & Error Handling"
             text="Define new endpoints, override existing ones, or replace external services, to reproduce tricky edge cases and test your error handling."
-            icon={Sparkle}
+            icon={ShieldCheck}
           />
           <FeatureLine
             darkImage="/images/mockup-image.webp"
@@ -568,7 +571,7 @@ export default async function Home() {
             alt="Mockup image"
             title="Shareable Mock Rulesets: Import & Export for Team Collaboration"
             text="Import & export your mock rulesets, to build complex setups and share them with your team."
-            icon={Sparkle}
+            icon={ArrowsLeftRight}
           />
         </Stack>
         <IntegrationSteps title="Two ways to get started" subtitle="getting started" steps={stepsData} />

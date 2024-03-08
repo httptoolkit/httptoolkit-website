@@ -19,6 +19,9 @@ import {
   CursorClick,
   AppleLogo,
   X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -65,4 +68,7 @@ export {
   SquareJSLogo,
   PythonLogo,
   X,
+  Gear,
+  ShieldCheck,
+  ArrowsLeftRight,
 };
