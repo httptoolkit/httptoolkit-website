@@ -23,7 +23,7 @@ export const IntegrationCard = ({
   badgeText = 'MOST POPULAR',
 }: IntegrationCardProps) => {
   return (
-    <StyledIntegrationCardBorder {...link} $showBadge={$showBadge}>
+    <StyledIntegrationCardBorder aria-label={title} {...link} $showBadge={$showBadge}>
       <StyledIntegrationCardWrapper $showBadge={$showBadge}>
         <StyledIntegrationCardContentWrapper>
           <StyledIntegrationCardTitleWrapper>
