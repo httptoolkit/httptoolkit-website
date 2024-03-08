@@ -12,6 +12,7 @@ export const StyledIntegrationTextImageGradient = styled.div`
   top: -17%;
   right: 0;
   transform: rotate(180deg);
+  z-index: -1;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
