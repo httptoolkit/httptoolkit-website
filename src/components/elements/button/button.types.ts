@@ -18,6 +18,7 @@ export type StyledButtonProps = {
   $variant?: 'primary' | 'secondary';
   $withBorder?: boolean;
   $small?: boolean;
+  $isFluid?: boolean;
 };
 
 export type ButtonProps = {

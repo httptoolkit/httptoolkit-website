@@ -26,7 +26,7 @@ export const ContentCard = ({ title, text, buttonHref, buttonIcon, buttonText, $
       {$isNewsletter && (
         <>
           <StyledContentCardForm>
-            <Input placeholder="Email address" type="email" name="email" />
+            <Input id="email" placeholder="Email address" type="email" />
             <Button as="button" type="submit" $variant="secondary" $small>
               Sign up
             </Button>

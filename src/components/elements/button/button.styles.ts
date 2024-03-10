@@ -24,8 +24,8 @@ const base = css<StyledButtonProps>`
   cursor: pointer;
 
   @media (min-width: ${screens['lg']}) {
-    width: fit-content;
-    justify-content: start;
+    width: ${({ $isFluid }) => ($isFluid ? '100%' : 'fit-content')};
+    justify-content: center;
   }
 
   &:hover {

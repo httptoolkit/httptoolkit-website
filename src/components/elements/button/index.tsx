@@ -16,6 +16,7 @@ export const Button = ({
   $variant = 'primary',
   $withBorder = false,
   $isDropdown = false,
+  $isFluid = false,
   className,
   ...aria
 }: ButtonProps) => {
@@ -33,6 +34,7 @@ export const Button = ({
         $small={$small}
         $withBorder={$withBorder}
         $isDropdown={$isDropdown}
+        $isFluid={$isFluid}
         {...aria}
       >
         {children}
