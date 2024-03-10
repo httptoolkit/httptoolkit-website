@@ -12,6 +12,7 @@ export const StyledInputWrapper = styled.div`
 `;
 
 export const StyledInputBorder = styled.span<InputBorderProps>`
+  width: 100%;
   display: inline-block;
   border-radius: 6px;
   overflow: hidden;
