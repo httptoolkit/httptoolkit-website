@@ -70,3 +70,8 @@ export const StyledInput = styled.input<InputProps>`
     background-color: ${({ theme }) => theme.colors.inkBlack};
   }
 `;
+
+export const STyledLabel = styled.label`
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: ${({ theme }) => theme.colors.text.darkGrey};
+`;

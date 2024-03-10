@@ -11,8 +11,8 @@ export const SendEmail = () => {
         On mobile? Send this to your computer and try it out there:
       </Text>
       <StyledSendEmailForm>
-        <Input name="email" type="email" placeholder="Enter you email" />
-        <Button $variant="primary" as="button" type="submit">
+        <Input id="email" name="email" type="email" placeholder="Enter you email" />
+        <Button $variant="primary" type="submit">
           Send me a download link
         </Button>
       </StyledSendEmailForm>
