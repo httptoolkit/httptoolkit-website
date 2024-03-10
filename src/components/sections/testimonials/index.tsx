@@ -25,7 +25,7 @@ export const Testimonials = async () => {
         $align="center"
       />
 
-      <Marquee>
+      <Marquee pauseOnHover>
         <StyledTestimonialGrid>
           {testimonialsChunkedData.map((testimonialChunk, rowIndex) => (
             <div key={rowIndex}>
