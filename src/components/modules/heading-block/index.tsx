@@ -17,11 +17,12 @@ export const HeadingBlock = ({
   badgeTitle,
   badgeAdditionalText,
   badgeIcon,
+  badgeVariant = 'secondary',
 }: HeadingBlockProps) => {
   return (
     <StyledHeadingBlockWrapper $align={$align} $isContentCentered={$isContentCentered}>
       {badgeTitle && (
-        <Badge variant="secondary" additionalText={badgeAdditionalText} icon={badgeIcon}>
+        <Badge variant={badgeVariant} additionalText={badgeAdditionalText} icon={badgeIcon}>
           {badgeTitle}
         </Badge>
       )}

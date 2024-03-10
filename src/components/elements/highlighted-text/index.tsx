@@ -1,5 +1,5 @@
 export const HighlightedText = ({ title }: { title: string }) =>
-  title.split('`').map((segment, index) => {
+  title.split(/[&~`]/).map((segment, index) => {
     const isHighlighted = segment.includes('*');
     if (!isHighlighted) {
       return segment;
