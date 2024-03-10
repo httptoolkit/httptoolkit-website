@@ -47,7 +47,7 @@ export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
       <StyledInput
         id={id}
         role="switch"
-        name="{id}"
+        name={id}
         checked={isLightMode}
         type="checkbox"
         aria-checked={isLightMode}

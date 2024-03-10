@@ -11,4 +11,5 @@ export interface HeadingBlockProps extends StyledHeadingBlockProps {
   badgeTitle?: string;
   badgeAdditionalText?: BadgeProps['additionalText'];
   badgeIcon?: BadgeProps['icon'];
+  badgeVariant?: BadgeProps['variant'];
 }
