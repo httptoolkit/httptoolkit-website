@@ -4,6 +4,7 @@ import reset from 'styled-reset';
 export { styled, css, ThemeProvider, keyframes };
 
 export const screens = {
+  content: '659px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
