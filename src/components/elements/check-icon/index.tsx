@@ -1,9 +1,13 @@
 import { StyledCheckIcon } from './check-icon.styles';
 import { Check } from '../icon';
 
-export const CheckIcon = () => {
+export interface CheckIconProps {
+  $small?: boolean;
+}
+
+export const CheckIcon = ({ $small = false }: CheckIconProps) => {
   return (
-    <StyledCheckIcon>
+    <StyledCheckIcon $small={$small}>
       <Check size={12} />
     </StyledCheckIcon>
   );
