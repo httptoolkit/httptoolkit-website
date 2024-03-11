@@ -17,31 +17,37 @@ const ctaSquareStyles = css`
   overflow: hidden;
   margin: 96px auto;
   padding-top: 64px;
-  padding-bottom: 64px;
+  padding-bottom: 0;
   box-shadow: 0px 0px 24px 0px rgba(189, 195, 218, 0.1) inset;
   background:
     no-repeat url('/images/backgrounds/hero-lines.svg'),
     ${({ theme }) => theme.backgroundImages.backgroundDots};
-  background-position: top -80px center;
+  background-position: top -400px center;
+  margin: 32px 16px;
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 128px;
     padding-bottom: 128px;
-  }
-
-  /* faded look effect */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.inkBlack});
+    margin: 96px auto;
+    background-position: top -80px center;
+    /* faded look effect */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.inkBlack});
+    }
   }
 `;
 
 const ctaFluidStyles = css`
   background: no-repeat url('/images/backgrounds/hero-lines.svg');
-  background-position: top -80px center;
+  background-position: top -360px center;
+
+  @media (min-width: ${screens['lg']}) {
+    background-position: top -80px center;
+  }
 `;
 
 const handleBackgroundVariant = (variant: bgVariant) => {

@@ -12,7 +12,7 @@ export const ContactForm = () => {
         <Stack $gapxl="32px">
           <Stack $gapxl="16px">
             <Input label="Your Name" id="name" placeholder="e.g. Holly Smith" required type="text" />
-            <Input label="Email" id="email" placeholder="holly.smith@gmail.com" required type="email" />
+            <Input label="Email" id="email" placeholder="e.g. holly.smith@gmail.com" required type="email" />
             <Input
               label="Message"
               id="message"
