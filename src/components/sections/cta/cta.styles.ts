@@ -170,6 +170,7 @@ export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
 `;
 
 export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -180,5 +181,6 @@ export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
   @media (min-width: ${screens['lg']}) {
     flex-direction: row;
     margin-bottom: 64px;
+    width: fit-content;
   }
 `;
