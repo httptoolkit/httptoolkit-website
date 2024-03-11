@@ -14,7 +14,7 @@ export default async function ForWindowsPage() {
           lightSrc: '/images/hero-placeholder-light.webp',
           withBorderAnimation: true,
           alt: 'Hero',
-          priority: true,
+          loading: 'eager',
         }}
       />
     </>

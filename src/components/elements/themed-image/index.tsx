@@ -1,14 +1,13 @@
 'use client';
 
-import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import type { ImageProps } from 'next/image';
-import Image from 'next/image';
+import type { DetailedHTMLProps, ImgHTMLAttributes } from 'react';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
 
-export interface ThemeImageProps extends Omit<ImageProps, 'src'> {
-  lightSrc: string | StaticImport;
-  darkSrc: string | StaticImport;
+export interface ThemeImageProps
+  extends Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'src'> {
+  lightSrc: string;
+  darkSrc: string;
   withBorderAnimation?: boolean;
   withBorder?: boolean;
   withoutStyles?: boolean;
@@ -20,33 +19,30 @@ export const ThemedImage = ({
   withBorderAnimation,
   withBorder,
   withoutStyles,
+  loading,
   alt = 'image',
-  width,
-  height,
   ...props
 }: ThemeImageProps) => {
-  const hasSize = !!width && !!height;
-
   const imageProps = {
-    fill: !hasSize,
-    priority: false,
-    width,
-    height,
+    loading: loading ?? 'lazy',
     ...props,
   };
 
+  // TODO: Refactor to Image element
   const FinalImage = () => {
     return (
       <>
-        <Image alt={alt} src={lightSrc} {...imageProps} data-hide-on-theme="dark" />
-        <Image alt={alt} src={darkSrc} {...imageProps} data-hide-on-theme="light" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img alt={alt} src={lightSrc} data-hide-on-theme="dark" {...imageProps} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img alt={alt} src={darkSrc} data-hide-on-theme="light" {...imageProps} />
       </>
     );
   };
 
   if (withBorderAnimation || withBorder) {
     return (
-      <ThemedImageMovingBorder style={{ minHeight: height }} $withBorder={Boolean(withBorder)}>
+      <ThemedImageMovingBorder $withBorder={Boolean(withBorder)}>
         <FinalImage />
       </ThemedImageMovingBorder>
     );
@@ -57,7 +53,7 @@ export const ThemedImage = ({
   }
 
   return (
-    <StyledThemedImage style={{ minHeight: height }}>
+    <StyledThemedImage>
       <FinalImage />
     </StyledThemedImage>
   );

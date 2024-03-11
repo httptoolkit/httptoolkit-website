@@ -25,3 +25,7 @@ build
 
 # github
 .github/
+
+
+# MD files
+*.md
