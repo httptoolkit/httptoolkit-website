@@ -38,7 +38,7 @@ export const CTA = ({
           </Text>
         )}
         <Stack $gapxl="24px">
-          <Heading color="textGradient" as={asTitle} fontSize="xl">
+          <Heading color="textGradient" as={asTitle} fontSize={isHero ? 'xl' : 'l'}>
             {heading}
           </Heading>
           {excerpt && (
