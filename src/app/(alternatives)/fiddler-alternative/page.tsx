@@ -12,7 +12,7 @@ export default async function FiddlerPage() {
           lightSrc: '/images/hero-placeholder-light.webp',
           withBorderAnimation: true,
           alt: 'Hero',
-          priority: true,
+          loading: 'eager',
         }}
       />
 
