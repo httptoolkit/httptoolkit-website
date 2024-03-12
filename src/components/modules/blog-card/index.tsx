@@ -8,6 +8,7 @@ import {
 } from './blog-card.styles';
 import type { BlogCardProps } from './blog-card.types';
 
+import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { ArrowRight } from '@/components/elements/icon';
@@ -19,7 +20,9 @@ export const BlogCard = ({ title, text, image, date, tag, slug }: BlogCardProps)
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
         <StyledBlogCardImage width={386} height={217} src={image.src} alt={image.alt ?? title} loading="lazy" />
-        <StyledBlogCardTag>{tag}</StyledBlogCardTag>
+        <StyledBlogCardTag>
+          <Badge>{tag}</Badge>
+        </StyledBlogCardTag>
       </StyledBlogCardFigure>
       <StyledBlogCardContentWrapper>
         <Text fontSize="m" color="darkGrey">

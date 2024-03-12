@@ -38,16 +38,6 @@ export const StyledBlogCardTag = styled.span`
   position: absolute;
   top: 16px;
   left: 16px;
-  padding: 6px 10px;
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  font-size: ${({ theme }) => theme.fontSizes.label.m};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  line-height: 1.1;
-  letter-spacing: 0.6;
-  text-transform: uppercase;
 `;
 
 export const StyledBlogCardContentWrapper = styled.div`
