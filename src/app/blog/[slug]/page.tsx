@@ -1,4 +1,5 @@
 import { Container } from '@/components/elements/container';
+import { RelatedPosts } from '@/components/sections/blog/related-posts';
 import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx';
 
@@ -21,7 +22,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <Container>
       <SinglePostHero post={post} />
-
+      <RelatedPosts tags={post.tags} currentPostSlug={post.slug} />
       {/* <div>{post.content}</div> */}
     </Container>
   );
