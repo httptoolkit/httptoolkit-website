@@ -26,6 +26,9 @@ import {
   ShieldCheck,
   ArrowsLeftRight,
   WindowsLogo,
+  Desktop,
+  Shuffle,
+  Flag,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -83,4 +86,7 @@ export {
   ArrowsLeftRight,
   WindowsLogo,
   LinuxLogo,
+  Desktop,
+  Shuffle,
+  Flag,
 };

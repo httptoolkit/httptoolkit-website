@@ -6,7 +6,6 @@ import type { HeroPointsProps } from './hero-points.types';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 
-
 export const HeroPoints = ({ title, text }: HeroPointsProps) => {
   return (
     <StyledHeroPointsWrapper>

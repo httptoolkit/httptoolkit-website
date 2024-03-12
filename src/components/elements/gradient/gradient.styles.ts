@@ -9,6 +9,7 @@ export const StyledGradient = styled.div<StyledGradientProps>`
   height: 100%;
   position: relative;
   aspect-ratio: 16/11;
+  z-index: -1;
 
   ${({ $shape }) => {
     switch ($shape) {

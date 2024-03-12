@@ -10,6 +10,7 @@ export const StyledFluidCardWrapper = styled.div<StyledFluidCardProps>`
   gap: 24px;
   border-radius: 16px;
   padding: 24px;
+  height: 100%;
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border},
     0px 2px 24px 0px ${({ theme }) => theme.colors.shadowDefault};
@@ -60,6 +61,7 @@ export const StyledFluidCardText = styled.div<StyledFluidCardProps>`
   }
 
   & strong {
+    color: ${({ theme }) => theme.colors.text.white};
     font-weight: ${({ theme }) => theme.fontWeight.bold};
   }
 
