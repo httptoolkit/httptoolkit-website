@@ -1,6 +1,6 @@
 'use client';
 
-import type { DetailedHTMLProps, ImgHTMLAttributes } from 'react';
+import type { DetailedHTMLProps, ImgHTMLAttributes, RefObject } from 'react';
 
 import { StyledThemedImage, ThemedImageMovingBorder } from './themed-image';
 
@@ -11,6 +11,7 @@ export interface ThemeImageProps
   withBorderAnimation?: boolean;
   withBorder?: boolean;
   withoutStyles?: boolean;
+  ref?: RefObject<HTMLImageElement>;
 }
 
 export const ThemedImage = ({

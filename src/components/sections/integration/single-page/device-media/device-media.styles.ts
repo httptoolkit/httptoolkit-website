@@ -1,8 +1,7 @@
 'use client';
 
-import Image from 'next/image';
-
 import { Container } from '@/components/elements/container';
+import { Image } from '@/components/elements/image';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { styled } from '@/styles';
 
