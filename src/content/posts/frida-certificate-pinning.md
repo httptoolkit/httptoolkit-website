@@ -1,7 +1,7 @@
 ---
 title: 'Defeating Android Certificate Pinning with Frida'
 date: '2021-07-06T13:30'
-cover_image: './header-images/dodgy-padlock.jpg'
+cover_image: 'header-images/dodgy-padlock.jpg'
 tags: frida, android, interception, certificates, tls
 ---
 

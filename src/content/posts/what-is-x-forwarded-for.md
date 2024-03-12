@@ -1,7 +1,7 @@
 ---
 title: 'What is X-Forwarded-For and when can you trust it?'
 date: '2024-01-31T17:00'
-cover_image: './header-images/chain.jpg'
+cover_image: 'header-images/chain.jpg'
 author: Phil Sturgeon
 authorUrl: https://philsturgeon.com/
 tags: http, standards, apis

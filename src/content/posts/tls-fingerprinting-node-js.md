@@ -1,7 +1,7 @@
 ---
 title: 'Fighting TLS fingerprinting with Node.js'
 date: '2021-12-07T13:40'
-cover_image: './header-images/fingerprint.jpg'
+cover_image: 'header-images/fingerprint.jpg'
 tags: tls, node.js, javascript, interception
 ---
 

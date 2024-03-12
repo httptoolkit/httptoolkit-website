@@ -1,7 +1,7 @@
 ---
 title: 'Public CDNs Are Useless and Dangerous'
 date: '2021-07-19T14:15'
-cover_image: './header-images/danger.jpg'
+cover_image: 'header-images/danger.jpg'
 tags: security, browsers
 ---
 

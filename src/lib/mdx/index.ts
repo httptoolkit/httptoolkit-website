@@ -34,6 +34,12 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     isDraft: frontmatter?.draft ?? false,
     excerpt: '',
     slug: realSlug,
+    author: frontmatter?.author
+      ? {
+          name: frontmatter.author,
+          url: frontmatter.authorUrl ?? '',
+        }
+      : undefined,
     content,
   };
 

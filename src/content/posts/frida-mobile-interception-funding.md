@@ -1,7 +1,7 @@
 ---
 title: EU Funding for Mobile App Traffic Interception
 date: '2023-02-27T12:00'
-cover_image: './header-images/open-padlock-keys.jpg'
+cover_image: 'header-images/open-padlock-keys.jpg'
 tags: funding, frida, android, ios, interception, announcements
 ---
 

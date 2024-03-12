@@ -1,7 +1,7 @@
 ---
 title: 'Reverse engineering & modifying Android apps with JADX & Frida'
 date: '2021-11-22T12:30'
-cover_image: './header-images/frida.jpg'
+cover_image: 'header-images/frida.jpg'
 tags: android, frida, jadx, interception
 ---
 

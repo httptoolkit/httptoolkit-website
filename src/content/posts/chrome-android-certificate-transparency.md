@@ -1,7 +1,7 @@
 ---
 title: "Android Chrome 99 expands Certificate Transparency, breaking all MitM dev tools"
 date: '2022-05-11T16:00'
-cover_image: './header-images/person-behind-mirror.jpg'
+cover_image: 'header-images/person-behind-mirror.jpg'
 tags: browsers, chrome, android, tls
 ---
 

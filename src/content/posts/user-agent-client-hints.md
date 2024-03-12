@@ -1,7 +1,7 @@
 ---
 title: 'How will user-agent client hints work?'
 date: '2020-05-06T17:00'
-cover_image: './header-images/code.jpg'
+cover_image: 'header-images/code.jpg'
 tags: http, standards, browsers
 ---
 

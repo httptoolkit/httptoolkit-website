@@ -1,7 +1,7 @@
 ---
 title: "Android 14 blocks modification of system certificates, even as root"
 date: '2023-09-05T14:00'
-cover_image: './header-images/broken-android-phone.jpg'
+cover_image: 'header-images/broken-android-phone.jpg'
 tags: android, interception, tls, certificates
 ---
 

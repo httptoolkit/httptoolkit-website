@@ -1,7 +1,7 @@
 ---
 title: "Safari isn't protecting the web, it's killing it"
 date: '2021-07-28T15:50'
-cover_image: './header-images/broken-iphone.jpg'
+cover_image: 'header-images/broken-iphone.jpg'
 tags: apple, browsers
 ---
 

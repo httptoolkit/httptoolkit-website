@@ -1,7 +1,7 @@
 ---
 title: HTTPWTF
 date: '2021-03-04T15:00'
-cover_image: './header-images/why.jpg'
+cover_image: 'header-images/why.jpg'
 tags: http
 ---
 

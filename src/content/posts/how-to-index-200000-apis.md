@@ -1,7 +1,7 @@
 ---
 title: "How to Index 226,379 API Endpoints"
 date: '2021-02-11T13:00'
-cover_image: './header-images/library.jpg'
+cover_image: 'header-images/library.jpg'
 tags: apis, openapi
 ---
 

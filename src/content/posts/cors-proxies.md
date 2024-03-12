@@ -1,7 +1,7 @@
 ---
 title: What are CORS proxies, and when are they safe?
 date: '2021-04-01T09:30'
-cover_image: './header-images/broken-paperclip.png'
+cover_image: 'header-images/broken-paperclip.png'
 tags: cors, security
 ---
 

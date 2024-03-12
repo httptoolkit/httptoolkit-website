@@ -16,6 +16,7 @@ const nextConfig = {
     nextImageExportOptimizer_quality: '80',
     nextImageExportOptimizer_storePicturesInWEBP: 'true',
     nextImageExportOptimizer_exportFolderName: 'http-toolkit-assets',
+    nextImageExportOptimizer_generateAndUseBlurImages: 'true',
   },
   experimental: {
     optimizePackageImports: ['@phosphor-icons/react'],

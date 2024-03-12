@@ -1,7 +1,7 @@
 ---
 title: "EU Funding for Dev Tools for the Decentralized Web"
 date: '2021-09-15T12:00'
-cover_image: './header-images/cubes-splash.jpg'
+cover_image: 'header-images/cubes-splash.jpg'
 tags: funding, decentralized-web, webrtc, announcements
 ---
 

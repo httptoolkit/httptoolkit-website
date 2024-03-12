@@ -1,7 +1,7 @@
 ---
 title: 'One Port to Rule Them All'
 date: '2021-04-15T16:45'
-cover_image: './header-images/lotr.jpg'
+cover_image: 'header-images/lotr.jpg'
 tags: http, tls
 ---
 

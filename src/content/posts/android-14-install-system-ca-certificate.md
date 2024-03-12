@@ -1,7 +1,7 @@
 ---
 title: "New ways to inject system CA certificates in Android 14"
 date: '2023-09-21T12:00'
-cover_image: './header-images/android-phone.jpg'
+cover_image: 'header-images/android-phone.jpg'
 tags: android, interception, tls, certificates
 ---
 

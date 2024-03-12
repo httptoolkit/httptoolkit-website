@@ -1,7 +1,7 @@
 ---
 title: Debugging WebRTC, IPFS & Ethereum with HTTP Toolkit
 date: '2022-10-28T13:30'
-cover_image: './header-images/glasses-flowchart.jpg'
+cover_image: 'header-images/glasses-flowchart.jpg'
 tags: decentralized-web, javascript, webrtc, interception
 ---
 

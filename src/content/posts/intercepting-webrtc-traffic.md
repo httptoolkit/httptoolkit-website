@@ -1,7 +1,7 @@
 ---
 title: How to intercept, observe & mock WebRTC traffic
 date: '2022-10-13T10:00'
-cover_image: './header-images/audio-cables.jpg'
+cover_image: 'header-images/audio-cables.jpg'
 tags: interception, webrtc, javascript
 ---
 

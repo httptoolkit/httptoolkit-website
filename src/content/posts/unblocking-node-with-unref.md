@@ -1,7 +1,7 @@
 ---
 title: 'Unblocking Node With Unref()'
 date: '2019-09-11T13:30'
-cover_image: './header-images/rollercoaster.jpg'
+cover_image: 'header-images/rollercoaster.jpg'
 tags: node.js, errors
 ---
 
