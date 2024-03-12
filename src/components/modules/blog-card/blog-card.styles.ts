@@ -1,6 +1,7 @@
 'use client';
 
-import { styled } from '@/styles';
+import { Image } from '@/components/elements/image';
+import { screens, styled } from '@/styles';
 
 export const StyledBlogCardWrapper = styled.article`
   display: flex;
@@ -19,15 +20,18 @@ export const StyledBlogCardWrapper = styled.article`
 `;
 
 export const StyledBlogCardFigure = styled.figure`
-  height: 217px;
+  height: 174px;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: ${screens.lg}) {
+    height: 217px;
+  }
 `;
 
-export const StyledBlogCardImage = styled.img`
+export const StyledBlogCardImage = styled(Image)`
   width: 100%;
-  height: 100%;
 `;
 
 export const StyledBlogCardTag = styled.span`
