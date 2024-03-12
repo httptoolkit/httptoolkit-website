@@ -27,6 +27,10 @@ export const StyledIntegrationCompatibilityGradientWrapper = styled.div`
     top: -150px;
     right: -500px;
   }
+
+  & > div {
+    z-index: 0;
+  }
 `;
 
 export const StyledIntegrationCompatibilityContentWrapper = styled(Container)`
