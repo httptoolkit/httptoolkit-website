@@ -1,7 +1,7 @@
 ---
 title: Cache your CORS, for performance & profit
 date: '2021-02-17T17:00'
-cover_image: './header-images/library.jpg'
+cover_image: 'header-images/library.jpg'
 tags: cors, caching, performance
 ---
 

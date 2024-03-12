@@ -1,7 +1,7 @@
 ---
 title: 'Notarize your Electron App with Electron Forge'
 date: '2019-08-06T13:00'
-cover_image: './header-images/signing.jpg'
+cover_image: 'header-images/signing.jpg'
 draft: false
 tags: electron, javascript, certificates
 ---

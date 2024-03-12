@@ -1,7 +1,7 @@
 ---
 title: 'How to Debug Node.js Segmentation Faults'
 date: '2020-08-12T11:20'
-cover_image: './header-images/wrecked-car.jpg'
+cover_image: 'header-images/wrecked-car.jpg'
 draft: false
 tags: cors, node.js
 ---

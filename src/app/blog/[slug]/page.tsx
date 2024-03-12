@@ -1,5 +1,5 @@
 import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
+import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx';
 
 export async function generateStaticParams() {
@@ -20,8 +20,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <Container>
-      <Heading>{post.title}</Heading>
-      <div>{post.content}</div>
+      <SinglePostHero post={post} />
+
+      {/* <div>{post.content}</div> */}
     </Container>
   );
 }

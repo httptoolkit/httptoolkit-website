@@ -1,7 +1,7 @@
 ---
 title: Automatic npm publishing, with GitHub Actions & npm granular tokens
 date: '2023-03-22T10:00'
-cover_image: './header-images/postage-stamps.jpg'
+cover_image: 'header-images/postage-stamps.jpg'
 tags: node.js, javascript
 ---
 

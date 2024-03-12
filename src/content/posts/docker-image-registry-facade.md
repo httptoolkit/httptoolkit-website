@@ -1,7 +1,7 @@
 ---
 title: "Dodge the next Dockerpocalypse: how to own your own Docker Registry address"
 date: '2023-03-17T11:00'
-cover_image: './header-images/container-ship.jpg'
+cover_image: 'header-images/container-ship.jpg'
 tags: docker
 ---
 

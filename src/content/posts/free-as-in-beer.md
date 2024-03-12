@@ -1,7 +1,7 @@
 ---
 title: 'Free as in Beer'
 date: '2020-01-06T18:00'
-cover_image: './header-images/open.jpg'
+cover_image: 'header-images/open.jpg'
 tags: open-source, business
 ---
 

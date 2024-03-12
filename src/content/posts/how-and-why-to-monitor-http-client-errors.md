@@ -1,7 +1,7 @@
 ---
 title: "Ignore HTTP Client Errors At Your Peril"
 date: '2020-04-16T17:45'
-cover_image: './header-images/wrong-way.jpg'
+cover_image: 'header-images/wrong-way.jpg'
 tags: http, javascript, debugging
 ---
 

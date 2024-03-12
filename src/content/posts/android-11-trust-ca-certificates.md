@@ -1,7 +1,7 @@
 ---
 title: 'Android 11 tightens restrictions on CA certificates'
 date: '2020-09-10T16:30'
-cover_image: './header-images/locks.jpg'
+cover_image: 'header-images/locks.jpg'
 tags: android, interception, tls, certificates
 ---
 

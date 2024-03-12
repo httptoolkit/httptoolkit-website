@@ -1,7 +1,7 @@
 ---
 title: "Testing libraries for the Decentralized Web"
 date: '2022-10-24T17:00'
-cover_image: './header-images/people-network-graph.jpg'
+cover_image: 'header-images/people-network-graph.jpg'
 tags: decentralized-web, testing, javascript, webrtc
 ---
 

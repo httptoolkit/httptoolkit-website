@@ -1,7 +1,7 @@
 ---
 title: 'Encoding your HTTP for fun and profit'
 date: '2021-06-10T14:00'
-cover_image: './header-images/messy-boxes.jpg'
+cover_image: 'header-images/messy-boxes.jpg'
 tags: http, performance
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Debugging Netlify Function Errors with Sentry'
 date: '2019-01-31T19:30'
-cover_image: './header-images/lost-plane.jpg'
+cover_image: 'header-images/lost-plane.jpg'
 draft: false
 tags: debugging, javascript, errors
 ---

@@ -1,7 +1,7 @@
 ---
 title: "The right way to turn off your old APIs"
 date: '2021-01-21T10:30'
-cover_image: './header-images/goodbye.jpg'
+cover_image: 'header-images/goodbye.jpg'
 tags: apis, standards
 ---
 

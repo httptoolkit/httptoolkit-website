@@ -1,7 +1,7 @@
 ---
 title: 'How to Debug Anything'
 date: '2019-12-02T15:00'
-cover_image: './header-images/code.jpg'
+cover_image: 'header-images/code.jpg'
 twitterUrl: https://twitter.com/pimterry/status/1201517994729447425
 redditUrl: https://www.reddit.com/r/programming/comments/e5096w/how_to_debug_anything/
 hackerNewsUrl: https://news.ycombinator.com/item?id=21682919

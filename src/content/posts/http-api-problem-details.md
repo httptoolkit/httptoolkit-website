@@ -1,7 +1,7 @@
 ---
 title: How do you know what's gone wrong when your API request fails?
 date: '2020-11-24T13:35'
-cover_image: './header-images/wrecked-car.jpg'
+cover_image: 'header-images/wrecked-car.jpg'
 tags: apis, standards, errors
 ---
 

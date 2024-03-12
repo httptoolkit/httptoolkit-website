@@ -1,7 +1,7 @@
 ---
 title: 6 ways to debug an exploding Docker container
 date: '2023-10-31T14:00'
-cover_image: './header-images/container-shipwreck.jpg'
+cover_image: 'header-images/container-shipwreck.jpg'
 author: 'Tim Perry'
 authorUrl: 'https://tim.fyi/'
 tags: debugging, docker, errors

@@ -1,7 +1,7 @@
 ---
 title: 'Migrating a JS project from Travis to GitHub Actions'
 date: '2020-10-27T11:45'
-cover_image: './header-images/factory.jpg'
+cover_image: 'header-images/factory.jpg'
 tags: cli, testing
 ---
 
@@ -126,9 +126,9 @@ That will automatically find `.github/workflows/*.yml` files in your current dir
 ```
 | > registry-js@1.12.0 install /github/workspace/node_modules/registry-js
 | > prebuild-install || node-gyp rebuild
-| 
+|
 | prebuild-install WARN install No prebuilt binaries found (target=14.14.0 runtime=node arch=x64 libc= platform=linux)
-| gyp ERR! find Python 
+| gyp ERR! find Python
 | gyp ERR! find Python Python is not set from command line or npm configuration
 | gyp ERR! find Python Python is not set from environment variable PYTHON
 | gyp ERR! find Python checking if "python" can be used
@@ -137,7 +137,7 @@ That will automatically find `.github/workflows/*.yml` files in your current dir
 | gyp ERR! find Python - "python2" is not in PATH or produced an error
 | gyp ERR! find Python checking if "python3" can be used
 | gyp ERR! find Python - "python3" is not in PATH or produced an error
-| gyp ERR! find Python 
+| gyp ERR! find Python
 | gyp ERR! find Python **********************************************************
 | gyp ERR! find Python You need to install the latest version of Python.
 | gyp ERR! find Python Node-gyp should be able to find and use Python. If not,
@@ -150,8 +150,8 @@ That will automatically find `.github/workflows/*.yml` files in your current dir
 | gyp ERR! find Python For more information consult the documentation at:
 | gyp ERR! find Python https://github.com/nodejs/node-gyp#installation
 | gyp ERR! find Python **********************************************************
-| gyp ERR! find Python 
-| gyp ERR! configure error 
+| gyp ERR! find Python
+| gyp ERR! configure error
 | gyp ERR! stack Error: Could not find any Python installation to use
 | gyp ERR! stack     at PythonFinder.fail (/opt/hostedtoolcache/node/14.14.0/x64/lib/node_modules/npm/node_modules/node-gyp/lib/find-python.js:307:47)
 | gyp ERR! stack     at PythonFinder.runChecks (/opt/hostedtoolcache/node/14.14.0/x64/lib/node_modules/npm/node_modules/node-gyp/lib/find-python.js:136:21)
@@ -168,7 +168,7 @@ That will automatically find `.github/workflows/*.yml` files in your current dir
 | gyp ERR! cwd /github/workspace/node_modules/registry-js
 | gyp ERR! node -v v14.14.0
 | gyp ERR! node-gyp -v v5.1.0
-| gyp ERR! not ok 
+| gyp ERR! not ok
 | npm ERR! code ELIFECYCLE
 | npm ERR! errno 1
 | npm ERR! registry-js@1.12.0 install: `prebuild-install || node-gyp rebuild`

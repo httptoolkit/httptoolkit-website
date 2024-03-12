@@ -1,7 +1,7 @@
 ---
 title: Mining your CLI history for good git aliases
 date: '2020-11-30T13:35'
-cover_image: './header-images/old-records.jpg'
+cover_image: 'header-images/old-records.jpg'
 tags: cli, git
 ---
 

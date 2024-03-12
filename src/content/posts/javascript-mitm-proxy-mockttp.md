@@ -1,7 +1,7 @@
 ---
 title: 'Build an HTTPS-intercepting JavaScript proxy in 30 seconds flat'
 date: '2021-04-27T14:00'
-cover_image: './header-images/network.jpg'
+cover_image: 'header-images/network.jpg'
 tags: javascript, testing, http, open-source
 ---
 
