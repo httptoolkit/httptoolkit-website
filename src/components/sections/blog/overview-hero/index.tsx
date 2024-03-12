@@ -24,13 +24,20 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
         <Heading fontSize="l" color="textGradient">
           The HTTP Toolkit Blog
         </Heading>
+        {/* TODO(gerald): generate excerpt from body content */}
         <Text fontSize="l">News, updates and advice on how to use your online HTTP Toolkit.</Text>
       </StyledHeadingWrapper>
 
       {featuredPost && (
         <StyledFeaturePost>
           <StyledPostImageWrapper>
-            <Image width={540} height={303} src={`images/${featuredPost.coverImage}`} alt="Large Image" priority />
+            <Image
+              width={540}
+              height={303}
+              src={`images/${featuredPost.coverImage}`}
+              alt={featuredPost.title}
+              priority
+            />
           </StyledPostImageWrapper>
           <StyledPostDetails>
             <Stack $gapxl="16px">
