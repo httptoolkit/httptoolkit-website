@@ -25,7 +25,7 @@ const GoBack = ({ $displayOn }: { $displayOn: 'desktop' | 'mobile' }) => {
     <StyledGoBack $displayOn={$displayOn}>
       <Link href="/blog">
         <CaretLeft weight="fill" />
-        <Text as="label" fontSize="m" fontWeight="bold">
+        <Text as="label" fontSize="m" fontWeight="bold" color="white">
           GO BACK TO BLOG
         </Text>
       </Link>
