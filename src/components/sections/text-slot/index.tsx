@@ -17,7 +17,7 @@ import { Text } from '@/components/elements/text';
 export const TextSlot = ({ title, copy, texts, children, buttons, $textCenteredOnMobile }: TextSlotProps) => {
   return (
     <StyledTextSlotWrapper>
-      <StyledTextSlotInnerWrapper>
+      <StyledTextSlotInnerWrapper $textCenteredOnMobile={$textCenteredOnMobile}>
         <StyledTextSlotTitle
           forwardedAs="h1"
           fontSize="l"
