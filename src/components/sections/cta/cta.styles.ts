@@ -102,6 +102,14 @@ const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   }
 `;
 
+const pricingHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
+  ${ctaHeroStyles}
+
+  & > div {
+    max-width: 657px;
+  }
+`;
+
 export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   position: relative;
   padding-top: 32px;
@@ -110,6 +118,7 @@ export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant; $bgVaria
 
   ${({ $variant }) => $variant === 'cta-square' && ctaSquareStyles};
   ${({ $variant }) => $variant === 'cta-hero' && ctaHeroStyles};
+  ${({ $variant }) => $variant === 'pricing-hero' && pricingHeroStyles};
   ${({ $variant }) => $variant === 'cta-fluid' && ctaFluidStyles};
 
   @media (min-width: ${screens['lg']}) {
@@ -144,6 +153,7 @@ export const StyledContainer = styled(Container)`
     display: flex;
     align-items: center;
     gap: 8px;
+    margin: 0 auto;
   }
 
   & ${StyledStack} {
