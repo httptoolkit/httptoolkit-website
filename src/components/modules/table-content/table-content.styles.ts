@@ -60,7 +60,7 @@ export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
   }
 `;
 
-const slideDown = keyframes`
+export const slideDown = keyframes`
   from {
     height: 0;
   }
@@ -69,7 +69,7 @@ const slideDown = keyframes`
   }
 `;
 
-const slideUp = keyframes`
+export const slideUp = keyframes`
   from {
     height: var(--radix-accordion-content-height);
   }
