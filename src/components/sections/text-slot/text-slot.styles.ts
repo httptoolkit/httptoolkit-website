@@ -12,18 +12,12 @@ export const StyledTextSlotWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const StyledTextSlotInnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-`;
-
 export const StyledTextSlotTitle = styled(Heading)<StyledTextSlotProps>`
   ${({ $textCenteredOnMobile }) =>
     $textCenteredOnMobile &&
     `
     text-align: center;
-  `}
+    `}
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     text-align: left;
@@ -38,7 +32,7 @@ export const StyledTextSlotText = styled.div<StyledTextSlotProps>`
     $textCenteredOnMobile &&
     `
     text-align: center;
-  `}
+    `}
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     text-align: left;
@@ -63,10 +57,25 @@ export const StyledTextSlotCopyWrapper = styled.div`
   gap: 16px;
 `;
 
+export const StyledTextSlotInnerWrapper = styled.div<StyledTextSlotProps>`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  & ${StyledTextSlotCopyWrapper} {
+    width: fit-content;
+  }
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    align-items: ${({ $textCenteredOnMobile }) => ($textCenteredOnMobile ? 'center' : 'initial')};
+  }
+`;
+
 export const StyledTextSlotButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: row;
