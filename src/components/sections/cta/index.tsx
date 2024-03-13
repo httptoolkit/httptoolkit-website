@@ -3,9 +3,11 @@ import type { CTAProps } from './cta.types';
 
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
+import type { HeadingProps } from '@/components/elements/heading/heading.types';
 import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
+import type { TextProps } from '@/components/elements/text/text.types';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { DownloadButton } from '@/components/modules/download-button';
 
@@ -20,11 +22,15 @@ export const CTA = ({
   image,
   $variant = 'cta-hero',
   $bgVariant = 'default',
+  children,
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
-  const isHero = $variant === 'cta-hero';
+  const isHero = ['cta-hero', 'pricing-hero'].includes($variant);
+  const HeadingSize: HeadingProps['fontSize'] = isHero && $variant !== 'pricing-hero' ? 'xl' : 'l';
   const asTitle = isHero ? 'h1' : 'h3';
   const isLargeText = textAppearance === 'large';
+  const labelSize: TextProps['fontSize'] = $variant === 'pricing-hero' ? 'l' : 'xll';
+  const excerptSize = $variant === 'pricing-hero' ? 'm' : 'l';
 
   return (
     <StyledHeroWrapper $variant={$variant} $bgVariant={$bgVariant}>
@@ -33,16 +39,16 @@ export const CTA = ({
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
-          <Text as="label" color="cinnarbarRed" fontSize="xll" fontWeight="bold">
+          <Text as="label" color="cinnarbarRed" fontSize={labelSize} fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
         <Stack $gapxl="24px">
-          <Heading color="textGradient" as={asTitle} fontSize={isHero ? 'xl' : 'l'}>
+          <Heading color="textGradient" as={asTitle} fontSize={HeadingSize}>
             {heading}
           </Heading>
           {excerpt && (
-            <StyledExcerpt fontSize="l" $isLargeText={isLargeText}>
+            <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
               {excerpt}
             </StyledExcerpt>
           )}
@@ -63,6 +69,7 @@ export const CTA = ({
 
         {image && <ThemedImage title={heading || image.title} {...image} loading={isHero ? 'eager' : 'lazy'} />}
       </StyledContainer>
+      {children}
     </StyledHeroWrapper>
   );
 };

@@ -6,7 +6,7 @@ export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' 
   title: string;
 };
 
-export type CTAVariant = 'cta-hero' | 'cta-square' | 'cta-fluid';
+export type CTAVariant = 'cta-hero' | 'cta-square' | 'cta-fluid' | 'pricing-hero';
 export type TextAppearance = 'small' | 'large';
 export type bgVariant =
   | 'default'
@@ -14,7 +14,7 @@ export type bgVariant =
   | 'rigth-bottom-to-top-left'
   | 'left-top-to-bottom-right';
 
-export interface CTAProps {
+export interface CTAProps extends Component {
   $variant?: CTAVariant;
   $bgVariant?: bgVariant;
   heading: string;
