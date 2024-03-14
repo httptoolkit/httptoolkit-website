@@ -29,7 +29,7 @@ export const CTA = ({
   const HeadingSize: HeadingProps['fontSize'] = isHero && $variant !== 'pricing-hero' ? 'xl' : 'l';
   const asTitle = isHero ? 'h1' : 'h3';
   const isLargeText = textAppearance === 'large';
-  const labelSize: TextProps['fontSize'] = $variant === 'pricing-hero' ? 'l' : 'xll';
+  const labelSize: TextProps['fontSize'] = $variant === 'pricing-hero' ? 'm' : 'xll';
   const excerptSize = $variant === 'pricing-hero' ? 'm' : 'l';
 
   return (
