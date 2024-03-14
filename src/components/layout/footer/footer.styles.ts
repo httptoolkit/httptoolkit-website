@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
 export const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column-reverse;
-  gap: 64px;
+  gap: 24px;
 
   @media (min-width: ${screens.md}) {
     flex-direction: row;
@@ -45,7 +45,7 @@ export const StyledColumn = styled.div`
   &:last-child {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 54px;
+    gap: 16px;
 
     @media (min-width: ${screens.md}) {
       grid-template-columns: repeat(3, 1fr);
@@ -70,7 +70,7 @@ export const StyledColumn = styled.div`
       &:nth-of-type(1) {
         order: 2;
 
-        @media (min-width: ${screens['2xl']}) {
+        @media (min-width: ${screens.lg}) {
           order: 1;
         }
       }
@@ -78,7 +78,7 @@ export const StyledColumn = styled.div`
       &:nth-of-type(2) {
         order: 3;
 
-        @media (min-width: ${screens['2xl']}) {
+        @media (min-width: ${screens.lg}) {
           order: 2;
         }
       }
@@ -86,7 +86,7 @@ export const StyledColumn = styled.div`
       &:nth-of-type(3) {
         order: 2;
 
-        @media (min-width: ${screens['2xl']}) {
+        @media (min-width: ${screens.lg}) {
           order: 3;
         }
       }
@@ -94,7 +94,7 @@ export const StyledColumn = styled.div`
       &:nth-of-type(4) {
         order: 1;
 
-        @media (min-width: ${screens['2xl']}) {
+        @media (min-width: ${screens.lg}) {
           order: 4;
         }
       }
@@ -102,10 +102,32 @@ export const StyledColumn = styled.div`
   }
 `;
 
-export const StyledMenuItems = styled.ul`
-  display: flex;
+export const StyledMenuWrapper = styled.div<{ $displayOnMobile: boolean; $displayOnDesktop: boolean; $gapxl?: string }>`
   flex-direction: column;
-  gap: 23px;
+  gap: 22px;
+
+  @media (max-width: ${screens.lg}) {
+    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
+    gap: ${props => props.$gapxl || '21px'};
+  }
+`;
+
+export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOnDesktop: boolean }>`
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: ${screens.lg}) {
+    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+  }
+
+  @media (min-width: ${screens.lg}) {
+    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
+    gap: 24px;
+  }
 
   & a:hover,
   & a:focus {

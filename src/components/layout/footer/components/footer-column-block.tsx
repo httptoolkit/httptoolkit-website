@@ -1,17 +1,23 @@
-import { StyledMenuItems } from '../footer.styles';
+import { StyledMenuItems, StyledMenuWrapper } from '../footer.styles';
 
 import { Link } from '@/components/elements/link';
-import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import type { FooterColumn } from '@/content/data/footer-columns';
 
 export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
+  const displayOnMobile = column.displayOn?.includes('mobile');
+  const displayOnDesktop = column.displayOn?.includes('desktop');
+
   return (
-    <Stack $gapxl="20px">
+    <StyledMenuWrapper
+      data-hide={displayOnMobile}
+      $displayOnMobile={displayOnMobile}
+      $displayOnDesktop={displayOnDesktop}
+    >
       <Text as="label" fontSize="m" color="cinnarbarRed" fontWeight="bold">
         {column.title}
       </Text>
-      <StyledMenuItems role="list">
+      <StyledMenuItems role="list" $displayOnMobile={displayOnMobile} $displayOnDesktop={displayOnDesktop}>
         {column.links.map(link => {
           if (!link) {
             return null;
@@ -26,6 +32,6 @@ export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
           );
         })}
       </StyledMenuItems>
-    </Stack>
+    </StyledMenuWrapper>
   );
 };
