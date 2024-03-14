@@ -15,7 +15,6 @@ import {
   LinkSimpleBreak,
   GithubLogo,
   CursorClick,
-  DockerLogo,
   ShieldCheck,
   ArrowsLeftRight,
   Gear,
@@ -44,11 +43,7 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
-import { IntegrationCTA } from '@/components/sections/integration/cta';
-import { IntegrationGrid } from '@/components/sections/integration/grid';
-import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
-import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Statistics } from '@/components/sections/statistics';
 import { Testimonials } from '@/components/sections/testimonials';
 import BlogPostImage from '@/content/posts/analytics-map.png';
@@ -126,28 +121,6 @@ export default async function Home() {
           href: '#example-5',
         },
       ],
-    },
-  ];
-
-  const integrationsCard = [
-    {
-      $showBadge: true,
-      icon: AndroidLogo,
-      title: 'Android',
-      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
-      link: {
-        href: '/example-1',
-        target: '_blank',
-      },
-    },
-    {
-      icon: AndroidLogo,
-      title: 'Javascript',
-      text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
-      link: {
-        href: '/example-2',
-        target: '_blank',
-      },
     },
   ];
 
@@ -591,39 +564,8 @@ export default async function Home() {
           <SimpleFooter />
         </ShowCase>
       </Container>
-      <IntegrationSinglePageHero
-        title="Http Toolkit and Docker integrated"
-        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
-        icon={DockerLogo}
-        breadcrumbText="docker"
-      />
-      <IntegrationGrid integrations={[...integrationsCard, ...integrationsCard, ...integrationsCard]} />
       <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
       <Testimonials />
-      <IntegrationCTA
-        $variant="hero"
-        title="Automatic setup and powerful integration for all your tools"
-        text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
-      />
-      <IntegrationCTA
-        $variant="cta"
-        title="Integrations"
-        text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
-        button={{
-          $small: true,
-          $variant: 'secondary',
-          children: 'See all integrations',
-        }}
-      />
-      <IntegrationTextImage
-        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
-        subtitle="what is http toolkit?"
-        image={{
-          darkSrc: '/images/mockup-image.webp',
-          lightSrc: '/images/mockup-image-light.webp',
-          alt: 'Mockup image',
-        }}
-      />
     </>
   );
 }
