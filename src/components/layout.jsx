@@ -209,6 +209,10 @@ export class Layout extends React.Component {
           <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as="style" />
           <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js' as="script" />
 
+          <link href="https://fonts.cdnfonts.com/css/lato?styles=170780" rel="stylesheet" />
+          <link href="https://fonts.cdnfonts.com/css/courgette?styles=18587" rel="stylesheet" />
+          <link href="https://fonts.cdnfonts.com/css/merriweather-2?styles=169922" rel="stylesheet" />
+
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

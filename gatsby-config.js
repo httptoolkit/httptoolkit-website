@@ -133,24 +133,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
-      options: {
-        fonts: {
-          google: [
-            {
-              family: "Lato",
-              variants: ["400"],
-            },
-            {
-              family: "Merriweather",
-              variants: ["400"],
-              fontDisplay: "fallback"
-            }
-          ],
-        },
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: 'https://httptoolkit.com',
