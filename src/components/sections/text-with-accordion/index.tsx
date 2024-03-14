@@ -20,7 +20,7 @@ export const TextWithAccordion = ({ title, text, cta, accordionItems }: TextWith
       </StyledTextWithAccordionGradientWrapper>
       <StyledTextWithAccordionContentWrapper>
         <StyledTextWithAccordionTextWrapper>
-          <Heading fontSize="l" color="textGradient">
+          <Heading as="h2" fontSize="l" color="textGradient">
             {title}
           </Heading>
           <StyledTextWithAccordionText fontSize="m" color="darkGrey">

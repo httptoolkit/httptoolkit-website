@@ -145,6 +145,7 @@ export default function PricingPage() {
         title="Frequently Asked Questions"
         text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
         cta={{
+          $small: true,
           $variant: 'secondary',
           children: 'See more FAQs',
           icon: CaretRight,
