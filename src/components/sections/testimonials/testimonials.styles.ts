@@ -9,11 +9,12 @@ export const StyledTestimonialsWrapper = styled.section`
   align-items: center;
   padding: 62px 0;
   padding-bottom: 0;
-  gap: 61px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+  gap: 32px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 96px 0;
+    gap: 61px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
   }
 `;
 
@@ -21,13 +22,13 @@ export const StyledTestimonialCard = styled.blockquote`
   background: ${({ theme }) => theme.colors.inkBlack};
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
   border-radius: 12px;
-  padding: 32px;
+  padding: 24px;
   height: fit-content;
 
   display: flex;
   flex-direction: column;
   gap: 36px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 
   & p {
     text-wrap: wrap;
@@ -35,6 +36,8 @@ export const StyledTestimonialCard = styled.blockquote`
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     max-width: 480px;
+    padding: 32px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -55,8 +58,10 @@ export const StyledTestimonialGrid = styled.div`
   grid-template-columns: repeat(var(--grid-items), 343px);
   gap: 16px;
   margin-right: 16px;
+  padding: 1px 22px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 1px 0;
     grid-template-columns: repeat(var(--grid-items), 1fr);
     /* Apply padding to every 9th item */
     & > *:nth-child(odd) {
