@@ -1,10 +1,7 @@
-import Link from 'next/link';
-
 import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
-import { Book } from '@/components/elements/icon';
+import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
-import { getAllPostsMeta } from '@/lib/mdx';
+import { getAllPostsMeta } from '@/lib/mdx/blog';
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
@@ -13,17 +10,7 @@ export default async function Blog() {
   return (
     <Container>
       {featurePost && <OverviewHero featuredPost={featurePost} />}
-      {posts?.map((post, i) => (
-        <Link
-          key={i}
-          href={`/blog/${post.slug}`}
-          style={{ marginBottom: 10, display: 'block', textDecoration: 'none' }}
-        >
-          <Heading as="h3" fontSize="xs" key={post.slug}>
-            <Book /> {i + 1}. {post.title}
-          </Heading>
-        </Link>
-      ))}
+      <OverviewBlogContent />
     </Container>
   );
 }

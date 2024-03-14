@@ -1,7 +1,7 @@
 import { Container } from '@/components/elements/container';
 import { RelatedPosts } from '@/components/sections/blog/related-posts';
 import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
-import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx';
+import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
 
 export async function generateStaticParams() {
   const posts = await getAllPostsMeta();
