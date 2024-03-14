@@ -58,7 +58,7 @@ export const StyledTestimonialGrid = styled.div`
   grid-template-columns: repeat(var(--grid-items), 343px);
   gap: 16px;
   margin-right: 16px;
-  padding: 1px 22px;
+  padding: 1px 16px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 1px 0;
