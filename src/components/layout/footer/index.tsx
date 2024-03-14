@@ -1,6 +1,13 @@
 import { FooterColumnBlock } from './components/footer-column-block';
 import { FooterCopy } from './components/footer-copy';
-import { StyledSeparator, StyledColumn, StyledContainer, StyledFooter, StyledIconsWrapper } from './footer.styles';
+import {
+  StyledSeparator,
+  StyledColumn,
+  StyledContainer,
+  StyledFooter,
+  StyledIconsWrapper,
+  StyledMenuWrapper,
+} from './footer.styles';
 
 import { Container } from '@/components/elements/container';
 import { Github, TwitterX } from '@/components/elements/icon';
@@ -44,11 +51,18 @@ export const Footer = () => {
         <StyledColumn as="nav" aria-label="Httptoolkit directory" role="navigation">
           {footerColumns.map(column => {
             const hasSubHeading = !!column.subHeading;
+            const displayOnMobile = column.displayOn?.includes('mobile');
+            const displayOnDesktop = column.displayOn?.includes('desktop');
             return (
-              <Stack key={column.title} $gapxl={hasSubHeading ? '64px' : '16px'}>
+              <StyledMenuWrapper
+                $displayOnMobile={displayOnMobile}
+                $displayOnDesktop={displayOnDesktop}
+                $gapxl={hasSubHeading ? '64px' : '21px'}
+                key={column.title}
+              >
                 <FooterColumnBlock column={column} />
-                {column.subHeading && <FooterColumnBlock column={column.subHeading} />}
-              </Stack>
+                {column.subHeading?.map(subheding => <FooterColumnBlock column={subheding} />)}
+              </StyledMenuWrapper>
             );
           })}
         </StyledColumn>
