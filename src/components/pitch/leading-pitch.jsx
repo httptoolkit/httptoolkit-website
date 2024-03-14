@@ -15,7 +15,7 @@ export const TopHeroContainer = styled(HeroBlockContainer)`
 const OneClick = styled.div`
     font-weight: initial;
     font-style: italic;
-    font-family: Courgette;
+    font-family: Lato;
     text-align: center;
     margin-bottom: 30px;
 

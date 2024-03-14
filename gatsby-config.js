@@ -145,12 +145,7 @@ module.exports = {
               family: "Merriweather",
               variants: ["400"],
               fontDisplay: "fallback"
-            },
-            {
-              family: "Courgette",
-              variants: ["400"],
-              text: "With one click ↴ or"
-            },
+            }
           ],
         },
       },
