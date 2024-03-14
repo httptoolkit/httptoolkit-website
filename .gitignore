@@ -40,3 +40,6 @@ public/*
 .cache/
 *.log
 .env
+
+// Optimized images folders
+http-toolkit-assets

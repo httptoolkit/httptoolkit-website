@@ -3,7 +3,7 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { components } from './components';
+import { components } from '../components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
@@ -63,19 +63,18 @@ export const getAllPostsMeta = async () => {
       // console.error('*_________END___________*');
     }
   }
-  return posts;
+  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 };
 
 export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[]; currentPostSlug: string }) => {
   const allPosts = await getAllPostsMeta();
 
-  const filteredPosts = allPosts
+  const relatedPosts = allPosts
     .filter(post => post.slug !== currentPostSlug)
     .filter(post => {
       return tags.some(tag => post.tags.includes(tag));
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 3);
 
-  return filteredPosts;
+  return relatedPosts;
 };

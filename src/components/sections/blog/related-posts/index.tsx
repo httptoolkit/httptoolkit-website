@@ -3,7 +3,7 @@ import { StyledRelatedPostWrapper, StyledRelatedPostsGrid } from './related-post
 import Stack from '@/components/elements/stack';
 import { BlogCard } from '@/components/modules/blog-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
-import { getRelatedPosts } from '@/lib/mdx';
+import { getRelatedPosts } from '@/lib/mdx/blog';
 
 interface RelatedPostsProps {
   tags: string[];
