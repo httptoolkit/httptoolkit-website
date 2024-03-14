@@ -155,10 +155,18 @@ To use this:
 * Modify `config.js`, and put the contents of your interception CA certificate into the `CERT_PEM` variable.
 * Then run:
     ```bash
-    frida -U -l ./config -l ./android-certificate-unpinning.js -f $TARGET_PACKAGE_NAME
+    frida -U \
+        -l ./config.js \
+        -l ./native-tls-hook.js \
+        -l ./android/android-certificate-unpinning.js \
+        -l ./android/android-certificate-unpinning-fallback.js \
+        -f $TARGET_PACKAGE_NAME
     ```
+    _(Note that the slashes here just used to allow multi-line commands in bash)_
 
 This will restart the app on your phone and immediately disable all unpinning so that traffic can be captured.
+
+See [the README](https://github.com/httptoolkit/frida-interception-and-unpinning/#readme) in that GitHub repository for more details on how this works, and all the various scripts available.
 
 If you'd like to know more about what's detected and unpinned, you can set the `DEBUG_MODE` variable in `config.js`, and you'll see output showing every detected script and whether it was patched, along with logs each time a hooked method is used.
 
@@ -184,7 +192,12 @@ That means that an HTTP client (the Twitter app) is connecting and then rejectin
 To defeat this and intercept Twitter's real API traffic, I just need to run:
 
 ```bash
-frida -U -l ./android-certificate-unpinning.js -f com.twitter.android
+frida -U \
+    -l ./config.js \
+    -l ./native-tls-hook.js \
+    -l ./android/android-certificate-unpinning.js \
+    -l ./android/android-certificate-unpinning-fallback.js \
+    -f com.twitter.android
 ```
 
 That restarts Twitter on my phone, and I've immediately got traffic:
