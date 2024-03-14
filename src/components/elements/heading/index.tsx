@@ -3,6 +3,7 @@ import type { HeadingProps } from './heading.types';
 
 export const Heading = ({
   as = 'h1',
+  id,
   children,
   className,
   color,
@@ -18,6 +19,7 @@ export const Heading = ({
       color={color}
       fontWeight={fontWeight}
       className={className}
+      id={id}
     >
       {children}
     </StyledHeading>
