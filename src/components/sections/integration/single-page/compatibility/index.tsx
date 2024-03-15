@@ -1,6 +1,5 @@
-import { CompatibilityBadge } from './badge';
+import { BadgesWrapper } from './badges-wrapper';
 import {
-  StyledCompatibilityBadgeWrapper,
   StyledIntegrationCompatibilityContent,
   StyledIntegrationCompatibilityContentTitle,
   StyledIntegrationCompatibilityContentWrapper,
@@ -30,10 +29,27 @@ const compatibilityTools = [
   'Python containers',
 ];
 
+const mobileCompatibilityTools = [
+  'Docker for Mac',
+  'Node.js containers',
+  'Docker',
+  'Docker for Windows',
+  'PHP+Apache containers',
+  'Python containers',
+  'Rust containers',
+  'Docker Compose',
+  'Java containers',
+  'Golang containers',
+  'Ruby containers',
+  'Apt-Get, Apk, Npm, and other build tools',
+  'Curl, Wget, Httpie, and other Bash clients',
+];
+
 export const IntegrationCompatibility = ({
   title,
   subtitle,
   tools = compatibilityTools,
+  mobileTools = mobileCompatibilityTools,
 }: IntegrationCompatibilityProps) => {
   return (
     <StyledIntegrationCompatibilityWrapper>
@@ -50,11 +66,7 @@ export const IntegrationCompatibility = ({
           </StyledIntegrationCompatibilityContentTitle>
           <DownloadButton $small $variant="secondary" />
         </StyledIntegrationCompatibilityContent>
-        <StyledCompatibilityBadgeWrapper>
-          {Array.isArray(tools) &&
-            tools.length > 0 &&
-            tools.map(tool => <CompatibilityBadge key={tool}>{tool}</CompatibilityBadge>)}
-        </StyledCompatibilityBadgeWrapper>
+        <BadgesWrapper tools={tools} mobileTools={mobileTools} />
       </StyledIntegrationCompatibilityContentWrapper>
     </StyledIntegrationCompatibilityWrapper>
   );
