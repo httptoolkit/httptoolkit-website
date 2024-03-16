@@ -58,7 +58,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
         <MobileHeader navigationItems={navigationItems} dropdownItems={dropdownItems} />
         {isNavigationEnabled ? (
           <StyledNavigation>
-            <StyledNavItems>
+            <StyledNavItems aria-label="Global">
               {navigationItems.map(navItem => {
                 return (
                   <Link key={`${navItem.label}-${navItem.href}`} href={navItem.href}>

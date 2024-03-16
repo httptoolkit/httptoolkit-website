@@ -78,3 +78,18 @@ export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[
 
   return relatedPosts;
 };
+
+export const getAllCategoryTags = async () => {
+  const allPosts = await getAllPostsMeta();
+
+  const tags: string[] = [];
+
+  allPosts.map(post => {
+    const formattedTags = post.tags.map(tag => tag.toLowerCase().trim());
+    tags.push(...formattedTags);
+  });
+
+  const allCategoryTagsOrdered = [...new Set(tags)].sort((a, b) => a.localeCompare(b));
+
+  return allCategoryTagsOrdered;
+};
