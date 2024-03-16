@@ -1,6 +1,18 @@
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
-import { AndroidLogo, DockerLogo, RocketLaunch, SealCheck, Wrench , Book, Desktop, Flag, Globe, LinkSimpleBreak, Shuffle } from '@/components/elements/icon';
+import {
+  AndroidLogo,
+  DockerLogo,
+  RocketLaunch,
+  SealCheck,
+  Wrench,
+  Book,
+  Desktop,
+  Flag,
+  Globe,
+  LinkSimpleBreak,
+  Shuffle,
+} from '@/components/elements/icon';
 import type { FluidCardProps } from '@/components/modules/fluid-card/fluid-card.types';
 import { Bento } from '@/components/sections/bento';
 import type { BentoProps } from '@/components/sections/bento/bento.types';
