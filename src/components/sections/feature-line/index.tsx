@@ -13,17 +13,7 @@ import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { TextList } from '@/components/modules/text-list';
 
-export const FeatureLine = ({
-  $align,
-  title,
-  text,
-  icon,
-  list,
-  badge,
-  darkImage,
-  lightImage,
-  alt,
-}: FeatureLineProps) => {
+export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: FeatureLineProps) => {
   const headingColor: HeadingProps['color'] = icon ? 'white' : 'lightGrey';
   return (
     <StyledFeatureLineWrapper $align={$align}>
@@ -46,7 +36,9 @@ export const FeatureLine = ({
           {list && <TextList list={list} />}
         </StyledFeatureLineTextWrapper>
       </StyledFeatureLineContentWrapper>
-      <StyledFeatureLineImage darkSrc={darkImage} lightSrc={lightImage} alt={alt} withBorder />
+      {image && (
+        <StyledFeatureLineImage darkSrc={image.darkSrc} lightSrc={image.lightSrc} alt={image.alt || title} withBorder />
+      )}
     </StyledFeatureLineWrapper>
   );
 };

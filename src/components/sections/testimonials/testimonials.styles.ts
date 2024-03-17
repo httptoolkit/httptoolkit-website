@@ -8,11 +8,13 @@ export const StyledTestimonialsWrapper = styled.section`
   justify-content: center;
   align-items: center;
   padding: 62px 0;
+  padding-bottom: 32px;
   padding-bottom: 0;
   gap: 32px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 96px 0;
+    padding-bottom: 0;
     gap: 61px;
     -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
   }
