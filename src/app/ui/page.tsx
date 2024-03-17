@@ -26,6 +26,7 @@ import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { Tooltip } from '@/components/elements/tooltip';
+import { Layout } from '@/components/layout';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { BlockCode } from '@/components/modules/block-code';
 import { BlogCard } from '@/components/modules/blog-card';
@@ -178,7 +179,7 @@ export default async function UIPage() {
   ];
 
   return (
-    <>
+    <Layout>
       <CTA
         subHeading={{
           text: 'With one click',
@@ -566,6 +567,6 @@ export default async function UIPage() {
           <SimpleFooter />
         </ShowCase>
       </Container>
-    </>
+    </Layout>
   );
 }

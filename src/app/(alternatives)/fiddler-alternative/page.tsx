@@ -1,9 +1,10 @@
 import { Logo, RocketLaunch } from '@/components/elements/icon';
+import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 
 export default async function FiddlerPage() {
   return (
-    <>
+    <Layout>
       <CTA
         heading="Looking for a Fiddler alternative?"
         excerpt="HTTP Toolkit is a modern powerful alternative to Fiddler designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic."
@@ -41,6 +42,6 @@ export default async function FiddlerPage() {
           href: '/pro',
         }}
       />
-    </>
+    </Layout>
   );
 }
