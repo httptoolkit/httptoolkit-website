@@ -1,5 +1,3 @@
-import { Container } from '@/components/elements/container';
-import { Heading } from '@/components/elements/heading';
 import {
   AndroidLogo,
   DockerLogo,
@@ -110,9 +108,6 @@ const bentoCards: BentoProps['cards'] = [
 export default function IntegrationsPage() {
   return (
     <>
-      <Container>
-        <Heading color="textGradient">Integrations</Heading>
-      </Container>
       <IntegrationSinglePageHero
         title="Http Toolkit and Docker integrated"
         text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."

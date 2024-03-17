@@ -6,13 +6,14 @@ import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CursorClick } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
+import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { Statistics } from '@/components/sections/statistics';
 import { Testimonials } from '@/components/sections/testimonials';
 
 export default async function HomePage() {
   return (
-    <>
+    <Layout>
       <CTA
         subHeading={{
           text: 'With one click',
@@ -41,6 +42,6 @@ export default async function HomePage() {
       <Suspense>
         <ProductLdData />
       </Suspense>
-    </>
+    </Layout>
   );
 }

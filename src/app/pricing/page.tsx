@@ -1,4 +1,5 @@
 import { CaretRight } from '@/components/elements/icon';
+import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import type { PricingComparisonProps } from '@/components/sections/pricing/comparison/comparison.types';
@@ -125,7 +126,7 @@ const FAQItems: TextWithAccordionProps['accordionItems'] = [
 
 export default function PricingPage() {
   return (
-    <>
+    <Layout>
       <CTA
         $variant="pricing-hero"
         heading="Developer tools built for professionals"
@@ -154,6 +155,6 @@ export default function PricingPage() {
         }}
         accordionItems={FAQItems}
       />
-    </>
+    </Layout>
   );
 }
