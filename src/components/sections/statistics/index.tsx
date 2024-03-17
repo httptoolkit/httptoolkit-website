@@ -39,6 +39,7 @@ export const Statistics = async ({ title, text }: StatisticsProps) => {
       isOver: true,
     },
   ];
+
   return (
     <StyledStatisticsGradientWrapper>
       <StyledStatisticsGradient>
