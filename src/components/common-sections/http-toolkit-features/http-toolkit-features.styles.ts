@@ -15,13 +15,10 @@ export const StyledFeaturesWrapper = styled.div`
 
 const commonGradientStyles = css`
   position: absolute;
-  height: 940px;
-  display: none;
-  visibility: hidden;
+  height: 641px;
 
   @media (min-width: ${screens['lg']}) {
-    display: block;
-    visibility: visible;
+    height: 940px;
   }
 `;
 
