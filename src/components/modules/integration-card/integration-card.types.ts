@@ -3,7 +3,7 @@ import type { Icon } from '@phosphor-icons/react';
 import type { LinkProps } from '@/components/elements/link/link.types';
 
 export interface StyledIntegrationCardProps {
-  $showBadge?: boolean;
+  $isPopular?: boolean;
 }
 
 export interface IntegrationCardProps extends StyledIntegrationCardProps {

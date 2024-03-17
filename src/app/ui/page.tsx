@@ -353,7 +353,7 @@ export default async function UIPage() {
         </ShowCase>
         <ShowCase title="Integration Card" $flexDirection="row">
           <IntegrationCard
-            $showBadge
+            $isPopular
             icon={AndroidLogo}
             title="Android"
             text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
