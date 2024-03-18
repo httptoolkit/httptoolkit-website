@@ -7,8 +7,19 @@ export const StyledLoadMoreWrapper = styled.div`
 
   @media (min-width: ${screens.lg}) {
     display: flex;
-    justify-content: flex-start;
-    padding-left: 151px;
+    justify-content: center;
+    margin-top: 26px;
+  }
+`;
+
+export const StyledHeadingTag = styled.h2`
+  font-size: ${({ theme }) => theme.fontSizes.heading.mobile.m};
+  color: ${({ theme }) => theme.colors.text.lightGrey};
+  text-transform: capitalize;
+  line-height: 1.5;
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${({ theme }) => theme.fontSizes.heading.desktop.m};
   }
 `;
 

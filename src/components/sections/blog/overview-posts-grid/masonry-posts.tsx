@@ -4,7 +4,12 @@ import { useSearchParams } from 'next/navigation';
 import { useMemo, useState } from 'react';
 import { Masonry } from 'react-plock';
 
-import { StyledLoadMoreWrapper, StyledNoResultsWrapper, StyledSelectedTag } from './overview-posts-grid.styles';
+import {
+  StyledHeadingTag,
+  StyledLoadMoreWrapper,
+  StyledNoResultsWrapper,
+  StyledSelectedTag,
+} from './overview-posts-grid.styles';
 
 import { Button } from '@/components/elements/button';
 import { ArrowRight } from '@/components/elements/icon';
@@ -46,6 +51,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
 
   return (
     <>
+      <StyledHeadingTag>{currentTag ? currentTag : 'All posts'}</StyledHeadingTag>
       <Masonry
         items={filteredPosts.slice(0, visibleItems)}
         config={{
