@@ -3,6 +3,7 @@ import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import type { PricingComparisonProps } from '@/components/sections/pricing/comparison/comparison.types';
+import { PricingPlans } from '@/components/sections/pricing/plans';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
 
@@ -135,7 +136,9 @@ export default function PricingPage() {
         }}
         excerpt="Your time is valuable. HTTP Toolkit gives you instant insight and access into every request & response, with zero hassle. Test clie nts, debug APIs and catch bugs, all at lightning speed."
         withDownload={false}
-      ></CTA>
+      >
+        <PricingPlans />
+      </CTA>
       <PricingComparison
         title="Features"
         text="Choose the perfect plan for your business needs"

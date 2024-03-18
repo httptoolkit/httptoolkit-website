@@ -1,10 +1,15 @@
 import { StyledSendEmailForm, StyledSendEmailWrapper } from './send-email.styles';
 
 import { Button } from '@/components/elements/button';
+import type { ButtonProps } from '@/components/elements/button/button.types';
 import { Text } from '@/components/elements/text';
 import { Input } from '@/components/modules/input';
 
-export const SendEmail = () => {
+export const SendEmail = ({
+  buttonProps,
+}: {
+  buttonProps: Pick<ButtonProps, '$small' | '$variant' | '$withBorder'>;
+}) => {
   return (
     <StyledSendEmailWrapper>
       <Text fontSize="s" textAlign="center" color="white">
@@ -12,7 +17,7 @@ export const SendEmail = () => {
       </Text>
       <StyledSendEmailForm>
         <Input id="email" name="email" type="email" placeholder="Enter you email" />
-        <Button $variant="primary" type="submit">
+        <Button {...buttonProps} type="submit">
           Send me a download link
         </Button>
       </StyledSendEmailForm>
