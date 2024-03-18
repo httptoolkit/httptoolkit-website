@@ -1,16 +1,34 @@
 'use client';
 
+import { marked } from 'marked';
+
 import {
   StyledAccordionContent,
   StyledAccordionItem,
   StyledAccordionTrigger,
   StyledAccordionWrapper,
 } from './accordion.styles';
-import type { AccordionProps } from './accordion.types';
+import type { AccordionProps, StyledAccordionProps } from './accordion.types';
 
 import { Heading } from '@/components/elements/heading';
 import { CaretDown } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
+import { renderer } from '@/lib/marked/link-target-render';
+
+const AccordionTitle = ({ $variant, children }: Component<StyledAccordionProps>) => {
+  if ($variant === 'transparent') {
+    return (
+      <Text fontSize="l" fontWeight="bold" color="lightGrey" textAlign="left">
+        {children}
+      </Text>
+    );
+  }
+  return (
+    <Heading as="h3" fontSize="s" color="darkGrey" textAlign="left">
+      {children}
+    </Heading>
+  );
+};
 
 export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
   return (
@@ -18,17 +36,13 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
       {Array.isArray(items) &&
         items.length > 0 &&
         items.map(item => (
-          <StyledAccordionItem value={item.title} $variant={$variant}>
+          <StyledAccordionItem key={item.text} value={item.title} $variant={$variant}>
             <StyledAccordionTrigger>
-              <Heading as="h3" fontSize="m" color="darkGrey" textAlign="left">
-                {item.title}
-              </Heading>
+              <AccordionTitle>{item.title}</AccordionTitle>
               <CaretDown weight="fill" size={24} />
             </StyledAccordionTrigger>
             <StyledAccordionContent>
-              <Text fontSize="m" color="darkGrey">
-                {item.text}
-              </Text>
+              <div dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) }}></div>
             </StyledAccordionContent>
           </StyledAccordionItem>
         ))}

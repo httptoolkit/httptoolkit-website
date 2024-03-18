@@ -24,7 +24,6 @@ interface PostFrontmatter {
   author?: string;
   authorUrl?: string;
 }
-
 interface Post {
   title: string;
   slug: string;
@@ -45,4 +44,16 @@ interface Post {
     hackerNewsUrl?: string;
     devToUrl?: string;
   };
+}
+
+interface Doc {
+  slug: string;
+  title: string;
+  name: string;
+  order?: number;
+  content: any;
+}
+
+interface DocFrontmatter extends Doc {
+  parent?: string;
 }

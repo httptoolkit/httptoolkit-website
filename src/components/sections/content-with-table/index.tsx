@@ -1,4 +1,5 @@
 import {
+  StyledContentRichText,
   StyledContentWithTableContentWrapper,
   StyledContentWithTableLowerGradientWrapper,
   StyledContentWithTableTableWrapper,
@@ -25,9 +26,9 @@ export const ContentWithTable = ({ content: Content, links }: ContentWithTablePr
           {/* TODO: get the links by the content */}
           <TableContent isCollapsible={false} links={links} />
         </StyledContentWithTableTableWrapper>
-        <div>
-          <RichText content={Content} theme="policies" />
-        </div>
+        <StyledContentRichText>
+          <RichText content={Content} />
+        </StyledContentRichText>
       </StyledContentWithTableContentWrapper>
     </StyledContentWithTableWrapper>
   );
