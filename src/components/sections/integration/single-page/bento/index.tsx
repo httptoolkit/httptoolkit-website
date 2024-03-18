@@ -35,7 +35,11 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
               <FluidCard {...cards[3]} />
             </StyledIntegrationBentoCTAWrapper>
           </StyledIntegrationBentoCardsColumn>
-          <StyledIntegrationBentoPhone src="/images/phone-placeholder.svg" alt="" fill />
+          <StyledIntegrationBentoPhone
+            src="/images/phone-placeholder.svg"
+            alt="A smartphone screen displaying an HTTP Toolkit interface"
+            fill
+          />
           <StyledIntegrationBentoCTAWrapper $mobile>
             <FluidCard {...cards[3]} />
           </StyledIntegrationBentoCTAWrapper>
