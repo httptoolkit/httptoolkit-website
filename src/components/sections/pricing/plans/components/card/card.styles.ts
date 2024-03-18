@@ -32,6 +32,11 @@ export const StyledPricingCardPriceWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    text-align: left;
+  }
 `;
 
 export const StyledPriceCardPrice = styled.span`

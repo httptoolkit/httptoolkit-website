@@ -5,7 +5,6 @@ interface Option {
 
 export interface SwitchProps {
   defaultValue?: string;
-  accessibilityTitle?: string;
   options: [Option, Option];
   onChange(id: string): void;
 }
