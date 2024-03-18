@@ -1,10 +1,11 @@
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
+import { Layout } from '@/components/layout';
 import { IntegrationCTA } from '@/components/sections/integration/cta';
 import { IntegrationsGrid } from '@/components/sections/integration/grid';
 
 export default function IntegrationsPage() {
   return (
-    <>
+    <Layout>
       <IntegrationCTA
         $variant="hero"
         title="Automatic setup and powerful integration for all your tools"
@@ -12,6 +13,6 @@ export default function IntegrationsPage() {
       />
       <IntegrationsGrid />
       <TryItForYourselfCTA />
-    </>
+    </Layout>
   );
 }

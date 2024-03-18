@@ -16,7 +16,7 @@ export const pageRoutes = {
     label: 'Contact',
   },
   INTEGRATION: {
-    href: '/integrations',
+    href: '/all-integrations',
     label: 'Integrations',
   },
   FAQ: {
@@ -33,35 +33,35 @@ export const pageRoutes = {
   },
   //Integrations
   ANDROID: {
-    href: '/integrations/android',
+    href: '/android',
     label: 'Android',
   },
   DOCKER: {
-    href: '/integrations/docker',
+    href: '/docker',
     label: 'Docker',
   },
   PYTHON: {
-    href: '/integrations/python',
+    href: '/python',
     label: 'Python',
   },
   RUBY: {
-    href: '/integrations/ruby',
+    href: '/ruby',
     label: 'Ruby',
   },
   JAVA: {
-    href: '/integrations/java',
+    href: '/java',
     label: 'Java',
   },
   ELECTRON: {
-    href: '/integrations/electron',
+    href: '/electron',
     label: 'Electron',
   },
   JAVASCRIPT: {
-    href: '/integrations/javascript',
+    href: '/javascript',
     label: 'Javascript',
   },
   ALL_INTEGRATIONS: {
-    href: '/integrations/integrations',
+    href: '/all-integrations',
     label: 'All Integrations',
   },
   //Projects
