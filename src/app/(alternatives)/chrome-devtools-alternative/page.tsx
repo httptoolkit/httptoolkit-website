@@ -37,12 +37,12 @@ const bentoCards: BentoProps['cards'] = [
   },
 ];
 
-export default async function FiddlerPage() {
+export default async function ChromeDevToolsAlternativePage() {
   return (
     <>
       <CTA
-        heading="Looking for a Fiddler alternative?"
-        excerpt="HTTP Toolkit is a modern powerful alternative to Fiddler designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic."
+        heading="Want an alternative to Chrome's network tab?"
+        excerpt="HTTP Toolkit is a supercharged alternative to Chrome's built-in networking tools, designed for faster debugging and complete control of any HTTP(S) traffic."
         image={{
           darkSrc: '/images/hero-placeholder-dark.webp',
           lightSrc: '/images/hero-placeholder-light.webp',

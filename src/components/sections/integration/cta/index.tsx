@@ -82,7 +82,11 @@ export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTA
         <Text fontSize="m" color="darkGrey" textAlign="center">
           {text}
         </Text>
-        {button && <Button {...button}>{button.children}</Button>}
+        {button && (
+          <Button as="link" {...button}>
+            {button.children}
+          </Button>
+        )}
       </StyledIntegrationCTAContent>
       {isMobile && <IconRows rows={mobileIcons} $orientation="right" $offset={0} />}
       {!isMobile && <IconRows rows={rightIcons} $orientation="right" $offset={0.8} />}
