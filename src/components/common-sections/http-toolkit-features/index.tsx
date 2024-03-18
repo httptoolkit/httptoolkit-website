@@ -19,9 +19,6 @@ export const HttpToolkitFeatures = () => {
           <HeadingBlock
             title="What is `*HTTP Toolkit*`?"
             text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
-            badgeTitle="Pro Feature"
-            badgeAdditionalText="EDIT"
-            badgeIcon={Sparkle}
             $align="center"
             $isContentCentered
           />
