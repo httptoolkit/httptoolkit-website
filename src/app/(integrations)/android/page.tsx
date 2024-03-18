@@ -65,10 +65,10 @@ export default function AndroidIntegrationPage() {
         subtitle="what is http toolkit?"
         cards={integrationBentoCards}
       />
-      <IntegrationHttpTookitFeatures />
       <Suspense>
         <Testimonials />
       </Suspense>
+      <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
       <RewriteAnything />
       <Suspense>
