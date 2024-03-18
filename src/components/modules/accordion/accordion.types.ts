@@ -4,7 +4,7 @@ export interface AccordionItem {
 }
 
 export interface StyledAccordionProps {
-  $variant?: 'default';
+  $variant?: 'default' | 'transparent';
 }
 
 export interface AccordionProps extends StyledAccordionProps {

@@ -66,3 +66,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
     }
   }
 `;
+
+export const StyledContentRichText = styled.div`
+  margin-top: -48px;
+`;
