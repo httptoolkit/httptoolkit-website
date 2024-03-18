@@ -7,7 +7,7 @@ export const StyledPricingComparisonWrapper = styled(Container)`
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding-top: 64px;
+  padding-top: 0;
   padding-bottom: 64px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {

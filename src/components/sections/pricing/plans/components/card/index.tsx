@@ -26,7 +26,7 @@ const renderFeatures = (
 
   return (
     <StyledPriceCardFeature>
-      <Text fontSize="m" fontWeight="medium" color={textColor}>
+      <Text fontSize="m" fontWeight="medium" color={textColor} textAlign="left">
         {feature.text}
       </Text>
       <StyledPriceCardFeatureItemsWrapper>
@@ -35,7 +35,7 @@ const renderFeatures = (
           feature.items.map(item => (
             <StyledPriceCardFeatureItemLI>
               <CheckIcon />
-              <Text fontSize="m" color={itemColor}>
+              <Text fontSize="m" color={itemColor} textAlign="left">
                 {item}
               </Text>
             </StyledPriceCardFeatureItemLI>
@@ -61,7 +61,7 @@ export const PricingCard = ({
         <Text fontSize="l" color={TextColor}>
           {title}
         </Text>
-        <Text fontSize="l" color="white">
+        <Text fontSize="l" color="lightGrey">
           {/* TODO: Refactor to change when is authenticated */}
           <StyledPriceCardPrice>{price === 0 ? 'Free' : `€${price}`}</StyledPriceCardPrice>
           {priceDescription}

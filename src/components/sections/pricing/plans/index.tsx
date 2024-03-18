@@ -208,7 +208,7 @@ export const PricingPlans = () => {
       <StyledPricingPlansSwitchWrapper>
         {plan.badge && (
           <StyledPricingPlansSwitchBadge>
-            <Text fontSize="m" fontWeight="bold" color="alwayLightGrey" $isLabel>
+            <Text fontSize="s" fontWeight="bold" color="alwayLightGrey" $isLabel>
               {plan.badge}
             </Text>
           </StyledPricingPlansSwitchBadge>
