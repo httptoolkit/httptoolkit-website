@@ -3,7 +3,6 @@
 import { styled } from '@/styles';
 
 export const StyledContactFormWrapper = styled.div`
-  max-width: 624px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.inkBlack};
   box-shadow:
@@ -14,5 +13,6 @@ export const StyledContactFormWrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.screens['lg']}) {
     padding: 32px;
+    max-width: 624px;
   }
 `;

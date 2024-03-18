@@ -21,7 +21,7 @@ export const Button = ({
   ...aria
 }: ButtonProps) => {
   const BaseButton = () => {
-    const ButtonComponent: ButtonComponentType = as === 'link' ? StyledLink : StyledButton;
+    const ButtonComponent: ButtonComponentType = as === 'link' || href ? StyledLink : StyledButton;
 
     return (
       <ButtonComponent

@@ -10,7 +10,7 @@ import { Input } from '../input';
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
 
-export const ContentCard = ({ title, text, buttonHref, buttonIcon, buttonText, $isNewsletter }: ContentCardProps) => {
+export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardProps) => {
   return (
     <StyledContentCardWrapper>
       <StyledContentCardContent>
@@ -36,9 +36,9 @@ export const ContentCard = ({ title, text, buttonHref, buttonIcon, buttonText, $
           </Text>
         </>
       )}
-      {buttonText && buttonHref && (
-        <Button as="link" target="_blank" $variant="secondary" href={buttonHref} icon={buttonIcon}>
-          {buttonText}
+      {button?.href && (
+        <Button as="link" target="_blank" $variant="secondary" {...button}>
+          {button.children}
         </Button>
       )}
     </StyledContentCardWrapper>

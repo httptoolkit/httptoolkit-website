@@ -443,9 +443,11 @@ export default async function UIPage() {
           <ContentCard
             title="Having issues?"
             text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
-            buttonText="Github HTTP Toolkit"
-            buttonIcon={GithubLogo}
-            buttonHref="https://github.com/httptoolkit/httptoolkit-website"
+            button={{
+              children: 'Github HTTP Toolkit',
+              href: 'https://github.com/httptoolkit/httptoolkit-website',
+              icon: GithubLogo,
+            }}
           />
         </ShowCase>
         <ShowCase title="Fluid Cards">

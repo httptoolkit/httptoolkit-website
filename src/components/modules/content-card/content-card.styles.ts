@@ -9,7 +9,7 @@ export const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
+  gap: 32px;
   border-radius: 12px;
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.inkBlack};
@@ -19,14 +19,7 @@ export const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
 
   @media (min-width: ${({ theme }) => theme.screens['lg']}) {
     padding: 32px;
-  }
-
-  & > a {
-    margin-top: 24px;
-
-    @media (min-width: ${({ theme }) => theme.screens['lg']}) {
-      margin-top: 32px;
-    }
+    gap: 43px;
   }
 `;
 
