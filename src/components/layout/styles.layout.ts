@@ -7,6 +7,8 @@ export const StyledLandingLayoutWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  min-height: 800px;
+  overflow: hidden;
 
   & main {
     flex: 1; /* Allow the main content to grow and take up remaining space */
