@@ -23,7 +23,7 @@ const bentoCards: BentoProps['cards'] = [
   {
     icon: Book,
     title: 'Built-in documentation',
-    text: 'Ior every standard HTTP header and status code, plus specific endpoint docs & validation for 1400+ popular APIs.',
+    text: 'For every standard HTTP header and status code, plus specific endpoint docs & validation for 1400+ popular APIs.',
   },
   {
     icon: Shuffle,
@@ -37,12 +37,13 @@ const bentoCards: BentoProps['cards'] = [
   },
 ];
 
-export default async function FiddlerPage() {
+export default async function CharlesAlternativePage() {
   return (
     <>
       <CTA
-        heading="Looking for a Fiddler alternative?"
-        excerpt="HTTP Toolkit is a modern powerful alternative to Fiddler designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic."
+        heading="Looking for a Charles Proxy alternative?"
+        excerpt="HTTP Toolkit is a modern powerful alternative to Charles
+        designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic (with no Java necessary)"
         image={{
           darkSrc: '/images/hero-placeholder-dark.webp',
           lightSrc: '/images/hero-placeholder-light.webp',
