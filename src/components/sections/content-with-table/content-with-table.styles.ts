@@ -28,9 +28,14 @@ export const StyledContentWithTableLowerGradientWrapper = styled.div`
   ${StyledContentWithTableGradientWrapper}
   left: -250px;
   top: 75vh;
+
+  & > div {
+    z-index: initial;
+  }
 `;
 
 export const StyledContentWithTableContentWrapper = styled.div`
+  position: relative;
   display: grid;
   gap: 32px;
   justify-content: center;
