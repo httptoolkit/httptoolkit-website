@@ -4,7 +4,7 @@ import * as RadixTooltip from '@radix-ui/react-tooltip';
 import { styled } from '@/styles';
 
 export const StyledTooltipContent = styled(RadixTooltip.Content)`
-  background-color: ${({ theme }) => theme.colors.mediumGrey};
+  background-color: ${({ theme }) => theme.colors.inkBlack};
   border-radius: 8px;
   padding: 8px 12px;
   z-index: 1;
