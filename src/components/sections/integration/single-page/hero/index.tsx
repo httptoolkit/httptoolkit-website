@@ -20,7 +20,7 @@ const breadcrumbs = [
     text: 'Main page',
   },
   {
-    href: '/integrations',
+    href: '/all-integrations',
     text: 'integrations',
   },
 ];

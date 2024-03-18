@@ -11,6 +11,9 @@ import {
   SquareJSLogo,
 } from '@/components/elements/icon';
 import { IntegrationCard } from '@/components/modules/integration-card';
+import { pageRoutes } from '@/lib/constants/routes';
+
+const { ANDROID, PYTHON, JAVASCRIPT, RUBY, JAVA, DOCKER, ELECTRON } = pageRoutes;
 
 const integrationCards = [
   {
@@ -19,7 +22,7 @@ const integrationCards = [
     title: 'Android',
     text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/android',
+      href: ANDROID.href,
     },
   },
   {
@@ -27,7 +30,7 @@ const integrationCards = [
     title: 'Python',
     text: 'Python integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/python',
+      href: PYTHON.href,
     },
   },
   {
@@ -35,7 +38,7 @@ const integrationCards = [
     title: 'Javascript',
     text: 'Javascript integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/javascript',
+      href: JAVASCRIPT.href,
     },
   },
   {
@@ -43,7 +46,7 @@ const integrationCards = [
     title: 'Ruby',
     text: 'Ruby integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/ruby',
+      href: RUBY.href,
     },
   },
   {
@@ -51,7 +54,7 @@ const integrationCards = [
     title: 'Java',
     text: 'Java integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/java',
+      href: JAVA.href,
     },
   },
   {
@@ -59,7 +62,7 @@ const integrationCards = [
     title: 'Docker',
     text: 'Docker integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/docker',
+      href: DOCKER.href,
     },
   },
   {
@@ -67,7 +70,7 @@ const integrationCards = [
     title: 'Electron',
     text: 'Electron integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
-      href: '/integrations/electron',
+      href: ELECTRON.href,
     },
   },
 ];

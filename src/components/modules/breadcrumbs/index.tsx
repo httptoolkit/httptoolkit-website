@@ -13,9 +13,15 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
           return (
             <StyledBreadcrumbItem key={link.text}>
               <StyledBreadcrumbItem>
-                <StyledBreadcrumbLink as={link.href ? 'a' : 'p'} $active={isLast} href={link.href ?? ''}>
-                  {link.text}
-                </StyledBreadcrumbLink>
+                {link.href ? (
+                  <StyledBreadcrumbLink $active={isLast} href={link.href}>
+                    {link.text}
+                  </StyledBreadcrumbLink>
+                ) : (
+                  <StyledBreadcrumbLink as="p" $active={isLast} href="">
+                    {link.text}
+                  </StyledBreadcrumbLink>
+                )}
                 {!isLast && <CaretRight size={16} weight="fill" />}
               </StyledBreadcrumbItem>
             </StyledBreadcrumbItem>
