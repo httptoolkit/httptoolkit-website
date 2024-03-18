@@ -4,6 +4,7 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledHeader = styled.header`
+  position: relative;
   border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 `;
 

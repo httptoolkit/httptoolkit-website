@@ -1,5 +1,5 @@
 import { FooterCopy } from './components/footer-copy';
-import { StyledSeparator, StyledFooter, StyledSimpleFooterWrapper } from './footer.styles';
+import { StyledSeparator, StyledSimpleFooterWrapper, StyledSimpleFooter } from './footer.styles';
 
 import { Container } from '@/components/elements/container';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
@@ -7,7 +7,7 @@ import LogoFooter from '@/images/logo-footer.svg';
 
 export const SimpleFooter = () => {
   return (
-    <StyledFooter>
+    <StyledSimpleFooter>
       <Container>
         <StyledSimpleFooterWrapper>
           <LogoFooter />
@@ -16,6 +16,6 @@ export const SimpleFooter = () => {
         <StyledSeparator $isSimple />
         <FooterCopy />
       </Container>
-    </StyledFooter>
+    </StyledSimpleFooter>
   );
 };

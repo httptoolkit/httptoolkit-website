@@ -32,6 +32,7 @@ import {
   Flag,
   PaperPlaneTilt,
   Question,
+  CheckFat,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -95,4 +96,5 @@ export {
   Flag,
   PaperPlaneTilt,
   Question,
+  CheckFat,
 };

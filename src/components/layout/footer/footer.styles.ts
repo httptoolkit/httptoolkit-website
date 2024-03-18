@@ -7,7 +7,12 @@ export const StyledFooter = styled.footer`
   margin-top: 64px;
 `;
 
+export const StyledSimpleFooter = styled.footer`
+  margin-top: 0;
+`;
+
 export const StyledContainer = styled(Container)`
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   gap: 24px;
@@ -160,6 +165,7 @@ export const StyledFooterCopySection = styled.div`
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
   gap: 32px;
+  position: relative;
 
   & > svg {
     width: fit-content;

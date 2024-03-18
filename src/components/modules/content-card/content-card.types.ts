@@ -1,4 +1,4 @@
-import type { Icon } from '@phosphor-icons/react';
+import type { ButtonProps } from '@/components/elements/button/button.types';
 
 export interface StyledContentCardProps {
   $isNewsletter?: boolean;
@@ -7,7 +7,5 @@ export interface StyledContentCardProps {
 export interface ContentCardProps extends StyledContentCardProps {
   title: string;
   text?: string;
-  buttonText?: string;
-  buttonHref?: string;
-  buttonIcon?: Icon;
+  button?: ButtonProps;
 }
