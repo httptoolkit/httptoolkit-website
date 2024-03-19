@@ -26,7 +26,12 @@ export const StyledFridaColumnContent = styled.div`
 
 export const StyledButtonsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 12px;
+
+  @media (min-width: ${screens['lg']}) {
+    flex-direction: row;
+  }
 `;
 
 export const StyledGradientBottom = styled.div`
