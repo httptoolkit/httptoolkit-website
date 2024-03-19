@@ -18,7 +18,7 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
   --radius: 16px;
   line-height: 0;
   width: 100%;
-  height: auto;
+  height: fit-content;
   object-fit: cover;
 
   ${({ theme, $withBorder }) =>
