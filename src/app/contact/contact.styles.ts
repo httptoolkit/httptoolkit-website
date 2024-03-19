@@ -57,11 +57,15 @@ export const StyledSuccessWrapper = styled.div`
 `;
 
 export const StyledFullGradient = styled.div`
-  position: absolute;
-  width: 100%;
-  display: none;
-  visibility: hidden;
   z-index: -1;
+  display: none;
+
+  & div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 
   @media (min-width: ${screens['lg']}) {
     display: block;
