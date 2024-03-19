@@ -10,38 +10,9 @@ import type { HeaderProps } from './header.types';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { Dropdown } from '@/components/modules/dropdown';
-import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
+import { DownloadButton } from '@/components/modules/download-button';
 import Logo from '@/images/logo.svg';
 import { pageRoutes } from '@/lib/constants/routes';
-
-// TODO: move to it's own component when working in the download feature
-export const dropdownItems: DropdownOptionProps[] = [
-  {
-    content: 'for MacOS DMG',
-  },
-  {
-    content: 'MacOS via Homebrew',
-  },
-  {
-    content: 'Windows Installer',
-  },
-  {
-    content: 'Windows Standalone Zip',
-  },
-  {
-    content: 'Windows via Winget',
-  },
-  {
-    content: 'Linux Debian package',
-  },
-  {
-    content: 'Linux Arch Package via Aur',
-  },
-  {
-    content: 'Linux Standalone Zip',
-  },
-];
 
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   const { PRICING, DOCS, BLOG, CONTACT, INTEGRATION } = pageRoutes;
@@ -55,7 +26,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
             <Logo />
           </Link>
         </StyledLogoWrapper>
-        <MobileHeader navigationItems={navigationItems} dropdownItems={dropdownItems} />
+        <MobileHeader navigationItems={navigationItems} />
         {isNavigationEnabled ? (
           <StyledNavigation>
             <StyledNavItems aria-label="Global">
@@ -69,9 +40,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
                 );
               })}
             </StyledNavItems>
-            <Dropdown $variant="secondary" $small items={dropdownItems} aria-label="Download Items">
-              Download for macOS
-            </Dropdown>
+            <DownloadButton $small $variant="secondary" />
           </StyledNavigation>
         ) : null}
       </StyledHeaderContainer>

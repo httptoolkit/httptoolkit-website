@@ -10,19 +10,10 @@ import type { StyledButtonProps } from '@/components/elements/button/button.type
 
 const renderOptions = (items: DropdownOptionProps[], $variant: StyledButtonProps['$variant']) => {
   return items.map(({ content, as, href, onClick, ...aria }) => {
-    const OptionComponent: OptionComponentType = as === 'link' ? LinkDropdownOption : DropdownOption;
-    const newAs = as === 'link' ? undefined : as;
+    const OptionComponent: OptionComponentType = as === 'link' || href ? LinkDropdownOption : DropdownOption;
 
     return (
-      <OptionComponent
-        role="menuitem"
-        key={content}
-        as={newAs}
-        href={href}
-        $variant={$variant}
-        onClick={onClick}
-        {...aria}
-      >
+      <OptionComponent role="menuitem" key={content} href={href} $variant={$variant} onClick={onClick} {...aria}>
         {content}
       </OptionComponent>
     );
