@@ -6,6 +6,7 @@ import { SquareJSLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
+import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Testimonials } from '@/components/sections/testimonials';
 
@@ -27,7 +28,37 @@ export default function JavascriptIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationCompatibility title="Supported by Javascript" subtitle="compatibility" />
+      <IntegrationSteps
+        title="Getting `*started*`"
+        steps={[
+          [
+            'Open a terminal or browser via HTTP Toolkit',
+            'Start Node.js (or Deno, or Bun) from the terminal, or open a web page in the browser',
+            'Instantly see, debug & rewrite all your HTTP traffic',
+          ],
+        ]}
+      />
+      <IntegrationCompatibility
+        title="Supported by Javascript"
+        subtitle="compatibility"
+        tools={[
+          "Node.js's Http & Https modules",
+          'Bun',
+          'Deno',
+          'Fetch & Node-Fetch',
+          'Request',
+          'Axios',
+          'Superagent',
+          'Reqwest',
+          'Undici',
+          'Got',
+          'Needle',
+          'Bent',
+          'Unirest',
+          'Spawned subprocesses',
+          'npm',
+        ]}
+      />
       <Suspense>
         <Testimonials />
       </Suspense>
