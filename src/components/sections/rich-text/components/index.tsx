@@ -1,3 +1,5 @@
+import { kebabCase } from 'lodash';
+
 import { StyledBiggerText, StyledHeading, StyledLink, StyledText, StyledUL } from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
@@ -6,17 +8,17 @@ import type { AccordionProps } from '@/components/modules/accordion/accordion.ty
 import { CTABox } from '@/components/modules/cta-box';
 import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
 
-const Heading2 = ({ children, id }: Component<StyledHeadingProps>) => {
+const Heading2 = ({ children }: Component<StyledHeadingProps>) => {
   return (
-    <StyledHeading $margin={48} forwardedAs="h2" fontSize="m" color="lightGrey" id={id}>
+    <StyledHeading $margin={48} forwardedAs="h2" fontSize="m" color="lightGrey" id={kebabCase(children?.toString())}>
       {children}
     </StyledHeading>
   );
 };
 
-const Heading3to6 = ({ children, id }: Component<StyledHeadingProps>) => {
+const Heading3to6 = ({ children }: Component<StyledHeadingProps>) => {
   return (
-    <StyledHeading $margin={24} forwardedAs="h3" fontSize="s" color="lightGrey" id={id}>
+    <StyledHeading $margin={24} forwardedAs="h3" fontSize="s" color="lightGrey" id={kebabCase(children?.toString())}>
       {children}
     </StyledHeading>
   );

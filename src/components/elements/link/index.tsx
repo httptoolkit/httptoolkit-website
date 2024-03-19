@@ -25,7 +25,7 @@ export const Link = ({ href, children, ...rest }: Component<LinkProps>) => {
 
   if (isUtilityLink(href)) {
     return (
-      <a target="_self" {...anchorProps}>
+      <a target="_self" href={href} {...anchorProps}>
         {children}
       </a>
     );
