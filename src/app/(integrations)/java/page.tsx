@@ -27,7 +27,23 @@ export default function JavaIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationCompatibility title="Supported by Java" subtitle="compatibility" />
+      <IntegrationCompatibility
+        title="Supported by Java"
+        subtitle="compatibility"
+        tools={[
+          "Java's HttpURLConnection",
+          "Java 11's HttpClient",
+          'Apache HttpClient',
+          'Apache HttpAsyncClient',
+          'OkHttp',
+          'Retrofit',
+          'Ktor-Client',
+          'AsyncHttpClient',
+          'Reactor-Netty',
+          'Spring WebClient',
+          'Akka-HTTP',
+        ]}
+      />
       <Suspense>
         <Testimonials />
       </Suspense>

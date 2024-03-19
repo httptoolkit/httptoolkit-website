@@ -10,28 +10,6 @@ import { IntegrationSteps } from '@/components/sections/integration/single-page/
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Testimonials } from '@/components/sections/testimonials';
 
-const pythonIntegrationSteps = [
-  [
-    'Open a terminal via HTTP Toolkit',
-    'Run any Python script, tool or server from that terminal',
-    "Instantly see, debug & rewrite all Python's HTTP traffic",
-  ],
-];
-
-const compatibilityTools = [
-  'urllib.request',
-  'urllib2',
-  'Requests',
-  'Boto',
-  'Urlfetch',
-  'Python 2 & 3',
-  'httplib2',
-  'Pip',
-  'httpx',
-  'grequests',
-  'aiohttp',
-];
-
 export default function PythonIntegrationPage() {
   return (
     <>
@@ -50,8 +28,33 @@ export default function PythonIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationSteps title="Getting `*started*`" steps={pythonIntegrationSteps} />
-      <IntegrationCompatibility title="Supported by Python" subtitle="compatibility" tools={compatibilityTools} />
+      <IntegrationSteps
+        title="Getting `*started*`"
+        steps={[
+          [
+            'Open a terminal via HTTP Toolkit',
+            'Run any Python script, tool or server from that terminal',
+            "Instantly see, debug & rewrite all Python's HTTP traffic",
+          ],
+        ]}
+      />
+      <IntegrationCompatibility
+        title="Supported by Python"
+        subtitle="compatibility"
+        tools={[
+          'urllib.request',
+          'urllib2',
+          'Requests',
+          'Boto',
+          'Urlfetch',
+          'Python 2 & 3',
+          'httplib2',
+          'Pip',
+          'httpx',
+          'grequests',
+          'aiohttp',
+        ]}
+      />
       <Suspense>
         <Testimonials />
       </Suspense>

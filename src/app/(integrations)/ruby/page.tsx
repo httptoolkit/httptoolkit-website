@@ -10,14 +10,6 @@ import { IntegrationSteps } from '@/components/sections/integration/single-page/
 import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
 import { Testimonials } from '@/components/sections/testimonials';
 
-const rubyIntegrationSteps = [
-  [
-    'Open a terminal via HTTP Toolkit',
-    'Run any Ruby script, tool or server from that terminal',
-    "Instantly see, debug & rewrite all Ruby's HTTP traffic",
-  ],
-];
-
 export default function RubyIntegrationPage() {
   return (
     <>
@@ -36,8 +28,31 @@ export default function RubyIntegrationPage() {
           alt: 'Mockup image',
         }}
       />
-      <IntegrationSteps title="Getting `*started*`" steps={rubyIntegrationSteps} />
-      <IntegrationCompatibility title="Supported by Ruby" subtitle="compatibility" />
+      <IntegrationSteps
+        title="Getting `*started*`"
+        steps={[
+          [
+            'Open a terminal via HTTP Toolkit',
+            'Run any Ruby script, tool or server from that terminal',
+            "Instantly see, debug & rewrite all Ruby's HTTP traffic",
+          ],
+        ]}
+      />
+      <IntegrationCompatibility
+        title="Supported by Ruby"
+        subtitle="compatibility"
+        tools={[
+          'net::http',
+          'Faraday',
+          'REST Client',
+          'Mechanize',
+          'Bundler',
+          'HTTParty',
+          'Excon',
+          'open-uri',
+          'gem install',
+        ]}
+      />
       <Suspense>
         <Testimonials />
       </Suspense>
