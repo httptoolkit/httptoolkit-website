@@ -12,7 +12,7 @@ import { Text } from '@/components/elements/text';
 
 export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardProps) => {
   return (
-    <StyledContentCardWrapper>
+    <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
       <StyledContentCardContent>
         <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white">
           {title}
@@ -26,7 +26,7 @@ export const ContentCard = ({ title, text, button, $isNewsletter }: ContentCardP
       {$isNewsletter && (
         <>
           <StyledContentCardForm>
-            <Input id="email" placeholder="Email address" type="email" />
+            <Input id="email" placeholder="Email address" type="email" required />
             <Button as="button" type="submit" $variant="secondary" $small>
               Sign up
             </Button>

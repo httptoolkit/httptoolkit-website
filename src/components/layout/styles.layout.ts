@@ -3,7 +3,6 @@
 import { screens, styled } from '@/styles';
 
 export const StyledLandingLayoutWrapper = styled.div`
-  height: 100vh;
   min-height: fit-content;
   display: flex;
   flex-direction: column;
@@ -11,12 +10,13 @@ export const StyledLandingLayoutWrapper = styled.div`
   overflow-y: auto;
 
   @media (min-width: ${screens['md']}) {
+    height: 100vh;
+
     & main {
       flex: 1; /* Allow the main content to grow and take up remaining space */
       display: flex;
       justify-content: center;
       align-items: center;
-
       width: 100%;
       height: 100%;
     }

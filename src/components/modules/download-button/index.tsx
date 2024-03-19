@@ -39,7 +39,14 @@ export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButton
   if (isMobile || operativeSystem === 'mobile') return <SendEmail buttonProps={{ $variant, $small, $withBorder }} />;
 
   return (
-    <Dropdown $small={$small} $variant={$variant} $withBorder={$withBorder} aria-label="Download Items" items={items}>
+    <Dropdown
+      $small={$small}
+      href={defaultOperativeSystem.href}
+      $variant={$variant}
+      $withBorder={$withBorder}
+      aria-label="Download Items"
+      items={items}
+    >
       Download for {defaultOperativeSystem.defaultText}
     </Dropdown>
   );

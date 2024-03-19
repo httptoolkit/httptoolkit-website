@@ -3,8 +3,7 @@ import { MobileDrawerMenu } from './mobile-drawer-menu';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { Dropdown } from '@/components/modules/dropdown';
-import type { DropdownOptionProps } from '@/components/modules/dropdown/dropdown.types';
+import { DownloadButton } from '@/components/modules/download-button';
 
 type NavigationItems = {
   href: string;
@@ -13,10 +12,9 @@ type NavigationItems = {
 
 interface MobileHeaderProps {
   navigationItems: NavigationItems[];
-  dropdownItems: DropdownOptionProps[];
 }
 
-export const MobileHeader = ({ navigationItems, dropdownItems }: MobileHeaderProps) => {
+export const MobileHeader = ({ navigationItems }: MobileHeaderProps) => {
   return (
     <StyledMobileWrapper>
       <MobileDrawerMenu>
@@ -31,9 +29,7 @@ export const MobileHeader = ({ navigationItems, dropdownItems }: MobileHeaderPro
             );
           })}
         </StyledNavMobileItems>
-        <Dropdown items={dropdownItems} aria-label="Download Items" $variant="secondary" $direction="top">
-          Download for macOS
-        </Dropdown>
+        <DownloadButton $small $variant="secondary" />
       </MobileDrawerMenu>
     </StyledMobileWrapper>
   );
