@@ -51,18 +51,18 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               {hasDownloadCommand ? (
                 <Stack>
                   <Copy text={downloadData.downloadCommand} />
-                  <Text fontSize="l" fontWeight="medium">
+                  <Text fontSize="l" fontWeight="medium" color="white">
                     Copy & run the above to install HTTP Toolkit.
                   </Text>
                 </Stack>
               ) : (
-                <Text fontSize="m">
+                <Text fontSize="l" fontWeight="medium">
                   Didn&apos;t work?{' '}
                   <Link
                     target="_self"
                     href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${downloadData?.releasePath}`}
                   >
-                    <Text fontSize="m" as="span" color="cinnarbarRed">
+                    <Text fontSize="l" as="span" color="cinnarbarRed" fontWeight="medium">
                       Click here
                     </Text>
                   </Link>
