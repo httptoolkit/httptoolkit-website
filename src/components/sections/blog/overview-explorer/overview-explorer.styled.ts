@@ -5,13 +5,14 @@ import { screens, styled } from '@/styles';
 
 export const StyledExplorerSection = styled.section`
   padding: 18px 0;
-  margin-bottom: 48px;
+  margin: 64px 0;
   border-top: 1px solid ${({ theme }) => theme.colors.button.border};
   border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 
   @media (min-width: ${screens.lg}) {
     display: block;
     border-top: 0;
+    margin-top: 0;
     border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
     padding: 34px 0;
   }
