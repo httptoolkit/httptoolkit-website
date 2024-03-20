@@ -12,18 +12,21 @@ import { styled, css, screens } from '@/styles';
 const ctaSquareStyles = css`
   max-width: 1344px;
   margin: 0 auto;
-  border: 1px solid ${({ theme }) => theme.colors.borderDark};
-  border-radius: 16px;
-  overflow: hidden;
   margin: 96px auto;
   padding-top: 64px;
   padding-bottom: 0;
   box-shadow: 0px 0px 24px 0px rgba(189, 195, 218, 0.1) inset;
+  border-radius: 16px;
   background:
     no-repeat url('/images/backgrounds/hero-lines.svg'),
     ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position: top -400px center;
   margin: 32px 16px;
+  border: 1px solid ${({ theme }) => theme.colors.borderDark};
+
+  @media (min-width: ${screens['lg']}) {
+    border: 0;
+  }
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 128px;
@@ -33,6 +36,8 @@ const ctaSquareStyles = css`
     /* faded look effect */
     &::before {
       content: '';
+      border: 1px solid ${({ theme }) => theme.colors.borderDark};
+      border-radius: 16px;
       position: absolute;
       inset: 0;
       pointer-events: none;
