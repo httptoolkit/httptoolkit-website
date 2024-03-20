@@ -30,7 +30,13 @@ export const TagsDrawer = ({ tags }: { tags: string[] }) => {
         <StyledDrawerContent>
           <StyledMobileDrawerHeading>
             <Text fontSize="l">Categories</Text>
-            <XSquare height={20} width={20} weight="fill" onClick={() => handleOpenChange(false)} />
+            <XSquare
+              aria-label="Close categories menu"
+              height={20}
+              width={20}
+              weight="fill"
+              onClick={() => handleOpenChange(false)}
+            />
           </StyledMobileDrawerHeading>
           <StyledMobileNavigationWrapper>
             <li>
