@@ -33,6 +33,8 @@ import {
   PaperPlaneTilt,
   Question,
   CheckFat,
+  XSquare,
+  ListBullets,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -97,4 +99,6 @@ export {
   PaperPlaneTilt,
   Question,
   CheckFat,
+  XSquare,
+  ListBullets,
 };

@@ -9,11 +9,17 @@ export const StyledButtonTrigger = styled.button`
   border: none;
   color: ${({ theme }) => theme.colors.text.lightGrey};
   font-size: ${({ theme }) => theme.fontSizes.text.m};
+
   cursor: pointer;
+  transition: color ease-in 200ms;
 
   display: flex;
   align-items: center;
   gap: 8px;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.text.electricLightBlue};
+  }
 `;
 
 export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
