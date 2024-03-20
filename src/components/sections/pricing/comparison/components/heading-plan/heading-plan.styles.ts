@@ -15,7 +15,8 @@ export const StyledHeadingPlanWrapper = styled.div`
       width: 100%;
     }
 
-    & button {
+    & button,
+    & a {
       width: 100%;
       padding-left: 0;
       padding-right: 0;
