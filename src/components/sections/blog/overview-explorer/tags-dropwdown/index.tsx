@@ -1,8 +1,6 @@
 'use client';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
 
 import {
   StyledButtonTrigger,
@@ -10,30 +8,19 @@ import {
   StyledDropdownItem,
   StyledDropdownMenuContent,
 } from './tags-dropdow';
+import { useDrawerState } from '../hooks/use-drawer-state';
 
 import { CaretDown, CaretUp } from '@/components/elements/icon';
 
 export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
-  const [isDropdownOpen, setIsDropdowOpen] = useState(false);
-  const router = useRouter();
-
-  // Sync controlled state with dropdown menu root state
-  const handleOpenChange = (isOpen: boolean) => {
-    setIsDropdowOpen(isOpen);
-  };
-
-  // Close the dropdown when a tag is clicked
-  const handleOnClickTag = (tag: string) => {
-    router.push(`/blog?tags=${tag}`, { scroll: false });
-    setIsDropdowOpen(false);
-  };
+  const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
 
   return (
-    <DropdownMenu.Root modal={false} onOpenChange={handleOpenChange} open={isDropdownOpen}>
+    <DropdownMenu.Root modal={false} onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <DropdownMenu.Trigger asChild>
         <StyledButtonTrigger>
           <span>More</span>
-          {isDropdownOpen ? <CaretUp weight="fill" /> : <CaretDown weight="fill" />}
+          {isDrawerOpen ? <CaretUp weight="fill" /> : <CaretDown weight="fill" />}
         </StyledButtonTrigger>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
