@@ -23,6 +23,7 @@ export const StyledCTABoxWrapper = styled.div`
   background-position:
     top 0 center,
     top 10% center;
+  margin: 48px 0;
 
   & * {
     text-align: center;
