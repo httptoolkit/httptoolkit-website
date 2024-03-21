@@ -1,5 +1,6 @@
 'use client';
 
+import type { KeyboardEvent } from 'react';
 import { Drawer } from 'vaul';
 
 import {
@@ -18,6 +19,12 @@ import { Text } from '@/components/elements/text';
 export const TagsDrawer = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
 
+  const handleOnEnterCapture = (e: KeyboardEvent<SVGSVGElement>) => {
+    if (e.key === 'Enter') {
+      handleOpenChange(false);
+    }
+  };
+
   return (
     <Drawer.Root onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <StyledMobileTrigger>
@@ -31,15 +38,17 @@ export const TagsDrawer = ({ tags }: { tags: string[] }) => {
           <StyledMobileDrawerHeading>
             <Text fontSize="l">Categories</Text>
             <XSquare
+              tabIndex={0}
               aria-label="Close categories menu"
               height={20}
               width={20}
               weight="fill"
+              onKeyDownCapture={e => handleOnEnterCapture(e)}
               onClick={() => handleOpenChange(false)}
             />
           </StyledMobileDrawerHeading>
           <StyledMobileNavigationWrapper>
-            <li>
+            <li onClick={() => handleOnClickTag()}>
               <Link href={`/blog`} scroll={false}>
                 <StyledTagText>All posts</StyledTagText>
               </Link>

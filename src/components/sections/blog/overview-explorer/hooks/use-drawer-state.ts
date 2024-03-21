@@ -11,8 +11,10 @@ export const useDrawerState = (initialState: boolean) => {
   };
 
   // Close the drawer when a tag is clicked
-  const handleOnClickTag = (tag: string) => {
-    router.push(`/blog?tags=${tag}`, { scroll: false });
+  const handleOnClickTag = (tag?: string) => {
+    const url = tag ? `/blog?tags=${tag}` : `/blog`;
+
+    router.push(url, { scroll: false });
     setIsDrawerOpen(false);
   };
 
