@@ -3,7 +3,7 @@ interface TableContentSubitem {
   href: string;
 }
 
-interface TableContentItem {
+export interface TableContentItem {
   text: string;
   href?: string;
   subItems?: TableContentSubitem[];

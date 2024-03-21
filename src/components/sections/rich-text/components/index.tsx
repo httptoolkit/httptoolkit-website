@@ -3,6 +3,7 @@ import { kebabCase } from 'lodash';
 import { StyledBiggerText, StyledHeading, StyledLink, StyledText, StyledUL } from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
+import * as Icons from '@/components/elements/icon';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
 import { CTABox } from '@/components/modules/cta-box';
@@ -24,7 +25,6 @@ const Heading3to6 = ({ children }: Component<StyledHeadingProps>) => {
   );
 };
 
-// TODO: need to define the default styles
 export const defaultComponents = {
   h2: Heading2,
   h3: Heading3to6,
@@ -57,4 +57,5 @@ export const defaultComponents = {
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
   },
+  ...Icons,
 };
