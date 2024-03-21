@@ -99,12 +99,10 @@ export const StyledTableContentSubitem = styled(Link)`
 
   &:hover,
   &:focus {
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
     color: ${({ theme }) => theme.colors.white};
   }
 
   &:active {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
     color: ${({ theme }) => theme.colors.electricLightBlue};
   }
 `;
