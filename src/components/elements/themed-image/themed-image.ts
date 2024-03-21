@@ -3,7 +3,7 @@
 import { MovingBorder } from '../moving-border';
 import type { MovingBorderProps } from '../moving-border/moving-border.types';
 
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledThemedImage = styled.div`
   & img {
@@ -15,11 +15,15 @@ export const StyledThemedImage = styled.div`
 
 export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
   --border-width: 2px;
-  --radius: 16px;
+  --radius: 8px;
   line-height: 0;
   width: 100%;
   height: fit-content;
   object-fit: cover;
+
+  @media (min-width: ${screens['lg']}) {
+    --radius: 16px;
+  }
 
   ${({ theme, $withBorder }) =>
     $withBorder &&
@@ -38,9 +42,14 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
 
   & img {
     width: 100%;
-    padding: 10px;
-    border-radius: 22px;
+    padding: 4px;
+    border-radius: 8px;
     border: 1px solid linear-gradient(270deg, #ffffff -0.8%, rgba(255, 255, 255, 0) 93.82%);
+
+    @media (min-width: ${screens['lg']}) {
+      padding: 10px;
+      border-radius: 22px;
+    }
   }
 
   &:before {

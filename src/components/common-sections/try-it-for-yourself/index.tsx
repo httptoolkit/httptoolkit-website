@@ -3,13 +3,13 @@ import { CTA } from '@/components/sections/cta';
 import type { CTAProps } from '@/components/sections/cta/cta.types';
 
 interface TryItForYourselfCTAProps {
-  variant?: CTAProps['$variant'];
+  variant?: CTAProps['variant'];
 }
 
 export const TryItForYourselfCTA = ({ variant = 'cta-square' }: TryItForYourselfCTAProps) => {
   return (
     <CTA
-      $variant={variant}
+      variant={variant}
       icon={Logo}
       textAppearance="small"
       heading="Try it for yourself"

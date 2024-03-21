@@ -10,6 +10,7 @@ export const Heading = ({
   fontSize = 'xl',
   fontWeight,
   textAlign,
+  ...props
 }: Component<HeadingProps>) => {
   return (
     <StyledHeading
@@ -20,6 +21,7 @@ export const Heading = ({
       fontWeight={fontWeight}
       className={className}
       id={id}
+      {...props}
     >
       {children}
     </StyledHeading>

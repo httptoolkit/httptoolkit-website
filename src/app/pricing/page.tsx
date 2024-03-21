@@ -133,7 +133,7 @@ export default function PricingPage() {
   return (
     <Layout>
       <CTA
-        $variant="pricing-hero"
+        variant="pricing-hero"
         heading="Developer tools built for professionals"
         subHeading={{
           text: 'pricing',
