@@ -7,13 +7,13 @@ import {
   StyledMobileText,
   StyledSectionCTA,
   StyledTextContent,
+  StyledFridaSection,
 } from './frida.styles';
 
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { GithubLogo } from '@/components/elements/icon';
-import { Section } from '@/components/elements/section';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
@@ -41,7 +41,7 @@ export default async function FridaPage() {
             </StyledMobileText>
           </StyledSectionCTA>
         </StyledDisplayDevice>
-        <Section>
+        <StyledFridaSection>
           <Container>
             <StyledFridaColumns>
               <StyledFridaColumnContent>
@@ -94,7 +94,7 @@ export default async function FridaPage() {
               </StyledDisplayDevice>
             </StyledFridaColumns>
           </Container>
-        </Section>
+        </StyledFridaSection>
         <StyledGradientBottom />
       </div>
     </LandingLayout>

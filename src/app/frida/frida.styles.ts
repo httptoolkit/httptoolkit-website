@@ -1,8 +1,19 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
+import { Section } from '@/components/elements/section';
 import { CTA } from '@/components/sections/cta';
 import { css, screens, styled } from '@/styles';
+
+export const StyledFridaSection = styled(Section)`
+  padding-top: 16px;
+  padding-bottom: calc(64px + 32px);
+
+  @media (min-width: ${screens['2xl']}) {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+`;
 
 export const StyledFridaColumns = styled.div`
   display: grid;
