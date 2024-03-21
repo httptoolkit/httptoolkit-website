@@ -20,20 +20,21 @@ export const CTA = ({
   withDownload = true,
   textAppearance = 'large',
   image,
-  $variant = 'cta-hero',
+  variant = 'cta-hero',
   $bgVariant = 'default',
+  className,
   children,
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
-  const isHero = ['cta-hero', 'pricing-hero'].includes($variant);
-  const HeadingSize: HeadingProps['fontSize'] = isHero && $variant !== 'pricing-hero' ? 'xl' : 'l';
+  const isHero = ['cta-hero', 'pricing-hero'].includes(variant);
+  const HeadingSize: HeadingProps['fontSize'] = isHero && variant !== 'pricing-hero' ? 'xl' : 'l';
   const asTitle = isHero ? 'h1' : 'h3';
   const isLargeText = textAppearance === 'large';
-  const labelSize: TextProps['fontSize'] = $variant === 'pricing-hero' ? 'm' : 'xll';
-  const excerptSize = $variant === 'pricing-hero' ? 'm' : 'l';
+  const labelSize: TextProps['fontSize'] = variant === 'pricing-hero' ? 'm' : 'xll';
+  const excerptSize = variant === 'pricing-hero' ? 'm' : 'l';
 
   return (
-    <StyledHeroWrapper $variant={$variant} $bgVariant={$bgVariant}>
+    <StyledHeroWrapper $variant={variant} $bgVariant={$bgVariant} className={className}>
       <StyledContainer>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />

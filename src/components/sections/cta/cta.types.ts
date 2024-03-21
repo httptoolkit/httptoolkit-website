@@ -15,7 +15,7 @@ export type bgVariant =
   | 'left-top-to-bottom-right';
 
 export interface CTAProps extends Component {
-  $variant?: CTAVariant;
+  variant?: CTAVariant;
   $bgVariant?: bgVariant;
   heading: string;
   textAppearance?: TextAppearance;

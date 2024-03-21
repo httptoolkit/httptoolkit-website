@@ -95,6 +95,10 @@ const handleBackgroundVariant = (variant: bgVariant) => {
           no-repeat url('/images/backgrounds/hero-lines.svg'),
           var(--background-dots);
         background-position: top -80px center;
+
+        /* @media (max-width: ${screens['md']}) {
+          background-position: top -317px center;
+        } */
       `;
   }
 };
@@ -104,15 +108,15 @@ const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
 
   @media (min-width: ${screens['md']}) {
     ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
-  }
 
-  /* faded look effect */
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.darkGrey});
+    /* faded look effect */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.darkGrey});
+    }
   }
 `;
 
@@ -124,7 +128,10 @@ const pricingHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
   }
 `;
 
-export const StyledHeroWrapper = styled.section<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
+export const StyledHeroWrapper = styled.section<{
+  $variant: CTAVariant;
+  $bgVariant: bgVariant;
+}>`
   position: relative;
   padding-top: 32px;
   padding-bottom: 64px;

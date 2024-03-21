@@ -10,7 +10,7 @@ export const StyledLandingLayoutWrapper = styled.div`
   justify-content: space-between;
   overflow-y: auto;
 
-  @media (min-width: ${screens['md']}) {
+  @media (min-width: ${screens['xl']}) {
     & main {
       flex: 1; /* Allow the main content to grow and take up remaining space */
       display: flex;
