@@ -1,6 +1,7 @@
 'use client';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import type { KeyboardEvent } from 'react';
 
 import {
   StyledButtonTrigger,
@@ -15,6 +16,13 @@ import { CaretDown, CaretUp } from '@/components/elements/icon';
 export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
 
+  const handleOnEnterCapture = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      handleOpenChange(false);
+    }
+  };
+
   return (
     <DropdownMenu.Root modal={false} onOpenChange={handleOpenChange} open={isDrawerOpen}>
       <DropdownMenu.Trigger asChild>
@@ -24,11 +32,19 @@ export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
         </StyledButtonTrigger>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <StyledDropdownMenuContent align="start" sideOffset={5}>
+        <StyledDropdownMenuContent onKeyDownCapture={handleOnEnterCapture} align="start" sideOffset={5}>
           <StyledDropdownContentWrapper>
             {tags.map(tag => (
-              <DropdownMenu.Item key={tag} className="tagItem" onSelect={() => handleOnClickTag(tag)}>
-                <StyledDropdownItem>{tag}</StyledDropdownItem>
+              <DropdownMenu.Item
+                asChild
+                key={tag}
+                className="tagItem"
+                onKeyDownCapture={handleOnEnterCapture}
+                onSelect={() => handleOnClickTag(tag)}
+              >
+                <li tabIndex={-1}>
+                  <StyledDropdownItem>{tag}</StyledDropdownItem>
+                </li>
               </DropdownMenu.Item>
             ))}
           </StyledDropdownContentWrapper>

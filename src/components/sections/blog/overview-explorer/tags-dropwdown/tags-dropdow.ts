@@ -68,7 +68,7 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
   }
 `;
 
-export const StyledDropdownContentWrapper = styled.div`
+export const StyledDropdownContentWrapper = styled.ul`
   overflow-y: auto;
   height: 100%;
   border-radius: 16px;
