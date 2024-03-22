@@ -207,7 +207,7 @@ To use these headers, each cache that supports them will define (fixed or user c
 
 All in all this is pretty simple and easy to use, if you're already familiar with existing caching mechanisms. Targeted headers match certain targets, you can configure the caching rules per-target however you'd like, and the best match wins. For example:
 
-```
+``` js
 Client-Cache-Control: must-revalidate
 CDN-Cache-Control: max-age=600, stale-after-revalidate=300
 Squid-Cache-Control: max-age=60

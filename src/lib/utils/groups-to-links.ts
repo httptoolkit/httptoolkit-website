@@ -8,7 +8,9 @@ export function formatLinks(headings: HeadingGroupWithSubItems[], withHref = tru
   return headings.map(heading => ({
     text: heading.text,
     href: withHref ? `#${kebabCase(heading.text)}` : undefined,
+    level: heading.level,
     subItems: heading.subItems.map(subItem => ({
+      level: subItem.level,
       text: subItem.text,
       href: `#${kebabCase(subItem.text)}`,
     })),

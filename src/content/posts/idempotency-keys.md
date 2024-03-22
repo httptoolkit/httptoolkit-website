@@ -41,7 +41,7 @@ Unfortunately though, in this scenario the client doesn't actually know whether 
 
 The server could try to write some logic to detect duplicate payments, but is that something you always want to automatically block?
 
-```
+``` js
 POST /payments
 
 {

@@ -4,11 +4,10 @@ import { screens, styled } from '@/styles';
 
 export const StyledRelatedPostWrapper = styled.section`
   padding: 32px 0;
-  margin: 32px 0;
 
   @media (min-width: ${screens['lg']}) {
-    padding: 48px 0;
-    margin: 48px 0;
+    padding: 0;
+    margin: 0;
   }
 `;
 
@@ -22,6 +21,10 @@ export const StyledRelatedPostsGrid = styled.div`
   }
 
   & article {
-    max-width: 434px;
+    max-width: 100%;
+
+    @media (min-width: ${screens['lg']}) {
+      max-width: 434px;
+    }
   }
 `;

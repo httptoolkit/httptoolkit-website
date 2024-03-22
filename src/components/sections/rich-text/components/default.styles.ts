@@ -16,8 +16,14 @@ export const StyledText = styled(Text)`
   margin-bottom: 6px;
 `;
 
-export const StyledBiggerText = styled(Text)`
-  margin-bottom: 16px;
+export const StyledHighlightedParagraphs = styled.div`
+  p {
+    margin-bottom: 16px;
+    color: ${({ theme }) => theme.colors.text.darkGrey};
+    font-size: ${({ theme }) => theme.fontSizes.text.l};
+    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    line-height: 1.5;
+  }
 `;
 
 export const StyledHeading = styled(Heading)<StyledHeadingProps>`
@@ -27,5 +33,7 @@ export const StyledHeading = styled(Heading)<StyledHeadingProps>`
 
 export const StyledUL = styled.ul`
   list-style: disc;
-  padding-left: 20px;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  color: ${({ theme }) => theme.colors.text.darkGrey};
 `;

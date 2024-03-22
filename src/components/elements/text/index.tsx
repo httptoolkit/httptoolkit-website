@@ -9,6 +9,7 @@ export const Text = ({
   fontWeight,
   color,
   textAlign,
+  ...props
 }: Component<TextProps>) => {
   const isLabel = as === 'label';
   const asTag = as === 'label' ? 'span' : as;
@@ -22,6 +23,7 @@ export const Text = ({
       className={className}
       textAlign={textAlign}
       $isLabel={isLabel}
+      {...props}
     >
       {children}
     </StyledText>
