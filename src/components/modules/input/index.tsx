@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <Stack $gapxl="8px">
           {label && <STyledLabel htmlFor={id}>{label}</STyledLabel>}
           <StyledInputBorder $hasError={$hasError} $styledAs={as}>
-            <StyledInput id={id} name={id} ref={ref} $hasError={$hasError} as={as} {...props} />
+            <StyledInput id={id} name={id} ref={ref} $type={props.type} $hasError={$hasError} as={as} {...props} />
             {props.type === 'search' && (
               <StyledSearchButton title="Click to search" onClick={onClickSearch}>
                 <MagnifyingGlass weight="fill" size={16} />

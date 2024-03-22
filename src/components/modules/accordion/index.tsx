@@ -5,6 +5,7 @@ import { marked } from 'marked';
 import {
   StyledAccordionContent,
   StyledAccordionItem,
+  StyledAccordionTransparentTitle,
   StyledAccordionTrigger,
   StyledAccordionWrapper,
 } from './accordion.styles';
@@ -12,16 +13,11 @@ import type { AccordionProps, StyledAccordionProps } from './accordion.types';
 
 import { Heading } from '@/components/elements/heading';
 import { CaretDown } from '@/components/elements/icon';
-import { Text } from '@/components/elements/text';
 import { renderer } from '@/lib/marked/link-target-render';
 
 const AccordionTitle = ({ $variant, children }: Component<StyledAccordionProps>) => {
   if ($variant === 'transparent') {
-    return (
-      <Text fontSize="l" fontWeight="bold" color="lightGrey" textAlign="left">
-        {children}
-      </Text>
-    );
+    return <StyledAccordionTransparentTitle>{children}</StyledAccordionTransparentTitle>;
   }
   return (
     <Heading as="h3" fontSize="s" color="darkGrey" textAlign="left">
@@ -38,7 +34,7 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
         items.map(item => (
           <StyledAccordionItem key={item.text} value={item.title} $variant={$variant}>
             <StyledAccordionTrigger>
-              <AccordionTitle>{item.title}</AccordionTitle>
+              <AccordionTitle $variant={$variant}>{item.title}</AccordionTitle>
               <CaretDown weight="fill" size={24} />
             </StyledAccordionTrigger>
             <StyledAccordionContent>

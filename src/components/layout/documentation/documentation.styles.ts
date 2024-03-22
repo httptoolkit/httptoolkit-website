@@ -3,12 +3,31 @@
 import { Heading } from '@/components/elements/heading';
 import { styled } from '@/styles';
 
-export const StyledDocumentationLayoutWrapper = styled.section`
+export const StyledDocumentationGlobalWrapper = styled.section`
+  position: relative;
+`;
+export const StyledDocumentationLayoutWrapper = styled.div`
   display: grid;
+  position: relative;
+  max-width: ${({ theme }) => theme.screens['2xl']};
+  margin: 32px 16px 0;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    margin: 0 auto;
     grid-template-columns: 360px ${({ theme }) => theme.screens.content} 1fr;
     gap: 24px;
+  }
+`;
+
+export const StyledDocumentationLayoutGradientWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: -150px;
+  height: 700px;
+  transform: rotate(180deg);
+
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    display: none;
   }
 `;
 
@@ -47,6 +66,6 @@ export const StyledDocumentationLayoutContentWrapper = styled.div`
   padding-bottom: 64px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    padding-top: 64px;
+    padding-top: 56px;
   }
 `;

@@ -7,6 +7,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, AriaA
   $hasError?: boolean;
   onClickSearch?: () => void;
   label?: string;
+  $type?: string;
 }
 
 export interface InputBorderProps {
