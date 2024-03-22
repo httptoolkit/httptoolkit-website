@@ -509,20 +509,23 @@ export default @observer class PricingPage extends React.Component {
                         <TierPriceBlock />
                         <TierFeatures>
                             <FeatureCont>
-                                Includes all the basic features you need to start viewing &
-                                rewriting your HTTP traffic:
+                                Includes all the basic features you need to start viewing, rewriting
+                                and sending HTTP traffic:
                             </FeatureCont>
                             <Feature>
-                                Automatically intercept all supported clients
+                                Automatically intercept all supported clients.
                             </Feature>
                             <Feature>
-                                Inspect and debug raw HTTP data
+                                Inspect and debug raw HTTP data.
                             </Feature>
                             <Feature>
-                                Filter, delete & pin requests
+                                Filter, delete & pin requests.
                             </Feature>
                             <Feature>
-                                Manually rewrite HTTP with request & response breakpoints
+                                Manually rewrite HTTP with request & response breakpoints.
+                            </Feature>
+                            <Feature>
+                                Send requests with a fully featured graphical HTTP client.
                             </Feature>
                         </TierFeatures>
                     </PricingTier> }
@@ -561,17 +564,17 @@ export default @observer class PricingPage extends React.Component {
                                 mock responses, and errors & timeouts.
                             </Feature>
                             <Feature>
-                                <strong>Import/export</strong> mock rules, and code or <a
+                                <strong>Import/export</strong> mock rules, and <a
                                     href="https://en.wikipedia.org/wiki/HAR_(file_format)"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     HARs
-                                </a> of collected traffic
+                                </a> or ready-to-use code for 20+ tools, for all sent or intercepted requests.
                             </Feature>
                             <Feature>
-                                <strong>Advanced HTTP debugging and inspection</strong> including compression
-                                & caching analysis
+                                <strong>Advanced HTTP debugging tools</strong> including compression
+                                & caching analysis, and 'resend' functionality.
                             </Feature>
                             <Feature>
                                 <strong>Validation &amp; API documentation for 2600+ built-in APIs</strong>,
@@ -583,10 +586,10 @@ export default @observer class PricingPage extends React.Component {
                             </Feature>
                             <Feature>
                                 <strong>Advanced customization</strong> including UI themes,
-                                whitelisted & client certificates, ports, and upstream proxies.
+                                TLS & certificate settings, and upstream proxies.
                             </Feature>
                             <Feature>
-                                <strong>Support ongoing development!</strong>
+                                <strong>Support open-source development!</strong>
                             </Feature>
                         </TierFeatures>
                     </PricingTier>
