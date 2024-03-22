@@ -78,6 +78,14 @@ export const StyledAccordionTrigger = styled(Accordion.Trigger)`
   }
 `;
 
+export const StyledAccordionTransparentTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fontSizes.text.l};
+  color: ${({ theme }) => theme.colors.text.lightGrey};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  text-align: left;
+  line-height: 1.5;
+`;
+
 export const StyledAccordionContent = styled(Accordion.Content)`
   overflow: hidden;
   padding-top: 16px;

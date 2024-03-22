@@ -57,7 +57,8 @@ export const StyledInput = styled.input<InputProps>`
   resize: none;
 
   border-radius: 6px;
-  background-color: ${({ theme, $hasError }) => ($hasError ? theme.colors.inkBlack : theme.colors.darkGrey)};
+  background-color: ${({ theme, $hasError, $type }) =>
+    $type === 'search' ? theme.colors.mediumGrey : $hasError ? theme.colors.inkBlack : theme.colors.darkGrey};
 
   box-shadow:
     0px 1.5px 4px -1px rgba(10, 9, 11, 0.07),
