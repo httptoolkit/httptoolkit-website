@@ -1,11 +1,13 @@
 'use client';
 
+import type { StyledContentWithTableProps } from './content-with-table.type';
+
 import { css, styled } from '@/styles';
 
-export const StyledContentWithTableWrapper = styled.section`
+export const StyledContentWithTableWrapper = styled.section<StyledContentWithTableProps>`
   position: relative;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: ${({ theme, $bgVariant }) => $bgVariant && theme.colors[$bgVariant]};
 `;
 
 const StyledContentWithTableGradientWrapper = css`
@@ -36,19 +38,17 @@ export const StyledContentWithTableLowerGradientWrapper = styled.div`
 
 export const StyledContentWithTableContentWrapper = styled.div`
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
   justify-content: center;
-  padding: 32px 16px 16px;
+  padding: 32px 0;
   max-width: ${({ theme }) => theme.screens.content};
   margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    padding: 64px 48px;
-  }
-
-  @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
-    padding: 64px 0;
+    display: grid;
+    padding: 64px 0 32px 0;
     max-width: initial;
     grid-template-columns: 1fr ${({ theme }) => theme.screens.content} 1fr;
   }
@@ -61,6 +61,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
 
     & > div {
       max-width: 296px;
+      min-width: 296px;
       width: 100%;
       height: fit-content;
     }
@@ -68,5 +69,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
 `;
 
 export const StyledContentRichText = styled.div`
-  margin-top: -48px;
+  & h2:first-of-type {
+    margin-top: 0;
+  }
 `;

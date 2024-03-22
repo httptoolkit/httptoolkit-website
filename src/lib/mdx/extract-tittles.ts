@@ -5,9 +5,10 @@ import matter from 'gray-matter';
 export interface HeadingGroup {
   text: string;
   level: 2 | 3 | 4 | 5 | 6;
+  subItems?: HeadingGroup[];
 }
 
-function getHeadings(source: string): HeadingGroup[] {
+export function getHeadings(source: string): HeadingGroup[] {
   const headingLines = source.split('\n').filter(line => {
     return line.match(/^###*\s/);
   });
