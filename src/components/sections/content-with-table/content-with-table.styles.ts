@@ -69,7 +69,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
 `;
 
 export const StyledContentRichText = styled.div`
-  & h2:first-of-type {
+  & h2:first-child {
     margin-top: 0;
   }
 `;
