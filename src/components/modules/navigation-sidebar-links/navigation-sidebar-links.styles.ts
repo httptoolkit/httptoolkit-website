@@ -3,7 +3,7 @@
 import { Heading } from '@/components/elements/heading';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledNavigationSidebarLinksWrapper = styled.div`
   display: flex;
@@ -32,10 +32,12 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
   & > a {
     color: ${({ theme }) => theme.colors.text.white};
 
-    &:hover,
-    &:focus,
-    &:active {
-      color: ${({ theme }) => theme.colors.text.lightGrey};
+    @media (min-width: ${screens.md}) {
+      &:hover,
+      &:focus,
+      &:active {
+        color: ${({ theme }) => theme.colors.text.lightGrey};
+      }
     }
   }
 `;
@@ -47,9 +49,11 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text.lightGrey};
   padding: 8px 32px;
 
-  &:focus,
-  &:hover {
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    color: ${({ theme }) => theme.colors.text.white};
+  @media (min-width: ${screens.md}) {
+    &:focus,
+    &:hover {
+      font-weight: ${({ theme }) => theme.fontWeight.medium};
+      color: ${({ theme }) => theme.colors.text.white};
+    }
   }
 `;

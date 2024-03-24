@@ -53,35 +53,37 @@ const base = css<StyledButtonProps>`
             box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 4px 24px 0px rgba(245, 109, 79, 0.15), 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
           `}
 
-          &:hover {
-            transition: border ease-in 0.3s;
-            ${() =>
-              !props.$withBorder &&
-              `
+          @media (min-width: ${screens.md}) {
+            &:hover {
+              transition: border ease-in 0.3s;
+              ${() =>
+                !props.$withBorder &&
+                `
               border: 1px solid ${props.theme.colors.text.white};
             `}
-          }
+            }
 
-          &:focus {
-            ${() =>
-              props.$withBorder
-                ? `
+            &:focus {
+              ${() =>
+                props.$withBorder
+                  ? `
                 box-shadow: 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset, 0px 0px 0px 8px rgba(50, 52, 59, 0.6);
                 `
-                : `
+                  : `
               box-shadow:
                 0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
                 0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset,
                 0px 0px 0px 8px rgba(50, 52, 59, 0.6);
             `}
-          }
+            }
 
-          &:active {
-            background: linear-gradient(345.32deg, #a32d13 10.67%, #dc3814 89.91%);
-            box-shadow:
-              0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
-              0px 4px 24px 0px rgba(245, 109, 79, 0.15),
-              0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
+            &:active {
+              background: linear-gradient(345.32deg, #a32d13 10.67%, #dc3814 89.91%);
+              box-shadow:
+                0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
+                0px 4px 24px 0px rgba(245, 109, 79, 0.15),
+                0px -2px 2px 0px rgba(0, 0, 0, 0.05) inset;
+            }
           }
         `;
 
@@ -93,32 +95,35 @@ const base = css<StyledButtonProps>`
           box-shadow:
             0 0 0 1px ${({ theme }) => theme.colors.button.border},
             0px 0px 8px 0px rgba(230, 232, 242, 0.05);
-          &:hover {
-            ${() =>
-              !props.$isDropdown &&
-              `
+
+          @media (min-width: ${screens.md}) {
+            &:hover {
+              ${() =>
+                !props.$isDropdown &&
+                `
               box-shadow:  0 0 0 1px ${props.theme.colors.text.lightGrey};
               `}
-          }
+            }
 
-          &:focus {
-            ${() =>
-              !props.$isDropdown &&
-              `
+            &:focus {
+              ${() =>
+                !props.$isDropdown &&
+                `
               border: 1px solid ${props.theme.colors.text.lightGrey};
               box-shadow:
               0px 0px 8px 0px rgba(230, 232, 242, 0.05),
               0px 0px 0px 8px rgba(50, 52, 59, 0.6);
               `}
-          }
+            }
 
-          &:active {
-            background-color: ${({ theme }) => theme.colors.darkGrey};
-            ${() =>
-              !props.$isDropdown &&
-              `
+            &:active {
+              background-color: ${({ theme }) => theme.colors.darkGrey};
+              ${() =>
+                !props.$isDropdown &&
+                `
             border: 1px solid ${props.theme.colors.text.lightGrey};
             `}
+            }
           }
         `;
     }
