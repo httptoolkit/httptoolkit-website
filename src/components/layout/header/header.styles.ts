@@ -32,6 +32,10 @@ export const StyledNavItems = styled.nav`
   align-items: center;
   gap: 48px;
 
+  @media (min-width: ${screens['lg']}) {
+    display: flex;
+  }
+
   & a:hover,
   & a:focus {
     span {
