@@ -57,11 +57,13 @@ export const StyledDocumentationLayoutDesktopHeading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.heading.desktop.l};
   color: ${({ theme }) => theme.colors.text.textGradient};
   ${({ theme }) => theme.colors.text.textGradient};
-  line-height: 1.5;
+  line-height: 1.2;
+  margin-bottom: 24px;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
     font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
+    margin-bottom: 48px;
   }
 `;
 
