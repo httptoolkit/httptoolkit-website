@@ -30,7 +30,7 @@ export async function DocumentationLayout({ title, children, links }: Component<
         <Gradient />
       </StyledDocumentationLayoutGradientWrapper>
       <StyledDocumentationLayoutWrapper>
-        <StyledDocumentationLayoutMobileHeading fontSize="m" color="textGradient">
+        <StyledDocumentationLayoutMobileHeading fontSize="l" color="textGradient">
           {title}
         </StyledDocumentationLayoutMobileHeading>
         <StyledDocumentationLayoutSideWrapper>
