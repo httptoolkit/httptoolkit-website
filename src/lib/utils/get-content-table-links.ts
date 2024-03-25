@@ -19,14 +19,14 @@ export function getContentTableLinks(docs: UnorganizedDoc[]): TableContentProps[
       .sort((a, b) => (a.order || 0) - (b.order || 0))
       .map(doc => ({
         text: doc.name,
-        href: `${basePath}/${doc.slug}`,
+        href: `${basePath}${doc.parent && `/${doc.parent}`}/${doc.slug}`,
       }));
     const subItems =
       parent === indexParent
         ? [
             {
               text: indexParentDoc.name,
-              href: basePath,
+              href: `${basePath}/${indexParentDoc.slug}`,
             },
             ...parentLinks,
           ]

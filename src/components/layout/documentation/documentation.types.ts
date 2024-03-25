@@ -1,4 +1,6 @@
+import type { NavigationSidebarLinksProps } from '@/components/modules/navigation-sidebar-links/navigation-sidebar-links.types';
+
 export interface DocumentationLayoutProps {
   title: string;
-  withoutNavigation?: boolean;
+  links?: NavigationSidebarLinksProps['links'];
 }

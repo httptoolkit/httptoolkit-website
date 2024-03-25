@@ -1,7 +1,15 @@
 import { kebabCase } from 'lodash';
 import type { MDXComponents } from 'mdx/types';
 
-import { StyledHeading, StyledHighlightedParagraphs, StyledLink, StyledText, StyledUL } from './default.styles';
+import {
+  StyledHeading,
+  StyledHighlightedParagraphs,
+  StyledImage,
+  StyledLink,
+  StyledOL,
+  StyledText,
+  StyledUL,
+} from './default.styles';
 import type { StyledHeadingProps } from './default.types';
 
 import * as Icons from '@/components/elements/icon';
@@ -58,6 +66,9 @@ export const defaultComponents: MDXComponents = {
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
   },
+  ol({ children }: Component) {
+    return <StyledOL>{children}</StyledOL>;
+  },
   code({ children, className }) {
     if (!className) {
       return <InlineCode>{children}</InlineCode>;
@@ -66,4 +77,19 @@ export const defaultComponents: MDXComponents = {
     return <BlockCode content={children} language={className} title="Code example" />;
   },
   ...Icons,
+};
+
+function setImagePath(path: string, parentFolder: string) {
+  const imageSegments = path?.split('/');
+  const imageFilename = imageSegments[imageSegments.length - 1];
+
+  return `/images/${parentFolder}/${imageFilename}`;
+}
+
+export const docsComponents: MDXComponents = {
+  img: ({ src, alt, title }) => {
+    const realSRC = setImagePath(src || '', 'docs');
+
+    return <StyledImage src={realSRC} alt={alt ?? ''} title={title} fill />;
+  },
 };

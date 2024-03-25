@@ -6,7 +6,7 @@ export interface NavigationSidebarLinkSubitem {
 export interface NavigationSidebarLinkItem {
   text: string;
   href?: string;
-  subitems?: NavigationSidebarLinkSubitem[];
+  subItems?: NavigationSidebarLinkSubitem[];
 }
 
 export interface NavigationSidebarLinksProps {

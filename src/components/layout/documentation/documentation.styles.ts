@@ -5,7 +5,9 @@ import { styled } from '@/styles';
 
 export const StyledDocumentationGlobalWrapper = styled.section`
   position: relative;
+  box-shadow: 0 1px 0 0 ${({ theme }) => theme.colors.button.border};
 `;
+
 export const StyledDocumentationLayoutWrapper = styled.div`
   display: grid;
   position: relative;
@@ -41,7 +43,7 @@ export const StyledDocumentationLayoutSideWrapper = styled.aside`
     flex-direction: column;
     gap: 48px;
     padding: 72px 24px 64px 48px;
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    box-shadow: 1px 0 0 0 ${({ theme }) => theme.colors.button.border};
   }
 `;
 
@@ -59,6 +61,13 @@ export const StyledDocumentationLayoutDesktopHeading = styled.p`
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
     font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
+  }
+`;
+
+export const StyledDocumentationLayoutNavigationWrapper = styled.div`
+  margin: 64px auto 0;
+  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    display: none;
   }
 `;
 

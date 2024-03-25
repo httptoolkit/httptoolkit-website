@@ -32,9 +32,9 @@ export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksP
               <StyledNavigationSidebarLinksContentTitle fontSize="m" fontWeight="bold" color="white">
                 <ItemTitleComponent {...link} />
               </StyledNavigationSidebarLinksContentTitle>
-              {Array.isArray(link.subitems) &&
-                link.subitems?.length > 0 &&
-                link.subitems.map(link => (
+              {Array.isArray(link.subItems) &&
+                link.subItems?.length > 0 &&
+                link.subItems.map(link => (
                   <StyledNavigationSidebarLinksContentLink key={link.href} href={link.href}>
                     {link.text}
                   </StyledNavigationSidebarLinksContentLink>
