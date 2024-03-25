@@ -29,7 +29,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     title: frontmatter?.title ?? '',
     date: frontmatter?.date ?? '',
     coverImage: frontmatter?.cover_image ?? '',
-    tags: frontmatter?.tags ? frontmatter?.tags.split(',') : [],
+    tags: frontmatter?.tags ? frontmatter?.tags.split(',')?.map(tag => tag?.trim()) : [],
     isFeatured: frontmatter?.isFeatured ?? false,
     isDraft: frontmatter?.draft ?? false,
     excerpt: '',

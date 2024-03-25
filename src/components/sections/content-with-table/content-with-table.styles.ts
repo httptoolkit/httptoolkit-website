@@ -54,7 +54,7 @@ export const StyledContentWithTableContentWrapper = styled.div`
   }
 `;
 
-export const StyledContentWithTableTableWrapper = styled.div`
+export const StyledContentWithTableTableWrapper = styled.aside`
   @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
     display: flex;
     justify-content: center;
@@ -68,7 +68,7 @@ export const StyledContentWithTableTableWrapper = styled.div`
   }
 `;
 
-export const StyledContentRichText = styled.div`
+export const StyledContentRichText = styled.article`
   & h2:first-child {
     margin-top: 0;
   }
