@@ -3,6 +3,7 @@
 import type { StyledHeadingProps } from './default.types';
 
 import { Heading } from '@/components/elements/heading';
+import { Image } from '@/components/elements/image';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
@@ -36,4 +37,18 @@ export const StyledUL = styled.ul`
   padding-left: 30px;
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.text.darkGrey};
+`;
+
+export const StyledOL = styled.ol`
+  list-style: decimal;
+  padding-left: 30px;
+  margin-bottom: 16px;
+  color: ${({ theme }) => theme.colors.text.darkGrey};
+`;
+
+export const StyledImage = styled(Image)`
+  display: block;
+  position: relative !important;
+  max-width: 100%;
+  margin: 48px auto;
 `;

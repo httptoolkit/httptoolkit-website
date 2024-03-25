@@ -4,6 +4,7 @@ import {
   StyledDocumentationLayoutDesktopHeading,
   StyledDocumentationLayoutGradientWrapper,
   StyledDocumentationLayoutMobileHeading,
+  StyledDocumentationLayoutNavigationWrapper,
   StyledDocumentationLayoutSideWrapper,
   StyledDocumentationLayoutWrapper,
 } from './documentation.styles';
@@ -11,16 +12,17 @@ import type { DocumentationLayoutProps } from './documentation.types';
 
 import { Gradient } from '@/components/elements/gradient';
 import { Input } from '@/components/modules/input';
+import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
 import { TableContent } from '@/components/modules/table-content';
 import { getAllDocsMeta } from '@/lib/mdx/docs';
 import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
 import { FAQ_SLUG, getContentTableLinks } from '@/lib/utils/get-content-table-links';
 import { getTitlesBySlug } from '@/lib/utils/get-titles-by-slug';
 
-export async function DocumentationLayout({ title, children }: Component<DocumentationLayoutProps>) {
+export async function DocumentationLayout({ title, children, links }: Component<DocumentationLayoutProps>) {
   const docsMeta = await getAllDocsMeta();
-  const links = getContentTableLinks(docsMeta as UnorganizedDoc[]);
-  const faq = await getTitlesBySlug(`/src/content/docs/guides/${FAQ_SLUG}.mdx`, FAQ_SLUG);
+  const localLinks = getContentTableLinks(docsMeta as UnorganizedDoc[]);
+  const faq = await getTitlesBySlug(`/src/content/docs/guides/${FAQ_SLUG}.mdx`, FAQ_SLUG, '/faq');
 
   return (
     <StyledDocumentationGlobalWrapper>
@@ -33,12 +35,15 @@ export async function DocumentationLayout({ title, children }: Component<Documen
         </StyledDocumentationLayoutMobileHeading>
         <StyledDocumentationLayoutSideWrapper>
           <Input id="search" type="search" placeholder="Search" />
-          <TableContent isCollapsible links={[...links, faq]} />
+          <TableContent isCollapsible links={[...localLinks, faq]} />
         </StyledDocumentationLayoutSideWrapper>
         <StyledDocumentationLayoutContentWrapper>
           <StyledDocumentationLayoutDesktopHeading>{title}</StyledDocumentationLayoutDesktopHeading>
           {children}
         </StyledDocumentationLayoutContentWrapper>
+        <StyledDocumentationLayoutNavigationWrapper>
+          {links?.length ? <NavigationSidebarLinks title="On this page" links={links} /> : null}
+        </StyledDocumentationLayoutNavigationWrapper>
       </StyledDocumentationLayoutWrapper>
     </StyledDocumentationGlobalWrapper>
   );

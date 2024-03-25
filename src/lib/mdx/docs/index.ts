@@ -4,11 +4,13 @@ import path from 'path';
 import type { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
-import { defaultComponents } from '@/components/sections/rich-text/components';
+import { defaultComponents, docsComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
 import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
-const rootDirectory = path.join(process.cwd(), 'src', 'content', 'docs');
+
+export const ROOT_DOCS_DIRECTORY = path.join(process.cwd(), 'src', 'content', 'docs');
+export const ROOT_DOC_SLUG = 'getting-started';
 
 const markdowRegex = /\.(md|mdx)$/;
 
@@ -18,7 +20,7 @@ function isMarkdown(str: string) {
 
 export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Doc> => {
   const realSlug = slug.replace(markdowRegex, '');
-  const [filePath, relativePath] = findFile(rootDirectory, realSlug, extension);
+  const [filePath, relativePath] = findFile(ROOT_DOCS_DIRECTORY, realSlug, extension);
 
   if (!filePath) throw new Error('Document not found');
 
@@ -27,7 +29,7 @@ export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Do
   const { frontmatter, content } = await compileMDX<Doc>({
     source: fileContent,
     options: { parseFrontmatter: true },
-    components: defaultComponents as MDXComponents,
+    components: { ...defaultComponents, ...docsComponents } as MDXComponents,
   });
 
   const splittedRelative = relativePath.split('/');
@@ -46,7 +48,7 @@ export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Do
 };
 
 export const getAllDocsMeta = async () => {
-  const files = getAllFiles(rootDirectory, '.mdx');
+  const files = getAllFiles(ROOT_DOCS_DIRECTORY, '.mdx');
   const docs = [];
 
   for (const file of files) {

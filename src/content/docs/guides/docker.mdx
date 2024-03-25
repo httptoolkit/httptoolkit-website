@@ -10,8 +10,8 @@ For a quick demo and an outline of how this works, check out the [HTTP Toolkit f
 
 You can intercept HTTP from Docker containers in two ways:
 
-* By launching an intercepted terminal within HTTP Toolkit, and creating Docker containers or running Docker builds inside that terminal
-* By launching Docker containers elsewhere, and using the "Attach to Docker container" option in HTTP Toolkit to recreate & restart a container with HTTP Toolkit's settings injected.
+- By launching an intercepted terminal within HTTP Toolkit, and creating Docker containers or running Docker builds inside that terminal
+- By launching Docker containers elsewhere, and using the "Attach to Docker container" option in HTTP Toolkit to recreate & restart a container with HTTP Toolkit's settings injected.
 
 Most of the time it's more convenient to use an intercepted terminal, but attaching to containers can be useful if you need to use a separate tool or workflow to launch your containers.
 
@@ -197,8 +197,8 @@ Error: failed to start containers: <your image id>
 
 To avoid this, you can either launch the container elsewhere and then intercept is using the "Attach to a Docker Container" button in HTTP Toolkit, or you can recreate the container in the intercepted terminal, by either:
 
-* Creating & starting a new container with `docker run <image>`
-* By manually recreating the container with `docker create <image>`, and then using the printed id to launch it later via `docker start <container id>`
+- Creating & starting a new container with `docker run <image>`
+- By manually recreating the container with `docker create <image>`, and then using the printed id to launch it later via `docker start <container id>`
 
 ### Intercepted images and containers disappear after HTTP Toolkit exits
 
@@ -222,14 +222,14 @@ If this feature is important to you, please [file an issue](https://github.com/h
 
 Making all of this work smoothly is quite complicated, as you might imagine. A quick summary is that:
 
-* We need to inject some extra files & environment variables into containers & images when they're first created/built.
-* We do this by transforming container creation config and image dockerfiles.
-* To inject into containers, when HTTP Toolkit starts we create a data volume (`httptoolkit-injected-data-$VERSION`) containing the files to inject, and then later we modify the config of each intercepted container to mount that, and set our environment variables.
-* To inject into builds, we add the files to the build context, and modify the Dockerfile to add these files and set various environment variables at the start of each build stage.
-* Docker attachment works by connecting to Docker, cloning a container, making these transformations to its config, and starting the transformed container.
-* To intercept Docker clients in terminals, HTTP Toolkit runs a Docker proxy when Docker is available, and reroutes Docker clients to use it as their Docker daemon.
-* The Docker proxy rewrites Docker API requests to inject extra settings into new containers & builds, and rewrites API responses to convince Docker Compose not to reuse non-intercepted containers.
-* To provide inter-container connectivity, a Docker SOCKS tunnel container is launched, and an internal Docker-only DNS server is used to map hostnames and aliases to IPs the tunnel can reach.
+- We need to inject some extra files & environment variables into containers & images when they're first created/built.
+- We do this by transforming container creation config and image dockerfiles.
+- To inject into containers, when HTTP Toolkit starts we create a data volume (`httptoolkit-injected-data-$VERSION`) containing the files to inject, and then later we modify the config of each intercepted container to mount that, and set our environment variables.
+- To inject into builds, we add the files to the build context, and modify the Dockerfile to add these files and set various environment variables at the start of each build stage.
+- Docker attachment works by connecting to Docker, cloning a container, making these transformations to its config, and starting the transformed container.
+- To intercept Docker clients in terminals, HTTP Toolkit runs a Docker proxy when Docker is available, and reroutes Docker clients to use it as their Docker daemon.
+- The Docker proxy rewrites Docker API requests to inject extra settings into new containers & builds, and rewrites API responses to convince Docker Compose not to reuse non-intercepted containers.
+- To provide inter-container connectivity, a Docker SOCKS tunnel container is launched, and an internal Docker-only DNS server is used to map hostnames and aliases to IPs the tunnel can reach.
 
 Read on to dig into the details:
 
@@ -237,8 +237,8 @@ Read on to dig into the details:
 
 HTTP Toolkit interception requires two things:
 
-* Redirecting HTTP & HTTPS traffic to HTTP Toolkit
-* Ensuring that HTTPS connections trust HTTP Toolkit's certificate
+- Redirecting HTTP & HTTPS traffic to HTTP Toolkit
+- Ensuring that HTTPS connections trust HTTP Toolkit's certificate
 
 HTTP Toolkit intercepts command-line applications in terminals by using a combination of environment variables to temporarily inject extra configuration and files into applications run in that session.
 
@@ -259,10 +259,10 @@ We'll look first at the details of these modifications, and then talk about how 
 
 So, to intercept a container or build we need to inject some extra files & env vars. We can do all this entirely within the container configuration (not normally something you touch as a Docker end user, but visible using `docker inspect <container>` if you're interested). The full modifications are:
 
-* In `Config.HostConfig.Binds` we add a volume mount to inject your local HTTP Toolkit CA certificate and the various [override files](https://github.com/httptoolkit/httptoolkit-server/tree/4b48ade/overrides) into the container.
-* In `Config.Env` we append all our terminal env vars, remapping references to override paths to the mounted override files
-* In `Config.Labels` we add a `tech.httptoolkit.docker.proxy=$YOUR_PROXY_PORT` label, so we can tell which containers are intercepted by which proxy.
-* If `Config.Labels` contains a `com.docker.compose.config-hash` label (i.e. if Docker Compose is managing the container) then we change the value and append `+httptoolkit:$YOUR_PROXY_PORT` to the hash. This ensures your normal Docker Compose won't use this image outside intercepted environments, and lets us remap it so that it does get used by in the appropriate intercepted Docker Compose environment (more on that under 'Intercepting Docker Compose' later).
+- In `Config.HostConfig.Binds` we add a volume mount to inject your local HTTP Toolkit CA certificate and the various [override files](https://github.com/httptoolkit/httptoolkit-server/tree/4b48ade/overrides) into the container.
+- In `Config.Env` we append all our terminal env vars, remapping references to override paths to the mounted override files
+- In `Config.Labels` we add a `tech.httptoolkit.docker.proxy=$YOUR_PROXY_PORT` label, so we can tell which containers are intercepted by which proxy.
+- If `Config.Labels` contains a `com.docker.compose.config-hash` label (i.e. if Docker Compose is managing the container) then we change the value and append `+httptoolkit:$YOUR_PROXY_PORT` to the hash. This ensures your normal Docker Compose won't use this image outside intercepted environments, and lets us remap it so that it does get used by in the appropriate intercepted Docker Compose environment (more on that under 'Intercepting Docker Compose' later).
 
 This doesn't ever actually modify existing container configuration (that's not generally possible). Instead, we take an existing configuration, copy & modify that, and then create a totally new container with the new config.
 
@@ -274,10 +274,10 @@ The above changes work for individual containers. To intercept traffic from buil
 
 To do so, we intercept Docker builds using the Docker proxy (see below). By proxying the build traffic, we can add extra files into the build context, and add a few extra lines to the Dockerfile at the start of each build stage:
 
-* A `LABEL tech.httptoolkit.docker.build-proxy=started-$YOUR_PROXY_PORT` step (note the `started-` prefix) so that we can recognize which build is being intercepted by which proxy.
-* A `COPY` step that copies in the HTTP Toolkit CA certificate and the various [override files](https://github.com/httptoolkit/httptoolkit-server/tree/4b48ade/overrides) from the build context.
-* An `ENV` step for [each environment variable](https://github.com/httptoolkit/httptoolkit-server/blob/4b48ade/src/interceptors/terminal/terminal-env-overrides.ts#L80-L158) that's required.
-* A `LABEL tech.httptoolkit.docker.build-proxy=$YOUR_PROXY_PORT` step, replacing the previous label, so we can recognize which built images are being intercepted by which proxy.
+- A `LABEL tech.httptoolkit.docker.build-proxy=started-$YOUR_PROXY_PORT` step (note the `started-` prefix) so that we can recognize which build is being intercepted by which proxy.
+- A `COPY` step that copies in the HTTP Toolkit CA certificate and the various [override files](https://github.com/httptoolkit/httptoolkit-server/tree/4b48ade/overrides) from the build context.
+- An `ENV` step for [each environment variable](https://github.com/httptoolkit/httptoolkit-server/blob/4b48ade/src/interceptors/terminal/terminal-env-overrides.ts#L80-L158) that's required.
+- A `LABEL tech.httptoolkit.docker.build-proxy=$YOUR_PROXY_PORT` step, replacing the previous label, so we can recognize which built images are being intercepted by which proxy.
 
 This creates a lot of extra steps at the start of each build stage! Fortunately they're small and fast, and to avoid confusing console noise the Docker proxy (see below) strips these out of the build console output, turning them into a single HTTP Toolkit setup step.
 
@@ -295,13 +295,13 @@ It does this by running a local HTTP server, and setting the `DOCKER_HOST` envir
 
 The Docker proxy transforms requests in a few ways:
 
-* When containers are created (`POST /containers/create`) it modifies the client's container config (as above) to add our settings.
-* When a container is started (`POST /containers/$id/start`) we inspect the container first, and we return an error if it's not intercepted (to avoid unexpectedly starting an unintercepted container in an intercepted environment).
-* When a build is started (`POST /build`):
-    1. We transform the streamed Docker context in the request, to add in our extra files and modify the Dockerfile (as above) to add our extra build steps
-    2. We transform the streamed build output, to replace everything between the `LABEL tech.httptoolkit.docker.build-proxy` steps with output that just says `*** Enabling HTTP Toolkit interception ***`, and update all the step count numbers (1/6, 2/6, 3/6...) to match, so that HTTP Toolkit setup isn't counted and your steps match your non-intercepted builds.
-* When a container is inspected (`GET /containers/$id/json`) or all containers are listed (`GET /containers/json`) we transform the response to replace Docker Compose's container labels, so that only the intercepted containers have the correct hash (see 'Intercepting Docker Compose' below)
-* For any other requests, we just stream the request & response directly between the Docker daemon, so everything runs as normal.
+- When containers are created (`POST /containers/create`) it modifies the client's container config (as above) to add our settings.
+- When a container is started (`POST /containers/$id/start`) we inspect the container first, and we return an error if it's not intercepted (to avoid unexpectedly starting an unintercepted container in an intercepted environment).
+- When a build is started (`POST /build`):
+  1. We transform the streamed Docker context in the request, to add in our extra files and modify the Dockerfile (as above) to add our extra build steps
+  2. We transform the streamed build output, to replace everything between the `LABEL tech.httptoolkit.docker.build-proxy` steps with output that just says `*** Enabling HTTP Toolkit interception ***`, and update all the step count numbers (1/6, 2/6, 3/6...) to match, so that HTTP Toolkit setup isn't counted and your steps match your non-intercepted builds.
+- When a container is inspected (`GET /containers/$id/json`) or all containers are listed (`GET /containers/json`) we transform the response to replace Docker Compose's container labels, so that only the intercepted containers have the correct hash (see 'Intercepting Docker Compose' below)
+- For any other requests, we just stream the request & response directly between the Docker daemon, so everything runs as normal.
 
 ### Attaching to containers
 
@@ -324,8 +324,8 @@ Docker Compose implements this by hashing the project's config file, and storing
 
 To work around this, HTTP Toolkit remaps the hashes:
 
-* When a container is created through the Docker proxy with a hash, HTTP Toolkit appends `+httptoolkit:$YOUR_PROXY_PORT` to the config hash. This means that intercepted containers queried from non-intercepted terminals have a mismatched hash, so Docker Compose usage elsewhere never reuses the container.
-* When a container query is sent via the Docker proxy (e.g. when Docker Compose runs in an intercepted terminal, and checks to see if it needs to recreate a container) we remove the `+httptoolkit:$PORT` suffix, when the port matches, and we add a `+unintercepted` suffix for all containers that have a hash with no suffix at all (i.e. containers created elsewhere).
+- When a container is created through the Docker proxy with a hash, HTTP Toolkit appends `+httptoolkit:$YOUR_PROXY_PORT` to the config hash. This means that intercepted containers queried from non-intercepted terminals have a mismatched hash, so Docker Compose usage elsewhere never reuses the container.
+- When a container query is sent via the Docker proxy (e.g. when Docker Compose runs in an intercepted terminal, and checks to see if it needs to recreate a container) we remove the `+httptoolkit:$PORT` suffix, when the port matches, and we add a `+unintercepted` suffix for all containers that have a hash with no suffix at all (i.e. containers created elsewhere).
 
 This means that Docker Compose in an intercepted environment sees every container as having the correct hash only if it was intercepted when it was created. If it wasn't intercepted, it'll have an `+unintercepted` suffix, so Docker Compose will see a hash mismatch, and recreate the container from scratch, at which point the container creation hooks in the proxy can kick in and inject the required files & env vars to intercept the container.
 
@@ -343,8 +343,8 @@ To do so, HTTP Toolkit first monitors the Docker daemon (by listening to its eve
 
 Given this information, there's two problems:
 
-* We need to map the possible names of these hosts to their correct IP addresses.
-* On Windows & Mac, containers run inside a VM, where container addresses are never routable from the host machine.
+- We need to map the possible names of these hosts to their correct IP addresses.
+- On Windows & Mac, containers run inside a VM, where container addresses are never routable from the host machine.
 
 To solve the first problem, HTTP Toolkit runs its own internal DNS server. This uses the raw network & container data monitored above to resolve Docker container names, aliases and container link names back to their correct IP addresses.
 

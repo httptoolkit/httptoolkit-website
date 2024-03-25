@@ -4,9 +4,5 @@ import { FAQ_SLUG } from '@/lib/utils/get-content-table-links';
 
 export default async function Faq() {
   const { content: Content } = await getDocBySlug(FAQ_SLUG);
-  return (
-    <DocumentationLayout title="FAQ" withoutNavigation>
-      {Content}
-    </DocumentationLayout>
-  );
+  return <DocumentationLayout title="FAQ">{Content}</DocumentationLayout>;
 }
