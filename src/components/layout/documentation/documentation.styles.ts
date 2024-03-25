@@ -53,10 +53,11 @@ export const StyledDocumentationLayoutMobileHeading = styled(Heading)`
   }
 `;
 
-export const StyledDocumentationLayoutDesktopHeading = styled.p`
+export const StyledDocumentationLayoutDesktopHeading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.heading.desktop.l};
   color: ${({ theme }) => theme.colors.text.textGradient};
   ${({ theme }) => theme.colors.text.textGradient};
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: none;
@@ -71,7 +72,7 @@ export const StyledDocumentationLayoutNavigationWrapper = styled.div`
   }
 `;
 
-export const StyledDocumentationLayoutContentWrapper = styled.div`
+export const StyledDocumentationLayoutContentWrapper = styled.article`
   padding-bottom: 64px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
