@@ -17,7 +17,7 @@ export const StyledNavMobileItems = styled.nav`
   align-items: center;
   gap: 2.5rem;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 15px;
 
   @media (min-width: ${screens.md}) {
     & a:hover,
