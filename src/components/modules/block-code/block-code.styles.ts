@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from '@/components/elements/text';
-import { screens, styled } from '@/styles';
+import { styled } from '@/styles';
 
 export const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;
@@ -48,8 +48,4 @@ export const StyledInlineCode = styled(Text)`
   display: inline-flex;
   line-height: normal;
   text-wrap: balance;
-
-  @media (min-width: ${screens.md}) {
-    text-wrap: nowrap;
-  }
 `;

@@ -40,7 +40,7 @@ export const StyledContentWithTableContentWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 45px;
   justify-content: center;
   padding: 32px 0;
   max-width: ${({ theme }) => theme.screens.content};
