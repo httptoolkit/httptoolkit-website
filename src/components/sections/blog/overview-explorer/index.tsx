@@ -4,6 +4,8 @@ import { StyledExplorerContainer, StyledExplorerSection, StyledSearchWrapper } f
 import { TagsMobileNavigation } from './tags-mobile-navigation';
 import { TagsNavigation } from './tags-navigation';
 
+import { SiteSearch } from '@/components/modules/site-search';
+
 export const OverviewExplorer = () => {
   return (
     <StyledExplorerSection>
@@ -12,7 +14,9 @@ export const OverviewExplorer = () => {
           <TagsNavigation />
           <TagsMobileNavigation />
         </Suspense>
-        <StyledSearchWrapper>Search box</StyledSearchWrapper>
+        <StyledSearchWrapper>
+          <SiteSearch />
+        </StyledSearchWrapper>
       </StyledExplorerContainer>
     </StyledExplorerSection>
   );

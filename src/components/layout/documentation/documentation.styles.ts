@@ -39,6 +39,11 @@ export const StyledDocumentationLayoutSideWrapper = styled.aside`
   flex-direction: column-reverse;
   gap: 32px;
 
+  & button {
+    margin: 0;
+    width: 100%;
+  }
+
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     flex-direction: column;
     gap: 48px;
