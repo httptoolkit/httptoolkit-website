@@ -37,7 +37,14 @@ export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: F
         </StyledFeatureLineTextWrapper>
       </StyledFeatureLineContentWrapper>
       {image && (
-        <StyledFeatureLineImage darkSrc={image.darkSrc} lightSrc={image.lightSrc} alt={image.alt || title} withBorder />
+        <StyledFeatureLineImage
+          width={662}
+          height={570}
+          darkSrc={image.darkSrc}
+          lightSrc={image.lightSrc}
+          alt={image.alt || title}
+          withBorder
+        />
       )}
     </StyledFeatureLineWrapper>
   );

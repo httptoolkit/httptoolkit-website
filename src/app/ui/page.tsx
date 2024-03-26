@@ -486,11 +486,15 @@ export default async function UIPage() {
           <ThemedImage
             withBorderAnimation
             alt="Example themed image"
+            width={1024}
+            height={1019}
             darkSrc="https://picsum.photos/id/1019/1024"
             lightSrc="https://picsum.photos/id/1035/1024"
           />
           <ThemedImage
             alt="Example themed image"
+            width={1024}
+            height={1019}
             darkSrc="https://picsum.photos/id/1019/1024"
             lightSrc="https://picsum.photos/id/1035/1024"
           />

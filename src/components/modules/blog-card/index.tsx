@@ -2,7 +2,6 @@ import {
   StyledBlogCardButtonWrapper,
   StyledBlogCardContentWrapper,
   StyledBlogCardFigure,
-  StyledBlogCardImage,
   StyledBlogCardTag,
   StyledBlogCardWrapper,
 } from './blog-card.styles';
@@ -12,6 +11,7 @@ import { Badge } from '@/components/elements/badge';
 import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
 import { ArrowRight } from '@/components/elements/icon';
+import { Image } from '@/components/elements/image';
 import { Text } from '@/components/elements/text';
 import { formatDateLongMonthYear } from '@/lib/utils/formatMonthYearDate';
 
@@ -19,7 +19,7 @@ export const BlogCard = ({ title, text, image, date, tag, slug }: BlogCardProps)
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
-        <StyledBlogCardImage width={386} height={217} src={image.src} alt={image.alt ?? title} loading="lazy" />
+        <Image width={386} height={217} src={image.src} alt={image.alt ?? title} loading="lazy" />
         <StyledBlogCardTag>
           <Badge>{tag}</Badge>
         </StyledBlogCardTag>

@@ -2,7 +2,7 @@
 
 import { screens, styled } from '@/styles';
 
-export const MovingBorder = styled.div`
+export const MovingBorder = styled.figure`
   --border-width: 1px;
   --radius: 20px;
   width: 100%;
