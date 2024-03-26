@@ -10,16 +10,19 @@ import {
   StyledNoResultsWrapper,
   StyledSelectedTag,
 } from './overview-posts-grid.styles';
+import { NewsletterBox } from '../newsletter-box';
 
 import { Button } from '@/components/elements/button';
 import { ArrowRight } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { BlogCard } from '@/components/modules/blog-card';
+import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 
 const POST_ITEMS_PER_PAGE = 6;
 
 export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
   const [visibleItems, setVisibleItems] = useState(POST_ITEMS_PER_PAGE);
+  const isMobile = useIsMobile();
   const params = useSearchParams();
   const currentTag = params.get('tags');
 
@@ -59,18 +62,24 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
           gap: [24, 24, 24],
           media: [640, 1024, 1440],
         }}
-        render={post => (
-          <BlogCard
-            key={post.slug}
-            title={post.title}
-            slug={post.slug}
-            image={{ src: `/images/${post.coverImage}`, alt: post.title }}
-            date={post.date}
-            tag={post.tags[0]}
-            // TODO(gerald): Replace with the excerpt when working on blog post content
-            text="Sometimes things crash when they're running inside a Docker container though, and then all of a sudden it can get much more difficult to work out why, or what the hell to do next."
-          />
-        )}
+        render={(post, idx) => {
+          const shouldRenderNewsletterBox = idx === 2 && isMobile;
+          return (
+            <>
+              <BlogCard
+                key={post.slug}
+                title={post.title}
+                slug={post.slug}
+                image={{ src: `/images/${post.coverImage}`, alt: post.title }}
+                date={post.date}
+                tag={post.tags[0]}
+                // TODO(gerald): Replace with the excerpt when working on blog post content
+                text="Sometimes things crash when they're running inside a Docker container though, and then all of a sudden it can get much more difficult to work out why, or what the hell to do next."
+              />
+              {shouldRenderNewsletterBox ? <NewsletterBox /> : null}
+            </>
+          );
+        }}
       />
       {visibleItems < filteredPosts.length && (
         <StyledLoadMoreWrapper>
