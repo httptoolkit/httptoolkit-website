@@ -12,6 +12,12 @@ export const StyledSendEmailWrapper = styled.div`
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border},
     0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+
+  & p {
+    @media (max-width: 375px) {
+      font-size: 0.65rem;
+    }
+  }
 `;
 
 export const StyledSendEmailForm = styled.form`

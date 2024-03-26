@@ -20,6 +20,7 @@ export const MobileDrawerMenu = ({ children }: Component) => {
     if (!isSSR && window.document) {
       const overflow = isOpen ? 'hidden' : 'auto';
       document.body.style.overflow = overflow;
+      document.documentElement.style.overflow = overflow;
     }
   }, [isOpen]);
 
