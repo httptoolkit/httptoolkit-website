@@ -282,7 +282,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-      overflow-x: hidden;
+      overflow-x: clip;
     }
 
     em {
