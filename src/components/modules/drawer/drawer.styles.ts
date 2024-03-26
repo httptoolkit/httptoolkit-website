@@ -17,7 +17,7 @@ export const DrawerContainer = styled.div<StyledDrawerProps>`
 export const DrawerHeader = styled.div`
   padding: 16px;
   background-color: ${({ theme }) => theme.colors.darkGrey};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.borderGradient};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 `;
 
 export const DrawerContent = styled.div`
