@@ -13,7 +13,7 @@ export const SiteSearch = () => {
 
   return (
     <StyledAlgoliaSearchWrapper>
-      <DocSearch appId={appId} indexName={indexName} apiKey={apiKey} />
+      <DocSearch appId={appId} indexName={indexName} apiKey={apiKey} placeholder="Search" />
       <AlgoliaGlobalStyles />
     </StyledAlgoliaSearchWrapper>
   );
