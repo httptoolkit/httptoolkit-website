@@ -34,14 +34,25 @@ export const StyledDocumentationLayoutGradientWrapper = styled.div`
 `;
 
 export const StyledDocumentationLayoutSideWrapper = styled.aside`
-  padding: 32px 0 16px;
+  padding: 32px 0 32px;
   display: flex;
   flex-direction: column-reverse;
   gap: 32px;
 
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 32px 0 16px;
+  }
+
   & button {
     margin: 0;
     width: 100%;
+    min-width: fit-content;
+
+    @media (max-width: ${({ theme }) => theme.screens.md}) {
+      .DocSearch-Button-Placeholder {
+        display: block;
+      }
+    }
   }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
