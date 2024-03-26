@@ -8,4 +8,5 @@ export interface ContentCardProps extends StyledContentCardProps {
   title: string;
   text?: string;
   button?: ButtonProps;
+  action?: string;
 }
