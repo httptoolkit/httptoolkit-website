@@ -14,7 +14,7 @@ export const StyledSendEmailWrapper = styled.div`
     0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
 
   & p {
-    @media (max-width: 375px) {
+    @media (max-width: 415px) {
       font-size: 0.65rem;
     }
   }
