@@ -18,6 +18,7 @@ import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
+import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 import { OSDictionary } from '@/lib/constants/download-dictionary';
 
 export async function generateStaticParams() {
@@ -78,6 +79,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               <ContentCard
                 title="Join the mailing list now, so you don't miss new features & releases:"
                 $isNewsletter
+                action={NEWSLETTER_URLS.download}
               />
             </StyledColumnContent>
             <StyledImageWrapper>
