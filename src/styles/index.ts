@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle, css, ThemeProvider, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
-export { styled, css, ThemeProvider, keyframes };
+export { styled, css, ThemeProvider, keyframes, createGlobalStyle };
 
 export const screens = {
   content: '659px',
@@ -188,7 +188,6 @@ export const GlobalStyles = createGlobalStyle`
       --text-electric-light-blue: #6284FA;
       --text-gradient: linear-gradient(to bottom,rgba(230,232,242,1), rgba(231,235,253,0.7));
       --text-orange-gradient: linear-gradient(to top, #D93815 10.67%, #F65430 89.91%);
-;
       --button-secondary-default: #16181E;
       --button-secondary-section: #16181E;
       --button-border: rgba(255, 255, 255, 4%);
