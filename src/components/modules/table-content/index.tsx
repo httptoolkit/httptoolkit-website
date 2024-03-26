@@ -1,6 +1,7 @@
 'use client';
 
 import * as Accordion from '@radix-ui/react-accordion';
+import { usePathname } from 'next/navigation';
 
 import { TableContentAccordionFixed } from './components/table-content-fixed';
 import { TableContentTriggerComponent } from './components/table-content-trigger';
@@ -15,7 +16,15 @@ import type { TableContentProps } from './table-content.types';
 import { CaretDown } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 
-const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boolean) => {
+const AccordionItem = ({
+  link,
+  isCollapsible,
+  currentPath,
+}: {
+  link: TableContentProps['links'][number];
+  isCollapsible: boolean;
+  currentPath?: string;
+}) => {
   const hasSubItems = Boolean(Array.isArray(link.subItems) && link.subItems?.length);
   const showCaret = isCollapsible && hasSubItems;
 
@@ -31,7 +40,9 @@ const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boo
         <StyledTableContentContent>
           {link?.subItems?.map(item => (
             <Text key={item.text} fontSize="m" fontWeight="bold" color="lightGrey">
-              <StyledTableContentSubitem href={item.href}>{item.text}</StyledTableContentSubitem>
+              <StyledTableContentSubitem data-active={currentPath === item.href} href={item.href}>
+                {item.text}
+              </StyledTableContentSubitem>
             </Text>
           ))}
         </StyledTableContentContent>
@@ -41,13 +52,22 @@ const renderAccordion = (link: TableContentProps['links'][0], isCollapsible: boo
 };
 
 export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
-  const content = Array.isArray(links) && links.map(link => renderAccordion(link, Boolean(isCollapsible)));
+  const currentPath = usePathname();
+  const content =
+    Array.isArray(links) &&
+    links.map(link => (
+      <AccordionItem key={link.href} link={link} isCollapsible={Boolean(isCollapsible)} currentPath={currentPath} />
+    ));
 
   if (!isCollapsible) return <StyledTableContentWrapper>{content}</StyledTableContentWrapper>;
 
+  const defaultOpenItem = links.find(item => {
+    return item.subItems?.some(subItem => subItem.href === currentPath);
+  });
+
   return (
     <StyledTableContentWrapper>
-      <Accordion.Root asChild type="single" defaultValue={links[0].text} collapsible>
+      <Accordion.Root asChild type="single" defaultValue={defaultOpenItem?.text || links[0].text} collapsible>
         <>{content}</>
       </Accordion.Root>
     </StyledTableContentWrapper>

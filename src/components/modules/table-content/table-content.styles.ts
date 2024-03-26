@@ -112,11 +112,11 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
           padding: 8px 32px;
           &:hover,
           &:focus {
-            color: ${({ theme }) => theme.colors.electricLightBlue};
+            color: ${({ theme }) => theme.colors.text.darkGrey};
           }
         `}
 
-  &:active {
+  &[data-active='true'] {
     color: ${({ theme }) => theme.colors.electricLightBlue};
   }
 `;

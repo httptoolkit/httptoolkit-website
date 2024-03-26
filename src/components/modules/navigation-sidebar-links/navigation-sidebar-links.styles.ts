@@ -36,7 +36,7 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
       &:hover,
       &:focus,
       &:active {
-        color: ${({ theme }) => theme.colors.text.lightGrey};
+        color: ${({ theme }) => theme.colors.text.darkGrey};
       }
     }
   }
@@ -49,11 +49,12 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text.lightGrey};
   padding: 8px 32px;
 
+  transition: color ease-in 300ms;
+
   @media (min-width: ${screens.md}) {
     &:focus,
     &:hover {
-      font-weight: ${({ theme }) => theme.fontWeight.medium};
-      color: ${({ theme }) => theme.colors.text.white};
+      color: ${({ theme }) => theme.colors.text.darkGrey};
     }
   }
 `;
