@@ -25,7 +25,7 @@ export const IntegrationTextImage = ({ title, subtitle, image }: IntegrationText
           <StyledIntegrationTextImageHeading>
             <AltHeadingBlock title={title} subtitle={subtitle} mediumHeading />
           </StyledIntegrationTextImageHeading>
-          <ThemedImage {...image} withBorderAnimation />
+          <ThemedImage {...image} width={image?.width ?? 1040} height={image.height ?? 893} withBorderAnimation />
         </StyledIntegrationTextImageWrapper>
       </Container>
     </StyledIntegrationTextImageGradientWrapper>

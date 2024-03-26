@@ -1,6 +1,5 @@
 'use client';
 
-import { Image } from '@/components/elements/image';
 import { screens, styled } from '@/styles';
 
 export const StyledBlogCardWrapper = styled.article`
@@ -19,7 +18,7 @@ export const StyledBlogCardWrapper = styled.article`
   }
 `;
 
-export const StyledBlogCardFigure = styled.figure`
+export const StyledBlogCardFigure = styled.div`
   height: 174px;
   border-radius: 8px;
   overflow: hidden;
@@ -28,10 +27,11 @@ export const StyledBlogCardFigure = styled.figure`
   @media (min-width: ${screens.lg}) {
     height: 217px;
   }
-`;
 
-export const StyledBlogCardImage = styled(Image)`
-  width: 100%;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const StyledBlogCardTag = styled.span`

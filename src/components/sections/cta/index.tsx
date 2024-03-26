@@ -68,7 +68,15 @@ export const CTA = ({
           </StyledCTAWrapper>
         )}
 
-        {image && <ThemedImage title={heading || image.title} {...image} loading={isHero ? 'eager' : 'lazy'} />}
+        {image && (
+          <ThemedImage
+            width={1116}
+            height={627}
+            title={heading || image.title}
+            {...image}
+            loading={isHero ? 'eager' : 'lazy'}
+          />
+        )}
       </StyledContainer>
       {children}
     </StyledHeroWrapper>

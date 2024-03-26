@@ -90,6 +90,8 @@ export default async function FridaPage() {
                   darkSrc="/images/hero-placeholder-dark.webp"
                   lightSrc="/images/hero-placeholder-light.webp"
                   loading="eager"
+                  width={662}
+                  height={450}
                 />
               </StyledDisplayDevice>
             </StyledFridaColumns>

@@ -5,9 +5,10 @@ import type { MovingBorderProps } from '../moving-border/moving-border.types';
 
 import { screens, styled } from '@/styles';
 
-export const StyledThemedImage = styled.div`
+export const StyledThemedImage = styled.figure`
   & img {
     width: 100%;
+    height: 100%;
     border-radius: 12px;
     border: 1px solid ${({ theme }) => theme.colors.borderDark};
   }
@@ -42,6 +43,7 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
 
   & img {
     width: 100%;
+    height: 100%;
     padding: 4px;
     border-radius: 8px;
     border: 1px solid linear-gradient(270deg, #ffffff -0.8%, rgba(255, 255, 255, 0) 93.82%);

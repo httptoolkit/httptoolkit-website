@@ -8,7 +8,7 @@ export const Card = ({ title, text, darkImage, lightImage }: CardProps) => {
   return (
     <StyledCardWrapper>
       <StyledCardImageWrapper>
-        <StyledCardImage withoutStyles lightSrc={lightImage} darkSrc={darkImage} alt="" />
+        <StyledCardImage height={216} width={214} withoutStyles lightSrc={lightImage} darkSrc={darkImage} alt="" />
       </StyledCardImageWrapper>
       <StyledCardTextWrapper>
         <Heading textAlign="center" fontSize="m" color="lightGrey" as="h3">
