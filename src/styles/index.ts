@@ -270,17 +270,19 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
 
     body {
         background-color: ${theme.colors.darkGrey};
         font-family: ${theme.fontFamily.dmSans};
         color: ${theme.colors.text.lightGrey};
-        overflow-x: hidden;
         font-size: 16px;
         line-height: 1.5;
         /* -webkit-font-smoothing: antialiased; */
+    }
+
+    main {
+      overflow-x: hidden;
     }
 
     em {
