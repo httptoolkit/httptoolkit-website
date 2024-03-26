@@ -40,7 +40,7 @@ export const StyledContentWithTableContentWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 32px;
   justify-content: center;
   padding: 32px 0;
   max-width: ${({ theme }) => theme.screens.content};
@@ -50,6 +50,7 @@ export const StyledContentWithTableContentWrapper = styled.div`
     display: grid;
     padding: 64px 0 32px 0;
     max-width: initial;
+    gap: 45px;
     grid-template-columns: 1fr ${({ theme }) => theme.screens.content} 1fr;
   }
 `;
