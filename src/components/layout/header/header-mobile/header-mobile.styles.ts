@@ -15,9 +15,9 @@ export const StyledNavMobileItems = styled.nav`
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 2.5rem;
   text-transform: uppercase;
-  margin-top: 64px;
+  margin-top: 30px;
 
   @media (min-width: ${screens.md}) {
     & a:hover,
