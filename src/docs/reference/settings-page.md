@@ -1,7 +1,7 @@
 ---
 name: 'The Settings Page'
 title: 'The Settings Page'
-order: 3
+order: 4
 ---
 
 The Settings page is only available to [HTTP Toolkit Pro](/get-pro/) users. It allows you to configure extra proxy settings, UI themes, and manage your account.

@@ -6,13 +6,15 @@ order: 2
 
 ![The Mock page, showing mock rules](../../images/edit-screenshot.png)
 
-The Mock page allows you to rewrite traffic, to simulate fake servers, test edge cases, or change real HTTP requests and responses in any other way you'd like.
+The Mock page allows you to rewrite traffic, simulate fake servers, test edge cases, or change real HTTP requests and responses in any other way you'd like.
 
 It shows a list of rules, which define how all HTTP traffic is handled. Each rule has a matcher and an action. The matcher defines which requests it applies to, and the action defines what happens to matching requests.
 
 Every request is matched against each rule one by one from the top, until a matching rule is found, and the action for that rule is then run. Only one rule ever matches any request. If no rule matches, the request receives a 503 error, where the body explains the details of the request, and the details of the existing rules that didn't match.
 
 Rule changes only take effect when saved. You can save all changes to rules from the button at the top, or save any one individual rule from the button on its row.
+
+Mock rules defined here are only stored persistently with [HTTP Toolkit Pro](/get-pro/). For hobbyist users, the rules reset to their defaults every time HTTP Toolkit restarts.
 
 ## Page structure
 
