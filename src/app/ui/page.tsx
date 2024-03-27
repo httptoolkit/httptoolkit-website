@@ -29,7 +29,6 @@ import { Tooltip } from '@/components/elements/tooltip';
 import { Layout } from '@/components/layout';
 import { SimpleFooter } from '@/components/layout/footer/simple-footer';
 import { BlockCode } from '@/components/modules/block-code';
-import { BlogCard } from '@/components/modules/blog-card';
 import { Card } from '@/components/modules/card';
 import { ContentCard } from '@/components/modules/content-card';
 import { CTABox } from '@/components/modules/cta-box';
@@ -45,7 +44,6 @@ import { TableContent } from '@/components/modules/table-content';
 import { CTA } from '@/components/sections/cta';
 import { FeatureLine } from '@/components/sections/feature-line';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
-import BlogPostImage from '@/content/posts/analytics-map.png';
 
 export default async function UIPage() {
   const dropdownItems: DropdownOptionProps[] = [
@@ -427,7 +425,7 @@ export default async function UIPage() {
           />
         </ShowCase>
         <ShowCase title="Blog card">
-          <BlogCard
+          {/* <BlogCard
             title="How do you know what's gone wrong when your API request fails?"
             text="Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices."
             slug="5-big-features-of-typescript-3.7"
@@ -436,7 +434,7 @@ export default async function UIPage() {
             image={{
               src: BlogPostImage.src,
             }}
-          />
+          /> */}
         </ShowCase>
         <ShowCase title="Content Card">
           <ContentCard title="Join the mailing list now, so you don't miss new features & releases:" $isNewsletter />

@@ -8,7 +8,7 @@ import path from 'path';
  * @param {string} extension - The extension of the file to search for (including the dot, e.g., ".txt").
  * @returns {string[]} - Array containing the absolute file path and the relative path from rootDir.
  */
-export function findFile(rootDir: string, filename: string, extension = '.md', trimOnSRC = false): string[] {
+export function findFile(rootDir: string, filename: string, extension = '.mdx', trimOnSRC = false): string[] {
   const foundPath: string[] = [];
 
   // Function to recursively search for the file

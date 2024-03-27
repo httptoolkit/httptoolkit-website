@@ -86,10 +86,28 @@ function setImagePath(path: string, parentFolder: string) {
   return `/images/${parentFolder}/${imageFilename}`;
 }
 
-export const docsComponents: MDXComponents = {
-  img: ({ src, alt, title }) => {
-    const realSRC = setImagePath(src || '', 'docs');
+const imageResolver = ({
+  src,
+  alt,
+  title,
+  imagePathPrefix,
+}: {
+  src?: string;
+  alt?: string;
+  title?: string;
+  imagePathPrefix: string;
+}) => {
+  const realSRC = setImagePath(src || '', imagePathPrefix);
 
-    return <StyledImage src={realSRC} alt={alt ?? ''} title={title} fill />;
-  },
+  return (
+    <StyledImage forwardedWrapperAs="span" src={realSRC} alt={alt ?? ''} title={title} width={1024} height={768} />
+  );
+};
+
+export const docsComponents: MDXComponents = {
+  img: ({ src, alt, title }) => imageResolver({ src, title, alt, imagePathPrefix: 'docs' }),
+};
+
+export const postComponents: MDXComponents = {
+  img: ({ src, alt, title }) => imageResolver({ src, title, alt, imagePathPrefix: 'posts' }),
 };
