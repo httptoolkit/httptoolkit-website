@@ -166,6 +166,8 @@ For an HTTP exchange, there's a few cards that will be shown:
 
 It's also possible to expand the request and response body cards, so they fill the entire pane. In this case, only that card will be shown.
 
+Lastly, there's a footer shown at the button, offering quick access to various actions related to the selected event.
+
 ### The API Card
 _Only available with [HTTP Toolkit Pro](/get-pro/)_
 
@@ -406,5 +408,21 @@ WebRTC traffic is shown in a selection of cards, including:
 ![RTC connection and data cards](./rtc-connection-and-data-cards.png)
 
 ![An RTC media card](./rtc-media-card.png)
+
+### The event details footer
+
+![The event details footer](./event-details-footer.png)
+
+Below all those cards, there is a footer. Like any button in HTTP Toolkit, you can hover over each icon here to get a description of what it does.
+
+From left to right, the buttons shown above:
+
+* Jump to the selected event in the left pane of the View page
+* Pin the event, so that it's marked in the list and is not deleted when the list is cleared (or unpin the event, if it's already pinned).
+* Delete this event, so it's removed entirely.
+* Create a mock rule from this event, initially matching the given request data and simply returning the same response directly (without forwarding the request) which you can then modify to easily change the behaviour of similar future requests.
+* Resend the request, creating a new request on the Send page, ready to be resent to the server directly and/or modified to test different requests.
+
+The buttons shown depend somewhat on the type of event, and these options may not all be available in all cases.
 
 **Any questions? [Get in touch](/contact/)**
