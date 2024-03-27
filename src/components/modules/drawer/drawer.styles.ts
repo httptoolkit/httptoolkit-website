@@ -15,7 +15,8 @@ export const DrawerContainer = styled.div<StyledDrawerProps>`
 `;
 
 export const DrawerHeader = styled.div`
-  padding: 16px;
+  padding: 11px 16px;
+  max-height: 70px;
   background-color: ${({ theme }) => theme.colors.darkGrey};
   border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
 `;

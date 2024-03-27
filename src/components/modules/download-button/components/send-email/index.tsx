@@ -17,12 +17,12 @@ export const SendEmail = ({
       </Text>
       <StyledSendEmailForm>
         <Input id="email" name="email" type="email" placeholder="Enter you email" />
-        <Button {...buttonProps} type="submit">
+        <Button {...buttonProps} $withBorder={false} type="submit">
           Send me a download link
         </Button>
       </StyledSendEmailForm>
       <Text fontSize="s" textAlign="center" color="darkGrey">
-        No spam, just very occasional updates on major new releases.
+        No spam, no newsletters - just a quick & easy download link
       </Text>
     </StyledSendEmailWrapper>
   );

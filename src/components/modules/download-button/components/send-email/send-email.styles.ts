@@ -15,7 +15,11 @@ export const StyledSendEmailWrapper = styled.div`
 
   & p {
     @media (max-width: 415px) {
-      font-size: 0.65rem;
+      &:first-child {
+        font-size: 0.7rem;
+      }
+
+      font-size: 0.62rem;
     }
   }
 `;
