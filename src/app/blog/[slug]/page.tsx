@@ -22,7 +22,7 @@ type BlogPostPageProps = {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
-  const postNavigation = await getBlogTitlesBySlug(`/src/content/posts/${slug}.md`);
+  const postNavigation = await getBlogTitlesBySlug(`/src/content/posts/${slug}.mdx`);
 
   return (
     <>

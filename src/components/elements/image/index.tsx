@@ -3,11 +3,11 @@ import ExportedImage from 'next-image-export-optimizer';
 
 import { StyledImageWrapper } from './image.styles';
 
-export type ImageProps = ExportedImageProps;
+export type ImageProps = ExportedImageProps & { forwardedWrapperAs?: any };
 
-export const Image = ({ ...props }: ImageProps) => {
+export const Image = ({ forwardedWrapperAs, ...props }: ImageProps) => {
   return (
-    <StyledImageWrapper>
+    <StyledImageWrapper as={forwardedWrapperAs}>
       <ExportedImage {...props} />
     </StyledImageWrapper>
   );

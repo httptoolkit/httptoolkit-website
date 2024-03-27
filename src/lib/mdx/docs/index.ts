@@ -59,10 +59,10 @@ export const getAllDocsMeta = async () => {
         docs.push(post as unknown as UnorganizedDoc);
       }
     } catch (error) {
-      // console.error('*_________START___________*');
-      // console.error('error in file: ', file);
+      console.error('*_________START___________*');
+      console.error('error in file: ', file);
       // console.error('error message', error);
-      // console.error('*_________END___________*');
+      console.error('*_________END___________*');
     }
   }
   return docs;
