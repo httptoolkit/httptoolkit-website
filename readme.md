@@ -90,6 +90,11 @@ To get started with contributing to httptoolkit-website, follow these steps:
 
 Please ensure that your code adheres to the existing code style and conventions used in the project.
 
+### Placement of the images:
+
+In order to get the benefis of the image optimization, these images should stored inside the public folder like `public/images/posts/..` or `public/images/docs/..` (except for the statically imported images and remote images). Then these images can be referenced in the src attribute of the <Image /> element.
+
+
 ### Git commit messages
 
 This project uses a simplified version of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
