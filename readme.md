@@ -92,7 +92,7 @@ Please ensure that your code adheres to the existing code style and conventions 
 
 ### Placement of the images:
 
-In order to get the benefis of the image optimization, these images should stored inside the public folder like `public/images/posts/..` or `public/images/docs/..` (except for the statically imported images and remote images). Then these images can be referenced in the src attribute of the <Image /> element.
+In order to get the benefis of the image optimization, these images should stored inside the public folder like `public/images/posts/..` or `public/images/docs/..` (except for the statically imported images and remote images). Then these images can be referenced in the src attribute of the `<Image />` element.
 
 
 ### Git commit messages
