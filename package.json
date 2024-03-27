@@ -37,7 +37,6 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@types/mdx": "^2.0.11",
     "date-fns": "^1.29.0",
-    "framer-motion": "^11.0.5",
     "fs-extra": "^6.0.0",
     "gray-matter": "^4.0.3",
     "interleaving": "^1.0.0",
