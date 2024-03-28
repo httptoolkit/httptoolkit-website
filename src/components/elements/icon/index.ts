@@ -35,6 +35,7 @@ import {
   CheckFat,
   XSquare,
   ListBullets,
+  Spinner,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -101,4 +102,5 @@ export {
   CheckFat,
   XSquare,
   ListBullets,
+  Spinner,
 };

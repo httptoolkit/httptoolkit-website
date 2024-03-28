@@ -1,17 +1,26 @@
+'use client';
+
+import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
+
 import { StyledHeadingPlanWrapper } from './heading-plan.styles';
 import type { HeadingPlanProps } from './heading-plan.types';
+import { usePlanCta } from '../../../plans/hooks/get-plan-cta';
 
-import { Button } from '@/components/elements/button';
 import { Heading } from '@/components/elements/heading';
-import { DownloadButton } from '@/components/modules/download-button';
+import { AccountStore } from '@/lib/store/account-store';
 
-export const HeadingPlan = ({ isDownload, CTA, title }: HeadingPlanProps) => {
+
+export const HeadingPlan = observer(({ id, title }: HeadingPlanProps) => {
+  const getPlanCTA = usePlanCta();
+  const [account] = useState(() => new AccountStore());
+
   return (
     <StyledHeadingPlanWrapper>
       <Heading as="h3" fontSize="xs" color="lightGrey" textAlign="center">
         {title}
       </Heading>
-      {isDownload ? <DownloadButton {...CTA} /> : <Button {...CTA} />}
+      {getPlanCTA(id, account, account.waitingForPurchase, 'monthly')}
     </StyledHeadingPlanWrapper>
   );
-};
+});

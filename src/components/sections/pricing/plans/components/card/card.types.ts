@@ -1,5 +1,3 @@
-import type { ButtonProps } from '@/components/elements/button/button.types';
-
 export interface StyledPricingCardProps {
   $isHighlighted?: boolean;
 }
@@ -10,10 +8,11 @@ interface Features {
 }
 
 export interface PricingCardProps extends StyledPricingCardProps {
+  id: string;
   title: string;
-  price: number;
+  price?: number | string | JSX.Element;
   priceDescription: string;
-  isDownload?: boolean;
-  CTA?: ButtonProps;
+  isPaidYearly?: boolean;
   features: Features[];
+  status?: string;
 }

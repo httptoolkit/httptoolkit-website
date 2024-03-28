@@ -1,12 +1,10 @@
 import type { PricingCardProps } from './components/card/card.types';
 
-export interface Plan {
-  badge?: string;
+export interface PricingPlansData {
   cards: PricingCardProps[];
+  disclaimer: string;
 }
 
-export interface PricingPlansProps {
-  monthly: Plan;
-  yearly: Plan;
-  disclaimer: string;
+export interface StyledPricingPlansProps {
+  $hideFree?: boolean;
 }
