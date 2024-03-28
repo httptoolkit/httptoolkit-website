@@ -30,7 +30,7 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
       </StyledHeadingWrapper>
 
       {featuredPost && (
-        <Link href={`/blog/${featuredPost.slug}`}>
+        <Link aria-label={`Go to ${featuredPost.title}`} href={`/blog/${featuredPost.slug}`}>
           <StyledFeaturePost>
             <StyledPostImageWrapper>
               <Image
