@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { FAQItems, comparisonPlans, planFeatures } from './data';
+import { FAQItems, comparisonPlans, planFeatures } from '../pricing/data';
 
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';
@@ -24,7 +24,7 @@ export default function PricingPage() {
         withDownload={false}
       >
         <Suspense>
-          <PricingPlans />
+          <PricingPlans $hideFree />
         </Suspense>
       </CTA>
       <PricingComparison

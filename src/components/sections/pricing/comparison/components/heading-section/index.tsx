@@ -9,9 +9,7 @@ export const HeadingSection = ({ title, text, plans }: HeadingSectionProps) => {
       <TextSection title={title} text={text} />
       {Array.isArray(plans) &&
         plans.length > 0 &&
-        plans.map(plan => (
-          <HeadingPlan key={plan.id} id={plan.id} title={plan.title} isDownload={plan.isDownload} CTA={plan.CTA} />
-        ))}
+        plans.map(plan => <HeadingPlan key={plan.id} id={plan.id} title={plan.title} />)}
     </StyledHeadingSectionWrapper>
   );
 };

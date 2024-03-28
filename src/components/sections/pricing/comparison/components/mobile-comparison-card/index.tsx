@@ -7,7 +7,7 @@ import { TextSection } from '../text-section';
 export const MobileComparisonCard = ({ title, text, plan, features }: MobileComparisonCardProps) => {
   return (
     <StyledMobileComparisonCardWrapper>
-      <HeadingPlan id={plan.id} title={plan.title} CTA={plan.CTA} isDownload={plan.isDownload} />
+      <HeadingPlan id={plan.id} title={plan.title} />
       <TextSection title={title} text={text} />
       <FeaturesSection plans={[plan]} features={features} active={plan.id} />
     </StyledMobileComparisonCardWrapper>

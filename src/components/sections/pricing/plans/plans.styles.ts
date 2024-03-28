@@ -1,7 +1,10 @@
 'use client';
 
+import { StyledPricingCardWrapper } from './components/card/card.styles';
+import type { StyledPricingPlansProps } from './plans.types';
+
 import { Container } from '@/components/elements/container';
-import { styled } from '@/styles';
+import { css, styled } from '@/styles';
 
 export const StyledPricingPlansWrapper = styled(Container)`
   position: relative;
@@ -38,12 +41,34 @@ export const StyledPricingPlansSwitchBadge = styled.div`
   }
 `;
 
-export const StyledPricingPlansCardsWrapper = styled.div`
+export const StyledPricingPlansCardsWrapper = styled.div<StyledPricingPlansProps>`
   display: grid;
   gap: 20px;
   margin-bottom: 24px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: ${({ $hideFree }) => ($hideFree ? 'repeat(6, 1fr)' : 'repeat(3, 1fr)')};
+
+    ${({ $hideFree }) =>
+      $hideFree &&
+      css`
+        & > ${StyledPricingCardWrapper}:first-child {
+          grid-column: 2/4;
+        }
+
+        & > ${StyledPricingCardWrapper} {
+          grid-column: 4/6;
+        }
+      `}
+  }
+`;
+
+export const StyledPricingPlansDisclaimerWrapper = styled.div`
+  display: grid;
+  justify-content: center;
+  gap: 32px;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    gap: 24px;
   }
 `;
