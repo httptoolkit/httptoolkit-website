@@ -35,7 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-public/*
+# Sitemap & RSS are generated at build time
+public/sitemap-0.xml
+public/rss.xml
 !public/images/
 .cache/
 *.log

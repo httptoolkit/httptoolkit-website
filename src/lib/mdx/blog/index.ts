@@ -3,15 +3,12 @@ import path from 'path';
 
 import { compileMDX } from 'next-mdx-remote/rsc';
 
+import { extractExcerpt } from '../utils/extract-excerpt';
+import { markdowRegex, isMarkdown } from '../utils/is-markdown';
+
 import { defaultComponents, postComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
-
-const markdowRegex = /\.(md|mdx)$/;
-
-function isMarkdown(str: string) {
-  return markdowRegex.test(str);
-}
 
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const realSlug = slug.replace(markdowRegex, '');
@@ -25,6 +22,8 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     components: { ...defaultComponents, ...postComponents },
   });
 
+  const excerpt = extractExcerpt(fileContent);
+
   const post: Post = {
     title: frontmatter?.title ?? '',
     date: frontmatter?.date ?? '',
@@ -32,14 +31,12 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     tags: frontmatter?.tags ? frontmatter?.tags.split(',')?.map(tag => tag?.trim()) : [],
     isFeatured: frontmatter?.isFeatured ?? false,
     isDraft: frontmatter?.draft ?? false,
-    excerpt: '',
+    excerpt,
     slug: realSlug,
-    author: frontmatter?.author
-      ? {
-          name: frontmatter.author,
-          url: frontmatter.authorUrl ?? '',
-        }
-      : undefined,
+    author: {
+      name: frontmatter.author ?? 'Tim Perry',
+      url: frontmatter.authorUrl ?? 'https://tim.fyi/',
+    },
     content,
   };
 

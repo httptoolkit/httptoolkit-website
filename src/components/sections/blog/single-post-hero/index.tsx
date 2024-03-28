@@ -51,9 +51,11 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
             {formatteDate}
           </Text>
           {post.author && (
-            <Text as="span" fontSize="l" color="darkGrey">
-              Author: {post.author.name}
-            </Text>
+            <Link href={post.author.url} target="_blank">
+              <Text as="span" fontSize="l" color="darkGrey">
+                Author: {post.author.name}
+              </Text>
+            </Link>
           )}
         </StyledPostMeta>
       </StyledSinglePostDetails>

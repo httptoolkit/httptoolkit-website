@@ -51,8 +51,8 @@ Each HTTP exchange row shows:
 - The HTTP method used, with different colours for each verb.
 - Either:
   - The response status code, also colourized.
-  - &#128683 if the response did not complete.
-  - &#9888 if the exchange is currently paused at a breakpoint.
+  - 🚫 if the response did not complete.
+  - ⚠ if the exchange is currently paused at a breakpoint.
   - A spinner, if the response is still in progress.
 - The source of the request, as an icon (e.g. Firefox, Chrome, or a specific language) when it's known. You can hover over this icon for more details.
 - The URL of the request, separated into the host and the path & query. Long URLs may be truncated here, but the full URL is available as a tooltip if you mouseover the row, or in the details pane if you select the row.
@@ -195,7 +195,7 @@ Here, a request to the GitHub API is recognized as such, so includes:
 
 ### The Request Card
 
-![An example request card, showing the raw data for a request to the GitHub API](./request-card.png)
+![An example request card, showing the raw data for a request to the GitHub API](./request-card-view-page.png)
 
 This card will always appear, and shows all the core request data: the HTTP method, URL & headers sent.
 
@@ -247,7 +247,7 @@ All standard status codes and headers on this card are automatically recognized,
 
 _Only available with [HTTP Toolkit Pro](/get-pro/)_
 
-![An example performance card](./performance-card.png)
+![An example performance card](./performance-card-view-page.png)
 
 The performance card shows the performance details for the given response. These include:
 

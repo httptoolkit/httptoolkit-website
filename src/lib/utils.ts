@@ -28,3 +28,18 @@ export const shuffleArray = <T>(array: T[]): T[] => {
   }
   return array;
 };
+
+export const optimizeExerptToMetaDescription = (excerpt: string, maxLength = 160) => {
+  if (excerpt.length <= maxLength) {
+    return excerpt; // Return the input string if it's already within the maximum length
+  }
+
+  // Find the last space within the maximum length
+  let lastSpaceIndex = maxLength;
+  while (lastSpaceIndex >= 0 && excerpt.charAt(lastSpaceIndex) !== ' ') {
+    lastSpaceIndex--;
+  }
+
+  // Return the substring up to the last space (or maxLength if no space is found)
+  return excerpt.substring(0, lastSpaceIndex) + '...';
+};

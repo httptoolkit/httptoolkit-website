@@ -4,6 +4,9 @@ import path from 'path';
 import type { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
+import { extractExcerpt } from '../utils/extract-excerpt';
+import { isMarkdown, markdowRegex } from '../utils/is-markdown';
+
 import { defaultComponents, docsComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/utils/find-file';
 import { getAllFiles } from '@/lib/utils/get-all-files';
@@ -11,12 +14,6 @@ import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
 
 export const ROOT_DOCS_DIRECTORY = path.join(process.cwd(), 'src', 'content', 'docs');
 export const ROOT_DOC_SLUG = 'getting-started';
-
-const markdowRegex = /\.(md|mdx)$/;
-
-function isMarkdown(str: string) {
-  return markdowRegex.test(str);
-}
 
 export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Doc> => {
   const realSlug = slug.replace(markdowRegex, '');
@@ -35,12 +32,15 @@ export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Do
   const splittedRelative = relativePath.split('/');
   const parent = Array.isArray(splittedRelative) && splittedRelative.length === 2 ? splittedRelative[0] : undefined;
 
+  const excerpt = extractExcerpt(fileContent);
+
   const doc: DocFrontmatter = {
     parent,
     slug: realSlug,
     title: frontmatter?.title ?? '',
     name: frontmatter?.name ?? '',
     order: frontmatter?.order ?? 0,
+    excerpt,
     content,
   };
 

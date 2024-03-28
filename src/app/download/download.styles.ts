@@ -14,13 +14,11 @@ export const StyledDownloadSection = styled.section`
 `;
 
 export const StyledDownloadaColumns = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 64px;
   align-items: center;
 
   @media (min-width: ${screens['lg']}) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 96px;
   }
 `;

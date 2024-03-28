@@ -4,6 +4,7 @@ import {
   StyledBlogCardFigure,
   StyledBlogCardTag,
   StyledBlogCardWrapper,
+  StyledExcerpt,
 } from './blog-card.styles';
 import type { BlogCardProps } from './blog-card.types';
 
@@ -15,7 +16,7 @@ import { Image } from '@/components/elements/image';
 import { Text } from '@/components/elements/text';
 import { formatDateLongMonthYear } from '@/lib/utils/formatMonthYearDate';
 
-export const BlogCard = ({ title, text, image, date, tag, slug }: BlogCardProps) => {
+export const BlogCard = ({ title, excerpt, image, date, tag, slug }: BlogCardProps) => {
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
@@ -31,9 +32,12 @@ export const BlogCard = ({ title, text, image, date, tag, slug }: BlogCardProps)
         <Heading as="h3" color="white" fontSize="xs" fontWeight="medium">
           {title}
         </Heading>
-        <Text fontSize="m" color="darkGrey">
-          {text}
-        </Text>
+        {excerpt ? (
+          <StyledExcerpt fontSize="m" color="darkGrey">
+            {excerpt}
+          </StyledExcerpt>
+        ) : null}
+
         <StyledBlogCardButtonWrapper>
           <Button
             as="link"

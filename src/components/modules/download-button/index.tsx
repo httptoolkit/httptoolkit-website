@@ -8,7 +8,7 @@ import type { DownloadButtonProps } from './download-button.types';
 import { Dropdown } from '../dropdown';
 import type { DropdownOptionProps } from '../dropdown/dropdown.types';
 
-import { OSDictionary } from '@/lib/constants/download-dictionary';
+import { OSDictionary } from '@/content/data/download-dictionary';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 

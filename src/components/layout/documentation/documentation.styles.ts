@@ -96,4 +96,10 @@ export const StyledDocumentationLayoutContentWrapper = styled.article`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding-top: 56px;
   }
+
+  & iframe.video-embed {
+    width: 100%;
+    min-height: 400px;
+    margin: 10px 0;
+  }
 `;

@@ -7,7 +7,7 @@ import { Input } from '@/components/modules/input';
 export const ContactForm = () => {
   return (
     <StyledContactFormWrapper>
-      {/* TODO: to be replaced with the production form */}
+      {/* TODO(before-release): to be replaced with the production form */}
       <form action="https://formspree.io/f/moqglynz" method="POST">
         <Stack $gapxl="32px">
           <Stack $gapxl="16px">

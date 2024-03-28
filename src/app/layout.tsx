@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { DM_Sans } from 'next/font/google';
+import type { Metadata, Viewport } from 'next/types';
 
 import { PHProvider } from './providers';
 
@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${siteMetadata.siteUrl}`),
   title: siteMetadata.title,
   description: siteMetadata.description,
+  openGraph: {
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`],
+  },
   twitter: {
     card: 'summary',
     title: siteMetadata.name,
@@ -32,6 +37,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,7 +49,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

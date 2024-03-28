@@ -6,12 +6,15 @@
   "main": "n/a",
   "scripts": {
     "dev": "next dev",
+    "dev-docker": "npm run build && docker build . --tag htk-website && docker run --rm -it -p 8080:80 htk-website",
     "build": "next build && next-image-export-optimizer",
     "start": "next start -p 4000",
     "lint": "next lint",
     "format": "prettier \"**/*.+(ts|tsx|js|jsx|json|css)\" --write",
     "precommit-hook": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate-rss": "node ./src/scripts/generate-rss.js",
+    "postbuild": "next-sitemap && npm run generate-rss"
   },
   "repository": {
     "type": "git",
@@ -48,6 +51,7 @@
     "next": "14.1.0",
     "next-image-export-optimizer": "^1.12.3",
     "next-mdx-remote": "^4.4.1",
+    "next-sitemap": "^4.2.3",
     "next-themes": "^0.2.1",
     "octokit": "^3.1.2",
     "posthog-js": "^1.57.2",
@@ -86,6 +90,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "typescript": "^5"
+    "rss": "^1.2.2",
+    "typescript": "^5",
+    "showdown": "^2.1.0",
+    "html-minifier": "^4.0.0"
   }
 }

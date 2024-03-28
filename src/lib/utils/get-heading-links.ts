@@ -2,7 +2,7 @@ import { join } from 'path';
 
 import { groupByLevel } from './group-by-level';
 import { formatLinks } from './groups-to-links';
-import { extractHeadingsFromMDX } from '../mdx/extract-tittles';
+import { extractHeadingsFromMDX } from '../mdx/utils/extract-tittles';
 
 export async function getHeadingLinks(path: string, withParentHref = true) {
   const filePath = join(process.cwd(), path);

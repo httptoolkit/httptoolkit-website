@@ -52,6 +52,7 @@ interface Doc {
   name: string;
   order?: number;
   content: any;
+  excerpt?: string;
 }
 
 interface DocFrontmatter extends Doc {

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://httptoolkit-website.pages.dev
+
+# Sitemaps
+Sitemap: https://httptoolkit-website.pages.dev/sitemap.xml
