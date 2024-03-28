@@ -101,6 +101,7 @@ export const StyledNewsletterGradientWrapper = styled.div<StyledNewsletterProps>
 
 export const StyledNewsletterContentWrapper = styled.div<StyledNewsletterProps>`
   display: grid;
+  position: relative;
 
   ${({ $variant }) => {
     switch ($variant) {
@@ -160,6 +161,7 @@ export const StyledNewsletterTitle = styled.p<StyledNewsletterProps>`
 
 export const StyledNewsletterFormContentWrapper = styled.div<StyledNewsletterProps>`
   display: grid;
+  position: relative;
   gap: 16px;
 `;
 
