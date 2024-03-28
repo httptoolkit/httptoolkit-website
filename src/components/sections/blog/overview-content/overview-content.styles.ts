@@ -20,12 +20,9 @@ export const StyledSubscriberBox = styled.aside`
   visibility: hidden;
 
   @media (min-width: ${screens.lg}) {
-    min-width: 250px;
+    min-width: 387px;
+    max-width: 387px;
     display: block;
     visibility: visible;
-  }
-
-  @media (min-width: ${screens.xl}) {
-    min-width: 387px;
   }
 `;

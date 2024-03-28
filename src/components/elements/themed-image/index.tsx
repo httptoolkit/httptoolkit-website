@@ -34,7 +34,6 @@ export const ThemedImage = ({
     ...props,
   };
 
-  // TODO: Refactor to Image element
   const FinalImage = () => {
     return (
       <>

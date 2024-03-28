@@ -35,7 +35,6 @@ const Heading3to6 = ({ children }: Component<StyledHeadingProps>) => {
   );
 };
 
-// TODO: need to define the default styles
 export const defaultComponents: MDXComponents = {
   h2: Heading2,
   h3: Heading3to6,

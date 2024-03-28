@@ -1,15 +1,23 @@
+import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { FAQItems, comparisonPlans, planFeatures } from './data';
 
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';
 import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import { PricingPlans } from '@/components/sections/pricing/plans';
-import { Testimonials } from '@/components/sections/testimonials';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
+import { buildMetadata } from '@/lib/utils/build-metadata';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Pricing | HTTP Toolkit',
+  description:
+    'Our time is valuable. HTTP Toolkit gives you instant insight and access into every request & response, with zero hassle. Test clie nts, debug APIs and catch bugs, all at lightning speed.',
+});
 
 export default function PricingPage() {
   return (

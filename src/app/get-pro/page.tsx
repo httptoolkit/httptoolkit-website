@@ -2,13 +2,13 @@ import { Suspense } from 'react';
 
 import { FAQItems, comparisonPlans, planFeatures } from '../pricing/data';
 
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CaretRight } from '@/components/elements/icon';
 import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import { PricingPlans } from '@/components/sections/pricing/plans';
-import { Testimonials } from '@/components/sections/testimonials';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 
 export default function PricingPage() {

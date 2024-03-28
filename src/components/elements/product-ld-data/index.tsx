@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { testimonialsCount } from '@/content/data/testimonials';
 import { getLatestRelease } from '@/lib/services/get-latest-release';
 
 export const ProductLdData = async () => {
@@ -26,7 +27,7 @@ export const ProductLdData = async () => {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
-      reviewCount: '33', // Update as new testimonials are added
+      reviewCount: testimonialsCount, // Updated automatically as new testimonials are added
     },
     url: 'https://httptoolkit.com/',
     downloadUrl: [

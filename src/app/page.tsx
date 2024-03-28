@@ -3,13 +3,13 @@ import { Suspense } from 'react';
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
+import { Statistics } from '@/components/common-sections/statistics';
+import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { CursorClick } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
 import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
-import { Statistics } from '@/components/sections/statistics';
-import { Testimonials } from '@/components/sections/testimonials';
 
 export default async function HomePage() {
   return (
@@ -33,7 +33,7 @@ export default async function HomePage() {
       <MockResponseFeatures />
       <RewriteAnything />
       <Suspense>
-        <Statistics title="Why `*HTTP Toolkit*`?" text="Numbers that speak for themselves:" />
+        <Statistics />
       </Suspense>
       <Suspense>
         <Testimonials />

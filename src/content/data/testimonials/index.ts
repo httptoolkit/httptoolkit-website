@@ -3,7 +3,7 @@ import REDDIT_TESTIMONIALS from './reddit-testimonials.json';
 import TWEETS from './tweet-testimonials.json';
 import { sanitizeContent, sanitizeTweet } from './utils';
 
-import type { TestimonialsCardProps } from '@/components/sections/testimonials/testimonials-card';
+import type { TestimonialsCardProps } from '@/components/common-sections/testimonials/testimonials-card';
 import { shuffleArray } from '@/lib/utils';
 
 const formattedTweets = TWEETS.map(
@@ -36,4 +36,6 @@ const formattedRedditComments = REDDIT_TESTIMONIALS.map(
   }),
 );
 
-export const allTestimonials = shuffleArray([...formattedArticles, ...formattedRedditComments, ...formattedTweets]);
+const allTestimonialsMerged = [...formattedArticles, ...formattedRedditComments, ...formattedTweets];
+export const allTestimonials = shuffleArray(allTestimonialsMerged);
+export const testimonialsCount = allTestimonialsMerged.length;

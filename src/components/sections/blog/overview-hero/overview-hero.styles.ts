@@ -50,6 +50,7 @@ export const StyledPostImageWrapper = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     max-width: 540px;
+    min-height: 271px;
   }
 `;
 

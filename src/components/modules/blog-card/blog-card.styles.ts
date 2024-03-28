@@ -1,5 +1,6 @@
 'use client';
 
+import { Text } from '@/components/elements/text';
 import { screens, styled } from '@/styles';
 
 export const StyledBlogCardWrapper = styled.article`
@@ -49,4 +50,15 @@ export const StyledBlogCardContentWrapper = styled.div`
 export const StyledBlogCardButtonWrapper = styled.div`
   display: flex;
   justify-content: end;
+`;
+
+export const StyledExcerpt = styled(Text)`
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  padding: 3px 0;
+  text-overflow: ellipsis;
+
+  /* stylelint-disable-next-line */
+  display: -webkit-box;
 `;

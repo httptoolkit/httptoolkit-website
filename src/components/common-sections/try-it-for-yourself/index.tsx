@@ -17,7 +17,7 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square' }: TryItForYourself
       cta={{
         title: 'Go Pro!',
         icon: RocketLaunch,
-        href: '/pro',
+        href: '/get-pro',
       }}
     />
   );

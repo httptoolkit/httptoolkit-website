@@ -3,6 +3,6 @@ export interface BlogCardProps {
   image: Image;
   date: string;
   title: string;
-  text: string;
+  excerpt?: string;
   slug: string;
 }

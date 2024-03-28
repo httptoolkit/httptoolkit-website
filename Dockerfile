@@ -4,5 +4,5 @@ RUN mkdir /site
 
 WORKDIR /site
 
-COPY ./public /site
+COPY ./out /site
 COPY ./Caddyfile /etc/caddy/Caddyfile
