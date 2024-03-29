@@ -1,5 +1,5 @@
 import { getHeadingLinks } from './get-heading-links';
-import { getDocBySlug } from '../mdx/docs';
+import { getDocBySlug } from '../docs';
 
 import type { TableContentItem } from '@/components/modules/table-content/table-content.types';
 

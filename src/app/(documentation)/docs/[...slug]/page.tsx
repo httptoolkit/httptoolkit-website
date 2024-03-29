@@ -2,10 +2,10 @@ import type { Metadata } from 'next/types';
 
 import { DocumentationLayout } from '@/components/layout/documentation';
 import { ROOT_DOCS_DIRECTORY, getAllDocsMeta, getDocBySlug } from '@/lib/mdx/docs';
+import { findFile } from '@/lib/mdx/utils/find-file';
+import { getHeadingLinks } from '@/lib/mdx/utils/get-heading-links';
 import { optimizeExerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
-import { findFile } from '@/lib/utils/find-file';
-import { getHeadingLinks } from '@/lib/utils/get-heading-links';
 
 type DocPageProps = {
   params: { slug: string[] };

@@ -8,9 +8,9 @@ import { extractExcerpt } from '../utils/extract-excerpt';
 import { isMarkdown, markdowRegex } from '../utils/is-markdown';
 
 import { defaultComponents, docsComponents } from '@/components/sections/rich-text/components';
-import { findFile } from '@/lib/utils/find-file';
-import { getAllFiles } from '@/lib/utils/get-all-files';
-import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
+import { findFile } from '@/lib/mdx/utils/find-file';
+import { getAllFiles } from '@/lib/mdx/utils/get-all-files';
+import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
 
 export const ROOT_DOCS_DIRECTORY = path.join(process.cwd(), 'src', 'content', 'docs');
 export const ROOT_DOC_SLUG = 'getting-started';

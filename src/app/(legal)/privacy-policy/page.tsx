@@ -2,7 +2,7 @@ import Content from './content.mdx';
 
 import { ContentWithTable } from '@/components/sections/content-with-table';
 import { HeroPoints } from '@/components/sections/hero-points';
-import { getHeadingLinks } from '@/lib/utils/get-heading-links';
+import { getHeadingLinks } from '@/lib/mdx/utils/get-heading-links';
 
 export default async function PrivacyPolicy() {
   const links = await getHeadingLinks('src/app/(legal)/privacy-policy/content.mdx');

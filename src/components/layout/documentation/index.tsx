@@ -15,9 +15,9 @@ import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-
 import { SiteSearch } from '@/components/modules/site-search';
 import { TableContent } from '@/components/modules/table-content';
 import { getAllDocsMeta } from '@/lib/mdx/docs';
-import type { UnorganizedDoc } from '@/lib/utils/get-content-table-links';
-import { FAQ_SLUG, getContentTableLinks } from '@/lib/utils/get-content-table-links';
-import { getTitlesBySlug } from '@/lib/utils/get-titles-by-slug';
+import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
+import { FAQ_SLUG, getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
+import { getTitlesBySlug } from '@/lib/mdx/utils/get-titles-by-slug';
 
 export async function DocumentationLayout({ title, children, links }: Component<DocumentationLayoutProps>) {
   const docsMeta = await getAllDocsMeta();
