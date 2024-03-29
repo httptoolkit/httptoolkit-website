@@ -1,4 +1,4 @@
-import type { HeadingGroup } from '../mdx/utils/extract-tittles';
+import type { HeadingGroup } from './extract-tittles';
 
 export interface HeadingGroupWithSubItems extends HeadingGroup {
   subItems: HeadingGroup[];

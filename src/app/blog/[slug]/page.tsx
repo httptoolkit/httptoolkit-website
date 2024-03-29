@@ -7,10 +7,10 @@ import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
 import { ContentWithTable } from '@/components/sections/content-with-table';
 import { CTA } from '@/components/sections/cta';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
+import { getBlogTitlesBySlug } from '@/lib/mdx/utils/get-titles-by-slug';
 import { siteMetadata } from '@/lib/site-metadata';
 import { optimizeExerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
-import { getBlogTitlesBySlug } from '@/lib/utils/get-titles-by-slug';
 
 type BlogPostPageProps = {
   params: { slug: string };
