@@ -36,6 +36,7 @@ import {
   XSquare,
   ListBullets,
   Spinner,
+  PencilSimple,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -103,4 +104,5 @@ export {
   XSquare,
   ListBullets,
   Spinner,
+  PencilSimple,
 };
