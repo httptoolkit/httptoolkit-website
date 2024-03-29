@@ -7,11 +7,12 @@ import { Input } from '@/components/modules/input';
 
 export const SendEmail = ({
   buttonProps,
+  ...props
 }: {
   buttonProps: Pick<ButtonProps, '$small' | '$variant' | '$withBorder'>;
 }) => {
   return (
-    <StyledSendEmailWrapper>
+    <StyledSendEmailWrapper {...props}>
       <Text fontSize="s" textAlign="center" color="white">
         On mobile? Send this to your computer and try it out there:
       </Text>
