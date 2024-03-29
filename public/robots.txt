@@ -1,6 +1,6 @@
-# *
+# Temp disallow for dev env
 User-agent: *
-Allow: /
+Disallow: /
 
 # Host
 Host: https://httptoolkit-website.pages.dev
