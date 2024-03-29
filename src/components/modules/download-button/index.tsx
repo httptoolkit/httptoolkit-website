@@ -16,7 +16,7 @@ import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 
 const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
 
-export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButtonProps) => {
+export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: DownloadButtonProps) => {
   const [operativeSystem, setOperativeSystem] = useState('');
   const isMobile = useIsMobile();
   const defaultOperativeSystem =
@@ -36,7 +36,8 @@ export const DownloadButton = ({ $small, $variant, $withBorder }: DownloadButton
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile || operativeSystem === 'mobile') return <SendEmail buttonProps={{ $variant, $small, $withBorder }} />;
+  if (isMobile || operativeSystem === 'mobile')
+    return <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />;
 
   return (
     <Dropdown

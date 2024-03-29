@@ -3,7 +3,6 @@ module.exports = {
   //TODO(before-release): change to prod domain
   siteUrl: 'https://httptoolkit-website.pages.dev',
   generateRobotsTxt: true,
-  outDir: 'out',
   exclude: [
     '/download/*', // Drop direct download pages
     '/blog-thank-you/', // Drop post-blog subscribe thank you

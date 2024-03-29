@@ -8,39 +8,37 @@ import { Button } from '@/components/elements/button';
 import { RadixProviders } from '@/components/layout/radix-layout';
 import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
+import { buildMetadata } from '@/lib/utils/build-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
 
-const PostHogPageView = dynamic(() => import('../components/layout/post-hog-page-view'), {
+const PostHogPageView = dynamic(() => import('@/components/layout/post-hog-page-view'), {
   ssr: false,
 });
 
-const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-dmSans' });
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   metadataBase: new URL(`${siteMetadata.siteUrl}`),
   title: siteMetadata.title,
   description: siteMetadata.description,
   openGraph: {
-    title: siteMetadata.title,
-    description: siteMetadata.description,
     images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`],
   },
   twitter: {
     card: 'summary',
     title: siteMetadata.name,
-    description: siteMetadata.description,
     siteId: '982983215693680641',
     site: '@httptoolkit',
     creator: '@pimterry',
     creatorId: '20509812',
     images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`], // Must be an absolute URL
   },
-};
+});
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-};
+const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-dmSans' });
 
 export default function RootLayout({
   children,
