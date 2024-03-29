@@ -18,7 +18,7 @@ async function generate() {
     const feed = new RSS({
       title: 'HTTP Toolkit RSS Feed',
       site_url: 'https://httptoolkit.com',
-      feed_url: 'https://httptoolkit.com/feed.xml',
+      feed_url: 'https://httptoolkit.com/rss.xml',
     });
 
     const posts = await fs.readdir(path.join(__dirname, '..', 'content', 'posts'));
