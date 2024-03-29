@@ -18,10 +18,11 @@ import { CheckIcon } from '@/components/elements/check-icon';
 import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
 
-const renderFeatures = (
-  feature: PricingCardProps['features'][number],
-  $isHighlighted: PricingCardProps['$isHighlighted'],
-) => {
+interface FeatureListProps {
+  feature: PricingCardProps['features'][number];
+  $isHighlighted: PricingCardProps['$isHighlighted'];
+}
+const FeatureList = ({ feature, $isHighlighted }: FeatureListProps) => {
   const textColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
   const itemColor: TextProps['color'] = $isHighlighted ? 'white' : 'darkGrey';
 
@@ -33,8 +34,8 @@ const renderFeatures = (
       <StyledPriceCardFeatureItemsWrapper>
         {Array.isArray(feature.items) &&
           feature.items?.length > 0 &&
-          feature.items.map(item => (
-            <StyledPriceCardFeatureItemLI>
+          feature.items.map((item, idx) => (
+            <StyledPriceCardFeatureItemLI key={idx}>
               <CheckIcon />
               <Text fontSize="m" color={itemColor} textAlign="left">
                 {item}
@@ -72,7 +73,7 @@ export const PricingCard = ({
           {priceDescription}
           <br />
           {isPaidYearly && !isFree && (
-            <StyledPricingCardAnnualFlag fontSize="s" color="darkGrey">
+            <StyledPricingCardAnnualFlag forwardedAs="span" fontSize="s" color="darkGrey">
               paid annually
             </StyledPricingCardAnnualFlag>
           )}
@@ -81,7 +82,7 @@ export const PricingCard = ({
       <StyledPricingCardButtonWrapper>{children}</StyledPricingCardButtonWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
-        features.map(feature => renderFeatures(feature, $isHighlighted))}
+        features.map((feature, idx) => <FeatureList key={idx} feature={feature} $isHighlighted />)}
     </StyledPricingCardWrapper>
   );
 };

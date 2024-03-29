@@ -31,8 +31,8 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
     <StyledAccordionWrapper type="single" defaultValue={items[0].title} collapsible $variant={$variant}>
       {Array.isArray(items) &&
         items.length > 0 &&
-        items.map(item => (
-          <StyledAccordionItem key={item.text} value={item.title} $variant={$variant}>
+        items.map((item, idx) => (
+          <StyledAccordionItem key={`${item.title}-${idx}`} value={item.title} $variant={$variant}>
             <StyledAccordionTrigger>
               <AccordionTitle $variant={$variant}>{item.title}</AccordionTitle>
               <CaretDown weight="fill" size={24} />

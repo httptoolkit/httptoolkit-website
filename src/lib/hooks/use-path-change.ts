@@ -9,7 +9,6 @@ export const usePathnameChange = () => {
 
   useEffect(() => {
     setChanges(prev => prev + 1);
-    console.log('pathname', pathname);
   }, [pathname]);
 
   return {
