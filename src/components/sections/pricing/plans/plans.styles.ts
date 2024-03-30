@@ -83,10 +83,10 @@ const rotate = keyframes`
   }
 `;
 
-// Define a styled component for the loader icon
 export const StyledLoadingSpinner = styled.span`
   display: inline-flex;
+
   & svg {
-    animation: ${rotate} 5s linear infinite; /* Adjust the animation duration and timing function as needed */
+    animation: ${rotate} 5s linear infinite;
   }
 `;
