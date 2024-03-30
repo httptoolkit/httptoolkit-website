@@ -15,7 +15,7 @@ export const Heading = ({
   return (
     <StyledHeading
       as={as}
-      textAlign={textAlign}
+      $textAlign={textAlign}
       fontSize={fontSize}
       color={color}
       fontWeight={fontWeight}

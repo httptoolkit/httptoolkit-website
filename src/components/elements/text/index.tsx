@@ -21,7 +21,7 @@ export const Text = ({
       color={color}
       fontWeight={fontWeight}
       className={className}
-      textAlign={textAlign}
+      $textAlign={textAlign}
       $isLabel={isLabel}
       {...props}
     >

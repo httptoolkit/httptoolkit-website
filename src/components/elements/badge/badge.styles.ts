@@ -1,6 +1,6 @@
 'use client';
 
-import type { BadgeProps } from './badge.types';
+import type { StyledBadgeProps } from './badge.types';
 
 import { css, styled } from '@/styles';
 
@@ -19,7 +19,7 @@ export const AdditionalText = styled.span`
   text-transform: uppercase;
 `;
 
-export const StyledBadge = styled.p<BadgeProps>`
+export const StyledBadge = styled.p<StyledBadgeProps>`
   display: flex;
   align-items: center;
   gap: 6px;
@@ -29,8 +29,8 @@ export const StyledBadge = styled.p<BadgeProps>`
   letter-spacing: ${({ theme }) => theme.letterSpacing.label};
   text-transform: uppercase;
 
-  ${({ variant }) => {
-    switch (variant) {
+  ${({ $variant }) => {
+    switch ($variant) {
       case 'primary':
         return css`
           border-radius: 16px;
