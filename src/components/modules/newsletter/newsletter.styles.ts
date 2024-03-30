@@ -34,6 +34,7 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
       case 'default':
         return css`
           margin: 64px auto 24px;
+          margin-top: 0;
           gap: 16px;
           background-image: unset;
 

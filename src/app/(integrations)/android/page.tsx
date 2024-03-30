@@ -32,11 +32,15 @@ export default function AndroidIntegrationPage() {
           darkSrc: 'https://picsum.photos/id/1019/1024',
           lightSrc: 'https://picsum.photos/id/1035/1024',
           alt: 'example alt',
+          width: 1035,
+          height: 1024,
         }}
         desktopImage={{
           darkSrc: 'https://picsum.photos/id/1019/1024',
           lightSrc: 'https://picsum.photos/id/1035/1024',
           alt: 'example alt',
+          width: 1035,
+          height: 1024,
         }}
       />
       <IntegrationBento
