@@ -30,6 +30,7 @@ export const ThemedImage = ({
   ...props
 }: ThemeImageProps) => {
   const imageProps = {
+    priority: loading == 'eager',
     loading: loading ?? 'lazy',
     ...props,
   };
@@ -39,21 +40,21 @@ export const ThemedImage = ({
       <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <ExportedImage
+          {...imageProps}
           alt={alt}
           height={height}
           width={width}
           src={lightSrc}
           data-hide-on-theme="dark"
-          {...imageProps}
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <ExportedImage
+          {...imageProps}
           alt={alt}
           height={height}
           width={width}
           src={darkSrc}
           data-hide-on-theme="light"
-          {...imageProps}
         />
       </>
     );
