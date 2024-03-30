@@ -36,8 +36,9 @@ export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: Do
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile || operativeSystem === 'mobile')
+  if (isMobile || operativeSystem === 'mobile') {
     return <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />;
+  }
 
   return (
     <Dropdown

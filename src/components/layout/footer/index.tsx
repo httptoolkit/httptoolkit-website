@@ -75,7 +75,9 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
                 key={column.title}
               >
                 <FooterColumnBlock column={column} />
-                {column.subHeading?.map(subheding => <FooterColumnBlock column={subheding} />)}
+                {column.subHeading?.map((subheding, idx) => (
+                  <FooterColumnBlock key={`${subheding.title}-${idx}`} column={subheding} />
+                ))}
               </StyledMenuWrapper>
             );
           })}

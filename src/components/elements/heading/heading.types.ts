@@ -10,3 +10,7 @@ export interface HeadingProps {
   fontWeight?: FontWeigth;
   textAlign?: CanvasTextAlign;
 }
+
+export interface StyledHeadingProps extends Omit<HeadingProps, 'textAlign'> {
+  $textAlign?: CanvasTextAlign;
+}
