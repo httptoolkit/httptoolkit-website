@@ -3,7 +3,7 @@
 import { Container } from '@/components/elements/container';
 import { Section } from '@/components/elements/section';
 import { CTA } from '@/components/sections/cta';
-import { css, screens, styled } from '@/styles';
+import { screens, styled } from '@/styles';
 
 export const StyledFridaSection = styled(Section)`
   padding-top: 16px;
@@ -82,32 +82,6 @@ export const StyledGradientBottom = styled.div`
     display: block;
     visibility: visible;
   }
-`;
-
-export const StyledDisplayDevice = styled.div<{ $hideOn: 'mobile' | 'desktop' }>`
-  ${({ $hideOn }) => {
-    switch ($hideOn) {
-      case 'mobile':
-        return css`
-          display: none;
-          visibility: hidden;
-
-          @media (min-width: ${screens['lg']}) {
-            display: block;
-            visibility: visible;
-          }
-        `;
-      case 'desktop':
-        return css`
-          display: block;
-          visibility: visible;
-          @media (min-width: ${screens['lg']}) {
-            display: none;
-            visibility: hidden;
-          }
-        `;
-    }
-  }}
 `;
 
 export const StyledSectionCTA = styled(CTA)`

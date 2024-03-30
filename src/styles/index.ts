@@ -282,7 +282,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-      overflow-x: clip;
+      @media (max-width: ${screens.sm}) {
+        overflow-x: clip;
+      }
     }
 
     em {
