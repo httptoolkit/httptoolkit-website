@@ -1,6 +1,3 @@
-import { Suspense } from 'react';
-
-import { CapturePurchaseEvent } from './capture-purchase-event';
 import {
   StyledThankYouColumnContent,
   StyledThankYouColumns,
@@ -8,27 +5,23 @@ import {
   StyledTextContent,
   StyledThankYouSection,
   StyledSectionCTA,
-} from './thank-you.styles';
-import { StyledDisplayDevice } from '../frida/frida.styles';
+} from '../web-purchase-thank-you/thank-you.styles';
 
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
+import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
-import { DownloadButton } from '@/components/modules/download-button';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 
-export default function WebPurchaseThankYouPage() {
+export default function AppPurchaseThankYouPage() {
   return (
     <LandingLayout>
-      <Suspense>
-        <CapturePurchaseEvent />
-      </Suspense>
       <div>
-        <StyledDisplayDevice $hideOn="desktop">
+        <StyledHideElementOn $hideOn="desktop">
           <StyledSectionCTA
             heading="Thanks for your purchase!"
             withDownload={false}
@@ -39,26 +32,25 @@ export default function WebPurchaseThankYouPage() {
               loading: 'eager',
             }}
           ></StyledSectionCTA>
-        </StyledDisplayDevice>
+        </StyledHideElementOn>
         <StyledThankYouSection>
           <Container>
             <StyledThankYouColumns>
               <StyledThankYouColumnContent>
                 <StyledTextContent>
-                  <Stack $gapxl="48px">
+                  <Stack>
                     <Stack $gapxl="32px">
                       <Stack $gapxl="24px">
-                        <StyledDisplayDevice $hideOn="mobile">
+                        <StyledHideElementOn $hideOn="mobile">
                           <Heading fontSize="l" color="textGradient">
                             Thanks for your purchase!
                           </Heading>
-                        </StyledDisplayDevice>
+                        </StyledHideElementOn>
                         <Text fontSize="m" fontWeight="normal" color="darkGrey">
-                          To get started, download & launch HTTP Toolkit, click &apos;Get Pro&apos; then &apos;Log into
-                          existing account&apos;, and enter your email.
+                          You&apos;re all done, just go back to the HTTP Toolkit app to get started with access to all
+                          the advanced features HTTP Toolkit has to offer.
                         </Text>
                       </Stack>
-                      <DownloadButton $withBorder $variant="primary" />
                     </Stack>
                     <Stack $gapxl="16px">
                       <Text fontSize="m" color="darkGrey">
@@ -74,7 +66,7 @@ export default function WebPurchaseThankYouPage() {
                   </Stack>
                 </StyledTextContent>
               </StyledThankYouColumnContent>
-              <StyledDisplayDevice $hideOn="mobile">
+              <StyledHideElementOn $hideOn="mobile">
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"
@@ -84,7 +76,7 @@ export default function WebPurchaseThankYouPage() {
                   width={662}
                   height={450}
                 />
-              </StyledDisplayDevice>
+              </StyledHideElementOn>
             </StyledThankYouColumns>
           </Container>
         </StyledThankYouSection>
