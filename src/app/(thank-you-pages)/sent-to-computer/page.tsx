@@ -5,7 +5,7 @@ import { LandingLayout } from '@/components/layout/landing-layout';
 import { SocialShare } from '@/components/modules/social-share';
 import { SuccessHero } from '@/components/sections/success-hero';
 
-export default function SendToComputerThanksPage() {
+export default function SentToComputerThanksPage() {
   return (
     <LandingLayout>
       <SuccessHero
