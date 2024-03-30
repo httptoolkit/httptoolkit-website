@@ -18,9 +18,10 @@ export const StyledCardImageWrapper = styled.div`
   padding-top: 28px;
   display: flex;
   justify-content: center;
-  background-image: ${({ theme }) => theme.backgroundImages.backgroundGradient},
-    ${({ theme }) => theme.backgroundImages.backgroundFuncGradient},
-    ${({ theme }) => theme.backgroundImages.backgroundDots};
+  background-image:
+    ${({ theme }) => theme.backgroundImages.backgroundGradient},
+    /* ${({ theme }) => theme.backgroundImages.backgroundFuncGradient}, */
+      ${({ theme }) => theme.backgroundImages.backgroundDots};
   background-position:
     center 140%,
     center,
@@ -30,6 +31,18 @@ export const StyledCardImageWrapper = styled.div`
     524px 248px,
     524px 248px;
   background-repeat: no-repeat;
+  position: relative;
+
+  /* faded look effect */
+  &::before {
+    content: '';
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(ellipse at top, transparent 10%, ${({ theme }) => theme.colors.inkBlack});
+  }
 `;
 
 export const StyledCardImage = styled(ThemedImage)`
