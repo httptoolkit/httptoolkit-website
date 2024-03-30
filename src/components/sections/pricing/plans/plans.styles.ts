@@ -4,7 +4,7 @@ import { StyledPricingCardWrapper } from './components/card/card.styles';
 import type { StyledPricingPlansProps } from './plans.types';
 
 import { Container } from '@/components/elements/container';
-import { css, styled } from '@/styles';
+import { css, keyframes, styled } from '@/styles';
 
 export const StyledPricingPlansWrapper = styled(Container)`
   position: relative;
@@ -70,5 +70,23 @@ export const StyledPricingPlansDisclaimerWrapper = styled.div`
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     gap: 24px;
+  }
+`;
+
+// Define the keyframe animation
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+// Define a styled component for the loader icon
+export const StyledLoadingSpinner = styled.span`
+  display: inline-flex;
+  & svg {
+    animation: ${rotate} 5s linear infinite; /* Adjust the animation duration and timing function as needed */
   }
 `;

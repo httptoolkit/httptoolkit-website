@@ -5,15 +5,8 @@ import { useState, type KeyboardEvent } from 'react';
 import { StyledWrapper, StyledOption, StyledOptionsWrapper } from './switch.styles';
 import type { SwitchProps } from './switch.types';
 
-import { useMounted } from '@/lib/hooks/use-mounted';
-
 export const Switch = ({ options, defaultValue, onChange }: SwitchProps) => {
-  const { isMounted } = useMounted();
   const [activeOption, setActiveOption] = useState(defaultValue || options[0].id);
-
-  if (!isMounted) {
-    return null;
-  }
 
   const changeOption = () => {
     const newActiveOptionId = options.find(option => option.id !== activeOption)?.id || options[0].id;
