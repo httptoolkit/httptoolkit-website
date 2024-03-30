@@ -4,10 +4,10 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledFooter = styled.footer`
-  padding-top: 64px;
+  margin-top: 64px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    padding-top: 96px;
+    margin-top: 96px;
   }
 `;
 
