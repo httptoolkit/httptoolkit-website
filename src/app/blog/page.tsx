@@ -15,6 +15,21 @@ export default async function Blog() {
       <Container>
         <OverviewBlogContent />
       </Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            publisher: {
+              '@type': 'Organization',
+              name: 'HTTP Toolkit',
+              url: 'https://httptoolkit.com/blog/',
+              logo: 'https://httptoolkit.com/logo-square.png',
+            },
+          }),
+        }}
+      ></script>
     </>
   );
 }
