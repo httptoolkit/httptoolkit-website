@@ -46,7 +46,7 @@ export const StyledColumn = styled.div`
     }
 
     & *:first-child > svg {
-      width: fit-content;
+      width: 170px;
       height: 26px;
     }
   }

@@ -39,7 +39,9 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
       <StyledContainer>
         <StyledColumn>
           <Stack>
-            <LogoFooter />
+            <Link href="/" aria-label="Http Toolkit homepage">
+              <LogoFooter />
+            </Link>
             <Text fontSize="m">
               There&apos;s a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client
               tools, gRPC & GraphQL support, and request diffing.

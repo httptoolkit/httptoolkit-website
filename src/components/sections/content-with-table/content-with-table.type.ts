@@ -14,4 +14,5 @@ export interface ContentWithTableProps extends StyledContentWithTableProps {
 
   // Content that is already parsed by remoteMdx
   parsedContent?: ReactElement<any, string | JSXElementConstructor<any>>;
+  additionalContent?: React.ReactNode;
 }

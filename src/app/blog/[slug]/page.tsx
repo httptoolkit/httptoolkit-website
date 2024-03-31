@@ -1,5 +1,7 @@
 import type { Metadata } from 'next/types';
 
+import { SocialPostShare } from './post-share';
+
 import { Container } from '@/components/elements/container';
 import { Logo } from '@/components/elements/icon';
 import { RelatedPosts } from '@/components/sections/blog/related-posts';
@@ -56,7 +58,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <SinglePostHero post={post} />
       </Container>
 
-      <ContentWithTable $bgVariant="darkGrey" links={[postNavigation]} parsedContent={post.content} />
+      <ContentWithTable
+        $bgVariant="darkGrey"
+        links={[postNavigation]}
+        parsedContent={post.content}
+        additionalContent={
+          <SocialPostShare postTitle={post.title} postUrl={post.slug} socialLinks={post.socialLinks} />
+        }
+      />
 
       <Container>
         <CTA
