@@ -31,8 +31,8 @@ export default function PythonIntegrationPage() {
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
         subtitle="what is http toolkit?"
         image={{
-          darkSrc: '/images/mockup-image.webp',
-          lightSrc: '/images/mockup-image-light.webp',
+          darkSrc: '/images/hero-placeholder-dark.webp',
+          lightSrc: '/images/hero-placeholder-light.webp',
           alt: 'Mockup image',
         }}
       />
