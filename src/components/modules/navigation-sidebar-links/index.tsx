@@ -25,6 +25,10 @@ export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksP
         {title}
       </StyledNavigationSidebarLinksTitle>
       <StyledNavigationSidebarLinksContentWrapper>
+        <StyledNavigationSidebarLinksContentTitle fontSize="m" color="white">
+          <ItemTitleComponent key="#intro" href="#intro" text="Introduction" />
+        </StyledNavigationSidebarLinksContentTitle>
+
         {Array.isArray(links) &&
           links?.length > 0 &&
           links.map((link, index) => (

@@ -6,6 +6,7 @@ import { styled } from '@/styles';
 export const StyledDocumentationGlobalWrapper = styled.section`
   position: relative;
   box-shadow: 0 1px 0 0 ${({ theme }) => theme.colors.button.border};
+  overflow: clip;
 `;
 
 export const StyledDocumentationLayoutWrapper = styled.div`
