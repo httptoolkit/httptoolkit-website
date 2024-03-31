@@ -53,6 +53,11 @@ import {
   PythonLogo,
   AppleLogo,
   LinuxLogo,
+  NodeLogo,
+  DenoLogo,
+  BunLogo,
+  FirefoxLogo,
+  ChromeLogo,
 } from './custom';
 
 export {
@@ -107,4 +112,9 @@ export {
   ListBullets,
   Spinner,
   PencilSimple,
+  NodeLogo,
+  DenoLogo,
+  BunLogo,
+  FirefoxLogo,
+  ChromeLogo,
 };
