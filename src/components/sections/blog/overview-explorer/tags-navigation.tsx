@@ -8,7 +8,6 @@ const FEATURED_TAGS_COUNT = 5;
 
 export const TagsNavigation = async () => {
   const tags = await getAllCategoryTags();
-  // TODO: replace with choosen featured categories later
   const featuredTags = tags.slice(0, FEATURED_TAGS_COUNT);
   const ramainingTags = tags.slice(FEATURED_TAGS_COUNT, tags.length);
 
