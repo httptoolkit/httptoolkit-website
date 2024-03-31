@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
 import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { Testimonials } from '@/components/common-sections/testimonials';
-import { SquareJSLogo } from '@/components/elements/icon';
+import { NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
@@ -24,8 +24,9 @@ export default function JavascriptIntegrationPage() {
       <IntegrationSinglePageHero
         title="Http Toolkit and Javascript integrated"
         text="Intercept & view all Javascript HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
-        icon={SquareJSLogo}
+        adittionalIcons={[NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo]}
         breadcrumbText="javascript"
+        isMultipleIcons
       />
       <IntegrationTextImage
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."

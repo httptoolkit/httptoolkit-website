@@ -63,6 +63,30 @@ export const StyledIntegrationHeroImageWrapper = styled.div`
   background-repeat: no-repeat, no-repeat, repeat;
 `;
 
+export const StyledIntegrationHeroImageMultiple = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 37px;
+  align-items: center;
+  padding: 80px 0;
+
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    padding: 0;
+  }
+
+  & svg:first-child {
+    color: ${({ theme }) => theme.colors.cinnarbarRed};
+  }
+`;
+
+export const MainLogo = styled.div`
+  & svg {
+    width: 109px;
+    color: ${({ theme }) => theme.colors.cinnarbarRed};
+  }
+`;
+
 export const StyledIntegrationHeroImage = styled.div`
   display: flex;
   gap: 24px;

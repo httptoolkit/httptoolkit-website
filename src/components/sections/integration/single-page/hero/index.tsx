@@ -2,6 +2,7 @@ import {
   StyledIntegrationHeroContent,
   StyledIntegrationHeroContentWrapper,
   StyledIntegrationHeroImage,
+  StyledIntegrationHeroImageMultiple,
   StyledIntegrationHeroImageWrapper,
   StyledIntegrationHeroWrapper,
 } from './hero.styles';
@@ -10,6 +11,7 @@ import type { IntegrationSinglePageHeroProps } from './hero.types';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Logo, X } from '@/components/elements/icon';
+import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { Breadcrumbs } from '@/components/modules/breadcrumbs';
 import { DownloadButton } from '@/components/modules/download-button';
@@ -29,6 +31,7 @@ export const IntegrationSinglePageHero = ({
   title,
   text,
   icon: Icon,
+  adittionalIcons,
   breadcrumbText,
 }: IntegrationSinglePageHeroProps) => {
   return (
@@ -46,12 +49,22 @@ export const IntegrationSinglePageHero = ({
             <DownloadButton $variant="primary" />
           </StyledIntegrationHeroContent>
         </StyledIntegrationHeroContentWrapper>
+
         <StyledIntegrationHeroImageWrapper>
-          <StyledIntegrationHeroImage>
-            <Icon />
-            <X />
-            <Logo />
-          </StyledIntegrationHeroImage>
+          {Icon ? (
+            <StyledIntegrationHeroImage>
+              <Icon />
+              <X />
+              <Logo />
+            </StyledIntegrationHeroImage>
+          ) : (
+            <StyledIntegrationHeroImageMultiple>
+              <Logo width={109} />
+              <Stack $direction="row" $gapxl="32px">
+                {adittionalIcons?.map((Icon, idx) => <Icon key={idx} height={64} />)}
+              </Stack>
+            </StyledIntegrationHeroImageMultiple>
+          )}
         </StyledIntegrationHeroImageWrapper>
       </StyledIntegrationHeroWrapper>
     </Container>
