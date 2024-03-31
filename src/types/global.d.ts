@@ -20,6 +20,7 @@ interface PostFrontmatter {
   twitterUrl?: string;
   redditUrl?: string;
   hackerNewsUrl?: string;
+  productHuntUrl?: string;
   devToUrl?: string;
   author?: string;
   authorUrl?: string;
@@ -43,6 +44,7 @@ interface Post {
     redditUrl?: string;
     hackerNewsUrl?: string;
     devToUrl?: string;
+    productHuntUrl?: string;
   };
 }
 

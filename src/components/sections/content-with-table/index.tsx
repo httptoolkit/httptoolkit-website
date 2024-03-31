@@ -17,6 +17,7 @@ export const ContentWithTable = ({
   richTextContent: RichTextContent,
   links,
   parsedContent,
+  additionalContent,
   $bgVariant = 'inkBlack',
 }: ContentWithTableProps) => {
   return (
@@ -36,7 +37,8 @@ export const ContentWithTable = ({
             {RichTextContent && <RichText content={RichTextContent} />}
 
             {/* Content that is already parsed from remoteMDX */}
-            {parsedContent && parsedContent}
+            {parsedContent}
+            {additionalContent}
           </StyledContentRichText>
         </StyledContentWithTableContentWrapper>
       </Container>

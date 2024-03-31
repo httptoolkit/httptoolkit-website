@@ -71,6 +71,7 @@ export const StyledSinglePostImageWrapper = styled.div`
 
     @media (min-width: ${screens['lg']}) {
       max-height: fit-content;
+      min-height: 100%;
     }
   }
 

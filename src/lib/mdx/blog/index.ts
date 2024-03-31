@@ -37,6 +37,13 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
       name: frontmatter.author ?? 'Tim Perry',
       url: frontmatter.authorUrl ?? 'https://tim.fyi/',
     },
+    socialLinks: {
+      twitterUrl: frontmatter.twitterUrl,
+      devToUrl: frontmatter.devToUrl,
+      redditUrl: frontmatter.redditUrl,
+      hackerNewsUrl: frontmatter.hackerNewsUrl,
+      productHuntUrl: frontmatter.productHuntUrl,
+    },
     content,
   };
 
@@ -79,14 +86,16 @@ export const getRelatedPosts = async ({ tags, currentPostSlug }: { tags: string[
 export const getAllCategoryTags = async () => {
   const allPosts = await getAllPostsMeta();
 
-  const tags: string[] = [];
+  const tagCounts: { [key: string]: number } = {};
 
-  allPosts.map(post => {
-    const formattedTags = post.tags.map(tag => tag.toLowerCase().trim());
-    tags.push(...formattedTags);
+  allPosts.forEach(post => {
+    post.tags.forEach((tag: string) => {
+      const formattedTag = tag.toLowerCase().trim();
+      tagCounts[formattedTag] = (tagCounts[formattedTag] || 0) + 1;
+    });
   });
 
-  const allCategoryTagsOrdered = [...new Set(tags)].sort((a, b) => a.localeCompare(b));
+  const allCategoryTagsOrdered = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]);
 
   return allCategoryTagsOrdered;
 };
