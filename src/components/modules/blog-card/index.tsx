@@ -42,6 +42,7 @@ export const BlogCard = ({ title, excerpt, image, date, tag, slug }: BlogCardPro
           <Button
             as="link"
             href={`/blog/${slug}`}
+            title={`Read more about ${title}`}
             aria-label={`Read more about ${title}`}
             $variant="secondary"
             $small
