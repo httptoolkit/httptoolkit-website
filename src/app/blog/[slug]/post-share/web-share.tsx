@@ -5,7 +5,6 @@ import type { SocialShareProps } from './post-share.types';
 
 import { ShareNetwork } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
-import { siteMetadata } from '@/lib/site-metadata';
 import { isSSR } from '@/lib/utils';
 
 export const WebShare = ({ postTitle, postUrl }: SocialShareProps) => {
@@ -20,7 +19,7 @@ export const WebShare = ({ postTitle, postUrl }: SocialShareProps) => {
       onClick={() => {
         navigator.share({
           text: postTitle,
-          url: `${siteMetadata.siteUrl}/${postUrl}`,
+          url: postUrl,
         });
       }}
     >
