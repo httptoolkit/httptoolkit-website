@@ -6,7 +6,7 @@ import { css, styled } from '@/styles';
 
 export const StyledContentWithTableWrapper = styled.section<StyledContentWithTableProps>`
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background-color: ${({ theme, $bgVariant }) => $bgVariant && theme.colors[$bgVariant]};
 `;
 
@@ -56,9 +56,15 @@ export const StyledContentWithTableContentWrapper = styled.div`
 `;
 
 export const StyledContentWithTableTableWrapper = styled.aside`
+  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    position: sticky;
+    top: 10px;
+  }
+
   @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
     display: flex;
     justify-content: center;
+    align-self: flex-start;
 
     & > div {
       max-width: 296px;

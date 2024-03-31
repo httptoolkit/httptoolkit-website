@@ -18,7 +18,7 @@ export const MobileDrawerMenu = ({ children }: Component) => {
 
   useEffect(() => {
     if (!isSSR && window.document) {
-      const overflow = isOpen ? 'hidden' : 'auto';
+      const overflow = isOpen ? 'hidden' : 'initial';
       document.body.style.overflow = overflow;
       document.documentElement.style.overflow = overflow;
     }
