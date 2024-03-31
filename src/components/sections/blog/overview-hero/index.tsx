@@ -1,4 +1,5 @@
 import {
+  StyledExcerpt,
   StyledFeaturePost,
   StyledHeadingWrapper,
   StyledPostDetails,
@@ -25,12 +26,15 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
         <Heading fontSize="l" color="textGradient">
           The HTTP Toolkit Blog
         </Heading>
-        {/* TODO(gerald): generate excerpt from body content */}
         <Text fontSize="l">News, updates and advice on how to use your online HTTP Toolkit.</Text>
       </StyledHeadingWrapper>
 
       {featuredPost && (
-        <Link aria-label={`Go to ${featuredPost.title}`} href={`/blog/${featuredPost.slug}`}>
+        <Link
+          aria-label={`Go to ${featuredPost.title}`}
+          title={`Go to ${featuredPost.title}`}
+          href={`/blog/${featuredPost.slug}`}
+        >
           <StyledFeaturePost>
             <StyledPostImageWrapper>
               <Image
@@ -49,10 +53,9 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
                 <Heading fontSize="m" as="h2" fontWeight="normal" color="white">
                   {featuredPost.title}
                 </Heading>
-                <Text fontSize="l" color="darkGrey">
-                  Theres been a lot of concern recently about the Web Environment Integrity proposal, developed by a
-                  selection of authors from Google, and apparently being prototyped in Chromium.
-                </Text>
+                <StyledExcerpt fontSize="l" color="darkGrey">
+                  {featuredPost.excerpt}
+                </StyledExcerpt>
               </Stack>
               <Text as="span" fontSize="m" color="darkGrey">
                 {formatteDate}
