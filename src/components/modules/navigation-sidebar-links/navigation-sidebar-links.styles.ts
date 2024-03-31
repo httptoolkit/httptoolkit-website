@@ -10,6 +10,10 @@ export const StyledNavigationSidebarLinksWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
   padding: 8px 0;
+
+  position: sticky;
+  top: 10px;
+  align-self: self-start;
 `;
 
 export const StyledNavigationSidebarLinksTitle = styled(Heading)``;
