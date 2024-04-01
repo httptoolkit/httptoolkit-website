@@ -58,7 +58,7 @@ Public CDNs also create privacy risks. While online privacy was a niche topic wh
 This can be problematic for public CDN usage because loading resources from a 3rd party leaks information: that the user is loading that 3rd party resource whilst on your site. Specifically, your site's domain (and historically full URL, though generally not nowadays) is sent in the [Referer header](https://developer.mozilla.org/en-US/docs/Web/Security/Referer_header:_privacy_and_security_concerns) with all subresource requests, like so:
 
 <figure>
-  <img src="./subresource-referer.png" alt="A subresource request, with a Referer header referencing the main site" />
+  <img src="/images/posts/subresource-referer.png" alt="A subresource request, with a Referer header referencing the main site" />
   <figcaption>A CDN subresource, as intercepted from Chrome v91 with <a href="https://httptoolkit.com">HTTP Toolkit</a>, leaking the referring site domain in its Referer header</figcaption>
 </figure>
 

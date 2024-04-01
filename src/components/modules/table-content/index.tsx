@@ -62,8 +62,13 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
 
   const content =
     Array.isArray(links) &&
-    links.map(link => (
-      <AccordionItem key={link.href} link={link} isCollapsible={Boolean(isCollapsible)} currentPath={currentPath} />
+    links.map((link, idx) => (
+      <AccordionItem
+        key={`${link.href}-${idx}`}
+        link={link}
+        isCollapsible={Boolean(isCollapsible)}
+        currentPath={currentPath}
+      />
     ));
 
   if (!isCollapsible) return <StyledTableContentWrapper>{content}</StyledTableContentWrapper>;
