@@ -1,8 +1,12 @@
+import dynamic from 'next/dynamic';
+
 import { SocialShareContainer, SocialButton } from './social-share.styles';
 import type { SocialShareProps } from './social-share.types';
 
 import { TwitterX, FacebookLogo } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
+
+const WebShare = dynamic(() => import('./web-share'), { ssr: false });
 
 export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialShareProps) => {
   return (
@@ -25,6 +29,7 @@ export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialSharePro
       >
         <SquareIcon $size="mini" icon={FacebookLogo} />
       </SocialButton>
+      <WebShare title="HTTP Toolkit " url={url} />
     </SocialShareContainer>
   );
 };

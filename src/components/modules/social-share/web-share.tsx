@@ -1,13 +1,20 @@
 'use client';
 
-import { SocialButton } from './post-share.styles';
-import type { SocialShareProps } from './post-share.types';
+import { SocialButton } from './social-share.styles';
+import type { WebShareProps } from './social-share.types';
 
 import { ShareNetwork } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
+import { useMounted } from '@/lib/hooks/use-mounted';
 import { isSSR } from '@/lib/utils';
 
-export const WebShare = ({ postTitle, postUrl }: SocialShareProps) => {
+const WebShare = ({ title, url }: WebShareProps) => {
+  const isMounted = useMounted();
+
+  if (!isMounted) {
+    return null;
+  }
+
   if (isSSR || !navigator || !navigator.share) {
     return null;
   }
@@ -18,8 +25,8 @@ export const WebShare = ({ postTitle, postUrl }: SocialShareProps) => {
       aria-label="Share this post"
       onClick={() => {
         navigator.share({
-          text: postTitle,
-          url: postUrl,
+          text: title,
+          url: url,
         });
       }}
     >
@@ -27,3 +34,5 @@ export const WebShare = ({ postTitle, postUrl }: SocialShareProps) => {
     </SocialButton>
   );
 };
+
+export default WebShare;

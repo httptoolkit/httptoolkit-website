@@ -3,12 +3,15 @@
 import kebabCase from 'lodash/kebabCase';
 
 import { TableContentTriggerComponent } from './table-content-trigger';
+import useActiveToc from '../hooks/use-active-toc';
 import { StyledTableContentItemLink, StyledTableContentSubitem } from '../table-content.styles';
 import type { TableContentFixedProps, TableContentSubitem } from '../table-content.types';
 
 import { Text } from '@/components/elements/text';
 
 export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFixedProps) => {
+  useActiveToc();
+
   const renderSubItems = (subItems: TableContentSubitem[]) => {
     return subItems.map(item => {
       const withSubItems = item.subItems && item.subItems?.length > 0;
@@ -40,18 +43,14 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
   };
 
   return (
-    <>
+    <div id="table-of-content-headings">
       {link.text && (
         <StyledTableContentItemLink>
-          <TableContentTriggerComponent
-            text={link.text}
-            href={link.href ?? '#intro'}
-            data-to-scrollspy-id={link.href ?? '#intro'}
-          />
+          <TableContentTriggerComponent text={link.text} href={link.href ?? '#intro'} />
         </StyledTableContentItemLink>
       )}
 
       {hasSubItems && link.subItems?.length && renderSubItems(link.subItems)}
-    </>
+    </div>
   );
 };
