@@ -10,6 +10,7 @@ import {
   StyledTableContentItemTrigger,
   StyledTableContentSubitem,
   StyledTableContentWrapper,
+  TableOfContentFixedWrapper,
 } from './table-content.styles';
 import type { TableContentProps } from './table-content.types';
 
@@ -30,12 +31,9 @@ const AccordionItem = ({
 
   if (!isCollapsible)
     return (
-      <TableContentAccordionFixed
-        id="table-of-content-headings"
-        key={link.text}
-        link={link}
-        hasSubItems={hasSubItems}
-      />
+      <TableOfContentFixedWrapper id="table-of-content-headings">
+        <TableContentAccordionFixed key={link.text} link={link} hasSubItems={hasSubItems} />
+      </TableOfContentFixedWrapper>
     );
 
   return (

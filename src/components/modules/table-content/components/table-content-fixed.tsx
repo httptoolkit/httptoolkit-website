@@ -43,7 +43,7 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
   };
 
   return (
-    <div id="table-of-content-headings">
+    <>
       {link.text && (
         <StyledTableContentItemLink>
           <TableContentTriggerComponent text={link.text} href={link.href ?? '#intro'} />
@@ -51,6 +51,6 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
       )}
 
       {hasSubItems && link.subItems?.length && renderSubItems(link.subItems)}
-    </div>
+    </>
   );
 };

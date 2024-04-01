@@ -139,3 +139,9 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
     color: ${({ theme }) => theme.colors.electricLightBlue};
   }
 `;
+
+export const TableOfContentFixedWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;

@@ -17,8 +17,8 @@ export async function getTitlesBySlug(filePath: string, slug: string, prefixHref
   };
 }
 
-export async function getBlogTitlesBySlug(filePath: string): Promise<TableContentItem> {
-  const links = await getHeadingLinks(filePath);
+export async function getBlogTitlesBySlug(slug: string): Promise<TableContentItem> {
+  const links = await getHeadingLinks(`/src/content/posts/${slug}.mdx`);
   const subItems = links.map(link => ({
     text: link.text,
     href: link.href as string,
