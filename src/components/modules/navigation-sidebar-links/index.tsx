@@ -1,3 +1,5 @@
+'use client';
+
 import {
   StyledNavigationSidebarLinksContentItem,
   StyledNavigationSidebarLinksContentLink,
@@ -7,6 +9,7 @@ import {
   StyledNavigationSidebarLinksWrapper,
 } from './navigation-sidebar-links.styles';
 import type { NavigationSidebarLinkItem, NavigationSidebarLinksProps } from './navigation-sidebar-links.types';
+import useActiveToc from '../table-content/hooks/use-active-toc';
 
 import { Link } from '@/components/elements/link';
 
@@ -19,8 +22,9 @@ const ItemTitleComponent = ({ text, href }: NavigationSidebarLinkItem) => {
 };
 
 export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksProps) => {
+  useActiveToc();
   return (
-    <StyledNavigationSidebarLinksWrapper>
+    <StyledNavigationSidebarLinksWrapper id="table-of-content-headings">
       <StyledNavigationSidebarLinksTitle forwardedAs="p" fontSize="xs" fontWeight="medium" color="white">
         {title}
       </StyledNavigationSidebarLinksTitle>

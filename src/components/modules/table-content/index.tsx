@@ -28,7 +28,15 @@ const AccordionItem = ({
   const hasSubItems = Boolean(Array.isArray(link.subItems) && link.subItems?.length);
   const showCaret = isCollapsible && hasSubItems;
 
-  if (!isCollapsible) return <TableContentAccordionFixed key={link.text} link={link} hasSubItems={hasSubItems} />;
+  if (!isCollapsible)
+    return (
+      <TableContentAccordionFixed
+        id="table-of-content-headings"
+        key={link.text}
+        link={link}
+        hasSubItems={hasSubItems}
+      />
+    );
 
   return (
     <Accordion.Item value={link.text} key={link.text}>
@@ -53,6 +61,7 @@ const AccordionItem = ({
 
 export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   const currentPath = usePathname();
+
   const content =
     Array.isArray(links) &&
     links.map(link => (

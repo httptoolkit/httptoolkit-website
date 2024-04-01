@@ -20,6 +20,7 @@ export interface TableContentProps {
 }
 
 export interface TableContentFixedProps {
+  id?: string;
   link: TableContentProps['links'][0];
   hasSubItems: boolean;
 }
