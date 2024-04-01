@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Masonry } from 'react-plock';
 
 import {
@@ -65,9 +65,8 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
         render={(post, idx) => {
           const shouldRenderNewsletterBox = idx === 2 && isMobile;
           return (
-            <>
+            <React.Fragment key={post.slug}>
               <BlogCard
-                key={post.slug}
                 title={post.title}
                 slug={post.slug}
                 image={{ src: `/images/${post.coverImage}`, alt: post.title }}
@@ -76,7 +75,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
                 excerpt={post.excerpt}
               />
               {shouldRenderNewsletterBox ? <NewsletterBox /> : null}
-            </>
+            </React.Fragment>
           );
         }}
       />

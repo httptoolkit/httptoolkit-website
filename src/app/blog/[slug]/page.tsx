@@ -50,7 +50,7 @@ export async function generateStaticParams() {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
-  const postNavigation = await getBlogTitlesBySlug(`/src/content/posts/${slug}.mdx`);
+  const postNavigation = await getBlogTitlesBySlug(slug);
 
   return (
     <>
