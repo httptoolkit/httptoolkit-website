@@ -17,6 +17,7 @@ import { ArrowRight } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { BlogCard } from '@/components/modules/blog-card';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
+import { isSSR } from '@/lib/utils';
 
 const POST_ITEMS_PER_PAGE = 6;
 
@@ -28,8 +29,14 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
 
   const filteredPosts = useMemo(() => {
     if (currentTag) {
+      const tagId = !isSSR && window?.document?.querySelector(`#tag-heading`);
+      if (tagId) {
+        tagId.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }
+
       return posts.filter(post => post.tags.includes(currentTag));
     }
+
     return posts;
   }, [currentTag, posts]);
 
@@ -54,7 +61,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
 
   return (
     <>
-      <StyledHeadingTag>{currentTag ? currentTag : 'All posts'}</StyledHeadingTag>
+      <StyledHeadingTag id="tag-heading">{currentTag ? currentTag : 'All posts'}</StyledHeadingTag>
       <Masonry
         items={filteredPosts.slice(0, visibleItems)}
         config={{

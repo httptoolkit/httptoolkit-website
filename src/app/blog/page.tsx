@@ -1,8 +1,20 @@
+import type { Metadata } from 'next';
+
 import { Container } from '@/components/elements/container';
 import { OverviewBlogContent } from '@/components/sections/blog/overview-content';
 import { OverviewExplorer } from '@/components/sections/blog/overview-explorer';
 import { OverviewHero } from '@/components/sections/blog/overview-hero';
 import { getAllPostsMeta } from '@/lib/mdx/blog';
+import { siteMetadata } from '@/lib/site-metadata';
+import { buildMetadata } from '@/lib/utils/build-metadata';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'The HTTP Toolkit Blog',
+  description: 'News, updates and advice on how to use your online HTTP Toolkit.',
+  alternates: {
+    canonical: `${siteMetadata.blogUrl}`,
+  },
+});
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
