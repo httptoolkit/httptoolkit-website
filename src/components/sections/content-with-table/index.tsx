@@ -34,6 +34,7 @@ export const ContentWithTable = ({
             <TableContent isCollapsible={false} links={links} />
           </StyledContentWithTableTableWrapper>
           <StyledContentRichText>
+            <div id="intro" />
             {RichTextContent && <RichText content={RichTextContent} />}
 
             {/* Content that is already parsed from remoteMDX */}

@@ -24,12 +24,12 @@ function useActiveToc() {
     const headingObserver = new IntersectionObserver(setCurrent, observerOptions);
 
     document
-      .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), h1#intro')
+      .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), div#intro')
       .forEach(heading => headingObserver.observe(heading));
 
     return () => {
       document
-        .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), h1#intro')
+        .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), div#intro')
         .forEach(heading => headingObserver.unobserve(heading));
     };
   }, []);
