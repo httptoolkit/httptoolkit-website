@@ -19,6 +19,7 @@ export const ContentWithTable = ({
   parsedContent,
   additionalContent,
   $bgVariant = 'inkBlack',
+  withIntroHeading = true,
 }: ContentWithTableProps) => {
   return (
     <StyledContentWithTableWrapper $bgVariant={$bgVariant}>
@@ -34,7 +35,7 @@ export const ContentWithTable = ({
             <TableContent isCollapsible={false} links={links} />
           </StyledContentWithTableTableWrapper>
           <StyledContentRichText>
-            <h2 title="introduction" id="intro" />
+            {withIntroHeading && <h2 title="introduction" id="intro" />}
             {RichTextContent && <RichText content={RichTextContent} />}
 
             {/* Content that is already parsed from remoteMDX */}
