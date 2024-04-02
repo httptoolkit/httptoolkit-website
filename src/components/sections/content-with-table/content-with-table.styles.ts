@@ -79,4 +79,10 @@ export const StyledContentRichText = styled.article`
   & h2:first-child {
     margin-top: 0;
   }
+
+  & iframe.video-embed {
+    width: 100%;
+    min-height: 400px;
+    margin: 10px 0;
+  }
 `;
