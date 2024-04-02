@@ -21,6 +21,8 @@ const WebShare = ({ title, url }: WebShareProps) => {
 
   return (
     <SocialButton
+      href="#"
+      target="_self"
       title="Share this post"
       aria-label="Share this post"
       onClick={() => {

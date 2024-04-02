@@ -14,6 +14,7 @@ export const StyledSuccessWrapper = styled.div`
   margin: 32px auto;
 
   & a {
+    text-decoration: underline;
     max-width: fit-content;
   }
 
