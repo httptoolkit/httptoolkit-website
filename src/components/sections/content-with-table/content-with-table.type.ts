@@ -11,7 +11,6 @@ export interface StyledContentWithTableProps {
 export interface ContentWithTableProps extends StyledContentWithTableProps {
   links: TableContentProps['links'];
   richTextContent?: RichTextProps['content'];
-  withIntroHeading?: boolean;
 
   // Content that is already parsed by remoteMdx
   parsedContent?: ReactElement<any, string | JSXElementConstructor<any>>;
