@@ -42,7 +42,7 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
         <GoBack $displayOn="desktop" />
         <Stack $gap="16px">
           <StyledTags>{post.tags.length && post.tags.map((tag: string) => <Badge>{tag}</Badge>)}</StyledTags>
-          <Heading fontSize="l" fontWeight="normal" color="white">
+          <Heading fontSize="l" fontWeight="normal" color="white" id="intro">
             {post.title}
           </Heading>
         </Stack>
