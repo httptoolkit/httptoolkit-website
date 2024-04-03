@@ -30,20 +30,20 @@ export const usePlanCta = () => {
       if (paidCycle === planCycle) {
         return (
           <StyledPricingCardCTAWrapper>
+            <DownloadButton />
             <Text fontSize="s" color="lightGrey">
               Download now and log in to access your {upperFirst(tierCode)} subscription
             </Text>
-            <DownloadButton />
           </StyledPricingCardCTAWrapper>
         );
       }
 
       return (
         <StyledPricingCardCTAWrapper>
+          <Button href="/contact/">Change to {planCycle}</Button>
           <Text fontSize="s" color="lightGrey">
             You already have this {paidCycle} plan.
           </Text>
-          <Button href="/contact/">Change to {planCycle}</Button>
         </StyledPricingCardCTAWrapper>
       );
     }
