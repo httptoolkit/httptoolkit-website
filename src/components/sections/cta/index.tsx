@@ -48,11 +48,14 @@ export const CTA = ({
           <Heading color="textGradient" as={asTitle} fontSize={HeadingSize}>
             {heading}
           </Heading>
-          {excerpt && (
-            <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
-              {excerpt}
-            </StyledExcerpt>
-          )}
+          {excerpt &&
+            (typeof excerpt === 'string' ? (
+              <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
+                {excerpt}
+              </StyledExcerpt>
+            ) : (
+              <>{excerpt}</>
+            ))}
         </Stack>
         {(withDownload || cta) && (
           <StyledCTAWrapper $isLargeText={isLargeText}>
@@ -61,7 +64,13 @@ export const CTA = ({
             ) : null}
 
             {cta && (
-              <Button as="link" $variant={cta.$variant || 'secondary'} href={cta.href} icon={cta.icon}>
+              <Button
+                as={cta.as}
+                $variant={cta.$variant || 'secondary'}
+                href={cta.href}
+                icon={cta.icon}
+                $withBorder={cta.$withBorder}
+              >
                 {cta.title}
               </Button>
             )}

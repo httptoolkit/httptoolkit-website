@@ -171,21 +171,12 @@ export const StyledContainer = styled(Container)`
   }
 
   & ${StyledText} {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     margin: 0 auto;
   }
 
   & ${StyledStack} {
     align-items: center;
   }
-`;
-
-export const STyledSubHeading = styled(Text)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
 `;
 
 export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
