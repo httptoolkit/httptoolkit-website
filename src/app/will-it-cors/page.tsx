@@ -4,7 +4,7 @@ import { CTA } from '@/components/sections/cta';
 
 export default function WillItCorsPage() {
   return (
-    <LandingLayout>
+    <LandingLayout isNavigationEnabled={false}>
       <CTA
         variant="pricing-hero"
         textAppearance="small"
