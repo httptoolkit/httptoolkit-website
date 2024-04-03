@@ -31,7 +31,7 @@ export const Dropdown = ({
 }: Component<DropdownProps>) => {
   return (
     <DropdownWrapper $variant={$variant}>
-      <Button icon={icon} iconWeight={iconWeight} $variant={$variant} $isDropdown {...buttonProps}>
+      <Button data-dropdown="true" icon={icon} iconWeight={iconWeight} $variant={$variant} $isDropdown {...buttonProps}>
         {children}
       </Button>
       <DropdownOptionsWrapper $direction={$direction} role="menu">
