@@ -30,6 +30,7 @@ export const StyledColumnContent = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     max-width: 586px;
+    min-width: 586px;
   }
 `;
 

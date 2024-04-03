@@ -2,7 +2,7 @@ import type { ButtonProps } from '@/components/elements/button/button.types';
 import type { IconType } from '@/components/elements/square-icon/square-icon.types';
 import type { ThemeImageProps } from '@/components/elements/themed-image';
 
-export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant'> & {
+export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant' | 'as'> & {
   title: string;
 };
 
@@ -23,7 +23,7 @@ export interface CTAProps extends Component {
     text: string;
     icon?: IconType;
   };
-  excerpt?: string;
+  excerpt?: React.ReactNode;
   withDownload?: boolean;
   cta?: CTA;
   icon?: IconType;
