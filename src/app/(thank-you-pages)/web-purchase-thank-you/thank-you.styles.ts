@@ -31,6 +31,8 @@ export const StyledThankYouColumnContent = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     max-width: 586px;
+    width: 100%;
+    flex-shrink: 0;
   }
 `;
 
