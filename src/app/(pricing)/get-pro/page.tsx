@@ -7,7 +7,7 @@ export default function PricingPage() {
   return (
     <>
       <CTA
-        variant="pricing-hero"
+        variant="cta-narrow"
         heading="Developer tools built for professionals"
         subHeading={{
           text: 'pricing',
