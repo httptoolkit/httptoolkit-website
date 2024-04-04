@@ -65,8 +65,10 @@ export const StyledDocumentationLayoutSideWrapper = styled.aside`
 `;
 
 export const StyledDocumentationLayoutMobileHeading = styled(Heading)`
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    display: none;
+  &&& {
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      display: none;
+    }
   }
 `;
 

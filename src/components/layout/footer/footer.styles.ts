@@ -16,19 +16,21 @@ export const StyledSimpleFooter = styled.footer`
 `;
 
 export const StyledContainer = styled(Container)`
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 24px;
+  &&& {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 24px;
 
-  @media (min-width: ${screens.md}) {
-    flex-direction: row;
-    gap: 40px;
-  }
+    @media (min-width: ${screens.md}) {
+      flex-direction: row;
+      gap: 40px;
+    }
 
-  @media (min-width: ${screens.lg}) {
-    flex-direction: row;
-    gap: 128px;
+    @media (min-width: ${screens.lg}) {
+      flex-direction: row;
+      gap: 128px;
+    }
   }
 `;
 
@@ -170,12 +172,14 @@ export const StyledFooterCopySection = styled.div`
 `;
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
-  gap: 32px;
-  position: relative;
+  &&& {
+    gap: 32px;
+    position: relative;
 
-  & > svg {
-    width: fit-content;
-    height: 26px;
+    & > svg {
+      width: fit-content;
+      height: 26px;
+    }
   }
 `;
 

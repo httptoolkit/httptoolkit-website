@@ -24,13 +24,15 @@ const StyledBreadcrumbLinkActive = css`
 `;
 
 export const StyledBreadcrumbLink = styled(Link)<{ $active: boolean }>`
-  font-size: ${({ theme }) => theme.fontSizes.label.l};
-  line-height: 1.1;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
-  letter-spacing: 0.6px;
-  transition: all 0.1s;
-  text-transform: uppercase;
-  flex-shrink: 0;
+  &&& {
+    font-size: ${({ theme }) => theme.fontSizes.label.l};
+    line-height: 1.1;
+    color: ${({ theme }) => theme.colors.text.darkGrey};
+    letter-spacing: 0.6px;
+    transition: all 0.1s;
+    text-transform: uppercase;
+    flex-shrink: 0;
 
-  ${({ $active }) => $active && StyledBreadcrumbLinkActive}
+    ${({ $active }) => $active && StyledBreadcrumbLinkActive}
+  }
 `;

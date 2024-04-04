@@ -13,7 +13,6 @@ import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 
 // TODO: need to integrate send email functionality
-
 const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
 
 export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: DownloadButtonProps) => {

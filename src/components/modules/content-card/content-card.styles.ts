@@ -24,10 +24,12 @@ export const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
 `;
 
 export const StyledContentCardTitle = styled(Text)`
-  max-width: 452px;
+  &&& {
+    max-width: 452px;
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    margin: 0 auto;
+    @media (max-width: ${({ theme }) => theme.screens.lg}) {
+      margin: 0 auto;
+    }
   }
 `;
 

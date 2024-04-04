@@ -2,7 +2,6 @@
 
 import type { StyledNewsletterProps } from './newsletter.types';
 
-import { StyledButton } from '@/components/elements/button/button.styles';
 import { css, styled } from '@/styles';
 
 export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
@@ -170,7 +169,8 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
   display: grid;
   gap: 12px;
 
-  & ${StyledButton} {
+  & *[data-button='true'],
+  *[data-badge='true'] {
     flex-shrink: 0;
   }
 
@@ -182,7 +182,7 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
     switch ($variant) {
       case 'blog-short':
         return css`
-          & ${StyledButton} {
+          & *[data-button='true'] {
             width: 100%;
           }
         `;

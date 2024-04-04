@@ -17,14 +17,16 @@ export const StyledLogoWrapper = styled.div`
 `;
 
 export const StyledHeaderContainer = styled(Container)`
-  display: flex;
-  align-items: center;
-  padding-top: 22px;
-  padding-bottom: 22px;
-  gap: 56px;
-  max-height: 70px;
+  &&& {
+    display: flex;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    gap: 56px;
+    max-height: 70px;
 
-  justify-content: space-between;
+    justify-content: space-between;
+  }
 `;
 
 export const StyledNavItems = styled.nav`

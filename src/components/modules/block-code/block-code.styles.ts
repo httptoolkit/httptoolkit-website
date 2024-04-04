@@ -36,16 +36,18 @@ export const StyledBlockCodeContent = styled.div`
 `;
 
 export const StyledInlineCode = styled(Text)`
-  color: ${({ theme }) => theme.colors.lightGrey};
-  background: ${({ theme }) => theme.colors.mediumGrey};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  padding: 0 6px;
-  border-radius: 4px;
-  margin: 0 4px;
-  font-size: 13px;
-  line-height: 19.5px;
-  font-family: var(--font-code) !important;
-  display: inline-flex;
-  line-height: normal;
-  text-wrap: balance;
+  &&& {
+    color: ${({ theme }) => theme.colors.lightGrey};
+    background: ${({ theme }) => theme.colors.mediumGrey};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    padding: 0 6px;
+    border-radius: 4px;
+    margin: 0 4px;
+    font-size: 13px;
+    line-height: 19.5px;
+    font-family: var(--font-code) !important;
+    display: inline-flex;
+    line-height: normal;
+    text-wrap: balance;
+  }
 `;

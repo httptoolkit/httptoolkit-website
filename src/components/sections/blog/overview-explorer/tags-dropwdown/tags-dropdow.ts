@@ -23,48 +23,50 @@ export const StyledButtonTrigger = styled.button`
 `;
 
 export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
-  background: ${({ theme }) => theme.colors.inkBlack};
-  border-radius: 16px;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  max-height: 296px;
-  min-width: 343px;
-  overflow: hidden;
+  &&& {
+    background: ${({ theme }) => theme.colors.inkBlack};
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    max-height: 296px;
+    min-width: 343px;
+    overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-  & .tagItem {
-    border-radius: 8px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background 200ms ease-in;
+    & .tagItem {
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 200ms ease-in;
 
-    &:focus-visible {
-      outline: none;
+      &:focus-visible {
+        outline: none;
+        background: ${({ theme }) => theme.colors.darkGrey};
+      }
+
+      &:hover {
+        background: ${({ theme }) => theme.colors.darkGrey};
+      }
+    }
+    /* width */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
       background: ${({ theme }) => theme.colors.darkGrey};
     }
 
-    &:hover {
-      background: ${({ theme }) => theme.colors.darkGrey};
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      height: 94px;
+      background: ${({ theme }) => theme.colors.lightGrey};
+      border-radius: 40px;
+      border: 2px solid ${({ theme }) => theme.colors.darkGrey};
     }
-  }
-  /* width */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.darkGrey};
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    height: 94px;
-    background: ${({ theme }) => theme.colors.lightGrey};
-    border-radius: 40px;
-    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
   }
 `;
 

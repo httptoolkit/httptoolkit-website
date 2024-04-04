@@ -86,15 +86,19 @@ export const StyledGradientBottom = styled.div`
 `;
 
 export const StyledSectionCTA = styled(CTA)`
-  padding-bottom: 0 !important;
+  &&& {
+    padding-bottom: 0 !important;
 
-  & h1 {
-    margin-bottom: 19px;
+    h1 {
+      margin-bottom: 19px;
+    }
   }
 `;
 
 export const StyledMobileText = styled(Container)`
-  margin-top: 16px;
+  &&& {
+    margin-top: 16px;
+  }
 `;
 
 export const StyledTextContent = styled.div`

@@ -59,9 +59,11 @@ export const StyledIntegrationBentoCardsColumn = styled.div`
 `;
 
 export const StyledIntegrationBentoPhone = styled(Image)`
-  width: 100% !important;
-  position: relative !important;
-  flex-shrink: 0;
+  &&& {
+    width: 100% !important;
+    position: relative !important;
+    flex-shrink: 0;
+  }
 `;
 
 export const StyledIntegrationBentoCTAWrapper = styled.div<{ $mobile?: boolean }>`

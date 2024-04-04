@@ -26,11 +26,15 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledMoon = styled(Moon)<IconProps>`
-  ${iconStyles};
+  &&& {
+    ${iconStyles};
+  }
 `;
 
 export const StyledSun = styled(Sun)<IconProps>`
-  ${iconStyles};
+  &&& {
+    ${iconStyles};
+  }
 `;
 
 export const StyledSwitch = styled.div`
@@ -61,7 +65,7 @@ export const StyledInput = styled.input`
   opacity: 0;
   position: absolute;
 
-  &:checked + ${StyledSwitch} {
+  &:checked + *[data-switch] {
     background: ${({ theme }) => theme.colors.inkBlack};
 
     &:before {
@@ -69,7 +73,7 @@ export const StyledInput = styled.input`
     }
   }
 
-  &:focus-visible + ${StyledSwitch} {
+  &:focus-visible + *[data-switch] {
     border: 1px solid ${({ theme }) => theme.colors.darkGrey};
     box-shadow:
       0px 0px 8px 0px rgba(230, 232, 242, 0.05),

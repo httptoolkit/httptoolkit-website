@@ -1,6 +1,5 @@
 'use client';
 
-import { StyledHeading } from '@/components/elements/heading/heading.styles';
 import { styled } from '@/styles';
 
 export const StyledHeadingPlanWrapper = styled.div`
@@ -11,12 +10,9 @@ export const StyledHeadingPlanWrapper = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 0 16px 32px;
 
-    & > * {
-      width: 100%;
-    }
-
-    & button[data-dropdown='true'],
-    & a[data-dropdown='true'] {
+    & > *,
+    & *[data-dropdown],
+    & *[data-button] {
       width: 100%;
       padding-left: 0;
       padding-right: 0;
@@ -28,7 +24,7 @@ export const StyledHeadingPlanWrapper = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    & ${StyledHeading} {
+    & *[data-heading='true'] {
       text-align: left;
     }
   }

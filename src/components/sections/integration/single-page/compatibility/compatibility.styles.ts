@@ -34,17 +34,19 @@ export const StyledIntegrationCompatibilityGradientWrapper = styled.div`
 `;
 
 export const StyledIntegrationCompatibilityContentWrapper = styled(Container)`
-  display: flex;
-  padding: 32px 16px;
-  flex-direction: column;
-  gap: 32px;
-  position: relative;
+  &&& {
+    display: flex;
+    padding: 32px 16px;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 96px 90px;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 96px 90px;
+    }
   }
 `;
 

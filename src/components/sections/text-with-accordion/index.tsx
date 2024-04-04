@@ -1,5 +1,4 @@
 import {
-  StyledTextWithAccordionAccordion,
   StyledTextWithAccordionContentWrapper,
   StyledTextWithAccordionGradientWrapper,
   StyledTextWithAccordionText,
@@ -11,6 +10,7 @@ import type { TextWithAccordionProps } from './text-with-accordion.types';
 import { Button } from '@/components/elements/button';
 import { Gradient } from '@/components/elements/gradient';
 import { Heading } from '@/components/elements/heading';
+import { Accordion } from '@/components/modules/accordion';
 
 export const TextWithAccordion = ({ title, text, cta, accordionItems }: TextWithAccordionProps) => {
   return (
@@ -28,7 +28,7 @@ export const TextWithAccordion = ({ title, text, cta, accordionItems }: TextWith
           </StyledTextWithAccordionText>
           <Button {...cta} />
         </StyledTextWithAccordionTextWrapper>
-        <StyledTextWithAccordionAccordion items={accordionItems} />
+        <Accordion items={accordionItems} />
       </StyledTextWithAccordionContentWrapper>
     </StyledTextWithAccordionWrapper>
   );

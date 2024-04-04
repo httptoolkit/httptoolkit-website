@@ -5,32 +5,36 @@ import { Drawer } from 'vaul';
 import { styled } from '@/styles';
 
 export const StyledDrawerContent = styled(Drawer.Content)`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  height: 100%;
-  width: 100%;
-  max-height: calc(100vh - 30%);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  padding-bottom: 0;
+  &&& {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    width: 100%;
+    max-height: calc(100vh - 30%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding-bottom: 0;
 
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  background: ${({ theme }) => theme.colors.inkBlack};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    background: ${({ theme }) => theme.colors.inkBlack};
+  }
 `;
 
 export const StyledMobileTrigger = styled(Drawer.Trigger)`
-  background: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  &&& {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: ${({ theme }) => theme.colors.text.darkGrey};
+  }
 `;
 
 export const StyledMobileDrawerHeading = styled.div`

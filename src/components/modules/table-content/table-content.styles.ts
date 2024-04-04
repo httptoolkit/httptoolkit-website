@@ -60,15 +60,17 @@ export const StyledTableContentItemLink = styled.div`
 `;
 
 export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
-  ${TriggerStyles}
+  &&& {
+    ${TriggerStyles}
 
-  &[data-state=open] svg {
-    transform: rotate(180deg);
-  }
+    &[data-state=open] svg {
+      transform: rotate(180deg);
+    }
 
-  & svg {
-    transition: transform 0.5s;
-    color: ${({ theme }) => theme.colors.text.white};
+    & svg {
+      transition: transform 0.5s;
+      color: ${({ theme }) => theme.colors.text.white};
+    }
   }
 `;
 
@@ -91,52 +93,56 @@ export const slideUp = keyframes`
 `;
 
 export const StyledTableContentContent = styled(Accordion.Content)`
-  overflow: hidden;
-  &[data-state='open'] {
-    animation: ${slideDown} 300ms ease-out;
-  }
-  &[data-state='closed'] {
-    animation: ${slideUp} 300ms ease-out;
+  &&& {
+    overflow: hidden;
+    &[data-state='open'] {
+      animation: ${slideDown} 300ms ease-out;
+    }
+    &[data-state='closed'] {
+      animation: ${slideUp} 300ms ease-out;
+    }
   }
 `;
 
 export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: boolean }>`
-  display: inline-block;
-  width: 100%;
-  font-weight: ${({ theme }) => theme.fontWeight.normal};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  transition: all 0.1s;
-  outline: none;
-  border-radius: 8px;
+  &&& {
+    display: inline-block;
+    width: 100%;
+    font-weight: ${({ theme }) => theme.fontWeight.normal};
+    color: ${({ theme }) => theme.colors.text.lightGrey};
+    transition: all 0.1s;
+    outline: none;
+    border-radius: 8px;
 
-  &.active {
-    span,
-    p {
-      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    &.active {
+      span,
+      p {
+        color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      }
     }
-  }
 
-  ${({ $isAccordionFixed }) =>
-    $isAccordionFixed
-      ? css`
-          padding: 8px 16px;
+    ${({ $isAccordionFixed }) =>
+      $isAccordionFixed
+        ? css`
+            padding: 8px 16px;
 
-          &:hover,
-          &:focus,
-          &:focus-within {
-            background-color: ${({ theme }) => theme.colors.darkGrey};
-          }
-        `
-      : css`
-          padding: 8px 32px;
-          &:hover,
-          &:focus {
-            color: ${({ theme }) => theme.colors.text.darkGrey};
-          }
-        `}
+            &:hover,
+            &:focus,
+            &:focus-within {
+              background-color: ${({ theme }) => theme.colors.darkGrey};
+            }
+          `
+        : css`
+            padding: 8px 32px;
+            &:hover,
+            &:focus {
+              color: ${({ theme }) => theme.colors.text.darkGrey};
+            }
+          `}
 
-  &[data-active='true'] {
-    color: ${({ theme }) => theme.colors.electricLightBlue};
+    &[data-active='true'] {
+      color: ${({ theme }) => theme.colors.electricLightBlue};
+    }
   }
 `;
 

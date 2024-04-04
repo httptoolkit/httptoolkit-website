@@ -18,6 +18,7 @@ export const Text = ({
   return (
     <StyledText
       as={asTag}
+      data-text="true"
       fontSize={fontSize}
       color={color}
       fontWeight={fontWeight}

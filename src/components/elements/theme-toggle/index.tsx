@@ -53,7 +53,7 @@ export const ThemeToggle = ({ id = 'themetoggle' }: { id?: string }) => {
         aria-checked={isLightMode}
         onChange={handleThemeChange}
       />
-      <StyledSwitch />
+      <StyledSwitch data-switch />
     </StyledLabel>
   );
 };

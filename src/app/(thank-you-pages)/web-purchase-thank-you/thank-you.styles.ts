@@ -88,7 +88,7 @@ export const StyledGradientBottom = styled.div`
 export const StyledSectionCTA = styled(CTA)`
   padding-bottom: 0 !important;
 
-  & h1 {
+  h1 {
     margin-bottom: 19px;
   }
 `;

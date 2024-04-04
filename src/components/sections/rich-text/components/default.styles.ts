@@ -9,12 +9,16 @@ import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
 
 export const StyledLink = styled(Link)`
-  text-decoration: underline;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  &&& {
+    text-decoration: underline;
+    color: ${({ theme }) => theme.colors.text.darkGrey};
+  }
 `;
 
 export const StyledText = styled(Text)`
-  margin-bottom: 6px;
+  &&& {
+    margin-bottom: 6px;
+  }
 `;
 
 export const StyledHighlightedParagraphs = styled.div`
@@ -28,8 +32,10 @@ export const StyledHighlightedParagraphs = styled.div`
 `;
 
 export const StyledHeading = styled(Heading)<StyledHeadingProps>`
-  margin-bottom: 24px;
-  margin-top: ${({ $margin = 0 }) => `${$margin}px`};
+  &&& {
+    margin-bottom: 24px;
+    margin-top: ${({ $margin = 0 }) => `${$margin}px`};
+  }
 `;
 
 export const StyledUL = styled.ul`
@@ -47,8 +53,10 @@ export const StyledOL = styled.ol`
 `;
 
 export const StyledImage = styled(Image)`
-  display: block;
-  position: relative !important;
-  max-width: 100%;
-  margin: 48px auto;
+  &&& {
+    display: block;
+    position: relative !important;
+    max-width: 100%;
+    margin: 48px auto;
+  }
 `;

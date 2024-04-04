@@ -1,8 +1,8 @@
 'use client';
 
-import { styled } from 'styled-components';
-
 import type { StyledIntegrationCTAProps } from './cta.types';
+
+import { styled } from '@/styles';
 
 export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAProps>`
   display: flex;

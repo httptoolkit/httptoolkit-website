@@ -2,7 +2,6 @@
 
 import { Container } from '@/components/elements/container';
 import { Text } from '@/components/elements/text';
-import { Accordion } from '@/components/modules/accordion';
 import { styled } from '@/styles';
 
 export const StyledTextWithAccordionWrapper = styled.section`
@@ -22,18 +21,20 @@ export const StyledTextWithAccordionGradientWrapper = styled.div`
 `;
 
 export const StyledTextWithAccordionContentWrapper = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  &&& {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 128px 48px;
-  }
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 128px 48px;
+    }
 
-  @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
-    padding: 128px 90px;
+    @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
+      padding: 128px 90px;
+    }
   }
 `;
 
@@ -52,12 +53,12 @@ export const StyledTextWithAccordionTextWrapper = styled.div`
 `;
 
 export const StyledTextWithAccordionText = styled(Text)`
-  margin-top: 24px;
-  margin-bottom: 16px;
+  &&& {
+    margin-top: 24px;
+    margin-bottom: 16px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    margin-bottom: 24px;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      margin-bottom: 24px;
+    }
   }
 `;
-
-export const StyledTextWithAccordionAccordion = styled(Accordion)``;

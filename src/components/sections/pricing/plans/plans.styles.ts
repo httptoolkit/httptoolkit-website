@@ -7,8 +7,10 @@ import { Container } from '@/components/elements/container';
 import { css, keyframes, styled } from '@/styles';
 
 export const StyledPricingPlansWrapper = styled(Container)`
-  position: relative;
-  max-width: ${({ theme }) => theme.screens['2xl']} !important;
+  &&& {
+    position: relative;
+    max-width: ${({ theme }) => theme.screens['2xl']} !important;
+  }
 `;
 
 export const StyledPricingPlansSwitchWrapper = styled.div`

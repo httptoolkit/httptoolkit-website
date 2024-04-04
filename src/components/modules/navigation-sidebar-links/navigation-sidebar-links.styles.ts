@@ -59,29 +59,31 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
 `;
 
 export const StyledNavigationSidebarLinksContentLink = styled(Link)`
-  display: inline-block;
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  padding: 8px 32px;
+  &&& {
+    display: inline-block;
+    font-size: ${({ theme }) => theme.fontSizes.text.m};
+    line-height: 1.5;
+    color: ${({ theme }) => theme.colors.text.lightGrey};
+    padding: 8px 32px;
 
-  transition: color ease-in 300ms;
+    transition: color ease-in 300ms;
 
-  &.active {
-    color: ${({ theme }) => theme.colors.text.electricLightBlue};
-    @media (min-width: ${screens.md}) {
-      &:hover,
-      &:focus,
-      &:active {
-        color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    &.active {
+      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      @media (min-width: ${screens.md}) {
+        &:hover,
+        &:focus,
+        &:active {
+          color: ${({ theme }) => theme.colors.text.electricLightBlue};
+        }
       }
     }
-  }
 
-  @media (min-width: ${screens.md}) {
-    &:focus,
-    &:hover {
-      color: ${({ theme }) => theme.colors.text.darkGrey};
+    @media (min-width: ${screens.md}) {
+      &:focus,
+      &:hover {
+        color: ${({ theme }) => theme.colors.text.darkGrey};
+      }
     }
   }
 `;
