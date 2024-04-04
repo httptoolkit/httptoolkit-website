@@ -43,3 +43,7 @@ export const optimizeExerptToMetaDescription = (excerpt: string, maxLength = 160
   // Return the substring up to the last space (or maxLength if no space is found)
   return excerpt.substring(0, lastSpaceIndex) + '...';
 };
+
+export const getPathWithoutHash = (path: string) => {
+  return path.replace(/^(.*?)#.*/, '$1');
+};
