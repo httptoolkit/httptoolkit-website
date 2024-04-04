@@ -565,7 +565,7 @@ export const ServerAllowsCorsRequest = ({
 export const ShowCode = ({ code }: { code: any }) => {
   return (
     <Stack>
-      <BlockCode language="language-bash" title="Example code" content={code.trim()} />
+      <BlockCode language="language-javascript" title="Example code" content={code.trim()} />
       <TryHttpToolkit />
     </Stack>
   );
