@@ -24,5 +24,8 @@ export const StyledSubscriberBox = styled.aside`
     max-width: 387px;
     display: block;
     visibility: visible;
+    position: sticky;
+    top: 10px;
+    align-self: self-start;
   }
 `;
