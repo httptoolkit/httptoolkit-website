@@ -26,6 +26,7 @@ export default function WillItCorsPage() {
         }
         withDownload={false}
         cta={{
+          href: '/will-it-cors/source-url',
           title: 'Get Started!',
           $variant: 'primary',
           $withBorder: true,

@@ -14,6 +14,7 @@ import NodeLogo from './node-logo.svg';
 import ProductHuntLogo from './product-hunt-logo.svg';
 import PythonLogo from './python-logo.svg';
 import RubyLogo from './ruby-logo.svg';
+import ShippingFast from './shipping-fast.svg';
 import SquareJSLogo from './square-js-logo.svg';
 import TwitterX from './twitter-x.svg';
 import YCombinator from './ycombinator-logo.svg';
@@ -38,4 +39,5 @@ export {
   ChromeLogo,
   YCombinator,
   ProductHuntLogo,
+  ShippingFast,
 };
