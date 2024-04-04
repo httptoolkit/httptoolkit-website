@@ -13,14 +13,16 @@ export const StyledTextSlotWrapper = styled.div`
 `;
 
 export const StyledTextSlotTitle = styled(Heading)<StyledTextSlotProps>`
-  ${({ $textCenteredOnMobile }) =>
-    $textCenteredOnMobile &&
-    `
-    text-align: center;
-    `}
+  &&& {
+    ${({ $textCenteredOnMobile }) =>
+      $textCenteredOnMobile &&
+      `
+      text-align: center;
+      `}
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    text-align: left;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      text-align: left;
+    }
   }
 `;
 

@@ -6,15 +6,17 @@ import { Link } from '@/components/elements/link';
 import { styled } from '@/styles';
 
 export const StyledIntegrationCardBorder = styled(Link)<StyledIntegrationCardProps>`
-  display: block;
-  background: ${({ theme }) => theme.colors.button.border};
-  padding: 1px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 8px 0px ${({ theme }) => ` ${theme.colors.shadowDefault}`};
+  &&& {
+    display: block;
+    background: ${({ theme }) => theme.colors.button.border};
+    padding: 1px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px 0px ${({ theme }) => ` ${theme.colors.shadowDefault}`};
 
-  &:hover {
-    background: ${({ theme }) => theme.colors.blueGradient};
-    box-shadow: none;
+    &:hover {
+      background: ${({ theme }) => theme.colors.blueGradient};
+      box-shadow: none;
+    }
   }
 `;
 

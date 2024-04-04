@@ -6,7 +6,7 @@ import { Text } from '@/components/elements/text';
 
 export const TextSection = ({ title, text }: TextSectionProps) => {
   return (
-    <StyledTextSection>
+    <StyledTextSection data-text-section="true">
       <Heading as="h2" fontSize="xs" color="lightGrey" fontWeight="medium">
         {title}
       </Heading>

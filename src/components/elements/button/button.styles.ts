@@ -22,6 +22,7 @@ const base = css<StyledButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  fill: currentColor;
 
   @media (min-width: ${screens['lg']}) {
     width: ${({ $isFluid }) => ($isFluid ? '100%' : 'fit-content')};
@@ -30,10 +31,6 @@ const base = css<StyledButtonProps>`
 
   &:hover {
     transition: all ease-in 0.3s;
-  }
-
-  & svg {
-    fill: currentColor;
   }
 
   ${props => {

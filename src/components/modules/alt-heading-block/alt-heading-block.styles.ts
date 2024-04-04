@@ -10,8 +10,10 @@ export const StyledAltHeadingBlockWrapper = styled.div`
 `;
 
 export const StyledAltHeadingBlockTitle = styled(Heading)`
-  & span {
-    -webkit-text-fill-color: ${({ theme }) => theme.colors.cinnarbarRed};
+  &&& {
+    & span {
+      -webkit-text-fill-color: ${({ theme }) => theme.colors.cinnarbarRed};
+    }
   }
 `;
 

@@ -1,6 +1,6 @@
 import { CaretLeft } from '@phosphor-icons/react';
 
-import { DrawerContainer, DrawerHeader, DrawerContent } from './drawer.styles';
+import { DrawerContainer, DrawerContent, DrawerHeader } from './drawer.styles';
 import type { DrawerProps } from './drawer.types';
 
 import { Button } from '@/components/elements/button';

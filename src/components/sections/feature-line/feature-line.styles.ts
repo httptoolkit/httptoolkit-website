@@ -2,7 +2,6 @@
 
 import type { StyledFeatureLineProps } from './feature-line.types';
 
-import { ThemedImage } from '@/components/elements/themed-image';
 import { styled } from '@/styles';
 
 export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
@@ -20,8 +19,6 @@ export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
     }
   }
 `;
-
-export const StyledFeatureLineImage = styled(ThemedImage)``;
 
 export const StyledFeatureLineContentWrapper = styled.div`
   display: flex;

@@ -149,46 +149,50 @@ export const StyledHeroWrapper = styled.section<{
 `;
 
 export const StyledContainer = styled(Container)`
-  max-width: 1140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  @media (min-width: ${screens['lg']}) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  & ${StyledHeading} {
-    max-width: 360px;
-    line-height: 115%;
-    padding-top: 11px;
-
-    @media (min-width: ${screens['md']}) {
-      max-width: 1115px;
-    }
-  }
-
-  & ${StyledText} {
-    margin: 0 auto;
-  }
-
-  & ${StyledStack} {
+  &&& {
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    @media (min-width: ${screens['lg']}) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    & ${StyledHeading} {
+      max-width: 360px;
+      line-height: 115%;
+      padding-top: 11px;
+
+      @media (min-width: ${screens['md']}) {
+        max-width: 1115px;
+      }
+    }
+
+    & ${StyledText} {
+      margin: 0 auto;
+    }
+
+    & ${StyledStack} {
+      align-items: center;
+    }
   }
 `;
 
 export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
-  ${({ $isLargeText }) =>
-    $isLargeText &&
-    css`
-      max-width: 343px;
+  &&& {
+    ${({ $isLargeText }) =>
+      $isLargeText &&
+      css`
+        max-width: 343px;
 
-      @media (min-width: ${screens['lg']}) {
-        max-width: 659px;
-      }
-    `};
+        @media (min-width: ${screens['lg']}) {
+          max-width: 659px;
+        }
+      `};
+  }
 `;
 
 export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`

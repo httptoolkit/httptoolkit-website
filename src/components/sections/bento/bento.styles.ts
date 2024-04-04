@@ -23,11 +23,13 @@ export const StyledBentoGradientWrapper = styled.div`
 `;
 
 export const StyledBentoTitle = styled(Heading)`
-  max-width: 548px;
-  margin: 0 auto 32px;
+  &&& {
+    max-width: 548px;
+    margin: 0 auto 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    margin: 0 auto 64px;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      margin: 0 auto 64px;
+    }
   }
 `;
 

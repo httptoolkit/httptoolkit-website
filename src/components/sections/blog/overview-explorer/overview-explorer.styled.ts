@@ -19,9 +19,11 @@ export const StyledExplorerSection = styled.section`
 `;
 
 export const StyledExplorerContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  &&& {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 export const StyledTagsWrapper = styled.nav`

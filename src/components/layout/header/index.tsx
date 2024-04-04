@@ -1,17 +1,13 @@
+import { Suspense } from 'react';
+
 import { MobileHeader } from './header-mobile';
-import {
-  StyledHeaderContainer,
-  StyledHeader,
-  StyledLogoWrapper,
-  StyledNavItems,
-  StyledNavigation,
-} from './header.styles';
+import { StyledHeader, StyledHeaderContainer, StyledNavItems, StyledNavigation } from './header.styles';
 import type { HeaderProps } from './header.types';
 
+import { FullLogo } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { DownloadButton } from '@/components/modules/download-button';
-import Logo from '@/images/logo.svg';
 import { pageRoutes } from '@/lib/constants/routes';
 
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
@@ -21,11 +17,9 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   return (
     <StyledHeader>
       <StyledHeaderContainer>
-        <StyledLogoWrapper>
-          <Link href="/" aria-label="Http Toolkit homepage">
-            <Logo />
-          </Link>
-        </StyledLogoWrapper>
+        <Link href="/" aria-label="Http Toolkit homepage">
+          <FullLogo height={26} />
+        </Link>
         <MobileHeader navigationItems={navigationItems} />
         {isNavigationEnabled ? (
           <StyledNavigation>
@@ -40,7 +34,9 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
                 );
               })}
             </StyledNavItems>
-            <DownloadButton $small $variant="secondary" />
+            <Suspense>
+              <DownloadButton $small $variant="secondary" />
+            </Suspense>
           </StyledNavigation>
         ) : null}
       </StyledHeaderContainer>

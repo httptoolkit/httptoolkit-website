@@ -4,14 +4,16 @@ import { Text } from '@/components/elements/text';
 import { styled } from '@/styles';
 
 export const StyledFeaturesSectionWrapper = styled.div`
-  padding-top: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  &&& {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    gap: 0;
-    padding-top: 0;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      gap: 0;
+      padding-top: 0;
+    }
   }
 `;
 
@@ -39,10 +41,12 @@ export const StyledFeatureSectionItemWrapper = styled.div`
 `;
 
 export const StyledFeatureSectionTitle = styled(Text)`
-  padding: 18.5px 0;
+  &&& {
+    padding: 18.5px 0;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    padding-left: 32px;
+    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+      padding-left: 32px;
+    }
   }
 `;
 

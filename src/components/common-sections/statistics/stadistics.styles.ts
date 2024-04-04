@@ -16,23 +16,25 @@ export const StyledStatisticsGradientWrapper = styled.section`
 `;
 
 export const StyledStatisticsWrapper = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  gap: 32px;
-  padding: 96px 48px;
-  position: relative;
+  &&& {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 96px 48px;
+    position: relative;
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    flex-direction: column;
-    padding: 16px 0;
+    @media (max-width: ${({ theme }) => theme.screens.lg}) {
+      flex-direction: column;
+      padding: 16px 0;
 
-    & > *:first-child {
-      margin: 0 auto;
-      align-items: center;
-    }
+      & > *:first-child {
+        margin: 0 auto;
+        align-items: center;
+      }
 
-    & * {
-      text-align: center;
+      & * {
+        text-align: center;
+      }
     }
   }
 `;

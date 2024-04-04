@@ -1,6 +1,5 @@
 import {
   StyledFeatureLineContentWrapper,
-  StyledFeatureLineImage,
   StyledFeatureLineTextWrapper,
   StyledFeatureLineWrapper,
 } from './feature-line.styles';
@@ -11,6 +10,7 @@ import { Heading } from '@/components/elements/heading';
 import type { HeadingProps } from '@/components/elements/heading/heading.types';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
+import { ThemedImage } from '@/components/elements/themed-image';
 import { TextList } from '@/components/modules/text-list';
 
 export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: FeatureLineProps) => {
@@ -37,7 +37,7 @@ export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: F
         </StyledFeatureLineTextWrapper>
       </StyledFeatureLineContentWrapper>
       {image && (
-        <StyledFeatureLineImage
+        <ThemedImage
           width={662}
           height={570}
           darkSrc={image.darkSrc}

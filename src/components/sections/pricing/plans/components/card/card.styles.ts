@@ -1,10 +1,7 @@
 'use client';
 import type { StyledPricingCardProps } from './card.types';
 
-import { StyledBadge } from '@/components/elements/badge/badge.styles';
-import { StyledButton, StyledLink } from '@/components/elements/button/button.styles';
 import { Text } from '@/components/elements/text';
-import { StyledText } from '@/components/elements/text/text.styles';
 import { DropdownWrapper } from '@/components/modules/dropdown/dropdown.styles';
 import { styled } from '@/styles';
 
@@ -35,7 +32,8 @@ export const StyledPricingCardTitle = styled.div`
     justify-content: space-between;
   }
 
-  ${StyledText}, ${StyledBadge} {
+  *[data-text='true'],
+  *[data-badge='true'] {
     width: fit-content;
     flex-shrink: 0;
   }
@@ -43,7 +41,8 @@ export const StyledPricingCardTitle = styled.div`
 
 export const StyledPricingCardButtonWrapper = styled.div`
   & > *,
-  & > * > ${StyledButton}, & > * > ${StyledLink} {
+  & [data-dropdown='true'],
+  & [data-button='true'] {
     width: 100%;
   }
 `;
@@ -60,7 +59,9 @@ export const StyledPricingCardPriceWrapper = styled.div`
 `;
 
 export const StyledPricingCardAnnualFlag = styled(Text)`
-  margin-top: 6px;
+  &&& {
+    margin-top: 6px;
+  }
 `;
 
 export const StyledPriceCardPrice = styled.span`
@@ -85,7 +86,7 @@ export const StyledPricingCardCTAWrapper = styled.div`
     }
   }
 
-  ${StyledText} {
+  *[data-text='true'] {
     text-align: center;
 
     @media (min-width: ${({ theme }) => theme.screens.lg}) {

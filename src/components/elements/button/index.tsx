@@ -25,6 +25,7 @@ export const Button = ({
 
     return (
       <ButtonComponent
+        data-button="true"
         className={className}
         type={type}
         onClick={onClick}

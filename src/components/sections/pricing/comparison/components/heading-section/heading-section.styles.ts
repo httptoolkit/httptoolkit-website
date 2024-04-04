@@ -1,7 +1,5 @@
 'use client';
 
-import { StyledTextSection } from '../text-section/text-section.styles';
-
 import { styled } from '@/styles';
 
 export const StyledHeadingSectionWrapper = styled.div`
@@ -10,7 +8,7 @@ export const StyledHeadingSectionWrapper = styled.div`
   grid-template-rows: minmax(130px, fit-content);
   border-bottom: 1px solid ${({ theme }) => theme.colors.mediumGrey};
 
-  & > ${StyledTextSection} {
+  & > *[data-text-section='true'] {
     padding-left: 32px;
     padding-right: 24px;
   }

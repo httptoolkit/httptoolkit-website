@@ -1,6 +1,5 @@
 'use client';
 
-import { StyledButton } from '@/components/elements/button/button.styles';
 import { styled } from '@/styles';
 
 export const StyledLoginInfoWrapper = styled.div`
@@ -8,7 +7,7 @@ export const StyledLoginInfoWrapper = styled.div`
   justify-content: center;
   gap: 16px;
 
-  ${StyledButton} {
+  *[data-button='true'] {
     margin: 0 auto;
   }
 `;

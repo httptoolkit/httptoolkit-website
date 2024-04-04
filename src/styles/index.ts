@@ -1,7 +1,7 @@
-import styled, { createGlobalStyle, css, ThemeProvider, keyframes } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle, css, keyframes } from 'styled-components';
 import reset from 'styled-reset';
 
-export { styled, css, ThemeProvider, keyframes, createGlobalStyle };
+export { ThemeProvider, createGlobalStyle, css, keyframes, styled };
 
 export const screens = {
   content: '662px',
