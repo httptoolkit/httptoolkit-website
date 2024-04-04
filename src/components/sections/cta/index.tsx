@@ -26,16 +26,16 @@ export const CTA = ({
   children,
 }: CTAProps) => {
   const SubHeadingIcon = subHeading?.icon;
-  const isHero = ['cta-hero', 'pricing-hero'].includes(variant);
-  const HeadingSize: HeadingProps['fontSize'] = isHero && variant !== 'pricing-hero' ? 'xl' : 'l';
+  const isHero = ['cta-hero', 'cta-narrow'].includes(variant);
+  const HeadingSize: HeadingProps['fontSize'] = isHero && variant !== 'cta-narrow' ? 'xl' : 'l';
   const asTitle = isHero ? 'h1' : 'h3';
   const isLargeText = textAppearance === 'large';
-  const labelSize: TextProps['fontSize'] = variant === 'pricing-hero' ? 'm' : 'xll';
-  const excerptSize = variant === 'pricing-hero' ? 'm' : 'l';
+  const labelSize: TextProps['fontSize'] = variant === 'cta-narrow' ? 'm' : 'xll';
+  const excerptSize = variant === 'cta-narrow' ? 'm' : 'l';
 
   return (
     <StyledHeroWrapper $variant={variant} $bgVariant={$bgVariant} className={className}>
-      <StyledContainer>
+      <StyledContainer data-container>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}

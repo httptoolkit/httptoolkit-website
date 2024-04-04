@@ -6,7 +6,7 @@ export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' 
   title: string;
 };
 
-export type CTAVariant = 'cta-hero' | 'cta-square' | 'cta-fluid' | 'pricing-hero';
+export type CTAVariant = 'cta-hero' | 'cta-square' | 'cta-fluid' | 'cta-narrow';
 export type TextAppearance = 'small' | 'large';
 export type bgVariant =
   | 'default'

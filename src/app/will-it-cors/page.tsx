@@ -6,7 +6,7 @@ export default function WillItCorsPage() {
   return (
     <LandingLayout isNavigationEnabled={false}>
       <CTA
-        variant="pricing-hero"
+        variant="cta-narrow"
         textAppearance="small"
         heading="Will it CORS?"
         excerpt={
