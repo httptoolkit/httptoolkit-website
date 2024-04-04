@@ -16,6 +16,7 @@ import type { TableContentProps } from './table-content.types';
 
 import { CaretDown } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
+import { getPathWithoutHash } from '@/lib/utils';
 
 const AccordionItem = ({
   link,
@@ -74,7 +75,7 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   if (!isCollapsible) return <StyledTableContentWrapper>{content}</StyledTableContentWrapper>;
 
   const defaultOpenItem = links.find(item => {
-    return item.subItems?.some(subItem => subItem.href === currentPath);
+    return item.subItems?.some(subItem => getPathWithoutHash(subItem.href) === currentPath);
   });
 
   return (
