@@ -33,7 +33,6 @@ export {
   LinuxLogo,
   Logo,
   NodeLogo,
-  ProductHuntLogo,
   PythonLogo,
   RubyLogo,
   SquareJSLogo,
