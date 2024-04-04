@@ -10,5 +10,6 @@ module.exports = {
     '/thank-you/', // Drop post-mailing-list signup page
     '/web-purchase-thank-you/',
     '/app-purchase-thank-you/',
+    '/will-it-cors/*', // Drop will-it-cors step pages
   ],
 };
