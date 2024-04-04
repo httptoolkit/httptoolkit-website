@@ -12,4 +12,5 @@ export const StyledText = styled.p<StyledTextProps>`
   line-height: ${({ $isLabel }) => ($isLabel ? 1.1 : 1.5)};
   letter-spacing: ${({ $isLabel }) => ($isLabel ? '0.06em' : 'initial')};
   text-transform: ${({ $isLabel }) => ($isLabel ? 'uppercase' : 'initial')};
+  font-style: ${({ $fontStyle }) => $fontStyle || 'normal'};
 `;

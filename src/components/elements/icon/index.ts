@@ -40,6 +40,8 @@ import {
   FacebookLogo,
   DevToLogo,
   ShareNetwork,
+  XCircle,
+  Trash,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -125,4 +127,6 @@ export {
   YCombinator,
   ProductHuntLogo,
   ShareNetwork,
+  XCircle,
+  Trash,
 };

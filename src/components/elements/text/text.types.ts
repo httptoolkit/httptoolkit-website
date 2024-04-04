@@ -2,6 +2,7 @@ import type { FontSize, FontWeigth, TextColor } from '@/styles';
 
 export interface StyledTextProps extends Omit<TextProps, 'textAlign'> {
   $textAlign?: CanvasTextAlign;
+  $fontStyle?: 'normal' | 'italic';
 }
 
 export interface TextProps {
@@ -10,5 +11,6 @@ export interface TextProps {
   fontSize?: FontSize;
   fontWeight?: FontWeigth;
   textAlign?: CanvasTextAlign;
+  fontStyle?: 'normal' | 'italic';
   $isLabel?: boolean;
 }
