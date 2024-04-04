@@ -1,6 +1,14 @@
+import type { Metadata } from 'next/types';
+
 import { Text } from '@/components/elements/text';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { CTA } from '@/components/sections/cta';
+import { buildMetadata } from '@/lib/utils/build-metadata';
+
+export const metadata: Metadata = buildMetadata({
+  title: 'Will It CORS? - a CORS debugging tool that actually works.',
+  description: 'Literally nobody understands CORS, except this one magic web page',
+});
 
 export default function WillItCorsPage() {
   return (
