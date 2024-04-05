@@ -33,11 +33,11 @@ export {
   LinuxLogo,
   Logo,
   NodeLogo,
+  ProductHuntLogo,
   PythonLogo,
   RubyLogo,
+  ShippingFast,
   SquareJSLogo,
   TwitterX,
   YCombinator,
-  ProductHuntLogo,
-  ShippingFast,
 };
