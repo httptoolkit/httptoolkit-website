@@ -8,7 +8,7 @@ export const OSDictionary = [
     slug: 'osx-dmg',
     href: '/download/osx-dmg',
     text: 'MacOS DGM',
-    defaultText: 'macOs',
+    defaultText: 'macOS',
     releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-${LATEST_VERSION_PLACEHOLDER}.dmg`,
   },
   {
