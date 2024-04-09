@@ -176,7 +176,7 @@ export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
     gap: 32px;
     position: relative;
 
-    & > svg {
+    & svg[data-logo='true'] {
       width: fit-content;
       height: 26px;
     }
