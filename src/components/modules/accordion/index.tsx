@@ -38,7 +38,10 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
               <CaretDown weight="fill" size={24} />
             </StyledAccordionTrigger>
             <StyledAccordionContent>
-              <div dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) }}></div>
+              <div
+                className="accordion_content_inner"
+                dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) }}
+              />
             </StyledAccordionContent>
           </StyledAccordionItem>
         ))}
