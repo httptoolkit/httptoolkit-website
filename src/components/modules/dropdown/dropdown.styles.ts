@@ -9,6 +9,8 @@ const openDropdown = css`
   padding: 4px;
   max-height: fit-content;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  opacity: 1;
+  visibility: visible;
 `;
 
 export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction'>>`
@@ -18,17 +20,29 @@ export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction
   bottom: ${({ $direction }) => ($direction === 'top' ? 'calc(100% + 4px)' : 'auto')};
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.inkBlack};
-  padding: 0 4px;
+  padding: 4px;
   gap: 4px;
   min-width: 100%;
-  max-height: 0;
-  transition: all 0.5s linear;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
   overflow: hidden;
   z-index: 33;
   box-shadow: '0px 0px 8px 0px rgba(230, 232, 242, 0.05)';
 
   &:hover {
     ${openDropdown}
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    background: transparent;
+    width: 100%;
+    height: 5px;
   }
 `;
 
