@@ -41,7 +41,7 @@ export const StyledIntegrationDeviceMediaPhoneImage = styled(ThemedImage)`
     margin: 0;
     width: calc(100% - 8px) !important;
     height: calc(100% - 8px) !important;
-    object-fit: cover;
+    object-fit: contain;
 
     @media (min-width: ${({ theme }) => theme.screens.sm}) {
       border-radius: 12px;

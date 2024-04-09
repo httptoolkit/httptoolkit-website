@@ -29,8 +29,8 @@ export default function AndroidIntegrationPage() {
       />
       <IntegrationDeviceMedia
         mobileImage={{
-          darkSrc: 'https://picsum.photos/id/1019/1024',
-          lightSrc: 'https://picsum.photos/id/1035/1024',
+          darkSrc: '/images/mobile-placeholder-dark.png',
+          lightSrc: '/images/mobile-placeholder-light.png',
           alt: 'example alt',
           width: 1035,
           height: 1024,

@@ -486,15 +486,15 @@ export default async function UIPage() {
             alt="Example themed image"
             width={1024}
             height={1019}
-            darkSrc="https://picsum.photos/id/1019/1024"
-            lightSrc="https://picsum.photos/id/1035/1024"
+            darkSrc="/images/hero-placeholder-dark.webp"
+            lightSrc="/images/hero-placeholder-light.webp"
           />
           <ThemedImage
             alt="Example themed image"
             width={1024}
             height={1019}
-            darkSrc="https://picsum.photos/id/1019/1024"
-            lightSrc="https://picsum.photos/id/1035/1024"
+            darkSrc="/images/hero-placeholder-dark.webp"
+            lightSrc="/images/hero-placeholder-light.webp"
           />
         </ShowCase>
         <ShowCase title="Blog block code">
