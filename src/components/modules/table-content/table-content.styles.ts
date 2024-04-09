@@ -96,10 +96,10 @@ export const StyledTableContentContent = styled(Accordion.Content)`
   &&& {
     overflow: hidden;
     &[data-state='open'] {
-      animation: ${slideDown} 300ms ease-out;
+      animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
     &[data-state='closed'] {
-      animation: ${slideUp} 300ms ease-out;
+      animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
   }
 `;
