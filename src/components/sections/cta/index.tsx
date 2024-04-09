@@ -28,7 +28,7 @@ export const CTA = ({
   const SubHeadingIcon = subHeading?.icon;
   const isHero = ['cta-hero', 'cta-narrow'].includes(variant);
   const HeadingSize: HeadingProps['fontSize'] = isHero && variant !== 'cta-narrow' ? 'xl' : 'l';
-  const asTitle = isHero ? 'h1' : 'h3';
+  const asTitle = isHero ? 'h1' : 'h2';
   const isLargeText = textAppearance === 'large';
   const labelSize: TextProps['fontSize'] = variant === 'cta-narrow' ? 'm' : 'xll';
   const excerptSize = variant === 'cta-narrow' ? 'm' : 'l';
