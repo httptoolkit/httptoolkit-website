@@ -70,7 +70,6 @@ export const StyledAccordionTrigger = styled(Accordion.Trigger)`
     cursor: pointer;
 
     &[data-state='open'] h3 {
-      font-weight: ${({ theme }) => theme.fontWeight.medium};
       color: ${({ theme }) => theme.colors.lightGrey};
     }
 
@@ -95,8 +94,11 @@ export const StyledAccordionTransparentTitle = styled.h3`
 export const StyledAccordionContent = styled(Accordion.Content)`
   &&& {
     overflow: hidden;
-    padding-top: 16px;
-    padding-right: 48px;
+
+    & .accordion_content_inner {
+      padding: 20px 0;
+      padding-right: 48px;
+    }
 
     & * {
       font-size: ${({ theme }) => theme.fontSizes.text.m};
@@ -114,10 +116,10 @@ export const StyledAccordionContent = styled(Accordion.Content)`
     }
 
     &[data-state='open'] {
-      animation: ${slideDown} 300ms ease-out;
+      animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
     &[data-state='closed'] {
-      animation: ${slideUp} 300ms ease-out;
+      animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
   }
 `;
