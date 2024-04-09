@@ -21,41 +21,38 @@ import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
-import { getDownloadOptionsDictionary } from '@/content/data/download-dictionary';
+import { OSDictionary } from '@/content/data/download-dictionary';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 type DownloadPageProps = {
   params: { slug: string };
 };
 
-export async function generateMetadata({ params }: DownloadPageProps): Promise<Metadata> {
+export function generateMetadata({ params }: DownloadPageProps): Metadata {
   const slug = params.slug;
-  const downloadItems = await getDownloadOptionsDictionary();
-  const currentDownloadData = downloadItems.find(item => item.slug === slug);
+  const downloadData = OSDictionary.find(item => item.slug === slug);
 
   const downloadMetaData = buildMetadata({
-    title: `Download HTTP Toolkit for ${currentDownloadData?.text}`,
+    title: `Download HTTP Toolkit for ${downloadData?.text}`,
   });
 
   return downloadMetaData;
 }
 
 export async function generateStaticParams() {
-  const downloadItems = await getDownloadOptionsDictionary();
-  return downloadItems.map(software => ({
+  return OSDictionary.map(software => ({
     slug: software.slug,
   }));
 }
 
 export default async function DownloadPage({ params }: DownloadPageProps) {
   const { slug } = params;
-  const downloadItems = await getDownloadOptionsDictionary();
-  const currentDownloadData = downloadItems.find(item => item.slug === slug);
-  const hasDownloadCommand = typeof currentDownloadData?.downloadCommand === 'string';
+  const downloadData = OSDictionary.find(item => item.slug === slug);
+  const hasDownloadCommand = typeof downloadData?.downloadCommand === 'string';
 
   return (
     <LandingLayout>
-      {currentDownloadData?.releasePath && <SelfDownload releasePath={currentDownloadData.releasePath} />}
+      {downloadData?.releasePath && <SelfDownload releasePath={downloadData.releasePath} />}
       <StyledGradientMobile>
         <Gradient />
       </StyledGradientMobile>
@@ -68,7 +65,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               </Heading>
               {hasDownloadCommand ? (
                 <Stack>
-                  {currentDownloadData.downloadCommand ? <Copy text={currentDownloadData.downloadCommand} /> : null}
+                  <Copy text={downloadData.downloadCommand} />
                   <Text fontSize="l" fontWeight="medium" color="white">
                     Copy & run the above to install HTTP Toolkit.
                   </Text>
@@ -78,7 +75,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                   Didn&apos;t work?{' '}
                   <Link
                     target="_self"
-                    href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${currentDownloadData?.releasePath}`}
+                    href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${downloadData?.releasePath}`}
                   >
                     <Text fontSize="l" as="span" color="cinnarbarRed" fontWeight="medium">
                       Click here
