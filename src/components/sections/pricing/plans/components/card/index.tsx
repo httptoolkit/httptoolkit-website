@@ -1,5 +1,7 @@
 'use client';
 
+import { marked } from 'marked';
+
 import {
   StyledPriceCardFeature,
   StyledPriceCardFeatureItemLI,
@@ -17,6 +19,7 @@ import { Badge } from '@/components/elements/badge';
 import { CheckIcon } from '@/components/elements/check-icon';
 import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
+import { renderer } from '@/lib/marked/link-target-render';
 
 interface FeatureListProps {
   feature: PricingCardProps['features'][number];
@@ -35,11 +38,9 @@ const FeatureList = ({ feature, $isHighlighted }: FeatureListProps) => {
         {Array.isArray(feature.items) &&
           feature.items?.length > 0 &&
           feature.items.map((item, idx) => (
-            <StyledPriceCardFeatureItemLI key={idx}>
+            <StyledPriceCardFeatureItemLI key={idx} $itemColor={itemColor}>
               <CheckIcon />
-              <Text fontSize="m" color={itemColor} textAlign="left">
-                {item}
-              </Text>
+              <span dangerouslySetInnerHTML={{ __html: marked.parse(item, { renderer }) }} />
             </StyledPriceCardFeatureItemLI>
           ))}
       </StyledPriceCardFeatureItemsWrapper>
@@ -82,7 +83,7 @@ export const PricingCard = ({
       <StyledPricingCardButtonWrapper>{children}</StyledPricingCardButtonWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
-        features.map((feature, idx) => <FeatureList key={idx} feature={feature} $isHighlighted />)}
+        features.map((feature, idx) => <FeatureList key={idx} feature={feature} $isHighlighted={$isHighlighted} />)}
     </StyledPricingCardWrapper>
   );
 };
