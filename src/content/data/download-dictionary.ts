@@ -1,77 +1,65 @@
-import { getLatestRelease } from '@/lib/services/get-latest-release';
+const LATEST_VERSION_PLACEHOLDER = '1.14.9';
 
-export type DownloadDictionary = {
-  os: string;
-  slug: string;
-  href: string;
-  text: string;
-  defaultText?: string;
-  releasePath?: string;
-  downloadCommand?: string;
-};
+export const parseReleasePath = (path: string, LATEST_VERSION: string) => path.replace('{}', LATEST_VERSION);
 
-export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary[]> => {
-  const { latestReleaseVersion } = await getLatestRelease();
-
-  return [
-    {
-      os: 'mac',
-      slug: 'osx-dmg',
-      href: '/download/osx-dmg',
-      text: 'MacOS DGM',
-      defaultText: 'macOS',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.dmg`,
-    },
-    {
-      os: 'mac',
-      slug: 'mac-homebrew',
-      href: '/download/mac-homebrew',
-      text: 'MacOS via Homebrew',
-      downloadCommand: 'brew install --cask http-toolkit',
-    },
-    {
-      os: 'windows',
-      slug: 'windows-exe',
-      href: '/download/windows-exe',
-      text: 'Windows installer',
-      defaultText: 'Windows',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-installer-${latestReleaseVersion}.exe`,
-    },
-    {
-      os: 'windows',
-      slug: 'win-standalone',
-      href: '/download/win-standalone',
-      text: 'Windows Standalone Zip',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-win-x64-${latestReleaseVersion}.zip`,
-    },
-    {
-      os: 'windows',
-      slug: 'windows-winget',
-      href: '/download/windows-winget',
-      text: 'Windows via Winget',
-      downloadCommand: 'winget install httptoolkit',
-    },
-    {
-      os: 'linux',
-      slug: 'linux-deb',
-      href: '/download/linux-deb',
-      text: 'Linux Debian Package',
-      defaultText: 'Linux',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.deb`,
-    },
-    {
-      os: 'linux',
-      slug: 'linux-aur',
-      href: '/download/linux-aur',
-      text: 'Linux Arch Package via Aur',
-      downloadCommand: 'yay -S httptoolkit',
-    },
-    {
-      os: 'linux',
-      slug: 'linux-standalone',
-      href: '/download/linux-standalone',
-      text: 'Linux Standalone Zip',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-linux-x64-${latestReleaseVersion}.zip`,
-    },
-  ];
-};
+export const OSDictionary = [
+  {
+    os: 'mac',
+    slug: 'osx-dmg',
+    href: '/download/osx-dmg',
+    text: 'MacOS DGM',
+    defaultText: 'macOS',
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-${LATEST_VERSION_PLACEHOLDER}.dmg`,
+  },
+  {
+    os: 'mac',
+    slug: 'mac-homebrew',
+    href: '/download/mac-homebrew',
+    text: 'MacOS via Homebrew',
+    downloadCommand: 'brew install --cask http-toolkit',
+  },
+  {
+    os: 'windows',
+    slug: 'windows-exe',
+    href: '/download/windows-exe',
+    text: 'Windows installer',
+    defaultText: 'Windows',
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-installer-${LATEST_VERSION_PLACEHOLDER}.exe`,
+  },
+  {
+    os: 'windows',
+    slug: 'win-standalone',
+    href: '/download/win-standalone',
+    text: 'Windows Standalone Zip',
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-win-x64-${LATEST_VERSION_PLACEHOLDER}.zip`,
+  },
+  {
+    os: 'windows',
+    slug: 'windows-winget',
+    href: '/download/windows-winget',
+    text: 'Windows via Winget',
+    downloadCommand: 'winget install httptoolkit',
+  },
+  {
+    os: 'linux',
+    slug: 'linux-deb',
+    href: '/download/linux-deb',
+    text: 'Linux Debian Package',
+    defaultText: 'Linux',
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-${LATEST_VERSION_PLACEHOLDER}.deb`,
+  },
+  {
+    os: 'linux',
+    slug: 'linux-aur',
+    href: '/download/linux-aur',
+    text: 'Linux Arch Package via Aur',
+    downloadCommand: 'yay -S httptoolkit',
+  },
+  {
+    os: 'linux',
+    slug: 'linux-standalone',
+    href: '/download/linux-standalone',
+    text: 'Linux Standalone Zip',
+    releasePath: `v${LATEST_VERSION_PLACEHOLDER}/HttpToolkit-linux-x64-${LATEST_VERSION_PLACEHOLDER}.zip`,
+  },
+];
