@@ -15,13 +15,13 @@ export const TagsNavigation = async () => {
     <StyledTagsWrapper aria-label="Blog post tags">
       <ul>
         <li>
-          <Link href={`/blog`}>
+          <Link scroll={false} href={`/blog`}>
             <StyledTagText>All posts</StyledTagText>
           </Link>
         </li>
         {featuredTags.map(tag => (
           <li key={tag}>
-            <Link href={`/blog?tags=${tag}`}>
+            <Link scroll={false} href={`/blog?tags=${tag}`}>
               <StyledTagText>{tag}</StyledTagText>
             </Link>
           </li>
