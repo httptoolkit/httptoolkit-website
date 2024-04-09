@@ -76,7 +76,7 @@ export const StyledContentWithTableTableWrapper = styled.aside`
 `;
 
 export const StyledContentRichText = styled.article`
-  & h2:first-child {
+  && h2:first-of-type {
     margin-top: 0;
   }
 
