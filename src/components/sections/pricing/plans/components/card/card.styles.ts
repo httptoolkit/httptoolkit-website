@@ -122,6 +122,10 @@ export const StyledPriceCardFeatureItemLI = styled.li<{ $itemColor?: 'white' | '
   align-items: center;
   gap: 16px;
 
+  && a {
+    text-decoration: underline;
+  }
+
   && p {
     font-size: ${({ theme }) => theme.fontSizes.text.m};
     color: ${({ theme, $itemColor }) => theme.colors.text[$itemColor || 'white']};
