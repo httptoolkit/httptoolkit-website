@@ -10,12 +10,13 @@ export const StyledDocumentationGlobalWrapper = styled.section`
 `;
 
 export const StyledDocumentationLayoutWrapper = styled.div`
-  display: grid;
+  display: block;
   position: relative;
   max-width: ${({ theme }) => theme.screens['2xl']};
   margin: 32px 16px 0;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${({ theme }) => theme.screens.xl}) {
+    display: grid;
     margin: 0 auto;
     grid-template-columns: 360px ${({ theme }) => theme.screens.content} 1fr;
     gap: 24px;
