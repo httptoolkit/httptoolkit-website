@@ -117,8 +117,14 @@ export const StyledPriceCardFeatureItemsWrapper = styled.ul`
   gap: 16px;
 `;
 
-export const StyledPriceCardFeatureItemLI = styled.li`
+export const StyledPriceCardFeatureItemLI = styled.li<{ $itemColor?: 'white' | 'darkGrey' }>`
   display: flex;
   align-items: center;
   gap: 16px;
+
+  && p {
+    font-size: ${({ theme }) => theme.fontSizes.text.m};
+    color: ${({ theme, $itemColor }) => theme.colors.text[$itemColor || 'white']};
+    text-align: left;
+  }
 `;
