@@ -67,7 +67,7 @@ export const pageRoutes = {
   //Projects
   WILL_IT_CORS: {
     href: '/will-it-cors',
-    label: 'WIll it CORS?',
+    label: 'Will it CORS?',
   },
   //Alternatives
   FIDDLER: {
