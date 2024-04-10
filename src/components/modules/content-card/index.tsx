@@ -9,7 +9,7 @@ export const ContentCard = ({ title, text, button, action, $isNewsletter }: Cont
   return (
     <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
       <StyledContentCardContent>
-        <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white">
+        <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white" textAlign="left">
           {title}
         </StyledContentCardTitle>
         {text && (
