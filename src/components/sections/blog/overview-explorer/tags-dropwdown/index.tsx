@@ -36,9 +36,9 @@ export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
         <StyledDropdownMenuContent onKeyDownCapture={handleOnEnterCapture} align="start" sideOffset={5}>
           <StyledDropdownContentWrapper>
             {tags.map(tag => (
-              <DropdownMenu.Item asChild key={tag} className="tagItem" onKeyDownCapture={handleOnEnterCapture}>
+              <DropdownMenu.Item asChild key={tag} onKeyDownCapture={handleOnEnterCapture}>
                 <li tabIndex={-1} onClick={handleOnClickTag}>
-                  <Link scroll={false} href={`/blog?tags=${tag}`}>
+                  <Link className="tagItem" scroll={false} href={`/blog?tags=${tag}`}>
                     <StyledDropdownItem>{tag}</StyledDropdownItem>
                   </Link>
                 </li>
