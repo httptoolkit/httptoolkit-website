@@ -1,7 +1,7 @@
 'use client';
 
 import { List } from '@phosphor-icons/react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/elements/button';
 import { Drawer } from '@/components/modules/drawer';
@@ -11,10 +11,22 @@ import { isSSR } from '@/lib/utils';
 export const MobileDrawerMenu = ({ children }: Component) => {
   const [isOpen, setIsOpen] = useState(false);
   const { isPathnameChanged } = usePathnameChange();
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
+
+  const closeDrawer = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  useEffect(() => {
+    const links = drawerRef.current?.querySelectorAll('a');
+    links?.forEach(link => link.addEventListener('click', closeDrawer));
+
+    return () => links?.forEach(link => link.removeEventListener('click', closeDrawer));
+  }, []);
 
   useEffect(() => {
     if (!isSSR && window.document) {
@@ -40,9 +52,11 @@ export const MobileDrawerMenu = ({ children }: Component) => {
       >
         <List aria-hidden="true" size={16} color="currenColor" />
       </Button>
-      <Drawer $isOpen={isOpen} onClose={toggleDrawer}>
-        {children}
-      </Drawer>
+      <div ref={drawerRef}>
+        <Drawer $isOpen={isOpen} onClose={toggleDrawer}>
+          {children}
+        </Drawer>
+      </div>
     </>
   );
 };
