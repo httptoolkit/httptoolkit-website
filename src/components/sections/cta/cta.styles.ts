@@ -7,7 +7,7 @@ import { StyledHeading } from '@/components/elements/heading/heading.styles';
 import { StyledStack } from '@/components/elements/stack/stack.styles';
 import { Text } from '@/components/elements/text';
 import { StyledText } from '@/components/elements/text/text.styles';
-import { styled, css, screens } from '@/styles';
+import { css, screens, styled } from '@/styles';
 
 const ctaSquareStyles = css`
   max-width: 1344px;
@@ -144,7 +144,8 @@ export const StyledHeroWrapper = styled.section<{
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 96px;
-    padding-bottom: 64px;
+    padding-bottom: 128px;
+    margin-bottom: -64px;
   }
 `;
 

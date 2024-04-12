@@ -4,7 +4,7 @@ import { Container } from '@/components/elements/container';
 import { screens, styled } from '@/styles';
 
 export const StyledFooter = styled.footer`
-  margin-top: 64px;
+  margin-top: 32px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     margin-top: 96px;
