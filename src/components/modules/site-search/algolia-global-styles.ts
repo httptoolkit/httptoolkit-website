@@ -27,6 +27,7 @@ html[data-theme='dark'] {
 @media (max-width: 768px) {
   .DocSearch-Container {
     width: 100%;
+    position: fixed;
   }
 }
 
