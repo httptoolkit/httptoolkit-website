@@ -24,7 +24,7 @@ export const SuccessHero = ({ heading, excerpt, callToAction }: SuccessHeroProps
           callToAction
         ) : (
           <Button href="/" $variant="secondary" $small>
-            Got to the Homepage
+            Go to the Homepage
           </Button>
         )}
 
