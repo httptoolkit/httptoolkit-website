@@ -13,7 +13,7 @@ export const StyledSuccessWrapper = styled.div`
   max-width: 343px;
   margin: 32px auto;
 
-  & a {
+  & a:not([data-button='true']) {
     text-decoration: underline;
     max-width: fit-content;
   }
