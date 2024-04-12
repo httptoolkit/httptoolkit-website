@@ -10,7 +10,7 @@ export const TextList = ({ $lighterText = false, list }: TextListProps) => {
       {list.map(text => (
         <StyledTextListItem key={text}>
           <CheckIcon />
-          <Text fontSize="m" color={$lighterText ? 'white' : 'darkGrey'}>
+          <Text textAlign="left" fontSize="m" color={$lighterText ? 'white' : 'darkGrey'}>
             {text}
           </Text>
         </StyledTextListItem>
