@@ -26,6 +26,7 @@ export default async function ForWindowsPage() {
           withBorderAnimation: true,
           loading: 'eager',
         }}
+        downloadButtonDefaultOsValue="windows"
       />
       <HttpToolkitFeatures />
       <MockResponseFeatures />

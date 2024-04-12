@@ -15,7 +15,7 @@ import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 // TODO: need to integrate send email functionality
 const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
 
-export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: DownloadButtonProps) => {
+export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader, fixedOS }: DownloadButtonProps) => {
   const [operativeSystem, setOperativeSystem] = useState('');
   const isMobile = useIsMobile();
   const defaultOperativeSystem =
@@ -32,6 +32,8 @@ export const DownloadButton = ({ $small, $variant, $withBorder, isInHeader }: Do
   );
 
   useEffect(() => {
+    if (!isMobile && fixedOS) return setOperativeSystem(fixedOS);
+
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 

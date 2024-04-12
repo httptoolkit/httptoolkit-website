@@ -26,6 +26,7 @@ export default async function ForLinuxPage() {
           withBorderAnimation: true,
           loading: 'eager',
         }}
+        downloadButtonDefaultOsValue="linux"
       />
       <HttpToolkitFeatures />
       <MockResponseFeatures />
