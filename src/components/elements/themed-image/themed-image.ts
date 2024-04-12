@@ -37,9 +37,11 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
         }
       `}
 
-    &:hover {
-      border: var(--border-width) solid
-        ${({ $withBorder, theme }) => (!$withBorder ? 'transparent' : theme.colors.button.border)};
+    @media (hover: hover) {
+      &:hover {
+        border: var(--border-width) solid
+          ${({ $withBorder, theme }) => (!$withBorder ? 'transparent' : theme.colors.button.border)};
+      }
     }
 
     & img {

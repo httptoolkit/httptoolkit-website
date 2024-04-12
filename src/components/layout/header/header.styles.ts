@@ -38,11 +38,19 @@ export const StyledNavItems = styled.nav`
     display: flex;
   }
 
-  & a:hover,
   & a:focus {
     span {
       transition: color ease-in 200ms;
       color: ${({ theme }) => theme.colors.cinnarbarRed};
+    }
+  }
+
+  @media (hover: hover) {
+    & a:hover {
+      span {
+        transition: color ease-in 200ms;
+        color: ${({ theme }) => theme.colors.cinnarbarRed};
+      }
     }
   }
 `;

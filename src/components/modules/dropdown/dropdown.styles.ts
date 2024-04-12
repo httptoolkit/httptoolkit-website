@@ -32,8 +32,10 @@ export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction
   z-index: 33;
   box-shadow: '0px 0px 8px 0px rgba(230, 232, 242, 0.05)';
 
-  &:hover {
-    ${openDropdown}
+  @media (hover: hover) {
+    &:hover {
+      ${openDropdown}
+    }
   }
 
   &:after {
@@ -52,8 +54,14 @@ export const DropdownWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
   border-radius: 12px;
   justify-content: center;
 
-  &:hover ${DropdownOptionsWrapper}, &:focus-within ${DropdownOptionsWrapper} {
+  &:focus-within ${DropdownOptionsWrapper} {
     ${openDropdown}
+  }
+
+  @media (hover: hover) {
+    &:hover ${DropdownOptionsWrapper} {
+      ${openDropdown}
+    }
   }
 
   @media (min-width: ${screens['lg']}) {
@@ -78,9 +86,14 @@ const baseOption = css<DropdownOptionProps>`
     text-align: left;
   }
 
-  &:hover,
   &:focus {
     background: ${({ theme }) => theme.colors.darkGrey};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: ${({ theme }) => theme.colors.darkGrey};
+    }
   }
 `;
 

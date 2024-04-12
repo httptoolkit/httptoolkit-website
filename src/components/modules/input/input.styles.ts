@@ -22,8 +22,10 @@ export const StyledInputBorder = styled.span<InputBorderProps>`
 
   background: ${({ theme }) => theme.colors.borderGradient};
 
-  &:hover {
-    ${({ theme, $hasError }) => !$hasError && `background: ${theme.colors.blueGradient};`}
+  @media (hover: hover) {
+    &:hover {
+      ${({ theme, $hasError }) => !$hasError && `background: ${theme.colors.blueGradient};`}
+    }
   }
 
   ${({ $hasError, theme }) =>

@@ -109,9 +109,14 @@ export const StyledAccordionContent = styled(Accordion.Content)`
     & a {
       text-decoration: underline;
 
-      &:hover,
       &:focus {
         color: ${({ theme }) => theme.colors.lightGrey};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.lightGrey};
+        }
       }
     }
 

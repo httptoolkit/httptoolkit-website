@@ -16,7 +16,9 @@ export const SocialButton = styled.a`
   display: inline-flex;
   cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
