@@ -12,6 +12,7 @@ import {
 import { useDrawerState } from '../hooks/use-drawer-state';
 
 import { CaretDown, CaretUp } from '@/components/elements/icon';
+import { Link } from '@/components/elements/link';
 
 export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
@@ -35,15 +36,11 @@ export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
         <StyledDropdownMenuContent onKeyDownCapture={handleOnEnterCapture} align="start" sideOffset={5}>
           <StyledDropdownContentWrapper>
             {tags.map(tag => (
-              <DropdownMenu.Item
-                asChild
-                key={tag}
-                className="tagItem"
-                onKeyDownCapture={handleOnEnterCapture}
-                onSelect={() => handleOnClickTag(tag)}
-              >
-                <li tabIndex={-1}>
-                  <StyledDropdownItem>{tag}</StyledDropdownItem>
+              <DropdownMenu.Item asChild key={tag} className="tagItem" onKeyDownCapture={handleOnEnterCapture}>
+                <li tabIndex={-1} onClick={handleOnClickTag}>
+                  <Link scroll={false} href={`/blog?tags=${tag}`}>
+                    <StyledDropdownItem>{tag}</StyledDropdownItem>
+                  </Link>
                 </li>
               </DropdownMenu.Item>
             ))}
