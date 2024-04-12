@@ -37,13 +37,7 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
         >
           <StyledFeaturePost>
             <StyledPostImageWrapper>
-              <Image
-                width={540}
-                height={303}
-                src={`images/${featuredPost.coverImage}`}
-                alt={featuredPost.title}
-                priority
-              />
+              <Image width={540} height={303} src={`images/${featuredPost.coverImage}`} alt="" priority />
             </StyledPostImageWrapper>
             <StyledPostDetails>
               <Stack $gapxl="16px">

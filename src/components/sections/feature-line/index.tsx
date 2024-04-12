@@ -42,7 +42,7 @@ export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: F
           height={570}
           darkSrc={image.darkSrc}
           lightSrc={image.lightSrc}
-          alt={image.alt || title}
+          alt={image.alt || ''}
           withBorder
         />
       )}
