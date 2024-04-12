@@ -20,7 +20,7 @@ export const BlogCard = ({ title, excerpt, image, date, tag, slug }: BlogCardPro
   return (
     <StyledBlogCardWrapper>
       <StyledBlogCardFigure>
-        <Image width={386} height={217} src={image.src} alt={image.alt ?? title} loading="lazy" />
+        <Image width={386} height={217} src={image.src} alt="" loading="lazy" />
         <StyledBlogCardTag>
           <Badge>{tag}</Badge>
         </StyledBlogCardTag>

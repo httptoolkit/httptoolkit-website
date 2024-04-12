@@ -62,7 +62,7 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
 
       <StyledSinglePostImageWrapper>
         <GoBack $displayOn="mobile" />
-        <Image width={607} height={296} src={`images/${post.coverImage}`} alt={post.title} priority />
+        <Image width={607} height={296} src={`images/${post.coverImage}`} alt="" priority />
       </StyledSinglePostImageWrapper>
     </StyledSinglePost>
   );
