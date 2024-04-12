@@ -69,5 +69,9 @@ export const StyledMobileNavigationWrapper = styled.ul`
 
   & li {
     padding: 12px;
+
+    & a {
+      display: block;
+    }
   }
 `;

@@ -84,6 +84,10 @@ export const StyledDropdownContentWrapper = styled.ul`
   flex-direction: column;
   gap: 16px;
   font-family: ${({ theme }) => theme.fontFamily.dmSans};
+
+  & li a {
+    display: block;
+  }
 `;
 
 export const StyledDropdownItem = styled.span`

@@ -48,13 +48,13 @@ export const TagsDrawer = ({ tags }: { tags: string[] }) => {
             />
           </StyledMobileDrawerHeading>
           <StyledMobileNavigationWrapper>
-            <li onClick={() => handleOnClickTag()}>
+            <li onClick={handleOnClickTag}>
               <Link href={`/blog`} scroll={false}>
                 <StyledTagText>All posts</StyledTagText>
               </Link>
             </li>
             {tags.map(tag => (
-              <li key={tag} className="tagItem" onClick={() => handleOnClickTag(tag)}>
+              <li key={tag} className="tagItem" onClick={handleOnClickTag}>
                 <Link href={`/blog?tags=${tag}`}>
                   <StyledTagText>{tag}</StyledTagText>
                 </Link>
