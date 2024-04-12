@@ -61,7 +61,6 @@ export function Newsletter({
           onSubmit={handleSubmit}
           method="POST"
           action={action}
-          target="_blank"
           className={isSuccess ? 'visually-hidden' : ''}
         >
           <div className="visually-hidden">
