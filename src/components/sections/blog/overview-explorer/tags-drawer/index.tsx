@@ -55,7 +55,7 @@ export const TagsDrawer = ({ tags }: { tags: string[] }) => {
             </li>
             {tags.map(tag => (
               <li key={tag} className="tagItem" onClick={handleOnClickTag}>
-                <Link href={`/blog?tags=${tag}`}>
+                <Link href={`/blog?tags=${tag}`} scroll={false}>
                   <StyledTagText>{tag}</StyledTagText>
                 </Link>
               </li>
