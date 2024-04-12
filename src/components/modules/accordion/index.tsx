@@ -26,7 +26,7 @@ const AccordionTitle = ({ $variant, children }: Component<StyledAccordionProps>)
   );
 };
 
-export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
+export const Accordion = ({ items, $variant = 'default', isBiggerIcon }: AccordionProps) => {
   return (
     <StyledAccordionWrapper type="single" defaultValue={items[0].title} collapsible $variant={$variant}>
       {Array.isArray(items) &&
@@ -35,7 +35,7 @@ export const Accordion = ({ items, $variant = 'default' }: AccordionProps) => {
           <StyledAccordionItem key={`${item.title}-${idx}`} value={item.title} $variant={$variant}>
             <StyledAccordionTrigger>
               <AccordionTitle $variant={$variant}>{item.title}</AccordionTitle>
-              <CaretDown weight="fill" size={24} />
+              <CaretDown weight="fill" size={isBiggerIcon ? 24 : 16} />
             </StyledAccordionTrigger>
             <StyledAccordionContent>
               <div

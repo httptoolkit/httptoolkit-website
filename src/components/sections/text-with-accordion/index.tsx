@@ -28,7 +28,7 @@ export const TextWithAccordion = ({ title, text, cta, accordionItems }: TextWith
           </StyledTextWithAccordionText>
           <Button {...cta} />
         </StyledTextWithAccordionTextWrapper>
-        <Accordion items={accordionItems} />
+        <Accordion items={accordionItems} isBiggerIcon />
       </StyledTextWithAccordionContentWrapper>
     </StyledTextWithAccordionWrapper>
   );
