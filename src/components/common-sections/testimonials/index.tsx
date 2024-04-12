@@ -1,5 +1,4 @@
-import Marquee from 'react-fast-marquee';
-
+import { MarqueeWrapper } from './components/marquee';
 import { TestimonialsCard } from './testimonials-card';
 import { StyledTestimonialGrid, StyledTestimonialsWrapper } from './testimonials.styles';
 
@@ -25,7 +24,7 @@ export const Testimonials = async () => {
         $align="center"
       />
 
-      <Marquee pauseOnHover>
+      <MarqueeWrapper>
         <StyledTestimonialGrid>
           {testimonialsChunkedData.map((testimonialChunk, rowIndex) => (
             <div key={rowIndex}>
@@ -44,7 +43,7 @@ export const Testimonials = async () => {
             </div>
           ))}
         </StyledTestimonialGrid>
-      </Marquee>
+      </MarqueeWrapper>
     </StyledTestimonialsWrapper>
   );
 };
