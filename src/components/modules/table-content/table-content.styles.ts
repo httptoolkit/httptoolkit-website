@@ -29,10 +29,15 @@ const TriggerStyles = css`
   border: none;
   width: 100%;
 
-  &:hover,
   &:focus,
   &:focus-within {
     background-color: ${({ theme }) => theme.colors.darkGrey};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.darkGrey};
+    }
   }
 
   & > p,
@@ -126,17 +131,28 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
         ? css`
             padding: 8px 16px;
 
-            &:hover,
             &:focus,
             &:focus-within {
               background-color: ${({ theme }) => theme.colors.darkGrey};
             }
+
+            @media (hover: hover) {
+              &:hover {
+                background-color: ${({ theme }) => theme.colors.darkGrey};
+              }
+            }
           `
         : css`
             padding: 8px 32px;
-            &:hover,
+
             &:focus {
               color: ${({ theme }) => theme.colors.text.darkGrey};
+            }
+
+            @media (hover: hover) {
+              &:hover {
+                color: ${({ theme }) => theme.colors.text.darkGrey};
+              }
             }
           `}
 

@@ -14,9 +14,11 @@ export const MovingBorder = styled.figure`
     width: fit-content;
   }
 
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
-    transition: all ease-in 0.3s;
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
+      transition: all ease-in 0.3s;
+    }
   }
 
   &:before {

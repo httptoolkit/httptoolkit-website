@@ -56,8 +56,10 @@ export const StyledTagText = styled.span`
   text-transform: capitalize;
   transition: color ease-in 200ms;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.text.electricLightBlue};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    }
   }
 `;
 

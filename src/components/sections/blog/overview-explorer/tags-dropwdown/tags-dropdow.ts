@@ -17,8 +17,10 @@ export const StyledButtonTrigger = styled.button`
   align-items: center;
   gap: 8px;
 
-  &:hover {
-    color: ${({ theme }) => theme.colors.text.electricLightBlue};
+  @media (hover: hover) {
+    &:hover {
+      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+    }
   }
 `;
 
@@ -45,9 +47,10 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
         outline: none;
         background: ${({ theme }) => theme.colors.darkGrey};
       }
-
-      &:hover {
-        background: ${({ theme }) => theme.colors.darkGrey};
+      @media (hover: hover) {
+        &:hover {
+          background: ${({ theme }) => theme.colors.darkGrey};
+        }
       }
     }
     /* width */

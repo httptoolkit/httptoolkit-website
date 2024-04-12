@@ -141,10 +141,16 @@ export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOn
   }
 
   @media (min-width: ${screens.md}) {
-    & a:hover,
     & a:focus {
       transition: color ease-in 200ms;
       color: ${({ theme }) => theme.colors.cinnarbarRed};
+    }
+
+    @media (hover: hover) {
+      & a:hover {
+        transition: color ease-in 200ms;
+        color: ${({ theme }) => theme.colors.cinnarbarRed};
+      }
     }
   }
 `;

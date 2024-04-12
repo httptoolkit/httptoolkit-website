@@ -14,8 +14,10 @@ export const EditOnGithub = styled.em`
     text-decoration: underline;
     transition: color ease-in 200ms;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.text.lightGrey};
+    @media (hover: hover) {
+      &:hover {
+        color: ${({ theme }) => theme.colors.text.lightGrey};
+      }
     }
   }
 `;

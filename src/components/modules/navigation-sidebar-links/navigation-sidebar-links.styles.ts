@@ -40,19 +40,29 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
     &.active {
       color: ${({ theme }) => theme.colors.text.electricLightBlue};
       @media (min-width: ${screens.md}) {
-        &:hover,
         &:focus,
         &:active {
           color: ${({ theme }) => theme.colors.text.electricLightBlue};
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: ${({ theme }) => theme.colors.text.electricLightBlue};
+          }
         }
       }
     }
 
     @media (min-width: ${screens.md}) {
-      &:hover,
       &:focus,
       &:active {
         color: ${({ theme }) => theme.colors.text.darkGrey};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.text.darkGrey};
+        }
       }
     }
   }
@@ -71,18 +81,28 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
     &.active {
       color: ${({ theme }) => theme.colors.text.electricLightBlue};
       @media (min-width: ${screens.md}) {
-        &:hover,
         &:focus,
         &:active {
           color: ${({ theme }) => theme.colors.text.electricLightBlue};
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: ${({ theme }) => theme.colors.text.electricLightBlue};
+          }
         }
       }
     }
 
     @media (min-width: ${screens.md}) {
-      &:focus,
-      &:hover {
+      &:focus {
         color: ${({ theme }) => theme.colors.text.darkGrey};
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: ${({ theme }) => theme.colors.text.darkGrey};
+        }
       }
     }
   }

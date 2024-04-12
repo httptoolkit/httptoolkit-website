@@ -29,8 +29,10 @@ const base = css<StyledButtonProps>`
     justify-content: center;
   }
 
-  &:hover {
-    transition: all ease-in 0.3s;
+  @media (hover: hover) {
+    &:hover {
+      transition: all ease-in 0.3s;
+    }
   }
 
   ${props => {
@@ -51,13 +53,15 @@ const base = css<StyledButtonProps>`
           `}
 
           @media (min-width: ${screens.md}) {
-            &:hover {
-              transition: border ease-in 0.3s;
-              ${() =>
-                !props.$withBorder &&
-                `
-              border: 1px solid ${props.theme.colors.text.white};
-            `}
+            @media (hover: hover) {
+              &:hover {
+                transition: border ease-in 0.3s;
+                ${() =>
+                  !props.$withBorder &&
+                  `
+                border: 1px solid ${props.theme.colors.text.white};
+              `}
+              }
             }
 
             &:focus {
@@ -94,12 +98,14 @@ const base = css<StyledButtonProps>`
             0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
           @media (min-width: ${screens.md}) {
-            &:hover {
-              ${() =>
-                !props.$isDropdown &&
-                `
-              box-shadow:  0 0 0 1px ${props.theme.colors.text.lightGrey};
-              `}
+            @media (hover: hover) {
+              &:hover {
+                ${() =>
+                  !props.$isDropdown &&
+                  `
+                box-shadow:  0 0 0 1px ${props.theme.colors.text.lightGrey};
+                `}
+              }
             }
 
             &:focus {

@@ -20,11 +20,19 @@ export const StyledNavMobileItems = styled.nav`
   margin-top: 15px;
 
   @media (min-width: ${screens.md}) {
-    & a:hover,
     & a:focus {
       span {
         transition: color ease-in 200ms;
         color: ${({ theme }) => theme.colors.cinnarbarRed};
+      }
+    }
+
+    @media (hover: hover) {
+      & a:hover {
+        span {
+          transition: color ease-in 200ms;
+          color: ${({ theme }) => theme.colors.cinnarbarRed};
+        }
       }
     }
   }

@@ -61,8 +61,10 @@ export const StyledFeatureSectionItem = styled.div`
     border-radius: 8px;
     transition: all 0.3;
 
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.mediumGrey};
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.mediumGrey};
+      }
     }
   }
 `;
