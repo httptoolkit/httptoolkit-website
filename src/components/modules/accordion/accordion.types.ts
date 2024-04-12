@@ -9,4 +9,5 @@ export interface StyledAccordionProps {
 
 export interface AccordionProps extends StyledAccordionProps {
   items: AccordionItem[];
+  isBiggerIcon?: boolean;
 }
