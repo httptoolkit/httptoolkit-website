@@ -18,7 +18,7 @@ export const GrowingNumbers = ({ stats }: GrowingNumbersProps) => {
           const [number, suffix] = convertToMax3DigitsWithSuffix(stat.number);
           return (
             <StyledGrowingNumbersStat key={stat.number}>
-              <StyledGrowingNumberStatNumber>
+              <StyledGrowingNumberStatNumber data-number={stat.number}>
                 {<NumberIncreaser maxValue={number} suffix={suffix} />}
                 {stat.isOver && '+'}
               </StyledGrowingNumberStatNumber>

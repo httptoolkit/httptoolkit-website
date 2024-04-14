@@ -8,6 +8,6 @@ export const siteMetadata = {
   // blogUrl: 'https://httptoolkit.com/blog',
   siteUrl: 'https://httptoolkit-website.pages.dev',
   blogUrl: 'https://httptoolkit-website.pages.dev/blog',
-  latestAppVersion: '1.14.9',
+  latestAppVersion: '1.14.11',
   latestSiteUpdate: new Date().toISOString(), // I.e. the date of the latest site build
 };

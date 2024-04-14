@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 
+import { DownloadButton } from '@/components/modules/download-button';
 import { CTA } from '@/components/sections/cta';
 import { PricingPlans } from '@/components/sections/pricing/plans';
 
@@ -16,7 +17,7 @@ export default function PricingPage() {
         withDownload={false}
       >
         <Suspense>
-          <PricingPlans $hideFree />
+          <PricingPlans downloadButton={<DownloadButton />} $hideFree />
         </Suspense>
       </CTA>
     </>

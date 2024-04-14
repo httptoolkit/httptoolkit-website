@@ -1,6 +1,7 @@
 import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
+import { DownloadButton } from '@/components/modules/download-button';
 import { CTA } from '@/components/sections/cta';
 import { PricingPlans } from '@/components/sections/pricing/plans';
 import { buildMetadata } from '@/lib/utils/build-metadata';
@@ -24,7 +25,7 @@ export default function PricingPage() {
         withDownload={false}
       >
         <Suspense>
-          <PricingPlans />
+          <PricingPlans downloadButton={<DownloadButton />} />
         </Suspense>
       </CTA>
     </>
