@@ -10,8 +10,8 @@ import { usePlanCta } from '../../../plans/hooks/get-plan-cta';
 import { Heading } from '@/components/elements/heading';
 import { AccountStore } from '@/lib/store/account-store';
 
-export const HeadingPlan = observer(({ id, title }: HeadingPlanProps) => {
-  const getPlanCTA = usePlanCta();
+export const HeadingPlan = observer(({ id, title, downloadButton }: HeadingPlanProps) => {
+  const getPlanCTA = usePlanCta(downloadButton);
   const [account] = useState(() => new AccountStore());
 
   return (

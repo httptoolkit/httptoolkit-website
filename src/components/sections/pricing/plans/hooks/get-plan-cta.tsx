@@ -2,17 +2,19 @@
 
 import { upperFirst } from 'lodash';
 import { usePostHog } from 'posthog-js/react';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 
 import { StyledPricingCardCTAWrapper } from '../components/card/card.styles';
 
 import { Button } from '@/components/elements/button';
 import { PaperPlaneTilt, Sparkle, Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-import { DownloadButton } from '@/components/modules/download-button';
 import type { AccountStore } from '@/lib/store/account-store';
 
-export const usePlanCta = () => {
+/**
+ *  @param {React.ReactNode} downloadButton - DrowpdownButton is a server component, so we need to provide it as a children because we cannot import directly in client component
+ */
+export const usePlanCta = (downloadButton?: React.ReactNode) => {
   const posthog = usePostHog();
 
   return useCallback((tierCode: string, account: AccountStore, waitingForPurchase: boolean, planCycle: string) => {
@@ -23,14 +25,14 @@ export const usePlanCta = () => {
     }
 
     if (tierCode === 'free') {
-      return <DownloadButton />;
+      return <>{downloadButton}</>;
     }
 
     if (paidTier === tierCode) {
       if (paidCycle === planCycle) {
         return (
           <StyledPricingCardCTAWrapper>
-            <DownloadButton />
+            {downloadButton}
             <Text fontSize="s" color="lightGrey">
               Download now and log in to access your {upperFirst(tierCode)} subscription
             </Text>

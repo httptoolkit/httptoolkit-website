@@ -30,10 +30,10 @@ export const LoadingPrice = () => {
   );
 };
 
-export const PricingPlans = observer(({ $hideFree }: StyledPricingPlansProps) => {
+export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPricingPlansProps) => {
   const [account] = useState(() => new AccountStore());
   const [planCycle, setPlanCycle] = useState(pricingPlans[0].id);
-  const getPlanCTA = usePlanCta();
+  const getPlanCTA = usePlanCta(downloadButton);
 
   const isAnnual = planCycle === 'annual';
   const filteredCards = $hideFree ? cards.filter(card => card.id !== 'free') : cards;

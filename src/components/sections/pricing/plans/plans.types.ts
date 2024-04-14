@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import type { PricingCardProps } from './components/card/card.types';
 
 export interface PricingPlansData {
@@ -7,4 +9,5 @@ export interface PricingPlansData {
 
 export interface StyledPricingPlansProps {
   $hideFree?: boolean;
+  downloadButton?: ReactNode;
 }
