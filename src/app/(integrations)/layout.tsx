@@ -15,7 +15,7 @@ export default function IntegrationsLayout({ children }: { children: React.React
   return (
     <Layout>
       {children}
-      <TryItForYourselfCTA variant="cta-fluid" />
+      <TryItForYourselfCTA isFooterClose variant="cta-fluid" />
       <Suspense>
         <ProductLdData />
       </Suspense>

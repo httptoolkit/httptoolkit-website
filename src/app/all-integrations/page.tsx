@@ -23,7 +23,7 @@ export default function IntegrationsPage() {
         text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
       />
       <IntegrationsGrid />
-      <TryItForYourselfCTA />
+      <TryItForYourselfCTA isFooterClose />
       <Suspense>
         <ProductLdData />
       </Suspense>

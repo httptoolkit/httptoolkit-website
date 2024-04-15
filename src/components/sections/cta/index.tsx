@@ -22,6 +22,7 @@ export const CTA = ({
   image,
   variant = 'cta-hero',
   $bgVariant = 'default',
+  $isFooterClose = false,
   className,
   children,
   downloadButtonDefaultOsValue,
@@ -35,7 +36,7 @@ export const CTA = ({
   const excerptSize = variant === 'cta-narrow' ? 'm' : 'l';
 
   return (
-    <StyledHeroWrapper $variant={variant} $bgVariant={$bgVariant} className={className}>
+    <StyledHeroWrapper $footerClose={$isFooterClose} $variant={variant} $bgVariant={$bgVariant} className={className}>
       <StyledContainer data-container>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
