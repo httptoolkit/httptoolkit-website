@@ -22,6 +22,8 @@ export const StyledNavigationSidebarLinksContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-height: calc(100vh - 80px);
+  overflow: auto;
 `;
 
 export const StyledNavigationSidebarLinksContentItem = styled.div`

@@ -28,7 +28,7 @@ export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksP
       <StyledNavigationSidebarLinksTitle forwardedAs="p" fontSize="xs" fontWeight="medium" color="white">
         {title}
       </StyledNavigationSidebarLinksTitle>
-      <StyledNavigationSidebarLinksContentWrapper>
+      <StyledNavigationSidebarLinksContentWrapper data-match-scroll>
         <StyledNavigationSidebarLinksContentTitle fontSize="m" color="white">
           <ItemTitleComponent key="#intro" href="#intro" text="Introduction" />
         </StyledNavigationSidebarLinksContentTitle>

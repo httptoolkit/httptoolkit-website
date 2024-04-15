@@ -27,10 +27,29 @@ function useActiveToc() {
       .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), div#intro')
       .forEach(heading => headingObserver.observe(heading));
 
+    const scrollMatchingElement = document.querySelector('[data-match-scroll]');
+    const htmlElement = document.querySelector('html');
+
+    function scrollMatch() {
+      if (!scrollMatchingElement || !htmlElement) return;
+
+      const scrollPercentage = ((window.scrollY || window.pageYOffset) + window.innerHeight) / htmlElement.scrollHeight;
+
+      const containerFactor = scrollMatchingElement.scrollHeight - scrollMatchingElement.clientHeight;
+      console.log(scrollPercentage);
+      if (scrollPercentage < 0.15) {
+        return (scrollMatchingElement.scrollTop = 0);
+      }
+      scrollMatchingElement.scrollTop = scrollPercentage * containerFactor;
+    }
+
+    window.addEventListener('scroll', scrollMatch);
+
     return () => {
       document
         .querySelectorAll<HTMLElement>('article :is(h2,h3,h4), div#intro')
         .forEach(heading => headingObserver.unobserve(heading));
+      window.removeEventListener('scroll', scrollMatch);
     };
   }, []);
 }

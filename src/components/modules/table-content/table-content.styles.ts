@@ -12,6 +12,8 @@ export const StyledTableContentWrapper = styled.div`
   gap: 16px;
   border-radius: 16px;
   padding: 16px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
   background: ${({ theme }) => theme.colors.inkBlack};
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,

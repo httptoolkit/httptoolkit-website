@@ -72,7 +72,7 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
       />
     ));
 
-  if (!isCollapsible) return <StyledTableContentWrapper>{content}</StyledTableContentWrapper>;
+  if (!isCollapsible) return <StyledTableContentWrapper data-match-scroll>{content}</StyledTableContentWrapper>;
 
   const defaultOpenItem = links.find(item => {
     return item.subItems?.some(subItem => getPathWithoutHash(subItem.href) === currentPath);
