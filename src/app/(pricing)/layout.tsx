@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { LoadPricing } from './load-pricing';
-import { comparisonPlans, planFeatures, FAQItems } from './pricing/data';
+import { FAQItems, comparisonPlans, planFeatures } from './pricing/data';
 
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
@@ -37,7 +37,7 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
       <Suspense>
         <Testimonials />
       </Suspense>
-      <TryItForYourselfCTA variant="cta-fluid" />
+      <TryItForYourselfCTA isFooterClose variant="cta-fluid" />
     </Layout>
   );
 }

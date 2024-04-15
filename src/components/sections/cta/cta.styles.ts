@@ -131,6 +131,7 @@ const ctaNarrowStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
 export const StyledHeroWrapper = styled.section<{
   $variant: CTAVariant;
   $bgVariant: bgVariant;
+  $footerClose: boolean;
 }>`
   position: relative;
   padding-top: 32px;
@@ -144,8 +145,17 @@ export const StyledHeroWrapper = styled.section<{
 
   @media (min-width: ${screens['lg']}) {
     padding-top: 96px;
-    padding-bottom: 128px;
-    margin-bottom: -64px;
+
+    ${({ $footerClose }) => {
+      return $footerClose
+        ? `
+        padding-bottom: 128px;
+        margin-bottom: -64px;
+      `
+        : `
+        padding-bottom: 64px;
+      `;
+    }}
   }
 `;
 
