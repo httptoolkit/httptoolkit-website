@@ -75,6 +75,7 @@ export const StyledAccordionTrigger = styled(Accordion.Trigger)`
 
     & svg {
       transition: transform 300ms;
+      flex-shrink: 0;
     }
 
     &[data-state='open'] svg {
