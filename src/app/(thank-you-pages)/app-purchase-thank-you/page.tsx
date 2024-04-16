@@ -4,7 +4,7 @@ import {
   StyledGradientBottom,
   StyledTextContent,
   StyledThankYouSection,
-  StyledSectionCTA,
+  StyledSectionCTAWrapper,
 } from '../web-purchase-thank-you/thank-you.styles';
 
 import { Container } from '@/components/elements/container';
@@ -16,22 +16,25 @@ import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { ContentCard } from '@/components/modules/content-card';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
+import { CTA } from '@/components/sections/cta';
 
 export default function AppPurchaseThankYouPage() {
   return (
     <LandingLayout>
       <div>
         <StyledHideElementOn $hideOn="desktop">
-          <StyledSectionCTA
-            heading="Thanks for your purchase!"
-            withDownload={false}
-            image={{
-              darkSrc: '/images/hero-placeholder-dark.webp',
-              lightSrc: '/images/hero-placeholder-light.webp',
-              withBorderAnimation: true,
-              loading: 'eager',
-            }}
-          ></StyledSectionCTA>
+          <StyledSectionCTAWrapper>
+            <CTA
+              heading="Thanks for your purchase!"
+              withDownload={false}
+              image={{
+                darkSrc: '/images/hero-placeholder-dark.webp',
+                lightSrc: '/images/hero-placeholder-light.webp',
+                withBorderAnimation: true,
+                loading: 'eager',
+              }}
+            />
+          </StyledSectionCTAWrapper>
         </StyledHideElementOn>
         <StyledThankYouSection>
           <Container>

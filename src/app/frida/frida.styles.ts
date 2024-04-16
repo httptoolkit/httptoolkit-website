@@ -2,7 +2,6 @@
 
 import { Container } from '@/components/elements/container';
 import { Section } from '@/components/elements/section';
-import { CTA } from '@/components/sections/cta';
 import { screens, styled } from '@/styles';
 
 export const StyledFridaSection = styled(Section)`
@@ -85,8 +84,8 @@ export const StyledGradientBottom = styled.div`
   }
 `;
 
-export const StyledSectionCTA = styled(CTA)`
-  &&& {
+export const StyledSectionCTAWrapper = styled.div`
+  & section[data-cta='true'] {
     padding-bottom: 0 !important;
 
     h1 {

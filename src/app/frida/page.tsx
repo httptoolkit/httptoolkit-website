@@ -6,7 +6,7 @@ import {
   StyledFridaColumns,
   StyledGradientBottom,
   StyledMobileText,
-  StyledSectionCTA,
+  StyledSectionCTAWrapper,
   StyledTextContent,
   StyledFridaSection,
 } from './frida.styles';
@@ -20,6 +20,7 @@ import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { LandingLayout } from '@/components/layout/landing-layout';
+import { CTA } from '@/components/sections/cta';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -31,22 +32,24 @@ export default async function FridaPage() {
     <LandingLayout>
       <div>
         <StyledHideElementOn $hideOn="desktop">
-          <StyledSectionCTA
-            heading="Frida Mobile Interception Scripts"
-            withDownload={false}
-            image={{
-              darkSrc: '/images/hero-placeholder-dark.webp',
-              lightSrc: '/images/hero-placeholder-light.webp',
-              withBorderAnimation: true,
-              loading: 'eager',
-            }}
-          >
-            <StyledMobileText>
-              <Text fontSize="m" fontWeight="bold">
-                Frida scripts to directly MitM all HTTPS traffic from a target mobile application.
-              </Text>
-            </StyledMobileText>
-          </StyledSectionCTA>
+          <StyledSectionCTAWrapper>
+            <CTA
+              heading="Frida Mobile Interception Scripts"
+              withDownload={false}
+              image={{
+                darkSrc: '/images/hero-placeholder-dark.webp',
+                lightSrc: '/images/hero-placeholder-light.webp',
+                withBorderAnimation: true,
+                loading: 'eager',
+              }}
+            >
+              <StyledMobileText>
+                <Text fontSize="m" fontWeight="bold">
+                  Frida scripts to directly MitM all HTTPS traffic from a target mobile application.
+                </Text>
+              </StyledMobileText>
+            </CTA>
+          </StyledSectionCTAWrapper>
         </StyledHideElementOn>
         <StyledFridaSection>
           <Container>
