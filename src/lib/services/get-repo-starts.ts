@@ -1,4 +1,5 @@
 import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG } from '../constants/github';
+import { siteMetadata } from '../site-metadata';
 
 export async function getOrganizationStars() {
   try {
@@ -34,6 +35,6 @@ export async function getOrganizationStars() {
     return starsCount;
   } catch (error: unknown) {
     if (error instanceof Error) console.error('Error:', error.message);
-    return 0;
+    return siteMetadata.totalStarsCount;
   }
 }

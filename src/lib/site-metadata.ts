@@ -10,4 +10,9 @@ export const siteMetadata = {
   blogUrl: 'https://httptoolkit-website.pages.dev/blog',
   latestAppVersion: '1.14.11',
   latestSiteUpdate: new Date().toISOString(), // I.e. the date of the latest site build
+
+  // fallback static stats in case we reach out the github api limits
+  totalContributors: 142,
+  totalDownloads: 513325,
+  totalStarsCount: 7548,
 };

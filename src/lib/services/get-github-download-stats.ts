@@ -1,6 +1,7 @@
 import sum from 'lodash/sum';
 
 import { GITHUB_ORG } from '../constants/github';
+import { siteMetadata } from '../site-metadata';
 
 export async function getGithubDownloadStats() {
   try {
@@ -35,6 +36,6 @@ export async function getGithubDownloadStats() {
   } catch (error) {
     console.error('An error occurred trying to fetch getGithubDownloadStats:', error);
     // fallback static data if dynamic fetch fails
-    return 0;
+    return siteMetadata.totalDownloads;
   }
 }
