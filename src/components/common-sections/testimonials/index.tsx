@@ -1,6 +1,6 @@
 import { MarqueeWrapper } from './components/marquee';
 import { TestimonialsCard } from './testimonials-card';
-import { StyledTestimonialGrid, StyledTestimonialsWrapper } from './testimonials.styles';
+import { StyledTestimonialsWrapper } from './testimonials.styles';
 
 import { Heart } from '@/components/elements/icon';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -25,24 +25,22 @@ export const Testimonials = async () => {
       />
 
       <MarqueeWrapper>
-        <StyledTestimonialGrid>
-          {testimonialsChunkedData.map((testimonialChunk, rowIndex) => (
-            <div key={rowIndex}>
-              {testimonialChunk.map((testimonial, colIndex) => {
-                return (
-                  <TestimonialsCard
-                    key={colIndex}
-                    quote={testimonial?.quote}
-                    type={testimonial?.type}
-                    sourceLink={testimonial.sourceLink}
-                    sourceLinkText={testimonial.sourceLinkText}
-                    sourceName={testimonial.sourceName}
-                  />
-                );
-              })}
-            </div>
-          ))}
-        </StyledTestimonialGrid>
+        {testimonialsChunkedData.map((testimonialChunk, rowIndex) => (
+          <div key={rowIndex}>
+            {testimonialChunk.map((testimonial, colIndex) => {
+              return (
+                <TestimonialsCard
+                  key={colIndex}
+                  quote={testimonial?.quote}
+                  type={testimonial?.type}
+                  sourceLink={testimonial.sourceLink}
+                  sourceLinkText={testimonial.sourceLinkText}
+                  sourceName={testimonial.sourceName}
+                />
+              );
+            })}
+          </div>
+        ))}
       </MarqueeWrapper>
     </StyledTestimonialsWrapper>
   );
