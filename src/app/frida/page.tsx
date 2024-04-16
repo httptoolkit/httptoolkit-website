@@ -102,6 +102,7 @@ export default async function FridaPage() {
                   loading="eager"
                   width={662}
                   height={450}
+                  sizes="(max-width: 600px) 50vw, 75vw"
                 />
               </StyledHideElementOn>
             </StyledFridaColumns>
