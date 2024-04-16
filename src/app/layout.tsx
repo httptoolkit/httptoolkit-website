@@ -38,7 +38,12 @@ export const metadata: Metadata = buildMetadata({
   },
 });
 
-const dmSansFont = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-dmSans' });
+const dmSansFont = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dmSans',
+  display: 'swap',
+});
 
 export default function RootLayout({
   children,
