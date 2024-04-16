@@ -1,6 +1,6 @@
 'use client';
 
-import { upperFirst } from 'lodash';
+import { upperFirst } from 'lodash-es';
 import { usePostHog } from 'posthog-js/react';
 import React, { useCallback } from 'react';
 

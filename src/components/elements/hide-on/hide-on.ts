@@ -10,7 +10,7 @@ export const StyledHideElementOn = styled.div<{ $hideOn: 'mobile' | 'desktop' }>
           display: none;
           visibility: hidden;
 
-          @media (min-width: ${screens['lg']}) {
+          @media (min-width: ${screens.md}) {
             display: block;
             visibility: visible;
           }
@@ -19,7 +19,7 @@ export const StyledHideElementOn = styled.div<{ $hideOn: 'mobile' | 'desktop' }>
         return css`
           display: block;
           visibility: visible;
-          @media (min-width: ${screens['lg']}) {
+          @media (min-width: ${screens.md}) {
             display: none;
             visibility: hidden;
           }

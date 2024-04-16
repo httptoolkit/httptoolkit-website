@@ -3,7 +3,7 @@
 
 'use client';
 
-import * as _ from 'lodash';
+import { flatMap } from 'lodash-es';
 import { action } from 'mobx';
 import { Observer } from 'mobx-react-lite';
 import * as React from 'react';
@@ -101,7 +101,7 @@ export const EditableHeaders = props => {
     <Observer>
       {() => (
         <HeadersContainer>
-          {_.flatMap(headers, ([key, value], i) => [
+          {flatMap(headers, ([key, value], i) => [
             <Input
               value={key}
               required

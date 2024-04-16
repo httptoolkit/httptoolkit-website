@@ -25,8 +25,9 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
           <StyledNavigation>
             <StyledNavItems aria-label="Global">
               {navigationItems.map(navItem => {
+                const shouldDisablePreFetch = [BLOG.label, DOCS.label].includes(navItem.label) ? false : undefined;
                 return (
-                  <Link key={`${navItem.label}-${navItem.href}`} href={navItem.href}>
+                  <Link key={`${navItem.label}-${navItem.href}`} prefetch={shouldDisablePreFetch} href={navItem.href}>
                     <Text as="span" fontSize="m">
                       {navItem.label}
                     </Text>

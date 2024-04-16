@@ -1,6 +1,4 @@
-import { GITHUB_ORG, GITHUB_ORIGINAL_MAINTAINER } from '../constants/github';
-
-const headers = process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : undefined;
+import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG, GITHUB_ORIGINAL_MAINTAINER } from '../constants/github';
 
 export const getOpenSourceContributors = async () => {
   try {
@@ -9,7 +7,7 @@ export const getOpenSourceContributors = async () => {
     while (true) {
       const orgReposResponse = await fetch(
         `https://api.github.com/orgs/${GITHUB_ORG}/repos?type=sources&per_page=100&page=${repoPageIndex}`,
-        { headers },
+        { headers: GITHUB_DEFAULT_HEADERS },
       );
       if (!orgReposResponse.ok) {
         throw new Error(`Got ${orgReposResponse.status} response looking up org repos`);
@@ -30,9 +28,7 @@ export const getOpenSourceContributors = async () => {
         while (true) {
           const repoResponse = await fetch(
             `https://api.github.com/repos/${repo.full_name}/contributors?per_page=100&page=${contributorPageIndex}`,
-            {
-              headers,
-            },
+            { headers: GITHUB_DEFAULT_HEADERS },
           );
           if (!repoResponse.ok) {
             throw new Error(`Got ${repoResponse.status} response looking up ${repo.full_name} contributors`);

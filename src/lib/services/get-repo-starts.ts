@@ -1,6 +1,4 @@
-import { GITHUB_ORG } from '../constants/github';
-
-const headers = process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : undefined;
+import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG } from '../constants/github';
 
 export async function getOrganizationStars() {
   try {
@@ -11,7 +9,7 @@ export async function getOrganizationStars() {
     // Fetch repositories from the organization page by page until all repositories are fetched
     while (true) {
       const response = await fetch(`https://api.github.com/orgs/${GITHUB_ORG}/repos?page=${page}&per_page=${perPage}`, {
-        headers,
+        headers: GITHUB_DEFAULT_HEADERS,
       });
 
       if (!response.ok) {

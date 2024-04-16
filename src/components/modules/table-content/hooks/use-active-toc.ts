@@ -36,7 +36,6 @@ function useActiveToc() {
       const scrollPercentage = ((window.scrollY || window.pageYOffset) + window.innerHeight) / htmlElement.scrollHeight;
 
       const containerFactor = scrollMatchingElement.scrollHeight - scrollMatchingElement.clientHeight;
-      console.log(scrollPercentage);
       if (scrollPercentage < 0.15) {
         return (scrollMatchingElement.scrollTop = 0);
       }

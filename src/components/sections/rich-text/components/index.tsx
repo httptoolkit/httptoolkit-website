@@ -1,4 +1,4 @@
-import { kebabCase } from 'lodash';
+import { kebabCase } from 'lodash-es';
 import type { MDXComponents } from 'mdx/types';
 
 import {

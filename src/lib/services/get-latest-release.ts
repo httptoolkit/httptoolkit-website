@@ -1,5 +1,4 @@
-import { octokit } from './github-client';
-import { GITHUB_DESKTOP_REPO_NAME, GITHUB_ORG } from '../constants/github';
+import { GITHUB_DESKTOP_REPO_NAME, GITHUB_ORG, GITHUB_DEFAULT_HEADERS } from '../constants/github';
 import { siteMetadata } from '../site-metadata';
 
 interface LatestReleaseReturnProps {
@@ -9,15 +8,19 @@ interface LatestReleaseReturnProps {
 
 export const getLatestRelease = async (): Promise<LatestReleaseReturnProps> => {
   try {
-    // Use listReleases becasue for some reason getLatestRelease method it returns
-    // the second-to-last one instead of the last one.
-    const { data: allReleases } = await octokit.rest.repos.listReleases({
-      owner: GITHUB_ORG,
-      repo: GITHUB_DESKTOP_REPO_NAME,
-    });
+    const allReleasesResponse = await fetch(
+      `https://api.github.com/repos/${GITHUB_ORG}/${GITHUB_DESKTOP_REPO_NAME}/releases?per_page=1`,
+      { headers: GITHUB_DEFAULT_HEADERS },
+    );
 
-    const lastReleaseTagName = allReleases[0]?.tag_name;
-    const publishedAt = allReleases[0]?.published_at;
+    if (!allReleasesResponse.ok) {
+      throw new Error(`Got ${allReleasesResponse.status} response looking up latest release`);
+    }
+
+    const latestRelease = await allReleasesResponse.json();
+
+    const lastReleaseTagName = latestRelease[0]?.tag_name;
+    const publishedAt = latestRelease[0]?.published_at;
 
     return {
       latestReleaseVersion: lastReleaseTagName.replace('v', ''),

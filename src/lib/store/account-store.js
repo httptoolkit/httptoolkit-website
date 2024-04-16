@@ -7,7 +7,7 @@ import {
   prefetchCheckout,
   initializeAuthUi,
 } from '@httptoolkit/accounts';
-import * as _ from 'lodash';
+import { get } from 'lodash-es';
 import { flow, observable, computed, makeObservable } from 'mobx';
 
 import { isSSR } from '../utils';
@@ -72,7 +72,7 @@ export class AccountStore {
 
   get isPaidUser() {
     // Set with the last known active subscription details
-    const subscriptionExpiry = _.get(this, 'user.subscription.expiry');
+    const subscriptionExpiry = get(this, 'user.subscription.expiry');
 
     return !!subscriptionExpiry && subscriptionExpiry.valueOf() > Date.now();
   }
