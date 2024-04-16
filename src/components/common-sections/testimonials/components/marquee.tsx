@@ -1,7 +1,9 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
+
+import { StyledTestimonialGrid } from '../testimonials.styles';
 
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 
@@ -15,5 +17,21 @@ interface MarqueeWrapperProps {
 
 export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
   const isMobile = useIsMobile();
-  return <Marquee pauseOnHover={!isMobile}>{children}</Marquee>;
+  const [isRunning, setIsRunning] = useState(true);
+
+  const play = () => {
+    setIsRunning(true);
+  };
+
+  const pause = () => {
+    setIsRunning(false);
+  };
+
+  return (
+    <Marquee pauseOnHover={!isMobile} play={isRunning}>
+      <StyledTestimonialGrid onTouchStart={pause} onTouchEnd={play}>
+        {children}
+      </StyledTestimonialGrid>
+    </Marquee>
+  );
 };
