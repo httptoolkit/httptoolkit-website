@@ -91,23 +91,14 @@ const handleBackgroundVariant = (variant: bgVariant) => {
 
     default:
       return css`
-        background-color: ${({ theme }) => theme.colors.darkGrey};
-        z-index: 1;
         background:
           no-repeat url('/images/backgrounds/hero-lines.svg'),
-          radial-gradient(${({ theme }) => theme.colors.mediumGrey} 1px, ${({ theme }) => theme.colors.darkGrey} 1px);
-        background-size:
-          100%,
-          12px 12px,
-          10px;
-        /* background:
-          no-repeat url('/images/backgrounds/hero-lines.svg'),
           var(--background-dots);
-        background-position: top -80px center; */
+        background-position: top -80px center;
 
-        /* @media (max-width: ${screens['md']}) {
+        @media (max-width: ${screens['md']}) {
           background-position: top -317px center;
-        } */
+        }
       `;
   }
 };

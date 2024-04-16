@@ -195,7 +195,7 @@ export const GlobalStyles = createGlobalStyle`
       --shadow-box: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0 0 8px rgba(230, 232, 242, 0.05);
       --shadow-inner-box: rgba(128, 130, 137, 0.1);
       --moving-border-dark: rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 70%, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4);
-      --background-dots: url('/images/backgrounds/dots_dark.svg');
+      --background-dots: url('/images/backgrounds/dots_dark.png');
       --background-always-dark-dots: url('/images/backgrounds/dots_dark.svg');
       --background-gradient: url('/images/backgrounds/gradient_dark.svg');
       --background-func-gradient: url('/images/backgrounds/func_gradient_dark.png');
@@ -234,7 +234,7 @@ export const GlobalStyles = createGlobalStyle`
       --shadow-default: rgba(0, 0, 0, 0.05);
       --shadow-box: 0px 2px 2px 0px rgba(0, 0, 0, 0.07);
       --moving-border-dark: rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 70%,  rgba(0, 0, 0, 0.1),  rgba(51, 60, 255, 0.4);
-      --background-dots: url('/images/backgrounds/dots-light.svg');
+      --background-dots: url('/images/backgrounds/dots_light.png');
       --background-gradient: url('/images/backgrounds/gradient_light.svg');
       --background-func-gradient: url('/images/backgrounds/func-gradient-dark.png');
       --hero-box-shadow: transparent;
