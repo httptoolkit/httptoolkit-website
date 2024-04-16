@@ -21,7 +21,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
     const { paidTier, paidCycle } = account.subscription;
 
     if (waitingForPurchase) {
-      return <Button icon={Spinner}></Button>;
+      return <Button $isFluid icon={Spinner}></Button>;
     }
 
     if (tierCode === 'free') {
@@ -42,7 +42,9 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
 
       return (
         <StyledPricingCardCTAWrapper>
-          <Button href="/contact/">Change to {planCycle}</Button>
+          <Button $isFluid href="/contact/">
+            Change to {planCycle}
+          </Button>
           <Text fontSize="s" color="lightGrey">
             You already have this {paidCycle} plan.
           </Text>
@@ -52,7 +54,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
 
     if (tierCode === 'pro') {
       return (
-        <Button icon={Sparkle} onClick={() => account.buyPlan('pro', planCycle, posthog)}>
+        <Button icon={Sparkle} $isFluid onClick={() => account.buyPlan('pro', planCycle, posthog)}>
           Buy Pro
         </Button>
       );
@@ -64,6 +66,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
           $variant="secondary"
           href="/contact/"
           icon={PaperPlaneTilt}
+          $isFluid
           onClick={() => account.reportPurchaseEvent('Select team plan', tierCode, planCycle, posthog)}
         >
           Get in touch
