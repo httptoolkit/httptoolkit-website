@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import * as _ from 'lodash';
+import { isEmpty, mapValues, keyBy } from 'lodash-es';
 import { makeAutoObservable } from 'mobx';
 
 import { getHeaderValue, getHeaderValues, getOrigin } from '../utils';
@@ -211,10 +211,10 @@ fetch("${this.targetUrl}", ${JSON.stringify(
       Object.assign(
         { method: this.method },
         this.sendCredentials ? { credentials: 'include' } : {},
-        !_.isEmpty(this.requestHeaders)
+        !isEmpty(this.requestHeaders)
           ? {
-              headers: _.mapValues(
-                _.keyBy(this.requestHeaders, ([headerName]) => headerName),
+              headers: mapValues(
+                keyBy(this.requestHeaders, ([headerName]) => headerName),
                 ([, headerValue]) => headerValue,
               ),
             }

@@ -1,4 +1,4 @@
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 
 import type { TableContentProps } from '@/components/modules/table-content/table-content.types';
 

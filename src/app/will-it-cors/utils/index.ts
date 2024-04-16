@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-import * as _ from 'lodash';
+import { find, remove } from 'lodash-es';
 
 export function getOrigin(url: string | URL) {
   return new URL(url).origin;
 }
 
 export function getHeaderPair(headers: any, key: string) {
-  return _.find(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
+  return find(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
 export function getHeaderValue(headers: any, key: any) {
@@ -30,8 +30,8 @@ export function setHeader(headers: any, key: any, value: any) {
   }
 }
 
-export function deleteHeader(headers: _.List<unknown>, key: string) {
-  _.remove(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
+export function deleteHeader(headers: any, key: string) {
+  remove(headers, ([headerKey]) => headerKey.toLowerCase() === key.toLowerCase());
 }
 
 export function someHeaderValues(headers, predicate) {

@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { partition, isEmpty } from 'lodash-es';
 import { observer } from 'mobx-react-lite';
 import { useState, type FormEventHandler } from 'react';
 
@@ -195,7 +195,7 @@ export const RequestExtrasQuestion = observer(
     onUseStreaming,
     onChangeHeaders,
   }: RequestExtrasQuestionProps) => {
-    const [showHeaders, setShowHeaders] = useState(!_.isEmpty(headers));
+    const [showHeaders, setShowHeaders] = useState(!isEmpty(headers));
     return (
       <Question onNext={onNext}>
         <Stack>
@@ -713,7 +713,7 @@ export const ServerRejectsPreflightRequest = ({
     !credentialsAllowed && 'Credentials',
   ].filter(v => !!v);
 
-  const [missingHeaders, incompleteHeaders] = _.partition(
+  const [missingHeaders, incompleteHeaders] = partition(
     incorrectHeaders,
     h => !getHeaderValue(preflightHeaders, `Access-Control-Allow-${h}`),
   );

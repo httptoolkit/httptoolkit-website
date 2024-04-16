@@ -8,6 +8,7 @@ import type { DownloadDropdownProps } from './download-button.types';
 import { Dropdown } from '../dropdown';
 import type { DropdownOptionProps } from '../dropdown/dropdown.types';
 
+import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 import { parseUserAgent } from '@/lib/utils/parse-user-agent';
 
@@ -42,19 +43,24 @@ export const DownloadDropdown = ({
     setOperativeSystem(parseUserAgent(navigator.userAgent));
   }, []);
 
-  if (isMobile || operativeSystem === 'mobile') {
-    return <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />;
-  }
+  // Makes the hide/show with styles to avoid CLS issues
   return (
-    <Dropdown
-      $small={$small}
-      href={defaultOperativeSystem.href}
-      $variant={$variant}
-      $withBorder={$withBorder}
-      aria-label="Download Items"
-      items={items}
-    >
-      Download for {defaultOperativeSystem.defaultText}
-    </Dropdown>
+    <>
+      <StyledHideElementOn $hideOn="desktop">
+        <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
+      </StyledHideElementOn>
+      <StyledHideElementOn $hideOn="mobile">
+        <Dropdown
+          $small={$small}
+          href={defaultOperativeSystem.href}
+          $variant={$variant}
+          $withBorder={$withBorder}
+          aria-label="Download Items"
+          items={items}
+        >
+          Download for {defaultOperativeSystem.defaultText}
+        </Dropdown>
+      </StyledHideElementOn>
+    </>
   );
 };
