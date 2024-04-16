@@ -24,6 +24,9 @@ export const StyledNavigationSidebarLinksContentWrapper = styled.div`
   gap: 16px;
   max-height: calc(100vh - 80px);
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.colors.lightGrey} transparent;
+  scrollbar-gutter: stable;
 `;
 
 export const StyledNavigationSidebarLinksContentItem = styled.div`

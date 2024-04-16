@@ -18,6 +18,10 @@ export const StyledTableContentWrapper = styled.div`
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
     0px 0px 24px 0px ${({ theme }) => theme.shadow.innerBox} inset;
+
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.colors.lightGrey} transparent;
+  scrollbar-gutter: stable;
 `;
 
 const TriggerStyles = css`
