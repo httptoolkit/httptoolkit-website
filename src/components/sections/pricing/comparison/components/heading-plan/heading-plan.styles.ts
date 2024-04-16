@@ -10,9 +10,9 @@ export const StyledHeadingPlanWrapper = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding: 0 16px 32px;
 
-    & > *,
-    & *[data-dropdown],
-    & *[data-button] {
+    & [data-dropdown-wrapper='true'],
+    & a[data-dropdown='true'],
+    & button[data-button='true'] {
       width: 100%;
       padding-left: 0;
       padding-right: 0;

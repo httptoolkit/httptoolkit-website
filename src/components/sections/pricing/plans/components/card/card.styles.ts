@@ -40,7 +40,7 @@ export const StyledPricingCardTitle = styled.div`
 `;
 
 export const StyledPricingCardButtonWrapper = styled.div`
-  & > *,
+  & [data-dropdown-wrapper='true'],
   & [data-dropdown='true'],
   & [data-button='true'] {
     width: 100%;
