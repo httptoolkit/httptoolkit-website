@@ -43,6 +43,7 @@ const dmSansFont = DM_Sans({
   weight: ['400', '500', '600', '700'],
   variable: '--font-dmSans',
   display: 'swap',
+  preload: true,
 });
 
 export default function RootLayout({
