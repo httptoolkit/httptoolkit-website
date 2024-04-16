@@ -1,4 +1,5 @@
 import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG, GITHUB_ORIGINAL_MAINTAINER } from '../constants/github';
+import { siteMetadata } from '../site-metadata';
 
 export const getOpenSourceContributors = async () => {
   try {
@@ -61,6 +62,6 @@ export const getOpenSourceContributors = async () => {
   } catch (error) {
     console.error('An error occurred trying to fetch getOpenSourceContributors:', error);
     // fallback static data if dynamic fetch fails
-    return 0;
+    return siteMetadata.totalContributors;
   }
 };
