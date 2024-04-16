@@ -1,3 +1,5 @@
+import 'server-only';
+
 import fs from 'fs';
 
 import { compileMDX } from 'next-mdx-remote/rsc';

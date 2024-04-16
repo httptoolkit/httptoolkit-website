@@ -36,7 +36,13 @@ export const CTA = ({
   const excerptSize = variant === 'cta-narrow' ? 'm' : 'l';
 
   return (
-    <StyledHeroWrapper $footerClose={$isFooterClose} $variant={variant} $bgVariant={$bgVariant} className={className}>
+    <StyledHeroWrapper
+      data-cta="true"
+      $footerClose={$isFooterClose}
+      $variant={variant}
+      $bgVariant={$bgVariant}
+      className={className}
+    >
       <StyledContainer data-container>
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />

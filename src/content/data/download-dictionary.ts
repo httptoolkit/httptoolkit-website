@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { getLatestRelease } from '@/lib/services/get-latest-release';
 
 export type DownloadDictionary = {
