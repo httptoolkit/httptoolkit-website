@@ -42,6 +42,7 @@ import {
   ShareNetwork,
   XCircle,
   Trash,
+  XLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -129,4 +130,5 @@ export {
   ShareNetwork,
   XCircle,
   Trash,
+  XLogo,
 };

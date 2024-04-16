@@ -1,11 +1,11 @@
 import { StyledAvatar } from './icon-avatar.styles';
 
-import { RedditLogo, TwitterX, Article } from '@/components/elements/icon';
+import { RedditLogo, XLogo, Article } from '@/components/elements/icon';
 
 const IconResolver = {
   reddit: RedditLogo,
   article: Article,
-  twitterX: TwitterX,
+  twitterX: XLogo,
 };
 
 export type IconAvatar = keyof typeof IconResolver;

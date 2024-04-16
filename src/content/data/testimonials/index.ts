@@ -5,7 +5,7 @@ import REDDIT_TESTIMONIALS from './reddit-testimonials.json';
 import TWEETS from './tweet-testimonials.json';
 import { sanitizeContent, sanitizeTweet } from './utils';
 
-import type { TestimonialsCardProps } from '@/components/common-sections/testimonials/testimonials-card';
+import type { TestimonialsCardProps } from '@/components/common-sections/testimonials/components/testimonials-card';
 import { shuffleArray } from '@/lib/utils';
 
 const formattedTweets = TWEETS.map(
