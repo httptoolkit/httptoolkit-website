@@ -108,6 +108,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                 loading="eager"
                 width={662}
                 height={450}
+                sizes="(max-width: 600px) 50vw, 75vw"
               />
             </StyledImageWrapper>
           </StyledDownloadaColumns>
