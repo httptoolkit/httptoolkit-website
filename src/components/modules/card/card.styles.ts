@@ -21,7 +21,7 @@ export const StyledCardImageWrapper = styled.div`
   background-image:
     ${({ theme }) => theme.backgroundImages.backgroundGradient},
     /* ${({ theme }) => theme.backgroundImages.backgroundFuncGradient}, */
-      ${({ theme }) => theme.backgroundImages.backgroundDots};
+      ${({ theme }) => theme.backgroundImages.backgroundDotsCard};
   background-position:
     center 140%,
     center,
