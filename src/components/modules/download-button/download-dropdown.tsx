@@ -46,9 +46,7 @@ export const DownloadDropdown = ({
   // Makes the hide/show with styles to avoid CLS issues
   return (
     <>
-      <StyledHideElementOn $hideOn="desktop">
-        <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
-      </StyledHideElementOn>
+      <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
       <StyledHideElementOn $hideOn="mobile">
         <Dropdown
           $small={$small}
