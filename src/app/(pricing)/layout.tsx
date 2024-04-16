@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 
-import { LoadPricing } from './load-pricing';
 import { FAQItems, comparisonPlans, planFeatures } from './pricing/data';
 
 import { Testimonials } from '@/components/common-sections/testimonials';
@@ -13,8 +12,7 @@ import { TextWithAccordion } from '@/components/sections/text-with-accordion';
 export default function PricingLayout({ children }: { children: React.ReactNode }) {
   return (
     <Layout>
-      {children}
-      <LoadPricing />
+      <Suspense>{children}</Suspense>
       <PricingComparison
         title="Features"
         text="Choose the perfect plan for your business needs"

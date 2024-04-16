@@ -1,6 +1,6 @@
 import { marked } from 'marked';
 
-import { StyledAuthorDetails, StyledAuthorWrapper, StyledQuote, StyledTestimonialCard } from './testimonials.styles';
+import { StyledAuthorDetails, StyledAuthorWrapper, StyledQuote, StyledTestimonialCard } from '../testimonials.styles';
 
 import { IconAvatar } from '@/components/elements/icon-avatar';
 import { Link } from '@/components/elements/link';

@@ -32,7 +32,7 @@
     "@docsearch/react": "^3.6.0",
     "@httptoolkit/accounts": "^2.1.1",
     "@httptoolkit/auth0-lock": "^11.14.0",
-    "@phosphor-icons/react": "^2.0.15",
+    "@phosphor-icons/react": "^2.1.4",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-tooltip": "^1.0.7",
