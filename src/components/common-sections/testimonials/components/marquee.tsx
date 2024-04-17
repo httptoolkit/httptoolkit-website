@@ -28,7 +28,7 @@ export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
   };
 
   return (
-    <Marquee pauseOnHover={!isMobile} play={isRunning} autoFill>
+    <Marquee pauseOnHover={!isMobile} play={isRunning}>
       <StyledTestimonialGrid onTouchStart={pause} onTouchEnd={play}>
         {children}
       </StyledTestimonialGrid>
