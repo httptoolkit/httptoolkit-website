@@ -3,7 +3,7 @@ User-agent: *
 Disallow: /
 
 # Host
-Host: https://httptoolkit-website.pages.dev
+Host: https://httptoolkit-website.netlify.app
 
 # Sitemaps
-Sitemap: https://httptoolkit-website.pages.dev/sitemap.xml
+Sitemap: https://httptoolkit-website.netlify.app/sitemap.xml
