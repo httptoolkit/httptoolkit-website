@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 
+import { screens } from '@/styles';
+
 function useActiveToc() {
   useEffect(() => {
     const setCurrent: IntersectionObserverCallback = entries => {
       for (const entry of entries) {
         const { id } = entry.target as HTMLElement;
+        const isMobile = matchMedia(`(max-width: ${screens.lg})`);
         const tocHeadingEl = document.querySelector(`#table-of-content-headings a[href="#${id}"]`);
         if (!tocHeadingEl) return;
 
@@ -12,7 +15,9 @@ function useActiveToc() {
           // Remove active class from all toc items
           document.querySelectorAll('#table-of-content-headings a').forEach(e => e.classList.remove('active'));
           tocHeadingEl.classList.add('active');
-          tocHeadingEl.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          if (!isMobile.matches) {
+            tocHeadingEl.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+          }
         }
       }
     };
