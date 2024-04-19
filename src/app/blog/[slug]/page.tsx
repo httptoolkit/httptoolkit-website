@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return postMetadata;
 }
 
+/**
+ * For more info check out {@link https://nextjs.org/docs/app/api-reference/functions/generate-static-params Next static params docs}.
+ */
 export async function generateStaticParams() {
   const posts = await getAllPostsMeta();
 

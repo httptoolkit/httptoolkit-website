@@ -5,6 +5,9 @@ import { Layout } from '@/components/layout';
 import { Newsletter } from '@/components/modules/newsletter';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 
+/**
+ * For more info check out {@link https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts Next page & layouts docs}.
+ */
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
     <Layout withoutNewsletter>
