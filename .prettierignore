@@ -1,0 +1,31 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+.next/
+out/
+
+# production
+build
+
+# vercel
+.vercel
+
+# editor
+/.vscode
+/.idea
+
+# typescript
+*.tsbuildinfo
+
+# github
+.github/
+
+
+# MD files
+*.md
