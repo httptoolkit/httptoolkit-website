@@ -32,7 +32,7 @@ For full control of your account, including access to all historical invoices an
 
 ### Can I get a trial?
 
-There's no trial option available, however you can use all the core features for free, and it's very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately (see the next point).
+There's no trial option available, however you can use all the core features for free, and it's very easy to subscribe for a single month of Pro access as a tester. To do so, simply sign up for a monthly subscription, and then cancel immediately (see the next point).
 
 ### How can I cancel?
 
