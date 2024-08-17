@@ -11,7 +11,7 @@ import type { GrowingNumbersStat } from '@/components/modules/growing-numbers/gr
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
 import { getOpenSourceContributors } from '@/lib/services/get-open-source-contributors';
-import { getOrganizationStars } from '@/lib/services/get-repo-starts';
+import { getOrganizationStars } from '@/lib/services/get-repo-stars';
 
 export const Statistics = async ({
   title = 'Why `*HTTP Toolkit*`?',

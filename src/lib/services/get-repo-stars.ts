@@ -1,7 +1,11 @@
 import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG } from '../constants/github';
 import { siteMetadata } from '../site-metadata';
 
+let cachedStarsCount: number | null = null;
+
 export async function getOrganizationStars() {
+  if (cachedStarsCount) return cachedStarsCount;
+
   try {
     let starsCount = 0;
     let page = 1;
@@ -32,7 +36,7 @@ export async function getOrganizationStars() {
       page++; // Move to the next page
     }
 
-    return starsCount;
+    return (cachedStarsCount = starsCount);
   } catch (error: unknown) {
     if (error instanceof Error) console.error('Error:', error.message);
     return siteMetadata.totalStarsCount;

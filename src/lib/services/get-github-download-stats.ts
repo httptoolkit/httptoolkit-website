@@ -3,7 +3,11 @@ import sum from 'lodash/sum';
 import { GITHUB_ORG } from '../constants/github';
 import { siteMetadata } from '../site-metadata';
 
-export async function getGithubDownloadStats() {
+let cachedDownloadState: number | null = null;
+
+export async function getGithubDownloadStats(): Promise<number> {
+  if (cachedDownloadState) return cachedDownloadState;
+
   try {
     const releases = [];
     let pageIndex = 1;
@@ -32,7 +36,7 @@ export async function getGithubDownloadStats() {
       releases.map((release: any) => sum(release.assets.map((asset: any) => asset.download_count))),
     );
 
-    return totalDownloads;
+    return (cachedDownloadState = totalDownloads);
   } catch (error) {
     console.error('An error occurred trying to fetch getGithubDownloadStats:', error);
     // fallback static data if dynamic fetch fails

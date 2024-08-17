@@ -1,7 +1,11 @@
 import { GITHUB_DEFAULT_HEADERS, GITHUB_ORG, GITHUB_ORIGINAL_MAINTAINER } from '../constants/github';
 import { siteMetadata } from '../site-metadata';
 
+let cachedContributors: number | null = null;
+
 export const getOpenSourceContributors = async () => {
+  if (cachedContributors) return cachedContributors;
+
   try {
     const repos = [];
     let repoPageIndex = 1;
@@ -58,7 +62,7 @@ export const getOpenSourceContributors = async () => {
 
     const uniqueContributors = [...new Set<unknown>(contributors.map(([, contributors]) => contributors).flat())];
 
-    return uniqueContributors.length;
+    return (cachedContributors = uniqueContributors.length);
   } catch (error) {
     console.error('An error occurred trying to fetch getOpenSourceContributors:', error);
     // fallback static data if dynamic fetch fails
