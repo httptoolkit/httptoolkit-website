@@ -38,7 +38,6 @@ export const ThemedImage = ({
   const FinalImage = () => {
     return (
       <>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <ExportedImage
           {...imageProps}
           alt={alt}
@@ -47,7 +46,6 @@ export const ThemedImage = ({
           src={lightSrc}
           data-hide-on-theme="dark"
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <ExportedImage
           {...imageProps}
           alt={alt}

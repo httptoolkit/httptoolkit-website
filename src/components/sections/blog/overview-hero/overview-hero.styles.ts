@@ -74,7 +74,6 @@ export const StyledExcerpt = styled(Text)`
     padding: 3px 0;
     text-overflow: ellipsis;
 
-    /* stylelint-disable-next-line */
     display: -webkit-box;
   }
 `;

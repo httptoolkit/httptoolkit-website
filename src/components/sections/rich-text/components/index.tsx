@@ -41,7 +41,6 @@ export const defaultComponents: MDXComponents = {
   h4: Heading3to6,
   h5: Heading3to6,
   h6: Heading3to6,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   a({ children, href }: Component<{ href: string }>) {
     return <StyledLink href={href}>{children}</StyledLink>;
