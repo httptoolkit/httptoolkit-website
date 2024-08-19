@@ -140,7 +140,7 @@ jobs:
     needs: publish-docker
     steps:
       - name: Redeploy container
-        uses: thibaultchazal/scaleway-serverless-container-deploy-action@0d290edda0c3359e51442bd8bf730eafef4e290f
+        uses: httptoolkit/deploy-scaleway-serverless-container-action@v1
         with:
           container_id: ${{ vars.SCW_API_CONTAINER_ID }}
           region: ${{ vars.SCW_API_CONTAINER_REGION }}
@@ -148,7 +148,7 @@ jobs:
           registry_image_url: "registry.hub.docker.com/httptoolkit/website:${{ vars.DOCKER_IMAGE_TAG }}"
 
       - name: Redeploy failover container
-        uses: thibaultchazal/scaleway-serverless-container-deploy-action@0d290edda0c3359e51442bd8bf730eafef4e290f
+        uses: httptoolkit/scaleway-serverless-container-deploy-action@v1
         if: ${{ vars.SCW_FAILOVER_API_CONTAINER_ID }}
         with:
           container_id: ${{ vars.SCW_FAILOVER_API_CONTAINER_ID }}
