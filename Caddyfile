@@ -1,5 +1,6 @@
 {$DOMAIN:http://localhost} {
     root * /site
+    try_files {path}.html {path} {path}/index.html
     file_server
     encode zstd gzip
 
