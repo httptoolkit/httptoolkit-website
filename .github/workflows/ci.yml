@@ -135,9 +135,8 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   publish-scaleway:
-    name: Deploy to Scaleway ${{ vars.GHA_DEPLOY_ENV_NAME }}
-    if: github.event_name == 'push' && vars.GHA_DEPLOY_ENV_NAME
-    environment: production
+    name: Deploy to Scaleway
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || github.ref == 'refs/heads/next' && 'staging' || 'no-environment-deploy-skipped' }}
     runs-on: ubuntu-latest
     needs: publish-docker
     steps:
