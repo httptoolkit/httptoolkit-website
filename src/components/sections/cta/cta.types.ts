@@ -30,5 +30,10 @@ export interface CTAProps extends Component {
   cta?: CTA;
   icon?: IconType;
   image?: ThemeImageProps;
+  video?: {
+    libraryId: string;
+    lightId: string;
+    darkId: string;
+  };
   downloadButtonDefaultOsValue?: DownloadButtonProps['fixedOS'];
 }

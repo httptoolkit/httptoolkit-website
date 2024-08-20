@@ -10,6 +10,8 @@ import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { DownloadButton } from '@/components/modules/download-button';
+import { AppWindow } from '@/components/elements/app-window';
+import { VideoPlayer } from '@/components/elements/video-player';
 
 export const CTA = ({
   icon,
@@ -20,6 +22,7 @@ export const CTA = ({
   withDownload = true,
   textAppearance = 'large',
   image,
+  video,
   variant = 'cta-hero',
   $bgVariant = 'default',
   $isFooterClose = false,
@@ -99,6 +102,15 @@ export const CTA = ({
             {...image}
             loading={isHero ? 'eager' : 'lazy'}
           />
+        )}
+
+        {video && (
+          <AppWindow>
+            <VideoPlayer
+              {...video}
+              aspectRatio='16/9'
+            />
+          </AppWindow>
         )}
       </StyledContainer>
       {children}

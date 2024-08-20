@@ -20,12 +20,10 @@ export default async function HomePage() {
           icon: CursorClick,
         }}
         heading="Intercept & view all your HTTP"
-        image={{
-          darkSrc: '/images/hero-placeholder-dark.webp',
-          lightSrc: '/images/hero-placeholder-light.webp',
-          withBorderAnimation: true,
-          alt: 'Hero',
-          loading: 'eager',
+        video={{
+          libraryId: '77143',
+          lightId: 'e01daa2e-f134-4569-865a-cb79fec5a89a',
+          darkId: 'de631d3f-c4dd-4bcb-bb16-c5242e815c57'
         }}
       />
       <HttpToolkitFeatures />
