@@ -23,7 +23,7 @@ export const StyledWillItCorsWrapper = styled.section`
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.darkGrey});
+      background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkGrey});
     }
   }
 `;

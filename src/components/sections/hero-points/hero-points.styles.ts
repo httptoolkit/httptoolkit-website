@@ -8,8 +8,8 @@ export const StyledHeroPointsWrapper = styled.div`
   background-repeat: repeat;
   padding-top: 32px;
   padding-bottom: 32px;
-  border-top: 1px solid ${({ theme }) => theme.colors.mediumGrey};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.mediumGrey};
+  border-top: 1px solid ${({ theme }) => theme.colors.darkGrey};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     padding-top: 96px;

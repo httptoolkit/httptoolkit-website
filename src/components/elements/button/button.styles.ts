@@ -120,7 +120,7 @@ const base = css<StyledButtonProps>`
             }
 
             &:active {
-              background-color: ${({ theme }) => theme.colors.darkGrey};
+              background-color: ${({ theme }) => theme.colors.inkGrey};
               ${() =>
                 !props.$isDropdown &&
                 `

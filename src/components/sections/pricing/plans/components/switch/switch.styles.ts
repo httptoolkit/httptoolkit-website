@@ -34,7 +34,7 @@ export const StyledOptionsWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: ${({ theme }) => theme.colors.mediumGrey};
+  background: ${({ theme }) => theme.colors.darkGrey};
   border-radius: 40px;
   padding: 2px;
   transition: 350ms all ease-in;

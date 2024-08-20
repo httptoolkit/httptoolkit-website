@@ -6,7 +6,7 @@ import { styled } from '@/styles';
 export const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-  background-color: ${({ theme }) => theme.colors.mediumGrey};
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   overflow: hidden;
   margin-top: 24px;
   margin-bottom: 24px;
@@ -38,7 +38,7 @@ export const StyledBlockCodeContent = styled.div`
 export const StyledInlineCode = styled(Text)`
   &&& {
     color: ${({ theme }) => theme.colors.lightGrey};
-    background: ${({ theme }) => theme.colors.mediumGrey};
+    background: ${({ theme }) => theme.colors.darkGrey};
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
     padding: 0 6px;
     border-radius: 4px;

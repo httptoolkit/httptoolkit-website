@@ -28,7 +28,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
 
   &::before {
     content: '';
-    background: linear-gradient(0deg, ${({ theme }) => theme.colors.darkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
+    background: linear-gradient(0deg, ${({ theme }) => theme.colors.inkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
     position: absolute;
     right: 0;
     left: 0;
@@ -54,7 +54,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
     &::before, &::after {
       content: '';
       position: absolute;
-      background: linear-gradient(90deg, ${({ theme }) => theme.colors.darkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
+      background: linear-gradient(90deg, ${({ theme }) => theme.colors.inkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
       width: 200px;
       height: 100%;
       top: 0;

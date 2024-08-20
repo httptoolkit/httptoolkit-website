@@ -45,7 +45,7 @@ export const StyledSwitch = styled.div`
   border-radius: 12px;
   padding: 4px;
   transition: 350ms all ease-in;
-  border: 1px solid ${({ theme }) => theme.colors.mediumGrey};
+  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
 
   &:before {
     content: '';
@@ -55,7 +55,7 @@ export const StyledSwitch = styled.div`
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 11px;
-    background: ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme }) => theme.colors.inkGrey};
     transform: translate(0, -50%);
     transition: 300ms transform cubic-bezier(0.25, 0.1, 0.52, 0.95);
   }
@@ -74,7 +74,7 @@ export const StyledInput = styled.input`
   }
 
   &:focus-visible + *[data-switch] {
-    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border: 1px solid ${({ theme }) => theme.colors.inkGrey};
     box-shadow:
       0px 0px 8px 0px rgba(230, 232, 242, 0.05),
       0px 0px 0px 8px rgba(50, 52, 59, 0.6);

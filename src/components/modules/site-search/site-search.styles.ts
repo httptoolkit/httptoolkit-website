@@ -13,7 +13,7 @@ export const StyledAlgoliaSearchWrapper = styled.div`
     border: none;
     font-size: ${({ theme }) => theme.fontSizes.text.s};
     border-radius: 6px;
-    background-color: ${({ theme }) => theme.colors.mediumGrey};
+    background-color: ${({ theme }) => theme.colors.darkGrey};
     box-shadow:
       0 0 0 1px ${({ theme }) => theme.colors.button.border},
       0px 2px 1px 0px rgba(24, 25, 28, 0.5) inset;

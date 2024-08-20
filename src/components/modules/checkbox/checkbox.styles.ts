@@ -23,7 +23,7 @@ export const StyledInput = styled.input<InputProps>`
   width: 20px;
   resize: none;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.inkGrey};
   accent-color: ${({ theme }) => theme.colors.electricLightBlue};
   &:focus {
     background-color: ${({ theme }) => theme.colors.inkBlack};

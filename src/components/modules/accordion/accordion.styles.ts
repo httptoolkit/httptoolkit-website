@@ -31,7 +31,7 @@ export const StyledAccordionWrapper = styled(Accordion.Root)<StyledAccordionProp
 
 export const StyledAccordionItem = styled(Accordion.Item)<StyledAccordionProps>`
   &&& {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.mediumGrey};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
 
     ${({ $variant }) => {
       switch ($variant) {

@@ -10,7 +10,7 @@ export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
   padding: 16px;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border} inset;
   background-color: ${({ theme, $isHighlighted }) =>
-    $isHighlighted ? theme.colors.inkBlack : theme.colors.mediumGrey};
+    $isHighlighted ? theme.colors.inkBlack : theme.colors.darkGrey};
   display: flex;
   flex-direction: column;
   gap: 16px;

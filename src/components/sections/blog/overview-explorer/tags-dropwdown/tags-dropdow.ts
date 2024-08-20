@@ -45,11 +45,11 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
 
       &:focus-visible {
         outline: none;
-        background: ${({ theme }) => theme.colors.darkGrey};
+        background: ${({ theme }) => theme.colors.inkGrey};
       }
       @media (hover: hover) {
         &:hover {
-          background: ${({ theme }) => theme.colors.darkGrey};
+          background: ${({ theme }) => theme.colors.inkGrey};
         }
       }
     }
@@ -60,7 +60,7 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
 
     /* Track */
     ::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.darkGrey};
+      background: ${({ theme }) => theme.colors.inkGrey};
     }
 
     /* Handle */
@@ -68,7 +68,7 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
       height: 94px;
       background: ${({ theme }) => theme.colors.lightGrey};
       border-radius: 40px;
-      border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+      border: 2px solid ${({ theme }) => theme.colors.inkGrey};
     }
   }
 `;

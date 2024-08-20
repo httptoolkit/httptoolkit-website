@@ -156,7 +156,7 @@ export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOn
 `;
 
 export const StyledSeparator = styled.hr<{ $isSimple?: boolean }>`
-  border-color: ${({ theme }) => theme.colors.mediumGrey};
+  border-color: ${({ theme }) => theme.colors.darkGrey};
   margin: ${({ $isSimple }) => ($isSimple ? '16px 0' : '24px 0')};
 
   @media (min-width: ${screens.xl}) {

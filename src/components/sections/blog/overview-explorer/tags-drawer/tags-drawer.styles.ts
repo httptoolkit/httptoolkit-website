@@ -56,7 +56,7 @@ export const StyledMobileNavigationWrapper = styled.ul`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme }) => theme.colors.inkGrey};
   }
 
   /* Handle */
@@ -64,7 +64,7 @@ export const StyledMobileNavigationWrapper = styled.ul`
     height: 94px;
     background: ${({ theme }) => theme.colors.lightGrey};
     border-radius: 40px;
-    border: 2px solid ${({ theme }) => theme.colors.darkGrey};
+    border: 2px solid ${({ theme }) => theme.colors.inkGrey};
   }
 
   & li {

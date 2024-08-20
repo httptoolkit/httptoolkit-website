@@ -37,12 +37,12 @@ const TriggerStyles = css`
 
   &:focus,
   &:focus-within {
-    background-color: ${({ theme }) => theme.colors.darkGrey};
+    background-color: ${({ theme }) => theme.colors.inkGrey};
   }
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.darkGrey};
+      background-color: ${({ theme }) => theme.colors.inkGrey};
     }
   }
 
@@ -139,12 +139,12 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
 
             &:focus,
             &:focus-within {
-              background-color: ${({ theme }) => theme.colors.darkGrey};
+              background-color: ${({ theme }) => theme.colors.inkGrey};
             }
 
             @media (hover: hover) {
               &:hover {
-                background-color: ${({ theme }) => theme.colors.darkGrey};
+                background-color: ${({ theme }) => theme.colors.inkGrey};
               }
             }
           `

@@ -45,7 +45,7 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
 
       case 'secondary':
         return css`
-          background-color: ${({ theme }) => theme.colors.darkGrey};
+          background-color: ${({ theme }) => theme.colors.inkGrey};
 
           & svg {
             color: ${({ theme }) => theme.colors.lightGrey};
@@ -66,7 +66,7 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
           color: ${({ theme }) => theme.colors.white}
           border-radius: 8px;
           padding: 12px;
-          background-color: ${({ theme }) => theme.colors.mediumGrey};
+          background-color: ${({ theme }) => theme.colors.darkGrey};
           box-shadow: 0px 0px 24px 0px #8082891a inset;
         `;
 
@@ -75,7 +75,7 @@ export const StyledSquareIcon = styled.div<StyledSquareIconProps>`
           color: ${({ theme }) => theme.colors.white}
           border-radius: 8px;
           padding: 15px;
-          background-color: ${({ theme }) => theme.colors.mediumGrey};
+          background-color: ${({ theme }) => theme.colors.darkGrey};
           box-shadow: 0px 0px 24px 0px #8082891a inset;
         `;
     }

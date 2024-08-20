@@ -19,7 +19,7 @@ export const StyledFluidCardWrapper = styled.div<StyledFluidCardProps>`
     switch ($variant) {
       case 'default':
         return css`
-          background: ${theme.colors.darkGrey};
+          background: ${theme.colors.inkGrey};
           gap: 32px;
         `;
       case 'dark':

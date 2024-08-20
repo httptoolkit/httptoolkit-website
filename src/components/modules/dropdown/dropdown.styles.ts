@@ -87,12 +87,12 @@ const baseOption = css<DropdownOptionProps>`
   }
 
   &:focus {
-    background: ${({ theme }) => theme.colors.darkGrey};
+    background: ${({ theme }) => theme.colors.inkGrey};
   }
 
   @media (hover: hover) {
     &:hover {
-      background: ${({ theme }) => theme.colors.darkGrey};
+      background: ${({ theme }) => theme.colors.inkGrey};
     }
   }
 `;

@@ -24,8 +24,8 @@ const TextOrangeGradient = css`
 `;
 const colorTheme = {
   inkBlack: 'var(--ink-black)',
+  inkGrey: 'var(--ink-grey)',
   darkGrey: 'var(--dark-grey)',
-  mediumGrey: 'var(--medium-grey)',
   lightGrey: 'var(--light-grey)',
   white: 'var(--white)',
   electricBlue: 'var(--electric-blue)',
@@ -164,8 +164,10 @@ export const GlobalStyles = createGlobalStyle`
 
     :root {
       --ink-black: #16181E;
-      --dark-grey: #1E2028;
-      --medium-grey: #32343B;
+      --ink-grey: #1E2028;
+      --dark-grey: #32343B;
+      --darkish-grey: #53565e;
+      --medium-grey: #818490;
       --light-grey: #E6E8F2;
       --white: #ffffff;
       --electric-blue: #5175F2;
@@ -206,8 +208,10 @@ export const GlobalStyles = createGlobalStyle`
 
     [data-theme="light"] {
       --ink-black: #FBFAF9;
-      --dark-grey: #ffffff;
-      --medium-grey: #f2f2f2;
+      --ink-grey: #ffffff;
+      --dark-grey: #f2f2f2;
+      --darkish-grey: #e4e8ed;
+      --medium-grey: #9a9da8;
       --light-grey: #333333;
       --white: #16181E;
       --electric-blue: #5175F2;
@@ -276,7 +280,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${theme.colors.darkGrey};
+        background-color: ${theme.colors.inkGrey};
         font-family: ${theme.fontFamily.dmSans};
         color: ${theme.colors.text.lightGrey};
         font-size: 16px;

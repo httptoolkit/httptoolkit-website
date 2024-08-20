@@ -36,7 +36,7 @@ export const StyledBadge = styled.p<StyledBadgeProps>`
           border-radius: 16px;
           padding: 6px 10px;
           color: ${({ theme }) => theme.colors.text.lightGrey};
-          background-color: ${({ theme }) => theme.colors.mediumGrey};
+          background-color: ${({ theme }) => theme.colors.darkGrey};
           box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.borderDark} inset;
         `;
 

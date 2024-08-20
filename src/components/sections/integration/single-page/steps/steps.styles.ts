@@ -58,7 +58,7 @@ export const StyledIntegrationStepsItemStepNumber = styled.div`
   align-items: center;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.mediumGrey};
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   flex-shrink: 0;
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,

@@ -14,7 +14,7 @@ export const StyledCopy = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.text.l};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   line-height: 150%;
-  background-color: ${({ theme }) => theme.colors.mediumGrey};
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.borderDark},
     0px 0px 8px 0px ${({ theme }) => theme.colors.shadowDefault};

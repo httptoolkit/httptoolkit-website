@@ -20,7 +20,7 @@ export const StyledFeaturesSectionWrapper = styled.div`
 export const StyledFeatureSectionItemWrapper = styled.div`
   &:not(:last-child) {
     padding-bottom: 8px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.mediumGrey};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
   }
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
@@ -63,7 +63,7 @@ export const StyledFeatureSectionItem = styled.div`
 
     @media (hover: hover) {
       &:hover {
-        background-color: ${({ theme }) => theme.colors.mediumGrey};
+        background-color: ${({ theme }) => theme.colors.darkGrey};
       }
     }
   }

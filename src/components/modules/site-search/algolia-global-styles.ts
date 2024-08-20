@@ -2,25 +2,25 @@ import { createGlobalStyle } from '@/styles';
 
 export const AlgoliaGlobalStyles = createGlobalStyle`
 :root {
-  --docsearch-key-gradient: var(--dark-grey);
+  --docsearch-key-gradient: var(--ink-grey);
   --docsearch-key-shadow: none;
   --docsearch-searchbox-focus-background: var(--ink-black);
   --docsearch-highlight-color: var(--electric-blue);
 }
 
 html[data-theme='dark'] {
-  --docsearch-searchbox-background: var(--medium-grey);
+  --docsearch-searchbox-background: var(--dark-grey);
   --docsearch-searchbox-focus-background: transparent;
   --docsearch-searchbox-shadow: transparent;
 
-  --docsearch-modal-background: var(--medium-grey);
+  --docsearch-modal-background: var(--dark-grey);
   --docsearch-modal-shadow: 0 0 0 1px var(--button-border) inset, 0px 0px 24px 0px var(--shadow-inner-box) inset;
 
   --docsearch-highlight-color: var(--electric-blue);
-  --docsearch-hit-background: var(--dark-grey);
+  --docsearch-hit-background: var(--ink-grey);
 
   --docsearch-footer-background: var(--ink-black);
-  --docsearch-key-gradient: var(--dark-grey);
+  --docsearch-key-gradient: var(--ink-grey);
   --docsearch-key-shadow: none;
 }
 
