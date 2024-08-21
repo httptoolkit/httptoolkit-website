@@ -1,6 +1,12 @@
 import { StyledIframe } from "./video-player.styles";
 
-const urlOptions = 'autoplay=true&loop=true&muted=true&preload=true&responsive=true';
+const urlOptions = new URLSearchParams({
+    autoplay: 'true',
+    loop: 'true',
+    muted: 'true',
+    preload: 'true',
+    responsive: 'true'
+}).toString();
 
 export const VideoPlayer = (props: {
     libraryId: string,
