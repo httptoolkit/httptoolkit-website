@@ -53,7 +53,9 @@ export const VideoWindowButtons = styled.svg.attrs({
     height: calc(var(--video-top-bar) * 3/4);
 `;
 
-export const VideoWindowContents = styled.div`
+export const VideoWindowContents = styled.div<{
+    $aspectRatio: string
+}>`
     @container style(--theme: light) {
         border-top: solid 1px var(--darkish-grey);
     }
@@ -61,4 +63,5 @@ export const VideoWindowContents = styled.div`
     width: 100%;
     height: 100%;
     line-height: 0;
+    aspect-ratio: ${p => p.$aspectRatio};
 `;
