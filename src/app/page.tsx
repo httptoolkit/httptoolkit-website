@@ -21,8 +21,7 @@ export default async function HomePage() {
         }}
         heading="Intercept & view all your HTTP"
         video={{
-          darkId: '77143/de631d3f-c4dd-4bcb-bb16-c5242e815c57',
-          lightId: '293624/91477e53-40dd-4290-baef-cb9d9be6de8d',
+          id: 'chrome'
         }}
       />
       <HttpToolkitFeatures />

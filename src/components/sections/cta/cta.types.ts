@@ -2,6 +2,7 @@ import type { ButtonProps } from '@/components/elements/button/button.types';
 import type { IconType } from '@/components/elements/square-icon/square-icon.types';
 import type { ThemeImageProps } from '@/components/elements/themed-image';
 import type { DownloadButtonProps } from '@/components/modules/download-button/download-button.types';
+import type { VideoKey } from '@/content/data/video-dictionary';
 
 export type CTA = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant' | 'as'> & {
   title: string;
@@ -31,8 +32,7 @@ export interface CTAProps extends Component {
   icon?: IconType;
   image?: ThemeImageProps;
   video?: {
-    lightId: string;
-    darkId: string;
+    id: VideoKey;
   };
   downloadButtonDefaultOsValue?: DownloadButtonProps['fixedOS'];
 }

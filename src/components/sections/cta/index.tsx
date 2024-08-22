@@ -107,7 +107,7 @@ export const CTA = ({
         {video && (
           <AppWindow aspectRatio='16/9'>
             <VideoPlayer
-              {...video}
+              videoId={video.id}
               aspectRatio='16/9'
             />
           </AppWindow>

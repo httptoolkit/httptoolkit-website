@@ -4,6 +4,7 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 
 import { useMounted } from '@/lib/hooks/use-mounted';
+import { videoDictionary, VideoKey } from "@/content/data/video-dictionary";
 
 import { StyledIframe } from "./video-player.styles";
 
@@ -16,15 +17,16 @@ const urlOptions = new URLSearchParams({
 }).toString();
 
 export const VideoPlayer = (props: {
-    darkId: string,
-    lightId: string,
+    videoId: VideoKey,
     aspectRatio: string
 }) => {
     const { isMounted } = useMounted();
     const { resolvedTheme: theme } = useTheme();
 
-    const darkUrl = `https://iframe.mediadelivery.net/embed/${props.darkId}?${urlOptions}`;
-    const lightUrl = `https://iframe.mediadelivery.net/embed/${props.lightId}?${urlOptions}`;
+    const { lightId, darkId } = videoDictionary[props.videoId];
+
+    const darkUrl = `https://iframe.mediadelivery.net/embed/${darkId}?${urlOptions}`;
+    const lightUrl = `https://iframe.mediadelivery.net/embed/${lightId}?${urlOptions}`;
 
     return <>
         {(!isMounted || theme === 'dark') &&
