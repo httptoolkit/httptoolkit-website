@@ -161,13 +161,13 @@ export const StyledHeroWrapper = styled.section<{
 
 export const StyledContainer = styled(Container)`
   &&& {
-    max-width: 1140px;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    @media (min-width: ${screens['lg']}) {
+    @media (min-width: ${screens['xl']}) {
       padding-left: 0;
       padding-right: 0;
     }

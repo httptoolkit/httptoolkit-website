@@ -32,7 +32,7 @@ export const VideoWindowBorder = styled.div`
 
     padding: 0;
 
-    max-width: calc(100vw - 40px);
+    max-width: 100%;
     width: 1280px;
 
     position: relative;
