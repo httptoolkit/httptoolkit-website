@@ -31,7 +31,6 @@ export interface CTAProps extends Component {
   icon?: IconType;
   image?: ThemeImageProps;
   video?: {
-    libraryId: string;
     lightId: string;
     darkId: string;
   };

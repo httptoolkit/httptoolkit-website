@@ -16,7 +16,6 @@ const urlOptions = new URLSearchParams({
 }).toString();
 
 export const VideoPlayer = (props: {
-    libraryId: string,
     darkId: string,
     lightId: string,
     aspectRatio: string
@@ -24,39 +23,32 @@ export const VideoPlayer = (props: {
     const { isMounted } = useMounted();
     const { resolvedTheme: theme } = useTheme();
 
-    const darkUrl = `https://iframe.mediadelivery.net/embed/${props.libraryId}/${props.darkId}?${urlOptions}`;
-    const lightUrl = `https://iframe.mediadelivery.net/embed/${props.libraryId}/${props.lightId}?${urlOptions}`;
-
-    const darkVisibility = isMounted
-        ? theme === 'dark'
-        : undefined;
-    const lightVisibility = isMounted
-        ? theme === 'light'
-        : undefined;
+    const darkUrl = `https://iframe.mediadelivery.net/embed/${props.darkId}?${urlOptions}`;
+    const lightUrl = `https://iframe.mediadelivery.net/embed/${props.lightId}?${urlOptions}`;
 
     return <>
-        { (!isMounted || theme === 'dark') &&
+        {(!isMounted || theme === 'dark') &&
             <StyledIframe
                 src={darkUrl}
 
-                loading="lazy"
-                // Hide if wrong theme
+                // During SSR, we show both but hide via CSS matching against system prefs:
+                $mounted={isMounted}
+                // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="light"
-                $visible={darkVisibility}
 
                 $aspectRatio={props.aspectRatio}
                 allow="autoplay;picture-in-picture;"
                 allowFullScreen={true}
             />
         }
-        { (!isMounted || theme === 'light') &&
+        {(!isMounted || theme === 'light') &&
             <StyledIframe
                 src={lightUrl}
 
-                loading="lazy"
-                // Hide if wrong theme
+                // During SSR, we show both but hide via CSS matching against system prefs:
+                $mounted={isMounted}
+                // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="dark"
-                $visible={lightVisibility}
 
                 $aspectRatio={props.aspectRatio}
                 allow="autoplay;picture-in-picture;"
