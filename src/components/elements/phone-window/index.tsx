@@ -9,8 +9,8 @@ import {
 export const PhoneWindow = (p: {
     aspectRatio: string;
     children: React.ReactNode;
-}) =>
-    <PhoneOutline>
+    className?: string;
+}) => <PhoneOutline className={p.className}>
         <PhoneScreen $aspectRatio={p.aspectRatio}>
             { p.children }
         </PhoneScreen>

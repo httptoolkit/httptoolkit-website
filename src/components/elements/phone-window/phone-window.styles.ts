@@ -12,8 +12,6 @@ export const PhoneOutline = styled.div`
     box-sizing: border-box;
     position: relative;
 
-    max-width: 250px;
-
     --phone-border-radius: 10px;
     border-radius: var(--phone-border-radius);
     padding: 14px 0 18px;

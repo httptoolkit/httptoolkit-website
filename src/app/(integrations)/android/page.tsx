@@ -11,6 +11,7 @@ import { IntegrationBento } from '@/components/sections/integration/single-page/
 import { IntegrationDeviceMedia } from '@/components/sections/integration/single-page/device-media';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { buildMetadata } from '@/lib/utils/build-metadata';
+import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Intercept, mock & debug Android HTTP traffic',
@@ -26,6 +27,9 @@ export default function AndroidIntegrationPage() {
         text="Intercept & view all Android HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
         icon={AndroidLogo}
         breadcrumbText="android"
+      />
+      <PhoneAppVideoPair
+        videoId='android'
       />
       <IntegrationDeviceMedia
         mobileImage={{
