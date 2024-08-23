@@ -32,7 +32,7 @@ export const IntegrationTextAppVideo = ({ title, subtitle, video }: {
             <AltHeadingBlock title={title} subtitle={subtitle} mediumHeading />
           </StyledIntegrationTextVideoHeading>
 
-          <AppWindow aspectRatio='16/9'>
+          <AppWindow>
             <BunnyVideoPlayer
               videoId={video.id}
             />

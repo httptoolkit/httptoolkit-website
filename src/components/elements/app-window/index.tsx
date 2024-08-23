@@ -7,7 +7,6 @@ import {
 } from './app-window.styles';
 
 export const AppWindow = (p: {
-    aspectRatio: string,
     children: React.ReactNode
 }) =>
     <VideoWindowBorder>
@@ -16,7 +15,7 @@ export const AppWindow = (p: {
             <circle cx="175" cy="50" r="25"/>
             <circle cx="275" cy="50" r="25"/>
         </VideoWindowButtons>
-        <VideoWindowContents $aspectRatio={p.aspectRatio}>
+        <VideoWindowContents>
             { p.children }
         </VideoWindowContents>
     </VideoWindowBorder>;

@@ -105,7 +105,7 @@ export const CTA = ({
         )}
 
         {video && (
-          <AppWindow aspectRatio='16/9'>
+          <AppWindow>
             <BunnyVideoPlayer
               videoId={video.id}
             />
