@@ -11,7 +11,7 @@ import type { TextProps } from '@/components/elements/text/text.types';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { DownloadButton } from '@/components/modules/download-button';
 import { AppWindow } from '@/components/elements/app-window';
-import { VideoPlayer } from '@/components/elements/video-player';
+import { BunnyVideoPlayer } from '@/components/elements/bunny-video-player';
 
 export const CTA = ({
   icon,
@@ -106,9 +106,8 @@ export const CTA = ({
 
         {video && (
           <AppWindow aspectRatio='16/9'>
-            <VideoPlayer
+            <BunnyVideoPlayer
               videoId={video.id}
-              aspectRatio='16/9'
             />
           </AppWindow>
         )}
