@@ -20,12 +20,13 @@ export const PairContainer = styled.div`
     padding: 0 10px;
 
     > .phone {
-        max-width: min(20vw, 250px);
+        width: 300px;
+        max-width: min(20vw, 300px);
         transition: margin 0.5s, transform 0.5s;
     }
 
     > .hidden-phone {
-        margin-right: calc(-1 * min(20vw, 250px));
+        margin-right: calc(-1 * min(20vw, 300px));
         transform: scale(80%);
     }
 
