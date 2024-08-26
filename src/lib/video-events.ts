@@ -10,6 +10,7 @@ export type VideoAPI = {
     setCurrentTime(time: number): void;
     play(): void;
     pause(): void;
+    isPaused(): boolean;
 };
 
 export type VideoCallback = (

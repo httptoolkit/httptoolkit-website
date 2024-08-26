@@ -52,6 +52,9 @@ export const DirectVideoPlayer = (props: {
             },
             pause() {
                 videoElem.pause();
+            },
+            isPaused() {
+                return videoElem.paused;
             }
         };
 

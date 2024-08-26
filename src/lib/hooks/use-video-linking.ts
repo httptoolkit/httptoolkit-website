@@ -43,8 +43,8 @@ export const useVideoLinking = (options: VideoLinkingOptions) => {
 
                 if (event === 'ready') {
                     if (!childVideo) {
-                        video.pause();
-                        video.setCurrentTime(0);
+                        if (!video.isPaused()) video.pause();
+                        if (video.getCurrentTime() !== 0) video.setCurrentTime(0);
                         setTime(0);
                     } else if (!started) {
                         startVideos();
