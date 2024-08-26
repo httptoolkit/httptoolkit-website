@@ -21,6 +21,7 @@ export const DirectVideoPlayer = (props: {
 
     showControls?: boolean,
     loop?: boolean
+    autoPlay?: boolean
 }) => {
     const { isMounted } = useMounted();
     const { resolvedTheme: theme } = useTheme();
@@ -89,7 +90,7 @@ export const DirectVideoPlayer = (props: {
         {(!isMounted || theme === 'dark') &&
             <StyledVideo
                 controls={props.showControls ?? true}
-                autoPlay
+                autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
                 muted
 
@@ -108,7 +109,7 @@ export const DirectVideoPlayer = (props: {
         {(!isMounted || theme === 'light') &&
             <StyledVideo
                 controls={props.showControls ?? true}
-                autoPlay
+                autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
                 muted
 

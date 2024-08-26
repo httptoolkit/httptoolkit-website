@@ -54,6 +54,7 @@ export const PhoneAppVideoPair = (props: {
                     eventListener={childListener}
                     showControls={false}
                     loop={false}
+                    autoPlay={false} // Managed by video linking
                 />
             </PhoneWindow>
         </> }
@@ -61,6 +62,7 @@ export const PhoneAppVideoPair = (props: {
             <DirectVideoPlayer
                 videoId={props.videoId}
                 eventListener={parentListener}
+                autoPlay={false} // Managed by video linking
             />
         </AppWindow>
     </PairContainer>
