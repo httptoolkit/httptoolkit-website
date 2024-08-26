@@ -35,6 +35,8 @@ export const DirectVideoPlayer = (props: {
     const lightVideoRef = React.useRef<HTMLVideoElement>(null);
 
     React.useEffect(() => {
+        if (!isMounted) return;
+
         // Once we're mounted, there should always be at most one video element rendered:
         const videoElem = darkVideoRef.current || lightVideoRef.current;
         if (!videoElem || !props.eventListener) return;
@@ -84,7 +86,7 @@ export const DirectVideoPlayer = (props: {
         }, { signal: abortController.signal });
 
         return () => abortController.abort();
-    }, [props.eventListener, darkVideoRef.current, lightVideoRef.current]);
+    }, [isMounted, props.eventListener, darkVideoRef.current, lightVideoRef.current]);
 
     return <>
         {(!isMounted || theme === 'dark') &&
