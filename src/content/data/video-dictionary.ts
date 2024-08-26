@@ -76,8 +76,8 @@ export const videoDictionary: Record<VideoKey, VideoData> = {
         }
     },
     'android-device': {
-        darkId: 'af89b834-43a4-46c1-99dd-7e543e4c2bd8',
-        lightId: '8bc4cad9-dca8-4451-8cac-0a8ba001440f',
+        darkId: 'ac5ab76c-01f0-46d6-904e-7dfa56a00261',
+        lightId: 'c4028948-9430-4b47-957e-4e145bbdc468',
         aspectRatio: '9/20'
     }
 } as const;
