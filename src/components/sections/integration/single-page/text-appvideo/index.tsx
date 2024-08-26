@@ -9,9 +9,8 @@ import { VideoKey } from '@/content/data/video-dictionary';
 
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
-import { AppWindow } from '@/components/elements/app-window';
-import { BunnyVideoPlayer } from '@/components/elements/bunny-video-player';
 import { AltHeadingBlock } from '@/components/modules/alt-heading-block';
+import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
 
 /**
  * @param title: This string can have highlighted text on the segments that are between \`\*content\*\`
@@ -32,11 +31,9 @@ export const IntegrationTextAppVideo = ({ title, subtitle, video }: {
             <AltHeadingBlock title={title} subtitle={subtitle} mediumHeading />
           </StyledIntegrationTextVideoHeading>
 
-          <AppWindow>
-            <BunnyVideoPlayer
-              videoId={video.id}
-            />
-          </AppWindow>
+          <PhoneAppVideoPair
+            videoId={video.id}
+          />
         </StyledIntegrationTextVideoWrapper>
       </Container>
     </StyledIntegrationTextVideoGradientWrapper>

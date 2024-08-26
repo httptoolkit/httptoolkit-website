@@ -8,7 +8,7 @@ import { JavaLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
-import { IntegrationTextImage } from '@/components/sections/integration/single-page/text-image';
+import { IntegrationTextAppVideo } from '@/components/sections/integration/single-page/text-appvideo';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
@@ -26,14 +26,10 @@ export default function JavaIntegrationPage() {
         icon={JavaLogo}
         breadcrumbText="java"
       />
-      <IntegrationTextImage
+      <IntegrationTextAppVideo
         title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
         subtitle="what is http toolkit?"
-        image={{
-          darkSrc: '/images/hero-placeholder-dark.webp',
-          lightSrc: '/images/hero-placeholder-light.webp',
-          alt: 'Mockup image',
-        }}
+        video={{ id: 'javascript' }}
       />
       <IntegrationCompatibility
         title="Supported by Java"

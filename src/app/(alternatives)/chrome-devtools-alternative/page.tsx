@@ -18,13 +18,7 @@ export default async function ChromeDevToolsAlternativePage() {
       <CTA
         heading="Want an alternative to Chrome's network tab?"
         excerpt="HTTP Toolkit is a supercharged alternative to Chrome's built-in networking tools, designed for faster debugging and complete control of any HTTP(S) traffic."
-        image={{
-          darkSrc: '/images/hero-placeholder-dark.webp',
-          lightSrc: '/images/hero-placeholder-light.webp',
-          withBorderAnimation: true,
-          alt: 'Hero',
-          loading: 'eager',
-        }}
+        video={{id: 'chrome'}}
       />
       <IntegrationCTA
         $variant="cta"

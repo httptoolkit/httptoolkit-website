@@ -10,8 +10,7 @@ import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
 import { ThemedImage } from '@/components/elements/themed-image';
 import { DownloadButton } from '@/components/modules/download-button';
-import { AppWindow } from '@/components/elements/app-window';
-import { BunnyVideoPlayer } from '@/components/elements/bunny-video-player';
+import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
 
 export const CTA = ({
   icon,
@@ -105,11 +104,9 @@ export const CTA = ({
         )}
 
         {video && (
-          <AppWindow>
-            <BunnyVideoPlayer
-              videoId={video.id}
-            />
-          </AppWindow>
+          <PhoneAppVideoPair
+            videoId={video.id}
+          />
         )}
       </StyledContainer>
       {children}

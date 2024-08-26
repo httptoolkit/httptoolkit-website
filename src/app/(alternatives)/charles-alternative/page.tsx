@@ -19,13 +19,7 @@ export default async function CharlesAlternativePage() {
         heading="Looking for a Charles Proxy alternative?"
         excerpt="HTTP Toolkit is a modern powerful alternative to Charles
         designed from the ground up for instant targeted debugging and control of any HTTP(S) traffic (with no Java necessary)"
-        image={{
-          darkSrc: '/images/hero-placeholder-dark.webp',
-          lightSrc: '/images/hero-placeholder-light.webp',
-          withBorderAnimation: true,
-          alt: 'Hero',
-          loading: 'eager',
-        }}
+        video={{id: 'chrome'}}
       />
       <IntegrationCTA
         $variant="cta"
