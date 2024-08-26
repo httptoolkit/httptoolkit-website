@@ -3,13 +3,29 @@
 import { screens, styled } from '@/styles';
 
 export const VideoWindowBorder = styled.div`
+    --video-top-bar: 12px;
+    --video-light-radius: 6px;
+    --video-dark-radius: 4px;
+
+    @media (min-width: ${screens['sm']}) {
+        --video-top-bar: 16px;
+        --video-light-radius: 10px;
+        --video-dark-radius: 6px;
+    }
+
+    @media (min-width: ${screens['lg']}) {
+        --video-top-bar: 24px;
+        --video-light-radius: 14px;
+        --video-dark-radius: 7px;
+    }
+
     @container style(--theme: dark) {
-        border-radius: 4px 4px 7px 7px;
+        border-radius: 4px 4px var(--video-dark-radius) var(--video-dark-radius);
         border: none;
     }
 
     @container style(--theme: light) {
-        border-radius: 4px 4px 14px 14px;
+        border-radius: 4px 4px var(--video-light-radius) var(--video-light-radius);
         border: solid 1px var(--darkish-grey);
     }
 
