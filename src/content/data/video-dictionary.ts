@@ -26,38 +26,58 @@ export type VideoKey =
 
 export const videoDictionary: Record<VideoKey, VideoData> = {
     'chrome': {
-        darkId: 'de631d3f-c4dd-4bcb-bb16-c5242e815c57',
-        lightId: '91477e53-40dd-4290-baef-cb9d9be6de8d',
-        aspectRatio: '16/9'
-    },
-    'javascript': {
-        darkId: '7bf7fc19-5fa6-4676-8e2c-cb86feedc1e7',
-        lightId: '5a49c011-c955-410f-a133-58a6741e9224',
-        aspectRatio: '16/9'
-    },
-    'python': {
-        darkId: 'f0af665e-ad3a-4de9-b45a-2362051389a1',
-        lightId: 'cef9a910-c75f-430f-b69e-bf798010c8a4',
-        aspectRatio: '16/9'
-    },
-    'ruby': {
-        darkId: '01483aac-60a5-4611-bc4a-c3cba9310033',
-        lightId: '7ae7d7f5-9833-416f-aa3a-6c67e524de6e',
-        aspectRatio: '16/9'
-    },
-    'android': {
-        darkId: 'de631d3f-c4dd-4bcb-bb16-c5242e815c57',
-        lightId: '91477e53-40dd-4290-baef-cb9d9be6de8d',
+        darkId: 'b8291fd6-432b-40df-89ca-720609dfb6ca',
+        lightId: '878ec768-abb0-40fd-b1d1-8cdce0b80c82',
         aspectRatio: '16/9',
         phoneVideo: {
             key: 'android-device',
-            startTime: 5,
-            endTime: 10
+            startTime: 58,
+            endTime: 146
+        }
+    },
+    'javascript': {
+        darkId: '503b7266-ef56-4010-8056-8b74470d7b48',
+        lightId: 'a6b40d19-d24f-4adb-9bd4-3107e220014a',
+        aspectRatio: '16/9',
+        phoneVideo: {
+            key: 'android-device',
+            startTime: 120,
+            endTime: 211
+        }
+    },
+    'python': {
+        darkId: '8de68b4f-2e6e-4592-91e7-008d73f7dfbc',
+        lightId: 'd2a1f9d1-caf4-4050-823a-9b9440b09f92',
+        aspectRatio: '16/9',
+        phoneVideo: {
+            key: 'android-device',
+            startTime: 120,
+            endTime: 211
+        }
+    },
+    'ruby': {
+        darkId: '73db6190-a95a-4a59-8d18-5c2a52161dcf',
+        lightId: '8711a76a-8cf8-40b3-9f56-9d6ea0ee1bd7',
+        aspectRatio: '16/9',
+        phoneVideo: {
+            key: 'android-device',
+            startTime: 120,
+            endTime: 211
+        }
+    },
+    'android': {
+        darkId: '9b7bdb3b-8458-4387-a3ec-d611b65f7e2b',
+        lightId: '82b7b106-4ed8-40e3-885f-61a2887c8af2',
+        aspectRatio: '16/9',
+        phoneVideo: {
+            key: 'android-device',
+            startTime: 0,
+            endTime: 89
         }
     },
     'android-device': {
-        darkId: '40645bae-535e-422f-9a28-de02741f05a6',
-        lightId: '13820f1f-6a0f-4a84-82c2-c6c2e5eb460b',
+        darkId: 'af89b834-43a4-46c1-99dd-7e543e4c2bd8',
+        lightId: '8bc4cad9-dca8-4451-8cac-0a8ba001440f',
         aspectRatio: '9/20'
     }
 } as const;
