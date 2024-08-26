@@ -18,7 +18,9 @@ import { StyledVideo } from "./direct-video-player.styles";
 export const DirectVideoPlayer = (props: {
     videoId: VideoKey,
     eventListener?: VideoCallback,
-    showControls?: boolean
+
+    showControls?: boolean,
+    loop?: boolean
 }) => {
     const { isMounted } = useMounted();
     const { resolvedTheme: theme } = useTheme();
@@ -85,7 +87,7 @@ export const DirectVideoPlayer = (props: {
             <StyledVideo
                 controls={props.showControls ?? true}
                 autoPlay
-                loop
+                loop={props.loop ?? true}
                 muted
 
                 ref={darkVideoRef}
@@ -102,9 +104,9 @@ export const DirectVideoPlayer = (props: {
         }
         {(!isMounted || theme === 'light') &&
             <StyledVideo
-                controls
+                controls={props.showControls ?? true}
                 autoPlay
-                loop
+                loop={props.loop ?? true}
                 muted
 
                 ref={lightVideoRef}

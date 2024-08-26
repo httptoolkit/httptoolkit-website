@@ -53,12 +53,13 @@ export const PhoneAppVideoPair = (props: {
                     videoId={phoneVideoKey!}
                     eventListener={childListener}
                     showControls={false}
+                    loop={false}
                 />
             </PhoneWindow>
         </> }
         <AppWindow>
             <DirectVideoPlayer
-                videoId='chrome'
+                videoId={props.videoId}
                 eventListener={parentListener}
             />
         </AppWindow>
