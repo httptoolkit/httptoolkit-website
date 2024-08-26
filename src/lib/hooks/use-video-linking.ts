@@ -42,12 +42,12 @@ export const useVideoLinking = (options: VideoLinkingOptions) => {
                 parentVideo = video;
 
                 if (event === 'ready') {
-                    if (childVideo) {
-                        startVideos();
-                    } else {
+                    if (!childVideo) {
                         video.pause();
                         video.setCurrentTime(0);
                         setTime(0);
+                    } else if (!started) {
+                        startVideos();
                     }
 
                     return;
