@@ -1,6 +1,7 @@
 import { TryYourselfWrapper } from './wrapper';
 
 import { Logo, RocketLaunch } from '@/components/elements/icon';
+import { ResponsiveLineBreak } from '@/components/elements/responsive-line-break';
 import { CTA } from '@/components/sections/cta';
 import type { CTAProps } from '@/components/sections/cta/cta.types';
 
@@ -16,13 +17,10 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = fa
         variant={variant}
         icon={Logo}
         textAppearance="small"
-        heading="Try it for yourself"
-        excerpt="It is completely free! You can also Go Pro and explore the Http Toolkit with additional features."
-        cta={{
-          title: 'Go Pro!',
-          icon: RocketLaunch,
-          href: '/get-pro',
-        }}
+        heading="Get started now"
+        excerpt={<>
+          Download HTTP Toolkit to intercept, inspect, <ResponsiveLineBreak />and modify any HTTP traffic in seconds.
+        </>}
         $isFooterClose={isFooterClose}
       />
     </TryYourselfWrapper>
