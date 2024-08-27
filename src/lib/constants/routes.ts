@@ -58,7 +58,7 @@ export const pageRoutes = {
   },
   JAVASCRIPT: {
     href: '/javascript',
-    label: 'Javascript',
+    label: 'JavaScript',
   },
   ALL_INTEGRATIONS: {
     href: '/all-integrations',

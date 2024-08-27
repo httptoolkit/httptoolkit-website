@@ -15,15 +15,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: "Capture, debug and mock your Electron app's HTTP traffic",
   description:
-    'Intercept & view all Electron HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Electron apps, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function ElectronIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Electron integrated"
-        text="Intercept & view all Electron HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Electron HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Electron apps, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={ElectronLogo}
         breadcrumbText="electron"
       />

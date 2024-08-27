@@ -16,15 +16,15 @@ import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
 export const metadata: Metadata = buildMetadata({
   title: 'Intercept, mock & debug Android HTTP traffic',
   description:
-    'Intercept & view all Android HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Android, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function AndroidIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Android integrated"
-        text="Intercept & view all Android HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Android HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Android, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={AndroidLogo}
         breadcrumbText="android"
       />

@@ -15,15 +15,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: "Capture, debug and mock your Python code's HTTP traffic",
   description:
-    'Intercept & view all Python HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Python, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function PythonIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Python integrated"
-        text="Intercept & view all Python HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Python HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Python, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={PythonLogo}
         breadcrumbText="python"
       />

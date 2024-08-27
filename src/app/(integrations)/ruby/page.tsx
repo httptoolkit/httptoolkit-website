@@ -15,15 +15,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: "Capture, debug and mock your Ruby app's HTTP traffic",
   description:
-    'Intercept & view all Ruby HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Ruby, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function RubyIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Ruby integrated"
-        text="Intercept & view all Ruby HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Ruby HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Ruby, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={RubyLogo}
         breadcrumbText="ruby"
       />

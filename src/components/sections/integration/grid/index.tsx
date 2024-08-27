@@ -35,8 +35,8 @@ const integrationCards = [
   },
   {
     icon: SquareJSLogo,
-    title: 'Javascript',
-    text: 'Javascript integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    title: 'JavaScript',
+    text: 'JavaScript integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
     link: {
       href: JAVASCRIPT.href,
     },

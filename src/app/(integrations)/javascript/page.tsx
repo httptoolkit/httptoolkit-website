@@ -15,15 +15,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: "Capture, debug and mock your Node.js and web JS's HTTP traffic",
   description:
-    'Intercept & view all Javascript HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for web browsers and backend JS runtimes, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function JavascriptIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Javascript integrated"
-        text="Intercept & view all Javascript HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit JavaScript HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for web browsers and backend JS runtimes, so you can debug and modify any HTTP(S) traffic in seconds."
         adittionalIcons={[NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo]}
         breadcrumbText="javascript"
         isMultipleIcons

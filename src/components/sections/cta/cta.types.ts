@@ -20,7 +20,7 @@ export interface CTAProps extends Component {
   variant?: CTAVariant;
   $bgVariant?: bgVariant;
   $isFooterClose?: boolean;
-  heading: string;
+  heading: React.ReactNode;
   textAppearance?: TextAppearance;
   subHeading?: {
     text: string;

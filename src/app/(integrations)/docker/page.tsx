@@ -15,15 +15,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: 'Capture, debug and mock all Docker HTTP traffic',
   description:
-    'Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Docker, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function DockerIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Docker integrated"
-        text="Intercept & view all Docker HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Docker HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Docker, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={DockerLogo}
         breadcrumbText="docker"
       />

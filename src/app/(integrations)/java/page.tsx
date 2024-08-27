@@ -14,15 +14,15 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 export const metadata: Metadata = buildMetadata({
   title: 'Capture, debug and mock all Java HTTP traffic',
   description:
-    'Intercept & view all Java HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors.',
+    'HTTP Toolkit includes built-in automatic setup and advanced support for Java, so you can debug and modify any HTTP(S) traffic in seconds.',
 });
 
 export default function JavaIntegrationPage() {
   return (
     <>
       <IntegrationSinglePageHero
-        title="Http Toolkit and Java integrated"
-        text="Intercept & view all Java HTTP(S) Mock endpoints or entire servers Rewrite, redirect, or inject errors."
+        title="Intercept, view & edit Java HTTP traffic"
+        text="HTTP Toolkit includes built-in automatic setup and advanced support for Java, so you can debug and modify any HTTP(S) traffic in seconds."
         icon={JavaLogo}
         breadcrumbText="java"
       />

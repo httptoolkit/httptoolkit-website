@@ -10,6 +10,7 @@ import { CursorClick } from '@/components/elements/icon';
 import { ProductLdData } from '@/components/elements/product-ld-data';
 import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
+import { ResponsiveLineBreak } from '@/components/elements/responsive-line-break';
 
 export default async function HomePage() {
   return (
@@ -19,7 +20,10 @@ export default async function HomePage() {
           text: 'With one click',
           icon: CursorClick,
         }}
-        heading="Intercept & view all your HTTP"
+        heading={<>
+          Intercept, view & edit <ResponsiveLineBreak/>
+          any HTTP traffic
+        </>}
         video={{
           id: 'chrome'
         }}

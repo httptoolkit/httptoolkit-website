@@ -96,7 +96,7 @@ export const CTA = ({
           <ThemedImage
             width={1116}
             height={627}
-            title={heading || image.title}
+            title={image.title}
             sizes="(max-width: 600px) 50vw, 75vw"
             {...image}
             loading={isHero ? 'eager' : 'lazy'}
