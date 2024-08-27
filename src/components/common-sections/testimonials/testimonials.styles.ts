@@ -51,7 +51,10 @@ export const StyledAuthorWrapper = styled.footer`
 export const StyledAuthorDetails = styled.cite`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+
+  > a:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const StyledTestimonialGrid = styled.div`
@@ -82,8 +85,8 @@ export const StyledQuote = styled.div`
     font-weight: ${({ theme }) => theme.fontWeight.normal};
 
     & strong {
-      color: ${({ theme }) => theme.colors.text.lightGrey};
-      font-weight: ${({ theme }) => theme.fontWeight.medium};
+      color: ${({ theme }) => theme.colors.text.white};
+      font-weight: ${({ theme }) => theme.fontWeight.bold};
     }
   }
 `;
