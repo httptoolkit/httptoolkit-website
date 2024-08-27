@@ -10,12 +10,12 @@ export const Drawer = ({ $isOpen = false, onClose, children }: Component<DrawerP
     <DrawerContainer $isOpen={$isOpen}>
       <DrawerHeader>
         <Button
-          style={{ width: 48, height: 48, padding: 0 }}
+          style={{ width: 48, height: 48, padding: 0, marginLeft: 'auto' }}
           $variant="secondary"
           onClick={onClose}
           aria-label="Close mobile menu"
         >
-          <CaretLeft aria-hidden="true" size={16} color="#fff" weight="fill" />
+          <CaretLeft aria-hidden="true" size={16} weight="fill" />
         </Button>
       </DrawerHeader>
       <DrawerContent>{children}</DrawerContent>
