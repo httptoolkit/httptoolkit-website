@@ -44,13 +44,14 @@ export default function JavascriptIntegrationPage() {
         ]}
       />
       <IntegrationCompatibility
-        title="Supported by Javascript"
-        subtitle="compatibility"
+        title="Automatic setup & interception for JavaScript"
+        subtitle="Fully supported"
         tools={[
           "Node.js's Http & Https modules",
           'Bun',
           'Deno',
           'Fetch & Node-Fetch',
+          'XMLHttpRequest',
           'Request',
           'Axios',
           'Superagent',
@@ -60,8 +61,7 @@ export default function JavascriptIntegrationPage() {
           'Needle',
           'Bent',
           'Unirest',
-          'Spawned subprocesses',
-          'npm',
+          'Spawned subprocesses'
         ]}
       />
       <Suspense>

@@ -65,7 +65,7 @@ export const StyledIntegrationCompatibilityContentTitle = styled.div`
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     text-align: left;
-    max-width: 375px;
+    max-width: 440px;
   }
 `;
 
@@ -87,6 +87,6 @@ export const StyledCompatibilityBadgeWrapper = styled.div`
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     justify-content: end;
     gap: 12px;
-    max-width: 685px;
+    max-width: 630px;
   }
 `;

@@ -43,8 +43,8 @@ export default function RubyIntegrationPage() {
         ]}
       />
       <IntegrationCompatibility
-        title="Supported by Ruby"
-        subtitle="compatibility"
+        title="Automatic setup & interception for Ruby"
+        subtitle="Fully supported"
         tools={[
           'net::http',
           'Faraday',

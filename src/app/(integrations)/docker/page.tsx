@@ -51,37 +51,23 @@ export default function DockerIntegrationPage() {
         ]}
       />
       <IntegrationCompatibility
-        title="Supported by Docker"
-        subtitle="compatibility"
+        title="Automatic setup & interception for Docker"
+        subtitle="Fully supported"
         tools={[
           'Docker',
-          'Node.js containers',
           'Docker Compose',
+          'Docker builds',
           'Docker for Mac',
           'Docker for Windows',
+          'Node.js containers',
           'Golang containers',
-          'Apt-Get, Apk, Npm, and other build tools',
+          'Apt-Get, Apk, and other build tools',
           'PHP+Apache containers',
           'Ruby containers',
-          'Curl, Wget, Httpie, and other Bash clients',
+          'Curl, Wget, and scripting tools',
           'Java containers',
           'Rust containers',
           'Python containers',
-        ]}
-        mobileTools={[
-          'Docker for Mac',
-          'Node.js containers',
-          'Docker',
-          'Docker for Windows',
-          'PHP+Apache containers',
-          'Python containers',
-          'Rust containers',
-          'Docker Compose',
-          'Java containers',
-          'Golang containers',
-          'Ruby containers',
-          'Apt-Get, Apk, Npm, and other build tools',
-          'Curl, Wget, Httpie, and other Bash clients',
         ]}
       />
       <Suspense>

@@ -16,8 +16,7 @@ import { DownloadButton } from '@/components/modules/download-button';
 export const IntegrationCompatibility = ({
   title,
   subtitle,
-  tools = [],
-  mobileTools = tools || [],
+  tools = []
 }: IntegrationCompatibilityProps) => {
   return (
     <StyledIntegrationCompatibilityWrapper>
@@ -34,7 +33,7 @@ export const IntegrationCompatibility = ({
           </StyledIntegrationCompatibilityContentTitle>
           <DownloadButton $small $variant="secondary" />
         </StyledIntegrationCompatibilityContent>
-        <BadgesWrapper tools={tools} mobileTools={mobileTools} />
+        <BadgesWrapper tools={tools} />
       </StyledIntegrationCompatibilityContentWrapper>
     </StyledIntegrationCompatibilityWrapper>
   );

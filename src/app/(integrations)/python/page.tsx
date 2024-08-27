@@ -43,15 +43,15 @@ export default function PythonIntegrationPage() {
         ]}
       />
       <IntegrationCompatibility
-        title="Supported by Python"
-        subtitle="compatibility"
+        title="Automatic setup & interception for Python"
+        subtitle="Fully supported"
         tools={[
+          'Python 2 & 3',
           'urllib.request',
           'urllib2',
           'Requests',
           'Boto',
           'Urlfetch',
-          'Python 2 & 3',
           'httplib2',
           'Pip',
           'httpx',

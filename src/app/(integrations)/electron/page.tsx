@@ -37,8 +37,8 @@ export default function ElectronIntegrationPage() {
         steps={[['Open HTTP Toolkit', 'Pick any Electron executable', 'See, debug & rewrite all its HTTP(S) traffic']]}
       />
       <IntegrationCompatibility
-        title="Supported by Electron"
-        subtitle="compatibility"
+        title="Automatic setup & interception for Electron"
+        subtitle="Fully supported"
         tools={[
           'Renderer requests',
           'Main process requests',
