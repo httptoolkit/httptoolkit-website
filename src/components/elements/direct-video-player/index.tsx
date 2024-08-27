@@ -95,6 +95,7 @@ export const DirectVideoPlayer = (props: {
                 autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
                 muted
+                playsInline // Required for iOS non-fullscreen playback
 
                 ref={darkVideoRef}
 
@@ -114,6 +115,7 @@ export const DirectVideoPlayer = (props: {
                 autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
                 muted
+                playsInline // Required for iOS non-fullscreen playback
 
                 ref={lightVideoRef}
 
