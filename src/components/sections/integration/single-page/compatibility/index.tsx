@@ -4,6 +4,7 @@ import {
   StyledIntegrationCompatibilityContentTitle,
   StyledIntegrationCompatibilityContentWrapper,
   StyledIntegrationCompatibilityGradientWrapper,
+  StyledIntegrationCompatibilityGradientLimits,
   StyledIntegrationCompatibilityLabel,
   StyledIntegrationCompatibilityWrapper,
 } from './compatibility.styles';
@@ -20,9 +21,11 @@ export const IntegrationCompatibility = ({
 }: IntegrationCompatibilityProps) => {
   return (
     <StyledIntegrationCompatibilityWrapper>
-      <StyledIntegrationCompatibilityGradientWrapper>
-        <Gradient $shape="full" />
-      </StyledIntegrationCompatibilityGradientWrapper>
+      <StyledIntegrationCompatibilityGradientLimits>
+        <StyledIntegrationCompatibilityGradientWrapper>
+          <Gradient $shape="full" />
+        </StyledIntegrationCompatibilityGradientWrapper>
+      </StyledIntegrationCompatibilityGradientLimits>
       <StyledIntegrationCompatibilityContentWrapper>
         <StyledIntegrationCompatibilityContent>
           <StyledIntegrationCompatibilityContentTitle>

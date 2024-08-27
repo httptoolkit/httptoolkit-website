@@ -7,13 +7,21 @@ export const StyledIntegrationCompatibilityWrapper = styled.section`
   position: relative;
   background-color: ${({ theme }) => theme.colors.inkBlack};
   box-shadow: 1px 0 1px 0 ${({ theme }) => theme.colors.button.border};
-  overflow: hidden;
 
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     background-image: ${({ theme }) => theme.backgroundImages.backgroundDots};
     background-repeat: repeat;
     background-size: 450px;
   }
+`;
+
+export const StyledIntegrationCompatibilityGradientLimits = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 `;
 
 export const StyledIntegrationCompatibilityGradientWrapper = styled.div`
