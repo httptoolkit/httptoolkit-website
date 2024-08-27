@@ -1,4 +1,35 @@
 {$DOMAIN:http://localhost} {
+    # Will-it-cors subpaths are SPA-only, fresh loads must go back to the start:
+    @will-it-cors-step path_regexp ^/will-it-cors/.+
+    redir @will-it-cors-step /will-it-cors/ 308
+
+    # Redirect various old URLS that are all now replaced by the new root page:
+    redir /toolkit / 308
+    redir /toolkit/ / 308
+    redir /mock / 308
+    redir /mock/ / 308
+    redir /view / 308
+    redir /view/ / 308
+
+    # Redirect old download paths to new ones
+    @view-thankyou-subpath path_regexp subpath ^/view/thank-you/(.+)
+    redir @view-thankyou-subpath /download/{re.subpath.1} 308
+    @view-subpath path_regexp subpath ^/view/(.+)
+    redir @view-subpath /{re.subpath.1} 308
+    @mock-subpath path_regexp subpath ^/mock/(.+)
+    redir @mock-subpath /{re.subpath.1} 308
+
+    # Enforce trailing slashes
+    @no_slash {
+        not path_regexp ^/.+/$
+        not path /
+
+        not file {
+            try_files {path}
+        }
+    }
+    redir @no_slash {path}/ 301
+
     root * /site
     try_files {path}.html {path} {path}/index.html
     file_server
@@ -8,25 +39,6 @@
     # old data as-is for up to 1 hour if this server stops responding/returns errors.
     @get method GET
     header @get Cache-Control "public, max-age=600, stale-while-revalidate=60, stale-if-error=3600"
-
-    # Will-it-cors subpaths are SPA-only, fresh loads must go back to the start:
-    @will-it-cors-step path_regexp ^/will-it-cors/.+
-    redir @will-it-cors-step /will-it-cors/ 308
-
-    # Old URLS that are all now replaced by the new root page:
-    redir /toolkit / 308
-    redir /toolkit/ / 308
-    redir /mock / 308
-    redir /mock/ / 308
-    redir /view / 308
-    redir /view/ / 308
-
-    @view-thankyou-subpath path_regexp subpath ^/view/thank-you/(.+)
-    redir @view-thankyou-subpath /download/{re.subpath.1} 308
-    @view-subpath path_regexp subpath ^/view/(.+)
-    redir @view-subpath /{re.subpath.1} 308
-    @mock-subpath path_regexp subpath ^/mock/(.+)
-    redir @mock-subpath /{re.subpath.1} 308
 
     header X-Clacks-Overhead "GNU Terry Pratchett" # https://xclacksoverhead.org
 

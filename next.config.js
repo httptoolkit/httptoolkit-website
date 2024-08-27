@@ -28,6 +28,7 @@ const nextConfig = {
   },
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  trailingSlash: true,
   webpack(config) {
     config.module?.rules?.push({
       // issuer: /\.[jt]sx?$/,
