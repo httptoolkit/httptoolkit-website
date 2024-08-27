@@ -1,98 +1,98 @@
 export const pageRoutes = {
   PRICING: {
-    href: '/pricing',
+    href: '/pricing/',
     label: 'Pricing',
   },
   DOCS: {
-    href: '/docs',
+    href: '/docs/',
     label: 'Docs',
   },
   BLOG: {
-    href: '/blog',
+    href: '/blog/',
     label: 'Blog',
   },
   CONTACT: {
-    href: '/contact',
+    href: '/contact/',
     label: 'Contact',
   },
   INTEGRATION: {
-    href: '/all-integrations',
+    href: '/all-integrations/',
     label: 'Integrations',
   },
   FAQ: {
-    href: '/faq',
+    href: '/faq/',
     label: 'FAQ',
   },
   TERM_OF_SERVICES: {
-    href: '/term-of-services',
+    href: '/terms-of-service/',
     label: 'Terms of Service',
   },
   PRIVACY_POLICY: {
-    href: '/privacy-policy',
+    href: '/privacy-policy/',
     label: 'Privacy Policy',
   },
   //Integrations
   ANDROID: {
-    href: '/android',
+    href: '/android/',
     label: 'Android',
   },
   DOCKER: {
-    href: '/docker',
+    href: '/docker/',
     label: 'Docker',
   },
   PYTHON: {
-    href: '/python',
+    href: '/python/',
     label: 'Python',
   },
   RUBY: {
-    href: '/ruby',
+    href: '/ruby/',
     label: 'Ruby',
   },
   JAVA: {
-    href: '/java',
+    href: '/java/',
     label: 'Java',
   },
   ELECTRON: {
-    href: '/electron',
+    href: '/electron/',
     label: 'Electron',
   },
   JAVASCRIPT: {
-    href: '/javascript',
+    href: '/javascript/',
     label: 'JavaScript',
   },
   ALL_INTEGRATIONS: {
-    href: '/all-integrations',
+    href: '/all-integrations/',
     label: 'All Integrations',
   },
   //Projects
   WILL_IT_CORS: {
-    href: '/will-it-cors',
+    href: '/will-it-cors/',
     label: 'Will it CORS?',
   },
   //Alternatives
   FIDDLER: {
-    href: '/fiddler-alternative',
+    href: '/fiddler-alternative/',
     label: 'Fiddler',
   },
   CHROME_DEV_TOOLS: {
-    href: '/chrome-devtools-alternative',
+    href: '/chrome-devtools-alternative/',
     label: 'Chrome Dev Tools',
   },
   CHARLES: {
-    href: '/charles-alternative',
+    href: '/charles-alternative/',
     label: 'Charles',
   },
   //Product
   PROD_FOR_MAC_OS: {
-    href: '/http-toolkit-for-macos',
-    label: 'Http Toolkit for MacOS',
+    href: '/http-toolkit-for-mac/',
+    label: 'HTTP Toolkit for Mac',
   },
   PROD_FOR_WINDOW: {
-    href: '/http-toolkit-for-windows',
-    label: 'Http Toolkit for Windows',
+    href: '/http-toolkit-for-windows/',
+    label: 'HTTP Toolkit for Windows',
   },
   PROD_FOR_LINUX: {
-    href: '/http-toolkit-for-linux',
-    label: 'Http Toolkit for Linux',
+    href: '/http-toolkit-for-linux/',
+    label: 'HTTP Toolkit for Linux',
   },
 };

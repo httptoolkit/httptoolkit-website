@@ -2,8 +2,8 @@ import { ContentWithTable } from '@/components/sections/content-with-table';
 import { HeroPoints } from '@/components/sections/hero-points';
 import { getPageContent } from '@/lib/mdx/page';
 
-export default async function TermOfServices() {
-  const { content, pageTocLinks } = await getPageContent('src/app/(legal)/term-of-services/content.mdx');
+export default async function TermsOfService() {
+  const { content, pageTocLinks } = await getPageContent('src/app/(legal)/terms-of-service/content.mdx');
 
   return (
     <>
