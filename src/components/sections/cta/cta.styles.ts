@@ -51,7 +51,7 @@ const ctaFluidStyles = css`
   background-position: top -360px center;
 
   @media (min-width: ${screens['lg']}) {
-    background-position: top -80px center;
+    background-position: top -45px center;
   }
 
   &::before {
@@ -94,7 +94,7 @@ const handleBackgroundVariant = (variant: bgVariant) => {
         background:
           no-repeat url('/images/backgrounds/hero-lines.svg'),
           var(--background-dots);
-        background-position: top -80px center;
+        background-position: top -35px center;
 
         @media (max-width: ${screens['md']}) {
           background-position: top -317px center;
@@ -201,6 +201,7 @@ export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
 
         @media (min-width: ${screens['lg']}) {
           max-width: 659px;
+          text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
         }
       `};
   }

@@ -27,7 +27,7 @@ export const PairContainer = styled.div`
 
     > .hidden-phone {
         margin-right: calc(-1 * min(20vw, 300px));
-        transform: scale(80%);
+        transform: scale(70%);
     }
 
     > .visible-phone {
