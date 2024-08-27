@@ -25,8 +25,17 @@ export const StyledCopy = styled.div`
 `;
 
 export const StyledCopyButton = styled.button`
+  cursor: pointer;
   border: none;
   background-color: transparent;
   width: fit-content;
   padding: 0;
+
+  & svg {
+    color: ${({ theme }) => theme.colors.text.white};
+
+    &:hover:not(:active) {
+      color: var(--cinnabar-red);
+    }
+  }
 `;

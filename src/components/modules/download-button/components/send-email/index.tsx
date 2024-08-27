@@ -22,7 +22,7 @@ export const SendEmail = ({
           <label htmlFor="extra-info">An extra form field you should ignore</label>
           <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
         </div>
-        <Input required id="" name="email" type="email" placeholder="Enter you email" />
+        <Input required id="" name="email" type="email" placeholder="Enter your email" />
         <Button {...buttonProps} $withBorder={false} type="submit">
           Send me a download link
         </Button>

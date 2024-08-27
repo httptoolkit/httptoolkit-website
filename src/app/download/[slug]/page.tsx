@@ -64,7 +64,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
           <StyledDownloadaColumns>
             <StyledColumnContent>
               <Heading fontSize="l" color="textGradient">
-                {hasDownloadCommand ? 'Get started with HTTP Toolkit' : 'HTTP Toolkit is now downloading...'}
+                {hasDownloadCommand ? 'Get started with:' : 'HTTP Toolkit is now downloading...'}
               </Heading>
               {hasDownloadCommand ? (
                 <Stack>
@@ -75,7 +75,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                 </Stack>
               ) : (
                 <Text fontSize="l" fontWeight="medium">
-                  Didn&apos;t work?{' '}
+                  Didn't work?{' '}
                   <Link
                     target="_self"
                     href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${currentDownloadData?.releasePath}`}
@@ -83,18 +83,14 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                     <Text fontSize="l" as="span" color="cinnarbarRed" fontWeight="medium">
                       Click here
                     </Text>
-                  </Link>
+                  </Link>.
                 </Text>
               )}
 
-              <Stack $gapxl="8px">
-                <Text fontSize="m">
-                  There&apos;s a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP
-                  client tools, gRPC & GraphQL support, and request diffing.
-                </Text>
-              </Stack>
               <ContentCard
-                title="Join the mailing list now, so you don't miss new features & releases:"
+                title="Join the mailing list now, so you don't miss new features & releases"
+                text="There's a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP
+                client tools, gRPC & GraphQL support, and request diffing. Keep yourself updated:"
                 $isNewsletter
                 action={NEWSLETTER_URLS.download}
               />
