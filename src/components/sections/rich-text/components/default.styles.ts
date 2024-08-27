@@ -17,13 +17,13 @@ export const StyledLink = styled(Link)`
 
 export const StyledText = styled(Text)`
   &&& {
-    margin-bottom: 6px;
+    margin-bottom: 1.25rem;
   }
 `;
 
 export const StyledHighlightedParagraphs = styled.div`
   p {
-    margin-bottom: 16px;
+    margin-bottom: 2rem;
     color: ${({ theme }) => theme.colors.text.darkGrey};
     font-size: ${({ theme }) => theme.fontSizes.text.l};
     font-weight: ${({ theme }) => theme.fontWeight.bold};
@@ -41,14 +41,14 @@ export const StyledHeading = styled(Heading)<StyledHeadingProps>`
 export const StyledUL = styled.ul`
   list-style: disc;
   padding-left: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.text.darkGrey};
 `;
 
 export const StyledOL = styled.ol`
   list-style: decimal;
   padding-left: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.text.darkGrey};
 `;
 
