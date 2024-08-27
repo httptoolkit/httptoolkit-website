@@ -17,8 +17,8 @@ export const HttpToolkitFeatures = () => {
       <Container>
         <Stack $gap="32px" $gapxl="64px">
           <HeadingBlock
-            title="What is `*HTTP Toolkit*`?"
-            text="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+            title="What is *HTTP Toolkit*?"
+            text="HTTP Toolkit is an open-source tool for debugging, testing and building with HTTP, on Windows, Linux & Mac."
             $align="center"
             $isContentCentered
           />

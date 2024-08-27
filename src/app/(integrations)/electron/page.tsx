@@ -28,12 +28,12 @@ export default function ElectronIntegrationPage() {
         breadcrumbText="electron"
       />
       <IntegrationTextAppVideo
-        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+        title="HTTP Toolkit is an open-source tool for debugging, testing and building with HTTP on Windows, Linux & Mac."
         subtitle="what is http toolkit?"
         video={{ id: 'chrome' }}
       />
       <IntegrationSteps
-        title="Getting `*started*`"
+        title="Getting *started*"
         steps={[['Open HTTP Toolkit', 'Pick any Electron executable', 'See, debug & rewrite all its HTTP(S) traffic']]}
       />
       <IntegrationCompatibility

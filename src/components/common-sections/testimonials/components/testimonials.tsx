@@ -20,7 +20,7 @@ export const TestimonialsGrid = async () => {
         badgeVariant="primary"
         badgeTitle="TESTIMONIALS"
         badgeIcon={Heart}
-        title={`Join ~*${userDownloads.toLocaleString()}*~ developers`}
+        title={`Join *${userDownloads.toLocaleString()}* developers`}
         $align="center"
       />
 

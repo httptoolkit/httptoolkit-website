@@ -13,7 +13,7 @@ export const RewriteAnything = () => {
       <Container>
         <Stack $gap="32px" $gapxl="64px">
           <HeadingBlock
-            title="Rewrite `*anything*`"
+            title="Rewrite *anything*"
             badgeTitle="Pro Feature"
             badgeAdditionalText="EDIT"
             badgeIcon={Sparkle}

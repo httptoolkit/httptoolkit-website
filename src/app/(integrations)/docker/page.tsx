@@ -28,7 +28,7 @@ export default function DockerIntegrationPage() {
         breadcrumbText="docker"
       />
       <IntegrationTextAppVideo
-        title="HTTP Toolkit is a beautiful & open-source toolfor debugging, testing and building with HTTP(S)on Windows, Linux & Mac."
+        title="HTTP Toolkit is an open-source tool for debugging, testing and building with HTTP on Windows, Linux & Mac."
         subtitle="what is http toolkit?"
         video={{id: 'javascript'}}
       />

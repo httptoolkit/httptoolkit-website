@@ -14,7 +14,7 @@ import { getOpenSourceContributors } from '@/lib/services/get-open-source-contri
 import { getOrganizationStars } from '@/lib/services/get-repo-stars';
 
 export const Statistics = async ({
-  title = 'Why `*HTTP Toolkit*`?',
+  title = 'Why *HTTP Toolkit*?',
   text = 'Numbers that speak for themselves:',
 }: StatisticsProps) => {
   const downloads = await getGithubDownloadStats();

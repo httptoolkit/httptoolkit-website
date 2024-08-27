@@ -17,7 +17,7 @@ export const MockResponseFeatures = () => {
       <Container>
         <Stack $gap="32px" $gapxl="64px">
           <HeadingBlock
-            title="Test with `*fully automated*` mock responses"
+            title="Test with *fully automated* mock responses"
             badgeTitle="Pro Feature"
             badgeAdditionalText="MOCK"
             badgeIcon={Sparkle}
