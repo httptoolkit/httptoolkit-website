@@ -7,17 +7,17 @@ import { IntegrationCTA } from '@/components/sections/integration/cta';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'A Chrome DevTools alternative | HTTP Toolkit',
+  title: 'Chrome DevTools alternative → HTTP Toolkit',
   description:
-    "HTTP Toolkit is a supercharged alternative to Chrome's built-in networking tools, designed for faster debugging and complete control of any HTTP(S) traffic.",
+    "HTTP Toolkit is a supercharged alternative to Chrome's developer network tab, designed for faster debugging and deeper control of all your HTTP traffic.",
 });
 
 export default async function ChromeDevToolsAlternativePage() {
   return (
     <>
-      <CTA
-        heading="Want an alternative to Chrome's network tab?"
-        excerpt="HTTP Toolkit is a supercharged alternative to Chrome's built-in networking tools, designed for faster debugging and complete control of any HTTP(S) traffic."
+    <CTA
+        heading="Looking for a better alternative to Chrome's network devtools?"
+        excerpt="HTTP Toolkit is a supercharged alternative to Chrome's developer network tab, designed for faster debugging and deeper control of all your HTTP traffic."
         video={{id: 'chrome'}}
       />
       <IntegrationCTA
