@@ -11,8 +11,8 @@ import { DownloadButton } from '@/components/modules/download-button';
 import { pageRoutes } from '@/lib/constants/routes';
 
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
-  const { PRICING, DOCS, BLOG, CONTACT, INTEGRATION } = pageRoutes;
-  const navigationItems = [PRICING, DOCS, BLOG, CONTACT, INTEGRATION];
+  const { PRICING, DOCS, BLOG, INTEGRATION, CONTACT } = pageRoutes;
+  const navigationItems = [PRICING, DOCS, BLOG, INTEGRATION, CONTACT];
 
   return (
     <StyledHeader>
