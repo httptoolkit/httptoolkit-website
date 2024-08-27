@@ -15,7 +15,7 @@ export const SendEmail = ({
   return (
     <StyledSendEmailWrapper {...props}>
       <Text fontSize="s" textAlign="center" color="white">
-        On mobile? Send this to your computer and try it out there:
+        On mobile? Send a link to your computer to download HTTP Toolkit there:
       </Text>
       <StyledSendEmailForm method="POST" action={NEWSLETTER_URLS.download}>
         <div className="visually-hidden">
