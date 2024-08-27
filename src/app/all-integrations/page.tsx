@@ -9,9 +9,9 @@ import { IntegrationsGrid } from '@/components/sections/integration/grid';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Automatic setup and powerful integration for all your tools',
+  title: 'Automated setup and powerful integrations for all your HTTP tools',
   description:
-    'With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click.',
+    'With deep integration into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, bash scripts, Docker containers, web browsers and more, so you can see & modify anything in just one click.',
 });
 
 export default function IntegrationsPage() {
@@ -19,8 +19,11 @@ export default function IntegrationsPage() {
     <Layout>
       <IntegrationCTA
         $variant="hero"
-        title="Automatic setup and powerful integration for all your tools"
-        text="With deep integrations into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, whole devices, bash scripts, entire Docker containers and more, so you can see & modify anything in just one click."
+        title="Automated setup and powerful integrations for all your HTTP tools"
+        text={[
+          "With deep integration into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, bash scripts, Docker containers, web browsers and more, so you can see & modify anything in just one click.",
+          "Use the integrations below to get started with your favourite tools in seconds, or use HTTP Toolkit as a simple HTTP proxy with manual setup, fully compatible with anything that speaks HTTP."
+        ]}
       />
       <IntegrationsGrid />
       <TryItForYourselfCTA isFooterClose />

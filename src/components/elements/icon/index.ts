@@ -15,7 +15,7 @@ import {
   GithubLogo,
   Globe,
   SealCheck,
-  LinkSimpleBreak,
+  Link,
   Check,
   CursorClick,
   Heart,
@@ -43,6 +43,8 @@ import {
   XCircle,
   Trash,
   XLogo,
+  CrosshairSimple,
+  DeviceMobile
 } from '@phosphor-icons/react/dist/ssr';
 
 import {
@@ -82,7 +84,7 @@ export {
   ArrowRight,
   Globe,
   SealCheck,
-  LinkSimpleBreak,
+  Link,
   Github,
   TwitterX,
   FacebookLogo,
@@ -131,4 +133,6 @@ export {
   XCircle,
   Trash,
   XLogo,
+  CrosshairSimple,
+  DeviceMobile
 };

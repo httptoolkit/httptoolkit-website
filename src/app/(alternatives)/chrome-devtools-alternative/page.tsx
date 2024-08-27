@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import { Book, Desktop, Flag, Globe, LinkSimpleBreak, Shuffle } from '@/components/elements/icon';
+import { Book, Desktop, Link, MagnifyingGlass, PencilSimple, Shuffle } from '@/components/elements/icon';
 import { Bento } from '@/components/sections/bento';
 import { CTA } from '@/components/sections/cta';
 import { IntegrationCTA } from '@/components/sections/integration/cta';
@@ -22,8 +22,8 @@ export default async function ChromeDevToolsAlternativePage() {
       />
       <IntegrationCTA
         $variant="cta"
-        title="Integrations"
-        text="Explore a vast array of integrations and applications designed to streamline your work, consolidate information, and enhance collaboration effortlessly. "
+        title="Built-in integration with every tool you use"
+        text={["HTTP Toolkit includes one-click automated setup to provide precisely targeted interception of individual browser windows, mobile apps, terminal sessions, Docker containers & more."]}
         button={{
           $small: true,
           $variant: 'secondary',
@@ -32,37 +32,37 @@ export default async function ChromeDevToolsAlternativePage() {
         }}
       />
       <Bento
-        title="HTTP Toolkit has all the core Fiddler features you use, plus:"
+        title="HTTP Toolkit has all the browser network debugging features you use today, plus:"
         cards={[
           {
-            icon: Globe,
-            title: 'One-click zero-configuration HTTPS interception',
-            text: 'Inspect & rewrite HTTPS immediately with no global CA certificate required.',
-          },
-          {
             icon: Desktop,
-            title: 'Automatically capture traffic from just one browser window',
-            text: 'Precisely targeted interception: **automatically capture traffic from just one browser window**, without interfering with (or having to filter though) traffic from the rest of your machine.',
+            title: 'Automatically capture all traffic from anywhere with one tool',
+            text: 'Capture traffic from a single tab, an entire Chrome session, mobile browsers, and even your backend server, all in one place.',
           },
           {
-            icon: LinkSimpleBreak,
-            title: 'Integrate',
-            text: "Interception internals you can integrate into your own code for mocking, testing or building custom proxies, available as an MIT-licensed [open-source library](https://example.com) **(that's $0 vs the $2,999/year price tag to build on FiddlerCore).**",
+            icon: Link,
+            title: 'Extensible & automatable',
+            text: "100% open-source, with interception internals you can integrate directly into your own code to write automated tests or build custom proxies (available as an Apache-licensed [open-source library](https://github.com/httptoolkit/mockttp)).",
+          },
+          {
+            icon: PencilSimple,
+            title: 'Fully featured body editor with advanced format support',
+            text: 'Built on the same internals as VS Code, allowing you to explore, search and examine request & response bodies, with live editing, decoding & highlighting for JSON, Base64, Protobuf, CSS, HTML, XML, and more.'
           },
           {
             icon: Book,
             title: 'Built-in documentation',
-            text: 'Ior every standard HTTP header and status code, plus specific endpoint docs & validation for 1400+ popular APIs.',
+            text: 'Documentation for every standard HTTP header and status code, plus specific endpoint docs & validation for 1400+ popular APIs, from Stripe to GitHub to AWS.',
           },
           {
             icon: Shuffle,
-            title: 'Flexible rules',
-            text: 'Engine for rewriting traffic so you can combine matchers with mock responses, simulated errors, timeouts, redirection and more.',
+            title: 'Powerful rules engine for rewriting & mocking HTTP traffic',
+            text: 'Define custom rules that precisely match requests to automatically edit their contents, redirect them, simulate network errors, or breakpoint them for manual modification.'
           },
           {
-            icon: Flag,
-            title: '20+ languages',
-            text: 'One-click transformation of collected traffic into editable rules to match & mock subsequent requests, or to export collected requests as ready-to-use code for **20+ languages.**',
+            icon: MagnifyingGlass,
+            title: 'Advanced performance tools',
+            text: 'Includes automatic caching & compression analysis, to explain how and why responses might (or might not) be cached in future, and automatically highlight errors and improvements from real-world traffic.',
           },
         ]}
       />

@@ -6,6 +6,6 @@ export interface StyledIntegrationCTAProps {
 
 export interface IntegrationCTAProps extends StyledIntegrationCTAProps {
   title: string;
-  text: string;
+  text: string[];
   button?: ButtonProps;
 }

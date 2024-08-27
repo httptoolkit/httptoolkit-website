@@ -32,10 +32,15 @@ export default function JavaIntegrationPage() {
         video={{ id: 'javascript' }}
       />
       <IntegrationCompatibility
-        title="Automatic setup & interception for Java"
+        title="Automatic setup & interception for anything on the JVM"
         subtitle="Fully supported"
         tools={[
-          "Java's HttpURLConnection",
+          "Java",
+          "Kotlin",
+          "Scala",
+          "Groovy",
+          "Clojure",
+          "HttpURLConnection",
           "Java 11's HttpClient",
           'Apache HttpClient',
           'Apache HttpAsyncClient',

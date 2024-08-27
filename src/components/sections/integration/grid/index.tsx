@@ -20,7 +20,7 @@ const integrationCards = [
     $isPopular: true,
     icon: AndroidLogo,
     title: 'Android',
-    text: 'Android integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'In one click, capture Android traffic from apps and mobile browsers, with automated setup, per-app interception, and certificate injection & unpinning built-in.',
     link: {
       href: ANDROID.href,
     },
@@ -28,7 +28,7 @@ const integrationCards = [
   {
     icon: PythonLogo,
     title: 'Python',
-    text: 'Python integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'Open an intercepted terminal in one click, launch any Python server or script, and immediately see and edit all HTTP and HTTPS it sends.',
     link: {
       href: PYTHON.href,
     },
@@ -36,7 +36,7 @@ const integrationCards = [
   {
     icon: SquareJSLogo,
     title: 'JavaScript',
-    text: 'JavaScript integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'Launch an intercepted web browser or terminal, open web pages or run servers & scripts with Node.js, and inspect and modify everything that\'s sent or received.',
     link: {
       href: JAVASCRIPT.href,
     },
@@ -44,7 +44,7 @@ const integrationCards = [
   {
     icon: RubyLogo,
     title: 'Ruby',
-    text: 'Ruby integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'Open an intercepted terminal in one click, launch any Ruby server or script, and immediately see and edit all HTTP and HTTPS it sends.',
     link: {
       href: RUBY.href,
     },
@@ -52,7 +52,7 @@ const integrationCards = [
   {
     icon: JavaLogo,
     title: 'Java',
-    text: 'Java integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'Attach to existing JVM processes, or open an intercepted terminal in one click to launch them, and instantly capture all HTTP from by Java, Kotlin, or Scala.',
     link: {
       href: JAVA.href,
     },
@@ -60,7 +60,7 @@ const integrationCards = [
   {
     icon: DockerLogo,
     title: 'Docker',
-    text: 'Docker integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'In one click, attach to existing Docker containers, or open an intercepted terminal and launch some, and effortlessly debug & edit everything they send.',
     link: {
       href: DOCKER.href,
     },
@@ -68,7 +68,7 @@ const integrationCards = [
   {
     icon: ElectronLogo,
     title: 'Electron',
-    text: 'Electron integration for apps and mobile browsers, including automated setup, per-app interception, and system-level certificate injection for complete visibility into emulators and rooted devices.',
+    text: 'Pick any Electron app on your computer, launch it, and instantly see and change everything it\'s sending & receiving.',
     link: {
       href: ELECTRON.href,
     },

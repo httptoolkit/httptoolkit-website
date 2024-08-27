@@ -80,4 +80,8 @@ export const StyledIntegrationCTAContent = styled.div<StyledIntegrationCTAProps>
   flex-direction: column;
   align-items: center;
   gap: 24px;
+
+  > p {
+    max-width: 740px;
+  }
 `;

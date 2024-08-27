@@ -79,9 +79,11 @@ export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTA
         <Heading as={HeadingTag} fontSize="l" color="lightGrey" textAlign="center">
           {title}
         </Heading>
-        <Text fontSize="m" color="darkGrey" textAlign="center">
-          {text}
-        </Text>
+        { text.map((text, index) => (
+          <Text fontSize="m" color="darkGrey" textAlign="center" key={index}>
+            {text}
+          </Text>
+        ))}
         {button && (
           <Button as="link" {...button}>
             {button.children}
