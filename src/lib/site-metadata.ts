@@ -3,16 +3,14 @@ export const siteMetadata = {
   title: 'Intercept, debug & build with HTTP',
   description:
     'Beautiful, cross-platform &amp; open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux &amp; Mac.',
-  // TODO(before-release): back to prod URL before release
-  // siteUrl: 'https://httptoolkit.com',
-  // blogUrl: 'https://httptoolkit.com/blog',
-  siteUrl: 'https://httptoolkit-website.pages.dev',
-  blogUrl: 'https://httptoolkit-website.pages.dev/blog',
-  latestAppVersion: '1.14.11',
+  siteUrl: 'https://httptoolkit.com',
+  blogUrl: 'https://httptoolkit.com/blog',
+
+  latestAppVersion: '1.18.1',
   latestSiteUpdate: new Date().toISOString(), // I.e. the date of the latest site build
 
-  // fallback static stats in case we reach out the github api limits
-  totalContributors: 142,
-  totalDownloads: 513325,
-  totalStarsCount: 7548,
+  // Fallback static stats in case we hit the github api limits (only used in dev)
+  totalContributors: 149,
+  totalDownloads: 598515,
+  totalStarsCount: 8000,
 };

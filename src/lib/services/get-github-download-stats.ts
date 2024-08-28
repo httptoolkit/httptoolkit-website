@@ -39,7 +39,12 @@ export async function getGithubDownloadStats(): Promise<number> {
     return (cachedDownloadState = totalDownloads);
   } catch (error) {
     console.error('An error occurred trying to fetch getGithubDownloadStats:', error);
-    // fallback static data if dynamic fetch fails
-    return siteMetadata.totalDownloads;
+
+    if (process.env.NODE_ENV !== 'production') {
+      // fallback static data if dynamic fetch fails
+      return siteMetadata.totalDownloads;
+    } else {
+      throw error;
+    }
   }
 }

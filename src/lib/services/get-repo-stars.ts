@@ -39,6 +39,11 @@ export async function getOrganizationStars() {
     return (cachedStarsCount = starsCount);
   } catch (error: unknown) {
     if (error instanceof Error) console.error('Error:', error.message);
-    return siteMetadata.totalStarsCount;
+
+    if (process.env.NODE_ENV !== 'production') {
+      return siteMetadata.totalStarsCount;
+    } else {
+      throw error;
+    }
   }
 }

@@ -65,7 +65,12 @@ export const getOpenSourceContributors = async () => {
     return (cachedContributors = uniqueContributors.length);
   } catch (error) {
     console.error('An error occurred trying to fetch getOpenSourceContributors:', error);
-    // fallback static data if dynamic fetch fails
-    return siteMetadata.totalContributors;
+
+    if (process.env.NODE_ENV !== 'production') {
+      // fallback static data if dynamic fetch fails
+      return siteMetadata.totalContributors;
+    } else {
+      throw error;
+    }
   }
 };
