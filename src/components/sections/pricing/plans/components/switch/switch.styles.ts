@@ -8,7 +8,6 @@ export const StyledWrapper = styled.div`
   width: fit-content;
   height: fit-content;
   gap: 2px;
-  cursor: pointer;
 `;
 
 export const StyledOption = styled.span`
@@ -42,4 +41,6 @@ export const StyledOptionsWrapper = styled.button`
   box-shadow:
     0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
     0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+
+  cursor: pointer;
 `;

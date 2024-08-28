@@ -58,15 +58,17 @@ export const StyledPricingCardPriceWrapper = styled.div`
   }
 `;
 
-export const StyledPricingCardAnnualFlag = styled(Text)`
+export const StyledPricingCardCaveats = styled(Text)`
   &&& {
     margin-top: 6px;
+    font-style: italic;
   }
 `;
 
 export const StyledPriceCardPrice = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
   line-height: 1.1;
+  margin-right: 5px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     font-size: 56px;

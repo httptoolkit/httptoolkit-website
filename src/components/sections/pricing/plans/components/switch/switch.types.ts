@@ -1,10 +1,12 @@
+import { Interval } from "@httptoolkit/accounts";
+
 interface Option {
   text: string;
-  id: string;
+  id: Interval;
 }
 
 export interface SwitchProps {
-  defaultValue?: string;
+  defaultValue?: Interval;
   options: [Option, Option];
-  onChange(id: string): void;
+  onChange(id: Interval): void;
 }

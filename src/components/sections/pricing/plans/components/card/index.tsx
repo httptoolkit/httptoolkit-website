@@ -7,7 +7,7 @@ import {
   StyledPriceCardFeatureItemLI,
   StyledPriceCardFeatureItemsWrapper,
   StyledPriceCardPrice,
-  StyledPricingCardAnnualFlag,
+  StyledPricingCardCaveats,
   StyledPricingCardButtonWrapper,
   StyledPricingCardPriceWrapper,
   StyledPricingCardTitle,
@@ -69,14 +69,14 @@ export const PricingCard = ({
           </Text>
           {status && <Badge variant="secondary">{status}</Badge>}
         </StyledPricingCardTitle>
-        <Text fontSize="l" color="lightGrey">
+        <Text fontSize="l" color="darkGrey">
           <StyledPriceCardPrice>{isFree ? 'Free' : price}</StyledPriceCardPrice>
-          {priceDescription}
+          { priceDescription }
           <br />
-          {isPaidYearly && !isFree && (
-            <StyledPricingCardAnnualFlag forwardedAs="span" fontSize="s" color="darkGrey">
-              paid annually
-            </StyledPricingCardAnnualFlag>
+          { typeof price === 'string' && !isFree && (
+            <StyledPricingCardCaveats forwardedAs="span" fontSize="s" color="darkGrey">
+              plus local tax, paid { isPaidYearly ? 'annually' : 'monthly' }
+            </StyledPricingCardCaveats>
           )}
         </Text>
       </StyledPricingCardPriceWrapper>

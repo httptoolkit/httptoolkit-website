@@ -6,9 +6,10 @@ import {
   goToCheckout,
   prefetchCheckout,
   initializeAuthUi,
+  loadPlanPricesUntilSuccess
 } from '@httptoolkit/accounts';
 import { get } from 'lodash-es';
-import { flow, observable, computed, makeObservable } from 'mobx';
+import { action, flow, observable, computed, makeObservable } from 'mobx';
 
 import { isSSR } from '../utils';
 
@@ -21,7 +22,7 @@ export class AccountStore {
       user: observable,
       isLoggedIn: computed,
       isPaidUser: computed,
-      subscription: computed,
+      subscription: computed
     });
 
     if (!isSSR) {
@@ -30,9 +31,9 @@ export class AccountStore {
       });
 
       // The pricing lookup promise is always triggered at first load, within layout.tsx.
-      window.pricingPromise?.then(prices => {
+      loadPlanPricesUntilSuccess().then(action(prices => {
         this.subscriptionPlans = prices;
-      });
+      }));
     }
 
     // Update account data automatically on login, logout & every 10 mins
@@ -49,6 +50,31 @@ export class AccountStore {
   }
 
   subscriptionPlans = null; // Set once the price loading has completed
+
+  getPlanMonthlyPrice(tierCode, planCycle) {
+    if (!this.subscriptionPlans) return null;
+
+    const sku = this.getSKU(tierCode, planCycle);
+    return this.subscriptionPlans[sku]?.prices?.monthly ?? null;
+  }
+
+  calculateMaxAnnualSaving() {
+    if (!this.subscriptionPlans) return null;
+
+    const discounts = ['pro', 'team'].map((tierCode) => {
+      const monthlySku = this.getSKU(tierCode, 'monthly');
+      const annualSku = this.getSKU(tierCode, 'annual');
+
+      const monthlyTotal = this.subscriptionPlans[monthlySku].prices.rawTotal;
+      const annualTotal = this.subscriptionPlans[annualSku].prices.rawTotal;
+      const annualPerMonth = annualTotal / 12;
+
+      return 1 - (annualPerMonth / monthlyTotal);
+    }).filter(d => !isNaN(d));
+
+    if (discounts.length === 0) return null;
+    return Math.round(Math.max(...discounts));
+  }
 
   modal = null;
 
@@ -154,3 +180,5 @@ export class AccountStore {
     }
   }
 }
+
+export const accountStore = new AccountStore();

@@ -12,10 +12,7 @@ export const pricingPlans: SwitchProps['options'] = [
   },
 ];
 
-export const annualBadge = 'Save 20%';
-
-export const { cards, disclaimer }: PricingPlansData = {
-  disclaimer: 'Prices do not include local Tax.',
+export const { cards }: PricingPlansData = {
   cards: [
     {
       $isHighlighted: false,
@@ -38,7 +35,7 @@ export const { cards, disclaimer }: PricingPlansData = {
       $isHighlighted: true,
       id: 'pro',
       title: 'Professional',
-      priceDescription: '/ per month',
+      priceDescription: 'per month',
       features: [
         {
           text: 'All Hobbyist features, plus:',
@@ -57,7 +54,7 @@ export const { cards, disclaimer }: PricingPlansData = {
       $isHighlighted: false,
       id: 'team',
       title: 'Team',
-      priceDescription: '/ per user / per month',
+      priceDescription: 'per user, per month',
       features: [
         {
           text: 'All Hobbyist and Professional features, plus...',

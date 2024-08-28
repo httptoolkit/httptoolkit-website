@@ -27,8 +27,9 @@ export const StyledPricingPlansSwitchWrapper = styled.div`
 
 export const StyledPricingPlansSwitchBadge = styled.div`
   position: absolute;
-  left: -56px;
-  top: -28px;
+  left: -34px;
+  top: -22px;
+
   border-radius: 24px;
   padding: 8px 12px;
   transform: rotate(-14deg);
@@ -65,13 +66,19 @@ export const StyledPricingPlansCardsWrapper = styled.div<StyledPricingPlansProps
   }
 `;
 
-export const StyledPricingPlansDisclaimerWrapper = styled.div`
+export const StyledPricingPlansLoginInfoWrapper = styled.div`
   display: grid;
   justify-content: center;
   gap: 32px;
 
   @media (min-width: ${({ theme }) => theme.screens.lg}) {
     gap: 24px;
+  }
+
+  & a {
+    font-weight: bold;
+    color: var(--electric-blue);
+    text-decoration: underline;
   }
 `;
 

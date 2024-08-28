@@ -2,15 +2,16 @@
 
 import { observer } from 'mobx-react-lite';
 import { useCallback, useState } from 'react';
+import { Interval } from '@httptoolkit/accounts';
 
 import { PricingCard } from './components/card';
 import { LoginInfo } from './components/login-info';
 import { Switch } from './components/switch';
-import { pricingPlans, cards, annualBadge, disclaimer } from './data';
+import { pricingPlans, cards } from './data';
 import { usePlanCta } from './hooks/get-plan-cta';
 import {
   StyledPricingPlansCardsWrapper,
-  StyledPricingPlansDisclaimerWrapper,
+  StyledPricingPlansLoginInfoWrapper,
   StyledPricingPlansSwitchBadge,
   StyledPricingPlansSwitchWrapper,
   StyledPricingPlansWrapper,
@@ -20,9 +21,9 @@ import type { StyledPricingPlansProps } from './plans.types';
 
 import { Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-import { AccountStore } from '@/lib/store/account-store';
+import { accountStore } from '@/lib/store/account-store';
 
-export const LoadingPrice = () => {
+const LoadingPrice = () => {
   return (
     <StyledLoadingSpinner>
       <Spinner />
@@ -30,28 +31,29 @@ export const LoadingPrice = () => {
   );
 };
 
+const getAnnualDiscountText = (discount: number | null) => {
+  return `Save ${discount ? (discount * 100) : '25'}%`;
+}
+
 export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPricingPlansProps) => {
-  const [account] = useState(() => new AccountStore());
-  const [planCycle, setPlanCycle] = useState(pricingPlans[0].id);
+  const [planCycle, setPlanCycle] = useState<Interval>('monthly');
   const getPlanCTA = usePlanCta(downloadButton);
 
   const isAnnual = planCycle === 'annual';
   const filteredCards = $hideFree ? cards.filter(card => card.id !== 'free') : cards;
-  const { isLoggedIn, user, waitingForPurchase } = account;
+  const { isLoggedIn, user, waitingForPurchase } = accountStore;
 
   const getPlanMonthlyPrice = useCallback(
     (tierCode: string) => {
-      const sku = account.getSKU(tierCode, planCycle);
-      const subscriptionPlans: any = account.subscriptionPlans;
-      if (!subscriptionPlans) return <LoadingPrice />;
-      const price: string = subscriptionPlans[sku]?.prices?.monthly || '';
-      return price || 0;
+      if (tierCode === 'free') return 0;
+      return accountStore.getPlanMonthlyPrice(tierCode, planCycle)
+        ?? <LoadingPrice />;
     },
     [planCycle],
   );
 
   const getPlanStatus = useCallback((tierCode: string) => {
-    const { paidTier, paidCycle, status } = account.subscription;
+    const { paidTier, paidCycle, status } = accountStore.subscription;
 
     if (paidTier !== tierCode) return;
 
@@ -66,14 +68,16 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
     return paidCycle === planCycle ? statusDescription : `${statusDescription} (${paidCycle})`;
   }, []);
 
+  const annualSaving = accountStore.calculateMaxAnnualSaving();
+
   return (
     <>
       <StyledPricingPlansWrapper>
         <StyledPricingPlansSwitchWrapper>
-          {isAnnual && (
+          { !isAnnual && (
             <StyledPricingPlansSwitchBadge>
               <Text fontSize="s" fontWeight="bold" color="alwayLightGrey" $isLabel>
-                {annualBadge}
+                { getAnnualDiscountText(annualSaving) }
               </Text>
             </StyledPricingPlansSwitchBadge>
           )}
@@ -90,16 +94,13 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
                 price={getPlanMonthlyPrice(card.id)}
                 {...card}
               >
-                {getPlanCTA(card.id, account, waitingForPurchase, planCycle)}
+                {getPlanCTA(card.id, accountStore, waitingForPurchase, planCycle)}
               </PricingCard>
             ))}
         </StyledPricingPlansCardsWrapper>
-        <StyledPricingPlansDisclaimerWrapper>
-          <Text fontSize="m" color="darkGrey" textAlign="center">
-            {disclaimer}
-          </Text>
+        <StyledPricingPlansLoginInfoWrapper>
           <LoginInfo isLoggedIn={isLoggedIn} email={(user as any).email} />
-        </StyledPricingPlansDisclaimerWrapper>
+        </StyledPricingPlansLoginInfoWrapper>
       </StyledPricingPlansWrapper>
     </>
   );
