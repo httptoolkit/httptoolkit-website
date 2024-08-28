@@ -57,8 +57,7 @@ export default function AppPurchaseThankYouPage() {
                     </Stack>
                     <Stack $gapxl="16px">
                       <Text fontSize="m" color="darkGrey">
-                        There&apos;s lots more HTTP Toolkit features coming soon too, like automated iOS interception,
-                        HTTP client tools, gRPC & GraphQL support, and request diffing.
+                        There's a lot of new HTTP Toolkit features coming soon too, like full scripting support, gRPC & GraphQL integration, and request diffing tools.
                       </Text>
                       <ContentCard
                         title="Join the mailing list now, so you don't miss new features & releases:"

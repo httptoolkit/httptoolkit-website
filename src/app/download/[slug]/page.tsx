@@ -89,8 +89,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
 
               <ContentCard
                 title="Join the mailing list now, so you don't miss new features & releases"
-                text="There's a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP
-                client tools, gRPC & GraphQL support, and request diffing. Keep yourself updated:"
+                text="There's a lot of new HTTP Toolkit features coming soon, like full scripting support, gRPC & GraphQL integration, and request diffing tools. Keep yourself up to date:"
                 $isNewsletter
                 action={NEWSLETTER_URLS.download}
               />
