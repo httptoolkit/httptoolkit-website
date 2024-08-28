@@ -52,7 +52,7 @@ export default async function ChromeDevToolsAlternativePage() {
           {
             icon: Book,
             title: 'Built-in documentation',
-            text: 'Documentation for every standard HTTP header and status code, plus specific endpoint docs & validation for 1400+ popular APIs, from Stripe to GitHub to AWS.',
+            text: 'Documentation for every standard HTTP header and status code, plus specific endpoint docs & validation for 2600+ popular APIs, from Stripe to GitHub to AWS.',
           },
           {
             icon: Shuffle,
