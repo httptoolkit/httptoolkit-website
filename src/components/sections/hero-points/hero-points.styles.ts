@@ -23,7 +23,11 @@ export const StyledHeroPointsContent = styled.div`
   color: ${({ theme }) => theme.colors.text.darkGrey};
   line-height: 1.5;
 
-  & strong {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
+  & p {
+    margin-bottom: 1.25rem;
+  }
+
+  & a {
+    text-decoration: underline;
   }
 `;
