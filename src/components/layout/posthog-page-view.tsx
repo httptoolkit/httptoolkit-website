@@ -1,5 +1,6 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { usePostHog } from 'posthog-js/react';
 import { useEffect } from 'react';
@@ -9,6 +10,8 @@ export default function PostHogPageView(): null {
   const searchParams = useSearchParams();
   const posthog = usePostHog();
 
+  const { resolvedTheme } = useTheme();
+
   useEffect(() => {
     if (pathname && posthog) {
       let url = window.origin + pathname;
@@ -17,6 +20,7 @@ export default function PostHogPageView(): null {
       }
       posthog.capture('$pageview', {
         $current_url: url,
+        theme: resolvedTheme
       });
     }
   }, [pathname, searchParams, posthog]);

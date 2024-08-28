@@ -9,7 +9,7 @@ if (typeof window !== 'undefined') {
     autocapture: false, // We don't need events here - just page views is fine.
     persistence: 'memory', // No cookies/local storage please
     advanced_disable_decide: true, // We don't need dynamic features, skip checking
-    disable_session_recording: false, // Disabled server-side, but disable explicitly here too
+    disable_session_recording: true, // Disabled server-side, but disable explicitly here too
   });
 }
 

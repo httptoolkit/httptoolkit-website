@@ -11,7 +11,7 @@ import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
 
-const PostHogPageView = dynamic(() => import('@/components/layout/post-hog-page-view'), {
+const PostHogPageView = dynamic(() => import('@/components/layout/posthog-page-view'), {
   ssr: false,
 });
 
