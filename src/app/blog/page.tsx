@@ -9,8 +9,8 @@ import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'The HTTP Toolkit Blog',
-  description: 'News, updates and advice on how to use your online HTTP Toolkit.',
+  title: 'Read the HTTP Toolkit Blog',
+  description: 'Dig into HTTP in depth, hear about new HTTP Toolkit features & development, and explore a world of debugging & reverse engineering topics.',
   alternates: {
     canonical: `${siteMetadata.blogUrl}`,
   },

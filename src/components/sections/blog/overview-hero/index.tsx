@@ -24,9 +24,9 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
     <>
       <StyledHeadingWrapper>
         <Heading fontSize="l" color="textGradient">
-          The HTTP Toolkit Blog
+          Read the HTTP Toolkit Blog
         </Heading>
-        <Text fontSize="l">News, updates and advice on how to use your online HTTP Toolkit.</Text>
+        <Text fontSize="l">Dig into HTTP in depth, hear about new HTTP Toolkit features & development, and explore a world of debugging & reverse engineering topics.</Text>
       </StyledHeadingWrapper>
 
       {featuredPost && (

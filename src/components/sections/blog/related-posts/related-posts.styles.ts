@@ -6,7 +6,7 @@ export const StyledRelatedPostWrapper = styled.section`
   padding: 32px 0;
 
   @media (min-width: ${screens['lg']}) {
-    padding: 0;
+    padding: 24px 0 0 0;
     margin: 0;
   }
 `;

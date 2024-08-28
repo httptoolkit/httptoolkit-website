@@ -3,16 +3,16 @@ import type { Metadata } from 'next/types';
 import { SocialPostShare } from './post-share';
 
 import { Container } from '@/components/elements/container';
-import { Logo } from '@/components/elements/icon';
 import { RelatedPosts } from '@/components/sections/blog/related-posts';
 import { SinglePostHero } from '@/components/sections/blog/single-post-hero';
 import { ContentWithTable } from '@/components/sections/content-with-table';
-import { CTA } from '@/components/sections/cta';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
 import { getBlogTitlesBySlug } from '@/lib/mdx/utils/get-titles-by-slug';
 import { siteMetadata } from '@/lib/site-metadata';
 import { optimizeExerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
+import { Newsletter } from '@/components/modules/newsletter';
+import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
 
 type BlogPostPageProps = {
   params: { slug: string };
@@ -71,18 +71,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
 
       <Container>
-        <CTA
-          variant="cta-square"
-          heading="Interested in OpenAPI?"
-          excerpt="Try it out with HTTP Toolkit"
-          icon={Logo}
-          withDownload={false}
-          cta={{
-            title: 'Try it out',
-            href: '/',
-            $variant: 'primary',
-          }}
+        <Newsletter
+          action={NEWSLETTER_URLS.blog}
+          $variant="with-gradient"
+          title="Blog newsletter"
+          text="Become an HTTP & debugging expert, by subscribing to receive new posts like these emailed straight to your inbox:"
         />
+      </Container>
+
+      <Container>
         <RelatedPosts tags={post.tags} currentPostSlug={post.slug} />
       </Container>
       <script
