@@ -45,7 +45,7 @@ export const { plans }: PricingPlansData = {
             'Advanced HTTP debugging tools including compression & caching analysis, and "resend" functionality.',
             'Validation & API documentation for 2600+ built-in APIs, from AWS to GitHub to Stripe, plus your own custom [OpenAPI](https://swagger.io/docs/specification/about/) specs.',
             'Advanced customization including UI themes, whitelisted & client certificates, ports, and upstream proxies.',
-            'Support ongoing development!',
+            'Support open-source development!',
           ],
         },
       ],
