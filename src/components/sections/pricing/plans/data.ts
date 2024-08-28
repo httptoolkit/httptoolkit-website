@@ -1,7 +1,7 @@
 import type { SwitchProps } from './components/switch/switch.types';
 import type { PricingPlansData } from './plans.types';
 
-export const pricingPlans: SwitchProps['options'] = [
+export const intervalOptions: SwitchProps['options'] = [
   {
     id: 'annual',
     text: 'Pay yearly ',
@@ -12,8 +12,8 @@ export const pricingPlans: SwitchProps['options'] = [
   },
 ];
 
-export const { cards }: PricingPlansData = {
-  cards: [
+export const { plans }: PricingPlansData = {
+  plans: [
     {
       $isHighlighted: false,
       id: 'free',

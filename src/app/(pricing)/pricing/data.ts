@@ -22,12 +22,12 @@ export const planFeatures: PricingComparisonProps['features'] = [
       {
         title: 'Users',
         tooltip: 'Users example',
-        checked: ['hobbyist', 'professional', 'team'],
+        checked: ['free', 'pro', 'team'],
       },
       {
         title: 'Users 1',
         tooltip: 'This is a tooltip',
-        checked: ['hobbyist', 'team', 'professional'],
+        checked: ['free', 'pro', 'team'],
       },
     ],
   },
@@ -37,22 +37,22 @@ export const planFeatures: PricingComparisonProps['features'] = [
       {
         title: 'Multiple Filters',
         tooltip: 'Multiple Filters example',
-        checked: ['professional', 'team'],
+        checked: ['pro', 'team'],
       },
       {
         title: 'Breakpoint',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
       {
         title: 'Breakpoint 2',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
       {
         title: 'Breakpoint 3',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
     ],
   },
@@ -62,17 +62,17 @@ export const planFeatures: PricingComparisonProps['features'] = [
       {
         title: 'Android',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
       {
         title: 'Javascript',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
       {
         title: 'Java',
         tooltip: 'This is a tooltip',
-        checked: ['team', 'professional'],
+        checked: ['team', 'pro'],
       },
     ],
   },

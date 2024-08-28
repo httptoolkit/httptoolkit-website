@@ -1,7 +1,9 @@
+import { PlanId } from "../plans/plans.types";
+
 interface Feature {
   title: string;
   tooltip?: string;
-  checked?: string[];
+  checked?: PlanId[];
 }
 
 interface FeatureWrapper {
@@ -10,7 +12,7 @@ interface FeatureWrapper {
 }
 
 interface Plan {
-  id: string;
+  id: PlanId;
   title: string;
 }
 

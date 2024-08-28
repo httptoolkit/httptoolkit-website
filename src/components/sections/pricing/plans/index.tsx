@@ -7,7 +7,7 @@ import { Interval } from '@httptoolkit/accounts';
 import { PricingCard } from './components/card';
 import { LoginInfo } from './components/login-info';
 import { Switch } from './components/switch';
-import { pricingPlans, cards } from './data';
+import { intervalOptions, plans } from './data';
 import { usePlanCta } from './hooks/get-plan-cta';
 import {
   StyledPricingPlansCardsWrapper,
@@ -17,7 +17,7 @@ import {
   StyledPricingPlansWrapper,
   StyledLoadingSpinner,
 } from './plans.styles';
-import type { StyledPricingPlansProps } from './plans.types';
+import type { PlanId, StyledPricingPlansProps } from './plans.types';
 
 import { Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
@@ -40,22 +40,22 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
   const getPlanCTA = usePlanCta(downloadButton);
 
   const isAnnual = planCycle === 'annual';
-  const filteredCards = $hideFree ? cards.filter(card => card.id !== 'free') : cards;
+  const filteredPlans = $hideFree ? plans.filter(plan => plan.id !== 'free') : plans;
   const { isLoggedIn, user, waitingForPurchase } = accountStore;
 
   const getPlanMonthlyPrice = useCallback(
-    (tierCode: string) => {
-      if (tierCode === 'free') return 0;
-      return accountStore.getPlanMonthlyPrice(tierCode, planCycle)
+    (planId: PlanId) => {
+      if (planId === 'free') return 0;
+      return accountStore.getPlanMonthlyPrice(planId, planCycle)
         ?? <LoadingPrice />;
     },
     [planCycle],
   );
 
-  const getPlanStatus = useCallback((tierCode: string) => {
+  const getPlanStatus = useCallback((planId: PlanId) => {
     const { paidTier, paidCycle, status } = accountStore.subscription;
 
-    if (paidTier !== tierCode) return;
+    if (paidTier !== planId) return;
 
     const statusDescription =
       {
@@ -81,12 +81,12 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
               </Text>
             </StyledPricingPlansSwitchBadge>
           )}
-          <Switch options={pricingPlans} onChange={setPlanCycle} defaultValue={planCycle} />
+          <Switch options={intervalOptions} onChange={setPlanCycle} defaultValue={planCycle} />
         </StyledPricingPlansSwitchWrapper>
         <StyledPricingPlansCardsWrapper $hideFree={$hideFree}>
-          {Array.isArray(filteredCards) &&
-            filteredCards.length > 0 &&
-            filteredCards.map(card => (
+          {Array.isArray(filteredPlans) &&
+            filteredPlans.length > 0 &&
+            filteredPlans.map(card => (
               <PricingCard
                 key={card.id}
                 isPaidYearly={isAnnual}
