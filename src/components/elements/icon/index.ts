@@ -49,6 +49,7 @@ import {
 
 import {
   FullLogo,
+  HalfColoredLogo,
   Logo,
   Github,
   TwitterX,
@@ -76,6 +77,7 @@ export {
   Sparkle,
   Book,
   FullLogo,
+  HalfColoredLogo,
   Logo,
   MagnifyingGlass,
   Copy,

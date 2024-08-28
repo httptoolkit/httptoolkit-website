@@ -26,10 +26,6 @@ export const StyledHeaderContainer = styled(Container)`
     max-height: 70px;
 
     justify-content: space-between;
-
-    > a:first-child > svg {
-      color: var(--cinnabar-red);
-    }
   }
 `;
 

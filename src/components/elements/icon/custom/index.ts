@@ -6,6 +6,7 @@ import DockerLogo from './docker-logo.svg';
 import ElectronLogo from './electron-logo.svg';
 import FirefoxLogo from './firefox-logo.svg';
 import FullLogo from './full-logo';
+import HalfColoredLogo from './half-colored-logo';
 import Github from './github.svg';
 import JavaLogo from './java-logo.svg';
 import LinuxLogo from './linux-logo.svg';
@@ -28,6 +29,7 @@ export {
   ElectronLogo,
   FirefoxLogo,
   FullLogo,
+  HalfColoredLogo,
   Github,
   JavaLogo,
   LinuxLogo,

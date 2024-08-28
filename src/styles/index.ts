@@ -30,6 +30,7 @@ const colorTheme = {
   white: 'var(--white)',
   electricBlue: 'var(--electric-blue)',
   electricLightBlue: 'var(--electric-light-blue)',
+  cinnarbarRedLight: 'var(--cinnabar-red-light)',
   cinnarbarRed: 'var(--cinnabar-red)',
   cinnarbarRedDark: 'var(--cinnabar-red-dark)',
   orangeGradient: 'var(--orange-gradient)',
@@ -173,7 +174,8 @@ export const GlobalStyles = createGlobalStyle`
       --white: #ffffff;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #F2522E;
+      --cinnabar-red-light: #F2522E;
+      --cinnabar-red: #E1421F;
       --cinnabar-red-dark: #D93E1C;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #4064E2, #3556CA);
@@ -185,7 +187,7 @@ export const GlobalStyles = createGlobalStyle`
       --border-dark: rgba(255, 255, 255, 0.2);
       --text-light-grey: #E6E8F2;
       --text-dark-grey: #C5C6CA;
-      --text-cinnabar-red: #F2522E;
+      --text-cinnabar-red: #E1421F;
       --text-white: #ffffff;
       --text-always-white: #ffffff;
       --text-always-light-grey: #E6E8F2;
@@ -218,8 +220,9 @@ export const GlobalStyles = createGlobalStyle`
       --white: #16181E;
       --electric-blue: #5175F2;
       --electric-light-blue: #6284FA;
-      --cinnabar-red: #D43D1B;
-      --cinnabar-red-dark: #D93E1C;
+      --cinnabar-red-light: #D93E1C;
+      --cinnabar-red: #E1421F;
+      --cinnabar-red-dark: #F2522E;
       --orange-gradient: linear-gradient(to bottom, #F65430, #D93815);
       --blue-gradient: linear-gradient(to bottom, #3556CA, #4064E2);
       --dark-gradient: linear-gradient(to bottom, #30333E, #1E2028 70%);

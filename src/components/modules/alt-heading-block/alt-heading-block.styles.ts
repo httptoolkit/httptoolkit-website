@@ -12,7 +12,7 @@ export const StyledAltHeadingBlockWrapper = styled.div`
 export const StyledAltHeadingBlockTitle = styled(Heading)`
   &&& {
     & span {
-      -webkit-text-fill-color: ${({ theme }) => theme.colors.cinnarbarRed};
+      -webkit-text-fill-color: var(--cinnabar-red-light);
     }
   }
 `;
@@ -20,7 +20,7 @@ export const StyledAltHeadingBlockTitle = styled(Heading)`
 export const StyledAltHeadingBlockSubtitle = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.label.l};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.cinnarbarRed};
+  color: var(--cinnabar-red-light);
   letter-spacing: 0.6px;
   text-align: center;
   text-transform: uppercase;

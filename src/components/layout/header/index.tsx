@@ -4,7 +4,7 @@ import { MobileHeader } from './header-mobile';
 import { StyledHeader, StyledHeaderContainer, StyledNavItems, StyledNavigation } from './header.styles';
 import type { HeaderProps } from './header.types';
 
-import { FullLogo } from '@/components/elements/icon';
+import { HalfColoredLogo } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { DownloadButton } from '@/components/modules/download-button';
@@ -18,7 +18,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
     <StyledHeader>
       <StyledHeaderContainer>
         <Link href="/" aria-label="Http Toolkit homepage">
-          <FullLogo height={26} />
+          <HalfColoredLogo height={26} />
         </Link>
         <MobileHeader navigationItems={navigationItems} />
         {isNavigationEnabled ? (

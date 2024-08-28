@@ -10,7 +10,7 @@ import {
 } from './footer.styles';
 
 import { Container } from '@/components/elements/container';
-import { Github, TwitterX } from '@/components/elements/icon';
+import { Github, HalfColoredLogo, TwitterX } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
@@ -18,7 +18,6 @@ import { Text } from '@/components/elements/text';
 import { ThemeToggle } from '@/components/elements/theme-toggle';
 import { Newsletter } from '@/components/modules/newsletter';
 import { footerColumns } from '@/content/data/footer-columns';
-import LogoFooter from '@/images/logo-footer.svg';
 
 export interface FooterProps {
   withoutNewsletter?: boolean;
@@ -31,22 +30,16 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
         <Container>
           <Newsletter
             title="Keep yourself up to date"
-            text="There's a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client tools, gRPC & GraphQL support, and request diffing."
+            text="There's a lot of new HTTP Toolkit features coming soon, like full scripting support, gRPC & GraphQL integration, and request diffing tools."
             supportText="Want to hear about the latest new HTTP Toolkit features as soon as they land? Sign up for updates:"
           />
         </Container>
       )}
       <StyledContainer>
         <StyledColumn>
-          <Stack>
-            <Link href="/" aria-label="Http Toolkit homepage">
-              <LogoFooter />
-            </Link>
-            <Text fontSize="m">
-              There&apos;s a lot of new HTTP Toolkit features coming soon, like automated iOS interception, HTTP client
-              tools, gRPC & GraphQL support, and request diffing.
-            </Text>
-          </Stack>
+          <Link href="/" aria-label="HTTP Toolkit homepage">
+            <HalfColoredLogo />
+          </Link>
           <StyledIconsWrapper>
             <Stack>
               <Text as="label" fontSize="m" fontWeight="bold">
