@@ -9,7 +9,7 @@ export const FooterCopy = () => {
   const { PRIVACY_POLICY, TERM_OF_SERVICES } = pageRoutes;
   return (
     <StyledFooterCopySection>
-      <Text fontSize="m">© {new Date().getFullYear()} HTTP Toolkit All rights reserved.</Text>
+      <Text fontSize="m">© {new Date().getFullYear()} Toolshed Labs SLU. All rights reserved.</Text>
       <Stack $gapxl="48px" $direction="row">
         <Link href={TERM_OF_SERVICES.href}>{TERM_OF_SERVICES.label}</Link>
         <Link href={PRIVACY_POLICY.href}>{PRIVACY_POLICY.label}</Link>
