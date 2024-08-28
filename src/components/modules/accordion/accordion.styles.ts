@@ -53,8 +53,8 @@ export const StyledAccordionItem = styled(Accordion.Item)<StyledAccordionProps>`
     }
 
     &:last-child {
-      padding-bottom: 0;
       border-bottom: none;
+      padding-bottom: 0;
     }
   }
 `;
@@ -119,6 +119,30 @@ export const StyledAccordionContent = styled(Accordion.Content)`
           color: ${({ theme }) => theme.colors.lightGrey};
         }
       }
+    }
+
+    & p:not(:last-child) {
+      margin-bottom: 1.25rem;
+    }
+
+    & ul, & ol {
+      list-style-position: inside;
+
+      &:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    & ul {
+      list-style-type: disc;
+    }
+
+    & ol {
+      list-style-type: decimal;
+    }
+
+    & li:not(:last-child) {
+      margin-bottom: 0.5rem;
     }
 
     &[data-state='open'] {

@@ -21,14 +21,14 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
       />
       <TextWithAccordion
         title="Frequently Asked Questions"
-        text="Create rules to match requests and respond with your own content, to quickly prototype against new endpoints or services."
+        text=""
         cta={{
           $small: true,
           $variant: 'secondary',
           children: 'See more FAQs',
           icon: CaretRight,
           as: 'link',
-          href: '/',
+          href: '/docs/faq/payments',
         }}
         accordionItems={FAQItems}
       />

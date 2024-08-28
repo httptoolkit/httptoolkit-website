@@ -6,14 +6,14 @@ import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
 import { extractExcerpt } from '../utils/extract-excerpt';
-import { markdowRegex, isMarkdown } from '../utils/is-markdown';
+import { markdownRegex, isMarkdown } from '../utils/is-markdown';
 
 import { defaultComponents, postComponents } from '@/components/sections/rich-text/components';
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
 export const getPostBySlug = async (slug: string): Promise<Post> => {
-  const realSlug = slug.replace(markdowRegex, '');
+  const realSlug = slug.replace(markdownRegex, '');
   const filePath = path.join(rootDirectory, `${realSlug}.mdx`);
 
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });

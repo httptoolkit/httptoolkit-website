@@ -149,23 +149,23 @@ export const planFeatures: PricingComparisonProps['features'] = [
 
 export const FAQItems: TextWithAccordionProps['accordionItems'] = [
   {
-    title: 'What are the subscription options?',
-    text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
+    title: 'How do Pro accounts work?',
+    text: 'Pro accounts give you access to all paid product features, from import/export of intercepted traffic & rewriting rules to advanced configuration options.\n\nYour Pro account can be used on as many devices as you like, by logging into each device separately.\n\nThe account is permanently linked to a single individual - the primary user of the registered email address - and must not be shared or transferred. If it\'s clear that an account is being shared between multiple users then your account may be terminated (although we\'ll always get in touch with you about this first).',
+  },
+  {
+    title: 'How do Team accounts work?',
+    text: 'Team accounts provide a group of people access to all paid features. They simplify group account management and billing, and allow transfer of licenses between individuals, as users leave and join the team.\n\nWith a Team subscription, rather than every team member signing up individually, managing their own Pro subscriptions and receiving their own invoices, one account owner can subscribe for many team members, and centrally pay and manage the team\'s account.\n\nEach Team subscription includes a total number of licenses for use by individual team members. The subscription is linked to the email addresses of each user who should be included as a team member. Each of those users gets access to all paid features in the HTTP Toolkit app.\n\nWhilst Pro accounts are permanently linked to an individual, Team licenses can be transferred between individuals, to add or remove members from the team. Each license can be transferred once every 48 hours.\n\nEach team member counts towards the total number of licenses available. The account owner by default does not, and cannot access paid features other than subscription management, but can be included in the list of team members too if you\'d like.',
+  },
+  {
+    title: 'How can I manage or cancel my subscription?',
+    text: 'From the online account dashboard at [accounts.httptoolkit.tech](https://accounts.httptoolkit.tech/) you can manage every aspect of your subscription, including:\n\n- Cancelling in two clicks\n- Updating your billing details\n- Accessing all historical invoices\n- Adding and removing users from your Team subscription.\n\nIt\'s also possible to do these most common actions (updating billing details, cancelling a subscription, and accessing your last invoice) directly from the \'Settings\' page in the HTTP Toolkit app.',
   },
   {
     title: 'What payment methods are available?',
-    text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
-  },
-  {
-    title: 'How can I manage my subscription?',
-    text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
-  },
-  {
-    title: 'How can you make my data secure?',
-    text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
+    text: 'The payment methods available depend on your region.\n\nCredit cards and PayPal are available for all purchases globally, but in specific regions it\'s also possible to pay with iDEAL, Giropay, WebMoney, Boleto Bancario, Alipay, Real-time Bank Transfer, CarteBleue, Sofort, MrCash, EPS, Przelewy24, Multibanco-SIBS, Trustly, MercadoPago, ToditoCash, Finnish Online Banking, DragonPay, AmBank, CIMB Clicks, Hong Leong Bank Transfer, Maybank2U, OP-Pohjola, Nordea, Danske, UnionPay, Konbini, WeChat Pay, ApplePay, Pix, Mach Pay, OXXO, and PagoEfectivo.\n\nThe available methods will be shown automatically during the checkout when you\'ve selected your country. If your preferred payment method is listed above but isn\'t available during the checkout, please [get in touch](/contact/) as it may be possible to process this manually.\n\n On request it\'s also possible to pay by purchase order (PO) and wire transfer, for payments over $1,000, but please note that this may entail delays and additional charges.',
   },
   {
     title: 'Can I get a trial?',
-    text: 'Remember that the goal is to create a user-friendly and informative experience that guides visitors toward making a confident purchase decision. Regularly update product pages with accurate information and monitor user behavior to make continuous improvements.',
-  },
+    text: 'There\'s no Pro trial option available, however you can use all the core features for free, and it\'s very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately.',
+  }
 ];

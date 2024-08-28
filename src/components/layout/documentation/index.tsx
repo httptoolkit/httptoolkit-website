@@ -16,13 +16,11 @@ import { SiteSearch } from '@/components/modules/site-search';
 import { TableContent } from '@/components/modules/table-content';
 import { getAllDocsMeta } from '@/lib/mdx/docs';
 import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
-import { FAQ_SLUG, getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
-import { getTitlesBySlug } from '@/lib/mdx/utils/get-titles-by-slug';
+import { getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
 
 export async function DocumentationLayout({ title, children, links }: Component<DocumentationLayoutProps>) {
   const docsMeta = await getAllDocsMeta();
-  const localLinks = getContentTableLinks(docsMeta as UnorganizedDoc[]);
-  const faq = await getTitlesBySlug(`/src/content/docs/guides/${FAQ_SLUG}.mdx`, FAQ_SLUG, '/faq');
+  const pageLinks = getContentTableLinks(docsMeta as UnorganizedDoc[]);
 
   return (
     <StyledDocumentationGlobalWrapper>
@@ -35,7 +33,7 @@ export async function DocumentationLayout({ title, children, links }: Component<
         </StyledDocumentationLayoutMobileHeading>
         <StyledDocumentationLayoutSideWrapper>
           <SiteSearch />
-          <TableContent isCollapsible links={[...localLinks, faq]} />
+          <TableContent isCollapsible links={pageLinks} />
         </StyledDocumentationLayoutSideWrapper>
         <StyledDocumentationLayoutContentWrapper>
           <div id="intro" />

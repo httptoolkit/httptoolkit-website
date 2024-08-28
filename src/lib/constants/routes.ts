@@ -19,10 +19,6 @@ export const pageRoutes = {
     href: '/all-integrations/',
     label: 'Integrations',
   },
-  FAQ: {
-    href: '/faq/',
-    label: 'FAQ',
-  },
   TERM_OF_SERVICES: {
     href: '/terms-of-service/',
     label: 'Terms of Service',

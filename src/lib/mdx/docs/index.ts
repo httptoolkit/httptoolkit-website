@@ -7,7 +7,7 @@ import type { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
 import { extractExcerpt } from '../utils/extract-excerpt';
-import { isMarkdown, markdowRegex } from '../utils/is-markdown';
+import { isMarkdown, markdownRegex } from '../utils/is-markdown';
 
 import { defaultComponents, docsComponents } from '@/components/sections/rich-text/components';
 import { findFile } from '@/lib/mdx/utils/find-file';
@@ -18,7 +18,7 @@ export const ROOT_DOCS_DIRECTORY = path.join(process.cwd(), 'src', 'content', 'd
 export const ROOT_DOC_SLUG = 'getting-started';
 
 export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Doc> => {
-  const realSlug = slug.replace(markdowRegex, '');
+  const realSlug = slug.replace(markdownRegex, '');
   const [filePath, relativePath] = findFile(ROOT_DOCS_DIRECTORY, realSlug, extension);
 
   if (!filePath) throw new Error('Document not found');

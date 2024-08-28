@@ -9,7 +9,6 @@ const {
   DOCKER,
   DOCS,
   ELECTRON,
-  FAQ,
   FIDDLER,
   JAVA,
   JAVASCRIPT,
@@ -34,7 +33,7 @@ export const footerColumns = [
       },
       {
         title: 'Resources',
-        links: [BLOG, DOCS, FAQ],
+        links: [BLOG, DOCS],
         displayOn: ['mobile'],
       },
     ],
@@ -42,7 +41,7 @@ export const footerColumns = [
   },
   {
     title: 'Resources',
-    links: [BLOG, DOCS, FAQ],
+    links: [BLOG, DOCS],
     subHeading: [
       {
         title: 'Projects',

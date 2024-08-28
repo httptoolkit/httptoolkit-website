@@ -1,5 +1,5 @@
-export const markdowRegex = /\.(md|mdx)$/;
+export const markdownRegex = /\.(md|mdx)$/;
 
 export function isMarkdown(str: string) {
-  return markdowRegex.test(str);
+  return markdownRegex.test(str);
 }
