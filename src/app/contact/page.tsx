@@ -26,18 +26,16 @@ export default function ContactPage() {
                   Get in touch
                 </Heading>
                 <Text fontSize="m">
-                  Encountering a licensing, billing, or technical concern? Providing feedback on a beta feature?
-                  Inquiring about specifics regarding our Business plan? Feel free to inform us, and we&apos;ll assist
-                  you promptl
+                  Interested in signing up for a Team account? Encountered a licensing question, or having billing issues? Send a message to discuss the topic directly.
                 </Text>
               </Stack>
               <ContentCard
-                title="Having issues?"
-                text="Head to the GitHub issue repo, as many questions and bugs already have answers there, and new bugs or feature requests posted there get more feedback & support from the wider community."
+                title="Having issues with HTTP Toolkit?"
+                text="If you have questions, ideas or issues related to HTTP Toolkit itself, it's best to head to the GitHub repo, as many topics are already covered there, and new bugs or feature requests posted there will get more feedback & support from the wider community."
                 button={{
-                  children: 'Github HTTP Toolkit',
-                  href: 'https://github.com/httptoolkit/httptoolkit-website',
-                  icon: GithubLogo,
+                  children: 'HTTP Toolkit on GitHub',
+                  href: 'https://github.com/httptoolkit/httptoolkit/issues/new/choose',
+                  icon: GithubLogo
                 }}
               />
             </StyledContactColumnContent>
