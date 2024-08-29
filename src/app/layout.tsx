@@ -25,7 +25,7 @@ export const metadata: Metadata = buildMetadata({
   title: siteMetadata.title,
   description: siteMetadata.description,
   openGraph: {
-    images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`],
+    images: [`${siteMetadata.siteUrl}/images/product/explore-dark.png`],
   },
   twitter: {
     card: 'summary',
@@ -34,7 +34,7 @@ export const metadata: Metadata = buildMetadata({
     site: '@httptoolkit',
     creator: '@pimterry',
     creatorId: '20509812',
-    images: [`${siteMetadata.siteUrl}/images/hero-placeholder-dark.webp`], // Must be an absolute URL
+    images: [`${siteMetadata.siteUrl}/images/product/explore-dark.png`], // Must be an absolute URL
   },
 });
 
