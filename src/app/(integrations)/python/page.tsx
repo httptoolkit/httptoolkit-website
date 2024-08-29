@@ -2,7 +2,6 @@ import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
-import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { PythonLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
@@ -64,7 +63,6 @@ export default function PythonIntegrationPage() {
       </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
-      <RewriteAnything />
     </>
   );
 }

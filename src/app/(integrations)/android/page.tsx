@@ -2,7 +2,6 @@ import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
 import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
-import { RewriteAnything } from '@/components/common-sections/rewrite-anything';
 import { Statistics } from '@/components/common-sections/statistics';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { RocketLaunch, SealCheck, Wrench, AndroidLogo } from '@/components/elements/icon';
@@ -67,7 +66,6 @@ export default function AndroidIntegrationPage() {
       </Suspense>
       <IntegrationHttpTookitFeatures />
       <MockResponseFeatures />
-      <RewriteAnything />
       <Suspense>
         <Statistics />
       </Suspense>
