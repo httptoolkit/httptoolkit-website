@@ -10,6 +10,8 @@ import { ProductLdData } from '@/components/elements/product-ld-data';
 import { Layout } from '@/components/layout';
 import { CTA } from '@/components/sections/cta';
 import { ResponsiveLineBreak } from '@/components/elements/responsive-line-break';
+import { HeadingBlock } from '@/components/modules/heading-block';
+import { Section } from '@/components/elements/section';
 
 export default async function HomePage() {
   return (
@@ -27,6 +29,14 @@ export default async function HomePage() {
           id: 'chrome'
         }}
       />
+      <Section>
+        <HeadingBlock
+          title="What is *HTTP Toolkit*?"
+          text="HTTP Toolkit is an open-source tool for debugging, testing and building with HTTP on Windows, Linux & Mac."
+          $align="center"
+          $isContentCentered
+        />
+      </Section>
       <HttpToolkitFeatures />
       <TryItForYourselfCTA />
       <ModifyFeatures />

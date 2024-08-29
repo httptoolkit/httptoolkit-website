@@ -1,10 +1,6 @@
 import type { Metadata } from 'next/types';
-import { Suspense } from 'react';
 
-import { ModifyFeatures } from '@/components/common-sections/modify-features';
-import { Testimonials } from '@/components/common-sections/testimonials';
 import { NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo } from '@/components/elements/icon';
-import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
@@ -23,7 +19,7 @@ export default function JavascriptIntegrationPage() {
       <IntegrationSinglePageHero
         title="Intercept, view & edit JavaScript HTTP traffic"
         text="HTTP Toolkit includes built-in automatic setup and advanced support for web browsers and backend JS runtimes, so you can debug and modify any HTTP(S) traffic in seconds."
-        adittionalIcons={[NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo]}
+        additionalIcons={[NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo]}
         breadcrumbText="javascript"
         isMultipleIcons
       />
@@ -63,11 +59,6 @@ export default function JavascriptIntegrationPage() {
           'Spawned subprocesses'
         ]}
       />
-      <Suspense>
-        <Testimonials />
-      </Suspense>
-      <IntegrationHttpTookitFeatures />
-      <ModifyFeatures />
     </>
   );
 }

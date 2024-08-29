@@ -6,7 +6,7 @@ export interface IntegrationSinglePageHeroProps {
   title: string;
   text: string;
   icon?: Icon | CustomIcon;
-  adittionalIcons?: Icon[] | CustomIcon[];
+  additionalIcons?: Icon[] | CustomIcon[];
   breadcrumbText: string;
   isMultipleIcons?: boolean;
 }

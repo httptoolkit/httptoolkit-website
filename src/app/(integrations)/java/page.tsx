@@ -1,10 +1,6 @@
 import type { Metadata } from 'next/types';
-import { Suspense } from 'react';
 
-import { ModifyFeatures } from '@/components/common-sections/modify-features';
-import { Testimonials } from '@/components/common-sections/testimonials';
 import { JavaLogo } from '@/components/elements/icon';
-import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationTextAppVideo } from '@/components/sections/integration/single-page/text-appvideo';
@@ -52,11 +48,6 @@ export default function JavaIntegrationPage() {
           'Akka-HTTP',
         ]}
       />
-      <Suspense>
-        <Testimonials />
-      </Suspense>
-      <IntegrationHttpTookitFeatures />
-      <ModifyFeatures />
     </>
   );
 }

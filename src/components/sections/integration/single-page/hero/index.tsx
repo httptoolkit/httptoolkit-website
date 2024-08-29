@@ -31,7 +31,7 @@ export const IntegrationSinglePageHero = ({
   title,
   text,
   icon: Icon,
-  adittionalIcons,
+  additionalIcons,
   breadcrumbText,
 }: IntegrationSinglePageHeroProps) => {
   return (
@@ -61,7 +61,7 @@ export const IntegrationSinglePageHero = ({
             <StyledIntegrationHeroImageMultiple>
               <Logo width={109} />
               <Stack $direction="row" $gapxl="32px">
-                {adittionalIcons?.map((Icon, idx) => <Icon key={idx} height={64} />)}
+                {additionalIcons?.map((Icon, idx) => <Icon key={idx} height={64} />)}
               </Stack>
             </StyledIntegrationHeroImageMultiple>
           )}

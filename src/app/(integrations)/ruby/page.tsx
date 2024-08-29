@@ -1,10 +1,6 @@
 import type { Metadata } from 'next/types';
-import { Suspense } from 'react';
 
-import { ModifyFeatures } from '@/components/common-sections/modify-features';
-import { Testimonials } from '@/components/common-sections/testimonials';
 import { RubyLogo } from '@/components/elements/icon';
-import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
@@ -56,11 +52,6 @@ export default function RubyIntegrationPage() {
           'gem install',
         ]}
       />
-      <Suspense>
-        <Testimonials />
-      </Suspense>
-      <IntegrationHttpTookitFeatures />
-      <ModifyFeatures />
     </>
   );
 }
