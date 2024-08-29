@@ -41,11 +41,9 @@ export const PhoneOutline = styled.div`
 export const PhoneScreen = styled.div<{
     $aspectRatio: string
 }>`
-    background-color: #000;
-
     border-width: 1px 0px;
     border-style: solid;
-    border-color: var(--darkish-grey);
+    border-color: var(--button-border);
 
     line-height: 0;
     aspect-ratio: ${p => p.$aspectRatio};

@@ -4,8 +4,9 @@ import {
   StyledIntegrationBentoContentWrapper,
   StyledIntegrationBentoGradientWrapper,
   StyledIntegrationBentoHeadingWrapper,
-  StyledIntegrationBentoPhone,
   StyledIntegrationBentoWrapper,
+  StyledPhoneWindow,
+  StyledThemedImage
 } from './bento.styles';
 import type { IntegrationBentoProps } from './bento.types';
 
@@ -35,11 +36,14 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
               <FluidCard {...cards[3]} />
             </StyledIntegrationBentoCTAWrapper>
           </StyledIntegrationBentoCardsColumn>
-          <StyledIntegrationBentoPhone
-            src="/images/phone-placeholder.svg"
-            alt="A smartphone screen displaying an HTTP Toolkit interface"
-            fill
-          />
+          <StyledPhoneWindow aspectRatio='445/914'>
+            <StyledThemedImage
+              darkSrc='/images/product/android-dark.png'
+              lightSrc='/images/product/android-light.png'
+              width={445}
+              height={914}
+            />
+          </StyledPhoneWindow>
           <StyledIntegrationBentoCTAWrapper $mobile>
             <FluidCard {...cards[3]} />
           </StyledIntegrationBentoCTAWrapper>

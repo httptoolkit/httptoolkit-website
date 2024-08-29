@@ -1,6 +1,7 @@
 'use client';
 
-import { Image } from '@/components/elements/image';
+import { ThemedImage } from '@/components/elements/themed-image';
+import { PhoneWindow } from '@/components/elements/phone-window';
 import { styled } from '@/styles';
 
 export const StyledIntegrationBentoWrapper = styled.section`
@@ -17,7 +18,6 @@ export const StyledIntegrationBentoWrapper = styled.section`
   }
 `;
 
-// TODO: Waiting for full shape gradient
 export const StyledIntegrationBentoGradientWrapper = styled.div`
   transform: rotate(90deg);
   position: absolute;
@@ -58,11 +58,14 @@ export const StyledIntegrationBentoCardsColumn = styled.div`
   justify-content: space-between;
 `;
 
-export const StyledIntegrationBentoPhone = styled(Image)`
-  &&& {
-    width: 100% !important;
-    position: relative !important;
-    flex-shrink: 0;
+export const StyledPhoneWindow = styled(PhoneWindow)`
+  border-color: var(--button-border);
+`;
+
+export const StyledThemedImage = styled(ThemedImage)`
+  && {
+    border-radius: 0;
+    border: none;
   }
 `;
 
