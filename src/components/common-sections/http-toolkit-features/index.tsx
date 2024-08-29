@@ -17,8 +17,8 @@ export const HttpToolkitFeatures = () => {
           <FeatureLine
             $align="right"
             image={{
-              darkSrc: '/images/product/intercept-dark.png',
-              lightSrc: '/images/product/intercept-light.png',
+              darkSrc: '/images/product/explore-dark.png',
+              lightSrc: '/images/product/explore-light.png',
             }}
             title="Intercept HTTP with zero setup"
             badge={{

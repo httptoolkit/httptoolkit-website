@@ -28,8 +28,8 @@ export default function AppPurchaseThankYouPage() {
               heading="Thanks for your purchase!"
               withDownload={false}
               image={{
-                darkSrc: '/images/hero-placeholder-dark.webp',
-                lightSrc: '/images/hero-placeholder-light.webp',
+                darkSrc: '/images/product/explore-dark.png',
+                lightSrc: '/images/product/explore-light.png',
                 withBorderAnimation: true,
                 loading: 'eager',
               }}
@@ -55,16 +55,13 @@ export default function AppPurchaseThankYouPage() {
                         </Text>
                       </Stack>
                     </Stack>
-                    <Stack $gapxl="16px">
-                      <Text fontSize="m" color="darkGrey">
-                        There's a lot of new HTTP Toolkit features coming soon too, like full scripting support, gRPC & GraphQL integration, and request diffing tools.
-                      </Text>
-                      <ContentCard
-                        title="Join the mailing list now, so you don't miss new features & releases:"
-                        $isNewsletter
-                        action={NEWSLETTER_URLS.download}
-                      />
-                    </Stack>
+
+                    <ContentCard
+                      title="Join the mailing list now, so you don't miss new features & releases"
+                      text="There's a lot of new HTTP Toolkit features coming soon, like full scripting support, gRPC & GraphQL integration, and request diffing tools. Keep yourself up to date:"
+                      $isNewsletter
+                      action={NEWSLETTER_URLS.download}
+                    />
                   </Stack>
                 </StyledTextContent>
               </StyledThankYouColumnContent>
@@ -72,8 +69,8 @@ export default function AppPurchaseThankYouPage() {
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"
-                  darkSrc="/images/hero-placeholder-dark.webp"
-                  lightSrc="/images/hero-placeholder-light.webp"
+                  darkSrc="/images/product/explore-dark.png"
+                  lightSrc="/images/product/explore-light.png"
                   loading="eager"
                   width={662}
                   height={450}

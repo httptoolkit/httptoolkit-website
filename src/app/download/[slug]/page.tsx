@@ -98,8 +98,8 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
               <ThemedImage
                 withBorder
                 alt="Get started with HTTP Toolkit"
-                darkSrc="/images/hero-placeholder-dark.webp"
-                lightSrc="/images/hero-placeholder-light.webp"
+                darkSrc="/images/product/explore-dark.png"
+                lightSrc="/images/product/explore-light.png"
                 loading="eager"
                 width={662}
                 height={450}
