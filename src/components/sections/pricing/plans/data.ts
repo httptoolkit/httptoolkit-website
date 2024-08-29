@@ -44,7 +44,7 @@ export const { plans }: PricingPlansData = {
             'Import/export mock rules, and [HARs](https://en.wikipedia.org/wiki/HAR_(file_format)) or ready-to-use code for 20+ tools, for all sent or intercepted requests.',
             'Advanced HTTP debugging tools including compression & caching analysis, and "resend" functionality.',
             'Validation & API documentation for 2600+ built-in APIs, from AWS to GitHub to Stripe, plus your own custom [OpenAPI](https://swagger.io/docs/specification/about/) specs.',
-            'Advanced customization including UI themes, whitelisted & client certificates, ports, and upstream proxies.',
+            'Advanced customization including TLS passthrough, proxy ports, whitelisted & client certificates, and upstream proxies.',
             'Support open-source development!',
           ],
         },

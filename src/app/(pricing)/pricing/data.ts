@@ -121,10 +121,40 @@ export const planFeatures: PricingComparisonProps['features'] = [
     ]
   },
   {
+    title: 'Advanced Configuration',
+    items: [
+      {
+        title: 'Customize proxy port & HTTP versions',
+        tooltip: 'Change the port the proxy listens on, and configure the ALPN settings preferences to select client HTTP versions',
+        checked: ['pro', 'team'],
+      },
+      {
+        title: 'Pass through TLS unintercepted',
+        tooltip: 'Configure a list of incoming hostnames that should skip interception entirely, to avoid interfering with specific connections',
+        checked: ['pro', 'team'],
+      },
+      {
+        title: 'Reconfigure upstream TLS settings',
+        tooltip: 'Trust extra CA certificates, configure client certificates, and relax TLS checks completely for certain upstream hostnames',
+        checked: ['pro', 'team'],
+      },
+      {
+        title: 'Redirect traffic through upstream proxies',
+        tooltip: 'Forward traffic through an upstream proxy, to support enterprise environments or chain multiple proxy tools together',
+        checked: ['pro', 'team'],
+      },
+      {
+        title: 'Add your own custom OpenAPI specs',
+        tooltip: 'Add your own OpenAPI specs, to validate traffic against your API contract and show dynamic documentation alongside each request',
+        checked: ['pro', 'team'],
+      }
+    ]
+  },
+  {
     title: 'Billing & Management',
     items: [
       {
-        title: 'Accounts licensed to a single individual',
+        title: 'Account licensed to a single individual',
         tooltip: 'Pro accounts are strictly licensed only for a single fixed individual user (on any number of devices)',
         checked: ['pro'],
       },
