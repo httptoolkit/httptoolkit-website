@@ -16,14 +16,14 @@ function isMarkdown(str) {
 async function generate() {
   try {
     const feed = new RSS({
-      title: 'HTTP Toolkit RSS Feed',
-      site_url: 'https://httptoolkit.com',
+      title: 'HTTP Toolkit',
+      site_url: 'https://httptoolkit.com/blog/',
       feed_url: 'https://httptoolkit.com/rss.xml',
     });
 
     const posts = await fs.readdir(path.join(__dirname, '..', 'content', 'posts'));
 
-    await Promise.all(
+    (await Promise.all(
       posts.map(async name => {
         if (!isMarkdown(name)) {
           return;
@@ -34,7 +34,9 @@ async function generate() {
 
         const html = converter
           .makeHtml(frontmatter.content)
-          .replace(/src="\.\//g, ' src="https://httptoolkit.com/images/posts/http-toolkit-assets/');
+          .replace(/ src="\//g, ' src="https://httptoolkit.com/')
+          .replace(/ src="\.\//g, ' src="https://httptoolkit.com/images/posts/')
+          .replace(/ href="\//g, ' href="https://httptoolkit.com/');
 
         const finalHtml = minify(html, {
           collapseWhitespace: true,
@@ -44,18 +46,21 @@ async function generate() {
           minifyCSS: true,
         });
 
-        const postUrl = 'https://httptoolkit.com/blog/' + name.replace(/\.mdx?/, '');
+        const postUrl = 'https://httptoolkit.com/blog/' + name.replace(/\.mdx?$/, '/');
 
-        feed.item({
+        return {
           title: frontmatter.data.title,
           url: postUrl,
           guid: postUrl,
           date: frontmatter.data.date,
           description: finalHtml,
           customElements: [{ 'content:encoded': html }],
-        });
+        };
       }),
-    );
+    )).sort((postA, postB) => {
+      return new Date(postB.date) - new Date(postA.date);
+    })
+    .forEach((post) => feed.item(post));
     const dirPath = path.join(__dirname, '..', '..', 'public');
     const filePath = path.join(dirPath, 'rss.xml');
     await fs.writeFile(filePath, feed.xml({ indent: true }));
