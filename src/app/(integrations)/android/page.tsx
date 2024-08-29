@@ -1,7 +1,6 @@
 import type { Metadata } from 'next/types';
-import { Suspense } from 'react';
 
-import { RocketLaunch, SealCheck, Wrench, AndroidLogo } from '@/components/elements/icon';
+import { RocketLaunch, SealCheck, Wrench, AndroidLogo, MagnifyingGlass } from '@/components/elements/icon';
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { buildMetadata } from '@/lib/utils/build-metadata';
@@ -32,20 +31,26 @@ export default function AndroidIntegrationPage() {
           {
             $variant: 'default',
             title: 'Get started instantly',
-            text: 'No messing around with certificate files and wifi settings. \n\n Click the button, accept permissions, start capturing traffic.',
+            text: 'No messing around with certificate files and wifi settings.\n\nClick the button, accept permissions, start capturing traffic, toggle off & on again in one tap.\n\nGet straight to the data with zero hassle.',
             icon: RocketLaunch,
           },
           {
             $variant: 'default',
-            title: "Debug your Android device's HTTP requests",
-            text: 'Scan a QR code on the device to start setup, or remotely connect debuggable devices via ADB. \n\n Reconnect again later in one tap. \n\n Supports Android Lollipop and later (v5 / API level 21+)',
+            title: "Flexible setup for every environment",
+            text: 'Setup automatically using ADB or by scanning a QR code.\n\nIntercept the entire device, or target just a single app.\n\nSupports Android versions from Android Lollipop (v5 / API level 21+) through to the latest releases.',
             icon: Wrench,
           },
           {
             $variant: 'default',
             title: 'Capture & inspect encrypted HTTPS',
-            text: 'Immediately view HTTPS on any device from apps that trust user-installed certificates, like Chrome.\n\n Enable trust in your own app with one tiny manifest change.\n\n On emulators & rooted devices, easily intercept HTTPS from any app, with automatic injection of a system certificate authority.',
+            text: 'Immediately view HTTPS on any device for apps that trust user-installed certificates, like Chrome, or your own app with a tiny manifest change.\n\nOn emulators & rooted devices, easily intercept HTTPS from any app, with automatic injection of a system certificate authority and automatic certificate unpinning powered by built-in Frida integration.',
             icon: SealCheck,
+          },
+          {
+            $variant: 'default',
+            title: 'See all your Android HTTP',
+            text: 'Powered by Android\'s VPN APIs and built-in Frida support, HTTP Toolkit intercepts everything, even HTTP traffic from apps that try to ignore your system proxy settings.',
+            icon: MagnifyingGlass,
           },
           {
             $variant: 'highlighted',
