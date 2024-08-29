@@ -1,7 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  //TODO(before-release): change to prod domain
-  siteUrl: 'https://httptoolkit-website.netlify.app',
+  siteUrl: 'https://httptoolkit.com',
   generateRobotsTxt: true,
   exclude: [
     '/download/*', // Drop direct download pages

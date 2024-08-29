@@ -1,9 +1,9 @@
-# Temp disallow for dev env
+# *
 User-agent: *
-Disallow: /
+Allow: /
 
 # Host
-Host: https://httptoolkit-website.netlify.app
+Host: https://httptoolkit.com
 
 # Sitemaps
-Sitemap: https://httptoolkit-website.netlify.app/sitemap.xml
+Sitemap: https://httptoolkit.com/sitemap.xml
