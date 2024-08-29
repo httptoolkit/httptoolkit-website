@@ -18,11 +18,11 @@ export const metadata: Metadata = buildMetadata({
 
 export default async function Blog() {
   const posts = await getAllPostsMeta();
-  const featurePost = posts.find(post => post.isFeatured);
+  const featuredPost = posts.find(post => post.isFeatured);
 
   return (
     <>
-      <Container>{featurePost && <OverviewHero featuredPost={featurePost} />}</Container>
+      <Container>{featuredPost && <OverviewHero featuredPost={featuredPost} />}</Container>
       <OverviewExplorer />
       <Container>
         <OverviewBlogContent />
