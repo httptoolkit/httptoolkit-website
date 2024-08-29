@@ -20,15 +20,16 @@ export const HttpToolkitFeatures = () => {
               darkSrc: '/images/product/intercept-dark.png',
               lightSrc: '/images/product/intercept-light.png',
             }}
-            title="Seamless Traffic Interception"
+            title="Intercept HTTP with zero setup"
             badge={{
-              text: 'Intercept',
+              text: 'Capture',
               icon: Sparkle,
             }}
             list={[
-              'Experience unmatched control with the Intercept feature, allowing you to seamlessly capture and analyze network traffic in real-time.',
-              "Tailor your network's behavior by modifying requests and responses on the fly, ensuring thorough testing and debugging.",
-              "Intercept offers a direct window into your application's communication, providing clarity and precision in your development process.",
+              'Capture HTTP(S) with zero hassle, with one-click interception for a huge range of tools and platforms.',
+              'Precisely target your interception, to capture all traffic from a single client without the noise and interference of intercepting your entire computer.',
+              'Intercept individual Android or iOS apps, entire devices, Docker containers, browser windows, backend processes like Node.js, Java, Python or Ruby, terminal sessions...',
+              'Alternatively, just connect any client manually to HTTP Toolkit as an HTTP proxy, fully compatible with HTTP requests from anywhere.'
             ]}
           />
           <FeatureLine
@@ -43,9 +44,9 @@ export const HttpToolkitFeatures = () => {
               icon: Sparkle,
             }}
             list={[
-              'Skim through traffic with highlighting by content type, status & source, or use powerful filtering tools to precisely match the messages that matter to you.',
-              'Examine the URL, status, headers & body of each request or response, with inline explanations & docs from MDN.',
-              'Dig into message bodies with highlighting & autoformatting for JSON, HTML, JS, hex and others, all using the power of Monaco, the editor from Visual Studio Code.',
+              'Hunt through traffic quickly & effectively, with content-type and source categorization, plus powerful filtering tools to precisely match the messages that matter.',
+              'Examine the URL, status, headers & body of each message, with built-in parsing of parameters, and explanations & docs from MDN for all standard headers.',
+              'Dig into message bodies with highlighting & autoformatting for JSON, Protobuf, Base64, HTML, XML, JS, hex and more, all built on top of Monaco - the editing tools from Visual Studio Code.',
             ]}
           />
           <FeatureLine
@@ -60,9 +61,10 @@ export const HttpToolkitFeatures = () => {
               icon: Sparkle,
             }}
             list={[
-              'Skim through traffic with highlighting by content type, status & source, or use powerful filtering tools to precisely match the messages that matter to you.',
-              'Examine the URL, status, headers & body of each request or response, with inline explanations & docs from MDN.',
-              'Dig into message bodies with highlighting & autoformatting for JSON, HTML, JS, hex and others, all using the power of Monaco, the editor from Visual Studio Code.',
+              'Use breakpoints to pause in-flight HTTP traffic for manual editing.',
+              'Configure fine-grained matching logic to jump to exactly the cases you care about.',
+              'Redirect requests to another URL, update the method, headers or status, or edit the body.',
+              'Or get more involved and respond to requests without forwarding them, or even just hard-close connections directly.',
             ]}
           />
           <FeatureLine
@@ -77,9 +79,9 @@ export const HttpToolkitFeatures = () => {
               icon: Sparkle,
             }}
             list={[
-              'Skim through traffic with highlighting by content type, status & source, or use powerful filtering tools to precisely match the messages that matter to you.',
-              'Examine the URL, status, headers & body of each request or response, with inline explanations & docs from MDN.',
-              'Dig into message bodies with highlighting & autoformatting for JSON, HTML, JS, hex and others, all using the power of Monaco, the editor from Visual Studio Code.',
+              'Send your own requests directly, to explore APIs or test out different request parameters.',
+              'Use the fully featured HTTP client to define every aspect of your request, with automatic handling of details like body compression and message framing.',
+              'Explore sent requests & their responses with all the tools & power HTTP Toolkit offers for debugging intercepted traffic.',
             ]}
           />
         </StyledFeaturesWrapper>
