@@ -9,6 +9,10 @@ interface NumberIncreaserProps {
   suffix?: string;
 }
 
+// t: current time, b: beginning value, c: change in value, d: duration
+const linearEasing = (t: number, b: number, c: number, d: number): number =>
+  c * t / d + b;
+
 export const NumberIncreaser = ({ maxValue, suffix }: NumberIncreaserProps) => {
   const isMounted = useMounted();
 
@@ -18,8 +22,17 @@ export const NumberIncreaser = ({ maxValue, suffix }: NumberIncreaserProps) => {
 
   return (
     <>
-      {!suffix && maxValue < 10 && '0'}
-      <CountUp scrollSpyOnce scrollSpyDelay={500} enableScrollSpy duration={4} end={maxValue} suffix={suffix} />
+      {/* {!suffix && maxValue < 10 && '0'} */}
+      <CountUp
+        scrollSpyOnce
+        scrollSpyDelay={250}
+        enableScrollSpy
+        duration={3}
+        start={1}
+        end={maxValue}
+        suffix={suffix}
+        easingFn={linearEasing}
+        />
     </>
   );
 };

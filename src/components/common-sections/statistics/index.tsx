@@ -23,8 +23,8 @@ export const Statistics = async ({
 
   const stats: GrowingNumbersStat[] = [
     {
-      title: 'years in business',
-      number: 8,
+      title: 'years of development',
+      number: new Date().getFullYear() - 2018,
       isOver: true,
     },
     {
@@ -37,7 +37,7 @@ export const Statistics = async ({
       number: contributors,
     },
     {
-      title: 'GitHub stars on httptoolkit repos',
+      title: 'GitHub stars across httptoolkit\'s repos',
       number: starts,
       isOver: true,
     },
