@@ -16,6 +16,7 @@ const {
   PRICING,
   RUBY,
   WILL_IT_CORS,
+  FRIDA,
   PROD_FOR_LINUX,
   PROD_FOR_MAC_OS,
   PROD_FOR_WINDOW,
@@ -28,7 +29,7 @@ export const footerColumns = [
     subHeading: [
       {
         title: 'Projects',
-        links: [WILL_IT_CORS],
+        links: [WILL_IT_CORS, FRIDA],
         displayOn: ['mobile'],
       },
       {
@@ -45,7 +46,7 @@ export const footerColumns = [
     subHeading: [
       {
         title: 'Projects',
-        links: [WILL_IT_CORS],
+        links: [WILL_IT_CORS, FRIDA],
         displayOn: ['desktop'],
       },
     ],

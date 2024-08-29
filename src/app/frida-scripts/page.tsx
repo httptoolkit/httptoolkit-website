@@ -37,8 +37,8 @@ export default async function FridaPage() {
               heading="Frida Mobile Interception Scripts"
               withDownload={false}
               image={{
-                darkSrc: '/images/hero-placeholder-dark.webp',
-                lightSrc: '/images/hero-placeholder-light.webp',
+                darkSrc: '/images/frida-repo-dark.png',
+                lightSrc: '/images/frida-repo-light.png',
                 withBorderAnimation: true,
                 loading: 'eager',
               }}
@@ -79,17 +79,9 @@ export default async function FridaPage() {
                 <StyledButtonsWrapper>
                   <Button
                     target="_blank"
-                    href="https://github.com/httptoolkit/frida-js/tree/3a0b4f95a953058420c5e118dd73e33f465358ed?tab=readme-ov-file#getting-started"
+                    href="https://github.com/httptoolkit/frida-interception-and-unpinning/#readme"
                   >
                     Get Started
-                  </Button>
-                  <Button
-                    target="_blank"
-                    $variant="secondary"
-                    icon={GithubLogo}
-                    href="https://github.com/httptoolkit/frida-js/tree/3a0b4f95a953058420c5e118dd73e33f465358ed?tab=readme-ov-file#getting-started"
-                  >
-                    Getting Started Guide
                   </Button>
                 </StyledButtonsWrapper>
               </StyledFridaColumnContent>
@@ -97,8 +89,8 @@ export default async function FridaPage() {
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"
-                  darkSrc="/images/hero-placeholder-dark.webp"
-                  lightSrc="/images/hero-placeholder-light.webp"
+                  darkSrc="/images/frida-repo-dark.png"
+                  lightSrc="/images/frida-repo-light.png"
                   loading="eager"
                   width={662}
                   height={450}

@@ -65,6 +65,10 @@ export const pageRoutes = {
     href: '/will-it-cors/',
     label: 'Will it CORS?',
   },
+  FRIDA: {
+    href: '/frida-scripts/',
+    label: 'Frida Interception Scripts'
+  },
   //Alternatives
   FIDDLER: {
     href: '/fiddler-alternative/',
