@@ -1,13 +1,12 @@
 import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
-import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
+import { ModifyFeatures } from '@/components/common-sections/modify-features';
 import { Statistics } from '@/components/common-sections/statistics';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { RocketLaunch, SealCheck, Wrench, AndroidLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
 import { IntegrationBento } from '@/components/sections/integration/single-page/bento';
-import { IntegrationDeviceMedia } from '@/components/sections/integration/single-page/device-media';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
@@ -65,7 +64,7 @@ export default function AndroidIntegrationPage() {
         <Testimonials />
       </Suspense>
       <IntegrationHttpTookitFeatures />
-      <MockResponseFeatures />
+      <ModifyFeatures />
       <Suspense>
         <Statistics />
       </Suspense>

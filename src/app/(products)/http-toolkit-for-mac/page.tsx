@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
-import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
+import { ModifyFeatures } from '@/components/common-sections/modify-features';
 import { AppleLogo } from '@/components/elements/icon';
 import { CTA } from '@/components/sections/cta';
 import { buildMetadata } from '@/lib/utils/build-metadata';
@@ -24,7 +24,7 @@ export default async function ForMacOsPage() {
         downloadButtonDefaultOsValue="mac"
       />
       <HttpToolkitFeatures />
-      <MockResponseFeatures />
+      <ModifyFeatures />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
-import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
+import { ModifyFeatures } from '@/components/common-sections/modify-features';
 import { Statistics } from '@/components/common-sections/statistics';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
@@ -29,7 +29,7 @@ export default async function HomePage() {
       />
       <HttpToolkitFeatures />
       <TryItForYourselfCTA />
-      <MockResponseFeatures />
+      <ModifyFeatures />
       <Suspense>
         <Statistics />
       </Suspense>

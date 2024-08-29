@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
-import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
+import { ModifyFeatures } from '@/components/common-sections/modify-features';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { RubyLogo } from '@/components/elements/icon';
 import { IntegrationHttpTookitFeatures } from '@/components/sections/integration/http-toolkit-features';
@@ -60,7 +60,7 @@ export default function RubyIntegrationPage() {
         <Testimonials />
       </Suspense>
       <IntegrationHttpTookitFeatures />
-      <MockResponseFeatures />
+      <ModifyFeatures />
     </>
   );
 }

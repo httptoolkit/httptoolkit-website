@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 import { Suspense } from 'react';
 
-import { MockResponseFeatures } from '@/components/common-sections/mock-response-features';
+import { ModifyFeatures } from '@/components/common-sections/modify-features';
 import { Statistics } from '@/components/common-sections/statistics';
 import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
@@ -21,7 +21,7 @@ export default function AlternativesLayout({ children }: { children: React.React
       {children}
       <TryItForYourselfCTA />
       <HttpToolkitFeatures />
-      <MockResponseFeatures />
+      <ModifyFeatures />
       <Suspense>
         <Testimonials />
       </Suspense>
