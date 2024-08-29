@@ -7,7 +7,7 @@ import { Testimonials } from '@/components/common-sections/testimonials';
 import { TryItForYourselfCTA } from '@/components/common-sections/try-it-for-yourself';
 import { ProductLdData } from '@/components/elements/product-ld-data';
 import { Layout } from '@/components/layout';
-import { HttpToolkitFeatures } from '@/components/sections/alternatives/http-toolkit-features';
+import { HttpToolkitFeatures } from '@/components/common-sections/http-toolkit-features';
 
 export const metadata: Metadata = {
   twitter: {

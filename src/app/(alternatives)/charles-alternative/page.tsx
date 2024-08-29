@@ -23,7 +23,7 @@ export default async function CharlesAlternativePage() {
       />
       <IntegrationCTA
         $variant="cta"
-        title="Built-in integration with every tool you use"
+        title="One-click setup integrations for every tool you use"
         text={["HTTP Toolkit includes one-click automated setup to provide precisely targeted interception of individual mobile apps, browsers, terminal windows, Docker containers & more."]}
         button={{
           $small: true,

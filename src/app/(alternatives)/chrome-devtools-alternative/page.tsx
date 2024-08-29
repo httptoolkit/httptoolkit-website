@@ -22,7 +22,7 @@ export default async function ChromeDevToolsAlternativePage() {
       />
       <IntegrationCTA
         $variant="cta"
-        title="Built-in integration with every tool you use"
+        title="One-click setup integrations for every tool you use"
         text={["HTTP Toolkit includes one-click automated setup to provide precisely targeted interception of individual browser windows, mobile apps, terminal sessions, Docker containers & more."]}
         button={{
           $small: true,
