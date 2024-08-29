@@ -15,8 +15,11 @@ export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
   & > *:nth-child(2) {
     @media (min-width: ${({ theme }) => theme.screens.lg}) {
       width: 50%;
-      max-height: 570px;
     }
+  }
+
+  img {
+    mask-image: linear-gradient(transparent 1%, #000 5%, #000 95%, transparent 98%)
   }
 `;
 
