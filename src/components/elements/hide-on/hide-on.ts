@@ -2,28 +2,32 @@
 
 import { screens, styled, css } from '@/styles';
 
-export const StyledHideElementOn = styled.div<{ $hideOn: 'mobile' | 'desktop' }>`
-  ${({ $hideOn }) => {
-    switch ($hideOn) {
-      case 'mobile':
-        return css`
-          display: none;
-          visibility: hidden;
+type ScreenKey = keyof typeof screens;
 
-          @media (min-width: ${screens.md}) {
-            display: block;
-            visibility: visible;
-          }
-        `;
-      case 'desktop':
-        return css`
+export const StyledHideElementOn = styled.div<
+  | { $hideBelow: ScreenKey, $hideAbove?: undefined }
+  | { $hideAbove: ScreenKey, $hideBelow?: undefined }
+>`
+  ${({ $hideBelow, $hideAbove }) => {
+    if ($hideBelow) {
+      return css`
+        display: none;
+        visibility: hidden;
+
+        @media (min-width: ${screens[$hideBelow]}) {
           display: block;
           visibility: visible;
-          @media (min-width: ${screens.md}) {
-            display: none;
-            visibility: hidden;
-          }
-        `;
+        }
+      `;
+    } else {
+      return css`
+        display: block;
+        visibility: visible;
+        @media (min-width: ${screens[$hideAbove]}) {
+          display: none;
+          visibility: hidden;
+        }
+      `;
     }
   }}
 `;

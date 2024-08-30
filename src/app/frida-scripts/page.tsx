@@ -30,7 +30,7 @@ export default async function FridaPage() {
   return (
     <LandingLayout>
       <div>
-        <StyledHideElementOn $hideOn="desktop">
+        <StyledHideElementOn $hideAbove="md">
           <StyledSectionCTAWrapper>
             <CTA
               heading="Frida Mobile Interception Scripts"
@@ -54,7 +54,7 @@ export default async function FridaPage() {
           <Container>
             <StyledFridaColumns>
               <StyledFridaColumnContent>
-                <StyledHideElementOn $hideOn="mobile">
+                <StyledHideElementOn $hideBelow="md">
                   <Stack $gapxl="24px">
                     <Heading fontSize="l" color="textGradient">
                       Frida Mobile Interception Scripts
@@ -84,7 +84,7 @@ export default async function FridaPage() {
                   </Button>
                 </StyledButtonsWrapper>
               </StyledFridaColumnContent>
-              <StyledHideElementOn $hideOn="mobile">
+              <StyledHideElementOn $hideBelow="md">
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"

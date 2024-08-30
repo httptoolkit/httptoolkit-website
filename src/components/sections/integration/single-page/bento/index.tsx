@@ -12,6 +12,7 @@ import type { IntegrationBentoProps } from './bento.types';
 
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
+import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { AltHeadingBlock } from '@/components/modules/alt-heading-block';
 import { FluidCard } from '@/components/modules/fluid-card';
 
@@ -36,14 +37,16 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
               <FluidCard {...cards[3]} />
             </StyledIntegrationBentoCTAWrapper>
           </StyledIntegrationBentoCardsColumn>
-          <StyledPhoneWindow aspectRatio='445/914'>
-            <StyledThemedImage
-              darkSrc='/images/product/android-dark.png'
-              lightSrc='/images/product/android-light.png'
-              width={445}
-              height={914}
-            />
-          </StyledPhoneWindow>
+          <StyledHideElementOn $hideBelow="lg">
+            <StyledPhoneWindow aspectRatio='445/914'>
+              <StyledThemedImage
+                darkSrc='/images/product/android-dark.png'
+                lightSrc='/images/product/android-light.png'
+                width={445}
+                height={914}
+              />
+            </StyledPhoneWindow>
+          </StyledHideElementOn>
           <StyledIntegrationBentoCTAWrapper $mobile>
             <FluidCard {...cards[3]} />
           </StyledIntegrationBentoCTAWrapper>
