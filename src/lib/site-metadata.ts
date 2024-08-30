@@ -2,7 +2,7 @@ export const siteMetadata = {
   name: 'HTTP Toolkit',
   title: 'Intercept, debug & build with HTTP',
   description:
-    'Beautiful, cross-platform &amp; open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux &amp; Mac.',
+    'Beautiful, cross-platform & open-source tools for debugging, testing and building with HTTP(S), on Windows, Linux & Mac.',
   siteUrl: 'https://httptoolkit.com',
   blogUrl: 'https://httptoolkit.com/blog',
 
