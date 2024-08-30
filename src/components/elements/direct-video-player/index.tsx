@@ -96,7 +96,7 @@ export const DirectVideoPlayer = (props: {
                 loop={props.loop ?? true}
                 muted
                 playsInline // Required for iOS non-fullscreen playback
-                preload="auto"
+                preload={isMounted ? "auto" : "metadata"}
 
                 ref={darkVideoRef}
 
@@ -117,7 +117,7 @@ export const DirectVideoPlayer = (props: {
                 loop={props.loop ?? true}
                 muted
                 playsInline // Required for iOS non-fullscreen playback
-                preload="auto"
+                preload={isMounted ? "auto" : "metadata"}
 
                 ref={lightVideoRef}
 
