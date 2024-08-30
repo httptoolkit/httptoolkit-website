@@ -28,11 +28,19 @@ export const DirectVideoPlayer = (props: {
 
     const { lightId, darkId, aspectRatio } = videoDictionary[props.videoId];
 
+    // Lots of different formats exposed for the same video. We pick the source
+    // based on device width & pixel ratio. Video sizes are 720p=1280x720 vs
+    // 480p=854x480. Playlist exposes both, but not widely supported.
+
     const darkThumbnail = `https://${darkPullZoneId}.b-cdn.net/${darkId}/thumbnail.jpg`;
+    const darkVideoPlaylist = `https://${darkPullZoneId}.b-cdn.net/${darkId}/playlist.m3u8`;
     const dark720Url = `https://${darkPullZoneId}.b-cdn.net/${darkId}/play_720p.mp4`;
+    const dark480Url = `https://${darkPullZoneId}.b-cdn.net/${darkId}/play_480p.mp4`;
 
     const lightThumbnail = `https://${lightPullZoneId}.b-cdn.net/${lightId}/thumbnail.jpg`;
+    const lightVideoPlaylist = `https://${lightPullZoneId}.b-cdn.net/${lightId}/playlist.m3u8`;
     const light720Url = `https://${lightPullZoneId}.b-cdn.net/${lightId}/play_720p.mp4`;
+    const light480Url = `https://${lightPullZoneId}.b-cdn.net/${lightId}/play_480p.mp4`;
 
     const darkVideoRef = React.useRef<HTMLVideoElement>(null);
     const lightVideoRef = React.useRef<HTMLVideoElement>(null);
@@ -111,7 +119,15 @@ export const DirectVideoPlayer = (props: {
 
                 $aspectRatio={aspectRatio}
             >
-                <source src={dark720Url} type="video/mp4" />
+                <source src={darkVideoPlaylist} type="application/x-mpegURL" />
+
+                <source src={dark720Url} type="video/mp4" media="(min-width: 426px) and (min-resolution: 2.5dppx)" />
+                <source src={dark720Url} type="video/mp4" media="(min-width: 640px) and (min-resolution: 1.5dppx)" />
+                <source src={dark720Url} type="video/mp4" media="(min-width: 1280px)" />
+
+                <source src={dark480Url} />
+
+                Video not available
             </StyledVideo>
         }
         {(!isMounted || theme === 'light') &&
@@ -133,7 +149,15 @@ export const DirectVideoPlayer = (props: {
 
                 $aspectRatio={aspectRatio}
             >
-                <source src={light720Url} type="video/mp4" />
+                <source src={lightVideoPlaylist} type="application/x-mpegURL" />
+
+                <source src={light720Url} type="video/mp4" media="(min-width: 426px) and (min-resolution: 2.5dppx)" />
+                <source src={light720Url} type="video/mp4" media="(min-width: 640px) and (min-resolution: 1.5dppx)" />
+                <source src={light720Url} type="video/mp4" media="(min-width: 1280px)" />
+
+                <source src={light480Url} type="video/mp4" />
+
+                Video not available
             </StyledVideo>
         }
     </>;
