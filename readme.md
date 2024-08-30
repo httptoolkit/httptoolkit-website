@@ -1,5 +1,11 @@
-# HTTP Toolkit Site
-HTTP Toolkit website is an opensource documentation build with Next.js and use MDX as a content managament. The rendering aproach is SSG.
+HTTP Toolkit Site [![Build Status](https://github.com/httptoolkit/httptoolkit-website/workflows/CI/badge.svg)](https://github.com/httptoolkit/httptoolkit-website/actions)
+===================
+
+This repo contains the full source for [httptoolkit.com](https://httptoolkit.com) - the main website of HTTP Toolkit.
+
+If you're looking for the website source, either to suggest a change or because you're just curious, you're in the right place.
+
+Looking to file bugs, request features or send feedback? File an issue or vote on existing ones at [github.com/httptoolkit/httptoolkit](https://github.com/httptoolkit/httptoolkit).
 
 ## Table of Contents
 
@@ -15,7 +21,11 @@ HTTP Toolkit website is an opensource documentation build with Next.js and use M
   - [Styles](#styles)
     - [Formatting and Validation](#formatting-and-validation)
 
+## Project Details
+
 ### Stack
+
+The website is built with Next.js and use MDX as a content management. The rendering approach is SSG.
 
 - Next.js App directory
 - React 18
@@ -31,19 +41,21 @@ HTTP Toolkit website is an opensource documentation build with Next.js and use M
 
 ### Prerequisites
 
-- You need to have Node.js installed on your machine and we uses NPM as a package manager.
-
-After completing the token setup, you can proceed to install all the project dependencies using pnpm:
+Use any modern Node version, and just run:
 
 ```bash
- npm install && npm run prepare;
+npm install
 ```
 
 ### Run Next.js in development mode
 
+Launch the local dev site with:
+
 ```bash
 npm run dev
 ```
+
+and then open it at [localhost:3000](https://localhost:3000)
 
 ## Contribution Guidelines
 
@@ -94,30 +106,6 @@ Please ensure that your code adheres to the existing code style and conventions 
 
 In order to get the benefis of the image optimization, these images should stored inside the public folder like `public/images/posts/..` or `public/images/docs/..` (except for the statically imported images and remote images). Then these images can be referenced in the src attribute of the `<Image />` element.
 
-
-### Git commit messages
-
-This project uses a simplified version of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
-
-Commit message should se the present tense
-
-> _"Adds this..", not "Added this..."_
-
-List of available commit types:
-
-```
-  feat      >> "add a new feature",
-  chore     >> "tool, configuration changes, linters",
-  fix:      >> "bug fix",
-  docs:     >> "documentation update",
-  posts:    >> "post update",
-  refactor: >> "code changes, no new features added",
-```
-
 ### Styles
 
 This project uses Styled Components for styling.
-
-#### Formatting and Validation
-
-The code will be format automatically with `prettier` in every commit to keep the consistency in base the rules inside `.prettierrc` file. t
