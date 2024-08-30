@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://httptoolkit.com
+
+# Sitemaps
+Sitemap: https://httptoolkit.com/sitemap.xml
