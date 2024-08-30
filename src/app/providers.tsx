@@ -5,7 +5,7 @@ import { PostHogProvider } from 'posthog-js/react';
 
 if (typeof window !== 'undefined') {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    api_host: 'https://events.httptoolkit.tech',
     autocapture: false, // We don't need events here - just page views is fine.
     persistence: 'memory', // No cookies/local storage please
     advanced_disable_decide: true, // We don't need dynamic features, skip checking
