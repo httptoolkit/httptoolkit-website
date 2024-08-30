@@ -14,7 +14,7 @@ export const lightLibraryId = '293624';
 export const lightPullZoneId = 'vz-232e9c2f-cfb';
 
 export const darkLibraryId = '77143';
-export const darkPulLZoneId = 'vz-7ada43d8-9d3';
+export const darkPullZoneId = 'vz-7ada43d8-9d3';
 
 export type VideoKey =
     | 'chrome'

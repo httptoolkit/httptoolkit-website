@@ -7,7 +7,7 @@ import { useMounted } from '@/lib/hooks/use-mounted';
 import { VideoCallback } from "@/lib/video-events";
 
 import {
-    darkPulLZoneId,
+    darkPullZoneId,
     lightPullZoneId,
     videoDictionary,
     VideoKey
@@ -28,7 +28,10 @@ export const DirectVideoPlayer = (props: {
 
     const { lightId, darkId, aspectRatio } = videoDictionary[props.videoId];
 
-    const dark720Url = `https://${darkPulLZoneId}.b-cdn.net/${darkId}/play_720p.mp4`;
+    const darkThumbnail = `https://${darkPullZoneId}.b-cdn.net/${darkId}/thumbnail.jpg`;
+    const dark720Url = `https://${darkPullZoneId}.b-cdn.net/${darkId}/play_720p.mp4`;
+
+    const lightThumbnail = `https://${lightPullZoneId}.b-cdn.net/${lightId}/thumbnail.jpg`;
     const light720Url = `https://${lightPullZoneId}.b-cdn.net/${lightId}/play_720p.mp4`;
 
     const darkVideoRef = React.useRef<HTMLVideoElement>(null);
@@ -91,6 +94,7 @@ export const DirectVideoPlayer = (props: {
     return <>
         {(!isMounted || theme === 'dark') &&
             <StyledVideo
+                poster={darkThumbnail}
                 controls={props.showControls ?? true}
                 autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
@@ -112,6 +116,7 @@ export const DirectVideoPlayer = (props: {
         }
         {(!isMounted || theme === 'light') &&
             <StyledVideo
+                poster={lightThumbnail}
                 controls={props.showControls ?? true}
                 autoPlay={props.autoPlay ?? true}
                 loop={props.loop ?? true}
