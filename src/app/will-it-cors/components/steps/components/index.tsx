@@ -50,6 +50,7 @@ export const SourceUrlQuestion = observer(({ onNext, value, onChange }: Question
         <Input
           id="source_url"
           type="url"
+          spellCheck="false"
           required
           placeholder="http://example.com"
           value={value}
@@ -74,6 +75,7 @@ export const TargetUrlQuestion = observer(({ onNext, value, onChange }: Question
         <Input
           id="target_url"
           type="url"
+          spellCheck="false"
           required
           placeholder="http://example.com"
           value={value}
@@ -249,7 +251,12 @@ export const ContentTypeQuestion = ({ onNext, value, onChange }: QuestionProps) 
           What <Link href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type">content type</Link>{' '}
           will your POST request use?
         </Heading>
-        <Input id="" placeholder="text/plain" value={value || ''} onChange={e => onChange(e.target.value)} />
+        <Input
+          placeholder="text/plain"
+          spellCheck="false"
+          value={value || ''}
+          onChange={e => onChange(e.target.value)}
+        />
         <Button $isFluid type="submit">
           Next
         </Button>

@@ -16,7 +16,7 @@ export const StyledWillItCorsWrapper = styled.section`
     background:
       no-repeat url('/images/backgrounds/hero-lines.svg'),
       var(--background-dots);
-    background-position: top -80px center;
+    background-position: top -35px center;
 
     &::before {
       content: '';
@@ -35,6 +35,9 @@ export const StyledWillItCorsContainer = styled.div`
   justify-content: center;
   max-width: 770px;
   text-align: center;
+
+  background: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3) 40%, transparent 75%);
+  text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
 
   & a {
     color: ${({ theme }) => theme.colors.electricLightBlue};

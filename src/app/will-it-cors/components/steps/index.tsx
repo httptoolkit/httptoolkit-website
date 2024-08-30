@@ -38,7 +38,7 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           onChange={newValue => {
             steps.setSourceUrl(newValue);
           }}
-          onNext={() => router.push('./target-url')}
+          onNext={() => router.push('/will-it-cors/target-url')}
         />
       );
 
@@ -51,11 +51,11 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           }}
           onNext={() => {
             if (!steps.isCorsRequest) {
-              router.push('./not-cors');
+              router.push('/will-it-cors/not-cors');
             } else if (steps.isMixedContentRequest) {
-              router.push('./mixed-content');
+              router.push('/will-it-cors/mixed-content');
             } else {
-              router.push('./method');
+              router.push('/will-it-cors/method');
             }
           }}
         />
@@ -79,7 +79,7 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           onChange={newValue => {
             steps.setMethod(newValue);
           }}
-          onNext={() => router.push('./request-extras')}
+          onNext={() => router.push('/will-it-cors/request-extras')}
           sourceOrigin={steps.sourceOrigin ?? 'https://'}
           targetOrigin={steps.targetOrigin ?? 'http://'}
         />
@@ -102,11 +102,11 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           }}
           onNext={() => {
             if (steps.method === 'POST' && steps.contentType === undefined) {
-              router.push('./content-type');
+              router.push('/will-it-cors/content-type');
             } else if (steps.isSimpleCorsRequest) {
-              router.push('./simple-cors');
+              router.push('/will-it-cors/simple-cors');
             } else {
-              router.push('./preflight');
+              router.push('/will-it-cors/preflight');
             }
           }}
         />
@@ -125,16 +125,16 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           }}
           onNext={() => {
             if (steps.isSimpleCorsRequest) {
-              router.push('./simple-cors');
+              router.push('/will-it-cors/simple-cors');
             } else {
-              router.push('./preflight');
+              router.push('/will-it-cors/preflight');
             }
           }}
         />
       );
 
     case 'simple-cors':
-      return <SimpleCorsRequest onNext={() => router.push('./server-response')} />;
+      return <SimpleCorsRequest onNext={() => router.push('/will-it-cors/server-response')} />;
 
     case 'server-response':
       return (
@@ -151,9 +151,9 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           }}
           onNext={() => {
             if (steps.isServerResponseReadable) {
-              router.push('./request-success');
+              router.push('/will-it-cors/request-success');
             } else {
-              router.push('./request-failure');
+              router.push('/will-it-cors/request-failure');
             }
           }}
         />
@@ -174,7 +174,7 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           sourceOrigin={steps.sourceOrigin ?? 'https://'}
           responseHeaders={steps.serverResponseHeaders}
           sendCredentials={steps.sendCredentials}
-          onNext={() => router.push('./show-code')}
+          onNext={() => router.push('/will-it-cors/show-code')}
         />
       );
 
@@ -182,10 +182,10 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
       return <ShowCode code={steps.exampleCode} />;
 
     case 'preflight':
-      return <PreflightRequest onNext={() => router.push('./preflight-response')} />;
+      return <PreflightRequest onNext={() => router.push('/will-it-cors/preflight-response')} />;
 
     case 'preflight-success':
-      return <ServerAllowsPreflightRequest onNext={() => router.push('./server-response')} />;
+      return <ServerAllowsPreflightRequest onNext={() => router.push('/will-it-cors/server-response')} />;
 
     case 'preflight-response':
       return (
@@ -202,9 +202,9 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
           }}
           onNext={() => {
             if (steps.isPreflightSuccessful) {
-              router.push('./preflight-success');
+              router.push('/will-it-cors/preflight-success');
             } else {
-              router.push('./preflight-failure');
+              router.push('/will-it-cors/preflight-failure');
             }
           }}
         />
