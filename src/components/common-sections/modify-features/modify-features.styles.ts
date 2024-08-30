@@ -19,6 +19,8 @@ const commonGradientStyles = css`
   display: none;
   visibility: hidden;
 
+  pointer-events: none;
+
   @media (min-width: ${screens['lg']}) {
     display: block;
     visibility: visible;

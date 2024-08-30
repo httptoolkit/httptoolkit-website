@@ -31,6 +31,8 @@ export const StyledGradientLeft = styled.div`
   left: 0;
   height: 780px;
 
+  pointer-events: none;
+
   @media (min-width: ${screens['lg']}) {
     top: -7px;
   }

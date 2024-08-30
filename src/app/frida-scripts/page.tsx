@@ -15,7 +15,6 @@ import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
-import { GithubLogo } from '@/components/elements/icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { ThemedImage } from '@/components/elements/themed-image';
