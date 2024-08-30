@@ -42,7 +42,8 @@ export const { plans }: PricingPlansData = {
           text: 'All Hobbyist features, plus:',
           items: [
             'Automated HTTP mocking & rewriting including traffic redirection, mock responses, and errors & timeouts.',
-            'Import/export mock rules, and [HARs](https://en.wikipedia.org/wiki/HAR_(file_format)) or ready-to-use code for 20+ tools, for all sent or intercepted requests.',
+            'Reusable Modify & Send tools. Persistent by default, plus import/export so you can store, reuse & share your rules & requests',
+            'Import/export for all traffic as [HARs](https://en.wikipedia.org/wiki/HAR_(file_format)) or ready-to-use code for 20+ tools.',
             'Advanced HTTP debugging tools including compression & caching analysis, and \'resend\' functionality.',
             'Validation & API documentation for 2600+ built-in APIs, from AWS to GitHub to Stripe, plus your own custom [OpenAPI](https://swagger.io/docs/specification/about/) specs.',
             'Advanced customization including TLS passthrough, proxy ports, whitelisted & client certificates, and upstream proxies.',

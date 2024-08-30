@@ -70,7 +70,7 @@ That's a simple example, but you can test more complex cases like [snapdrop.net]
 
 We can also define rules to mock WebRTC behaviours, or even a whole chain of steps that will run when each connection is created.
 
-Looking at the Snapdrop traffic, you can see that when a file is sent, the page first sends a header message, containing the file details as JSON, then a binary message containing the content, then a transfer-complete message, with progress messages along the way. We can easily mess with this ourselves by creating a simple echo rule on the Mock page, like so:
+Looking at the Snapdrop traffic, you can see that when a file is sent, the page first sends a header message, containing the file details as JSON, then a binary message containing the content, then a transfer-complete message, with progress messages along the way. We can easily mess with this ourselves by creating a simple echo rule on the Modify page, like so:
 
 ![A rule echoing all WebRTC content](./webrtc-mock-rule.png)
 
@@ -88,7 +88,7 @@ From your intercepted browser, open your node's WebUI at [127.0.0.1:5002/webui](
 
 If you select each of these requests, you'll see a new "IPFS RPC API" section at the top on the right, and there you can see the details of the operation and parameters used, with descriptions inline and links to the full documentation, along with the default values for any omitted default parameters. In addition, the raw HTTP that's sent is visible below, so you can debug traffic at either level.
 
-As with WebRTC, we can also define rules to mock this traffic. Try clicking 'index.html' in the WebUI listing for example, and you'll see that it pulls a tiny snippet of HTML page from the IPFS network. We can mock this content, by setting a rule on the Mock page like:
+As with WebRTC, we can also define rules to mock this traffic. Try clicking 'index.html' in the WebUI listing for example, and you'll see that it pulls a tiny snippet of HTML page from the IPFS network. We can mock this content, by setting a rule on the Modify page like:
 
 ![A rule mocking this IPFS content](./ipfs-mock-content-rule.png)
 

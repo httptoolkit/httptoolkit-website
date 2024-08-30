@@ -70,7 +70,7 @@ export const planFeatures: PricingComparisonProps['features'] = [
       },
       {
         title: 'Create rules directly from real traffic',
-        tooltip: 'Turn intercepted traffic into an equivalent mock rule in one click, to quickly match & modify the traffic you\'re interested in',
+        tooltip: 'Turn intercepted traffic into an equivalent rule in one click, to quickly match & modify the traffic you\'re interested in',
         checked: ['pro', 'team'],
       }
     ],

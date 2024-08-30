@@ -1,12 +1,12 @@
 ---
-name: 'The Mock Page'
-title: 'The Mock Page'
+name: 'The Modify Page'
+title: 'The Modify Page'
 order: 2
 ---
 
-![The Mock page, showing mock rules](../../images/edit-screenshot.png)
+![The Modify page, showing various rules](../../images/edit-screenshot.png)
 
-The Mock page allows you to rewrite traffic, simulate fake servers, test edge cases, or change real HTTP requests and responses in any other way you'd like.
+The Modify page allows you to rewrite traffic, simulate fake servers, test edge cases, or change real HTTP requests and responses in any other way you'd like.
 
 It shows a list of rules, which define how all HTTP traffic is handled. Each rule has a matcher and an action. The matcher defines which requests it applies to, and the action defines what happens to matching requests.
 
@@ -14,15 +14,15 @@ Every request is matched against each rule one by one from the top, until a matc
 
 Rule changes only take effect when saved. You can save all changes to rules from the button at the top, or save any one individual rule from the button on its row.
 
-Mock rules defined here are only stored persistently with [HTTP Toolkit Pro](/get-pro/). For hobbyist users, the rules reset to their defaults every time HTTP Toolkit restarts.
+Rules defined here are only stored persistently with [HTTP Toolkit Pro](/get-pro/). For hobbyist users, the rules reset to their defaults every time HTTP Toolkit restarts.
 
 ## Page structure
 
-The Mock page consists of a set of controls at the top, an 'Add a new rule' button, and a reorderable list of existing rule rows.
+The Modify page consists of a set of controls at the top, an 'Add a new rule' button, and a reorderable list of existing rule rows.
 
-### Mock page controls
+### Modify page controls
 
-![The Mock page controls](./mock-page-controls.png)
+![The Modify page controls](./mock-page-controls.png)
 
 The controls at the top are, from left to right:
 - Clear all: resets all rules to default. This deletes all custom rules, and all changes from the built in rules.
@@ -41,7 +41,7 @@ You typically start with two rules: a rule that provides a test page at amiusing
 
 Hovering over any rule will show a draggable tag on the left, and a set of controls that can be used to manage the rule.
 
-![Mock row controls](./mock-row-controls.png)
+![Row controls](./mock-row-controls.png)
 
 Each rule row shows these 4 controls in the top right. You can hover over any button to see a short description. From left to right, they are:
 
@@ -54,7 +54,7 @@ Rules can be reordered by hovering over the rule whilst it is collapsed, and dra
 
 To edit any rule, click it or press enter on it in the list, and it will expand to show its details. You can collapse it again from the chevron button in the top right. If you've made changes, that becomes a save button, which will save the changes to this rule before collapsing it. To avoid saving changes, first use the revert button, which will put the rule back to its last saved state.
 
-![Mock row contents](./mock-row-body.png)
+![Row contents](./mock-row-body.png)
 
 Within each row, you can see:
 
@@ -75,7 +75,7 @@ Some matchers and actions have validations, for example host matching requires a
 
 ## Matchers
 
-![The Mock matcher selection dropdown](./mock-matchers.png)
+![The matcher selection dropdown](./mock-matchers.png)
 
 There are a variety of matchers available to filter the requests that a rule will affect:
 
@@ -106,7 +106,7 @@ _Have suggestions for other matchers you'd like to see? File [some feedback](htt
 
 ## Actions
 
-![The Mock action selection dropdown](./mock-actions.png)
+![The action selection dropdown](./mock-actions.png)
 
 There are a variety of actions available, to apply different effects to the matched requests:
 

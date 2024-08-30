@@ -11,6 +11,7 @@
     redir /view / 308
     redir /view/ / 308
     redir /docs/guides/subscription-faq/ /docs/faq/payments/ 308
+    redir /docs/reference/mock-page/ /docs/reference/modify-page/ 308
 
     # Redirect old download paths to new ones
     @view-thankyou-subpath path_regexp subpath ^/view/thank-you/(.+)
