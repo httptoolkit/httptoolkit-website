@@ -4,7 +4,7 @@
         <description><![CDATA[HTTP Toolkit]]></description>
         <link>https://httptoolkit.com/blog/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 29 Aug 2024 18:37:30 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 30 Aug 2024 11:07:11 GMT</lastBuildDate>
         <atom:link href="https://httptoolkit.com/rss.xml" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[22 years later, YAML now has a media type]]></title>
