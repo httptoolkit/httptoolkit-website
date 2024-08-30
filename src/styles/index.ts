@@ -329,4 +329,11 @@ export const GlobalStyles = createGlobalStyle`
       clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
       white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
     }
+
+    /* Override Auth0's style choices */
+    .auth0-lock {
+      /* It's always light - this fixes the browser UI */
+      color-scheme: light;
+      font-family: ${theme.fontFamily.dmSans};
+    }
 `;
