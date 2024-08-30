@@ -60,8 +60,8 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
         <StyledColumn as="nav" aria-label="Httptoolkit directory" role="navigation">
           {footerColumns.map(column => {
             const hasSubHeading = !!column.subHeading;
-            const displayOnMobile = column.displayOn?.includes('mobile');
-            const displayOnDesktop = column.displayOn?.includes('desktop');
+            const displayOnMobile = !!column.displayOn?.includes('mobile');
+            const displayOnDesktop = !!column.displayOn?.includes('desktop');
             return (
               <StyledMenuWrapper
                 $displayOnMobile={displayOnMobile}
@@ -70,8 +70,8 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
                 key={column.title}
               >
                 <FooterColumnBlock column={column} />
-                {column.subHeading?.map((subheding, idx) => (
-                  <FooterColumnBlock key={`${subheding.title}-${idx}`} column={subheding} />
+                {column.subHeading?.map((subheading, idx) => (
+                  <FooterColumnBlock key={`${subheading.title}-${idx}`} column={subheading} />
                 ))}
               </StyledMenuWrapper>
             );

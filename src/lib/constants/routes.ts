@@ -70,6 +70,10 @@ export const pageRoutes = {
     label: 'Frida Interception Scripts'
   },
   //Alternatives
+  ALTERNATIVES: {
+    href: '/alternatives/',
+    label: 'All Alternatives',
+  },
   FIDDLER: {
     href: '/fiddler-alternative/',
     label: 'Fiddler',
@@ -96,3 +100,8 @@ export const pageRoutes = {
     label: 'HTTP Toolkit for Linux',
   },
 };
+
+export interface PageRoute {
+  href: string;
+  label: string;
+}

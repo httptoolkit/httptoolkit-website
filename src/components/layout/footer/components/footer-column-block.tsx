@@ -5,8 +5,8 @@ import { Text } from '@/components/elements/text';
 import type { FooterColumn } from '@/content/data/footer-columns';
 
 export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
-  const displayOnMobile = column.displayOn?.includes('mobile');
-  const displayOnDesktop = column.displayOn?.includes('desktop');
+  const displayOnMobile = !!column.displayOn?.includes('mobile');
+  const displayOnDesktop = !!column.displayOn?.includes('desktop');
 
   return (
     <StyledMenuWrapper

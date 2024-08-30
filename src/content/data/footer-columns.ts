@@ -1,7 +1,8 @@
-import { pageRoutes } from '@/lib/constants/routes';
+import { PageRoute, pageRoutes } from '@/lib/constants/routes';
 
 const {
   ALL_INTEGRATIONS,
+  ALTERNATIVES,
   ANDROID,
   BLOG,
   CHARLES,
@@ -22,10 +23,21 @@ const {
   PROD_FOR_WINDOW,
 } = pageRoutes;
 
-export const footerColumns = [
+export interface FooterColumn {
+  title: string;
+  links: PageRoute[];
+  displayOn?: Array<'desktop' | 'mobile'>;
+  subHeading?: Array<{
+    title: string;
+    links: PageRoute[];
+    displayOn?: Array<'desktop' | 'mobile'>;
+  }>;
+}
+
+export const footerColumns: FooterColumn[] = [
   {
     title: 'Product',
-    links: [PROD_FOR_MAC_OS, PROD_FOR_WINDOW, PROD_FOR_LINUX, , PRICING],
+    links: [PROD_FOR_MAC_OS, PROD_FOR_WINDOW, PROD_FOR_LINUX, PRICING],
     subHeading: [
       {
         title: 'Projects',
@@ -54,7 +66,7 @@ export const footerColumns = [
   },
   {
     title: 'Alternatives',
-    links: [FIDDLER, CHROME_DEV_TOOLS, CHARLES],
+    links: [ALTERNATIVES, FIDDLER, CHROME_DEV_TOOLS, CHARLES],
     displayOn: ['desktop'],
   },
   {
@@ -63,12 +75,10 @@ export const footerColumns = [
     subHeading: [
       {
         title: 'Alternatives',
-        links: [FIDDLER, CHROME_DEV_TOOLS, CHARLES],
+        links: [ALTERNATIVES, FIDDLER, CHROME_DEV_TOOLS, CHARLES],
         displayOn: ['mobile'],
       },
     ],
     displayOn: ['desktop', 'mobile'],
   },
 ];
-
-export type FooterColumn = (typeof footerColumns)[number];
