@@ -1,5 +1,23 @@
 [
   {
+    "id": "1829471165078765577",
+    "name": "Ricardo Markiewicz",
+    "username": "Gazeria",
+    "quote": "HTTP Toolkit is amazing, 1 click network interceptor, you will never fight again with root certificates, proxies, whatever, just click and inspect network traffic. "
+  },
+  {
+    "id": "1790038634709582195",
+    "name": "William / HestenettetDK",
+    "username": "willbenem",
+    "quote": "I have found httptoolkit.com to be amazing. All you need is an ADB connection to the device, 1 button and you have HTTP interception, which can even be toggled on a per app basis."
+  },
+  {
+    "id": "1775690001247850633",
+    "name": "LiveOverflow",
+    "username": "LiveOverflow",
+    "quote": "Shoutout to @pimterry and @HttpToolkit. Incredibly convenient to quickly configure a proxy for various programs - including browsers, shells and Android."
+  },
+  {
     "id": "1702319616352305389",
     "name": "HassanMunene",
     "username": "Awanzii",

@@ -95,4 +95,9 @@ export const HIGHLIGHT_STRINGS = [
   'debug connections issues within a LIVE Docker container',
   'minutes instead of days',
   'very quick to install and use',
+  'Incredibly convenient',
+  'I have found httptoolkit.com to be amazing',
+  'HTTP Toolkit is amazing',
+  'just click and inspect network traffic',
+  'I cannot imagine tackling any future http-related problem without it'
 ];

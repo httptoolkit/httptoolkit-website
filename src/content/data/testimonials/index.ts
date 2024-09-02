@@ -23,7 +23,7 @@ const formattedArticles = ARTICLE_QUOTES.map(
     type: 'article',
     sourceName: articleData.source,
     sourceLink: articleData.link,
-    sourceLinkText: articleData.articleName,
+    sourceLinkText: articleData.description,
     quote: sanitizeContent(articleData.quote),
   }),
 );
