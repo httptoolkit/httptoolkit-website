@@ -27,7 +27,7 @@ export const HttpToolkitFeatures = () => {
             }}
             list={[
               'Capture HTTP(S) with zero hassle, with one-click interception for a huge range of tools and platforms.',
-              'Precisely target your interception, to capture all traffic from a single client without the noise and interference of intercepting your entire computer.',
+              'Precisely target interception, to capture traffic from a single client without the noise & disruption of intercepting your entire computer.',
               'Intercept individual Android or iOS apps, entire devices, Docker containers, browser windows, backend processes like Node.js, Java, Python or Ruby, terminal sessions...',
               'Alternatively, just connect any client manually to HTTP Toolkit as an HTTP proxy, fully compatible with HTTP requests from anywhere.'
             ]}
