@@ -196,6 +196,6 @@ export const FAQItems: TextWithAccordionProps['accordionItems'] = [
   },
   {
     title: 'Can I get a trial?',
-    text: 'There\'s no Pro trial option available, however you can use all the core features for free, and it\'s very easy to subscribe for a single month of Pro access as a taster. To do so, simply sign up for a monthly subscription, and then cancel immediately.',
+    text: 'There\'s no Pro trial option available, however you can use all the core features for free, and it\'s very easy to subscribe for a single month of Pro access to test it. To do so, simply sign up for a monthly subscription, and then cancel immediately.',
   }
 ];
