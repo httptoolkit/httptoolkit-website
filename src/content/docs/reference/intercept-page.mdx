@@ -91,13 +91,11 @@ Whilst this terminal is open, it also appends a change to the appropriate detect
 
 ### Existing Terminal
 
-This interceptor shows a short copyable command, which can be pasted into any terminal window on your machine to immediately enable interception in that window.
+This interceptor shows a short copyable command, which can be pasted into any terminal window on your machine to immediately enable interception in that window. Commands are available for Bash, Fish & Powershell terminals.
 
 In general this should behave the same as the 'Fresh Terminal' option, but being able to intercept existing terminals can be more convenient at times, and allows you to activate interception in some cases where the fresh terminal may not work.
 
 As an example, using `nvm` to switch node versions in an intercepted terminal after it has started may override node interception, but using `nvm` and then subsequently enabling interception should work fine.
-
-This interceptor is not available on Windows, as it's difficult to find a command that will work reliably in the many different shells available (e.g. cmd, git bash, cygwin, powershell, hyper, WSL).
 
 ### Electron App
 
