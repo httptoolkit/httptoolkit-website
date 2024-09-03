@@ -12,7 +12,7 @@ import { siteMetadata } from '@/lib/site-metadata';
 const WebShare = dynamic(() => import('@/components/modules/social-share/web-share'), { ssr: false });
 
 export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShareProps) => {
-  const fullPostUrl = `${siteMetadata.siteUrl}/blog/${postUrl}`;
+  const fullPostUrl = `${siteMetadata.siteUrl}/blog/${postUrl}/`;
 
   return (
     <SocialShareContainer>
