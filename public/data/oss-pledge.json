@@ -1,0 +1,34 @@
+{
+    "domain": "httptoolkit.com",
+    "datetimeModified": "2024-09-03T14:40:00Z",
+    "name": "HTTP Toolkit",
+    "description": "HTTP Toolkit is an open-source tool for debugging, testing & building with HTTP. Like all modern software projects, it stands on the shoulders of a huge variety of other open-source components. It aims to return a substantial portion of revenue back to these key dependencies, to fund maintainers, ensure each project's longevity, and help grow the open-source community.",
+    "urlSquareLogoWithBackground": "https://httptoolkit.com/icon-dark-800.png",
+    "urlLearnMore": "https://httptoolkit.com/blog/open-source-funding-pledge/",
+    "annualReports": [
+        {
+            "dateYearEnding": "2023-12-31",
+            "averageNumberOfDevs": 1,
+            "monetaryPayments": [
+                {
+                    "amount": 4267,
+                    "urlDetails": "https://httptoolkit.com/blog/open-source-funding-pledge/#2023"
+                }
+            ],
+            "monetaryValueOfTime": 0,
+            "monetaryValueOfMaterials": 0
+        },
+        {
+            "dateYearEnding": "2022-12-31",
+            "averageNumberOfDevs": 1,
+            "monetaryPayments": [
+                {
+                    "amount": 2582,
+                    "urlDetails": "https://httptoolkit.com/blog/open-source-funding-pledge/#2022"
+                }
+            ],
+            "monetaryValueOfTime": 0,
+            "monetaryValueOfMaterials": 0
+        }
+    ]
+}

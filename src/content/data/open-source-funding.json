@@ -1,0 +1,310 @@
+{
+    "2021": {
+        "openapi-directory": {
+            "amount": 2000,
+            "currency": "USD",
+            "source": "open-collective"
+        }
+    },
+    "2022": {
+        "johnnyreilly": {
+            "amount": 12000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "ardatan": {
+            "amount": 12000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "blakeembrey": {
+            "amount": 12000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "szmarczak": {
+            "amount": 12000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "lpinca": {
+            "amount": 12000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "node-datachannel": {
+            "amount": 18000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "chaijs": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "ajv": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "ua-parser-js": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mochajs": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "electron": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "styled-components": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mobx": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "openapi-directory": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "gotosocial": {
+            "amount": 2000,
+            "currency": "EUR",
+            "source": "open-collective"
+        }
+    },
+    "2023": {
+        "johnnyreilly": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "ardatan": {
+            "amount": 20000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "blakeembrey": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "szmarczak": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "lpinca": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "apocas": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "anonrig": {
+            "amount": 6000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "react-window": {
+            "amount": 6000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "fast-xml-parser": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "tauri": {
+            "amount": 22000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "gotosocial": {
+            "amount": 24000,
+            "currency": "EUR",
+            "source": "open-collective"
+        },
+        "node-datachannel": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "chaijs": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "ua-parser-js": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "ajv": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mochajs": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "styled-components": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "electron": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mobx": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "openapi-directory": {
+            "amount": 24000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "exchangeratehost": {
+            "amount": 2000,
+            "currency": "EUR",
+            "source": "open-collective"
+        }
+    },
+    "2024": {
+        "johnnyreilly": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "blakeembrey": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "szmarczak": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "lpinca": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "apocas": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "anonrig": {
+            "amount": 116000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "phosphor-icons": {
+            "amount": 14000,
+            "currency": "USD",
+            "source": "github"
+        },
+        "servo": {
+            "amount": 6000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "regolith": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "endoflife-date": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "react-window": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "fast-xml-parser": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "tauri": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "node-datachannel": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "ajv": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "styled-components": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mochajs": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "electron": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "mobx": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "openapi-directory": {
+            "amount": 16000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "chaijs": {
+            "amount": 4000,
+            "currency": "USD",
+            "source": "open-collective"
+        },
+        "gotosocial": {
+            "amount": 2000,
+            "currency": "EUR",
+            "source": "open-collective"
+        },
+        "ua-parser-js": {
+            "amount": 2000,
+            "currency": "USD",
+            "source": "open-collective"
+        }
+    }
+}
