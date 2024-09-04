@@ -9,7 +9,7 @@ import { ContentWithTable } from '@/components/sections/content-with-table';
 import { getPostBySlug, getAllPostsMeta } from '@/lib/mdx/blog';
 import { getBlogTitlesBySlug } from '@/lib/mdx/utils/get-titles-by-slug';
 import { siteMetadata } from '@/lib/site-metadata';
-import { optimizeExerptToMetaDescription } from '@/lib/utils';
+import { optimizeExcerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 import { Newsletter } from '@/components/modules/newsletter';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
@@ -22,14 +22,18 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   const slug = params.slug;
   const post = await getPostBySlug(slug);
 
-  const metaDescription = post.excerpt ? optimizeExerptToMetaDescription(post.excerpt) : undefined;
+  const metaDescription = post.excerpt ? optimizeExcerptToMetaDescription(post.excerpt) : undefined;
   const postImageMetadata = [`${siteMetadata.siteUrl}/images/${post.coverImage}`];
 
   const postMetadata = buildMetadata({
     title: post.title,
     description: metaDescription,
     openGraph: {
+      type: 'article',
       images: postImageMetadata,
+      section: 'Technology',
+      tags: post.tags,
+      publishedTime: new Date(post.date).toISOString(),
     },
     twitter: {
       images: postImageMetadata,

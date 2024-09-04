@@ -29,7 +29,7 @@ export const shuffleArray = <T>(array: T[]): T[] => {
   return array;
 };
 
-export const optimizeExerptToMetaDescription = (excerpt: string, maxLength = 160) => {
+export const optimizeExcerptToMetaDescription = (excerpt: string, maxLength = 160) => {
   if (excerpt.length <= maxLength) {
     return excerpt; // Return the input string if it's already within the maximum length
   }

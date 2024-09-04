@@ -28,6 +28,7 @@ export const metadata: Metadata = buildMetadata({
     canonical: './'
   },
   openGraph: {
+    type: 'website',
     images: [`${siteMetadata.siteUrl}/images/product/explore-dark.png`],
   },
   twitter: {

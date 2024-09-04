@@ -8,7 +8,7 @@ import { DocumentationLayout } from '@/components/layout/documentation';
 import { ROOT_DOCS_DIRECTORY, getAllDocsMeta, getDocBySlug } from '@/lib/mdx/docs';
 import { findFile } from '@/lib/mdx/utils/find-file';
 import { getHeadingLinks } from '@/lib/mdx/utils/get-heading-links';
-import { optimizeExerptToMetaDescription } from '@/lib/utils';
+import { optimizeExcerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 type DocPageProps = {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
   const realSlug = slug[slug.length - 1];
   const doc = await getDocBySlug(realSlug);
 
-  const metaDescription = doc.excerpt ? optimizeExerptToMetaDescription(doc.excerpt) : undefined;
+  const metaDescription = doc.excerpt ? optimizeExcerptToMetaDescription(doc.excerpt) : undefined;
 
   const doctMetadata = buildMetadata({
     title: doc.title,
