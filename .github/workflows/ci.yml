@@ -46,9 +46,7 @@ jobs:
 
   check-blog-changes:
     name: Check for new blog posts to announce
-    if: false
-      # TODO: Put back to `github.event_name == 'push' && github.ref == 'refs/heads/main'` after
-      # the big site switchover is done, with some careful testing
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     outputs:
@@ -183,7 +181,7 @@ jobs:
 
           URL="https://httptoolkit.com/blog/$SLUG/"
 
-          MARKDOWN=$(cat "src/posts/$SLUG.md")
+          MARKDOWN=$(cat "src/content/posts/$SLUG.mdx")
           FRONTMATTER=$(echo "$MARKDOWN" | sed -n '/^---$/,/^---$/p')
 
           # Get the title - stripping any surrounding quotes if required
@@ -195,6 +193,19 @@ jobs:
 
           # Get the post content, stripping out frontmatter:
           CONTENT=$(echo "$MARKDOWN" | sed '0,/^---$/d; 0,/^---$/d')
+
+          # Use awk to extract the first few paragraphs
+          EXCERPT=$(echo "$CONTENT" | awk -v RS='' -v ORS='\n\n' 'NR == 1, NR == 4 { print $0 }')
+
+          # Stop before any HTML:
+          EXCERPT=$(echo "$EXCERPT" | sed '/\s*<[^ ]\+.*/Q')
+          EXCERPT=$(echo "$EXCERPT" | sed '/\s*!\[\](.*/Q')
+
+          # Try to avoid the excerpt ending with a heading:
+          LAST_LINE=$(echo "$EXCERPT" | tail -n 1)
+          if [[ $LAST_LINE =~ ^\#\#.* ]]; then
+              EXCERPT=$(echo "$EXCERPT" | head -n -1)
+          fi
 
           API_ENDPOINT="https://http-toolkit.mailcoach.app/api/campaigns"
 
