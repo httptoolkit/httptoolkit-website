@@ -24,6 +24,9 @@ export const metadata: Metadata = buildMetadata({
   metadataBase: new URL(`${siteMetadata.siteUrl}`),
   title: siteMetadata.title,
   description: siteMetadata.description,
+  alternates: {
+    canonical: './'
+  },
   openGraph: {
     images: [`${siteMetadata.siteUrl}/images/product/explore-dark.png`],
   },

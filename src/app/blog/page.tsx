@@ -10,10 +10,7 @@ import { buildMetadata } from '@/lib/utils/build-metadata';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Read the HTTP Toolkit Blog',
-  description: 'Dig into HTTP in depth, hear about new HTTP Toolkit features & development, and explore a world of debugging & reverse engineering topics.',
-  alternates: {
-    canonical: `${siteMetadata.blogUrl}`,
-  },
+  description: 'Dig into HTTP in depth, hear about new HTTP Toolkit features & development, and explore a world of debugging & reverse engineering topics.'
 });
 
 export default async function Blog() {
