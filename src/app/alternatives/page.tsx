@@ -62,7 +62,7 @@ export default function AlternativesPage() {
                     </li>
                     <li>
                         <StyledAlternativeHeadingTag>
-                            <Link href="/chome-devtools-alternative/">
+                            <Link href="/chrome-devtools-alternative/">
                                 Chrome Devtools alternative
                             </Link>
                         </StyledAlternativeHeadingTag>
