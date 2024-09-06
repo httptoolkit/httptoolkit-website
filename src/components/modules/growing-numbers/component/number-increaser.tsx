@@ -20,19 +20,16 @@ export const NumberIncreaser = ({ maxValue, suffix }: NumberIncreaserProps) => {
     return <>{maxValue}</>;
   }
 
-  return (
-    <>
-      {/* {!suffix && maxValue < 10 && '0'} */}
-      <CountUp
-        scrollSpyOnce
-        scrollSpyDelay={250}
-        enableScrollSpy
-        duration={3}
-        start={1}
-        end={maxValue}
-        suffix={suffix}
-        easingFn={linearEasing}
-        />
-    </>
-  );
+  return <CountUp
+    scrollSpyOnce
+    scrollSpyDelay={250}
+    enableScrollSpy
+    duration={3}
+    start={1}
+    end={maxValue}
+    suffix={suffix}
+    easingFn={linearEasing}
+  >
+    {({ countUpRef }) => <span ref={countUpRef} />}
+  </CountUp>
 };
