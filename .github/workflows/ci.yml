@@ -226,7 +226,7 @@ jobs:
                 \"fields\": {
                     \"url\": \"$URL\",
                     \"title\": \"$TITLE\",
-                    \"content\": $(echo "$CONTENT" | jq -R -r -s @json)
+                    \"content\": $(echo "$EXCERPT" | jq -R -r -s @json)
                 }
               }" \
             | jq -r .data.uuid
