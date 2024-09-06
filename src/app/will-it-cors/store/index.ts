@@ -18,10 +18,8 @@ function isSafeContentType(contentType: string) {
 const UNSAFE_HEADER_BYTES = '"():<>?@[\\]{}'.split('');
 
 export class WillItCorsStore {
-  // The various props. They each start as undefined, become empty values (""/{}/[])
-  // when the question is ready, and then get updated with input.
-  sourceUrl = 'https://';
-  targetUrl = 'https://';
+  sourceUrl = '';
+  targetUrl = '';
   method = '';
 
   sendCredentials = false;

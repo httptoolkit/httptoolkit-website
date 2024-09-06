@@ -1,8 +1,4 @@
 {$DOMAIN:http://localhost} {
-    # Will-it-cors subpaths are SPA-only, fresh loads must go back to the start:
-    @will-it-cors-step path_regexp ^/will-it-cors/.+
-    redir @will-it-cors-step /will-it-cors/ 308
-
     # Redirect various old URL that have been now replaced:
     redir /toolkit / 308
     redir /toolkit/ / 308
