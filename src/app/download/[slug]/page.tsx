@@ -87,25 +87,26 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                 </Text>
               )}
 
-              <ContentCard
+              <StyledImageWrapper>
+                <ThemedImage
+                  withBorder
+                  alt="Get started with HTTP Toolkit"
+                  darkSrc="/images/product/explore-dark.png"
+                  lightSrc="/images/product/explore-light.png"
+                  loading="eager"
+                  width={662}
+                  height={450}
+                  sizes="(max-width: 600px) 50vw, 75vw"
+                />
+              </StyledImageWrapper>
+            </StyledColumnContent>
+
+            <ContentCard
                 title="Join the mailing list now, so you don't miss new features & releases"
                 text="There's a lot of new HTTP Toolkit features coming soon, like full scripting support, gRPC & GraphQL integration, and request diffing tools. Keep yourself up to date:"
                 $isNewsletter
                 action={NEWSLETTER_URLS.download}
               />
-            </StyledColumnContent>
-            <StyledImageWrapper>
-              <ThemedImage
-                withBorder
-                alt="Get started with HTTP Toolkit"
-                darkSrc="/images/product/explore-dark.png"
-                lightSrc="/images/product/explore-light.png"
-                loading="eager"
-                width={662}
-                height={450}
-                sizes="(max-width: 600px) 50vw, 75vw"
-              />
-            </StyledImageWrapper>
           </StyledDownloadaColumns>
         </Container>
       </StyledDownloadSection>

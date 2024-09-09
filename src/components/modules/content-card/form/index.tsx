@@ -26,7 +26,7 @@ export const ContentCardForm = ({ action }: Pick<ContentCardProps, 'action'>) =>
           <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
         </div>
         <Input id="email" placeholder="Email address" type="email" required />
-        <Button as="button" type="submit" $variant="secondary" $small>
+        <Button as="button" type="submit" $variant="primary" $small>
           Sign up
         </Button>
       </StyledContentCardForm>

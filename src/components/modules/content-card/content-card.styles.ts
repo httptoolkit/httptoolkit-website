@@ -42,6 +42,7 @@ export const StyledContentCardForm = styled.form`
 
   @media (min-width: ${({ theme }) => theme.screens['lg']}) {
     flex-direction: row;
+    align-items: center;
   }
 
   & button {
