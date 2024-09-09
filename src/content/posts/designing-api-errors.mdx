@@ -1,0 +1,125 @@
+---
+title: "Designing API Errors"
+date: '2024-09-09T15:30'
+cover_image: 'header-images/wrong-way.jpg'
+author: Phil Sturgeon
+authorUrl: https://philsturgeon.com/
+tags: apis, standards, errors
+---
+
+When everything goes smoothly with an API, life is pretty straightforward: you request a resource, and voilà, you get it. You trigger a procedure, and the API politely informs you it’s all gone to plan. But what happens when something goes pear-shaped? Well, that’s where things can get a bit tricky.
+
+## HTTP Status Codes
+
+HTTP status codes are like a first aid kit: they’re handy, but they won’t fix everything. They give you a broad idea of what’s gone wrong, which can help plenty of tools and developers make reasonable assumptions, like:
+
+- **400 Bad Request:** Report error to developers, something is broken.
+- **401 Unauthorized:** Might need to refresh a token, don't try again until you have.
+- **404 Not Found:** If accepting user input to lookup a resource then this isn't a problem, so don't worry about it. Just tell the user the thing they're looking for isn't there.
+- **405 Method Not Allowed:** Ahhhh panic, the API has changed or the client was built wrong.
+- **429 Too Many Requests:** Do not retry this request until after the rate limit is over or you'll DDoS the server and get banned.
+- **501 Not Implemented:** Oh heck you've gone live relying on an endpoint which isn't ready in production, alert everyone.
+- **504 Gateway Timeout:** Probably retry that one straight away as it's likely a network blip.
+
+HTTP status codes can convey a lot of assumptions, but they cannot possibly cover all situations, so it's important to add something for the human developers to see what's wrong.
+
+## Written Description of the Problem
+
+Let’s say you’re building a carpooling app and you need to plan a trip between two places to find more riders. If the coordinates you provide are too close together, the API might respond with something like:
+
+```http
+HTTP/1.1 400 Bad Request
+{
+  "error": "Too close for a carpool to be organized, suggest get out and walk."
+}
+```
+
+This is a 400 Bad Request, but that's a pretty common error and a little more information needs to be conveyed, so a string has been added explaining the problem.
+
+Next a user tries to plan a road trip from London to Iceland, which is logistically problematic. The API might come back with:
+
+```http
+HTTP/1.1 400 Bad Request
+{
+  "error": "Invalid geopoints for possible trip."
+}
+```
+
+Here is another 400, and a very different problem. This human message could be passed on to the user so they can figure out what to do next, but the application will not be able to determine the difference between these two errors programmatically, so cannot update the interface differently for either problem.
+
+You could try and find another status code, and people get pretty deep in the weeds trying to find specific codes for every situation ever, but that generally leads to bending conventions beyond their purpose. People do weird things like throwing a "417 Expectation Failed" for something because the client's expectation could not be met... when that code is explicitly tied to the `Expect` header, something you'll likely never use in your API.
+
+If we think of HTTP status codes like exceptions in your programming language of choice, if all you saw was `Exception` with no other information, you'd have no clue what is going wrong. Status codes provide a category of error `RuntimeError`, `TypeError`, `ArgumentCountError`, and the error description is like the string passed to an exception: `RuntimeError("This particular problem occurred.")`.
+
+This is better, but does not help applications programmatically differentiate between two different types of problem with the same status code, without doing something horrible like substring matching on text which might change.
+
+## Helping Machines with Error Codes
+
+Forcing developers to match human-readable strings for different errors is no good, we also need to help "the machines" know specifically what is going on, so they can work out if they should trigger different interfaces, modals, retry, back-off, report the problem, or do something else.
+
+```json
+{
+    "error": {
+        "type": "missing_api_version",
+        "message": "Missing the x-monite-version HTTP header"
+    }
+}
+```
+
+Here is an example of an error in the [Monite API](https://docs.monite.com/api/concepts/overview), where they've turned the error into an object, moved the string into `message`, and added `type` which is a unique name for various different types of application-specific problem which could happen.
+
+Now programmers can do `if (error.type === 'missing_api_version')` instead of matching keywords in sentences which might change, which is a huge step forwards.
+
+## Complete Error Objects
+
+A type and a message are a great start, and if that's how far you get then fine, but there's more you can do to turn errors into a handy feature instead of just a red flag.
+
+Here's the full list of what an API error should include:
+
+- **HTTP Status Code**: Indicating the general category of the error (4xx for client errors, 5xx for server errors).
+- **Short Summary**: A brief, human-readable summary of the issue (e.g., "Cannot checkout with an empty shopping cart").
+- **Detailed Message**: A more detailed description that offers additional context (e.g., "It looks like you have tried to check out but there is nothing in your cart").
+- **Application-Specific Error Code**: A unique code that helps developers programmatically handle the error (e.g., `ERRCARTEMPTY`).
+- **Links to Documentation**: Providing a URL where users or developers can find more information or troubleshooting steps.
+
+You can build your own custom format for this, but why bother when there's an excellent standard in play already: [RFC 9457 - Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html) (replacing RFC 7807 which is basically the same.)
+
+```json
+{
+  "type": "https://signatureapi.com/docs/v1/errors/invalid-api-key",
+  "title": "Invalid API Key",
+  "status": 401,
+  "detail": "Please provide a valid API key in the X-Api-Key header."
+}
+```
+
+This example of an error from the [Signature API](https://signatureapi.com/docs/errors) includes a `type`, which is basically the same as an application-specific error code, but instead of an arbitrary string like `invalid-api-key` the standard suggests a URI which is unique to your API (or ecosystem): `https://signatureapi.com/docs/v1/errors/invalid-api-key`. This does not have to resolve to anything (doesn't need to go anywhere if someone loads it up) but it _can_, and that covers the "link to documentation" requirement too.
+
+Why have both a `title` and a `description`? This allows the error to be used in a web interface, where certain errors are caught and handled internally, but other errors are passed on to the user to help errors be considered as functionality instead of just "Something went wrong, erm, maybe try again or phone us". This can reduce incoming support requests, and allow applications to evolve better when handling unknown problems before the interface can be updated.
+
+Here's a more complete usage including some optional bits of the standard and some extensions.
+
+```json
+HTTP/1.1 403 Forbidden
+Content-Type: application/problem+json
+{
+ "type": "https://example.com/probs/out-of-credit",
+ "title": "You do not have enough credit.",
+ "detail": "Your current balance is 30, but that costs 50.",
+ "instance": "/account/12345/msgs/abc",
+ "balance": 30,
+ "accounts": ["/account/12345", "/account/67890"]
+}
+```
+
+This example shows the same `type`, `title`, and `detail`, but has extra bits.
+
+The `instance` field allows you to point to a specific resource (or endpoint) which the error is relating to. Again URI could resolve (it's a relative path to the API), or it could just be something that does not necessarily exist on the API but makes sense to the API, allowing clients to report a specific instance of a problem back to you with more information that "it didn't work...?".
+
+The `balance` and `account` fields are not described by the specification, they are "extensions", which can be extra data which helps the client application report the problem back to the user. This is extra helpful if they would rather use the variables to produce their own error messages instead of directly inserting the strings from `title` and `details`, opening up more options for customization and internationalization.
+
+## Summary
+
+Handling errors in API design is about more than just choosing the right HTTP status code. It’s about providing clear, actionable information that both developers, applications, and end-users of those applications can understand and act upon.
+
+By adopting standard error formats and thinking carefully about how errors are communicated, you can make life easier for everyone who interacts with your API—whether they’re human or machine.
