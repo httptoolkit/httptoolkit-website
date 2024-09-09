@@ -67,8 +67,7 @@ export default function WebPurchaseThankYouPage() {
                     <ContentCard
                       title="Join the mailing list now, so you don't miss new features & releases"
                       text="There's a lot of new HTTP Toolkit features coming soon, like full scripting support, gRPC & GraphQL integration, and request diffing tools. Keep yourself up to date:"
-                      $isNewsletter
-                      action={NEWSLETTER_URLS.download}
+                      newsletter={{ action: NEWSLETTER_URLS.default, source: 'web-purchase-thank-you' }}
                     />
                   </Stack>
                 </StyledTextContent>

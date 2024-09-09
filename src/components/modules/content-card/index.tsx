@@ -1,13 +1,13 @@
 import { StyledContentCardContent, StyledContentCardTitle, StyledContentCardWrapper } from './content-card.styles';
 import type { ContentCardProps } from './content-card.types';
-import { ContentCardForm } from './form';
+import { NewsletterForm } from './form';
 
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
 
-export const ContentCard = ({ title, text, button, action, $isNewsletter }: ContentCardProps) => {
+export const ContentCard = ({ title, text, button, newsletter }: ContentCardProps) => {
   return (
-    <StyledContentCardWrapper $isNewsletter={$isNewsletter}>
+    <StyledContentCardWrapper $isNewsletter={!!newsletter}>
       <StyledContentCardContent>
         <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white" textAlign="left">
           {title}
@@ -18,7 +18,7 @@ export const ContentCard = ({ title, text, button, action, $isNewsletter }: Cont
           </Text>
         )}
       </StyledContentCardContent>
-      {$isNewsletter && <ContentCardForm action={action} />}
+      {!!newsletter && <NewsletterForm action={newsletter.action} source={newsletter.source} />}
       {button?.href && (
         <Button as="link" target="_blank" $variant="secondary" {...button}>
           {button.children}
