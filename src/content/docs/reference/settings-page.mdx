@@ -132,10 +132,30 @@ Note that client certificates are necessarily stored unencrypted in HTTP Toolkit
 
 ![The themes card](./theme-settings.png)
 
-The theme settings card allows you to change the app theme.
+The theme settings card allows you to change the app theme. By default the app switches between light & dark themes to match your system, but you can also switch them manually here, use the high contrast theme, or upload your own custom themes.
 
-Select one of the three themes on the left to immediately change the whole app's theme.
+Select one of the themes on the left to immediately change the whole app's theme. All colours used in the theme are shown on the right, along with an editor containing some example HTML (actually the contents of the default intercepted [amiusing.httptoolkit.tech](https://amiusing.httptoolkit.tech) page!), so you can see it all live.
 
-All colours used in the theme are shown on the right, along with an editor containing some example HTML (actually the contents of the default intercepted [amiusing.httptoolkit.tech](https://amiusing.httptoolkit.tech) page!), so you can see it all live.
+To use a custom theme, click the 'Custom' option and then select a theme file. Custom themes are JSON files with an `.htk-theme` extension, containing:
+
+* A `name` string field
+* An `extends` field, containing the name of an existing theme (`light`, `dark`, or `high-contrast`)
+* Any subset of the theme fields to override (see the `lightTheme` etc constants in [styles.ts](https://github.com/httptoolkit/httptoolkit-ui/blob/main/src/styles.ts) to check out the default theme values)
+
+As an example, here's an alternative dark blue custom theme:
+
+```json
+{
+    "name": "DarkBlue",
+    "extends": "dark",
+    "mainBackground": "#161630",
+    "mainLowlightBackground": "#1e1e42",
+    "inputBackground": "#1e1e38",
+    "inputHoverBackground": "#20203d",
+    "inputBorder": "#27274a",
+    "highlightBackground": "#171b30",
+    "containerBackground": "#2f2f45"
+}
+```
 
 **Any questions? [Get in touch](/contact/)**

@@ -147,6 +147,11 @@ export const planFeatures: PricingComparisonProps['features'] = [
         title: 'Add your own custom OpenAPI specs',
         tooltip: 'Add your own OpenAPI specs, to validate traffic against your API contract and show dynamic documentation alongside each request',
         checked: ['pro', 'team'],
+      },
+      {
+        title: 'Choose your own custom UI theme',
+        tooltip: 'Switch between themes independent of your system settings, or load your own totally custom UI theme to override everything',
+        checked: ['pro', 'team']
       }
     ]
   },
