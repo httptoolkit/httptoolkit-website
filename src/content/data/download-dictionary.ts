@@ -63,10 +63,26 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
     },
     {
       os: 'linux',
+      slug: 'linux-rpm',
+      href: '/download/linux-rpm',
+      text: 'Linux Fedora Package',
+      defaultText: 'Linux',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.rpm`,
+    },
+    {
+      os: 'linux',
       slug: 'linux-aur',
       href: '/download/linux-aur',
       text: 'Linux Arch Package',
       downloadCommand: 'yay -S httptoolkit',
+    },
+    {
+      os: 'linux',
+      slug: 'linux-appimage',
+      href: '/download/linux-appimage',
+      text: 'Linux AppImage',
+      defaultText: 'Linux',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.AppImage`,
     },
     {
       os: 'linux',
