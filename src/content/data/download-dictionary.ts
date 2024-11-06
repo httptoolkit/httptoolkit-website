@@ -57,9 +57,17 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       os: 'linux',
       slug: 'linux-deb',
       href: '/download/linux-deb',
-      text: 'Linux Debian Package',
+      text: 'Linux DEB Package',
       defaultText: 'Linux',
       releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.deb`,
+    },
+    {
+      os: 'linux',
+      slug: 'linux-rpm',
+      href: '/download/linux-rpm',
+      text: 'Linux RPM Package',
+      defaultText: 'Linux',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.rpm`,
     },
     {
       os: 'linux',
@@ -67,6 +75,14 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/linux-aur',
       text: 'Linux Arch Package',
       downloadCommand: 'yay -S httptoolkit',
+    },
+    {
+      os: 'linux',
+      slug: 'linux-appimage',
+      href: '/download/linux-appimage',
+      text: 'Linux AppImage',
+      defaultText: 'Linux',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.AppImage`,
     },
     {
       os: 'linux',
