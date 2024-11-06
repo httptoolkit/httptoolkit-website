@@ -29,7 +29,6 @@ export const StyledContainer = styled(Container)`
 
     @media (min-width: ${screens.lg}) {
       flex-direction: row;
-      gap: 128px;
     }
   }
 `;
