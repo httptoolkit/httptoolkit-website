@@ -2,7 +2,6 @@
 
 import { observer } from 'mobx-react-lite';
 import { useCallback, useState } from 'react';
-import { Interval } from '@httptoolkit/accounts';
 
 import { PricingCard } from './components/card';
 import { LoginInfo } from './components/login-info';
@@ -21,7 +20,7 @@ import type { PlanId, StyledPricingPlansProps } from './plans.types';
 
 import { Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-import { accountStore } from '@/lib/store/account-store';
+import { accountStore, Interval } from '@/lib/store/account-store';
 
 const LoadingPrice = () => {
   return (

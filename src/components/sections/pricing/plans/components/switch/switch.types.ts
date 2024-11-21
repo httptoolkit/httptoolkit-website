@@ -1,4 +1,4 @@
-import { Interval } from "@httptoolkit/accounts";
+import { Interval } from "@/lib/store/account-store";
 
 interface Option {
   text: string;

@@ -9,7 +9,7 @@ import { StyledPricingCardCTAWrapper } from '../components/card/card.styles';
 import { Button } from '@/components/elements/button';
 import { PaperPlaneTilt, Sparkle, Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-import type { AccountStore } from '@/lib/store/account-store';
+import type { AccountStore, Interval } from '@/lib/store/account-store';
 
 /**
  *  @param {React.ReactNode} downloadButton - DrowpdownButton is a server component, so we need to provide it as a children because we cannot import directly in client component
@@ -17,7 +17,7 @@ import type { AccountStore } from '@/lib/store/account-store';
 export const usePlanCta = (downloadButton?: React.ReactNode) => {
   const posthog = usePostHog();
 
-  return useCallback((tierCode: string, account: AccountStore, waitingForPurchase: boolean, planCycle: string) => {
+  return useCallback((tierCode: string, account: AccountStore, waitingForPurchase: boolean, planCycle: Interval) => {
     const { paidTier, paidCycle } = account.subscription;
 
     if (waitingForPurchase) {
