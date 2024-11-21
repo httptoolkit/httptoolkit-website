@@ -1,4 +1,4 @@
-import type { HeadingGroup } from '@/lib/mdx/utils/extract-tittles';
+import type { HeadingGroup } from '@/lib/mdx/utils/extract-titles';
 
 export interface TableContentSubitem {
   text: string;

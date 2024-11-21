@@ -15,7 +15,9 @@ export function getHeadings(source: string): HeadingGroup[] {
 
   return headingLines.map(raw => {
     const text = raw.replace(/^###*\s/, '');
-    const level = raw.slice(0, 3) === '###' ? 3 : 2;
+    const level = (
+      raw.split('').findIndex(char => char !== '#') || 6
+    ) as HeadingGroup['level'];
 
     return { text, level };
   });

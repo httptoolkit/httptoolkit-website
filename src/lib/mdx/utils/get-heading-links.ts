@@ -1,6 +1,6 @@
 import { join } from 'path';
 
-import { extractHeadingsFromMDX } from './extract-tittles';
+import { extractHeadingsFromMDX } from './extract-titles';
 import { groupByLevel } from './group-by-level';
 import { formatLinks } from './groups-to-links';
 
