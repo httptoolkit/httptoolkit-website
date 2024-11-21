@@ -31,9 +31,13 @@ export const ContentWithTable = ({
       <Container>
         <StyledContentWithTableContentWrapper>
           <StyledContentWithTableTableWrapper>
-            {Array.isArray(links) && links?.length === 1 && links[0]?.subItems?.length === 0 ? null : (
-              <TableContent isCollapsible={false} links={links} />
-            )}
+            {
+              Array.isArray(links) &&
+              links?.length === 1 &&
+              links[0]?.subItems?.length === 0
+                ? null
+                : <TableContent isCollapsible={false} links={links} />
+            }
           </StyledContentWithTableTableWrapper>
 
           <StyledContentRichText>

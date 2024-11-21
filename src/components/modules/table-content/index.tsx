@@ -72,16 +72,25 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
       />
     ));
 
-  if (!isCollapsible) return <StyledTableContentWrapper data-match-scroll>{content}</StyledTableContentWrapper>;
+  if (!isCollapsible) {
+    return <StyledTableContentWrapper data-match-scroll>{content}</StyledTableContentWrapper>;
+  }
 
-  const defaultOpenItem = links.find(item => {
-    return item.subItems?.some(subItem => getPathWithoutHash(subItem.href) === currentPath);
-  });
+  const defaultOpenItem = links.find(item =>
+    item.subItems?.some(subItem =>
+      getPathWithoutHash(subItem.href) === currentPath
+    )
+  );
 
   return (
     <StyledTableContentWrapper>
-      <Accordion.Root asChild type="single" defaultValue={defaultOpenItem?.text || links[0].text} collapsible>
-        <>{content}</>
+      <Accordion.Root
+        asChild
+        type="single"
+        defaultValue={defaultOpenItem?.text || links[0].text}
+        collapsible
+      >
+        <>{ content }</>
       </Accordion.Root>
     </StyledTableContentWrapper>
   );

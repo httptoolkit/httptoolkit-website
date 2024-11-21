@@ -14,6 +14,10 @@ export const StyledNavigationSidebarLinksWrapper = styled.div`
   position: sticky;
   top: 10px;
   align-self: self-start;
+
+  @media (max-width: ${({ theme }) => theme.screens['xl']}) {
+    display: none;
+  }
 `;
 
 export const StyledNavigationSidebarLinksTitle = styled(Heading)``;

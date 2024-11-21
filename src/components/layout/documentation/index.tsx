@@ -41,7 +41,10 @@ export async function DocumentationLayout({ title, children, links }: Component<
           {children}
         </StyledDocumentationLayoutContentWrapper>
         <StyledDocumentationLayoutNavigationWrapper>
-          {links?.length ? <NavigationSidebarLinks title="On this page" links={links} /> : null}
+          {links?.length
+            ? <NavigationSidebarLinks title="On this page" links={links} />
+            : null
+          }
         </StyledDocumentationLayoutNavigationWrapper>
       </StyledDocumentationLayoutWrapper>
     </StyledDocumentationGlobalWrapper>

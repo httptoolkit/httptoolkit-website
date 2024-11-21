@@ -51,20 +51,24 @@ export const StyledContentWithTableContentWrapper = styled.div`
     padding: 64px 0 32px 0;
     max-width: initial;
     gap: 45px;
-    grid-template-columns: 1fr ${({ theme }) => theme.screens.content} 1fr;
+    grid-template-columns: ${({ theme }) => theme.screens.content};
+  }
+
+  @media (min-width: ${({ theme }) => theme.screens.xl}) {
+  grid-template-columns: 1fr ${({ theme }) => theme.screens.content} 1fr;
   }
 `;
 
 export const StyledContentWithTableTableWrapper = styled.aside`
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
-    position: sticky;
-    top: 10px;
-  }
+  display: none;
 
-  @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
+  @media (min-width: ${({ theme }) => theme.screens.xl}) {
     display: flex;
     justify-content: center;
     align-self: flex-start;
+
+    position: sticky;
+    top: 16px;
 
     & > div {
       max-width: 296px;

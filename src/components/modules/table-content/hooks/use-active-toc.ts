@@ -7,7 +7,32 @@ const getHeadings = () =>
 
 function useActiveToc() {
   useEffect(() => {
-    const setCurrent: IntersectionObserverCallback = entries => {
+    const isBigScreen = matchMedia(`(min-width: ${screens.xl})`);
+
+    const updateActiveHeading = (
+      container: HTMLElement,
+      headingElem: HTMLElement
+    ) => {
+      // Remove active class from all toc items
+      container.querySelectorAll('a')
+        .forEach(e => e.classList.remove('active'));
+
+      // Add active to the correct toc
+      headingElem.classList.add('active');
+
+      if (isBigScreen.matches) {
+        const elementTop = headingElem.offsetTop;
+        const containerHeight = container.clientHeight;
+        const scrollOffset = elementTop - (containerHeight / 2);
+
+        container.scroll({
+          top: scrollOffset,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    const updateFromIntersection: IntersectionObserverCallback = entries => {
       const scrollContainer = document
         .querySelector('#table-of-content-headings')
         ?.parentElement;
@@ -15,39 +40,20 @@ function useActiveToc() {
 
       for (const entry of entries) {
         const { id } = entry.target as HTMLElement;
-        const isMobile = matchMedia(`(max-width: ${screens.lg})`);
-
         const tocHeadingEl = scrollContainer.querySelector<HTMLElement>(`a[href="#${id}"]`);
-        if (!tocHeadingEl) return;
 
-        if (entry.isIntersecting) {
-          // Remove active class from all toc items
-          scrollContainer.querySelectorAll('a')
-            .forEach(e => e.classList.remove('active'));
-
-          // Add active to the correct toc
-          tocHeadingEl.classList.add('active');
-
-          if (!isMobile.matches) {
-            const elementTop = tocHeadingEl.offsetTop;
-            const containerHeight = scrollContainer.clientHeight;
-            const scrollOffset = elementTop - (containerHeight / 2);
-
-            scrollContainer.scroll({
-              top: scrollOffset,
-              behavior: 'smooth'
-            });
-          }
+        if (tocHeadingEl && entry.isIntersecting) {
+          updateActiveHeading(scrollContainer, tocHeadingEl);
         }
       }
     };
 
     const observerOptions: IntersectionObserverInit = {
-      rootMargin: '0px 0px -66%',
+      rootMargin: '0px 0px -50%',
       threshold: 1,
     };
 
-    const headingObserver = new IntersectionObserver(setCurrent, observerOptions);
+    const headingObserver = new IntersectionObserver(updateFromIntersection, observerOptions);
 
     getHeadings().forEach(heading => headingObserver.observe(heading));
 
