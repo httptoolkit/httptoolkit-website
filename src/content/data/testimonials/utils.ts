@@ -99,5 +99,6 @@ export const HIGHLIGHT_STRINGS = [
   'I have found httptoolkit.com to be amazing',
   'HTTP Toolkit is amazing',
   'just click and inspect network traffic',
-  'I cannot imagine tackling any future http-related problem without it'
+  'I cannot imagine tackling any future http-related problem without it',
+  'an ideal tool for anyone looking to gain deeper insights into their web traffic'
 ];
