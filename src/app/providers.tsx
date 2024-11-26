@@ -10,6 +10,7 @@ if (typeof window !== 'undefined') {
     persistence: 'memory', // No cookies/local storage please
     advanced_disable_decide: true, // We don't need dynamic features, skip checking
     disable_session_recording: true, // Disabled server-side, but disable explicitly here too
+    person_profiles: 'identified_only' // Use anonymous events - no user profiles
   });
 }
 

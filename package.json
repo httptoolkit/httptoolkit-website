@@ -43,7 +43,7 @@
     "next-mdx-remote": "^4.4.1",
     "next-sitemap": "^4.2.3",
     "next-themes": "^0.2.1",
-    "posthog-js": "^1.57.2",
+    "posthog-js": "^1.188.1",
     "prismjs": "^1.27.0",
     "react": "^18.2.0",
     "react-countup": "^6.5.0",
