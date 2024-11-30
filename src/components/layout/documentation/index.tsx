@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyledDocumentationGlobalWrapper,
   StyledDocumentationLayoutContentWrapper,
@@ -17,6 +18,14 @@ import { TableContent } from '@/components/modules/table-content';
 import { getAllDocsMeta } from '@/lib/mdx/docs';
 import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
 import { getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+    }
+  }
+}
 
 export async function DocumentationLayout({ title, children, links }: Component<DocumentationLayoutProps>) {
   const docsMeta = await getAllDocsMeta();

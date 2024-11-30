@@ -1,11 +1,17 @@
-'use client';
+"use client";
 
-import { Container } from '@/components/elements/container';
-import { screens, styled } from '@/styles';
+import { Container } from "@/components/elements/container";
+import { screens, styled } from "@/styles";
+import type { DefaultTheme } from "styled-components";
 
-export const StyledHeader = styled.header`
+interface ThemeProps {
+  theme: DefaultTheme;
+}
+
+export const StyledHeader = styled.header<ThemeProps>`
   position: relative;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
+  border-bottom: 1px solid
+    ${({ theme }: ThemeProps) => theme.colors.button.border};
 `;
 
 export const StyledLogoWrapper = styled.div`
@@ -29,19 +35,19 @@ export const StyledHeaderContainer = styled(Container)`
   }
 `;
 
-export const StyledNavItems = styled.nav`
+export const StyledNavItems = styled.nav<ThemeProps>`
   display: inline-flex;
   align-items: center;
   gap: 48px;
 
-  @media (min-width: ${screens['lg']}) {
+  @media (min-width: ${screens["lg"]}) {
     display: flex;
   }
 
   & a:focus {
     span {
       transition: color ease-in 200ms;
-      color: ${({ theme }) => theme.colors.cinnarbarRed};
+      color: ${({ theme }: ThemeProps) => theme.colors.cinnarbarRed};
     }
   }
 
@@ -49,7 +55,7 @@ export const StyledNavItems = styled.nav`
     & a:hover {
       span {
         transition: color ease-in 200ms;
-        color: ${({ theme }) => theme.colors.cinnarbarRed};
+        color: ${({ theme }: ThemeProps) => theme.colors.cinnarbarRed};
       }
     }
   }
@@ -61,7 +67,7 @@ export const StyledNavigation = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: ${screens['lg']}) {
+  @media (min-width: ${screens["lg"]}) {
     display: flex;
   }
 `;

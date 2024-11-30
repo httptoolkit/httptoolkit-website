@@ -1,12 +1,17 @@
-'use client';
+"use client";
 
-import { Container } from '@/components/elements/container';
-import { screens, styled } from '@/styles';
+import { Container } from "@/components/elements/container";
+import { screens, styled } from "@/styles";
+import { DefaultTheme } from 'styled-components';
+
+interface ThemeProps {
+  theme: DefaultTheme;
+}
 
 export const StyledFooter = styled.footer`
   margin-top: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${({ theme }: ThemeProps) => theme.screens.lg}) {
     margin-top: 96px;
   }
 `;
@@ -67,7 +72,7 @@ export const StyledColumn = styled.div`
       gap: 50px;
     }
 
-    @media (min-width: ${screens['2xl']}) {
+    @media (min-width: ${screens["2xl"]}) {
       grid-template-columns: repeat(4, 1fr);
       gap: 91px;
     }
@@ -112,54 +117,74 @@ export const StyledColumn = styled.div`
   }
 `;
 
-export const StyledMenuWrapper = styled.div<{ $displayOnMobile: boolean; $displayOnDesktop: boolean; $gapxl?: string }>`
+interface MenuWrapperProps {
+  $displayOnMobile: boolean;
+  $displayOnDesktop: boolean;
+  $gapxl?: string;
+  theme?: DefaultTheme;
+}
+
+export const StyledMenuWrapper = styled.div<MenuWrapperProps>`
   flex-direction: column;
   gap: 22px;
 
   @media (max-width: ${screens.lg}) {
-    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+    display: ${({ $displayOnMobile }: MenuWrapperProps) => ($displayOnMobile ? "flex" : "none")};
   }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
-    gap: ${props => props.$gapxl || '21px'};
+    display: ${({ $displayOnDesktop }: MenuWrapperProps) =>
+      $displayOnDesktop ? "flex" : "none"};
+    gap: ${({ $gapxl }: MenuWrapperProps) => $gapxl || "21px"};
   }
 `;
 
-export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOnDesktop: boolean }>`
+interface MenuItemsProps {
+  $displayOnMobile: boolean;
+  $displayOnDesktop: boolean;
+  theme?: DefaultTheme;
+}
+
+export const StyledMenuItems = styled.ul<MenuItemsProps>`
   flex-direction: column;
   gap: 16px;
 
   @media (max-width: ${screens.lg}) {
-    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+    display: ${({ $displayOnMobile }: MenuItemsProps) => ($displayOnMobile ? "flex" : "none")};
   }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
+    display: ${({ $displayOnDesktop }: MenuItemsProps) =>
+      $displayOnDesktop ? "flex" : "none"};
     gap: 24px;
   }
 
   @media (min-width: ${screens.md}) {
     & a:focus {
       transition: color ease-in 200ms;
-      color: ${({ theme }) => theme.colors.cinnarbarRed};
+      color: ${({ theme }: ThemeProps) => theme.colors.cinnarbarRed};
     }
 
     @media (hover: hover) {
       & a:hover {
         transition: color ease-in 200ms;
-        color: ${({ theme }) => theme.colors.cinnarbarRed};
+        color: ${({ theme }: ThemeProps) => theme.colors.cinnarbarRed};
       }
     }
   }
 `;
 
-export const StyledSeparator = styled.hr<{ $isSimple?: boolean }>`
-  border-color: ${({ theme }) => theme.colors.darkGrey};
-  margin: ${({ $isSimple }) => ($isSimple ? '16px 0' : '24px 0')};
+interface SeparatorProps {
+  $isSimple?: boolean;
+  theme?: DefaultTheme;
+}
+
+export const StyledSeparator = styled.hr<SeparatorProps>`
+  border-color: ${({ theme }: ThemeProps) => theme.colors.darkGrey};
+  margin: ${({ $isSimple }: SeparatorProps) => ($isSimple ? "16px 0" : "24px 0")};
 
   @media (min-width: ${screens.xl}) {
-    margin: ${({ $isSimple }) => ($isSimple ? '32px 0' : '48px 0')};
+    margin: ${({ $isSimple }: SeparatorProps) => ($isSimple ? "32px 0" : "48px 0")};
   }
 `;
 
@@ -181,7 +206,7 @@ export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
     gap: 32px;
     position: relative;
 
-    & svg[data-logo='true'] {
+    & svg[data-logo="true"] {
       width: fit-content;
       height: 26px;
     }
