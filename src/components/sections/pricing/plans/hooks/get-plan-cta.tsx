@@ -17,13 +17,8 @@ import type { AccountStore, Interval } from '@/lib/store/account-store';
 export const usePlanCta = (downloadButton?: React.ReactNode) => {
   const posthog = usePostHog();
 
-  return useCallback((tierCode: string, account: AccountStore, waitingForPurchase: boolean, planCycle: Interval) => {
+  return useCallback((tierCode: string, account: AccountStore, planCycle: Interval) => {
     const { paidTier, paidCycle } = account.subscription;
-
-    if (waitingForPurchase) {
-      return <Button $isFluid icon={Spinner}></Button>;
-    }
-
     if (tierCode === 'free') {
       return <>{downloadButton}</>;
     }

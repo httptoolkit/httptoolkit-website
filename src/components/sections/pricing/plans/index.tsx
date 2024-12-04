@@ -21,6 +21,7 @@ import type { PlanId, StyledPricingPlansProps } from './plans.types';
 import { Spinner } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
 import { accountStore, Interval } from '@/lib/store/account-store';
+import { LoginModal } from '@/components/modules/login-modal';
 
 const LoadingPrice = () => {
   return (
@@ -40,7 +41,11 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
 
   const isAnnual = planCycle === 'annual';
   const filteredPlans = $hideFree ? plans.filter(plan => plan.id !== 'free') : plans;
-  const { isLoggedIn, user, waitingForPurchase } = accountStore;
+  const {
+    isLoggedIn,
+    user,
+    logOut
+  } = accountStore;
 
   const getPlanMonthlyPrice = useCallback(
     (planId: PlanId) => {
@@ -93,12 +98,16 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
                 price={getPlanMonthlyPrice(card.id)}
                 {...card}
               >
-                {getPlanCTA(card.id, accountStore, waitingForPurchase, planCycle)}
+                {getPlanCTA(card.id, accountStore, planCycle)}
               </PricingCard>
             ))}
         </StyledPricingPlansCardsWrapper>
         <StyledPricingPlansLoginInfoWrapper>
-          <LoginInfo isLoggedIn={isLoggedIn} email={(user as any).email} />
+          <LoginInfo
+            isLoggedIn={isLoggedIn}
+            logOut={logOut}
+            email={(user as any).email}
+          />
         </StyledPricingPlansLoginInfoWrapper>
       </StyledPricingPlansWrapper>
     </>

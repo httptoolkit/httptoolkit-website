@@ -8,10 +8,12 @@ import { CaretRight } from '@/components/elements/icon';
 import { Layout } from '@/components/layout';
 import { PricingComparison } from '@/components/sections/pricing/comparison';
 import { TextWithAccordion } from '@/components/sections/text-with-accordion';
+import { LoginModal } from '@/components/modules/login-modal';
 
 export default function PricingLayout({ children }: { children: React.ReactNode }) {
   return (
     <Layout>
+      <LoginModal />
       <Suspense>{children}</Suspense>
       <PricingComparison
         title="Features"

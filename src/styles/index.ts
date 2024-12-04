@@ -113,6 +113,7 @@ export const theme = {
       s: '0.875rem', // 14px / 16px = 0.875
     },
     button: {
+      large: '1.5rem',
       default: '1.125rem', // 18px / 16px = 1.125.5rem
       small: '1rem', // 16px / 16px = 1rem
     },

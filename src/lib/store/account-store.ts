@@ -1,16 +1,13 @@
 import {
-    showLoginDialog,
     getLastUserData,
     getLatestUserData,
-    loginEvents,
     goToCheckout,
-    prefetchCheckout,
-    initializeAuthUi,
     loadPlanPricesUntilSuccess,
     SubscriptionPlans,
     TierCode,
     PricedSKU,
-    User
+    User,
+    logOut
 } from '@httptoolkit/accounts';
 
 import { PostHog } from 'posthog-js';
@@ -19,7 +16,8 @@ import {
     observable,
     computed,
     flow,
-    action
+    action,
+    when
 } from 'mobx';
 
 import { isSSR } from '../utils';
@@ -28,9 +26,9 @@ import { isSSR } from '../utils';
 export type Interval = "monthly" | "annual";
 
 export class AccountStore {
+
     subscriptionPlans: SubscriptionPlans | null = null;
-    modal: 'login' | null = null;
-    waitingForPurchase: boolean = false;
+    loginModalVisible: boolean = false;
     user: User = !isSSR
         ? getLastUserData()
         : { featureFlags: [], banned: false };
@@ -38,8 +36,7 @@ export class AccountStore {
     constructor() {
         makeObservable(this, {
             subscriptionPlans: observable,
-            modal: observable,
-            waitingForPurchase: observable,
+            loginModalVisible: observable,
             user: observable,
             isLoggedIn: computed,
             isPaidUser: computed,
@@ -47,26 +44,16 @@ export class AccountStore {
         });
 
         if (!isSSR) {
-            initializeAuthUi({
-                refreshToken: false,
-            });
-
             loadPlanPricesUntilSuccess()
                 .then(action((prices: SubscriptionPlans) => {
                     this.subscriptionPlans = prices;
                 }));
         }
 
-        loginEvents.on('authenticated', async () => {
-            await this.updateUser();
-            loginEvents.emit('user_data_loaded');
-        });
-
         if (!isSSR) {
             this.updateUser();
             setInterval(this.updateUser, 1000 * 60 * 10);
         }
-        loginEvents.on('logout', this.updateUser);
     }
 
     getPlanMonthlyPrice(tierCode: TierCode, planCycle: Interval): string | null {
@@ -135,9 +122,24 @@ export class AccountStore {
 
     login = flow(function* (this: AccountStore) {
         if (!this.isLoggedIn) {
-            this.modal = 'login';
-            yield showLoginDialog();
-            this.modal = null;
+            this.loginModalVisible = true;
+            yield when(() => this.loginModalVisible === false);
+        }
+    }).bind(this);
+
+    endLogin = flow(function* (this: AccountStore) {
+        this.loginModalVisible = false;
+    }).bind(this);
+
+    finalizeLogin = flow(function* (this: AccountStore) {
+        yield this.updateUser();
+        this.loginModalVisible = false;
+    }).bind(this);
+
+    logOut = flow(function* (this: AccountStore) {
+        if (this.isLoggedIn) {
+            yield logOut();
+            yield this.updateUser();
         }
     }).bind(this);
 
@@ -146,19 +148,9 @@ export class AccountStore {
             this.reportPurchaseEvent('Select plan', tierCode, planCycle, posthog);
             const sku = this.getSKU(tierCode, planCycle);
 
-            let loggingIn = true;
             if (!this.isLoggedIn) {
-                this.modal = 'login';
-
-                loginEvents.once('authenticated', async (authResult: { idTokenPayload?: { email?: string } }) => {
-                    const initialEmailResult = authResult?.idTokenPayload?.email;
-                    if (initialEmailResult && loggingIn) {
-                        prefetchCheckout(initialEmailResult, sku, 'web');
-                    }
-                });
-
                 this.reportPurchaseEvent('Login started', tierCode, planCycle, posthog);
-                yield showLoginDialog();
+                yield this.login();
                 if (this.isLoggedIn) {
                     this.reportPurchaseEvent('Login completed', tierCode, planCycle, posthog);
                 } else {
@@ -168,10 +160,7 @@ export class AccountStore {
                 this.reportPurchaseEvent('Already logged in', tierCode, planCycle, posthog);
             }
 
-            loggingIn = false;
-
             if (!this.isLoggedIn || this.isPaidUser) {
-                this.modal = null;
                 return;
             }
 
@@ -181,7 +170,6 @@ export class AccountStore {
             }
 
             this.reportPurchaseEvent('Checkout started', tierCode, planCycle, posthog);
-
             return goToCheckout(this.user.email!, sku, 'web');
         }.bind(this)
     );

@@ -17,7 +17,7 @@ export const HeadingPlan = observer(({ id, title, downloadButton }: HeadingPlanP
       <Heading as="h3" fontSize="xs" color="lightGrey" textAlign="center">
         {title}
       </Heading>
-      {getPlanCTA(id, accountStore, accountStore.waitingForPurchase, 'monthly')}
+      {getPlanCTA(id, accountStore, 'monthly')}
     </StyledHeadingPlanWrapper>
   );
 });

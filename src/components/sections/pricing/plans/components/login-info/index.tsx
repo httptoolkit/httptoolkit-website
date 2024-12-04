@@ -1,7 +1,5 @@
 'use client';
 
-import { logOut } from '@httptoolkit/accounts';
-
 import { StyledLoginInfoWrapper } from './login-info.styles';
 import type { LoginInfoProps } from './login-info.types';
 
@@ -9,7 +7,11 @@ import { Button } from '@/components/elements/button';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 
-export const LoginInfo = ({ isLoggedIn, email }: LoginInfoProps) => {
+export const LoginInfo = ({
+  isLoggedIn,
+  logOut,
+  email
+}: LoginInfoProps) => {
   if (!isLoggedIn) {
     return (
       <Text fontSize="m" textAlign="center" color="darkGrey">
