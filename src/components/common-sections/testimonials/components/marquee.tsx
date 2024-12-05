@@ -13,9 +13,13 @@ const Marquee = dynamic(() => import('react-fast-marquee').then(e => e.default),
 
 interface MarqueeWrapperProps {
   children: ReactNode;
+  columnsCount: number;
 }
 
-export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
+export const MarqueeWrapper = ({
+  children,
+  columnsCount
+}: MarqueeWrapperProps) => {
   const isMobile = useIsMobile();
   const [isRunning, setIsRunning] = useState(true);
 
@@ -29,7 +33,11 @@ export const MarqueeWrapper = ({ children }: MarqueeWrapperProps) => {
 
   return (
     <Marquee pauseOnHover={!isMobile} play={isRunning}>
-      <StyledTestimonialGrid onTouchStart={pause} onTouchEnd={play}>
+      <StyledTestimonialGrid
+        $columnsCount={columnsCount}
+        onTouchStart={pause}
+        onTouchEnd={play}
+      >
         {children}
       </StyledTestimonialGrid>
     </Marquee>

@@ -57,8 +57,10 @@ export const StyledAuthorDetails = styled.cite`
   }
 `;
 
-export const StyledTestimonialGrid = styled.div`
-  --grid-items: 36;
+export const StyledTestimonialGrid = styled.div<{
+  $columnsCount: number;
+}>`
+  --grid-items: ${({ $columnsCount }) => $columnsCount};
   display: grid;
   grid-template-columns: repeat(var(--grid-items), 343px);
   gap: 16px;
