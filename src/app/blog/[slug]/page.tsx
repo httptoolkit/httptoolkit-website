@@ -13,6 +13,7 @@ import { optimizeExcerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 import { Newsletter } from '@/components/modules/newsletter';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';
+import { EditOnGithub } from '@/components/elements/edit-on-github';
 
 type BlogPostPageProps = {
   params: { slug: string };
@@ -54,10 +55,13 @@ export async function generateStaticParams() {
   }));
 }
 
+const githubBlogUrl = 'https://github.com/httptoolkit/httptoolkit-website/blob/main/src/content/posts';
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
   const postNavigation = await getBlogTitlesBySlug(slug);
+  const editUrl = `${githubBlogUrl}/${slug}.mdx`;
 
   return (
     <>
@@ -69,9 +73,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         $bgVariant="darkGrey"
         links={[postNavigation]}
         parsedContent={post.content}
-        additionalContent={
+        additionalContent={<>
+          <EditOnGithub url={editUrl} />
           <SocialPostShare postTitle={post.title} postUrl={post.slug} socialLinks={post.socialLinks} />
-        }
+        </>}
       />
 
       <Container>

@@ -2,7 +2,10 @@
 
 import { styled } from '@/styles';
 
-export const EditOnGithub = styled.em`
+import { PencilSimple } from '@/components/elements/icon';
+import { Link } from '@/components/elements/link';
+
+const EditText = styled.em`
   margin-top: 20px;
   display: flex;
   align-items: center;
@@ -21,3 +24,10 @@ export const EditOnGithub = styled.em`
     }
   }
 `;
+
+export const EditOnGithub = (props: { url: string }) => <EditText>
+    <PencilSimple /> Edit this page
+    <Link href={props.url} target="_blank">
+    on GitHub
+    </Link>
+</EditText>

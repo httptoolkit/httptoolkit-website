@@ -1,9 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import { EditOnGithub } from '../docs.styles';
+import { EditOnGithub } from '@/components/elements/edit-on-github';
 
-import { PencilSimple } from '@/components/elements/icon';
-import { Link } from '@/components/elements/link';
 import { DocumentationLayout } from '@/components/layout/documentation';
 import { ROOT_DOCS_DIRECTORY, getAllDocsMeta, getDocBySlug } from '@/lib/mdx/docs';
 import { findFile } from '@/lib/mdx/utils/find-file';
@@ -52,12 +50,7 @@ export default async function DocsPage({ params }: DocPageProps) {
   return (
     <DocumentationLayout title={title} links={links}>
       {Content}
-      <EditOnGithub>
-        <PencilSimple /> Edit this page
-        <Link href={editUrl} target="_blank">
-          on GitHub
-        </Link>
-      </EditOnGithub>
+      <EditOnGithub url={editUrl} />
     </DocumentationLayout>
   );
 }
