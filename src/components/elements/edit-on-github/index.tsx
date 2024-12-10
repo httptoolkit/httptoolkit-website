@@ -26,8 +26,8 @@ const EditText = styled.em`
 `;
 
 export const EditOnGithub = (props: { url: string }) => <EditText>
-    <PencilSimple /> Edit this page
+    <PencilSimple /> Suggest changes to this page
     <Link href={props.url} target="_blank">
-    on GitHub
+        on GitHub
     </Link>
 </EditText>
