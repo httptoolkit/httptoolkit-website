@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const githubDocsUrl = 'https://github.com/httptoolkit/httptoolkit-website/blob/main/src/docs';
+const githubDocsUrl = 'https://github.com/httptoolkit/httptoolkit-website/blob/main/src/content/docs';
 
 export default async function DocsPage({ params }: DocPageProps) {
   const { slug } = params;
@@ -47,7 +47,7 @@ export default async function DocsPage({ params }: DocPageProps) {
   const [filePath] = findFile(ROOT_DOCS_DIRECTORY, realSlug, '.mdx', true);
   const links = await getHeadingLinks(filePath);
   // Links to the raw markdown -> click the edit pencil, and it forks & starts an editor.
-  const editUrl = `${githubDocsUrl}/${slug.join('/').replace(/\/$/, '')}.md`;
+  const editUrl = `${githubDocsUrl}/${slug.join('/').replace(/\/$/, '')}.mdx`;
 
   return (
     <DocumentationLayout title={title} links={links}>
