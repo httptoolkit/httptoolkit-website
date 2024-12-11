@@ -77,7 +77,7 @@ export const StyledSinglePostImageWrapper = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     max-width: 607px;
-    min-width: 607px;
+    min-width: 200px;
   }
 `;
 
@@ -86,6 +86,10 @@ export const StyledSinglePostDetails = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
+
+  @media (max-width: ${screens['lg']}) {
+    word-break: break-word;
+  }
 `;
 
 export const StyledTags = styled.div`
