@@ -1,0 +1,52 @@
+---
+title: 'ERR_PROXY_CONNECTION_FAILED errors with HTTP proxies'
+date: '2024-12-11T17:00'
+cover_image: 'header-images/smiley-404.jpg'
+tags: http, errors
+---
+
+If you're using a local debugging proxy tool like [HTTP Toolkit](https://httptoolkit.com/), you might run into the dreaded `ERR_PROXY_CONNECTION_FAILED` error in Chrome and other similar apps.
+
+This can be a very frustrating and unhelpful error! There's only a few possible causes though, and it's usually easy to fix.
+
+## The Simple Case
+
+The simplest explanation is exactly what it says: the browser can't connect to your proxy.
+
+**In the simple case this may be caused by a basic connection issue**: you have the address, port or some authentication details wrong, or the details are correct but the proxy is just not reachable on your connection, and so the browser can't talk to it.
+
+The easiest way to confirm this is to try connecting to the details directly using an HTTP client tool like curl, Postman, or the HTTP Toolkit Send page, to manually check if the server is listening on the port you expect. If you see a TCP error then the details are wrong, but if you see any kind of HTTP error or similar then you know that the server does exist and it's reachable with the given details.
+
+If the failure comes from a browser intercepted by a tool like HTTP Toolkit though, where intercepted clients are preconfigured & launched for you, this is not what's happening - the server is definitely reachable (it's running locally) and the config is correct (it's been done automatically). Instead, this might be caused by something more complicated...
+
+## Beyond the Simple Case
+
+If you know the settings are correct, and you know the proxy is reachable, what could cause this `ERR_PROXY_CONNECTION_FAILED` error?
+
+**Once you're ruled out basic connection issues, the most likely cause is antivirus software on your computer that is intercepting your connections.** This is becoming a common feature of some antivirus & security software, most notably [ESET](https://en.wikipedia.org/wiki/ESET). It's not directly related to viruses at all, but is a separate security feature that's often enabled automatically for additional protection.
+
+What happens in this case is that your browser is trying to talk to the local proxy on your machine, but the antivirus intercepts that connection (getting in-between your browser and your proxy) so that it can scan all the browser traffic.
+
+When it then tries to talk to the proxy server to forward the traffic, it discovers it doesn't recognize the TLS certificate (because HTTP debugging tools like HTTP Toolkit, Charles, Fiddler, Mitmproxy, Burp Suite, Proxyman, ...etc, all use a custom personal CA certificate that's unique to your machine, allowing them to intercept and let you view & modify your TLS traffic). The certificate has to be manually trusted, and it's trusted in the browser, but because the browser is no longer talking directly to the proxy server that doesn't help.
+
+Because of this, the antivirus rejects the proxy server's certificate, and then closes the connection the browser was trying to make. From the browser's point of view, it just made a connection to the proxy, it didn't work, and so we see `ERR_PROXY_CONNECTION_FAILED` with no more information.
+
+This isn't great behaviour here, and ESET particularly do seem to cause widespread issues with this TLS interception, but still enable it automatically for all users.
+
+Checking this certificate makes little sense (malicious traffic on a connection to a server on the same local machine doesn't seem a real concern for ESET customers - they don't need to intercept this connection at all) and I've tried to talk to them about this with no luck - if you're a customer, do please let them know this is affecting you!
+
+## The Solution
+
+**If you're affected by this, the solution is to disable the TLS interception & scanning features of your antivirus** (no need to disable your antivirus completely). It will generally be called "TLS scanning", "web traffic scanning", "HTTPS scanning" or similar. If your antivirus supports a way to skip this for certain cases that might be helpful, but I haven't seen this working in practice.
+
+In the specific common ESET case, the steps to do this are:
+
+* Open ESET
+* Go to the advanced settings (press F5)
+* Click 'Protections' then 'SSL/TLS'
+* Disable the 'Enable SSL/TLS' option
+* Click OK to save your settings
+
+This doesn't affect the rest of your security settings, it simply stops ESET from intercepting & monitoring your network traffic, which interferes with debugging tools like HTTP Toolkit that are trying to do the same.
+
+If you run into this issue and disabling TLS scanning is still not working, or if you've found separate steps that are helpful and should be included here, please [get in touch](/contact) and let me know.
