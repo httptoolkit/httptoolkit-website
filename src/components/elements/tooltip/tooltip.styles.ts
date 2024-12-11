@@ -1,7 +1,7 @@
-'use client';
-import * as RadixTooltip from '@radix-ui/react-tooltip';
+"use client";
+import * as RadixTooltip from "@radix-ui/react-tooltip";
 
-import { styled } from '@/styles';
+import { styled } from "@/styles";
 
 export const StyledTooltipContent = styled(RadixTooltip.Content)`
   &&& {
