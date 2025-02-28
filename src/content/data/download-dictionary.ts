@@ -22,7 +22,7 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/osx-dmg',
       text: 'MacOS DMG',
       defaultText: 'macOS',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.dmg`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-x64.dmg`,
     },
     {
       os: 'mac',
@@ -37,7 +37,7 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/win-exe',
       text: 'Windows Installer',
       defaultText: 'Windows',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-installer-${latestReleaseVersion}.exe`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.exe`,
     },
     {
       os: 'windows',
@@ -51,7 +51,7 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       slug: 'win-standalone',
       href: '/download/win-standalone',
       text: 'Windows Zip',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-win-x64-${latestReleaseVersion}.zip`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-win-x64.zip`,
     },
     {
       os: 'linux',
@@ -59,7 +59,7 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/linux-deb',
       text: 'Linux DEB Package',
       defaultText: 'Linux',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.deb`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-x64.deb`,
     },
     {
       os: 'linux',
@@ -67,7 +67,7 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/linux-rpm',
       text: 'Linux RPM Package',
       defaultText: 'Linux',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.rpm`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-x64.rpm`,
     },
     {
       os: 'linux',
@@ -82,14 +82,14 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/linux-appimage',
       text: 'Linux AppImage',
       defaultText: 'Linux',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}.AppImage`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-x64.AppImage`,
     },
     {
       os: 'linux',
       slug: 'linux-standalone',
       href: '/download/linux-standalone',
       text: 'Linux Zip',
-      releasePath: `v${latestReleaseVersion}/HttpToolkit-linux-x64-${latestReleaseVersion}.zip`,
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-linux-x64.zip`,
     },
   ];
 };
