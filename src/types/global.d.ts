@@ -41,6 +41,7 @@ interface Post {
   };
   socialLinks?: {
     twitterUrl?: string;
+    blueskyUrl?: string;
     redditUrl?: string;
     hackerNewsUrl?: string;
     devToUrl?: string;
