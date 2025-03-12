@@ -2,6 +2,7 @@
 module.exports = {
   siteUrl: 'https://httptoolkit.com',
   generateRobotsTxt: true,
+  outDir: './out',
   exclude: [
     '/download/*', // Drop direct download pages
     '/blog-thank-you/', // Drop post-blog subscribe thank you

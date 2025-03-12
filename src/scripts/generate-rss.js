@@ -61,7 +61,7 @@ async function generate() {
       return new Date(postB.date) - new Date(postA.date);
     })
     .forEach((post) => feed.item(post));
-    const dirPath = path.join(__dirname, '..', '..', 'public');
+    const dirPath = path.join(__dirname, '..', '..', 'out');
     const filePath = path.join(dirPath, 'rss.xml');
     await fs.writeFile(filePath, feed.xml({ indent: true }));
   } catch (error) {
