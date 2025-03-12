@@ -5,12 +5,15 @@ import { styled } from '@/styles';
 import { PencilSimple } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 
-const EditText = styled.em`
+const EditText = styled.p`
   margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: right;
   gap: 5px;
   color: ${({ theme }) => theme.colors.text.darkGrey};
+
+  opacity: 0.8;
 
   a {
     color: ${({ theme }) => theme.colors.text.darkGrey};
