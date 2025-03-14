@@ -63,6 +63,7 @@ import {
   AppleLogo,
   LinuxLogo,
   NodeLogo,
+  OpenSourcePledge,
   DenoLogo,
   BunLogo,
   FirefoxLogo,

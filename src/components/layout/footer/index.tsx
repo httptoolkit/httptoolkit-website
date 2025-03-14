@@ -1,3 +1,4 @@
+import { OpenSourcePledge } from '@/components/elements/icon/custom';
 import { FooterColumnBlock } from './components/footer-column-block';
 import { FooterCopy } from './components/footer-copy';
 import {
@@ -38,7 +39,7 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
       <StyledContainer>
         <StyledColumn>
           <Link href="/" aria-label="HTTP Toolkit homepage">
-            <HalfColoredLogo />
+            <HalfColoredLogo width="170px" />
           </Link>
           <StyledIconsWrapper>
             <Stack>
@@ -53,6 +54,11 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
                   <SquareIcon $size="small" icon={TwitterX} />
                 </Link>
               </Stack>
+            </Stack>
+            <Stack $direction="row">
+              <Link href="https://opensourcepledge.com/">
+                <OpenSourcePledge fill="#f00" width="120px" alt="Open Source Pledge member" />
+              </Link>
             </Stack>
             <ThemeToggle id="themetogglefooter" />
           </StyledIconsWrapper>

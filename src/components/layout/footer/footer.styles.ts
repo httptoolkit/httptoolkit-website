@@ -43,12 +43,7 @@ export const StyledColumn = styled.div`
     @media (min-width: ${screens.xl}) {
       flex-direction: column;
       min-width: 398px;
-      gap: 76px;
-    }
-
-    & *:first-child > svg {
-      width: 170px;
-      height: 26px;
+      gap: 57px;
     }
   }
 
@@ -193,7 +188,7 @@ export const StyledIconsWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
-  gap: 76px;
+  gap: 57px;
 
   @media (min-width: ${screens.md}) {
     flex-direction: column;

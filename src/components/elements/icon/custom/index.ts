@@ -12,6 +12,7 @@ import JavaLogo from './java-logo.svg';
 import LinuxLogo from './linux-logo.svg';
 import Logo from './logo';
 import NodeLogo from './node-logo.svg';
+import OpenSourcePledge from './open-source-pledge.svg';
 import ProductHuntLogo from './product-hunt-logo.svg';
 import PythonLogo from './python-logo.svg';
 import RubyLogo from './ruby-logo.svg';
@@ -35,6 +36,7 @@ export {
   LinuxLogo,
   Logo,
   NodeLogo,
+  OpenSourcePledge,
   ProductHuntLogo,
   PythonLogo,
   RubyLogo,
