@@ -187,11 +187,13 @@ export const StyledIconsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: end;
-  gap: 57px;
+  gap: 25px;
 
   @media (min-width: ${screens.md}) {
     flex-direction: column;
     align-items: start;
+    gap: 57px;
   }
 `;
