@@ -1,5 +1,5 @@
 import { StyledTagText, StyledTagsWrapper } from './overview-explorer.styled';
-import { TagsDropwdown } from './tags-dropwdown';
+import { TagsDropdown } from './tags-dropdown';
 
 import { Link } from '@/components/elements/link';
 import { getAllCategoryTags } from '@/lib/mdx/blog';
@@ -27,7 +27,7 @@ export const TagsNavigation = async () => {
           </li>
         ))}
         <li>
-          <TagsDropwdown tags={ramainingTags} />
+          <TagsDropdown tags={ramainingTags} />
         </li>
       </ul>
     </StyledTagsWrapper>

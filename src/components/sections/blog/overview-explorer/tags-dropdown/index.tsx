@@ -8,13 +8,13 @@ import {
   StyledDropdownContentWrapper,
   StyledDropdownItem,
   StyledDropdownMenuContent,
-} from './tags-dropdow';
+} from './tags-dropdown';
 import { useDrawerState } from '../hooks/use-drawer-state';
 
 import { CaretDown, CaretUp } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 
-export const TagsDropwdown = ({ tags }: { tags: string[] }) => {
+export const TagsDropdown = ({ tags }: { tags: string[] }) => {
   const { isDrawerOpen, handleOnClickTag, handleOpenChange } = useDrawerState(false);
 
   const handleOnEnterCapture = (e: KeyboardEvent<HTMLDivElement>) => {
