@@ -70,6 +70,11 @@ export const DropdownWrapper = styled.div<Pick<DropdownProps, '$variant'>>`
   }
 `;
 
+export const DropdownHr = styled.hr`
+  width: 80%;
+  opacity: 0.5;
+`;
+
 const baseOption = css<DropdownOptionProps>`
   background-color: transparent;
   border: none;
@@ -97,10 +102,15 @@ const baseOption = css<DropdownOptionProps>`
   }
 `;
 
-export const LinkDropdownOption = styled(Link)<DropdownOptionProps>`
+export const DropdownOptionLink = styled(Link)<DropdownOptionProps>`
   ${baseOption}
 `;
 
-export const DropdownOption = styled.button<DropdownOptionProps>`
+export const DropdownOptionButton = styled.button<DropdownOptionProps>`
   ${baseOption}
+`;
+
+export const DropdownOptionSubtext = styled.div`
+  font-size: ${({ theme }) => theme.fontSizes.text.xs};
+  margin-top: 5px;
 `;

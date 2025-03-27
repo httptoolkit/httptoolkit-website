@@ -7,6 +7,7 @@ export type DownloadDictionary = {
   slug: string;
   href: string;
   text: string;
+  subtext?: string;
   defaultText?: string;
   releasePath?: string;
   downloadCommand?: string;
@@ -22,6 +23,15 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       href: '/download/osx-dmg',
       text: 'MacOS DMG',
       defaultText: 'macOS',
+      subtext: 'Apple Silicon',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-arm64.dmg`,
+    },
+    {
+      os: 'mac',
+      slug: 'osx-dmg',
+      href: '/download/osx-dmg',
+      text: 'MacOS DMG',
+      subtext: 'Intel',
       releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-x64.dmg`,
     },
     {
@@ -89,7 +99,16 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
       slug: 'linux-standalone',
       href: '/download/linux-standalone',
       text: 'Linux Zip',
+      subtext: 'x64',
       releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-linux-x64.zip`,
+    },
+    {
+      os: 'linux',
+      slug: 'linux-standalone',
+      href: '/download/linux-standalone',
+      text: 'Linux Zip',
+      subtext: 'arm64',
+      releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-linux-arm64.zip`,
     },
   ];
 };

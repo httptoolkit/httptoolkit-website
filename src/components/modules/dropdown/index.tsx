@@ -2,19 +2,41 @@
 
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
 
-import { DropdownOption, DropdownOptionsWrapper, DropdownWrapper, LinkDropdownOption } from './dropdown.styles';
-import type { DropdownOptionProps, DropdownProps, OptionComponentType } from './dropdown.types';
+import {
+  DropdownOptionButton,
+  DropdownOptionsWrapper,
+  DropdownWrapper,
+  DropdownOptionLink,
+  DropdownHr,
+  DropdownOptionSubtext
+} from './dropdown.styles';
+import type {
+  DropdownDownloadOption,
+  DropdownOption,
+  DropdownProps,
+  OptionComponentType
+} from './dropdown.types';
 
 import { Button } from '@/components/elements/button';
 import type { StyledButtonProps } from '@/components/elements/button/button.types';
 
-const renderOptions = (items: DropdownOptionProps[], $variant: StyledButtonProps['$variant']) => {
-  return items.map(({ content, as, href, onClick, ...aria }) => {
-    const OptionComponent: OptionComponentType = as === 'link' || href ? LinkDropdownOption : DropdownOption;
+const renderOptions = (items: DropdownOption[], $variant: StyledButtonProps['$variant']) => {
+  return items.map((item, index) => {
+    if ('type' in item && item.type === 'hr') {
+      return <DropdownHr key={`hr-${index}`} />;
+    }
+
+    const { text, subtext, as, href, ...aria } = item as DropdownDownloadOption;
+    const OptionComponent: OptionComponentType = as === 'link' || href
+      ? DropdownOptionLink
+      : DropdownOptionButton;
 
     return (
-      <OptionComponent role="menuitem" key={content} href={href} $variant={$variant} onClick={onClick} {...aria}>
-        {content}
+      <OptionComponent role="menuitem" key={`${text}-${subtext}`} href={href} $variant={$variant} {...aria}>
+        { text }
+        { subtext &&
+          <DropdownOptionSubtext>{subtext}</DropdownOptionSubtext>
+        }
       </OptionComponent>
     );
   });
