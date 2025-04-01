@@ -19,8 +19,8 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
   return [
     {
       os: 'mac',
-      slug: 'osx-dmg',
-      href: '/download/osx-dmg',
+      slug: 'osx-dmg-arm64',
+      href: '/download/osx-dmg-arm64',
       text: 'MacOS DMG',
       defaultText: 'macOS',
       subtext: 'Apple Silicon',
@@ -104,8 +104,8 @@ export const getDownloadOptionsDictionary = async (): Promise<DownloadDictionary
     },
     {
       os: 'linux',
-      slug: 'linux-standalone',
-      href: '/download/linux-standalone',
+      slug: 'linux-standalone-arm64',
+      href: '/download/linux-standalone-arm64',
       text: 'Linux Zip',
       subtext: 'arm64',
       releasePath: `v${latestReleaseVersion}/HttpToolkit-${latestReleaseVersion}-linux-arm64.zip`,
