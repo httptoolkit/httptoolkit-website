@@ -39,7 +39,7 @@
     "marked": "^12.0.0",
     "mobx": "^6.12.1",
     "mobx-react-lite": "^4.0.6",
-    "next": "^14.2.26",
+    "next": "^15.3.3",
     "next-image-export-optimizer": "^1.12.3",
     "next-mdx-remote": "^4.4.1",
     "next-sitemap": "^4.2.3",
