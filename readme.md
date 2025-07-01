@@ -25,7 +25,7 @@ Looking to file bugs, request features or send feedback? File an issue or vote o
 
 ### Stack
 
-The website is built with Next.js and use MDX as a content management. The rendering approach is SSG.
+The website is built with Next.js and uses MDX as a content management. The rendering approach is SSG.
 
 - Next.js App directory
 - React 18
