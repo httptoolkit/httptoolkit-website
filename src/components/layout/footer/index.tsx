@@ -11,7 +11,7 @@ import {
 } from './footer.styles';
 
 import { Container } from '@/components/elements/container';
-import { Github, HalfColoredLogo, TwitterX } from '@/components/elements/icon';
+import { Github, HalfColoredLogo, TwitterX, Bluesky, Mastodon } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
@@ -49,6 +49,12 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
               <Stack $direction="row">
                 <Link href="https://github.com/httptoolkit" title="Github" aria-label="Github">
                   <SquareIcon $size="small" icon={Github} />
+                </Link>
+                <Link href="https://bsky.app/profile/httptoolkit.com" title="Bluesky" aria-label="Bluesky">
+                  <SquareIcon $size="small" icon={Bluesky} />
+                </Link>
+                <Link href="https://mastodon.social/@httptoolkit" title="Mastodon" aria-label="Mastodon">
+                  <SquareIcon $size="small" icon={Mastodon} />
                 </Link>
                 <Link href="https://twitter.com/httptoolkit" title="Twitter" aria-label="Twitter">
                   <SquareIcon $size="small" icon={TwitterX} />
