@@ -70,6 +70,8 @@ import {
   ChromeLogo,
   YCombinator,
   ProductHuntLogo,
+  Bluesky,
+  Mastodon,
 } from './custom';
 
 export {
@@ -139,5 +141,7 @@ export {
   Trash,
   XLogo,
   CrosshairSimple,
-  DeviceMobile
+  DeviceMobile,
+  Bluesky,
+  Mastodon,
 };

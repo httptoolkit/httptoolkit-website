@@ -20,6 +20,8 @@ import ShippingFast from './shipping-fast.svg';
 import SquareJSLogo from './square-js-logo.svg';
 import TwitterX from './twitter-x.svg';
 import YCombinator from './ycombinator-logo.svg';
+import Bluesky from './bluesky.svg';
+import Mastodon from './mastodon.svg';
 
 export {
   AppleLogo,
@@ -44,4 +46,6 @@ export {
   SquareJSLogo,
   TwitterX,
   YCombinator,
+  Bluesky,
+  Mastodon,
 };
