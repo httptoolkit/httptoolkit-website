@@ -23,7 +23,7 @@ To manually intercept HTTP, HTTPS & WebSocket traffic from an iPhone or iPad:
     * This connects to HTTP Toolkit using your proxy settings to download your CA certificate from `http://amiusing.httptoolkit.tech/certificate`. You can also open that URL in Safari manually, but note that it must be plain HTTP and recent Safari releases may redirect you to HTTPS.
     * Alternatively, you can export your CA certificate manually from the 'Anything' option in HTTP Toolkit, transfer it to your phone and open it there directly.
 1. Press 'Allow' to download the CA certificate to your device.
-1. Go to Settings -> General -> Profile -> HTTP Toolkit CA -> Install, to install the CA certificate.
+1. Go to Settings -> General -> VPN & Device Management -> HTTP Toolkit CA -> Install, to install the CA certificate.
 1. Go to Settings -> General -> About -> Certificate Trust, and enable "Full trust" for the HTTP Toolkit certificate.
 
 You can confirm that the setup is working by visiting https://amiusing.httptoolkit.tech (note the HTTPS) in Safari. If this loads correctly showing the "You're being intercepted by HTTP Toolkit" message, then you're all set up and all traffic is being sent through HTTP Toolkit.
