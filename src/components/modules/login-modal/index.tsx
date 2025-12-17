@@ -49,6 +49,7 @@ const CtaButton = styled(Button)`
   margin: 20px;
   width: calc(100% - 40px);
   box-sizing: border-box;
+  min-height: 58px;
 `;
 
 const CloseDialogButton = styled.button`
@@ -159,12 +160,12 @@ const spin = keyframes`
 
 const Spinner = styled.div`
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #007bff;
+  border-top: 4px solid var(--text-always-white);
   border-radius: 50%;
   width: 24px;
   height: 24px;
   animation: ${spin} 1s linear infinite;
-  margin: 10px 0;
+  margin: -4px 0;
 `;
 
 const ErrorMessage = styled.div`
