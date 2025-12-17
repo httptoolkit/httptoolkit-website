@@ -141,6 +141,15 @@ const SmallPrint = styled.p`
 
   background-color: var(--darkish-grey);
   color: var(--light-grey);
+
+  a {
+    text-decoration: underline;
+    color: var(--light-grey);
+
+    &:hover {
+      color: var(--white);
+    }
+  }
 `;
 
 const spin = keyframes`
@@ -236,6 +245,22 @@ const LoginFields = () => {
     }
   };
 
+  const smallPrint = (
+    <SmallPrint>
+      By creating an account you accept the <Link
+        href="/terms-of-service"
+        target="_blank"
+      >
+        Terms of Service
+      </Link> and <Link
+        href="/privacy-policy"
+        target="_blank"
+      >
+        Privacy Policy
+      </Link>.
+    </SmallPrint>
+  );
+
   return !isEmailSent
     ? <Form onSubmit={handleEmailSubmit}>
         <HeadingLogo />
@@ -261,19 +286,7 @@ const LoginFields = () => {
           {isLoading ? <Spinner /> : 'Send Code'}
         </CtaButton>
 
-        <SmallPrint>
-          By creating an account you accept the <Link
-            href="/terms-of-service"
-            target="_blank"
-          >
-            Terms of Service
-          </Link> & <Link
-            href="/privacy-policy"
-            target="_blank"
-          >
-            Privacy Policy
-          </Link>.
-        </SmallPrint>
+        { smallPrint }
       </Form>
     :
     <Form onSubmit={handleCodeSubmit}>
@@ -318,18 +331,6 @@ const LoginFields = () => {
         {isLoading ? <Spinner /> : 'Login'}
       </CtaButton>
 
-      <SmallPrint>
-        By creating an account you accept the <Link
-          href="/terms-of-service"
-          target="_blank"
-        >
-          Terms of Service
-        </Link> & <Link
-          href="/privacy-policy"
-          target="_blank"
-        >
-          Privacy Policy
-        </Link>.
-      </SmallPrint>
+      { smallPrint }
     </Form>
 };
