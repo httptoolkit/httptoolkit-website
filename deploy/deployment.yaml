@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httptoolkit-website
+  namespace: httptoolkit-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httptoolkit-website
+  template:
+    metadata:
+      labels:
+        app: httptoolkit-website
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/httptoolkit/website:latest # GHA replaces :latest on build
+          ports:
+            - containerPort: 4000
+          env:
+            - name: DOMAIN
+              value: "http://:4000"
