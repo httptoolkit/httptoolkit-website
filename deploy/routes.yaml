@@ -12,7 +12,7 @@ spec:
       namespace: gateway
       sectionName: https-httptoolkit-tech
   hostnames:
-    - "httptoolkit.com"
+    - "website-backend.httptoolkit.tech"
   rules:
     - matches:
         - path:
