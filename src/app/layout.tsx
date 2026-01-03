@@ -10,6 +10,7 @@ import { StyledLayout } from '@/components/layout/styled-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 import StyledComponentsRegistry from '@/styles/styled-component-registry';
+import { Polyfills } from '@/components/elements/polyfills';
 
 const PostHogPageView = dynamic(() => import('@/components/layout/posthog-page-view'), {
   ssr: false,
@@ -57,6 +58,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Polyfills />
+
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
