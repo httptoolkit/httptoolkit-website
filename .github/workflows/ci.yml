@@ -165,10 +165,12 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          sed "s|/website:latest|/website:${{ vars.DOCKER_IMAGE_TAG }}|g" deploy/deployment.yaml | \
+          sed "s|/website:latest|/website:sha-${GITHUB_SHA::7}|g" deploy/deployment.yaml | \
             kubectl apply -f - \
               -f deploy/service.yaml \
               -f deploy/routes.yaml
+
+          kubectl rollout status deployment/httptoolkit-website -n httptoolkit-website
 
       - name: Redeploy container
         uses: httptoolkit/deploy-scaleway-serverless-container-action@v1
