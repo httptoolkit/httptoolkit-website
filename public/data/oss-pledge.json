@@ -7,19 +7,19 @@
         {
             "dateYearEnding": "2024-12-31",
             "averageNumberOfDevs": 1,
-            "payments": 5670,
+            "payments": 5740,
             "url": "https://httptoolkit.com/blog/open-source-funding-pledge/#2024"
         },
         {
             "dateYearEnding": "2023-12-31",
             "averageNumberOfDevs": 1,
-            "payments": 4267,
+            "payments": 4063,
             "url": "https://httptoolkit.com/blog/open-source-funding-pledge/#2023"
         },
         {
             "dateYearEnding": "2022-12-31",
             "averageNumberOfDevs": 1,
-            "payments": 2582,
+            "payments": 2474,
             "url": "https://httptoolkit.com/blog/open-source-funding-pledge/#2022"
         }
     ]
