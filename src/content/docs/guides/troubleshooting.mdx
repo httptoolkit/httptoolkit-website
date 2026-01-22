@@ -34,6 +34,25 @@ Any time the server crashes, a notification is shown with the error details and 
 
 If you're seeing this, you've found something that completely crashes the running server. It might be some very unusual HTTP traffic, a specific use of an interceptor, or something else, but regardless [please get in touch](/contact/) with any details you have, as this is definitely a bug that needs fixing.
 
+### HTTP Toolkit conflicts with Hyper-V
+
+HTTP Toolkit uses ports 45456 and 45457. On Windows, Hyper-V (used by WSL2 and Docker) randomly reserves ports for its own use, and may select ranges that include these, which prevents HTTP Toolkit from starting.
+
+To fix this, you need to ensure HTTP Toolkit is running _before_ Hyper-V seizes these ports, in which case it will automatically use a different range. You can also set `excludedportrange` to disable automatic reservations of these ports entirely, to avoid issues in future.
+
+To do so:
+
+* Open an Administrator command prompt
+* Run `net stop winnat`
+* Restart HTTP Toolkit
+* Run the below to stop these ports from being reserved by Hyper-V in future:
+  ```
+  netsh int ipv4 add excludedportrange protocol=tcp startport=45456 numberofports=2
+  ```
+* Run `net start winnat`
+
+If this doesn't work, please share more information in [the GitHub issue](https://github.com/httptoolkit/httptoolkit/issues/611) discussing this problem.
+
 ### I can't use/don't like Electron
 
 In some environments the Electron wrapper can cause problems, and some people prefer to avoid Electron apps entirely to manage their memory usage. The tradeoffs of Electron are a whole debate that we can get into elsewhere, but if you want to, it is entirely possible to use HTTP Toolkit without it. To do so:
