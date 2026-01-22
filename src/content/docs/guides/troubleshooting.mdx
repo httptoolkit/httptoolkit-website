@@ -76,18 +76,6 @@ This is quite rare, and the exact cause isn't pinned down yet. In general this w
 
 If you can reproduce this issue reliably, [please get in touch](/contact/), so we can trace down the exact cause of this.
 
-### A browser shows ERR\_PROXY\_CERTIFICATE\_INVALID or other certificate errors
-
-This means that your browser is not correctly trusting the HTTP Toolkit certificate it has been given, for some reason.
-
-This is another very rare issue, and it's unclear why this happens on certain machines. If this happens to you, do [please get in touch](/contact/) so we can investigate it further.
-
-In the meantime you can manually start Chrome configured to trust _all_ certificates with the below command (for Windows):
-
-```
-chrome.exe --ignore-certificate-errors --user-data-dir="C:\Users\$YOURUSERNAME\AppData\Local\httptoolkit\Config\chrome" --proxy-server=127.0.0.1:8000 --proxy-bypass-list="<-loopback>;https://localhost:8000" --disable-restore-session-state --no-default-browser-check --disable-popup-blocking --disable-translate --start-maximized --disable-default-apps --disable-sync --enable-fixed-layout --no-first-run --noerrdialogs --flag-switches-begin --flag-switches-end http://amiusing.httptoolkit.tech
-```
-
 You will need to use the full path for Chrome on your machine, and use your username instead of `$YOURUSERNAME` here.
 
 This issue has only been seen on Windows, but if you do see this on Mac or Linux, you'll need to update the data dir path completely. Any empty directory is fine, it's only used to store the new Chrome's profile, and the directory can be deleted later.
