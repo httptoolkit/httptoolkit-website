@@ -5,6 +5,12 @@
     "urlLearnMore": "https://httptoolkit.com/blog/open-source-funding-pledge/",
     "annualReports": [
         {
+            "dateYearEnding": "2025-12-31",
+            "averageNumberOfDevs": 1,
+            "payments": 7820,
+            "url": "https://httptoolkit.com/blog/open-source-funding-in-2025"
+        },
+        {
             "dateYearEnding": "2024-12-31",
             "averageNumberOfDevs": 1,
             "payments": 5740,
