@@ -43,6 +43,7 @@ export const StyledUL = styled.ul`
   padding-left: 30px;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.text.darkGrey};
+  font-size: ${({ theme }) => theme.fontSizes.text.m};
 `;
 
 export const StyledOL = styled.ol`
@@ -50,7 +51,8 @@ export const StyledOL = styled.ol`
   padding-left: 30px;
   margin-bottom: 2rem;
   color: ${({ theme }) => theme.colors.text.darkGrey};
-`;
+  font-size: ${({ theme }) => theme.fontSizes.text.m};
+}`;
 
 export const StyledImage = styled(Image)`
   &&& {
