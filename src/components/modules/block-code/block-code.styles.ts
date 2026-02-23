@@ -41,7 +41,7 @@ export const StyledInlineCode = styled(Text)`
     color: var(--prism-text);
     background-color: var(--prism-bg);
     box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-    padding: 0 6px;
+    padding: 2px 6px;
     border-radius: 4px;
     margin: 0 4px;
     font-size: 13px;
