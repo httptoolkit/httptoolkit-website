@@ -67,12 +67,18 @@ export const defaultComponents: MDXComponents = {
   ol({ children }: Component) {
     return <StyledOL>{children}</StyledOL>;
   },
-  code({ children, className }) {
-    if (!className) {
-      return <InlineCode>{children}</InlineCode>;
-    }
+  // Triple-tick ``` code renders as <pre><code>... blocks, while inline code
+  // renders as a single <code> element.
+  pre: ({ children }: { children?: React.ReactNode }) => {
+    const codeElement = children as React.ReactElement<{ children?: React.ReactNode; className?: string }>;
+    const { children: content, className } = codeElement.props;
 
-    return <BlockCode content={children} language={className} title="Code example" />;
+    return <pre>
+      <BlockCode content={content} language={className} />
+    </pre>;
+  },
+  code({ children }) {
+    return <InlineCode>{children}</InlineCode>;
   },
   ...Icons,
 };

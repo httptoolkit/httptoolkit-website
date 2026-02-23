@@ -209,6 +209,18 @@ export const GlobalStyles = createGlobalStyle`
       --background-gradient: url('/images/backgrounds/gradient_dark.svg');
       --background-func-gradient: url('/images/backgrounds/func_gradient_dark.png');
       --hero-box-shadow: 0 0 20px 52px inset rgb(30 32 40 / 55%);
+
+      --prism-bg: var(--ink-black);
+      --prism-comment: #999;
+      --prism-punctuation: #ccc;
+      --prism-tag: #e2777a;
+      --prism-function-name: #6196cc;
+      --prism-boolean: #f08d49;
+      --prism-property: #f8c555;
+      --prism-selector: #cc99cd;
+      --prism-string: #7ec699;
+      --prism-operator: #67cdcc;
+      --prism-inserted: green;
     }
 
     [data-theme="light"] {
@@ -252,6 +264,18 @@ export const GlobalStyles = createGlobalStyle`
       --background-gradient: url('/images/backgrounds/gradient_light.svg');
       --background-func-gradient: url('/images/backgrounds/func-gradient-dark.png');
       --hero-box-shadow: transparent;
+
+      --prism-bg: var(--ink-black);
+      --prism-comment: #7d8b99;
+      --prism-punctuation: #5f6364;
+      --prism-tag: #c92c2c;
+      --prism-function-name: #c92c2c;
+      --prism-boolean: #c92c2c;
+      --prism-property: #c92c2c;
+      --prism-selector: #2f9c0a;
+      --prism-string: #2f9c0a;
+      --prism-operator: #a67f59;
+      --prism-inserted: #2f9c0a;
     }
 
     [data-theme='dark'] [data-hide-on-theme='dark'],
@@ -332,10 +356,80 @@ export const GlobalStyles = createGlobalStyle`
       white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
     }
 
-    /* Override Auth0's style choices */
-    .auth0-lock {
-      /* It's always light - this fixes the browser UI */
-      color-scheme: light;
-      font-family: ${theme.fontFamily.dmSans};
+    /* PrismJS syntax highlighting, based on prism-tomorrow but linked to vars */
+    pre[class*="language-"] {
+      background: var(--prism-bg);
+      color: var(--prism-text);
+    }
+
+    .token.comment,
+    .token.block-comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: var(--prism-comment);
+    }
+
+    .token.punctuation {
+      color: var(--prism-punctuation);
+    }
+
+    .token.tag,
+    .token.attr-name,
+    .token.namespace,
+    .token.deleted {
+      color: var(--prism-tag);
+    }
+
+    .token.function-name {
+      color: var(--prism-function-name);
+    }
+
+    .token.boolean,
+    .token.number,
+    .token.function {
+      color: var(--prism-boolean);
+    }
+
+    .token.property,
+    .token.class-name,
+    .token.constant,
+    .token.symbol {
+      color: var(--prism-property);
+    }
+
+    .token.selector,
+    .token.important,
+    .token.atrule,
+    .token.keyword,
+    .token.builtin {
+      color: var(--prism-selector);
+    }
+
+    .token.string,
+    .token.char,
+    .token.attr-value,
+    .token.regex,
+    .token.variable {
+      color: var(--prism-string);
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url {
+      color: var(--prism-operator);
+    }
+
+    .token.inserted {
+      color: var(--prism-inserted);
+    }
+
+    .token.important,
+    .token.bold {
+      font-weight: bold;
+    }
+
+    .token.italic {
+      font-style: italic;
     }
 `;

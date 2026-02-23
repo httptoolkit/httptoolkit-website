@@ -24,11 +24,13 @@ export const InlineCode = ({ children }: Component) => {
 export const BlockCode = ({ title, content, language = 'javascript' }: BlockCodeProps) => {
   return (
     <StyledBlockCodeWrapper className={dmCodeFont.variable}>
-      <StyledBlockCodeTitleWrapper>
-        <Text fontSize="m" fontWeight="bold" color="white">
-          {title}
-        </Text>
-      </StyledBlockCodeTitleWrapper>
+      { title &&
+        <StyledBlockCodeTitleWrapper>
+          <Text fontSize="m" fontWeight="bold" color="white">
+            {title}
+          </Text>
+        </StyledBlockCodeTitleWrapper>
+      }
       <StyledBlockCodeContent>
         <Code title={title} language={language}>
           {content}

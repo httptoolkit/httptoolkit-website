@@ -1,5 +1,5 @@
 export interface BlockCodeProps {
-  title: string;
+  title?: string;
   content: string | React.ReactNode;
   language?: string;
 }
