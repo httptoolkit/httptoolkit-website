@@ -19,10 +19,14 @@ Here's a quick low-level demo for Node.js (v24.6+ or v22.19+) so you can play wi
 const zlib = require('zlib');
 
 // A very basic dictionary - a previous API response
-const dictionary = Buffer.from('{"type":"event","source":"server-2","status":"active"}');
+const dictionary = Buffer.from(
+  '{"type":"event","source":"server-2","status":"active"}'
+);
 
 // A new response we want to compress:
-const dataToCompress = Buffer.from('{"type":"event","source":"server-1","status":"inactive"}');
+const dataToCompress = Buffer.from(
+  '{"type":"event","source":"server-1","status":"inactive"}'
+);
 
 console.log(
     "Compressed data size without dictionary",
