@@ -21,8 +21,8 @@ export const StyledDrawerContent = styled(Drawer.Content)`
     border-top-right-radius: 12px;
     padding-bottom: 0;
 
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
-    background: ${({ theme }) => theme.colors.inkBlack};
+    box-shadow: 0 0 0 1px var(--button-border);
+    background: var(--ink-black);
   }
 `;
 
@@ -33,7 +33,7 @@ export const StyledMobileTrigger = styled(Drawer.Trigger)`
     display: flex;
     align-items: center;
     gap: 8px;
-    color: ${({ theme }) => theme.colors.text.darkGrey};
+    color: var(--text-dark-grey);
   }
 `;
 
@@ -42,8 +42,8 @@ export const StyledMobileDrawerHeading = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
-  box-shadow: 0 1px 0 1px ${({ theme }) => theme.colors.button.border};
+  color: var(--text-dark-grey);
+  box-shadow: 0 1px 0 1px var(--button-border);
 `;
 
 export const StyledMobileNavigationWrapper = styled.ul`
@@ -56,15 +56,15 @@ export const StyledMobileNavigationWrapper = styled.ul`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.colors.inkGrey};
+    background: var(--ink-grey);
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
     height: 94px;
-    background: ${({ theme }) => theme.colors.lightGrey};
+    background: var(--light-grey);
     border-radius: 40px;
-    border: 2px solid ${({ theme }) => theme.colors.inkGrey};
+    border: 2px solid var(--ink-grey);
   }
 
   & li {

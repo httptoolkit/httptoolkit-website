@@ -1,21 +1,21 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledCTABoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
   border-radius: 16px;
   padding: 16px;
   gap: 16px;
   box-shadow:
-    0px 0px 24px 0px ${({ theme }) => theme.shadow.innerBox} inset,
-    0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    0px 0px 24px 0px var(--shadow-inner-box) inset,
+    0 0 0 1px var(--button-border);
 
-  background-image: ${({ theme }) => theme.backgroundImages.backgroundDots},
-    ${({ theme }) => theme.backgroundImages.backgroundGradient};
+  background-image: var(--background-dots),
+    var(--background-gradient);
   background-size:
     250px auto,
     200% 200%;
@@ -29,7 +29,7 @@ export const StyledCTABoxWrapper = styled.div`
     text-align: center;
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     gap: 24px;
     padding: 32px;
     align-items: initial;
@@ -40,10 +40,10 @@ export const StyledCTABoxWrapper = styled.div`
 `;
 
 export const StyledCTABoxSubtitle = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.label.l};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSizes.label.l};
+  font-weight: ${fontWeight.bold};
   letter-spacing: 0.6;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  color: var(--text-dark-grey);
   text-transform: uppercase;
 `;
 

@@ -6,12 +6,12 @@ import { styled } from '@/styles';
 export const StyledCardWrapper = styled.div`
   max-width: 656px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
   border-radius: 12px;
   overflow: hidden;
   box-shadow:
     0px 2px 24px 0px rgba(230, 232, 242, 0.05),
-    0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    0 0 0 1px var(--button-border);
 `;
 
 export const StyledCardImageWrapper = styled.div`
@@ -19,9 +19,9 @@ export const StyledCardImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   background-image:
-    ${({ theme }) => theme.backgroundImages.backgroundGradient},
-    /* ${({ theme }) => theme.backgroundImages.backgroundFuncGradient}, */
-      ${({ theme }) => theme.backgroundImages.backgroundDotsCard};
+    var(--background-gradient),
+    /* var(--background-func-gradient), */
+      var(--background-dots-card);
   background-position:
     center 140%,
     center,
@@ -41,7 +41,7 @@ export const StyledCardImageWrapper = styled.div`
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(ellipse at top, transparent 10%, ${({ theme }) => theme.colors.inkBlack});
+    background-image: radial-gradient(ellipse at top, transparent 10%, var(--ink-black));
   }
 `;
 

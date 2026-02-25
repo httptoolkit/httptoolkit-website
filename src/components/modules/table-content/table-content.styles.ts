@@ -4,7 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { keyframes } from 'styled-components';
 
 import { Link } from '@/components/elements/link';
-import { css, styled } from '@/styles';
+import { css, styled, fontWeight } from '@/styles';
 
 export const StyledTableContentWrapper = styled.div`
   display: flex;
@@ -14,13 +14,13 @@ export const StyledTableContentWrapper = styled.div`
   padding: 16px;
   max-height: calc(100vh - 32px);
   overflow: auto;
-  background: ${({ theme }) => theme.colors.inkBlack};
+  background: var(--ink-black);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0px 0px 24px 0px ${({ theme }) => theme.shadow.innerBox} inset;
+    0 0 0 1px var(--button-border) inset,
+    0px 0px 24px 0px var(--shadow-inner-box) inset;
 
   scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => theme.colors.lightGrey} transparent;
+  scrollbar-color: var(--light-grey) transparent;
   scrollbar-gutter: stable;
 `;
 
@@ -37,12 +37,12 @@ const TriggerStyles = css`
 
   &:focus,
   &:focus-within {
-    background-color: ${({ theme }) => theme.colors.inkGrey};
+    background-color: var(--ink-grey);
   }
 
   @media (hover: hover) {
     &:hover {
-      background-color: ${({ theme }) => theme.colors.inkGrey};
+      background-color: var(--ink-grey);
     }
   }
 
@@ -60,11 +60,11 @@ export const StyledTableContentItemLink = styled.div`
   & a {
     transition: color ease-in 300ms;
     &.active {
-      color: ${({ theme }) => theme.colors.electricLightBlue};
+      color: var(--electric-light-blue);
 
       p {
         transition: color ease-in 300ms;
-        color: ${({ theme }) => theme.colors.electricLightBlue};
+        color: var(--electric-light-blue);
       }
     }
   }
@@ -80,7 +80,7 @@ export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
 
     & svg {
       transition: transform 0.5s;
-      color: ${({ theme }) => theme.colors.text.white};
+      color: var(--text-white);
     }
   }
 `;
@@ -119,8 +119,8 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
   &&& {
     display: inline-block;
     width: 100%;
-    font-weight: ${({ theme }) => theme.fontWeight.normal};
-    color: ${({ theme }) => theme.colors.text.lightGrey};
+    font-weight: ${fontWeight.normal};
+    color: var(--text-light-grey);
     transition: all 0.1s;
     outline: none;
     border-radius: 8px;
@@ -128,7 +128,7 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
     &.active {
       span,
       p {
-        color: ${({ theme }) => theme.colors.text.electricLightBlue};
+        color: var(--text-electric-light-blue);
       }
     }
 
@@ -139,12 +139,12 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
 
             &:focus,
             &:focus-within {
-              background-color: ${({ theme }) => theme.colors.inkGrey};
+              background-color: var(--ink-grey);
             }
 
             @media (hover: hover) {
               &:hover {
-                background-color: ${({ theme }) => theme.colors.inkGrey};
+                background-color: var(--ink-grey);
               }
             }
           `
@@ -152,18 +152,18 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
             padding: 8px 32px;
 
             &:focus {
-              color: ${({ theme }) => theme.colors.text.darkGrey};
+              color: var(--text-dark-grey);
             }
 
             @media (hover: hover) {
               &:hover {
-                color: ${({ theme }) => theme.colors.text.darkGrey};
+                color: var(--text-dark-grey);
               }
             }
           `}
 
     &[data-active='true'] {
-      color: ${({ theme }) => theme.colors.electricLightBlue};
+      color: var(--electric-light-blue);
     }
   }
 `;

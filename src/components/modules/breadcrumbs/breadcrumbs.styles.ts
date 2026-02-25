@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/components/elements/link';
-import { css, styled } from '@/styles';
+import { css, styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledBreadcrumbsWrapper = styled.div`
   display: flex;
@@ -14,20 +14,20 @@ export const StyledBreadcrumbItem = styled.div`
   gap: 8px;
 
   & svg {
-    color: ${({ theme }) => theme.colors.text.darkGrey};
+    color: var(--text-dark-grey);
   }
 `;
 
 const StyledBreadcrumbLinkActive = css`
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.text.white};
+  font-weight: ${fontWeight.bold};
+  color: var(--text-white);
 `;
 
 export const StyledBreadcrumbLink = styled(Link)<{ $active: boolean }>`
   &&& {
-    font-size: ${({ theme }) => theme.fontSizes.label.l};
+    font-size: ${fontSizes.label.l};
     line-height: 1.1;
-    color: ${({ theme }) => theme.colors.text.darkGrey};
+    color: var(--text-dark-grey);
     letter-spacing: 0.6px;
     transition: all 0.1s;
     text-transform: uppercase;

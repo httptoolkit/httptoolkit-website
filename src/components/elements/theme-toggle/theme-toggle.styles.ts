@@ -6,10 +6,10 @@ import { Moon, Sun } from '@phosphor-icons/react';
 import { styled, css } from '@/styles';
 
 const iconStyles = css`
-  fill: ${({ theme }) => theme.colors.text.darkGrey};
+  fill: var(--text-dark-grey);
 
   &[data-is-active='true'] {
-    fill: ${({ theme }) => theme.colors.white};
+    fill: var(--white);
   }
 `;
 
@@ -22,7 +22,7 @@ export const StyledLabel = styled.label`
   height: fit-content;
   gap: 10px;
   cursor: pointer;
-  box-shadow: 0 0 8px ${({ theme }) => theme.colors.shadowDefault};
+  box-shadow: 0 0 8px var(--shadow-default);
 `;
 
 export const StyledMoon = styled(Moon)<IconProps>`
@@ -41,11 +41,11 @@ export const StyledSwitch = styled.div`
   position: relative;
   width: 98px;
   height: 50px;
-  background: ${({ theme }) => theme.colors.inkBlack};
+  background: var(--ink-black);
   border-radius: 12px;
   padding: 4px;
   transition: 350ms all ease-in;
-  border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+  border: 1px solid var(--dark-grey);
 
   &:before {
     content: '';
@@ -55,7 +55,7 @@ export const StyledSwitch = styled.div`
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 11px;
-    background: ${({ theme }) => theme.colors.inkGrey};
+    background: var(--ink-grey);
     transform: translate(0, -50%);
     transition: 300ms transform cubic-bezier(0.25, 0.1, 0.52, 0.95);
   }
@@ -66,7 +66,7 @@ export const StyledInput = styled.input`
   position: absolute;
 
   &:checked + *[data-switch] {
-    background: ${({ theme }) => theme.colors.inkBlack};
+    background: var(--ink-black);
 
     &:before {
       transform: translate(var(--icon-size), -50%);
@@ -74,7 +74,7 @@ export const StyledInput = styled.input`
   }
 
   &:focus-visible + *[data-switch] {
-    border: 1px solid ${({ theme }) => theme.colors.inkGrey};
+    border: 1px solid var(--ink-grey);
     box-shadow:
       0px 0px 8px 0px rgba(230, 232, 242, 0.05),
       0px 0px 0px 8px rgba(50, 52, 59, 0.6);

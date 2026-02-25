@@ -10,7 +10,7 @@ export const StyledThemedImage = styled.figure`
     width: 100%;
     height: 100%;
     border-radius: 12px;
-    border: 1px solid ${({ theme }) => theme.colors.borderDark};
+    border: 1px solid var(--border-dark);
   }
 `;
 
@@ -27,10 +27,10 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
       --radius: 16px;
     }
 
-    ${({ theme, $withBorder }) =>
+    ${({ $withBorder }) =>
       $withBorder &&
       `
-        border: var(--border-width) solid ${theme.colors.button.border};
+        border: var(--border-width) solid var(--button-border);
     
         &::before {
           content: none;
@@ -40,7 +40,7 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
     @media (hover: hover) {
       &:hover {
         border: var(--border-width) solid
-          ${({ $withBorder, theme }) => (!$withBorder ? 'transparent' : theme.colors.button.border)};
+          ${({ $withBorder }) => (!$withBorder ? 'transparent' : 'var(--button-border)')};
       }
     }
 

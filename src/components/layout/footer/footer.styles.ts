@@ -6,7 +6,7 @@ import { screens, styled } from '@/styles';
 export const StyledFooter = styled.footer`
   margin-top: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     margin-top: 96px;
   }
 `;
@@ -137,20 +137,20 @@ export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOn
   @media (min-width: ${screens.md}) {
     & a:focus {
       transition: color ease-in 200ms;
-      color: ${({ theme }) => theme.colors.cinnarbarRed};
+      color: var(--cinnabar-red);
     }
 
     @media (hover: hover) {
       & a:hover {
         transition: color ease-in 200ms;
-        color: ${({ theme }) => theme.colors.cinnarbarRed};
+        color: var(--cinnabar-red);
       }
     }
   }
 `;
 
 export const StyledSeparator = styled.hr<{ $isSimple?: boolean }>`
-  border-color: ${({ theme }) => theme.colors.darkGrey};
+  border-color: var(--dark-grey);
   margin: ${({ $isSimple }) => ($isSimple ? '16px 0' : '24px 0')};
 
   @media (min-width: ${screens.xl}) {

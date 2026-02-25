@@ -19,10 +19,10 @@ const ctaSquareStyles = css`
   border-radius: 16px;
   background:
     no-repeat url('/images/backgrounds/hero-lines.svg'),
-    ${({ theme }) => theme.backgroundImages.backgroundDots};
+    var(--background-dots);
   background-position: top -400px center;
   margin: 32px 16px;
-  border: 1px solid ${({ theme }) => theme.colors.borderDark};
+  border: 1px solid var(--border-dark);
 
   @media (min-width: ${screens['lg']}) {
     border: 0;
@@ -36,12 +36,12 @@ const ctaSquareStyles = css`
     /* faded look effect */
     &::before {
       content: '';
-      border: 1px solid ${({ theme }) => theme.colors.borderDark};
+      border: 1px solid var(--border-dark);
       border-radius: 16px;
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 30%, ${({ theme }) => theme.colors.inkGrey});
+      background-image: radial-gradient(ellipse at center, transparent 30%, var(--ink-grey));
     }
   }
 `;
@@ -60,7 +60,7 @@ const ctaFluidStyles = css`
     inset: 0;
     pointer-events: none;
 
-    box-shadow: inset 0px 11px 16px 0px ${({ theme }) => theme.colors.inkGrey};
+    box-shadow: inset 0px 11px 16px 0px var(--ink-grey);
   }
 `;
 
@@ -104,7 +104,7 @@ const handleBackgroundVariant = (variant: bgVariant) => {
 };
 
 const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
-  box-shadow: ${({ theme }) => theme.shadow.hero};
+  box-shadow: var(--hero-box-shadow);
 
   @media (min-width: ${screens['md']}) {
     ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
@@ -115,7 +115,7 @@ const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkGrey});
+      background-image: radial-gradient(ellipse at center, transparent 60%, var(--ink-grey));
     }
   }
 `;

@@ -1,13 +1,13 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledHeadingPlanWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 0 16px 32px;
 
     & [data-dropdown-wrapper='true'],
@@ -19,11 +19,11 @@ export const StyledHeadingPlanWrapper = styled.div`
     }
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.xl}) {
+  @media (min-width: ${screens.xl}) {
     padding: 0 48px 32px;
   }
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     & *[data-heading='true'] {
       text-align: left;
     }

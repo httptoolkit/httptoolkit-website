@@ -3,19 +3,19 @@
 import type { StyledIntegrationCardProps } from './integration-card.types';
 
 import { Link } from '@/components/elements/link';
-import { styled } from '@/styles';
+import { styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledIntegrationCardBorder = styled(Link)<StyledIntegrationCardProps>`
   &&& {
     display: block;
-    background: ${({ theme }) => theme.colors.button.border};
+    background: var(--button-border);
     padding: 1px;
     border-radius: 12px;
-    box-shadow: 0px 0px 8px 0px ${({ theme }) => ` ${theme.colors.shadowDefault}`};
+    box-shadow: 0px 0px 8px 0px var(--shadow-default);
 
     @media (hover: hover) {
       &:hover {
-        background: ${({ theme }) => theme.colors.blueGradient};
+        background: var(--blue-gradient);
         box-shadow: none;
       }
     }
@@ -28,9 +28,9 @@ export const StyledIntegrationCardWrapper = styled.div<StyledIntegrationCardProp
   gap: 24px;
   border-radius: 12px;
   padding: 15px 15px 23px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 31px;
   }
 `;
@@ -62,7 +62,7 @@ export const StyledIntegrationCardLink = styled.p`
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.button.small};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.colors.lightGrey};
+  font-size: ${fontSizes.button.small};
+  font-weight: ${fontWeight.medium};
+  color: var(--light-grey);
 `;

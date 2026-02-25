@@ -2,7 +2,7 @@
 
 import type { InputProps } from './checkbox.types';
 
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledInputWrapper = styled.div`
   display: flex;
@@ -15,24 +15,24 @@ export const StyledInputWrapper = styled.div`
 export const StyledInput = styled.input<InputProps>`
   padding: 14px 14px;
   border: none;
-  font-size: ${({ theme }) => theme.fontSizes.text.s};
+  font-size: ${fontSizes.text.s};
   line-height: 150%;
-  color: ${({ theme, $hasError }) => ($hasError ? theme.colors.text.cinnarbarRed : theme.colors.text.lightGrey)};
+  color: ${({ $hasError }) => ($hasError ? 'var(--text-cinnabar-red)' : 'var(--text-light-grey)')};
   outline: 0;
   height: 20px;
   width: 20px;
   resize: none;
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.colors.inkGrey};
-  accent-color: ${({ theme }) => theme.colors.electricLightBlue};
+  background-color: var(--ink-grey);
+  accent-color: var(--electric-light-blue);
   &:focus {
-    background-color: ${({ theme }) => theme.colors.inkBlack};
+    background-color: var(--ink-black);
   }
 `;
 
 export const STyledLabel = styled.label`
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  font-size: ${fontSizes.text.m};
+  font-weight: ${fontWeight.bold};
+  color: var(--text-dark-grey);
   text-align: left;
 `;

@@ -1,7 +1,7 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledPricingComparisonWrapper = styled(Container)`
   &&& {
@@ -11,7 +11,7 @@ export const StyledPricingComparisonWrapper = styled(Container)`
     padding-top: 0;
     padding-bottom: 64px;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       display: block;
       padding-top: 96px;
       padding-bottom: 96px;
@@ -23,7 +23,7 @@ export const StyledPricingComparisonDesktopWrapper = styled.div`
   &&& {
     display: none;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       display: block;
     }
   }

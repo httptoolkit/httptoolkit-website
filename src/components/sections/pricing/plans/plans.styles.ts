@@ -4,12 +4,12 @@ import { StyledPricingCardWrapper } from './components/card/card.styles';
 import type { StyledPricingPlansProps } from './plans.types';
 
 import { Container } from '@/components/elements/container';
-import { css, keyframes, styled } from '@/styles';
+import { css, keyframes, styled, screens } from '@/styles';
 
 export const StyledPricingPlansWrapper = styled(Container)`
   &&& {
     position: relative;
-    max-width: ${({ theme }) => theme.screens['2xl']} !important;
+    max-width: ${screens['2xl']} !important;
   }
 `;
 
@@ -20,7 +20,7 @@ export const StyledPricingPlansSwitchWrapper = styled.div`
   margin: 96px auto 32px;
   width: fit-content;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     margin: 48px auto;
   }
 `;
@@ -33,11 +33,11 @@ export const StyledPricingPlansSwitchBadge = styled.div`
   border-radius: 24px;
   padding: 8px 12px;
   transform: rotate(-14deg);
-  background: ${({ theme }) => theme.colors.orangeGradient};
+  background: var(--orange-gradient);
   box-shadow:
     0px 1.66px 0.83px 0px rgba(201, 212, 251, 0.1) inset,
     0px -0.83px 0.83px 0px rgba(16, 46, 151, 0.1) inset,
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset;
+    0 0 0 1px var(--button-border) inset;
 
   & > p {
     text-transform: uppercase;
@@ -49,7 +49,7 @@ export const StyledPricingPlansCardsWrapper = styled.div<StyledPricingPlansProps
   gap: 20px;
   margin-bottom: 24px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     grid-template-columns: ${({ $hideFree }) => ($hideFree ? 'repeat(6, 1fr)' : 'repeat(3, 1fr)')};
 
     ${({ $hideFree }) =>
@@ -71,7 +71,7 @@ export const StyledPricingPlansLoginInfoWrapper = styled.div`
   justify-content: center;
   gap: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     gap: 24px;
   }
 

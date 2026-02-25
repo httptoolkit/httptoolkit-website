@@ -8,7 +8,7 @@ export const DrawerContainer = styled.div<StyledDrawerProps>`
   left: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   width: 100%;
   height: 100dvh;
-  background-color: ${({ theme }) => theme.colors.inkGrey};
+  background-color: var(--ink-grey);
   transition: left 0.3s ease-in-out;
   box-shadow: ${({ $isOpen }) => ($isOpen ? ' 0 0 10px rgba(0, 0, 0, 0.1)' : 'initial')};
   z-index: 1000;
@@ -17,8 +17,8 @@ export const DrawerContainer = styled.div<StyledDrawerProps>`
 export const DrawerHeader = styled.div`
   padding: 11px 16px;
   max-height: 70px;
-  background-color: ${({ theme }) => theme.colors.inkGrey};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
+  background-color: var(--ink-grey);
+  border-bottom: 1px solid var(--button-border);
 `;
 
 export const DrawerContent = styled.div`

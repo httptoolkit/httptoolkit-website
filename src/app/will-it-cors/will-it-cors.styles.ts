@@ -3,7 +3,7 @@
 import { screens, styled } from '@/styles';
 
 export const StyledWillItCorsWrapper = styled.section`
-  box-shadow: ${({ theme }) => theme.shadow.hero};
+  box-shadow: var(--hero-box-shadow);
   padding: 32px 20px;
 
   @media (min-width: ${screens['md']}) {
@@ -23,7 +23,7 @@ export const StyledWillItCorsWrapper = styled.section`
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 60%, ${({ theme }) => theme.colors.inkGrey});
+      background-image: radial-gradient(ellipse at center, transparent 60%, var(--ink-grey));
     }
   }
 `;
@@ -40,7 +40,7 @@ export const StyledWillItCorsContainer = styled.div`
   text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
 
   & a {
-    color: ${({ theme }) => theme.colors.electricLightBlue};
+    color: var(--electric-light-blue);
     text-decoration: underline;
   }
 `;

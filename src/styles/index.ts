@@ -1,6 +1,6 @@
-import styled, { ThemeProvider, createGlobalStyle, css, keyframes } from 'styled-components';
+import styled, { createGlobalStyle, css, keyframes } from 'styled-components';
 
-export { ThemeProvider, createGlobalStyle, css, keyframes, styled };
+export { createGlobalStyle, css, keyframes, styled };
 
 export const screens = {
   content: '662px',
@@ -11,143 +11,84 @@ export const screens = {
   '2xl': '1440px',
 };
 
-const TextGradient = css`
+export const textGradientMixin = css`
   background: var(--text-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
 
-const TextOrangeGradient = css`
+export const textOrangeGradientMixin = css`
   background: var(--text-orange-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
-const colorTheme = {
-  inkBlack: 'var(--ink-black)',
-  inkGrey: 'var(--ink-grey)',
-  darkGrey: 'var(--dark-grey)',
-  lightGrey: 'var(--light-grey)',
-  white: 'var(--white)',
-  electricBlue: 'var(--electric-blue)',
-  electricLightBlue: 'var(--electric-light-blue)',
-  cinnarbarRedLight: 'var(--cinnabar-red-light)',
-  cinnarbarRed: 'var(--cinnabar-red)',
-  cinnarbarRedDark: 'var(--cinnabar-red-dark)',
-  orangeGradient: 'var(--orange-gradient)',
-  blueGradient: 'var(--blue-gradient)',
-  darkGradient: 'var(--dark-gradient)',
-  circleGradient: 'var(--circle-gradient)',
-  ellipseGradient: 'var(--ellipse-gradient)',
-  borderGradient: 'var(--border-gradient)',
-  borderAlwaysGradient: 'var(--border-always-gradient)',
-  borderDark: 'var(--border-dark)',
-  borderMovingDark: 'var(--moving-border-dark)',
+
+export const textColors = {
+  lightGrey: 'var(--text-light-grey)',
+  darkGrey: 'var(--text-dark-grey)',
+  cinnarbarRed: 'var(--text-cinnabar-red)',
+  white: 'var(--text-white)',
+  alwaysWhite: 'var(--text-always-white)',
+  alwaysLightGrey: 'var(--text-always-light-grey)',
+  electricLightBlue: 'var(--text-electric-light-blue)',
+} as const;
+
+export const fontWeight = {
+  light: '300',
+  normal: '400',
+  medium: '500',
+  semibold: '600',
+  bold: '700',
+} as const;
+
+export const fontSizes = {
+  heading: {
+    mobile: {
+      xl: '3rem', // 48px / 16px = 3rem
+      l: '2.5rem', // 40px / 16px = 2.5rem
+      m: '2rem', // 32px / 16px = 2rem
+      s: '1.5rem', // 24px / 16px = 1.5rem
+      xs: '1.25rem', // 20px / 16px = 1.25rem
+    },
+    desktop: {
+      xl: '5rem', // 80px / 16px = 5rem
+      l: '3.5rem', // 56px / 16px = 3.5rem
+      m: '2rem', // 32px / 16px = 2rem
+      s: '1.5rem', // 24px / 16px = 1.5rem
+      xs: '1.25rem', // 20px / 16px = 1.25rem
+    },
+  },
   text: {
-    lightGrey: 'var(--text-light-grey)',
-    darkGrey: 'var(--text-dark-grey)',
-    cinnarbarRed: 'var(--text-cinnabar-red)',
-    white: 'var(--text-white)',
-    alwayWhite: 'var(--text-always-white)',
-    alwayLightGrey: 'var(--text-always-light-grey)',
-    electricLightBlue: 'var(--text-electric-light-blue)',
-    textGradient: TextGradient,
-    textOrangeGradient: TextOrangeGradient,
+    xll: '1.5rem', // 24px / 16px = 1.5rem
+    xl: '1.25rem', // 20px / 16px = 1.25rem
+    l: '1.125rem', // 18px / 16px = 1.125.5rem
+    m: '1rem', // 16px / 16px = 1rem
+    s: '0.875rem', // 14px / 16px = 0.875
+    xs: '0.75rem', // 12px / 16px = 0.875
   },
   button: {
-    secondaryDefault: 'var(--button-secondary-default)',
-    secondarySection: 'var(--button-secondary-section)',
-    border: 'var(--button-border)',
+    large: '1.5rem',
+    default: '1.125rem', // 18px / 16px = 1.125.5rem
+    small: '1rem', // 16px / 16px = 1rem
   },
-  shadowDefault: 'var(--shadow-default)',
+  label: {
+    xl: '1.5rem', // 24px / 16px = 1.5rem
+    l: '1rem', // 16px / 16px = 1rem
+    m: '0.875rem', // 14px / 16px = 0.875
+  },
 } as const;
 
-const backgroundImagesTheme = {
-  backgroundDots: 'var(--background-dots)',
-  backgroundDotsCard: 'var(--background-dots-card)',
-  backgroundAlwaysDarkDots: 'var(--background-always-dark-dots)',
-  backgroundGradient: 'var(--background-gradient)',
-  backgroundFuncGradient: 'var(--background-func-gradient)',
+export const lineHeight = {
+  label: '1.1',
 } as const;
 
-export type TextColor = keyof (typeof colorTheme)['text'];
-export type FontWeigth = keyof (typeof theme)['fontWeight'];
-export type FontSize = keyof (typeof theme)['fontSizes']['text'];
+export const letterSpacing = {
+  label: '0.06em',
+} as const;
 
-export const theme = {
-  screens,
-  colors: {
-    ...colorTheme,
-  },
-  fontFamily: {
-    dmSans: 'var(--font-dmSans)',
-  },
-  fontWeight: {
-    light: '300',
-    normal: '400',
-    medium: '500',
-    semibold: '600',
-    bold: '700',
-  },
-  fontSizes: {
-    heading: {
-      mobile: {
-        xl: '3rem', // 48px / 16px = 3rem
-        l: '2.5rem', // 40px / 16px = 2.5rem
-        m: '2rem', // 32px / 16px = 2rem
-        s: '1.5rem', // 24px / 16px = 1.5rem
-        xs: '1.25rem', // 20px / 16px = 1.25rem
-      },
-      desktop: {
-        xl: '5rem', // 80px / 16px = 5rem
-        l: '3.5rem', // 56px / 16px = 3.5rem
-        m: '2rem', // 32px / 16px = 2rem
-        s: '1.5rem', // 24px / 16px = 1.5rem
-        xs: '1.25rem', // 20px / 16px = 1.25rem
-      },
-    },
-    text: {
-      xll: '1.5rem', // 24px / 16px = 1.5rem
-      xl: '1.25rem', // 20px / 16px = 1.25rem
-      l: '1.125rem', // 18px / 16px = 1.125.5rem
-      m: '1rem', // 16px / 16px = 1rem
-      s: '0.875rem', // 14px / 16px = 0.875
-      xs: '0.75rem', // 12px / 16px = 0.875
-    },
-    button: {
-      large: '1.5rem',
-      default: '1.125rem', // 18px / 16px = 1.125.5rem
-      small: '1rem', // 16px / 16px = 1rem
-    },
-    label: {
-      xl: '1.5rem', // 24px / 16px = 1.5rem
-      l: '1rem', // 16px / 16px = 1rem
-      m: '0.875rem', // 14px / 16px = 0.875
-    },
-  },
-  lineHeight: {
-    label: '1.1',
-  },
-  letterSpacing: {
-    label: '0.06em',
-  },
-  space: {
-    xs: '4px',
-    sm: '8px',
-    md: '16px',
-    lg: '24px',
-    xl: '32px',
-    xxl: '48px',
-    '2xl': '64px',
-  },
-  shadow: {
-    box: 'var(--shadow-box)',
-    innerBox: 'var(--shadow-inner-box)',
-    hero: 'var(--hero-box-shadow)',
-  },
-  backgroundImages: {
-    ...backgroundImagesTheme,
-  },
-};
+export type TextColor = keyof typeof textColors | 'textGradient' | 'textOrangeGradient';
+export type FontWeight = keyof typeof fontWeight;
+export type FontSize = keyof (typeof fontSizes)['text'];
 
 export const Keyframes = {
   rotate: keyframes`
@@ -290,7 +231,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     a {
-      color: ${theme.colors.text.lightGrey};
+      color: var(--text-light-grey);
       text-decoration: none;
     }
 
@@ -303,7 +244,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     button, textarea, input {
-      font-family: ${theme.fontFamily.dmSans};
+      font-family: var(--font-dmSans);
     }
 
     html {
@@ -311,9 +252,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${theme.colors.inkGrey};
-        font-family: ${theme.fontFamily.dmSans};
-        color: ${theme.colors.text.lightGrey};
+        background-color: var(--ink-grey);
+        font-family: var(--font-dmSans);
+        color: var(--text-light-grey);
         font-size: 16px;
         line-height: 1.5;
         /* -webkit-font-smoothing: antialiased; */

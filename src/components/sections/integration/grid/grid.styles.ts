@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledIntegrationGrid = styled.div`
   display: grid;
@@ -8,7 +8,7 @@ export const StyledIntegrationGrid = styled.div`
   padding-top: 64px;
   padding-bottom: 64px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding-top: 48px;
     padding-bottom: 0;
     gap: 20px;

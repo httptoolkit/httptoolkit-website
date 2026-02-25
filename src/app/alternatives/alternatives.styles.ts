@@ -1,6 +1,6 @@
 'use client';
 
-import { screens, styled } from '@/styles';
+import { screens, styled, fontSizes } from '@/styles';
 
 export const StyledAlternativesPageColumns = styled.div`
   display: grid;
@@ -49,12 +49,12 @@ export const StyledAlternativeList = styled.ul`
 export const StyledAlternativeHeadingTag = styled.h2`
   display: inline-block;
 
-  font-size: ${({ theme }) => theme.fontSizes.heading.mobile.m};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
+  font-size: ${fontSizes.heading.mobile.m};
+  color: var(--text-light-grey);
   line-height: 1.5;
 
   @media (min-width: ${screens.lg}) {
-    font-size: ${({ theme }) => theme.fontSizes.heading.desktop.m};
+    font-size: ${fontSizes.heading.desktop.m};
   }
 
   &:hover {

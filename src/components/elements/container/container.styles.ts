@@ -5,7 +5,7 @@ import type { StyledContainerProps } from './container.types';
 import { styled, screens } from '@/styles';
 
 export const StyledContainer = styled.div<StyledContainerProps>`
-  max-width: ${({ theme, $size }) => ($size === 'default' ? theme.screens['2xl'] : theme.screens.content)};
+  max-width: ${({ $size }) => ($size === 'default' ? screens['2xl'] : screens.content)};
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;

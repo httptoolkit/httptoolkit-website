@@ -3,7 +3,7 @@
 import { screens, styled } from '@/styles';
 
 const ShowCaseWrapper = styled.fieldset<Pick<ShowCaseProps, '$flexDirection'>>`
-  border: 1px dashed ${({ theme }) => theme.colors.cinnarbarRed};
+  border: 1px dashed var(--cinnabar-red);
   padding: 20px;
   margin: 20px 0;
   display: flex;

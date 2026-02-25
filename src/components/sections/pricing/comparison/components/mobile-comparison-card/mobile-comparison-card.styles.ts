@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledMobileComparisonCardWrapper = styled.div`
   &&& {
@@ -8,7 +8,7 @@ export const StyledMobileComparisonCardWrapper = styled.div`
     flex-direction: column;
     gap: 16px;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       display: none;
     }
   }

@@ -6,12 +6,12 @@ import { Heading } from '@/components/elements/heading';
 import { Image } from '@/components/elements/image';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledLink = styled(Link)`
   &&& {
     text-decoration: underline;
-    color: ${({ theme }) => theme.colors.text.darkGrey};
+    color: var(--text-dark-grey);
   }
 `;
 
@@ -24,9 +24,9 @@ export const StyledText = styled(Text)`
 export const StyledHighlightedParagraphs = styled.div`
   p {
     margin-bottom: 2rem;
-    color: ${({ theme }) => theme.colors.text.darkGrey};
-    font-size: ${({ theme }) => theme.fontSizes.text.l};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: var(--text-dark-grey);
+    font-size: ${fontSizes.text.l};
+    font-weight: ${fontWeight.bold};
     line-height: 1.5;
   }
 `;
@@ -42,8 +42,8 @@ export const StyledUL = styled.ul`
   list-style: disc;
   padding-left: 30px;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.m};
 
   ul, ol {
     margin-top: 2px;
@@ -55,8 +55,8 @@ export const StyledOL = styled.ol`
   list-style: decimal;
   padding-left: 30px;
   margin-bottom: 2rem;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.m};
 
   ul, ol {
     margin-top: 2px;

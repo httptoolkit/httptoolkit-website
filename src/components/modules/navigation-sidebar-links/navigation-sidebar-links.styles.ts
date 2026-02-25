@@ -3,7 +3,7 @@
 import { Heading } from '@/components/elements/heading';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { screens, styled } from '@/styles';
+import { screens, styled, fontSizes } from '@/styles';
 
 export const StyledNavigationSidebarLinksWrapper = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const StyledNavigationSidebarLinksWrapper = styled.div`
   top: 10px;
   align-self: self-start;
 
-  @media (max-width: ${({ theme }) => theme.screens['xl']}) {
+  @media (max-width: ${screens['xl']}) {
     display: none;
   }
 `;
@@ -29,7 +29,7 @@ export const StyledNavigationSidebarLinksContentWrapper = styled.div`
   max-height: calc(100vh - 80px);
   overflow: auto;
   scrollbar-width: thin;
-  scrollbar-color: ${({ theme }) => theme.colors.lightGrey} transparent;
+  scrollbar-color: var(--light-grey) transparent;
   scrollbar-gutter: stable;
 `;
 
@@ -44,19 +44,19 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
 
   & > a {
     transition: color ease-in 300ms;
-    color: ${({ theme }) => theme.colors.text.white};
+    color: var(--text-white);
 
     &.active {
-      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      color: var(--text-electric-light-blue);
       @media (min-width: ${screens.md}) {
         &:focus,
         &:active {
-          color: ${({ theme }) => theme.colors.text.electricLightBlue};
+          color: var(--text-electric-light-blue);
         }
 
         @media (hover: hover) {
           &:hover {
-            color: ${({ theme }) => theme.colors.text.electricLightBlue};
+            color: var(--text-electric-light-blue);
           }
         }
       }
@@ -65,12 +65,12 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
     @media (min-width: ${screens.md}) {
       &:focus,
       &:active {
-        color: ${({ theme }) => theme.colors.text.darkGrey};
+        color: var(--text-dark-grey);
       }
 
       @media (hover: hover) {
         &:hover {
-          color: ${({ theme }) => theme.colors.text.darkGrey};
+          color: var(--text-dark-grey);
         }
       }
     }
@@ -80,24 +80,24 @@ export const StyledNavigationSidebarLinksContentTitle = styled(Text)`
 export const StyledNavigationSidebarLinksContentLink = styled(Link)`
   &&& {
     display: inline-block;
-    font-size: ${({ theme }) => theme.fontSizes.text.m};
+    font-size: ${fontSizes.text.m};
     line-height: 1.5;
-    color: ${({ theme }) => theme.colors.text.lightGrey};
+    color: var(--text-light-grey);
     padding: 8px 32px;
 
     transition: color ease-in 300ms;
 
     &.active {
-      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      color: var(--text-electric-light-blue);
       @media (min-width: ${screens.md}) {
         &:focus,
         &:active {
-          color: ${({ theme }) => theme.colors.text.electricLightBlue};
+          color: var(--text-electric-light-blue);
         }
 
         @media (hover: hover) {
           &:hover {
-            color: ${({ theme }) => theme.colors.text.electricLightBlue};
+            color: var(--text-electric-light-blue);
           }
         }
       }
@@ -105,12 +105,12 @@ export const StyledNavigationSidebarLinksContentLink = styled(Link)`
 
     @media (min-width: ${screens.md}) {
       &:focus {
-        color: ${({ theme }) => theme.colors.text.darkGrey};
+        color: var(--text-dark-grey);
       }
 
       @media (hover: hover) {
         &:hover {
-          color: ${({ theme }) => theme.colors.text.darkGrey};
+          color: var(--text-dark-grey);
         }
       }
     }

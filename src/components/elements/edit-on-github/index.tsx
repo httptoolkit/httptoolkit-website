@@ -11,18 +11,18 @@ const EditText = styled.p`
   align-items: center;
   justify-content: right;
   gap: 5px;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  color: var(--text-dark-grey);
 
   opacity: 0.8;
 
   a {
-    color: ${({ theme }) => theme.colors.text.darkGrey};
+    color: var(--text-dark-grey);
     text-decoration: underline;
     transition: color ease-in 200ms;
 
     @media (hover: hover) {
       &:hover {
-        color: ${({ theme }) => theme.colors.text.lightGrey};
+        color: var(--text-light-grey);
       }
     }
   }

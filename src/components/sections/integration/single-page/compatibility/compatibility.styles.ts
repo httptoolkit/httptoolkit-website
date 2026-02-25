@@ -1,15 +1,15 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
-import { styled } from '@/styles';
+import { styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledIntegrationCompatibilityWrapper = styled.section`
   position: relative;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
-  box-shadow: 1px 0 1px 0 ${({ theme }) => theme.colors.button.border};
+  background-color: var(--ink-black);
+  box-shadow: 1px 0 1px 0 var(--button-border);
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
-    background-image: ${({ theme }) => theme.backgroundImages.backgroundDots};
+  @media (max-width: ${screens.lg}) {
+    background-image: var(--background-dots);
     background-repeat: repeat;
     background-size: 450px;
   }
@@ -31,7 +31,7 @@ export const StyledIntegrationCompatibilityGradientWrapper = styled.div`
   right: -550px;
   top: -350px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     top: -150px;
     right: -500px;
   }
@@ -49,7 +49,7 @@ export const StyledIntegrationCompatibilityContentWrapper = styled(Container)`
     gap: 32px;
     position: relative;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       align-items: center;
       justify-content: space-between;
       flex-direction: row;
@@ -71,16 +71,16 @@ export const StyledIntegrationCompatibilityContentTitle = styled.div`
   gap: 16px;
   text-align: center;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     text-align: left;
     max-width: 440px;
   }
 `;
 
 export const StyledIntegrationCompatibilityLabel = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.label.l};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.cinnarbarRed};
+  font-size: ${fontSizes.label.l};
+  font-weight: ${fontWeight.bold};
+  color: var(--cinnabar-red);
   line-height: 1.1;
   letter-spacing: 0.6px;
   text-transform: uppercase;
@@ -92,7 +92,7 @@ export const StyledCompatibilityBadgeWrapper = styled.div`
   flex-wrap: wrap;
   gap: 6px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     justify-content: end;
     gap: 12px;
     max-width: 630px;

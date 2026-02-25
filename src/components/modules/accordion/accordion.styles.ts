@@ -5,7 +5,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import type { StyledAccordionProps } from './accordion.types';
 import { slideDown, slideUp } from '../table-content/table-content.styles';
 
-import { css, styled } from '@/styles';
+import { css, styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledAccordionWrapper = styled(Accordion.Root)<StyledAccordionProps>`
   &&& {
@@ -17,9 +17,9 @@ export const StyledAccordionWrapper = styled(Accordion.Root)<StyledAccordionProp
         case 'default':
           return css`
             padding: 32px 16px;
-            background-color: ${({ theme }) => theme.colors.inkBlack};
+            background-color: var(--ink-black);
 
-            @media (min-width: ${({ theme }) => theme.screens.lg}) {
+            @media (min-width: ${screens.lg}) {
               max-width: 780px;
               padding: 32px;
             }
@@ -31,7 +31,7 @@ export const StyledAccordionWrapper = styled(Accordion.Root)<StyledAccordionProp
 
 export const StyledAccordionItem = styled(Accordion.Item)<StyledAccordionProps>`
   &&& {
-    border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border-bottom: 1px solid var(--dark-grey);
 
     ${({ $variant }) => {
       switch ($variant) {
@@ -70,7 +70,7 @@ export const StyledAccordionTrigger = styled(Accordion.Trigger)`
     cursor: pointer;
 
     &[data-state='open'] h3 {
-      color: ${({ theme }) => theme.colors.lightGrey};
+      color: var(--light-grey);
     }
 
     & svg {
@@ -85,9 +85,9 @@ export const StyledAccordionTrigger = styled(Accordion.Trigger)`
 `;
 
 export const StyledAccordionTransparentTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.text.l};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSizes.text.l};
+  color: var(--text-light-grey);
+  font-weight: ${fontWeight.bold};
   text-align: left;
   line-height: 1.5;
 `;
@@ -102,21 +102,21 @@ export const StyledAccordionContent = styled(Accordion.Content)`
     }
 
     & * {
-      font-size: ${({ theme }) => theme.fontSizes.text.m};
+      font-size: ${fontSizes.text.m};
       line-height: 1.5;
-      color: ${({ theme }) => theme.colors.text.darkGrey};
+      color: var(--text-dark-grey);
     }
 
     & a {
       text-decoration: underline;
 
       &:focus {
-        color: ${({ theme }) => theme.colors.lightGrey};
+        color: var(--light-grey);
       }
 
       @media (hover: hover) {
         &:hover {
-          color: ${({ theme }) => theme.colors.lightGrey};
+          color: var(--light-grey);
         }
       }
     }

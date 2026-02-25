@@ -3,7 +3,7 @@
 import type { StyledContentCardProps } from './content-card.types';
 
 import { Text } from '@/components/elements/text';
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
   display: flex;
@@ -12,12 +12,12 @@ export const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
   gap: ${({ $isNewsletter }) => ($isNewsletter ? '16px' : '32px')};
   border-radius: 12px;
   padding: 16px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border},
-    0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border),
+    0 0 8px 0 var(--shadow-default);
 
-  @media (min-width: ${({ theme }) => theme.screens['lg']}) {
+  @media (min-width: ${screens['lg']}) {
     padding: 32px;
     gap: ${({ $isNewsletter }) => ($isNewsletter ? '16px' : '43px')};
   }
@@ -40,7 +40,7 @@ export const StyledContentCardForm = styled.form`
   gap: 12px;
   flex-direction: column;
 
-  @media (min-width: ${({ theme }) => theme.screens['lg']}) {
+  @media (min-width: ${screens['lg']}) {
     flex-direction: row;
     align-items: center;
   }

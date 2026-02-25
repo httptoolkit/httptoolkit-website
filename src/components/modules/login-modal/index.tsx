@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { screens, fontSizes } from '@/styles';
 
 import { asErrorLike } from '@httptoolkit/util';
 import { sendAuthCode, loginWithCode } from '@httptoolkit/accounts';
@@ -22,7 +23,7 @@ const Modal = styled.dialog`
   margin: 0;
 
   width: 90%;
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     width: auto;
     max-width: 340px;
   }
@@ -125,7 +126,7 @@ const Input = styled.input`
   border-width: 1px 0 1px 0;
   z-index: 1;
 
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  font-size: ${fontSizes.text.m};
 
   &:focus {
     border-color: var(--white);
@@ -137,7 +138,7 @@ const SmallPrint = styled.p`
   padding: 10px 16px 12px;
   width: 100%;
 
-  font-size: ${({ theme }) => theme.fontSizes.text.s};
+  font-size: ${fontSizes.text.s};
   font-style: italic;
 
   background-color: var(--darkish-grey);

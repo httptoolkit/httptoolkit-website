@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledCopy = styled.div`
   display: flex;
@@ -10,17 +10,17 @@ export const StyledCopy = styled.div`
   padding: 8px 16px;
   border-radius: 6px;
   border: 0;
-  color: ${({ theme }) => theme.colors.text.white};
-  font-size: ${({ theme }) => theme.fontSizes.text.l};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  color: var(--text-white);
+  font-size: ${fontSizes.text.l};
+  font-weight: ${fontWeight.bold};
   line-height: 150%;
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: var(--dark-grey);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.borderDark},
-    0px 0px 8px 0px ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--border-dark),
+    0px 0px 8px 0px var(--shadow-default);
 
   & svg {
-    color: ${({ theme }) => theme.colors.text.white};
+    color: var(--text-white);
   }
 `;
 
@@ -32,7 +32,7 @@ export const StyledCopyButton = styled.button`
   padding: 0;
 
   & svg {
-    color: ${({ theme }) => theme.colors.text.white};
+    color: var(--text-white);
 
     &:hover:not(:active) {
       color: var(--cinnabar-red);

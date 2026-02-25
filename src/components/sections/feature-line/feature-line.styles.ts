@@ -2,10 +2,10 @@
 
 import type { StyledFeatureLineProps } from './feature-line.types';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     display: flex;
     flex-direction: ${({ $align }) => $align === 'right' && 'row-reverse'};
     align-items: center;
@@ -13,7 +13,7 @@ export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
   }
 
   & > *:nth-child(2) {
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       width: 50%;
     }
   }
@@ -29,7 +29,7 @@ export const StyledFeatureLineContentWrapper = styled.div`
   gap: 16px;
   max-width: 548px;
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     align-items: center;
     margin: 0 auto 32px;
     gap: 32px;
@@ -41,7 +41,7 @@ export const StyledFeatureLineTextWrapper = styled.div`
   flex-direction: column;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     gap: 32px;
 
     & > * {

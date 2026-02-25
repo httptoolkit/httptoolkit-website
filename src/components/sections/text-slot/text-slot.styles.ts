@@ -3,7 +3,7 @@
 import type { StyledTextSlotProps } from './text-slot.types';
 
 import { Heading } from '@/components/elements/heading';
-import { styled } from '@/styles';
+import { styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledTextSlotWrapper = styled.div`
   display: flex;
@@ -20,23 +20,23 @@ export const StyledTextSlotTitle = styled(Heading)<StyledTextSlotProps>`
       text-align: center;
       `}
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       text-align: left;
     }
   }
 `;
 
 export const StyledTextSlotText = styled.div<StyledTextSlotProps>`
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  font-size: ${fontSizes.text.m};
   line-height: 1.5;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
+  color: var(--text-dark-grey);
   ${({ $textCenteredOnMobile }) =>
     $textCenteredOnMobile &&
     `
     text-align: center;
     `}
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     text-align: left;
   }
 
@@ -45,7 +45,7 @@ export const StyledTextSlotText = styled.div<StyledTextSlotProps>`
   }
 
   & strong {
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    font-weight: ${fontWeight.bold};
   }
 
   & a {
@@ -68,7 +68,7 @@ export const StyledTextSlotInnerWrapper = styled.div<StyledTextSlotProps>`
     width: fit-content;
   }
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     align-items: ${({ $textCenteredOnMobile }) => ($textCenteredOnMobile ? 'center' : 'initial')};
   }
 `;
@@ -79,7 +79,7 @@ export const StyledTextSlotButtonsWrapper = styled.div`
   gap: 16px;
   width: 100%;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     flex-direction: row;
   }
 `;

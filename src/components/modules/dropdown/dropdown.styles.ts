@@ -3,12 +3,12 @@
 import type { DropdownOptionProps, DropdownProps } from './dropdown.types';
 
 import { Link } from '@/components/elements/link';
-import { css, screens, styled } from '@/styles';
+import { css, screens, styled, fontSizes } from '@/styles';
 
 const openDropdown = css`
   padding: 4px;
   max-height: fit-content;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  box-shadow: 0 0 0 1px var(--button-border);
   opacity: 1;
   visibility: visible;
 `;
@@ -19,7 +19,7 @@ export const DropdownOptionsWrapper = styled.div<Pick<DropdownProps, '$direction
   top: ${({ $direction }) => ($direction === 'bottom' ? 'calc(100% + 4px)' : 'auto')};
   bottom: ${({ $direction }) => ($direction === 'top' ? 'calc(100% + 4px)' : 'auto')};
   border-radius: 12px;
-  background: ${({ theme }) => theme.colors.inkBlack};
+  background: var(--ink-black);
   padding: 4px;
   gap: 4px;
   min-width: 100%;
@@ -80,8 +80,8 @@ const baseOption = css<DropdownOptionProps>`
   border: none;
   border-radius: 10px;
   padding: 14px;
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  color: var(--text-light-grey);
+  font-size: ${fontSizes.text.m};
   line-height: 1;
   text-align: center;
   text-decoration: none;
@@ -92,12 +92,12 @@ const baseOption = css<DropdownOptionProps>`
   }
 
   &:focus {
-    background: ${({ theme }) => theme.colors.inkGrey};
+    background: var(--ink-grey);
   }
 
   @media (hover: hover) {
     &:hover {
-      background: ${({ theme }) => theme.colors.inkGrey};
+      background: var(--ink-grey);
     }
   }
 `;
@@ -111,6 +111,6 @@ export const DropdownOptionButton = styled.button<DropdownOptionProps>`
 `;
 
 export const DropdownOptionSubtext = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes.text.xs};
+  font-size: ${fontSizes.text.xs};
   margin-top: 5px;
 `;

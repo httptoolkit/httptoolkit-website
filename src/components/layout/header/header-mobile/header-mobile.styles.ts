@@ -23,7 +23,7 @@ export const StyledNavMobileItems = styled.nav`
     & a:focus {
       span {
         transition: color ease-in 200ms;
-        color: ${({ theme }) => theme.colors.cinnarbarRed};
+        color: var(--cinnabar-red);
       }
     }
 
@@ -31,7 +31,7 @@ export const StyledNavMobileItems = styled.nav`
       & a:hover {
         span {
           transition: color ease-in 200ms;
-          color: ${({ theme }) => theme.colors.cinnarbarRed};
+          color: var(--cinnabar-red);
         }
       }
     }

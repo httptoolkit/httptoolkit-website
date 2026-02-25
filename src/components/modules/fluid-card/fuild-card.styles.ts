@@ -2,7 +2,7 @@
 
 import type { StyledFluidCardProps } from './fluid-card.types';
 
-import { css, styled } from '@/styles';
+import { css, styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledFluidCardWrapper = styled.div<StyledFluidCardProps>`
   display: flex;
@@ -12,24 +12,24 @@ export const StyledFluidCardWrapper = styled.div<StyledFluidCardProps>`
   padding: 24px;
   height: 100%;
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border},
-    0px 2px 24px 0px ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border),
+    0px 2px 24px 0px var(--shadow-default);
 
-  ${({ theme, $variant }) => {
+  ${({ $variant }) => {
     switch ($variant) {
       case 'default':
         return css`
-          background: ${theme.colors.inkGrey};
+          background: var(--ink-grey);
           gap: 32px;
         `;
       case 'dark':
         return css`
-          background: ${theme.colors.inkBlack};
+          background: var(--ink-black);
         `;
       case 'highlighted':
         return css`
-          background-image: ${({ theme }) => theme.backgroundImages.backgroundAlwaysDarkDots},
-            ${theme.colors.blueGradient};
+          background-image: var(--background-always-dark-dots),
+            var(--blue-gradient);
           background-size: 450px 450px;
           background-repeat: repeat repeat;
           background-position: center;
@@ -51,9 +51,9 @@ export const StyledFluidCardContentWrapper = styled.div<StyledFluidCardProps>`
 
 export const StyledFluidCardText = styled.div<StyledFluidCardProps>`
   & * {
-    font-size: ${({ theme }) => theme.fontSizes.text.m};
-    color: ${({ theme, $variant }) =>
-      $variant === 'highlighted' ? theme.colors.text.alwayLightGrey : theme.colors.text.darkGrey};
+    font-size: ${fontSizes.text.m};
+    color: ${({ $variant }) =>
+      $variant === 'highlighted' ? 'var(--text-always-light-grey)' : 'var(--text-dark-grey)'};
   }
 
   & p:not(:last-child) {
@@ -61,8 +61,8 @@ export const StyledFluidCardText = styled.div<StyledFluidCardProps>`
   }
 
   & strong {
-    color: ${({ theme }) => theme.colors.text.white};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    color: var(--text-white);
+    font-weight: ${fontWeight.bold};
   }
 
   & a {

@@ -1,7 +1,7 @@
 'use client';
 
 import { Heading } from '@/components/elements/heading';
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledAltHeadingBlockWrapper = styled.div`
   display: flex;
@@ -18,8 +18,8 @@ export const StyledAltHeadingBlockTitle = styled(Heading)`
 `;
 
 export const StyledAltHeadingBlockSubtitle = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.label.l};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${fontSizes.label.l};
+  font-weight: ${fontWeight.bold};
   color: var(--cinnabar-red-light);
   letter-spacing: 0.6px;
   text-align: center;

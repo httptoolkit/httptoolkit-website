@@ -2,7 +2,7 @@
 
 import type { StyledIntegrationCTAProps } from './cta.types';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAProps>`
   display: flex;
@@ -13,11 +13,11 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
   position: relative;
   overflow: hidden;
 
-  ${({ $variant, theme }) =>
+  ${({ $variant}) =>
     $variant === 'cta'
       ? `
-        background-color: ${theme.colors.inkBlack};
-        box-shadow: ${theme.colors.borderGradient};
+        background-color: var(--ink-black);
+        box-shadow: var(--border-gradient);
         padding: 32px 16px 0;
         gap: 42px;
         `
@@ -28,7 +28,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
 
   &::before {
     content: '';
-    background: linear-gradient(0deg, ${({ theme }) => theme.colors.inkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
+    background: linear-gradient(0deg, var(--ink-grey) 13%, rgba(30, 32, 40, 0) 93.25%);
     position: absolute;
     right: 0;
     left: 0;
@@ -37,7 +37,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
     height: 130px;
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     flex-direction: row;
 
     ${({ $variant }) =>
@@ -54,7 +54,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
     &::before, &::after {
       content: '';
       position: absolute;
-      background: linear-gradient(90deg, ${({ theme }) => theme.colors.inkGrey} 13%, rgba(30, 32, 40, 0) 93.25%);
+      background: linear-gradient(90deg, var(--ink-grey) 13%, rgba(30, 32, 40, 0) 93.25%);
       width: 200px;
       height: 100%;
       top: 0;

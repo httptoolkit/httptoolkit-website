@@ -2,7 +2,7 @@
 
 import type { StyledNewsletterProps } from './newsletter.types';
 
-import { css, styled } from '@/styles';
+import { css, styled, screens, fontSizes, fontWeight } from '@/styles';
 
 export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
   position: relative;
@@ -11,20 +11,20 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
   align-items: center;
   padding: 16px;
   border-radius: 16px;
-  background: ${({ theme }) => theme.colors.inkBlack};
+  background: var(--ink-black);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0 0 24px 0 ${({ theme }) => theme.shadow.innerBox} inset;
+    0 0 0 1px var(--button-border) inset,
+    0 0 24px 0 var(--shadow-inner-box) inset;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 32px;
   }
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     text-align: center;
   }
 
-  background-image: ${({ theme }) => theme.backgroundImages.backgroundDots};
+  background-image: var(--background-dots);
   background-repeat: repeat;
   background-size: 400px;
 
@@ -37,7 +37,7 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
           gap: 16px;
           background-image: unset;
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             margin: 0 auto 64px;
             gap: 24px;
             grid-template-columns: 1fr 516px;
@@ -48,7 +48,7 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
           margin: 48px auto 24px;
           gap: 24px;
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             grid-template-columns: 1fr 516px;
           }
         `;
@@ -56,7 +56,7 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
         return css`
           gap: 24px;
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             padding: 24px 16px 16px;
           }
         `;
@@ -79,7 +79,7 @@ export const StyledNewsletterGradientWrapper = styled.div<StyledNewsletterProps>
     switch ($variant) {
       case 'blog-short':
         return css`
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             width: 1600px;
             bottom: unset;
             right: unset;
@@ -88,7 +88,7 @@ export const StyledNewsletterGradientWrapper = styled.div<StyledNewsletterProps>
         `;
       case 'with-gradient':
         return css`
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             width: 1600px;
             bottom: -600px;
             right: -700px;
@@ -110,7 +110,7 @@ export const StyledNewsletterContentWrapper = styled.div<StyledNewsletterProps>`
         return css`
           gap: 16px;
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             max-width: 630px;
           }
         `;
@@ -118,7 +118,7 @@ export const StyledNewsletterContentWrapper = styled.div<StyledNewsletterProps>`
         return css`
           gap: 24px;
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
+          @media (min-width: ${screens.lg}) {
             gap: 16px;
           }
         `;
@@ -130,7 +130,7 @@ export const StyledNewsletterTitle = styled.p<StyledNewsletterProps>`
   line-height: 1.3;
   text-align: center;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     text-align: left;
   }
 
@@ -139,20 +139,20 @@ export const StyledNewsletterTitle = styled.p<StyledNewsletterProps>`
       case 'default':
       case 'with-gradient':
         return css`
-          font-size: ${({ theme }) => theme.fontSizes.heading.mobile.m};
-          color: ${({ theme }) => theme.colors.text.lightGrey};
+          font-size: ${fontSizes.heading.mobile.m};
+          color: var(--text-light-grey);
 
-          @media (min-width: ${({ theme }) => theme.screens.xl}) {
-            font-size: ${({ theme }) => theme.fontSizes.heading.desktop.m};
+          @media (min-width: ${screens.xl}) {
+            font-size: ${fontSizes.heading.desktop.m};
           }
         `;
       case 'blog-short':
         return css`
-          font-size: ${({ theme }) => theme.fontSizes.heading.mobile.s};
-          color: ${({ theme }) => theme.colors.text.white};
+          font-size: ${fontSizes.heading.mobile.s};
+          color: var(--text-white);
 
-          @media (min-width: ${({ theme }) => theme.screens.lg}) {
-            font-size: ${({ theme }) => theme.fontSizes.heading.desktop.s};
+          @media (min-width: ${screens.lg}) {
+            font-size: ${fontSizes.heading.desktop.s};
           }
         `;
     }
@@ -174,7 +174,7 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
     flex-shrink: 0;
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     display: ${({ $variant }) => ($variant === 'blog-short' ? 'grid' : 'flex')};
   }
 
@@ -191,15 +191,15 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
 `;
 
 export const StyledNewsletterSuccess = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes.button.default};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
-  color: ${({ theme }) => theme.colors.text.white};
+  font-size: ${fontSizes.button.default};
+  font-weight: ${fontWeight.medium};
+  color: var(--text-white);
   line-height: 1;
   text-align: center;
   padding: 16px 24px;
   border-radius: 12px;
-  background: ${({ theme }) => theme.colors.electricBlue};
+  background: var(--electric-blue);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border) inset,
+    0 0 8px 0 var(--shadow-default);
 `;

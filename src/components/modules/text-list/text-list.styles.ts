@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledTextListWrapper = styled.ul`
   display: flex;
@@ -8,7 +8,7 @@ export const StyledTextListWrapper = styled.ul`
   gap: 16px;
   text-align: start;
 
-  @media (min-width: ${({ theme }) => theme.screens['2xl']}) {
+  @media (min-width: ${screens['2xl']}) {
     text-align: initial;
   }
 `;

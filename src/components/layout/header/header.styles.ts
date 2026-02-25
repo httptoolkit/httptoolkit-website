@@ -5,7 +5,7 @@ import { screens, styled } from '@/styles';
 
 export const StyledHeader = styled.header`
   position: relative;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.button.border};
+  border-bottom: 1px solid var(--button-border);
 `;
 
 export const StyledLogoWrapper = styled.div`
@@ -41,7 +41,7 @@ export const StyledNavItems = styled.nav`
   & a:focus {
     span {
       transition: color ease-in 200ms;
-      color: ${({ theme }) => theme.colors.cinnarbarRed};
+      color: var(--cinnabar-red);
     }
   }
 
@@ -49,7 +49,7 @@ export const StyledNavItems = styled.nav`
     & a:hover {
       span {
         transition: color ease-in 200ms;
-        color: ${({ theme }) => theme.colors.cinnarbarRed};
+        color: var(--cinnabar-red);
       }
     }
   }

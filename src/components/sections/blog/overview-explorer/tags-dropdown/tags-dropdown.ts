@@ -2,13 +2,13 @@
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledButtonTrigger = styled.button`
   background: transparent;
   border: none;
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  color: var(--text-light-grey);
+  font-size: ${fontSizes.text.m};
 
   cursor: pointer;
   transition: color ease-in 200ms;
@@ -19,16 +19,16 @@ export const StyledButtonTrigger = styled.button`
 
   @media (hover: hover) {
     &:hover {
-      color: ${({ theme }) => theme.colors.text.electricLightBlue};
+      color: var(--text-electric-light-blue);
     }
   }
 `;
 
 export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
   &&& {
-    background: ${({ theme }) => theme.colors.inkBlack};
+    background: var(--ink-black);
     border-radius: 16px;
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    box-shadow: 0 0 0 1px var(--button-border);
     max-height: 296px;
     min-width: 343px;
     overflow: hidden;
@@ -45,11 +45,11 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
 
       &:focus-visible {
         outline: none;
-        background: ${({ theme }) => theme.colors.inkGrey};
+        background: var(--ink-grey);
       }
       @media (hover: hover) {
         &:hover {
-          background: ${({ theme }) => theme.colors.inkGrey};
+          background: var(--ink-grey);
         }
       }
     }
@@ -60,15 +60,15 @@ export const StyledDropdownMenuContent = styled(DropdownMenu.Content)`
 
     /* Track */
     ::-webkit-scrollbar-track {
-      background: ${({ theme }) => theme.colors.inkGrey};
+      background: var(--ink-grey);
     }
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
       height: 94px;
-      background: ${({ theme }) => theme.colors.lightGrey};
+      background: var(--light-grey);
       border-radius: 40px;
-      border: 2px solid ${({ theme }) => theme.colors.inkGrey};
+      border: 2px solid var(--ink-grey);
     }
   }
 `;
@@ -78,12 +78,12 @@ export const StyledDropdownContentWrapper = styled.ul`
   height: 100%;
   border-radius: 16px;
   padding: 16px 8px 16px 16px;
-  box-shadow: 0px 0px 24px 0px ${({ theme }) => theme.shadow.innerBox} inset;
+  box-shadow: 0px 0px 24px 0px var(--shadow-inner-box) inset;
 
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-family: ${({ theme }) => theme.fontFamily.dmSans};
+  font-family: var(--font-dmSans);
 
   & li a {
     display: block;
@@ -91,8 +91,8 @@ export const StyledDropdownContentWrapper = styled.ul`
 `;
 
 export const StyledDropdownItem = styled.span`
-  color: ${({ theme }) => theme.colors.text.lightGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
+  color: var(--text-light-grey);
+  font-size: ${fontSizes.text.m};
   text-transform: capitalize;
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-weight: ${fontWeight.bold};
 `;

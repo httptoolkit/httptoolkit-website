@@ -17,16 +17,16 @@ export const StyledGradient = styled.div<StyledGradientProps>`
     switch ($shape) {
       case 'full':
         return css`
-          background: radial-gradient(circle, ${({ theme }) => theme.colors.circleGradient} 0%, transparent 30%),
-            radial-gradient(ellipse 50% 45%, ${({ theme }) => theme.colors.ellipseGradient} 0%, transparent 70%);
+          background: radial-gradient(circle, var(--circle-gradient) 0%, transparent 30%),
+            radial-gradient(ellipse 50% 45%, var(--ellipse-gradient) 0%, transparent 70%);
           background-size: contain;
           opacity: 0.15;
         `;
 
       case 'side':
         return css`
-          background: radial-gradient(circle at left, ${({ theme }) => theme.colors.circleGradient} 0%, transparent 30%),
-            radial-gradient(ellipse 70% 45% at left, ${({ theme }) => theme.colors.ellipseGradient} 0%, transparent 70%);
+          background: radial-gradient(circle at left, var(--circle-gradient) 0%, transparent 30%),
+            radial-gradient(ellipse 70% 45% at left, var(--ellipse-gradient) 0%, transparent 70%);
           background-size: contain;
           opacity: 0.15;
         `;

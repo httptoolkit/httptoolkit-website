@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledIntegrationHeroWrapper = styled.div`
   padding-top: 32px;
@@ -9,7 +9,7 @@ export const StyledIntegrationHeroWrapper = styled.div`
   flex-direction: column;
   gap: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     flex-direction: row;
     padding-top: 64px;
     padding-bottom: 64px;
@@ -32,7 +32,7 @@ export const StyledIntegrationHeroContent = styled.div`
   flex-direction: column;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.screens.lg}) {
+  @media (max-width: ${screens.lg}) {
     & > * {
       text-align: center;
     }
@@ -46,12 +46,12 @@ export const StyledIntegrationHeroImageWrapper = styled.div`
   min-height: 190px;
   border-radius: 16px;
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0 0 24px 0 ${({ theme }) => theme.shadow.innerBox};
-  background-color: ${({ theme }) => theme.colors.inkBlack};
-  background-image: ${({ theme }) => theme.backgroundImages.backgroundGradient},
-    ${({ theme }) => theme.backgroundImages.backgroundFuncGradient},
-    ${({ theme }) => theme.backgroundImages.backgroundDots};
+    0 0 0 1px var(--button-border) inset,
+    0 0 24px 0 var(--shadow-inner-box);
+  background-color: var(--ink-black);
+  background-image: var(--background-gradient),
+    var(--background-func-gradient),
+    var(--background-dots);
   background-position:
     center -250px,
     center,
@@ -71,19 +71,19 @@ export const StyledIntegrationHeroImageMultiple = styled.div`
   align-items: center;
   padding: 80px 0;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 0;
   }
 
   & svg:first-child {
-    color: ${({ theme }) => theme.colors.cinnarbarRed};
+    color: var(--cinnabar-red);
   }
 `;
 
 export const MainLogo = styled.div`
   & svg {
     width: 109px;
-    color: ${({ theme }) => theme.colors.cinnarbarRed};
+    color: var(--cinnabar-red);
   }
 `;
 
@@ -92,7 +92,7 @@ export const StyledIntegrationHeroImage = styled.div`
   gap: 24px;
   align-items: center;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     gap: 64px;
   }
 
@@ -101,28 +101,28 @@ export const StyledIntegrationHeroImage = styled.div`
     width: 64px;
     height: 64px;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       width: 116px;
       height: 116px;
     }
   }
 
   & > *:nth-child(1) {
-    color: ${({ theme }) => theme.colors.electricBlue};
+    color: var(--electric-blue);
   }
 
   & > *:nth-child(2) {
     width: 26px;
     height: 26px;
-    color: ${({ theme }) => theme.colors.lightGrey};
+    color: var(--light-grey);
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       width: 48px;
       height: 48px;
     }
   }
 
   & > *:nth-child(3) {
-    color: ${({ theme }) => theme.colors.cinnarbarRed};
+    color: var(--cinnabar-red);
   }
 `;

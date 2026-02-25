@@ -3,7 +3,7 @@
 import type { StyledButtonProps } from './button.types';
 
 import { Link } from '@/components/elements/link';
-import { css, screens, styled } from '@/styles';
+import { css, screens, styled, fontSizes, fontWeight } from '@/styles';
 
 const base = css<StyledButtonProps>`
   position: relative;
@@ -13,8 +13,8 @@ const base = css<StyledButtonProps>`
   height: fit-content;
   outline: none;
   border: 0;
-  font-size: ${({ theme, $small }) => theme.fontSizes.button[$small ? 'small' : 'default']};
-  font-weight: ${({ theme }) => theme.fontWeight.medium};
+  font-size: ${({ $small }) => fontSizes.button[$small ? 'small' : 'default']};
+  font-weight: ${fontWeight.medium};
   text-decoration: none;
   line-height: 1;
   border-radius: 12px;
@@ -39,9 +39,9 @@ const base = css<StyledButtonProps>`
     switch (props.$variant) {
       case 'primary':
         return css`
-          color: ${({ theme }) => theme.colors.text.alwayWhite};
-          background: ${({ theme }) => theme.colors.orangeGradient};
-          border: 1px solid ${({ theme }) => theme.colors.cinnarbarRed};
+          color: var(--text-always-white);
+          background: var(--orange-gradient);
+          border: 1px solid var(--cinnabar-red);
           padding: ${props.$small ? '16px 24px' : '19px 24px'};
           box-shadow:
             0px 2px 1px 0px rgba(255, 255, 255, 0.15) inset,
@@ -59,7 +59,7 @@ const base = css<StyledButtonProps>`
                 ${() =>
                   !props.$withBorder &&
                   `
-                border: 1px solid ${props.theme.colors.text.white};
+                border: 1px solid var(--text-white);
               `}
               }
             }
@@ -90,11 +90,11 @@ const base = css<StyledButtonProps>`
 
       case 'secondary':
         return css`
-          color: ${({ theme }) => theme.colors.text.lightGrey};
-          background-color: ${({ theme }) => theme.colors.button.secondaryDefault};
+          color: var(--text-light-grey);
+          background-color: var(--button-secondary-default);
           padding: ${props.$small ? '16px 24px' : '20px 24px'};
           box-shadow:
-            0 0 0 1px ${({ theme }) => theme.colors.button.border},
+            0 0 0 1px var(--button-border),
             0px 0px 8px 0px rgba(230, 232, 242, 0.05);
 
           @media (min-width: ${screens.md}) {
@@ -103,7 +103,7 @@ const base = css<StyledButtonProps>`
                 ${() =>
                   !props.$isDropdown &&
                   `
-                box-shadow:  0 0 0 1px ${props.theme.colors.text.lightGrey};
+                box-shadow:  0 0 0 1px var(--text-light-grey);
                 `}
               }
             }
@@ -112,7 +112,7 @@ const base = css<StyledButtonProps>`
               ${() =>
                 !props.$isDropdown &&
                 `
-              border: 1px solid ${props.theme.colors.text.lightGrey};
+              border: 1px solid var(--text-light-grey);
               box-shadow:
               0px 0px 8px 0px rgba(230, 232, 242, 0.05),
               0px 0px 0px 8px rgba(50, 52, 59, 0.6);
@@ -120,11 +120,11 @@ const base = css<StyledButtonProps>`
             }
 
             &:active {
-              background-color: ${({ theme }) => theme.colors.inkGrey};
+              background-color: var(--ink-grey);
               ${() =>
                 !props.$isDropdown &&
                 `
-            border: 1px solid ${props.theme.colors.text.lightGrey};
+            border: 1px solid var(--text-light-grey);
             `}
             }
           }

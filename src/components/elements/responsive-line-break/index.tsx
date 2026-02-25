@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 /**
  * A line break that's only shown on larger screens (leaving smaller screens to
@@ -9,7 +9,7 @@ import { styled } from '@/styles';
 export const ResponsiveLineBreak = styled.br`
     display: none;
 
-    @media (min-width: ${({ theme }) => theme.screens.md}) {
+    @media (min-width: ${screens.md}) {
         display: block;
     }
 `;

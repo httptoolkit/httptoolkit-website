@@ -1,7 +1,7 @@
 'use client';
 
 import { Container } from '@/components/elements/container';
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledStatisticsGradient = styled.div`
   position: absolute;
@@ -23,7 +23,7 @@ export const StyledStatisticsWrapper = styled(Container)`
     padding: 96px 48px;
     position: relative;
 
-    @media (max-width: ${({ theme }) => theme.screens.lg}) {
+    @media (max-width: ${screens.lg}) {
       flex-direction: column;
       padding: 16px 0;
 

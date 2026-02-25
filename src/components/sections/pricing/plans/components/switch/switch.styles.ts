@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -12,15 +12,15 @@ export const StyledWrapper = styled.div`
 
 export const StyledOption = styled.span`
   padding: 8px 16px;
-  color: ${({ theme }) => theme.colors.text.darkGrey};
-  font-size: ${({ theme }) => theme.fontSizes.text.s};
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.s};
   line-height: 1.5;
 
   &[data-is-active='true'] {
     border-radius: 24px;
-    color: ${({ theme }) => theme.colors.text.lightGrey};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    background-color: ${({ theme }) => theme.colors.inkBlack};
+    color: var(--text-light-grey);
+    font-weight: ${fontWeight.medium};
+    background-color: var(--ink-black);
   }
 `;
 
@@ -33,14 +33,14 @@ export const StyledOptionsWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: ${({ theme }) => theme.colors.darkGrey};
+  background: var(--dark-grey);
   border-radius: 40px;
   padding: 2px;
   transition: 350ms all ease-in;
   border: none;
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border) inset,
+    0 0 8px 0 var(--shadow-default);
 
   cursor: pointer;
 `;

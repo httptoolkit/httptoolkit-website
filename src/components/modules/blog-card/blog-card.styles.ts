@@ -9,12 +9,12 @@ export const StyledBlogCardWrapper = styled.article`
   gap: 24px;
   border-radius: 12px;
   padding: 16px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border} inset,
-    0px 0px 8px 0px ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border) inset,
+    0px 0px 8px 0px var(--shadow-default);
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 24px;
   }
 `;

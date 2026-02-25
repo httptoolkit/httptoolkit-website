@@ -3,19 +3,19 @@ import type { StyledPricingCardProps } from './card.types';
 
 import { Text } from '@/components/elements/text';
 import { DropdownWrapper } from '@/components/modules/dropdown/dropdown.styles';
-import { styled } from '@/styles';
+import { styled, screens, textColors, fontSizes } from '@/styles';
 
 export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
   border-radius: 16px;
   padding: 16px;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border} inset;
-  background-color: ${({ theme, $isHighlighted }) =>
-    $isHighlighted ? theme.colors.inkBlack : theme.colors.darkGrey};
+  box-shadow: 0 0 0 1px var(--button-border) inset;
+  background-color: ${({ $isHighlighted }) =>
+    $isHighlighted ? 'var(--ink-black)' : 'var(--dark-grey)'};
   display: flex;
   flex-direction: column;
   gap: 16px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     gap: 32px;
     padding: 32px;
   }
@@ -28,7 +28,7 @@ export const StyledPricingCardTitle = styled.div`
   gap: 16px;
   flex-wrap: wrap;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     justify-content: space-between;
   }
 
@@ -53,7 +53,7 @@ export const StyledPricingCardPriceWrapper = styled.div`
   gap: 16px;
   text-align: center;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     text-align: left;
   }
 `;
@@ -66,11 +66,11 @@ export const StyledPricingCardCaveats = styled(Text)`
 `;
 
 export const StyledPriceCardPrice = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.heading.mobile.l};
+  font-size: ${fontSizes.heading.mobile.l};
   line-height: 1.1;
   margin-right: 5px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     font-size: 56px;
     line-height: 61.6px;
   }
@@ -91,7 +91,7 @@ export const StyledPricingCardCTAWrapper = styled.div`
   *[data-text='true'] {
     text-align: center;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       text-align: left;
     }
   }
@@ -102,7 +102,7 @@ export const StyledPriceCardFeaturesWrapper = styled.div`
   flex-direction: column;
   gap: 16px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     gap: 32px;
   }
 `;
@@ -129,8 +129,8 @@ export const StyledPriceCardFeatureItemLI = styled.li<{ $itemColor?: 'white' | '
   }
 
   && p {
-    font-size: ${({ theme }) => theme.fontSizes.text.m};
-    color: ${({ theme, $itemColor }) => theme.colors.text[$itemColor || 'white']};
+    font-size: ${fontSizes.text.m};
+    color: ${({ $itemColor }) => textColors[$itemColor || 'white']};
     text-align: left;
   }
 `;

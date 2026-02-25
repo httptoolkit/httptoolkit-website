@@ -1,9 +1,9 @@
 'use client';
 
-import { screens, styled } from '@/styles';
+import { screens, styled, fontSizes, fontWeight } from '@/styles';
 
 export const StyledAlgoliaSearchWrapper = styled.div`
-  --docsearch-text-color: ${({ theme }) => theme.colors.text.darkGrey};
+  --docsearch-text-color: var(--text-dark-grey);
   --docsearch-searchbox-focus-background: var(--ink-black);
   --docsearch-searchbox-shadow: inset 0 0 0 1px var(--electric-blue);
 
@@ -11,11 +11,11 @@ export const StyledAlgoliaSearchWrapper = styled.div`
     height: 46px;
     padding: 14px 14px;
     border: none;
-    font-size: ${({ theme }) => theme.fontSizes.text.s};
+    font-size: ${fontSizes.text.s};
     border-radius: 6px;
-    background-color: ${({ theme }) => theme.colors.darkGrey};
+    background-color: var(--dark-grey);
     box-shadow:
-      0 0 0 1px ${({ theme }) => theme.colors.button.border},
+      0 0 0 1px var(--button-border),
       0px 2px 1px 0px rgba(24, 25, 28, 0.5) inset;
 
     transition: all ease-in 500ms;
@@ -25,9 +25,9 @@ export const StyledAlgoliaSearchWrapper = styled.div`
     }
 
     & .DocSearch-Button-Placeholder {
-      color: ${({ theme }) => theme.colors.text.darkGrey};
-      font-size: ${({ theme }) => theme.fontSizes.text.s};
-      font-weight: ${({ theme }) => theme.fontWeight.normal};
+      color: var(--text-dark-grey);
+      font-size: ${fontSizes.text.s};
+      font-weight: ${fontWeight.normal};
     }
 
     & .DocSearch-Search-Icon {

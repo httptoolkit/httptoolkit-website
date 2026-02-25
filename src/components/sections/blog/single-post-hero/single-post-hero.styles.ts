@@ -11,10 +11,10 @@ export const StyledSinglePost = styled.div`
   border-radius: 12px;
   padding: 16px;
   margin-top: 32px;
-  background-color: ${({ theme }) => theme.colors.inkBlack};
+  background-color: var(--ink-black);
   box-shadow:
-    0 0 0 1px ${({ theme }) => theme.colors.button.border},
-    0 0 8px 0 ${({ theme }) => theme.colors.shadowDefault};
+    0 0 0 1px var(--button-border),
+    0 0 8px 0 var(--shadow-default);
   margin-bottom: 24px;
 
   @media (min-width: ${screens['lg']}) {

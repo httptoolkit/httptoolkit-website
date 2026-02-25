@@ -5,7 +5,7 @@ import { styled } from '@/styles';
 
 export const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  box-shadow: 0 0 0 1px var(--button-border);
   background-color: var(--prism-bg);
   overflow: hidden;
   margin-top: 24px;
@@ -14,7 +14,7 @@ export const StyledBlockCodeWrapper = styled.div`
 
 export const StyledBlockCodeTitleWrapper = styled.div`
   padding: 16px;
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  box-shadow: 0 0 0 1px var(--button-border);
 `;
 
 export const StyledBlockCodeContent = styled.div`
@@ -26,7 +26,7 @@ export const StyledBlockCodeContent = styled.div`
     background-color: transparent;
 
     & code {
-      color: ${({ theme }) => theme.colors.lightGrey};
+      color: var(--light-grey);
       background-color: var(--prism-bg);
       font-size: 13px;
       line-height: 19.5px;
@@ -40,7 +40,7 @@ export const StyledInlineCode = styled(Text)`
   &&& {
     color: var(--prism-text);
     background-color: var(--prism-bg);
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+    box-shadow: 0 0 0 1px var(--button-border);
     padding: 2px 6px;
     border-radius: 4px;
     margin: 0 4px;

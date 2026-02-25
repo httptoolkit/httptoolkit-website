@@ -1,6 +1,6 @@
 'use client';
 
-import { styled } from '@/styles';
+import { styled, screens, fontWeight } from '@/styles';
 
 export const StyledTestimonialsWrapper = styled.section`
   display: flex;
@@ -12,7 +12,7 @@ export const StyledTestimonialsWrapper = styled.section`
   padding-bottom: 0;
   gap: 32px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 96px 0;
     padding-bottom: 0;
     gap: 61px;
@@ -21,8 +21,8 @@ export const StyledTestimonialsWrapper = styled.section`
 `;
 
 export const StyledTestimonialCard = styled.blockquote`
-  background: ${({ theme }) => theme.colors.inkBlack};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.colors.button.border};
+  background: var(--ink-black);
+  box-shadow: 0 0 0 1px var(--button-border);
   border-radius: 12px;
   padding: 24px;
   height: fit-content;
@@ -36,7 +36,7 @@ export const StyledTestimonialCard = styled.blockquote`
     text-wrap: wrap;
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     max-width: 480px;
     padding: 32px;
     margin-bottom: 16px;
@@ -67,7 +67,7 @@ export const StyledTestimonialGrid = styled.div<{
   margin-right: 16px;
   padding: 1px 16px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding: 1px 0;
     grid-template-columns: repeat(var(--grid-items), 1fr);
     /* Apply padding to every 9th item */
@@ -83,12 +83,12 @@ export const StyledQuote = styled.div`
   gap: 16px;
 
   & p {
-    color: ${({ theme }) => theme.colors.text.darkGrey};
-    font-weight: ${({ theme }) => theme.fontWeight.normal};
+    color: var(--text-dark-grey);
+    font-weight: ${fontWeight.normal};
 
     & strong {
-      color: ${({ theme }) => theme.colors.text.white};
-      font-weight: ${({ theme }) => theme.fontWeight.bold};
+      color: var(--text-white);
+      font-weight: ${fontWeight.bold};
     }
   }
 `;

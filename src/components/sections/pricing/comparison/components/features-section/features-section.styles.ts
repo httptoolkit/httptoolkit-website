@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from '@/components/elements/text';
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 export const StyledFeaturesSectionWrapper = styled.div`
   &&& {
@@ -10,7 +10,7 @@ export const StyledFeaturesSectionWrapper = styled.div`
     flex-direction: column;
     gap: 8px;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       gap: 0;
       padding-top: 0;
     }
@@ -20,10 +20,10 @@ export const StyledFeaturesSectionWrapper = styled.div`
 export const StyledFeatureSectionItemWrapper = styled.div`
   &:not(:last-child) {
     padding-bottom: 8px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border-bottom: 1px solid var(--dark-grey);
   }
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     &,
     &:not(:last-child) {
       padding-top: 16px;
@@ -44,7 +44,7 @@ export const StyledFeatureSectionTitle = styled(Text)`
   &&& {
     padding: 18.5px 0;
 
-    @media (min-width: ${({ theme }) => theme.screens.lg}) {
+    @media (min-width: ${screens.lg}) {
       padding-left: 32px;
     }
   }
@@ -56,14 +56,14 @@ export const StyledFeatureSectionItem = styled.div`
   min-height: 48px;
   padding: 13.5px 0;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     grid-template-columns: repeat(4, 1fr);
     border-radius: 8px;
     transition: all 0.3;
 
     @media (hover: hover) {
       &:hover {
-        background-color: ${({ theme }) => theme.colors.darkGrey};
+        background-color: var(--dark-grey);
       }
     }
   }
@@ -74,7 +74,7 @@ export const StyledFeatureSectionItemTitleWrapper = styled.div`
   gap: 6px;
   align-items: center;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     padding-left: 32px;
   }
 `;

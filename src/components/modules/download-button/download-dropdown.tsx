@@ -4,7 +4,7 @@ import sortBy from 'lodash/sortBy';
 import partition from 'lodash/partition';
 import { useEffect, useMemo, useState } from 'react';
 
-import { styled } from '@/styles';
+import { styled, fontSizes } from '@/styles';
 
 import { SendEmail } from './components/send-email';
 import type { DownloadDropdownProps } from './download-button.types';
@@ -19,7 +19,7 @@ import type { DownloadDictionary } from '@/content/data/download-dictionary';
 const LATEST_RELEASE_URL = 'https://github.com/httptoolkit/httptoolkit-desktop/releases/latest';
 
 const DownloadSubText = styled.div`
-  font-size: ${({ theme }) => theme.fontSizes.text.xs};
+  font-size: ${fontSizes.text.xs};
   margin-top: 4px;
 `;
 

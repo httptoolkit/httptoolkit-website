@@ -2,7 +2,7 @@
 
 import type { StyledIconRowItem } from './icon-rows.types';
 
-import { styled } from '@/styles';
+import { styled, screens } from '@/styles';
 
 const iconsSize = 72;
 
@@ -10,7 +10,7 @@ export const StyledIconRowsWrapper = styled.div<StyledIconRowItem>`
   display: flex;
   gap: 12px;
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     flex-direction: column;
     ${({ $orientation, $offset }) =>
       $orientation === 'right'
@@ -29,7 +29,7 @@ export const StyledIconRow = styled.div<StyledIconRowItem>`
   flex-direction: column;
   padding-top: calc(${iconsSize}px * ${({ $offset }) => $offset});
 
-  @media (min-width: ${({ theme }) => theme.screens.lg}) {
+  @media (min-width: ${screens.lg}) {
     flex-direction: row;
     padding-top: 0;
     ${({ $orientation, $offset }) =>

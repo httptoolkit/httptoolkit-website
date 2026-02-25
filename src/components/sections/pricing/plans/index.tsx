@@ -80,7 +80,7 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
         <StyledPricingPlansSwitchWrapper>
           { !isAnnual && (
             <StyledPricingPlansSwitchBadge>
-              <Text fontSize="s" fontWeight="bold" color="alwayLightGrey" $isLabel>
+              <Text fontSize="s" fontWeight="bold" color="alwaysLightGrey" $isLabel>
                 { getAnnualDiscountText(annualSaving) }
               </Text>
             </StyledPricingPlansSwitchBadge>

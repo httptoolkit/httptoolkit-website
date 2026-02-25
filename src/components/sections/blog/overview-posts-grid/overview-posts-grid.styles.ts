@@ -1,6 +1,6 @@
 'use client';
 
-import { screens, styled } from '@/styles';
+import { screens, styled, fontSizes } from '@/styles';
 
 export const StyledLoadMoreWrapper = styled.div`
   justify-content: center;
@@ -13,13 +13,13 @@ export const StyledLoadMoreWrapper = styled.div`
 `;
 
 export const StyledHeadingTag = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.heading.mobile.m};
-  color: ${({ theme }) => theme.colors.text.lightGrey};
+  font-size: ${fontSizes.heading.mobile.m};
+  color: var(--text-light-grey);
   text-transform: capitalize;
   line-height: 1.5;
 
   @media (min-width: ${screens.lg}) {
-    font-size: ${({ theme }) => theme.fontSizes.heading.desktop.m};
+    font-size: ${fontSizes.heading.desktop.m};
   }
 `;
 
@@ -31,8 +31,8 @@ export const StyledNoResultsWrapper = styled.div`
 `;
 
 export const StyledSelectedTag = styled.span`
-  font-size: ${({ theme }) => theme.fontSizes.text.m};
-  color: ${({ theme }) => theme.colors.text.cinnarbarRed};
+  font-size: ${fontSizes.text.m};
+  color: var(--text-cinnabar-red);
   margin: 0 6px;
   text-transform: capitalize;
   display: inline-block;
