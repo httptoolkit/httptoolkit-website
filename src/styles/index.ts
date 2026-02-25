@@ -209,14 +209,14 @@ export const GlobalStyles = createGlobalStyle`
       --prism-bg: var(--ink-black);
       --prism-comment: #7d8b99;
       --prism-punctuation: #5f6364;
-      --prism-tag: #c92c2c;
-      --prism-function-name: #c92c2c;
-      --prism-boolean: #c92c2c;
-      --prism-property: #c92c2c;
-      --prism-selector: #2f9c0a;
-      --prism-string: #2f9c0a;
-      --prism-operator: #a67f59;
-      --prism-inserted: #2f9c0a;
+      --prism-tag: #c4432b;
+      --prism-function-name: #2c5ea0;
+      --prism-boolean: #b35e14;
+      --prism-property: #986801;
+      --prism-selector: #8839a0;
+      --prism-string: #2f7e31;
+      --prism-operator: #0e7676;
+      --prism-inserted: #2f7e31;
     }
 
     [data-theme='dark'] [data-hide-on-theme='dark'],
