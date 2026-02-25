@@ -14,7 +14,7 @@ export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
       $displayOnMobile={displayOnMobile}
       $displayOnDesktop={displayOnDesktop}
     >
-      <Text as="label" fontSize="m" color="cinnarbarRed" fontWeight="bold">
+      <Text as="label" fontSize="m" color="cinnabarRed" fontWeight="bold">
         {column.title}
       </Text>
       <StyledMenuItems role="list" $displayOnMobile={displayOnMobile} $displayOnDesktop={displayOnDesktop}>

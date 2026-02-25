@@ -26,7 +26,7 @@ export const textOrangeGradientMixin = css`
 export const textColors = {
   lightGrey: 'var(--text-light-grey)',
   darkGrey: 'var(--text-dark-grey)',
-  cinnarbarRed: 'var(--text-cinnabar-red)',
+  cinnabarRed: 'var(--text-cinnabar-red)',
   white: 'var(--text-white)',
   alwaysWhite: 'var(--text-always-white)',
   alwaysLightGrey: 'var(--text-always-light-grey)',

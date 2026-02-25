@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </StyledInputBorder>
         </Stack>
         {errorMessage && (
-          <Text fontSize="s" color="cinnarbarRed">
+          <Text fontSize="s" color="cinnabarRed">
             {errorMessage}
           </Text>
         )}

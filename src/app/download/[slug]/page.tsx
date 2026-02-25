@@ -80,7 +80,7 @@ export default async function DownloadPage({ params }: DownloadPageProps) {
                     target="_self"
                     href={`https://github.com/httptoolkit/httptoolkit-desktop/releases/download/${currentDownloadData?.releasePath}`}
                   >
-                    <Text fontSize="l" as="span" color="cinnarbarRed" fontWeight="medium">
+                    <Text fontSize="l" as="span" color="cinnabarRed" fontWeight="medium">
                       Click here
                     </Text>
                   </Link>.

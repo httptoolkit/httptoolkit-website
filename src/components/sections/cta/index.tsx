@@ -50,7 +50,7 @@ export const CTA = ({
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
-          <Text as="label" color="cinnarbarRed" fontSize={labelSize} fontWeight="bold">
+          <Text as="label" color="cinnabarRed" fontSize={labelSize} fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}

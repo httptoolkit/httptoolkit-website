@@ -75,7 +75,6 @@ export const StyledDocumentationLayoutMobileHeading = styled(Heading)`
 
 export const StyledDocumentationLayoutDesktopHeading = styled.h1`
   font-size: ${fontSizes.heading.desktop.l};
-  color: ${textGradientMixin};
   ${textGradientMixin};
   line-height: 1.2;
   margin-bottom: 24px;

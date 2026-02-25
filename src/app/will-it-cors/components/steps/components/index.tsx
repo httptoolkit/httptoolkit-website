@@ -545,7 +545,7 @@ export const ServerAllowsCorsRequest = ({
       </Text>
       {uselessSetCookie && (
         <Text fontSize="l">
-          <Text fontSize="l" color="cinnarbarRed" as="span" fontStyle="italic">
+          <Text fontSize="l" color="cinnabarRed" as="span" fontStyle="italic">
             This response sets a cookie that won&apos;t be used
           </Text>
           . Set-Cookie headers in responses are ignored, unless the initial request includes browser credentials.
@@ -553,7 +553,7 @@ export const ServerAllowsCorsRequest = ({
       )}
       {!varyOnOrigin && someHeaderValues(responseHeaders, (v: string) => v.toLowerCase() === sourceOrigin) && (
         <Text fontSize="l">
-          <Text fontSize="l" color="cinnarbarRed" as="span" fontStyle="italic">
+          <Text fontSize="l" color="cinnabarRed" as="span" fontStyle="italic">
             This result may be cached incorrectly
           </Text>
           . Your response headers reference the page origin from the request, but they don&apos;t include `Origin` in a{' '}
