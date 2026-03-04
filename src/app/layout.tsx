@@ -1,3 +1,4 @@
+import '@/styles/globals.css';
 import dynamic from 'next/dynamic';
 import { DM_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next/types';

@@ -1,9 +1,9 @@
 'use client';
 
 import '@docsearch/css';
+import '@/styles/algolia.css';
 import dynamic from 'next/dynamic';
 
-import { AlgoliaGlobalStyles } from './algolia-global-styles';
 import { StyledAlgoliaSearchWrapper } from './site-search.styles';
 import { Input } from '../input';
 
@@ -19,7 +19,6 @@ export const SiteSearch = () => {
   return (
     <StyledAlgoliaSearchWrapper>
       <DocSearch appId={appId} indexName={indexName} apiKey={apiKey} placeholder="Search" />
-      <AlgoliaGlobalStyles />
     </StyledAlgoliaSearchWrapper>
   );
 };

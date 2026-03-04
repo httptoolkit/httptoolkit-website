@@ -1,6 +1,3 @@
-import { createGlobalStyle } from '@/styles';
-
-export const AlgoliaGlobalStyles = createGlobalStyle`
 :root {
   --docsearch-key-gradient: var(--ink-grey);
   --docsearch-key-shadow: none;
@@ -61,7 +58,6 @@ html[data-theme='dark'] {
 @media (max-width: 768px) {
   .DocSearch-SearchBar {
     border-bottom: 1px solid var(--button-border);
-    ;
   }
 }
 
@@ -71,4 +67,3 @@ html[data-theme='dark'] {
   background: transparent;
   border-top: 1px solid var(--button-border);
 }
-`;
