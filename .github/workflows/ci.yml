@@ -20,7 +20,6 @@ jobs:
         if: github.ref != 'refs/heads/main'
         run: npm run build
         env:
-          NODE_ENV: development
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Build with secrets for production, on main only:
@@ -145,7 +144,8 @@ jobs:
 
   publish-scaleway:
     name: Deploy to Scaleway
-    environment: ${{ github.ref == 'refs/heads/main' && 'production' || github.ref == 'refs/heads/next' && 'staging' || 'no-environment-deploy-skipped' }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' }}
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: publish-docker
     steps:
