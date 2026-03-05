@@ -2,7 +2,6 @@
 import type { StyledPricingCardProps } from './card.types';
 
 import { Text } from '@/components/elements/text';
-import { DropdownWrapper } from '@/components/modules/dropdown/dropdown.styles';
 import { styled, screens, textColors, fontSizes } from '@/styles';
 
 export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
@@ -80,7 +79,7 @@ export const StyledPricingCardCTAWrapper = styled.div`
   display: grid;
   gap: 16px;
 
-  ${DropdownWrapper} {
+  [data-dropdown-wrapper] {
     width: 100%;
 
     & > * {

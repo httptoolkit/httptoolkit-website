@@ -1,20 +1,31 @@
+import type { Icon } from '@phosphor-icons/react';
+
 import {
-  StyledIntegrationHeroContent,
-  StyledIntegrationHeroContentWrapper,
-  StyledIntegrationHeroImage,
-  StyledIntegrationHeroImageMultiple,
-  StyledIntegrationHeroImageWrapper,
   StyledIntegrationHeroWrapper,
+  StyledIntegrationHeroContentWrapper,
+  StyledIntegrationHeroContent,
+  StyledIntegrationHeroImageWrapper,
+  StyledIntegrationHeroImageMultiple,
+  StyledIntegrationHeroImage,
 } from './hero.styles';
-import type { IntegrationSinglePageHeroProps } from './hero.types';
 
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { Logo, X } from '@/components/elements/icon';
+import type { CustomIcon } from '@/components/elements/icon/custom/types';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { Breadcrumbs } from '@/components/modules/breadcrumbs';
 import { DownloadButton } from '@/components/modules/download-button';
+
+interface IntegrationSinglePageHeroProps {
+  title: string;
+  text: string;
+  icon?: Icon | CustomIcon;
+  additionalIcons?: Icon[] | CustomIcon[];
+  breadcrumbText: string;
+  isMultipleIcons?: boolean;
+}
 
 const breadcrumbs = [
   {

@@ -1,15 +1,14 @@
 import { Suspense } from 'react';
 
-import { CapturePurchaseEvent } from './capture-purchase-event';
 import {
-  StyledThankYouColumnContent,
-  StyledThankYouColumns,
-  StyledGradientBottom,
-  StyledTextContent,
   StyledThankYouSection,
+  StyledThankYouColumns,
+  StyledThankYouColumnContent,
+  StyledGradientBottom,
   StyledSectionCTAWrapper,
+  StyledTextContent,
 } from './thank-you.styles';
-
+import { CapturePurchaseEvent } from './capture-purchase-event';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
 import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';

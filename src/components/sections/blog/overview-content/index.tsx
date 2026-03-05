@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { StyledBlogOverviewSection, StyledSubscriberBox } from './overview-content.styles';
+import { StyledBlogOverviewSection, StyledSubscriberBox } from './index.styles';
 import { NewsletterBox } from '../newsletter-box';
 import { OverviewPostsGrid } from '../overview-posts-grid';
 

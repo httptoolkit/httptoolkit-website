@@ -1,6 +1,4 @@
-'use client';
-
-import { styled } from '@/styles';
+import { styled } from '@linaria/react';
 
 export const StyledHeadingSectionWrapper = styled.div`
   display: grid;

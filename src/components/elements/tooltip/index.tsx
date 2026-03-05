@@ -1,10 +1,27 @@
 'use client';
 
+import { styled } from '@linaria/react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
+import type { TooltipContentProps } from '@radix-ui/react-tooltip';
 
-import { StyledTooltipContent } from './tooltip.styles';
-import type { TooltipProps } from './tooltip.types';
 import { Text } from '../text';
+
+interface TooltipProps extends Component {
+  text: string;
+  side?: TooltipContentProps['side'];
+}
+
+const StyledTooltipContent = styled(RadixTooltip.Content)`
+  &&& {
+    background-color: var(--ink-black);
+    border-radius: 8px;
+    padding: 8px 12px;
+    z-index: 1;
+    margin-top: -12px;
+
+    box-shadow: var(--shadow-box);
+  }
+`;
 
 export const Tooltip = ({ children, text, side = 'right' }: TooltipProps) => {
   return (

@@ -2,7 +2,7 @@
 
 import { Input } from '../../input';
 import { StyledNewsletterSuccess } from '../../newsletter/newsletter.styles';
-import { StyledContentCardForm } from '../content-card.styles';
+import { StyledContentCardForm } from '..';
 
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';

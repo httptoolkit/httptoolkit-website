@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledBlogOverviewSection = styled.section`
   display: flex;

@@ -1,12 +1,23 @@
 import dynamic from 'next/dynamic';
 
-import { SocialShareContainer, SocialButton } from './social-share.styles';
 import type { SocialShareProps } from './social-share.types';
 
 import { TwitterX, FacebookLogo } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
+import { styled } from '@linaria/react';
 
 const WebShare = dynamic(() => import('./web-share'), { ssr: false });
+
+const SocialShareContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+
+export const SocialButton = styled.a`
+  display: inline-flex;
+  cursor: pointer;
+`;
 
 export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialShareProps) => {
   return (

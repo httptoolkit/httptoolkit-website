@@ -1,7 +1,7 @@
-'use client';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
-import { styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledPricingComparisonWrapper = styled(Container)`
   &&& {

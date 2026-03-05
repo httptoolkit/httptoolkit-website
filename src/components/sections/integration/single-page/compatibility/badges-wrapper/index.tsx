@@ -1,8 +1,24 @@
 'use client';
 
+import { styled } from '@linaria/react';
+
 import { CompatibilityBadge } from '../badge';
-import { StyledCompatibilityBadgeWrapper } from '../compatibility.styles';
 import type { IntegrationCompatibilityProps } from '../compatibility.types';
+
+import { screens } from '@/styles/tokens';
+
+const StyledCompatibilityBadgeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  @media (min-width: ${screens.lg}) {
+    justify-content: end;
+    gap: 12px;
+    max-width: 630px;
+  }
+`;
 
 export const BadgesWrapper = ({
   tools

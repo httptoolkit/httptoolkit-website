@@ -1,7 +1,7 @@
-'use client';
+import { styled } from '@linaria/react';
 
 import { Heading } from '@/components/elements/heading';
-import { styled, screens, textGradientMixin, fontSizes } from '@/styles';
+import { screens, fontSizes } from '@/styles/tokens';
 
 export const StyledDocumentationGlobalWrapper = styled.section`
   position: relative;
@@ -75,7 +75,9 @@ export const StyledDocumentationLayoutMobileHeading = styled(Heading)`
 
 export const StyledDocumentationLayoutDesktopHeading = styled.h1`
   font-size: ${fontSizes.heading.desktop.l};
-  ${textGradientMixin};
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1.2;
   margin-bottom: 24px;
 

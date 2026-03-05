@@ -1,4 +1,4 @@
-import { StyledMobileWrapper, StyledNavMobileItems } from './header-mobile.styles';
+import { StyledMobileWrapper, StyledNavMobileItems } from './index.styles';
 import { MobileDrawerMenu } from './mobile-drawer-menu';
 
 import { Link } from '@/components/elements/link';

@@ -1,19 +1,11 @@
-'use client';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledHeader = styled.header`
   position: relative;
   border-bottom: 1px solid var(--button-border);
-`;
-
-export const StyledLogoWrapper = styled.div`
-  & svg {
-    fill: currentColor;
-    width: auto;
-    height: 26px;
-  }
 `;
 
 export const StyledHeaderContainer = styled(Container)`

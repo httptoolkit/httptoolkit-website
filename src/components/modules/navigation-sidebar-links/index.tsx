@@ -1,17 +1,130 @@
 'use client';
 
-import {
-  StyledNavigationSidebarLinksContentItem,
-  StyledNavigationSidebarLinksContentLink,
-  StyledNavigationSidebarLinksContentTitle,
-  StyledNavigationSidebarLinksContentWrapper,
-  StyledNavigationSidebarLinksTitle,
-  StyledNavigationSidebarLinksWrapper,
-} from './navigation-sidebar-links.styles';
+import { styled } from '@linaria/react';
+
 import type { NavigationSidebarLinkItem, NavigationSidebarLinksProps } from './navigation-sidebar-links.types';
 import useActiveToc from '../table-content/hooks/use-active-toc';
 
 import { Link } from '@/components/elements/link';
+import { Text } from '@/components/elements/text';
+import { screens, fontSizes, fontWeight } from '@/styles/tokens';
+
+const StyledNavigationSidebarLinksWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 8px 0;
+
+  position: sticky;
+  top: 10px;
+  align-self: self-start;
+
+  @media (max-width: ${screens['xl']}) {
+    display: none;
+  }
+`;
+
+const StyledNavigationSidebarLinksTitle = styled.p`
+  font-size: ${fontSizes.text.xs};
+  font-weight: ${fontWeight.medium};
+  color: var(--text-white);
+  line-height: 1.5;
+`;
+
+const StyledNavigationSidebarLinksContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-grey) transparent;
+  scrollbar-gutter: stable;
+`;
+
+const StyledNavigationSidebarLinksContentItem = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledNavigationSidebarLinksContentTitle = styled(Text)`
+  display: inline-block;
+  padding: 8px 16px;
+
+  & > a {
+    transition: color ease-in 300ms;
+    color: var(--text-white);
+
+    &.active {
+      color: var(--text-electric-light-blue);
+      @media (min-width: ${screens.md}) {
+        &:focus,
+        &:active {
+          color: var(--text-electric-light-blue);
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--text-electric-light-blue);
+          }
+        }
+      }
+    }
+
+    @media (min-width: ${screens.md}) {
+      &:focus,
+      &:active {
+        color: var(--text-dark-grey);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--text-dark-grey);
+        }
+      }
+    }
+  }
+`;
+
+const StyledNavigationSidebarLinksContentLink = styled(Link)`
+  &&& {
+    display: inline-block;
+    font-size: ${fontSizes.text.m};
+    line-height: 1.5;
+    color: var(--text-light-grey);
+    padding: 8px 32px;
+
+    transition: color ease-in 300ms;
+
+    &.active {
+      color: var(--text-electric-light-blue);
+      @media (min-width: ${screens.md}) {
+        &:focus,
+        &:active {
+          color: var(--text-electric-light-blue);
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: var(--text-electric-light-blue);
+          }
+        }
+      }
+    }
+
+    @media (min-width: ${screens.md}) {
+      &:focus {
+        color: var(--text-dark-grey);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--text-dark-grey);
+        }
+      }
+    }
+  }
+`;
 
 const ItemTitleComponent = ({ text, href }: NavigationSidebarLinkItem) => {
   if (href) {
@@ -25,7 +138,7 @@ export const NavigationSidebarLinks = ({ title, links }: NavigationSidebarLinksP
   useActiveToc();
   return (
     <StyledNavigationSidebarLinksWrapper id="table-of-content-headings">
-      <StyledNavigationSidebarLinksTitle forwardedAs="p" fontSize="xs" fontWeight="medium" color="white">
+      <StyledNavigationSidebarLinksTitle>
         {title}
       </StyledNavigationSidebarLinksTitle>
       <StyledNavigationSidebarLinksContentWrapper data-match-scroll>

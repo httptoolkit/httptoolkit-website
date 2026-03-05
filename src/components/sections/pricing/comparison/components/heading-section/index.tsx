@@ -1,9 +1,16 @@
 import { StyledHeadingSectionWrapper } from './heading-section.styles';
-import type { HeadingSectionProps } from './heading-section.type';
+
+import type { PricingComparisonProps } from '../../comparison.types';
 import { HeadingPlan } from '../heading-plan';
 import { TextSection } from '../text-section';
 
 import { DownloadButton } from '@/components/modules/download-button';
+
+interface HeadingSectionProps {
+  title: string;
+  text: string;
+  plans: PricingComparisonProps['plans'];
+}
 
 export const HeadingSection = ({ title, text, plans }: HeadingSectionProps) => {
   return (

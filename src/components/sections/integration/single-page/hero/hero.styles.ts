@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledIntegrationHeroWrapper = styled.div`
   padding-top: 32px;
@@ -76,13 +76,6 @@ export const StyledIntegrationHeroImageMultiple = styled.div`
   }
 
   & svg:first-child {
-    color: var(--cinnabar-red);
-  }
-`;
-
-export const MainLogo = styled.div`
-  & svg {
-    width: 109px;
     color: var(--cinnabar-red);
   }
 `;

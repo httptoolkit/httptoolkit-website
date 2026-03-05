@@ -4,13 +4,12 @@ import {
   StyledButtonsWrapper,
   StyledFridaColumnContent,
   StyledFridaColumns,
+  StyledFridaSection,
   StyledGradientBottom,
   StyledMobileText,
   StyledSectionCTAWrapper,
   StyledTextContent,
-  StyledFridaSection,
-} from './frida.styles';
-
+} from './page.styles';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';

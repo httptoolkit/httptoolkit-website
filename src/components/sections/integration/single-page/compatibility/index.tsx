@@ -1,13 +1,13 @@
-import { BadgesWrapper } from './badges-wrapper';
 import {
+  StyledIntegrationCompatibilityWrapper,
+  StyledIntegrationCompatibilityGradientLimits,
+  StyledIntegrationCompatibilityGradientWrapper,
+  StyledIntegrationCompatibilityContentWrapper,
   StyledIntegrationCompatibilityContent,
   StyledIntegrationCompatibilityContentTitle,
-  StyledIntegrationCompatibilityContentWrapper,
-  StyledIntegrationCompatibilityGradientWrapper,
-  StyledIntegrationCompatibilityGradientLimits,
   StyledIntegrationCompatibilityLabel,
-  StyledIntegrationCompatibilityWrapper,
 } from './compatibility.styles';
+import { BadgesWrapper } from './badges-wrapper';
 import type { IntegrationCompatibilityProps } from './compatibility.types';
 
 import { Gradient } from '@/components/elements/gradient';

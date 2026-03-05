@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledWillItCorsWrapper = styled.section`
   box-shadow: var(--hero-box-shadow);

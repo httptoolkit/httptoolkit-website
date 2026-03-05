@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledDownloadSection = styled.section`
   position: relative;
@@ -31,16 +31,6 @@ export const StyledColumnContent = styled.div`
   @media (min-width: ${screens['lg']}) {
     max-width: 586px;
     min-width: 586px;
-  }
-`;
-
-export const StyledButtonsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  @media (min-width: ${screens['lg']}) {
-    flex-direction: row;
   }
 `;
 

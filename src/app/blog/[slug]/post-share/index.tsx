@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 
-import { SocialShareContainer, SocialButton } from './post-share.styles';
-import type { SocialShareProps } from './post-share.types';
+import { styled } from '@linaria/react';
 
 import { TwitterX, RedditLogo, DevToLogo, YCombinator, ProductHuntLogo, Butterfly } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -10,6 +9,32 @@ import { Text } from '@/components/elements/text';
 import { siteMetadata } from '@/lib/site-metadata';
 
 const WebShare = dynamic(() => import('@/components/modules/social-share/web-share'), { ssr: false });
+
+interface SocialShareProps extends Pick<Post, 'socialLinks'> {
+  postTitle?: string;
+  postUrl?: string;
+}
+
+const SocialShareContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 64px;
+`;
+
+const SocialButton = styled.a`
+  display: inline-flex;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
 
 export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShareProps) => {
   const fullPostUrl = `${siteMetadata.siteUrl}/blog/${postUrl}/`;

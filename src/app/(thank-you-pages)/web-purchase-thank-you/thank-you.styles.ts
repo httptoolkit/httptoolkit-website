@@ -1,8 +1,7 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { Container } from '@/components/elements/container';
+import { screens } from '@/styles/tokens';
 import { Section } from '@/components/elements/section';
-import { screens, styled } from '@/styles';
 
 export const StyledThankYouSection = styled(Section)`
   padding-top: 16px;
@@ -32,16 +31,6 @@ export const StyledThankYouColumnContent = styled.div`
     max-width: 586px;
     width: 100%;
     flex-shrink: 0;
-  }
-`;
-
-export const StyledButtonsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  @media (min-width: ${screens['lg']}) {
-    flex-direction: row;
   }
 `;
 
@@ -92,10 +81,6 @@ export const StyledSectionCTAWrapper = styled.div`
       margin-bottom: 19px;
     }
   }
-`;
-
-export const StyledMobileText = styled(Container)`
-  margin-top: 16px;
 `;
 
 export const StyledTextContent = styled.div`

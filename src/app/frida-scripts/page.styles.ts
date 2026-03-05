@@ -1,8 +1,8 @@
-'use client';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
 import { Section } from '@/components/elements/section';
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledFridaSection = styled(Section)`
   padding-top: 16px;

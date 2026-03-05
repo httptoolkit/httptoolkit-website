@@ -1,7 +1,7 @@
-'use client';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
-import { styled, screens, fontSizes, fontWeight } from '@/styles';
+import { screens, fontSizes, fontWeight } from '@/styles/tokens';
 
 export const StyledIntegrationCompatibilityWrapper = styled.section`
   position: relative;
@@ -84,17 +84,4 @@ export const StyledIntegrationCompatibilityLabel = styled.p`
   line-height: 1.1;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-`;
-
-export const StyledCompatibilityBadgeWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
-
-  @media (min-width: ${screens.lg}) {
-    justify-content: end;
-    gap: 12px;
-    max-width: 630px;
-  }
 `;

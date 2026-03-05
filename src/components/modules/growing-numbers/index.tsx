@@ -1,13 +1,40 @@
+import { styled } from '@linaria/react';
+
 import { NumberIncreaser } from './component/number-increaser';
-import {
-  StyledGrowingNumberStatNumber,
-  StyledGrowingNumbersStat,
-  StyledGrowingNumbersStatsWrapper,
-} from './growing-numbers.styles';
 import type { GrowingNumbersProps } from './growing-numbers.types';
 
 import { Text } from '@/components/elements/text';
+import { screens, fontSizes } from '@/styles/tokens';
 import { convertToMax3DigitsWithSuffix } from '@/lib/utils/format3digitsAndSuffix';
+
+const StyledGrowingNumbersStatsWrapper = styled.div`
+  display: grid;
+  justify-content: center;
+  gap: 32px;
+
+  @media (min-width: ${screens.lg}) {
+    grid-template-columns: repeat(2, 248px);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 80px 96px;
+  }
+
+  @media (min-width: ${screens['2xl']}) {
+    padding-right: 28px;
+  }
+`;
+
+const StyledGrowingNumbersStat = styled.div``;
+
+const StyledGrowingNumberStatNumber = styled.p`
+  font-size: ${fontSizes.heading.mobile.xl};
+  color: var(--text-light-grey);
+  line-height: 1.1;
+  margin-bottom: 8px;
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSizes.heading.desktop.xl};
+  }
+`;
 
 export const GrowingNumbers = ({ stats }: GrowingNumbersProps) => {
   return (

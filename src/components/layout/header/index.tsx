@@ -1,14 +1,17 @@
 import { Suspense } from 'react';
 
-import { MobileHeader } from './header-mobile';
 import { StyledHeader, StyledHeaderContainer, StyledNavItems, StyledNavigation } from './header.styles';
-import type { HeaderProps } from './header.types';
+import { MobileHeader } from './header-mobile';
 
 import { HalfColoredLogo } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { DownloadButton } from '@/components/modules/download-button';
 import { pageRoutes } from '@/lib/constants/routes';
+
+interface HeaderProps {
+  isNavigationEnabled?: boolean;
+}
 
 export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
   const { PRICING, DOCS, BLOG, INTEGRATION, CONTACT } = pageRoutes;

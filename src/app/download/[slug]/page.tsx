@@ -1,15 +1,14 @@
 import type { Metadata } from 'next/types';
 
-import { SelfDownload } from './self-download';
 import {
-  StyledDownloadSection,
   StyledColumnContent,
+  StyledDownloadSection,
   StyledDownloadaColumns,
   StyledGradientBottom,
   StyledGradientMobile,
   StyledImageWrapper,
-} from '../download.styles';
-
+} from './page.styles';
+import { SelfDownload } from './self-download';
 import { Container } from '@/components/elements/container';
 import { Copy } from '@/components/elements/copy';
 import { Gradient } from '@/components/elements/gradient';

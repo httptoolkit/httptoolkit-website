@@ -1,6 +1,6 @@
 'use client';
 
-import { SocialButton } from './social-share.styles';
+import { SocialButton } from './index';
 import type { WebShareProps } from './social-share.types';
 
 import { ShareNetwork } from '@/components/elements/icon';
