@@ -1,10 +1,7 @@
-'use client';
-
-import { StyledPricingCardWrapper } from './components/card/card.styles';
-import type { StyledPricingPlansProps } from './plans.types';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
-import { css, keyframes, styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledPricingPlansWrapper = styled(Container)`
   &&& {
@@ -44,25 +41,25 @@ export const StyledPricingPlansSwitchBadge = styled.div`
   }
 `;
 
-export const StyledPricingPlansCardsWrapper = styled.div<StyledPricingPlansProps>`
+export const StyledPricingPlansCardsWrapper = styled.div`
   display: grid;
   gap: 20px;
   margin-bottom: 24px;
 
   @media (min-width: ${screens.lg}) {
-    grid-template-columns: ${({ $hideFree }) => ($hideFree ? 'repeat(6, 1fr)' : 'repeat(3, 1fr)')};
+    grid-template-columns: repeat(3, 1fr);
 
-    ${({ $hideFree }) =>
-      $hideFree &&
-      css`
-        & > ${StyledPricingCardWrapper}:first-child {
-          grid-column: 2/4;
-        }
+    &[data-hide-free="true"] {
+      grid-template-columns: repeat(6, 1fr);
 
-        & > ${StyledPricingCardWrapper} {
-          grid-column: 4/6;
-        }
-      `}
+      & > [data-pricing-card="true"]:first-child {
+        grid-column: 2/4;
+      }
+
+      & > [data-pricing-card="true"]:last-child {
+        grid-column: 4/6;
+      }
+    }
   }
 `;
 
@@ -82,20 +79,19 @@ export const StyledPricingPlansLoginInfoWrapper = styled.div`
   }
 `;
 
-// Define the keyframe animation
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
 export const StyledLoadingSpinner = styled.span`
   display: inline-flex;
 
+  @keyframes pricing-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   & svg {
-    animation: ${rotate} 5s linear infinite;
+    animation: pricing-rotate 5s linear infinite;
   }
 `;

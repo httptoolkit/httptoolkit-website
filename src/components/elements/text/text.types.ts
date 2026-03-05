@@ -1,9 +1,4 @@
-import type { FontSize, FontWeight, TextColor } from '@/styles';
-
-export interface StyledTextProps extends Omit<TextProps, 'textAlign'> {
-  $textAlign?: CanvasTextAlign;
-  $fontStyle?: 'normal' | 'italic';
-}
+import type { FontSize, FontWeight, TextColor } from '@/styles/tokens';
 
 export interface TextProps {
   as?: 'span' | 'p' | 'label';

@@ -1,12 +1,9 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledHeadingProps } from './default.types';
-
-import { Heading } from '@/components/elements/heading';
 import { Image } from '@/components/elements/image';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
-import { styled, fontSizes, fontWeight } from '@/styles';
+import { fontSizes, fontWeight } from '@/styles/tokens';
 
 export const StyledLink = styled(Link)`
   &&& {
@@ -31,10 +28,10 @@ export const StyledHighlightedParagraphs = styled.div`
   }
 `;
 
-export const StyledHeading = styled(Heading)<StyledHeadingProps>`
+export const StyledHeading = styled.div`
   &&& {
     margin-bottom: 24px;
-    margin-top: ${({ $margin = 0 }) => `${$margin}px`};
+    margin-top: var(--heading-margin, 0px);
   }
 `;
 
@@ -62,7 +59,7 @@ export const StyledOL = styled.ol`
     margin-top: 2px;
     margin-bottom: 2px;
   }
-}`;
+`;
 
 export const StyledImage = styled(Image)`
   &&& {

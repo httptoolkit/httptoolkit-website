@@ -16,7 +16,7 @@ import { TextList } from '@/components/modules/text-list';
 export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: FeatureLineProps) => {
   const headingColor: HeadingProps['color'] = icon ? 'white' : 'lightGrey';
   return (
-    <StyledFeatureLineWrapper $align={$align}>
+    <StyledFeatureLineWrapper data-align={$align}>
       <StyledFeatureLineContentWrapper>
         {icon && <SquareIcon icon={icon} />}
         {badge && (

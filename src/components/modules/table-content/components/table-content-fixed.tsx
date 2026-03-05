@@ -22,7 +22,7 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
         <ul style={{ paddingLeft: isChildHeading ? '16px' : 0 }} key={item.text} data-level={item.level ?? 2}>
           <li>
             <StyledTableContentSubitem
-              $isAccordionFixed={true}
+              data-accordion-fixed="true"
               href={item.href}
               data-to-scrollspy-id={`#${kebabCase(item.text)}`}
             >

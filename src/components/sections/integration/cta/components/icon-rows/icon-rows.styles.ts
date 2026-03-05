@@ -1,46 +1,36 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledIconRowItem } from './icon-rows.types';
-
-import { styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 const iconsSize = 72;
 
-export const StyledIconRowsWrapper = styled.div<StyledIconRowItem>`
+export const StyledIconRowsWrapper = styled.div`
   display: flex;
   gap: 12px;
 
   @media (min-width: ${screens.lg}) {
     flex-direction: column;
-    ${({ $orientation, $offset }) =>
-      $orientation === 'right'
-        ? `
-        margin-right: calc(-${iconsSize}px * ${$offset});
-        `
-        : `
-        margin-left: calc(-${iconsSize}px * ${$offset});
-      `}
+    &[data-orientation="right"] { margin-right: calc(-${iconsSize}px * var(--offset)); }
+    &[data-orientation="left"] { margin-left: calc(-${iconsSize}px * var(--offset)); }
   }
 `;
 
-export const StyledIconRow = styled.div<StyledIconRowItem>`
+export const StyledIconRow = styled.div`
   display: flex;
   gap: 12px;
   flex-direction: column;
-  padding-top: calc(${iconsSize}px * ${({ $offset }) => $offset});
+  padding-top: calc(${iconsSize}px * var(--offset));
 
   @media (min-width: ${screens.lg}) {
     flex-direction: row;
     padding-top: 0;
-    ${({ $orientation, $offset }) =>
-      $orientation === 'right'
-        ? `
-      justify-content: start;  
-      padding-left: calc(${iconsSize}px * ${$offset});
-      `
-        : `
-      justify-content: end;  
-      padding-right: calc(${iconsSize}px * ${$offset});
-    `}
+    &[data-orientation="right"] {
+      justify-content: start;
+      padding-left: calc(${iconsSize}px * var(--offset));
+    }
+    &[data-orientation="left"] {
+      justify-content: end;
+      padding-right: calc(${iconsSize}px * var(--offset));
+    }
   }
 `;

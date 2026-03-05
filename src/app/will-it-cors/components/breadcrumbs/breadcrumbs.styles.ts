@@ -1,8 +1,4 @@
-'use client';
-
-import type { BreadcrumState } from './breadcrumbs-types';
-
-import { css, styled } from '@/styles';
+import { styled } from '@linaria/react';
 
 export const StyledBreadcrumbContainer = styled.nav`
   display: flex;
@@ -11,7 +7,7 @@ export const StyledBreadcrumbContainer = styled.nav`
   justify-content: space-between;
 `;
 
-export const StyledBreadcrumbItemWrapper = styled.div<{ $state?: BreadcrumState }>`
+export const StyledBreadcrumbItemWrapper = styled.div`
   flex: 1 1 33%;
 
   display: flex;
@@ -24,26 +20,19 @@ export const StyledBreadcrumbItemWrapper = styled.div<{ $state?: BreadcrumState 
 
   p {
     padding: 0 5px;
+  }
 
-    ${({ $state }) => {
-      switch ($state) {
-        case 'yes':
-          return css`
-            opacity: 0.6;
-          `;
+  &[data-state="yes"] p {
+    opacity: 0.6;
+  }
 
-        case 'no':
-        case 'maybe':
-          return css`
-            font-weight: bold;
-          `;
+  &[data-state="no"] p,
+  &[data-state="maybe"] p {
+    font-weight: bold;
+  }
 
-        case 'nvm':
-          return css`
-            opacity: 0.5;
-            text-decoration: line-through;
-          `;
-      }
-    }}
+  &[data-state="nvm"] p {
+    opacity: 0.5;
+    text-decoration: line-through;
   }
 `;

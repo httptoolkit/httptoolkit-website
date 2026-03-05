@@ -21,7 +21,7 @@ export const Button = ({
   ...aria
 }: ButtonProps) => {
   const BaseButton = () => {
-    const ButtonComponent: ButtonComponentType = as === 'link' || href ? StyledLink : StyledButton;
+    const ButtonComponent = (as === 'link' || href ? StyledLink : StyledButton) as unknown as ButtonComponentType;
 
     return (
       <ButtonComponent
@@ -31,11 +31,11 @@ export const Button = ({
         onClick={onClick}
         href={href}
         target={target}
-        $variant={$variant}
-        $small={$small}
-        $withBorder={$withBorder}
-        $isDropdown={$isDropdown}
-        $isFluid={$isFluid}
+        data-variant={$variant}
+        data-small={$small ? 'true' : undefined}
+        data-with-border={$withBorder ? 'true' : undefined}
+        data-dropdown={$isDropdown ? 'true' : undefined}
+        data-fluid={$isFluid ? 'true' : undefined}
         {...aria}
       >
         {children}

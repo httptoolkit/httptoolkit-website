@@ -45,14 +45,14 @@ export const fontSizes = {
   text: {
     xll: '1.5rem', // 24px / 16px = 1.5rem
     xl: '1.25rem', // 20px / 16px = 1.25rem
-    l: '1.125rem', // 18px / 16px = 1.125.5rem
+    l: '1.125rem', // 18px / 16px = 1.125rem
     m: '1rem', // 16px / 16px = 1rem
     s: '0.875rem', // 14px / 16px = 0.875
-    xs: '0.75rem', // 12px / 16px = 0.875
+    xs: '0.75rem', // 12px / 16px = 0.75
   },
   button: {
     large: '1.5rem',
-    default: '1.125rem', // 18px / 16px = 1.125.5rem
+    default: '1.125rem', // 18px / 16px = 1.125rem
     small: '1rem', // 16px / 16px = 1rem
   },
   label: {

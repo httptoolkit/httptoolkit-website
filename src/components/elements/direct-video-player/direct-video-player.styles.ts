@@ -1,18 +1,10 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled } from '@/styles';
-
-export const StyledVideo = styled.video<{
-    $aspectRatio: string,
-    $mounted: boolean
-}>`
+export const StyledVideo = styled.video`
     width: 100%;
-    aspect-ratio: ${props => props.$aspectRatio};
     border: none;
 
-    ${p => p.$mounted === false &&
-    // During SSR, we render both and use CSS only to show the right default
-    `
+    &:not([data-mounted="true"]) {
         @media (prefers-color-scheme: dark) {
             &[data-hide-on-theme="dark"] { display: none; }
         }
@@ -20,5 +12,5 @@ export const StyledVideo = styled.video<{
         @media (prefers-color-scheme: light) {
             &[data-hide-on-theme="light"] { display: none; }
         }
-    `}
+    }
 `;

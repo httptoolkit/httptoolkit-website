@@ -1,161 +1,136 @@
-'use client';
-
-import type { CTAVariant, bgVariant } from './cta.types';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
-import { StyledHeading } from '@/components/elements/heading/heading.styles';
-import { StyledStack } from '@/components/elements/stack/stack.styles';
 import { Text } from '@/components/elements/text';
-import { StyledText } from '@/components/elements/text/text.styles';
-import { css, screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
-const ctaSquareStyles = css`
-  max-width: 1344px;
-  margin: 0 auto;
-  margin: 96px auto;
-  padding-top: 64px;
-  padding-bottom: 0;
-  box-shadow: 0px 0px 24px 0px rgba(189, 195, 218, 0.1) inset;
-  border-radius: 16px;
-  background:
-    no-repeat url('/images/backgrounds/hero-lines.svg'),
-    var(--background-dots);
-  background-position: top -400px center;
-  margin: 32px 16px;
-  border: 1px solid var(--border-dark);
-
-  @media (min-width: ${screens['lg']}) {
-    border: 0;
-  }
-
-  @media (min-width: ${screens['lg']}) {
-    padding-top: 128px;
-    padding-bottom: 128px;
-    margin: 96px auto;
-    background-position: top -80px center;
-    /* faded look effect */
-    &::before {
-      content: '';
-      border: 1px solid var(--border-dark);
-      border-radius: 16px;
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 30%, var(--ink-grey));
-    }
-  }
-`;
-
-const ctaFluidStyles = css`
-  background: no-repeat url('/images/backgrounds/hero-lines.svg');
-  background-position: top -360px center;
-
-  @media (min-width: ${screens['lg']}) {
-    background-position: top -45px center;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-
-    box-shadow: inset 0px 11px 16px 0px var(--ink-grey);
-  }
-`;
-
-const handleBackgroundVariant = (variant: bgVariant) => {
-  switch (variant) {
-    case 'left-bottom-to-top-right':
-      return css`
-        background:
-          no-repeat url(/images/backgrounds/hero-lines-2.svg),
-          var(--background-dots);
-        background-position: center top -388px;
-      `;
-    case 'rigth-bottom-to-top-left':
-      return css`
-        background:
-          no-repeat url(/images/backgrounds/hero-lines-4.svg),
-          var(--background-dots);
-        background-position: center top -340px;
-      `;
-
-    case 'left-top-to-bottom-right':
-      return css`
-        background:
-          no-repeat url(/images/backgrounds/hero-lines-3.svg),
-          var(--background-dots);
-        background-position: center top -310px;
-      `;
-
-    default:
-      return css`
-        background:
-          no-repeat url('/images/backgrounds/hero-lines.svg'),
-          var(--background-dots);
-        background-position: top -35px center;
-
-        @media (max-width: ${screens['md']}) {
-          background-position: top -317px center;
-        }
-      `;
-  }
-};
-
-const ctaHeroStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
-  box-shadow: var(--hero-box-shadow);
-
-  @media (min-width: ${screens['md']}) {
-    ${({ $bgVariant }) => handleBackgroundVariant($bgVariant)};
-
-    /* faded look effect */
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(ellipse at center, transparent 60%, var(--ink-grey));
-    }
-  }
-`;
-
-const ctaNarrowStyles = css<{ $variant: CTAVariant; $bgVariant: bgVariant }>`
-  ${ctaHeroStyles}
-
-  &&& div[data-container="true"] {
-    max-width: 657px;
-  }
-`;
-
-export const StyledHeroWrapper = styled.section<{
-  $variant: CTAVariant;
-  $bgVariant: bgVariant;
-  $footerClose: boolean;
-}>`
+export const StyledHeroWrapper = styled.section`
   position: relative;
   padding-top: 32px;
   padding-bottom: 64px;
   text-align: center;
 
-  ${({ $variant }) => $variant === 'cta-square' && ctaSquareStyles};
-  ${({ $variant }) => $variant === 'cta-hero' && ctaHeroStyles};
-  ${({ $variant }) => $variant === 'cta-narrow' && ctaNarrowStyles};
-  ${({ $variant }) => $variant === 'cta-fluid' && ctaFluidStyles};
-
   @media (min-width: ${screens['lg']}) {
     padding-top: 96px;
+    padding-bottom: 64px;
+  }
 
-    ${({ $footerClose }) => {
-      return $footerClose
-        ? `
-        padding-bottom: 128px;
-        margin-bottom: -64px;
-      `
-        : `
-        padding-bottom: 64px;
-      `;
-    }}
+  &[data-footer-close="true"] {
+    @media (min-width: ${screens['lg']}) {
+      padding-bottom: 128px;
+      margin-bottom: -64px;
+    }
+  }
+
+  /* CTA SQUARE VARIANT */
+  &[data-variant="cta-square"] {
+    max-width: 1344px;
+    margin: 32px 16px;
+    padding-top: 64px;
+    padding-bottom: 0;
+    box-shadow: 0px 0px 24px 0px rgba(189, 195, 218, 0.1) inset;
+    border-radius: 16px;
+    background:
+      no-repeat url('/images/backgrounds/hero-lines.svg'),
+      var(--background-dots);
+    background-position: top -400px center;
+    border: 1px solid var(--border-dark);
+
+    @media (min-width: ${screens['lg']}) {
+      border: 0;
+      padding-top: 128px;
+      padding-bottom: 128px;
+      margin: 96px auto;
+      background-position: top -80px center;
+
+      &::before {
+        content: '';
+        border: 1px solid var(--border-dark);
+        border-radius: 16px;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(ellipse at center, transparent 30%, var(--ink-grey));
+      }
+    }
+  }
+
+  /* Shared hero/narrow styles */
+  &[data-variant="cta-hero"],
+  &[data-variant="cta-narrow"] {
+    box-shadow: var(--hero-box-shadow);
+
+    @media (min-width: ${screens['md']}) {
+      /* Default background */
+      background:
+        no-repeat url('/images/backgrounds/hero-lines.svg'),
+        var(--background-dots);
+      background-position: top -35px center;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(ellipse at center, transparent 60%, var(--ink-grey));
+      }
+    }
+  }
+
+  /* Background variant overrides for hero/narrow */
+  &[data-variant="cta-hero"][data-bg-variant="left-bottom-to-top-right"],
+  &[data-variant="cta-narrow"][data-bg-variant="left-bottom-to-top-right"] {
+    @media (min-width: ${screens['md']}) {
+      background:
+        no-repeat url(/images/backgrounds/hero-lines-2.svg),
+        var(--background-dots);
+      background-position: center top -388px;
+    }
+  }
+
+  &[data-variant="cta-hero"][data-bg-variant="right-bottom-to-top-left"],
+  &[data-variant="cta-narrow"][data-bg-variant="right-bottom-to-top-left"] {
+    @media (min-width: ${screens['md']}) {
+      background:
+        no-repeat url(/images/backgrounds/hero-lines-4.svg),
+        var(--background-dots);
+      background-position: center top -340px;
+    }
+  }
+
+  &[data-variant="cta-hero"][data-bg-variant="left-top-to-bottom-right"],
+  &[data-variant="cta-narrow"][data-bg-variant="left-top-to-bottom-right"] {
+    @media (min-width: ${screens['md']}) {
+      background:
+        no-repeat url(/images/backgrounds/hero-lines-3.svg),
+        var(--background-dots);
+      background-position: center top -310px;
+    }
+  }
+
+  /* Narrow-specific: constrain container */
+  &[data-variant="cta-narrow"] {
+    &&& div[data-container="true"] {
+      max-width: 657px;
+    }
+  }
+
+  /* CTA FLUID VARIANT */
+  &[data-variant="cta-fluid"] {
+    background: no-repeat url('/images/backgrounds/hero-lines.svg');
+    background-position: top -360px center;
+
+    @media (min-width: ${screens['lg']}) {
+      background-position: top -45px center;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0px 11px 16px 0px var(--ink-grey);
+    }
   }
 `;
 
@@ -172,7 +147,7 @@ export const StyledContainer = styled(Container)`
       padding-right: 0;
     }
 
-    & ${StyledHeading} {
+    & [data-heading="true"] {
       max-width: 360px;
       line-height: 115%;
       padding-top: 11px;
@@ -182,32 +157,30 @@ export const StyledContainer = styled(Container)`
       }
     }
 
-    & ${StyledText} {
+    & [data-text="true"] {
       margin: 0 auto;
     }
 
-    & ${StyledStack} {
+    & [data-stack] {
       align-items: center;
     }
   }
 `;
 
-export const StyledExcerpt = styled(Text)<{ $isLargeText?: boolean }>`
+export const StyledExcerpt = styled(Text)`
   &&& {
-    ${({ $isLargeText }) =>
-      $isLargeText &&
-      css`
-        max-width: 343px;
+    &[data-large-text="true"] {
+      max-width: 343px;
 
-        @media (min-width: ${screens['lg']}) {
-          max-width: 659px;
-          text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
-        }
-      `};
+      @media (min-width: ${screens['lg']}) {
+        max-width: 659px;
+        text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
+      }
+    }
   }
 `;
 
-export const StyledCTAWrapper = styled.div<{ $isLargeText: boolean }>`
+export const StyledCTAWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

@@ -113,11 +113,11 @@ export const DirectVideoPlayer = (props: {
                 ref={darkVideoRef}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="light"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
             >
                 <source src={darkVideoPlaylist} type="application/x-mpegURL" />
 
@@ -143,11 +143,11 @@ export const DirectVideoPlayer = (props: {
                 ref={lightVideoRef}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="dark"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
             >
                 <source src={lightVideoPlaylist} type="application/x-mpegURL" />
 

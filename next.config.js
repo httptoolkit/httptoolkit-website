@@ -24,10 +24,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@phosphor-icons/react', '@httptoolkit/accounts'],
   },
-  compiler: {
-    styledComponents: true,
-  },
-  // Configure `pageExtensions` to include MDX files
+// Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   trailingSlash: true,
   webpack(config) {

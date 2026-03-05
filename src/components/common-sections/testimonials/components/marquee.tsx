@@ -34,7 +34,7 @@ export const MarqueeWrapper = ({
   return (
     <Marquee pauseOnHover={!isMobile} play={isRunning}>
       <StyledTestimonialGrid
-        $columnsCount={columnsCount}
+        style={{ '--grid-columns': columnsCount } as React.CSSProperties}
         onTouchStart={pause}
         onTouchEnd={play}
       >

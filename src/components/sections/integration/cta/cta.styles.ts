@@ -1,10 +1,8 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledIntegrationCTAProps } from './cta.types';
+import { screens } from '@/styles/tokens';
 
-import { styled, screens } from '@/styles';
-
-export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAProps>`
+export const StyledIntegrationCTAWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,19 +10,14 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
   width: 100%;
   position: relative;
   overflow: hidden;
+  padding: 32px 16px 0;
+  gap: 32px;
 
-  ${({ $variant}) =>
-    $variant === 'cta'
-      ? `
-        background-color: var(--ink-black);
-        box-shadow: var(--border-gradient);
-        padding: 32px 16px 0;
-        gap: 42px;
-        `
-      : `
-        padding: 32px 16px 0;
-        gap: 32px;
-        `}
+  &[data-variant="cta"] {
+    background-color: var(--ink-black);
+    box-shadow: var(--border-gradient);
+    gap: 42px;
+  }
 
   &::before {
     content: '';
@@ -39,17 +32,13 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
 
   @media (min-width: ${screens.lg}) {
     flex-direction: row;
+    padding: 96px 0;
+    gap: 35px;
 
-    ${({ $variant }) =>
-      $variant === 'cta'
-        ? `
+    &[data-variant="cta"] {
       padding: 128px 0;
       gap: 99px;
-      `
-        : `
-      padding: 96px 0;
-      gap: 35px;
-      `}
+    }
 
     &::before, &::after {
       content: '';
@@ -75,7 +64,7 @@ export const StyledIntegrationCTAWrapper = styled.section<StyledIntegrationCTAPr
   }
 `;
 
-export const StyledIntegrationCTAContent = styled.div<StyledIntegrationCTAProps>`
+export const StyledIntegrationCTAContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

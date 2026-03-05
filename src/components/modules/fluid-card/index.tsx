@@ -17,16 +17,16 @@ export const FluidCard = ({ title, icon, text, buttonHref, buttonText, $variant 
   const iconSize: SquareIconProps['$size'] = $variant === 'dark' ? 'medium' : 'large';
 
   return (
-    <StyledFluidCardWrapper $variant={$variant}>
+    <StyledFluidCardWrapper data-variant={$variant}>
       {icon && (
         <SquareIcon icon={icon} $variant={$variant !== 'default' ? 'tertiary' : 'tertiary-bigger'} $size={iconSize} />
       )}
-      <StyledFluidCardContentWrapper $variant={$variant}>
+      <StyledFluidCardContentWrapper data-variant={$variant}>
         <Heading as="h3" color={headingColor} fontSize={headingSize} fontWeight={headingWeight}>
           {title}
         </Heading>
         <StyledFluidCardText
-          $variant={$variant}
+          data-variant={$variant}
           dangerouslySetInnerHTML={{ __html: marked.parse(text, { renderer }) }}
         />
       </StyledFluidCardContentWrapper>

@@ -28,7 +28,7 @@ export default function WebPurchaseThankYouPage() {
         <CapturePurchaseEvent />
       </Suspense>
       <div>
-        <StyledHideElementOn $hideAbove="md">
+        <StyledHideElementOn data-hide-above="md">
           <StyledSectionCTAWrapper>
             <CTA
               heading="Thanks for your purchase!"
@@ -50,7 +50,7 @@ export default function WebPurchaseThankYouPage() {
                   <Stack $gapxl="48px">
                     <Stack $gapxl="32px">
                       <Stack $gapxl="24px">
-                        <StyledHideElementOn $hideBelow="md">
+                        <StyledHideElementOn data-hide-below="md">
                           <Heading fontSize="l" color="textGradient">
                             Thanks for your purchase!
                           </Heading>
@@ -71,7 +71,7 @@ export default function WebPurchaseThankYouPage() {
                   </Stack>
                 </StyledTextContent>
               </StyledThankYouColumnContent>
-              <StyledHideElementOn $hideBelow="md">
+              <StyledHideElementOn data-hide-below="md">
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"

@@ -7,10 +7,10 @@ import { PHProvider } from './providers';
 
 import { Button } from '@/components/elements/button';
 import { RadixProviders } from '@/components/layout/radix-layout';
-import { StyledLayout } from '@/components/layout/styled-layout';
+import { ThemeLayout } from '@/components/layout/theme-layout';
 import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
-import StyledComponentsRegistry from '@/styles/styled-component-registry';
+
 import { Polyfills } from '@/components/elements/polyfills';
 
 const PostHogPageView = dynamic(() => import('@/components/layout/posthog-page-view'), {
@@ -75,17 +75,15 @@ export default function RootLayout({
 
       <body className={dmSansFont.variable}>
         <PHProvider>
-          <StyledComponentsRegistry>
-            <StyledLayout>
-              <RadixProviders>
-                <Button as="link" href="#main-content" $small className="skip-button">
-                  Skip to main content
-                </Button>
-                <PostHogPageView />
-                {children}
-              </RadixProviders>
-            </StyledLayout>
-          </StyledComponentsRegistry>
+          <ThemeLayout>
+            <RadixProviders>
+              <Button as="link" href="#main-content" $small className="skip-button">
+                Skip to main content
+              </Button>
+              <PostHogPageView />
+              {children}
+            </RadixProviders>
+          </ThemeLayout>
         </PHProvider>
       </body>
     </html>

@@ -11,7 +11,7 @@ import { algoliaConfig } from '@/lib/constants/algolia';
 import { screens, fontSizes, fontWeight } from '@/styles/tokens';
 
 const DocSearch = dynamic(() => import('@docsearch/react').then(c => c.DocSearch), {
-  loading: () => <Input style={{ minWidth: 295 }} $type="search" placeholder="Search" id="search-placeholder" />,
+  loading: () => <Input style={{ minWidth: 295 }} type="search" placeholder="Search" id="search-placeholder" />,
 });
 
 const StyledAlgoliaSearchWrapper = styled.div`

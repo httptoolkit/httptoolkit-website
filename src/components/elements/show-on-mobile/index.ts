@@ -1,11 +1,19 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
-export const ShowOnMobileOrDesktop = styled.div<{ $mobile?: boolean }>`
-  display: ${({ $mobile }) => ($mobile ? 'block' : 'none')};
+export const ShowOnMobileOrDesktop = styled.div`
+  display: none;
+
+  &[data-mobile] {
+    display: block;
+  }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $mobile }) => (!$mobile ? 'block' : 'none')};
+    display: block;
+
+    &[data-mobile] {
+      display: none;
+    }
   }
 `;

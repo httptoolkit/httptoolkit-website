@@ -19,7 +19,7 @@ import {
   SquareJSLogo,
 } from '@/components/elements/icon';
 import { Text } from '@/components/elements/text';
-import { screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 const leftIcons: IconRowsProps['rows'] = [
   {
@@ -73,9 +73,9 @@ export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTA
   const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
 
   return (
-    <StyledIntegrationCTAWrapper $variant={$variant}>
+    <StyledIntegrationCTAWrapper data-variant={$variant}>
       {!isMobile && <IconRows rows={leftIcons} $orientation="left" $offset={0.9} />}
-      <StyledIntegrationCTAContent $variant={$variant}>
+      <StyledIntegrationCTAContent>
         <Heading as={HeadingTag} fontSize="l" color="lightGrey" textAlign="center">
           {title}
         </Heading>

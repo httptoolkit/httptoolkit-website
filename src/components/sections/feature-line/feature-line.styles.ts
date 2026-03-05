@@ -1,15 +1,18 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledFeatureLineProps } from './feature-line.types';
+import { screens } from '@/styles/tokens';
 
-import { styled, screens } from '@/styles';
-
-export const StyledFeatureLineWrapper = styled.section<StyledFeatureLineProps>`
+export const StyledFeatureLineWrapper = styled.section`
   @media (min-width: ${screens.lg}) {
     display: flex;
-    flex-direction: ${({ $align }) => $align === 'right' && 'row-reverse'};
     align-items: center;
     justify-content: space-between;
+  }
+
+  &[data-align="right"] {
+    @media (min-width: ${screens.lg}) {
+      flex-direction: row-reverse;
+    }
   }
 
   & > *:nth-child(2) {

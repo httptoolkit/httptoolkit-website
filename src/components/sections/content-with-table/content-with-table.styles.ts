@@ -1,33 +1,33 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledContentWithTableProps } from './content-with-table.type';
+import { screens } from '@/styles/tokens';
 
-import { css, styled, screens } from '@/styles';
-
-export const StyledContentWithTableWrapper = styled.section<StyledContentWithTableProps>`
+export const StyledContentWithTableWrapper = styled.section`
   position: relative;
   overflow: clip;
-  background-color: ${({ $bgVariant }) => $bgVariant === 'darkGrey' ? 'var(--dark-grey)' : $bgVariant ? 'var(--ink-black)' : undefined};
-`;
 
-const StyledContentWithTableGradientWrapper = css`
-  position: absolute;
-  height: 900px;
+  &[data-bg-variant="darkGrey"] {
+    background-color: var(--dark-grey);
+  }
 
-  @media (max-width: ${screens.lg}) {
-    display: none;
+  &[data-bg-variant="inkBlack"] {
+    background-color: var(--ink-black);
   }
 `;
 
 export const StyledContentWithTableUpperGradientWrapper = styled.div`
-  ${StyledContentWithTableGradientWrapper}
+  position: absolute;
+  height: 900px;
+  @media (max-width: ${screens.lg}) { display: none; }
   right: -250px;
   top: -100px;
   transform: rotate(180deg);
 `;
 
 export const StyledContentWithTableLowerGradientWrapper = styled.div`
-  ${StyledContentWithTableGradientWrapper}
+  position: absolute;
+  height: 900px;
+  @media (max-width: ${screens.lg}) { display: none; }
   left: -250px;
   top: 75vh;
 

@@ -1,7 +1,8 @@
-'use client';
-
 import { Container } from '@/components/elements/container';
-import { screens, styled } from '@/styles';
+
+import { styled } from '@linaria/react';
+
+import { screens } from '@/styles/tokens';
 
 export const StyledFooter = styled.footer`
   margin-top: 32px;
@@ -107,31 +108,47 @@ export const StyledColumn = styled.div`
   }
 `;
 
-export const StyledMenuWrapper = styled.div<{ $displayOnMobile: boolean; $displayOnDesktop: boolean; $gapxl?: string }>`
+export const StyledMenuWrapper = styled.div`
   flex-direction: column;
   gap: 22px;
 
   @media (max-width: ${screens.lg}) {
-    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+    display: none;
+
+    &[data-display-on-mobile="true"] {
+      display: flex;
+    }
   }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
-    gap: ${props => props.$gapxl || '21px'};
+    display: none;
+    gap: var(--menu-gapxl, 21px);
+
+    &[data-display-on-desktop="true"] {
+      display: flex;
+    }
   }
 `;
 
-export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOnDesktop: boolean }>`
+export const StyledMenuItems = styled.ul`
   flex-direction: column;
   gap: 16px;
 
   @media (max-width: ${screens.lg}) {
-    display: ${({ $displayOnMobile }) => ($displayOnMobile ? 'flex' : 'none')};
+    display: none;
+
+    &[data-display-on-mobile="true"] {
+      display: flex;
+    }
   }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $displayOnDesktop }) => ($displayOnDesktop ? 'flex' : 'none')};
+    display: none;
     gap: 24px;
+
+    &[data-display-on-desktop="true"] {
+      display: flex;
+    }
   }
 
   @media (min-width: ${screens.md}) {
@@ -149,12 +166,20 @@ export const StyledMenuItems = styled.ul<{ $displayOnMobile: boolean; $displayOn
   }
 `;
 
-export const StyledSeparator = styled.hr<{ $isSimple?: boolean }>`
+export const StyledSeparator = styled.hr`
   border-color: var(--dark-grey);
-  margin: ${({ $isSimple }) => ($isSimple ? '16px 0' : '24px 0')};
+  margin: 24px 0;
 
   @media (min-width: ${screens.xl}) {
-    margin: ${({ $isSimple }) => ($isSimple ? '32px 0' : '48px 0')};
+    margin: 48px 0;
+  }
+
+  &[data-is-simple="true"] {
+    margin: 16px 0;
+
+    @media (min-width: ${screens.xl}) {
+      margin: 32px 0;
+    }
   }
 `;
 

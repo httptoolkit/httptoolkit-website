@@ -1,8 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledIntegrationStepNumberProps } from './steps.types';
-
-import { css, styled, screens, textOrangeGradientMixin, fontWeight } from '@/styles';
+import { screens, fontWeight } from '@/styles/tokens';
 
 export const StyledIntegrationStepsWrapper = styled.section`
   display: flex;
@@ -65,16 +63,16 @@ export const StyledIntegrationStepsItemStepNumber = styled.div`
     0px 0px 24px 0px var(--shadow-inner-box) inset;
 `;
 
-export const StyledIntegrationStepsItemStepNumberText = styled.span<StyledIntegrationStepNumberProps>`
+export const StyledIntegrationStepsItemStepNumberText = styled.span`
   line-height: 1;
-  ${({ $variation }) => {
-    switch ($variation) {
-      case 'blue':
-        return css`
-          color: var(--electric-blue);
-        `;
-      case 'orange':
-        return textOrangeGradientMixin;
-    }
-  }}
+
+  &[data-variation="blue"] {
+    color: var(--electric-blue);
+  }
+
+  &[data-variation="orange"] {
+    background: var(--text-orange-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;

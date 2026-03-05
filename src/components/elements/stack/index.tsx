@@ -5,7 +5,15 @@ import type { StackProps } from './stack.types';
 
 const Stack = ({ $gap, $gapxl, $direction, $alignItems, children }: StackProps) => {
   return (
-    <StyledStack $gap={$gap} $gapxl={$gapxl} $alignItems={$alignItems} $direction={$direction}>
+    <StyledStack
+      data-stack
+      style={{
+        '--stack-direction': $direction,
+        '--stack-align': $alignItems,
+        '--stack-gap': $gap,
+        '--stack-gapxl': $gapxl,
+      } as React.CSSProperties}
+    >
       {children}
     </StyledStack>
   );

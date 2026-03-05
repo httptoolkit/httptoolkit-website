@@ -37,7 +37,7 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
               <FluidCard {...cards[3]} />
             </StyledIntegrationBentoCTAWrapper>
           </StyledIntegrationBentoCardsColumn>
-          <StyledHideElementOn $hideBelow="lg">
+          <StyledHideElementOn data-hide-below="lg">
             <StyledPhoneWindow aspectRatio='445/914'>
               <StyledThemedImage
                 darkSrc='/images/product/android-dark.png'
@@ -47,7 +47,7 @@ export const IntegrationBento = ({ title, subtitle, cards }: IntegrationBentoPro
               />
             </StyledPhoneWindow>
           </StyledHideElementOn>
-          <StyledIntegrationBentoCTAWrapper $mobile>
+          <StyledIntegrationBentoCTAWrapper data-mobile>
             <FluidCard {...cards[3]} />
           </StyledIntegrationBentoCTAWrapper>
         </StyledIntegrationBentoContentWrapper>

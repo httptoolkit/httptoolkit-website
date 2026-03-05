@@ -10,11 +10,18 @@ const parserOffset = (offset: number) => {
 
 export const IconRows = ({ rows, $orientation, $offset }: IconRowsProps) => {
   return (
-    <StyledIconRowsWrapper $offset={$offset} $orientation={$orientation}>
+    <StyledIconRowsWrapper
+      data-orientation={$orientation}
+      style={{ '--offset': $offset } as React.CSSProperties}
+    >
       {Array.isArray(rows) &&
         rows?.length > 0 &&
         rows.map((row, rowIndex) => (
-          <StyledIconRow key={rowIndex} $offset={parserOffset(row.offset)} $orientation={$orientation}>
+          <StyledIconRow
+            key={rowIndex}
+            data-orientation={$orientation}
+            style={{ '--offset': parserOffset(row.offset) } as React.CSSProperties}
+          >
             {Array.isArray(row.icons) &&
               row.icons?.length > 0 &&
               row.icons.map((icon, iconIndex) => <SquareIcon key={iconIndex} icon={icon} $size="xLarge" />)}

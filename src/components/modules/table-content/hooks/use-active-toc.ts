@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 const getHeadings = () =>
   document.querySelectorAll<HTMLElement>('article :is(h2,h3,h4), div#intro');

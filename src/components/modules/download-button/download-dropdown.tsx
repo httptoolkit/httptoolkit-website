@@ -66,7 +66,7 @@ export const DownloadDropdown = ({
   return (
     <>
       <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
-      <StyledHideElementOn $hideBelow="md">
+      <StyledHideElementOn data-hide-below="md">
         <Dropdown
           $small={$small}
           href={defaultDownload.href}

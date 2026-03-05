@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { marked } from 'marked';
 
 import {
@@ -19,6 +20,7 @@ import { Badge } from '@/components/elements/badge';
 import { CheckIcon } from '@/components/elements/check-icon';
 import { Text } from '@/components/elements/text';
 import type { TextProps } from '@/components/elements/text/text.types';
+import { textColors } from '@/styles/tokens';
 import { renderer } from '@/lib/marked/link-target-render';
 
 interface FeatureListProps {
@@ -38,7 +40,10 @@ const FeatureList = ({ feature, $isHighlighted }: FeatureListProps) => {
         {Array.isArray(feature.items) &&
           feature.items?.length > 0 &&
           feature.items.map((item, idx) => (
-            <StyledPriceCardFeatureItemLI key={idx} $itemColor={itemColor}>
+            <StyledPriceCardFeatureItemLI
+              key={idx}
+              style={{ '--item-color': textColors[itemColor as keyof typeof textColors] } as React.CSSProperties}
+            >
               <CheckIcon />
               <span dangerouslySetInnerHTML={{ __html: marked.parse(item, { renderer }) }} />
             </StyledPriceCardFeatureItemLI>
@@ -61,7 +66,7 @@ export const PricingCard = ({
   const TextColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
   const isFree = price === 0;
   return (
-    <StyledPricingCardWrapper $isHighlighted={$isHighlighted}>
+    <StyledPricingCardWrapper data-highlighted={$isHighlighted ? 'true' : undefined} data-pricing-card="true">
       <StyledPricingCardPriceWrapper>
         <StyledPricingCardTitle>
           <Text fontSize="l" color={TextColor}>
@@ -71,11 +76,13 @@ export const PricingCard = ({
         </StyledPricingCardTitle>
         <Text fontSize="l" color="darkGrey">
           <StyledPriceCardPrice>{isFree ? 'Free' : price}</StyledPriceCardPrice>
-          { priceDescription }
+          {priceDescription}
           <br />
-          { typeof price === 'string' && !isFree && (
-            <StyledPricingCardCaveats forwardedAs="span" fontSize="s" color="darkGrey">
-              plus local tax, paid { isPaidYearly ? 'annually' : 'monthly' }
+          {typeof price === 'string' && !isFree && (
+            <StyledPricingCardCaveats>
+              <Text as="span" fontSize="s" color="darkGrey">
+                plus local tax, paid {isPaidYearly ? 'annually' : 'monthly'}
+              </Text>
             </StyledPricingCardCaveats>
           )}
         </Text>

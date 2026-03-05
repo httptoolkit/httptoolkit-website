@@ -1,8 +1,8 @@
-'use client';
-
 import { ThemedImage } from '@/components/elements/themed-image';
 import { PhoneWindow } from '@/components/elements/phone-window';
-import { styled, screens } from '@/styles';
+import { styled } from '@linaria/react';
+
+import { screens } from '@/styles/tokens';
 
 export const StyledIntegrationBentoWrapper = styled.section`
   position: relative;
@@ -69,10 +69,18 @@ export const StyledThemedImage = styled(ThemedImage)`
   }
 `;
 
-export const StyledIntegrationBentoCTAWrapper = styled.div<{ $mobile?: boolean }>`
-  display: ${({ $mobile }) => ($mobile ? 'block' : 'none')};
+export const StyledIntegrationBentoCTAWrapper = styled.div`
+  display: none;
+
+  &[data-mobile] {
+    display: block;
+  }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $mobile }) => (!$mobile ? 'block' : 'none')};
+    display: block;
+
+    &[data-mobile] {
+      display: none;
+    }
   }
 `;

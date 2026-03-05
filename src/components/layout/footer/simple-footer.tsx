@@ -16,7 +16,7 @@ export const SimpleFooter = () => {
           </Link>
           <ThemeToggle id="theme-toggle-footer-small" />
         </StyledSimpleFooterWrapper>
-        <StyledSeparator $isSimple />
+        <StyledSeparator data-is-simple="true" />
         <FooterCopy />
       </Container>
     </StyledSimpleFooter>

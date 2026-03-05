@@ -35,21 +35,21 @@ export function Newsletter({
   const [isSuccess, handleSubmit] = useNewsletterSubmit();
 
   return (
-    <StyledNewsletterWrapper $variant={$variant}>
+    <StyledNewsletterWrapper data-variant={$variant}>
       {$variant !== 'default' && (
-        <StyledNewsletterGradientWrapper $variant={$variant}>
+        <StyledNewsletterGradientWrapper data-variant={$variant}>
           <Gradient $shape="full" />
         </StyledNewsletterGradientWrapper>
       )}
-      <StyledNewsletterContentWrapper $variant={$variant}>
-        <StyledNewsletterTitle $variant={$variant}>{title}</StyledNewsletterTitle>
+      <StyledNewsletterContentWrapper data-variant={$variant}>
+        <StyledNewsletterTitle data-variant={$variant}>{title}</StyledNewsletterTitle>
         {text && (
           <Text fontSize={TextSize} color={TextColor} fontWeight="normal">
             {text}
           </Text>
         )}
       </StyledNewsletterContentWrapper>
-      <StyledNewsletterFormContentWrapper $variant={$variant}>
+      <StyledNewsletterFormContentWrapper>
         {$variant !== 'blog-short' && (
           <Text fontSize="m" color={SupportColor} fontWeight={SupportWeight}>
             {supportText}
@@ -57,7 +57,7 @@ export function Newsletter({
         )}
         {isSuccess && <StyledNewsletterSuccess>Thanks for subscribing!</StyledNewsletterSuccess>}
         <StyledNewsletterFormWrapper
-          $variant={$variant}
+          data-variant={$variant}
           onSubmit={handleSubmit}
           method="POST"
           action={action}

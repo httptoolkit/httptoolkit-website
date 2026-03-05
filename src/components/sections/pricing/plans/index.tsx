@@ -87,7 +87,7 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
           )}
           <Switch options={intervalOptions} onChange={setPlanCycle} defaultValue={planCycle} />
         </StyledPricingPlansSwitchWrapper>
-        <StyledPricingPlansCardsWrapper $hideFree={$hideFree}>
+        <StyledPricingPlansCardsWrapper data-hide-free={$hideFree ? 'true' : undefined}>
           {Array.isArray(filteredPlans) &&
             filteredPlans.length > 0 &&
             filteredPlans.map(card => (

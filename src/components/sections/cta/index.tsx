@@ -40,12 +40,12 @@ export const CTA = ({
   return (
     <StyledHeroWrapper
       data-cta="true"
-      $footerClose={$isFooterClose}
-      $variant={variant}
-      $bgVariant={$bgVariant}
+      data-footer-close={$isFooterClose ? 'true' : undefined}
+      data-variant={variant}
+      data-bg-variant={$bgVariant !== 'default' ? $bgVariant : undefined}
       className={className}
     >
-      <StyledContainer data-container>
+      <StyledContainer data-container="true">
         {icon && (
           <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
@@ -60,7 +60,7 @@ export const CTA = ({
           </Heading>
           {excerpt &&
             (typeof excerpt === 'string' ? (
-              <StyledExcerpt fontSize={excerptSize} $isLargeText={isLargeText}>
+              <StyledExcerpt fontSize={excerptSize} data-large-text={isLargeText ? 'true' : undefined}>
                 {excerpt}
               </StyledExcerpt>
             ) : (
@@ -68,7 +68,7 @@ export const CTA = ({
             ))}
         </Stack>
         {(withDownload || cta) && (
-          <StyledCTAWrapper $isLargeText={isLargeText}>
+          <StyledCTAWrapper>
             {withDownload ? (
               <DownloadButton
                 $variant="primary"

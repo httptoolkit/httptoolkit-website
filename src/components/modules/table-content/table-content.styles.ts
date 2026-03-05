@@ -1,10 +1,9 @@
-'use client';
-
 import * as Accordion from '@radix-ui/react-accordion';
-import { keyframes } from 'styled-components';
+
+import { styled } from '@linaria/react';
 
 import { Link } from '@/components/elements/link';
-import { css, styled, fontWeight } from '@/styles';
+import { fontWeight } from '@/styles/tokens';
 
 export const StyledTableContentWrapper = styled.div`
   display: flex;
@@ -24,7 +23,7 @@ export const StyledTableContentWrapper = styled.div`
   scrollbar-gutter: stable;
 `;
 
-const TriggerStyles = css`
+const triggerStyles = `
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +32,6 @@ const TriggerStyles = css`
   border-radius: 8px;
   background-color: transparent;
   border: none;
-  width: 100%;
 
   &:focus,
   &:focus-within {
@@ -55,7 +53,7 @@ const TriggerStyles = css`
 `;
 
 export const StyledTableContentItemLink = styled.div`
-  ${TriggerStyles}
+  ${triggerStyles}
 
   & a {
     transition: color ease-in 300ms;
@@ -72,7 +70,7 @@ export const StyledTableContentItemLink = styled.div`
 
 export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
   &&& {
-    ${TriggerStyles}
+    ${triggerStyles}
 
     &[data-state=open] svg {
       transform: rotate(180deg);
@@ -85,37 +83,38 @@ export const StyledTableContentItemTrigger = styled(Accordion.Trigger)`
   }
 `;
 
-export const slideDown = keyframes`
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-`;
-
-export const slideUp = keyframes`
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-  to {
-    height: 0;
-  }
-`;
-
 export const StyledTableContentContent = styled(Accordion.Content)`
   &&& {
     overflow: hidden;
+
+    @keyframes table-content-slide-down {
+      from {
+        height: 0;
+      }
+      to {
+        height: var(--radix-accordion-content-height);
+      }
+    }
+
+    @keyframes table-content-slide-up {
+      from {
+        height: var(--radix-accordion-content-height);
+      }
+      to {
+        height: 0;
+      }
+    }
+
     &[data-state='open'] {
-      animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+      animation: table-content-slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
     &[data-state='closed'] {
-      animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);
+      animation: table-content-slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
   }
 `;
 
-export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: boolean }>`
+export const StyledTableContentSubitem = styled(Link)`
   &&& {
     display: inline-block;
     width: 100%;
@@ -124,6 +123,7 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
     transition: all 0.1s;
     outline: none;
     border-radius: 8px;
+    padding: 8px 32px;
 
     &.active {
       span,
@@ -132,35 +132,30 @@ export const StyledTableContentSubitem = styled(Link)<{ $isAccordionFixed?: bool
       }
     }
 
-    ${({ $isAccordionFixed }) =>
-      $isAccordionFixed
-        ? css`
-            padding: 8px 16px;
+    &:focus {
+      color: var(--text-dark-grey);
+    }
 
-            &:focus,
-            &:focus-within {
-              background-color: var(--ink-grey);
-            }
+    @media (hover: hover) {
+      &:hover {
+        color: var(--text-dark-grey);
+      }
+    }
 
-            @media (hover: hover) {
-              &:hover {
-                background-color: var(--ink-grey);
-              }
-            }
-          `
-        : css`
-            padding: 8px 32px;
+    &[data-accordion-fixed="true"] {
+      padding: 8px 16px;
 
-            &:focus {
-              color: var(--text-dark-grey);
-            }
+      &:focus,
+      &:focus-within {
+        background-color: var(--ink-grey);
+      }
 
-            @media (hover: hover) {
-              &:hover {
-                color: var(--text-dark-grey);
-              }
-            }
-          `}
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--ink-grey);
+        }
+      }
+    }
 
     &[data-active='true'] {
       color: var(--electric-light-blue);

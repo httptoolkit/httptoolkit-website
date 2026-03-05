@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { css, screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledSinglePost = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export const StyledSinglePost = styled.div`
   }
 `;
 
-export const StyledGoBack = styled.div<{ $displayOn: 'mobile' | 'desktop' }>`
+export const StyledGoBack = styled.div`
   display: none;
 
   & a {
@@ -35,23 +35,19 @@ export const StyledGoBack = styled.div<{ $displayOn: 'mobile' | 'desktop' }>`
     gap: 8px;
   }
 
-  ${({ $displayOn }) =>
-    $displayOn === 'desktop' &&
-    css`
-      @media (min-width: ${screens['lg']}) {
-        display: block;
-      }
-    `}
+  &[data-display-on="desktop"] {
+    @media (min-width: ${screens['lg']}) {
+      display: block;
+    }
+  }
 
-  ${({ $displayOn }) =>
-    $displayOn === 'mobile' &&
-    css`
-      @media (max-width: ${screens['lg']}) {
-        display: block;
-        margin-top: 16px;
-        margin-bottom: 32px;
-      }
-    `}
+  &[data-display-on="mobile"] {
+    @media (max-width: ${screens['lg']}) {
+      display: block;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+  }
 `;
 
 export const StyledPostMeta = styled.div`

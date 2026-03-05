@@ -1,9 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledTextSlotProps } from './text-slot.types';
-
-import { Heading } from '@/components/elements/heading';
-import { styled, screens, fontSizes, fontWeight } from '@/styles';
+import { screens, fontSizes, fontWeight } from '@/styles/tokens';
 
 export const StyledTextSlotWrapper = styled.div`
   display: flex;
@@ -12,29 +9,24 @@ export const StyledTextSlotWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const StyledTextSlotTitle = styled(Heading)<StyledTextSlotProps>`
-  &&& {
-    ${({ $textCenteredOnMobile }) =>
-      $textCenteredOnMobile &&
-      `
-      text-align: center;
-      `}
+export const StyledTextSlotTitle = styled.div`
+  &[data-text-centered="true"] {
+    text-align: center;
+  }
 
-    @media (min-width: ${screens.lg}) {
-      text-align: left;
-    }
+  @media (min-width: ${screens.lg}) {
+    text-align: left;
   }
 `;
 
-export const StyledTextSlotText = styled.div<StyledTextSlotProps>`
+export const StyledTextSlotText = styled.div`
   font-size: ${fontSizes.text.m};
   line-height: 1.5;
   color: var(--text-dark-grey);
-  ${({ $textCenteredOnMobile }) =>
-    $textCenteredOnMobile &&
-    `
+
+  &[data-text-centered="true"] {
     text-align: center;
-    `}
+  }
 
   @media (min-width: ${screens.lg}) {
     text-align: left;
@@ -59,17 +51,19 @@ export const StyledTextSlotCopyWrapper = styled.div`
   gap: 16px;
 `;
 
-export const StyledTextSlotInnerWrapper = styled.div<StyledTextSlotProps>`
+export const StyledTextSlotInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  & ${StyledTextSlotCopyWrapper} {
+  & [data-copy-wrapper="true"] {
     width: fit-content;
   }
 
   @media (max-width: ${screens.lg}) {
-    align-items: ${({ $textCenteredOnMobile }) => ($textCenteredOnMobile ? 'center' : 'initial')};
+    &[data-text-centered="true"] {
+      align-items: center;
+    }
   }
 `;
 

@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled, screens, fontWeight } from '@/styles';
+import { screens, fontWeight } from '@/styles/tokens';
 
 export const StyledTestimonialsWrapper = styled.section`
   display: flex;
@@ -57,10 +57,8 @@ export const StyledAuthorDetails = styled.cite`
   }
 `;
 
-export const StyledTestimonialGrid = styled.div<{
-  $columnsCount: number;
-}>`
-  --grid-items: ${({ $columnsCount }) => $columnsCount};
+export const StyledTestimonialGrid = styled.div`
+  --grid-items: var(--grid-columns);
   display: grid;
   grid-template-columns: repeat(var(--grid-items), 343px);
   gap: 16px;

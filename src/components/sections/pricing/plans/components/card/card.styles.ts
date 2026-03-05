@@ -1,18 +1,19 @@
-'use client';
-import type { StyledPricingCardProps } from './card.types';
+import { styled } from '@linaria/react';
 
-import { Text } from '@/components/elements/text';
-import { styled, screens, textColors, fontSizes } from '@/styles';
+import { screens, fontSizes } from '@/styles/tokens';
 
-export const StyledPricingCardWrapper = styled.div<StyledPricingCardProps>`
+export const StyledPricingCardWrapper = styled.div`
   border-radius: 16px;
   padding: 16px;
   box-shadow: 0 0 0 1px var(--button-border) inset;
-  background-color: ${({ $isHighlighted }) =>
-    $isHighlighted ? 'var(--ink-black)' : 'var(--dark-grey)'};
+  background-color: var(--dark-grey);
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  &[data-highlighted="true"] {
+    background-color: var(--ink-black);
+  }
 
   @media (min-width: ${screens.lg}) {
     gap: 32px;
@@ -57,11 +58,9 @@ export const StyledPricingCardPriceWrapper = styled.div`
   }
 `;
 
-export const StyledPricingCardCaveats = styled(Text)`
-  &&& {
-    margin-top: 6px;
-    font-style: italic;
-  }
+export const StyledPricingCardCaveats = styled.span`
+  margin-top: 6px;
+  font-style: italic;
 `;
 
 export const StyledPriceCardPrice = styled.span`
@@ -118,7 +117,7 @@ export const StyledPriceCardFeatureItemsWrapper = styled.ul`
   gap: 16px;
 `;
 
-export const StyledPriceCardFeatureItemLI = styled.li<{ $itemColor?: 'white' | 'darkGrey' }>`
+export const StyledPriceCardFeatureItemLI = styled.li`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -129,7 +128,7 @@ export const StyledPriceCardFeatureItemLI = styled.li<{ $itemColor?: 'white' | '
 
   && p {
     font-size: ${fontSizes.text.m};
-    color: ${({ $itemColor }) => textColors[$itemColor || 'white']};
+    color: var(--item-color);
     text-align: left;
   }
 `;

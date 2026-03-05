@@ -1,8 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { InputProps } from './checkbox.types';
-
-import { styled, fontSizes, fontWeight } from '@/styles';
+import { fontSizes, fontWeight } from '@/styles/tokens';
 
 export const StyledInputWrapper = styled.div`
   display: flex;
@@ -12,12 +10,12 @@ export const StyledInputWrapper = styled.div`
   width: 100%;
 `;
 
-export const StyledInput = styled.input<InputProps>`
+export const StyledInput = styled.input`
   padding: 14px 14px;
   border: none;
   font-size: ${fontSizes.text.s};
   line-height: 150%;
-  color: ${({ $hasError }) => ($hasError ? 'var(--text-cinnabar-red)' : 'var(--text-light-grey)')};
+  color: var(--text-light-grey);
   outline: 0;
   height: 20px;
   width: 20px;
@@ -27,6 +25,10 @@ export const StyledInput = styled.input<InputProps>`
   accent-color: var(--electric-light-blue);
   &:focus {
     background-color: var(--ink-black);
+  }
+
+  &[data-has-error="true"] {
+    color: var(--text-cinnabar-red);
   }
 `;
 

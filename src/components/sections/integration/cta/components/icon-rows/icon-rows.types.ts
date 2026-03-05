@@ -7,11 +7,6 @@ export interface IconRowItem {
   offset: number;
 }
 
-export interface StyledIconRowItem {
-  $orientation: IconRowsProps['$orientation'];
-  $offset: IconRowItem['offset'];
-}
-
 export interface IconRowsProps {
   rows: IconRowItem[];
   $offset: IconRowItem['offset'];

@@ -76,9 +76,9 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
             const displayOnDesktop = !!column.displayOn?.includes('desktop');
             return (
               <StyledMenuWrapper
-                $displayOnMobile={displayOnMobile}
-                $displayOnDesktop={displayOnDesktop}
-                $gapxl={hasSubHeading ? '64px' : '21px'}
+                data-display-on-mobile={String(displayOnMobile)}
+                data-display-on-desktop={String(displayOnDesktop)}
+                style={{ '--menu-gapxl': hasSubHeading ? '64px' : '21px' } as React.CSSProperties}
                 key={column.title}
               >
                 <FooterColumnBlock column={column} />

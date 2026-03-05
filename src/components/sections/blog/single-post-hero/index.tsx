@@ -20,9 +20,9 @@ interface SinglePostHeroProps {
   post: Post;
 }
 
-const GoBack = ({ $displayOn }: { $displayOn: 'desktop' | 'mobile' }) => {
+const GoBack = ({ displayOn }: { displayOn: 'desktop' | 'mobile' }) => {
   return (
-    <StyledGoBack $displayOn={$displayOn}>
+    <StyledGoBack data-display-on={displayOn}>
       <Link href="/blog">
         <CaretLeft weight="fill" />
         <Text as="label" fontSize="m" fontWeight="bold" color="white">
@@ -39,7 +39,7 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
   return (
     <StyledSinglePost>
       <StyledSinglePostDetails>
-        <GoBack $displayOn="desktop" />
+        <GoBack displayOn="desktop" />
         <Stack $gap="16px">
           <StyledTags>{post.tags.length && post.tags.map((tag: string) => <Badge>{tag}</Badge>)}</StyledTags>
           <Heading fontSize="l" fontWeight="normal" color="white">
@@ -61,7 +61,7 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
       </StyledSinglePostDetails>
 
       <StyledSinglePostImageWrapper>
-        <GoBack $displayOn="mobile" />
+        <GoBack displayOn="mobile" />
         <Image width={607} height={296} src={`images/${post.coverImage}`} alt="" priority />
       </StyledSinglePostImageWrapper>
     </StyledSinglePost>

@@ -1,18 +1,10 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled } from '@/styles';
-
-export const StyledIframe = styled.iframe<{
-    $aspectRatio: string,
-    $mounted: boolean
-}>`
+export const StyledIframe = styled.iframe`
     width: 100%;
-    aspect-ratio: ${props => props.$aspectRatio};
     border: none;
 
-    ${p => p.$mounted === false &&
-    // During SSR, we render both and use CSS only to show the right default
-    `
+    &:not([data-mounted="true"]) {
         @media (prefers-color-scheme: dark) {
             &[data-hide-on-theme="dark"] { display: none; }
         }
@@ -20,5 +12,5 @@ export const StyledIframe = styled.iframe<{
         @media (prefers-color-scheme: light) {
             &[data-hide-on-theme="light"] { display: none; }
         }
-    `}
+    }
 `;

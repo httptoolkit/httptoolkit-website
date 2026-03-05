@@ -9,7 +9,7 @@ interface BreadcrumbProps {
 
 export const Breadcrumb = ({ children, state }: Component<BreadcrumbProps>) => {
   return (
-    <StyledBreadcrumbItemWrapper $state={state}>
+    <StyledBreadcrumbItemWrapper data-state={state}>
       {state === 'yes' && <CheckCircle aria-label="Yes" weight="fill" size={30} color="#6284FA" />}
       {state === 'no' && <XCircle aria-label="No" weight="fill" size={30} color="#D93E1C" />}
 

@@ -21,7 +21,7 @@ export const ContentWithTable = ({
   $bgVariant = 'inkBlack',
 }: ContentWithTableProps) => {
   return (
-    <StyledContentWithTableWrapper $bgVariant={$bgVariant}>
+    <StyledContentWithTableWrapper data-bg-variant={$bgVariant}>
       <StyledContentWithTableUpperGradientWrapper>
         <Gradient />
       </StyledContentWithTableUpperGradientWrapper>

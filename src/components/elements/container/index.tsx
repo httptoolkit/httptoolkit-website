@@ -3,7 +3,7 @@ import type { ContainerProps } from './container.types';
 
 export const Container = ({ children, as, $size = 'default', ...props }: ContainerProps) => {
   return (
-    <StyledContainer as={as} $size={$size || 'default'} {...props}>
+    <StyledContainer as={as} data-size={$size !== 'default' ? $size : undefined} {...props}>
       {children}
     </StyledContainer>
   );

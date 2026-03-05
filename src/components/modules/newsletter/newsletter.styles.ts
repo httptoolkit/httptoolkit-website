@@ -1,10 +1,8 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledNewsletterProps } from './newsletter.types';
+import { screens, fontSizes, fontWeight } from '@/styles/tokens';
 
-import { css, styled, screens, fontSizes, fontWeight } from '@/styles';
-
-export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
+export const StyledNewsletterWrapper = styled.div`
   position: relative;
   overflow: hidden;
   display: grid;
@@ -28,43 +26,38 @@ export const StyledNewsletterWrapper = styled.div<StyledNewsletterProps>`
   background-repeat: repeat;
   background-size: 400px;
 
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'default':
-        return css`
-          margin: 64px auto 24px;
-          margin-top: 0;
-          gap: 16px;
-          background-image: unset;
+  &[data-variant="default"] {
+    margin: 64px auto 24px;
+    margin-top: 0;
+    gap: 16px;
+    background-image: unset;
 
-          @media (min-width: ${screens.lg}) {
-            margin: 0 auto 64px;
-            gap: 24px;
-            grid-template-columns: 1fr 516px;
-          }
-        `;
-      case 'with-gradient':
-        return css`
-          margin: 48px auto 24px;
-          gap: 24px;
-
-          @media (min-width: ${screens.lg}) {
-            grid-template-columns: 1fr 516px;
-          }
-        `;
-      case 'blog-short':
-        return css`
-          gap: 24px;
-
-          @media (min-width: ${screens.lg}) {
-            padding: 24px 16px 16px;
-          }
-        `;
+    @media (min-width: ${screens.lg}) {
+      margin: 0 auto 64px;
+      gap: 24px;
+      grid-template-columns: 1fr 516px;
     }
-  }}
+  }
+
+  &[data-variant="with-gradient"] {
+    margin: 48px auto 24px;
+    gap: 24px;
+
+    @media (min-width: ${screens.lg}) {
+      grid-template-columns: 1fr 516px;
+    }
+  }
+
+  &[data-variant="blog-short"] {
+    gap: 24px;
+
+    @media (min-width: ${screens.lg}) {
+      padding: 24px 16px 16px;
+    }
+  }
 `;
 
-export const StyledNewsletterGradientWrapper = styled.div<StyledNewsletterProps>`
+export const StyledNewsletterGradientWrapper = styled.div`
   position: absolute;
   width: 1200px;
   bottom: -350px;
@@ -75,58 +68,49 @@ export const StyledNewsletterGradientWrapper = styled.div<StyledNewsletterProps>
   & > div {
     z-index: 0;
   }
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'blog-short':
-        return css`
-          @media (min-width: ${screens.lg}) {
-            width: 1600px;
-            bottom: unset;
-            right: unset;
-            left: -800px;
-          }
-        `;
-      case 'with-gradient':
-        return css`
-          @media (min-width: ${screens.lg}) {
-            width: 1600px;
-            bottom: -600px;
-            right: -700px;
-            left: unset;
-          }
-        `;
+
+  &[data-variant="blog-short"] {
+    @media (min-width: ${screens.lg}) {
+      width: 1600px;
+      bottom: unset;
+      right: unset;
+      left: -800px;
     }
-  }}
+  }
+
+  &[data-variant="with-gradient"] {
+    @media (min-width: ${screens.lg}) {
+      width: 1600px;
+      bottom: -600px;
+      right: -700px;
+      left: unset;
+    }
+  }
 `;
 
-export const StyledNewsletterContentWrapper = styled.div<StyledNewsletterProps>`
+export const StyledNewsletterContentWrapper = styled.div`
   display: grid;
   position: relative;
 
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'default':
-      case 'with-gradient':
-        return css`
-          gap: 16px;
+  &[data-variant="default"],
+  &[data-variant="with-gradient"] {
+    gap: 16px;
 
-          @media (min-width: ${screens.lg}) {
-            max-width: 630px;
-          }
-        `;
-      case 'blog-short':
-        return css`
-          gap: 24px;
-
-          @media (min-width: ${screens.lg}) {
-            gap: 16px;
-          }
-        `;
+    @media (min-width: ${screens.lg}) {
+      max-width: 630px;
     }
-  }}
+  }
+
+  &[data-variant="blog-short"] {
+    gap: 24px;
+
+    @media (min-width: ${screens.lg}) {
+      gap: 16px;
+    }
+  }
 `;
 
-export const StyledNewsletterTitle = styled.p<StyledNewsletterProps>`
+export const StyledNewsletterTitle = styled.p`
   line-height: 1.3;
   text-align: center;
 
@@ -134,38 +118,33 @@ export const StyledNewsletterTitle = styled.p<StyledNewsletterProps>`
     text-align: left;
   }
 
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'default':
-      case 'with-gradient':
-        return css`
-          font-size: ${fontSizes.heading.mobile.m};
-          color: var(--text-light-grey);
+  &[data-variant="default"],
+  &[data-variant="with-gradient"] {
+    font-size: ${fontSizes.heading.mobile.m};
+    color: var(--text-light-grey);
 
-          @media (min-width: ${screens.xl}) {
-            font-size: ${fontSizes.heading.desktop.m};
-          }
-        `;
-      case 'blog-short':
-        return css`
-          font-size: ${fontSizes.heading.mobile.s};
-          color: var(--text-white);
-
-          @media (min-width: ${screens.lg}) {
-            font-size: ${fontSizes.heading.desktop.s};
-          }
-        `;
+    @media (min-width: ${screens.xl}) {
+      font-size: ${fontSizes.heading.desktop.m};
     }
-  }}
+  }
+
+  &[data-variant="blog-short"] {
+    font-size: ${fontSizes.heading.mobile.s};
+    color: var(--text-white);
+
+    @media (min-width: ${screens.lg}) {
+      font-size: ${fontSizes.heading.desktop.s};
+    }
+  }
 `;
 
-export const StyledNewsletterFormContentWrapper = styled.div<StyledNewsletterProps>`
+export const StyledNewsletterFormContentWrapper = styled.div`
   display: grid;
   position: relative;
   gap: 16px;
 `;
 
-export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
+export const StyledNewsletterFormWrapper = styled.form`
   display: grid;
   gap: 12px;
 
@@ -175,19 +154,18 @@ export const StyledNewsletterFormWrapper = styled.form<StyledNewsletterProps>`
   }
 
   @media (min-width: ${screens.lg}) {
-    display: ${({ $variant }) => ($variant === 'blog-short' ? 'grid' : 'flex')};
+    display: flex;
   }
 
-  ${({ $variant }) => {
-    switch ($variant) {
-      case 'blog-short':
-        return css`
-          & *[data-button='true'] {
-            width: 100%;
-          }
-        `;
+  &[data-variant="blog-short"] {
+    @media (min-width: ${screens.lg}) {
+      display: grid;
     }
-  }}
+
+    & *[data-button='true'] {
+      width: 100%;
+    }
+  }
 `;
 
 export const StyledNewsletterSuccess = styled.div`

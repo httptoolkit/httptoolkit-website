@@ -6,7 +6,7 @@ interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-export const StyledLayout = ({ children }: MainLayoutProps) => {
+export const ThemeLayout = ({ children }: MainLayoutProps) => {
   return (
     <NextThemeProvider>
       {children}

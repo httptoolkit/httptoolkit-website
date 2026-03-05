@@ -3,5 +3,5 @@ export interface StyledContainerProps {
 }
 
 export interface ContainerProps extends Component, StyledContainerProps {
-  as?: string;
+  as?: React.ElementType;
 }

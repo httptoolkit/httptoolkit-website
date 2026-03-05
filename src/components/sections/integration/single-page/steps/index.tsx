@@ -28,7 +28,7 @@ export const IntegrationSteps = ({ title, subtitle, steps }: IntegrationStepsPro
                 step.map((item, index) => (
                   <StyledIntegrationStepsItemStep key={item}>
                     <StyledIntegrationStepsItemStepNumber>
-                      <StyledIntegrationStepsItemStepNumberText $variation={stepIndex % 2 === 0 ? 'blue' : 'orange'}>
+                      <StyledIntegrationStepsItemStepNumberText data-variation={stepIndex % 2 === 0 ? 'blue' : 'orange'}>
                         {index + 1}
                       </StyledIntegrationStepsItemStepNumberText>
                     </StyledIntegrationStepsItemStepNumber>

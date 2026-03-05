@@ -13,7 +13,7 @@ export type TextAppearance = 'small' | 'large';
 export type bgVariant =
   | 'default'
   | 'left-bottom-to-top-right'
-  | 'rigth-bottom-to-top-left'
+  | 'right-bottom-to-top-left'
   | 'left-top-to-bottom-right';
 
 export interface CTAProps extends Component {

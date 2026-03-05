@@ -33,11 +33,11 @@ export const BunnyVideoPlayer = (props: {
                 src={darkUrl}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="light"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
                 allow="autoplay;picture-in-picture;"
                 allowFullScreen={true}
             />
@@ -47,11 +47,11 @@ export const BunnyVideoPlayer = (props: {
                 src={lightUrl}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="dark"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
                 allow="autoplay;picture-in-picture;"
                 allowFullScreen={true}
             />

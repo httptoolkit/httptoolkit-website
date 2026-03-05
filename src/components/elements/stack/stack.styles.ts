@@ -1,16 +1,14 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledStackProps } from './stack.types';
+import { screens } from '@/styles/tokens';
 
-import { screens, styled } from '@/styles';
-
-export const StyledStack = styled.div<StyledStackProps>`
+export const StyledStack = styled.div`
   display: flex;
-  flex-direction: ${props => props.$direction || 'column'};
-  align-items: ${props => props.$alignItems || 'initial'};
-  gap: ${props => props.$gap || '16px'};
+  flex-direction: var(--stack-direction, column);
+  align-items: var(--stack-align, initial);
+  gap: var(--stack-gap, 16px);
 
   @media (min-width: ${screens.lg}) {
-    gap: ${props => props.$gapxl || '16px'};
+    gap: var(--stack-gapxl, 16px);
   }
 `;

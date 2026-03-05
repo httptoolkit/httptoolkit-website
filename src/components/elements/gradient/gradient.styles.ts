@@ -1,10 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledGradientProps } from './gradient.types';
-
-import { css, styled } from '@/styles';
-
-export const StyledGradient = styled.div<StyledGradientProps>`
+export const StyledGradient = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
@@ -13,23 +9,17 @@ export const StyledGradient = styled.div<StyledGradientProps>`
   pointer-events: none;
   user-select: none;
 
-  ${({ $shape }) => {
-    switch ($shape) {
-      case 'full':
-        return css`
-          background: radial-gradient(circle, var(--circle-gradient) 0%, transparent 30%),
-            radial-gradient(ellipse 50% 45%, var(--ellipse-gradient) 0%, transparent 70%);
-          background-size: contain;
-          opacity: 0.15;
-        `;
+  &[data-shape="full"] {
+    background: radial-gradient(circle, var(--circle-gradient) 0%, transparent 30%),
+      radial-gradient(ellipse 50% 45%, var(--ellipse-gradient) 0%, transparent 70%);
+    background-size: contain;
+    opacity: 0.15;
+  }
 
-      case 'side':
-        return css`
-          background: radial-gradient(circle at left, var(--circle-gradient) 0%, transparent 30%),
-            radial-gradient(ellipse 70% 45% at left, var(--ellipse-gradient) 0%, transparent 70%);
-          background-size: contain;
-          opacity: 0.15;
-        `;
-    }
-  }}
+  &[data-shape="side"] {
+    background: radial-gradient(circle at left, var(--circle-gradient) 0%, transparent 30%),
+      radial-gradient(ellipse 70% 45% at left, var(--ellipse-gradient) 0%, transparent 70%);
+    background-size: contain;
+    opacity: 0.15;
+  }
 `;

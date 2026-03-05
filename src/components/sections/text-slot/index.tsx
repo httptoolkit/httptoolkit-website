@@ -12,22 +12,20 @@ import type { TextSlotProps } from './text-slot.types';
 
 import { Button } from '@/components/elements/button';
 import { Copy } from '@/components/elements/copy';
+import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 
 export const TextSlot = ({ title, copy, texts, children, buttons, $textCenteredOnMobile }: TextSlotProps) => {
   return (
     <StyledTextSlotWrapper>
-      <StyledTextSlotInnerWrapper $textCenteredOnMobile={$textCenteredOnMobile}>
-        <StyledTextSlotTitle
-          forwardedAs="h1"
-          fontSize="l"
-          color="textGradient"
-          $textCenteredOnMobile={$textCenteredOnMobile}
-        >
-          {title}
+      <StyledTextSlotInnerWrapper data-text-centered={$textCenteredOnMobile ? 'true' : undefined}>
+        <StyledTextSlotTitle data-text-centered={$textCenteredOnMobile ? 'true' : undefined}>
+          <Heading as="h1" fontSize="l" color="textGradient">
+            {title}
+          </Heading>
         </StyledTextSlotTitle>
         {copy && (
-          <StyledTextSlotCopyWrapper>
+          <StyledTextSlotCopyWrapper data-copy-wrapper="true">
             <Copy text={copy.command} />
             <Text fontSize="l" color="white" fontWeight="medium">
               {copy.subtitle}
@@ -38,8 +36,8 @@ export const TextSlot = ({ title, copy, texts, children, buttons, $textCenteredO
           texts?.length > 0 &&
           texts.map(text => (
             <StyledTextSlotText
+              data-text-centered={$textCenteredOnMobile ? 'true' : undefined}
               dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
-              $textCenteredOnMobile={$textCenteredOnMobile}
             />
           ))}
         <StyledTextSlotButtonsWrapper>

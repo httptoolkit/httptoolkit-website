@@ -1,3 +1,4 @@
+import React from 'react';
 import { kebabCase } from 'lodash-es';
 import type { MDXComponents } from 'mdx/types';
 
@@ -10,8 +11,8 @@ import {
   StyledText,
   StyledUL,
 } from './default.styles';
-import type { StyledHeadingProps } from './default.types';
 
+import { Heading } from '@/components/elements/heading';
 import * as Icons from '@/components/elements/icon';
 import { Accordion } from '@/components/modules/accordion';
 import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
@@ -19,18 +20,22 @@ import { BlockCode, InlineCode } from '@/components/modules/block-code';
 import { CTABox } from '@/components/modules/cta-box';
 import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
 
-const Heading2 = ({ children }: Component<StyledHeadingProps>) => {
+const Heading2 = ({ children }: Component) => {
   return (
-    <StyledHeading $margin={48} forwardedAs="h2" fontSize="m" color="lightGrey" id={kebabCase(children?.toString())}>
-      {children}
+    <StyledHeading style={{ '--heading-margin': '48px' } as React.CSSProperties}>
+      <Heading as="h2" fontSize="m" color="lightGrey" id={kebabCase(children?.toString())}>
+        {children}
+      </Heading>
     </StyledHeading>
   );
 };
 
-const Heading3to6 = ({ children }: Component<StyledHeadingProps>) => {
+const Heading3to6 = ({ children }: Component) => {
   return (
-    <StyledHeading $margin={24} forwardedAs="h3" fontSize="s" color="lightGrey" id={kebabCase(children?.toString())}>
-      {children}
+    <StyledHeading style={{ '--heading-margin': '24px' } as React.CSSProperties}>
+      <Heading as="h3" fontSize="s" color="lightGrey" id={kebabCase(children?.toString())}>
+        {children}
+      </Heading>
     </StyledHeading>
   );
 };
@@ -41,7 +46,7 @@ export const defaultComponents: MDXComponents = {
   h4: Heading3to6,
   h5: Heading3to6,
   h6: Heading3to6,
-  // @ts-ignore
+  // @ts-expect-error - MDX component signature doesn't match React.FC
   a({ children, href }: Component<{ href: string }>) {
     return <StyledLink href={href}>{children}</StyledLink>;
   },
@@ -104,7 +109,7 @@ const imageResolver = ({
   const realSRC = setImagePath(src || '', imagePathPrefix);
 
   return (
-    <StyledImage forwardedWrapperAs="span" src={realSRC} alt={alt ?? ''} title={title} width={1024} height={768} />
+    <StyledImage wrapperAs="span" src={realSRC} alt={alt ?? ''} title={title} width={1024} height={768} />
   );
 };
 

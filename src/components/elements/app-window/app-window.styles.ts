@@ -1,6 +1,5 @@
-'use client';
-
-import { screens, styled } from '@/styles';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
 export const VideoWindowBorder = styled.div`
     --video-top-bar: 12px;
@@ -29,16 +28,6 @@ export const VideoWindowBorder = styled.div`
         border: solid 1px var(--darkish-grey);
     }
 
-    --video-top-bar: 12px;
-
-    @media (min-width: ${screens['sm']}) {
-        --video-top-bar: 16px;
-    }
-
-    @media (min-width: ${screens['lg']}) {
-        --video-top-bar: 24px;
-    }
-
     overflow: hidden;
 
     background-color: var(--dark-grey);
@@ -57,10 +46,7 @@ export const VideoWindowBorder = styled.div`
     background: linear-gradient(to bottom, var(--darkish-grey), var(--dark-grey) var(--video-top-bar));
 `;
 
-export const VideoWindowButtons = styled.svg.attrs({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 350 100"
-})`
+export const VideoWindowButtons = styled.svg`
     position: absolute;
     top: calc(var(--video-top-bar) / 10);
     left: 0px;
