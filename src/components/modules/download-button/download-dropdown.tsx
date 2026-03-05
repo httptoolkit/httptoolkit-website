@@ -8,9 +8,9 @@ import { styled } from '@linaria/react';
 import { fontSizes } from '@/styles/tokens';
 
 import { SendEmail } from './components/send-email';
-import type { DownloadDropdownProps } from './download-button.types';
+import type { DownloadDropdownProps } from '.';
 import { Dropdown } from '../dropdown';
-import type { DropdownOption } from '../dropdown/dropdown.types';
+import type { DropdownOption } from '../dropdown';
 
 import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';

@@ -1,7 +1,7 @@
 'use client';
 
 import { Input } from '../../input';
-import { StyledNewsletterSuccess } from '../../newsletter/newsletter.styles';
+import { StyledNewsletterSuccess } from '../../newsletter';
 import { StyledContentCardForm } from '..';
 
 import { Button } from '@/components/elements/button';

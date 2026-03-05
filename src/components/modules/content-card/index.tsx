@@ -1,8 +1,6 @@
-import type { ButtonProps } from '@/components/elements/button/button.types';
-
 import { NewsletterForm } from './form';
 
-import { Button } from '@/components/elements/button';
+import { Button, type ButtonProps } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
 import { styled } from '@linaria/react';
 import { screens } from '@/styles/tokens';

@@ -1,10 +1,16 @@
 import dynamic from 'next/dynamic';
 
-import type { SocialShareProps } from './social-share.types';
-
 import { TwitterX, FacebookLogo } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { styled } from '@linaria/react';
+
+export interface SocialShareProps {
+  url?: string;
+}
+
+export interface WebShareProps extends SocialShareProps {
+  title?: string;
+}
 
 const WebShare = dynamic(() => import('./web-share'), { ssr: false });
 

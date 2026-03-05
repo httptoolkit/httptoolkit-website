@@ -1,5 +1,12 @@
 import { StyledContainer } from './container.styles';
-import type { ContainerProps } from './container.types';
+
+export interface StyledContainerProps {
+  $size?: 'default' | 'content';
+}
+
+export interface ContainerProps extends Component, StyledContainerProps {
+  as?: React.ElementType;
+}
 
 export const Container = ({ children, as, $size = 'default', ...props }: ContainerProps) => {
   return (

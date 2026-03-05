@@ -3,6 +3,8 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 
+import { styled } from '@linaria/react';
+
 import { useMounted } from '@/lib/hooks/use-mounted';
 import { VideoCallback } from "@/lib/video-events";
 
@@ -13,7 +15,20 @@ import {
     VideoKey
 } from "@/content/data/video-dictionary";
 
-import { StyledVideo } from "./direct-video-player.styles";
+const StyledVideo = styled.video`
+    width: 100%;
+    border: none;
+
+    &:not([data-mounted="true"]) {
+        @media (prefers-color-scheme: dark) {
+            &[data-hide-on-theme="dark"] { display: none; }
+        }
+
+        @media (prefers-color-scheme: light) {
+            &[data-hide-on-theme="light"] { display: none; }
+        }
+    }
+`;
 
 export const DirectVideoPlayer = (props: {
     videoId: VideoKey,

@@ -1,9 +1,20 @@
 import React from 'react';
 
 import { StyledHeading } from './heading.styles';
-import type { HeadingProps } from './heading.types';
 
+import type { FontWeight, TextColor } from '@/styles/tokens';
 import { fontSizes, fontWeight, textColors } from '@/styles/tokens';
+
+type headingSize = 'xs' | 's' | 'l' | 'm' | 'xl';
+type headingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+export interface HeadingProps {
+  as?: headingLevel;
+  color?: TextColor;
+  fontSize?: headingSize;
+  fontWeight?: FontWeight;
+  textAlign?: CanvasTextAlign;
+}
 
 const lineHeightMap: Record<string, number> = {
   xl: 1.2,

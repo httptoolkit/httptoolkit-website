@@ -1,4 +1,4 @@
-import { StyledFooterCopySection } from '../footer.styles';
+import { StyledFooterCopySection } from '..';
 
 import { Link } from '@/components/elements/link';
 import Stack from '@/components/elements/stack';

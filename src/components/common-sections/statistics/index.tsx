@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
 import { GrowingNumbers } from '@/components/modules/growing-numbers';
-import type { GrowingNumbersStat } from '@/components/modules/growing-numbers/growing-numbers.types';
+import type { GrowingNumbersStat } from '@/components/modules/growing-numbers';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
 import { getOpenSourceContributors } from '@/lib/services/get-open-source-contributors';

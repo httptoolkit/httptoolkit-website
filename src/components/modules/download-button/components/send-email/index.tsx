@@ -1,7 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { Button } from '@/components/elements/button';
-import type { ButtonProps } from '@/components/elements/button/button.types';
+import { Button, type ButtonProps } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
 import { Input } from '@/components/modules/input';
 import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.values';

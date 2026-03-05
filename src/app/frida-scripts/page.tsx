@@ -1,13 +1,13 @@
 import type { Metadata } from 'next/types';
 
 import {
-  StyledButtonsWrapper,
-  StyledFridaColumnContent,
-  StyledFridaColumns,
   StyledFridaSection,
+  StyledFridaColumns,
+  StyledFridaColumnContent,
+  StyledButtonsWrapper,
   StyledGradientBottom,
-  StyledMobileText,
   StyledSectionCTAWrapper,
+  StyledMobileText,
   StyledTextContent,
 } from './page.styles';
 import { Button } from '@/components/elements/button';

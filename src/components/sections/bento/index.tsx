@@ -2,13 +2,17 @@ import chunk from 'lodash/chunk';
 
 import { styled } from '@linaria/react';
 
-import type { BentoProps } from './bento.types';
-
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
 import { Heading } from '@/components/elements/heading';
 import { FluidCard } from '@/components/modules/fluid-card';
+import type { FluidCardProps } from '@/components/modules/fluid-card';
 import { screens } from '@/styles/tokens';
+
+export interface BentoProps {
+  title: string;
+  cards: [FluidCardProps, FluidCardProps, FluidCardProps, FluidCardProps, FluidCardProps, FluidCardProps];
+}
 
 const StyledBentoWrapper = styled.section`
   padding-top: 64px;

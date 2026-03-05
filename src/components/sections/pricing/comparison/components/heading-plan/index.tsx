@@ -5,7 +5,7 @@ import type React from 'react';
 import { styled } from '@linaria/react';
 import { observer } from 'mobx-react-lite';
 
-import type { PricingComparisonProps } from '../../comparison.types';
+import type { PricingComparisonProps } from '../..';
 import { usePlanCta } from '../../../plans/hooks/get-plan-cta';
 
 import { Heading } from '@/components/elements/heading';

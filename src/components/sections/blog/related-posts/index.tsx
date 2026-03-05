@@ -2,6 +2,7 @@ import Stack from '@/components/elements/stack';
 import { BlogCard } from '@/components/modules/blog-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getRelatedPosts } from '@/lib/mdx/blog';
+
 import { StyledRelatedPostWrapper, StyledRelatedPostsGrid } from './related-posts.styles';
 
 interface RelatedPostsProps {

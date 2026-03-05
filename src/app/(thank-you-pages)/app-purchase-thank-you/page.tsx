@@ -5,7 +5,7 @@ import {
   StyledTextContent,
   StyledThankYouSection,
   StyledSectionCTAWrapper,
-} from '../web-purchase-thank-you/thank-you.styles';
+} from '../web-purchase-thank-you/page';
 
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';

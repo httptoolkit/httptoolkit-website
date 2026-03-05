@@ -1,5 +1,5 @@
-import type { PricingComparisonProps } from '@/components/sections/pricing/comparison/comparison.types';
-import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion/text-with-accordion.types';
+import type { PricingComparisonProps } from '@/components/sections/pricing/comparison';
+import type { TextWithAccordionProps } from '@/components/sections/text-with-accordion';
 
 export const comparisonPlans: PricingComparisonProps['plans'] = [
   {

@@ -13,7 +13,7 @@ import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-json';
 import React, { useEffect } from 'react';
 
-import type { BlockCodeProps } from '../block-code.types';
+import type { BlockCodeProps } from '..';
 
 export const Code = ({ children, language, title }: Component<Pick<BlockCodeProps, 'language' | 'title'>>) => {
   const codeRef = React.createRef<HTMLPreElement>();

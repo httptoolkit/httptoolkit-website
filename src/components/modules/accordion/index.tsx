@@ -3,13 +3,25 @@
 import * as RadixAccordion from '@radix-ui/react-accordion';
 import { marked } from 'marked';
 
-import type { AccordionProps, StyledAccordionProps } from './accordion.types';
-
 import { Heading } from '@/components/elements/heading';
 import { CaretDown } from '@/components/elements/icon';
 import { renderer } from '@/lib/marked/link-target-render';
 import { styled } from '@linaria/react';
 import { fontSizes, fontWeight, screens } from '@/styles/tokens';
+
+export interface AccordionItem {
+  title: string;
+  text: string;
+}
+
+export interface StyledAccordionProps {
+  $variant?: 'default' | 'transparent';
+}
+
+export interface AccordionProps extends StyledAccordionProps {
+  items: AccordionItem[];
+  isBiggerIcon?: boolean;
+}
 
 const StyledAccordionWrapper = styled(RadixAccordion.Root)`
   &&& {

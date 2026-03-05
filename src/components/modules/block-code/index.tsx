@@ -1,10 +1,15 @@
 import { styled } from '@linaria/react';
 import { Roboto_Mono } from 'next/font/google';
 
-import type { BlockCodeProps } from './block-code.types';
 import { Code } from './components/code';
 
 import { Text } from '@/components/elements/text';
+
+export interface BlockCodeProps {
+  title?: string;
+  content: string | React.ReactNode;
+  language?: string;
+}
 
 const dmCodeFont = Roboto_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-code' });
 

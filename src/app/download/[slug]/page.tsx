@@ -1,12 +1,12 @@
 import type { Metadata } from 'next/types';
 
 import {
-  StyledColumnContent,
   StyledDownloadSection,
   StyledDownloadaColumns,
+  StyledColumnContent,
+  StyledImageWrapper,
   StyledGradientBottom,
   StyledGradientMobile,
-  StyledImageWrapper,
 } from './page.styles';
 import { SelfDownload } from './self-download';
 import { Container } from '@/components/elements/container';

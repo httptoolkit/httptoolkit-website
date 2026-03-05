@@ -1,11 +1,20 @@
 import { styled } from '@linaria/react';
 
 import { NumberIncreaser } from './component/number-increaser';
-import type { GrowingNumbersProps } from './growing-numbers.types';
 
 import { Text } from '@/components/elements/text';
 import { screens, fontSizes } from '@/styles/tokens';
 import { convertToMax3DigitsWithSuffix } from '@/lib/utils/format3digitsAndSuffix';
+
+export interface GrowingNumbersStat {
+  title: string;
+  number: number;
+  isOver?: boolean;
+}
+
+export interface GrowingNumbersProps {
+  stats: GrowingNumbersStat[];
+}
 
 const StyledGrowingNumbersStatsWrapper = styled.div`
   display: grid;

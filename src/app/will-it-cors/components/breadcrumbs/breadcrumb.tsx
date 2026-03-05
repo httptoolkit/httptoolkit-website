@@ -1,5 +1,5 @@
-import type { BreadcrumState } from './breadcrumbs-types';
-import { StyledBreadcrumbItemWrapper } from './breadcrumbs.styles';
+import type { BreadcrumState } from '.';
+import { StyledBreadcrumbItemWrapper } from '.';
 
 import { CheckCircle, XCircle } from '@/components/elements/icon';
 

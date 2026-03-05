@@ -1,5 +1,5 @@
-import type { SwitchProps } from './components/switch/switch.types';
-import type { PricingPlansData } from './plans.types';
+import type { SwitchProps } from './components/switch';
+import type { PricingPlansData } from '.';
 
 export const intervalOptions: SwitchProps['options'] = [
   {

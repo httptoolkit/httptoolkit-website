@@ -2,23 +2,84 @@ import React from 'react';
 import { kebabCase } from 'lodash-es';
 import type { MDXComponents } from 'mdx/types';
 
-import {
-  StyledHeading,
-  StyledHighlightedParagraphs,
-  StyledImage,
-  StyledLink,
-  StyledOL,
-  StyledText,
-  StyledUL,
-} from './default.styles';
+import { styled } from '@linaria/react';
 
 import { Heading } from '@/components/elements/heading';
 import * as Icons from '@/components/elements/icon';
+import { Image } from '@/components/elements/image';
+import { Link } from '@/components/elements/link';
+import { Text } from '@/components/elements/text';
 import { Accordion } from '@/components/modules/accordion';
-import type { AccordionProps } from '@/components/modules/accordion/accordion.types';
+import type { AccordionProps } from '@/components/modules/accordion';
 import { BlockCode, InlineCode } from '@/components/modules/block-code';
 import { CTABox } from '@/components/modules/cta-box';
-import type { CTABoxProps } from '@/components/modules/cta-box/cta-box.types';
+import type { CTABoxProps } from '@/components/modules/cta-box';
+import { fontSizes, fontWeight } from '@/styles/tokens';
+
+const StyledLink = styled(Link)`
+  &&& {
+    text-decoration: underline;
+    color: var(--text-dark-grey);
+  }
+`;
+
+const StyledText = styled(Text)`
+  &&& {
+    margin-bottom: 1.25rem;
+  }
+`;
+
+const StyledHighlightedParagraphs = styled.div`
+  p {
+    margin-bottom: 2rem;
+    color: var(--text-dark-grey);
+    font-size: ${fontSizes.text.l};
+    font-weight: ${fontWeight.bold};
+    line-height: 1.5;
+  }
+`;
+
+const StyledHeading = styled.div`
+  &&& {
+    margin-bottom: 24px;
+    margin-top: var(--heading-margin, 0px);
+  }
+`;
+
+const StyledUL = styled.ul`
+  list-style: disc;
+  padding-left: 30px;
+  margin-bottom: 2rem;
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.m};
+
+  ul, ol {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+`;
+
+const StyledOL = styled.ol`
+  list-style: decimal;
+  padding-left: 30px;
+  margin-bottom: 2rem;
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.m};
+
+  ul, ol {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+`;
+
+const StyledImage = styled(Image)`
+  &&& {
+    display: block;
+    position: relative !important;
+    max-width: 100%;
+    margin: 48px auto;
+  }
+`;
 
 const Heading2 = ({ children }: Component) => {
   return (

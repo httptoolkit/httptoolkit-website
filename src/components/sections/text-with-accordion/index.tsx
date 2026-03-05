@@ -1,14 +1,20 @@
 import { styled } from '@linaria/react';
 
-import type { TextWithAccordionProps } from './text-with-accordion.types';
-
-import { Button } from '@/components/elements/button';
+import { Button, type ButtonProps } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 import { Accordion } from '@/components/modules/accordion';
+import type { AccordionProps } from '@/components/modules/accordion';
 import { screens } from '@/styles/tokens';
+
+export interface TextWithAccordionProps {
+  title: string;
+  text: string;
+  cta: ButtonProps;
+  accordionItems: AccordionProps['items'];
+}
 
 const StyledTextWithAccordionWrapper = styled.section`
   position: relative;

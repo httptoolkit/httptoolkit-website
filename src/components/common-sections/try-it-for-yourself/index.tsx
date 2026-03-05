@@ -3,7 +3,7 @@ import { TryYourselfWrapper } from './wrapper';
 import { Logo, RocketLaunch } from '@/components/elements/icon';
 import { ResponsiveLineBreak } from '@/components/elements/responsive-line-break';
 import { CTA } from '@/components/sections/cta';
-import type { CTAProps } from '@/components/sections/cta/cta.types';
+import type { CTAProps } from '@/components/sections/cta';
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];

@@ -3,7 +3,7 @@
 import { styled } from '@linaria/react';
 
 import { CompatibilityBadge } from '../badge';
-import type { IntegrationCompatibilityProps } from '../compatibility.types';
+import type { IntegrationCompatibilityProps } from '..';
 
 import { screens } from '@/styles/tokens';
 

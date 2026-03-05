@@ -1,7 +1,54 @@
-import { StyledIconRow, StyledIconRowsWrapper } from './icon-rows.styles';
-import type { IconRowsProps } from './icon-rows.types';
+import type { Icon } from '@phosphor-icons/react';
 
+import { styled } from '@linaria/react';
+
+import type { CustomIcon } from '@/components/elements/icon/custom/types';
 import { SquareIcon } from '@/components/elements/square-icon';
+import { screens } from '@/styles/tokens';
+
+export interface IconRowItem {
+  icons: (Icon | CustomIcon)[];
+  offset: number;
+}
+
+export interface IconRowsProps {
+  rows: IconRowItem[];
+  $offset: IconRowItem['offset'];
+  $orientation: 'right' | 'left';
+}
+
+const iconsSize = 72;
+
+const StyledIconRowsWrapper = styled.div`
+  display: flex;
+  gap: 12px;
+
+  @media (min-width: ${screens.lg}) {
+    flex-direction: column;
+    &[data-orientation="right"] { margin-right: calc(-${iconsSize}px * var(--offset)); }
+    &[data-orientation="left"] { margin-left: calc(-${iconsSize}px * var(--offset)); }
+  }
+`;
+
+const StyledIconRow = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  padding-top: calc(${iconsSize}px * var(--offset));
+
+  @media (min-width: ${screens.lg}) {
+    flex-direction: row;
+    padding-top: 0;
+    &[data-orientation="right"] {
+      justify-content: start;
+      padding-left: calc(${iconsSize}px * var(--offset));
+    }
+    &[data-orientation="left"] {
+      justify-content: end;
+      padding-right: calc(${iconsSize}px * var(--offset));
+    }
+  }
+`;
 
 const parserOffset = (offset: number) => {
   const additionalOffset = Math.floor(offset) * 0.16; // .16 is the sixth part of the icon size (72)

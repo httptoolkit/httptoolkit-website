@@ -4,7 +4,7 @@ import { upperFirst } from 'lodash-es';
 import { usePostHog } from 'posthog-js/react';
 import React, { useCallback } from 'react';
 
-import { StyledPricingCardCTAWrapper } from '../components/card/card.styles';
+import { StyledPricingCardCTAWrapper } from '../components/card';
 
 import { Button } from '@/components/elements/button';
 import { PaperPlaneTilt, Sparkle, Spinner } from '@/components/elements/icon';

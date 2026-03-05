@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import type { PricingComparisonProps } from '../../comparison.types';
+import type { PricingComparisonProps } from '../..';
 
 import { CheckIcon } from '@/components/elements/check-icon';
 import { Question } from '@/components/elements/icon';

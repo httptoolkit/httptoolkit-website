@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import type { PricingComparisonProps } from '../../comparison.types';
+import type { PricingComparisonProps } from '../..';
 import { FeaturesSection } from '../features-section';
 import { HeadingPlan } from '../heading-plan';
 import { TextSection } from '../text-section';

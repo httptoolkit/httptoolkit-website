@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useState, type ReactNode } from 'react';
 
-import { StyledTestimonialGrid } from '../testimonials.styles';
+import { StyledTestimonialGrid } from '..';
 
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 

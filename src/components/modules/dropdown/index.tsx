@@ -1,18 +1,46 @@
 'use client';
 
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
-
-import type {
-  DropdownDownloadOption,
-  DropdownOption,
-  DropdownProps,
-  OptionComponentType
-} from './dropdown.types';
+import type { Icon, IconWeight } from '@phosphor-icons/react';
+import type { AriaAttributes } from 'react';
 
 import { Link } from '@/components/elements/link';
-import { Button } from '@/components/elements/button';
+import {
+  Button,
+  type ButtonType,
+  type ButtonWithoutHrefProps,
+  type LinkWithHrefProps,
+  type StyledButtonProps,
+} from '@/components/elements/button';
 import { styled } from '@linaria/react';
 import { screens, fontSizes } from '@/styles/tokens';
+
+export type OptionComponentType = (props: Component<Omit<DropdownOptionProps, 'text'>>) => JSX.Element;
+
+export type DropdownOption =
+  | DropdownDownloadOption
+  | { type: 'hr' };
+
+export type DropdownDownloadOption = {
+  as?: ButtonType;
+  href?: string;
+  text: string;
+  subtext?: string;
+};
+
+export type DropdownOptionProps = {
+  as?: ButtonType;
+  href?: string;
+  $variant?: StyledButtonProps['$variant'];
+} & (ButtonWithoutHrefProps | LinkWithHrefProps);
+
+export interface DropdownProps extends StyledButtonProps, AriaAttributes {
+  icon?: Icon;
+  iconWeight?: IconWeight;
+  href?: string;
+  items: DropdownOption[];
+  $direction?: 'top' | 'bottom';
+}
 
 const openDropdown = `
   padding: 4px;

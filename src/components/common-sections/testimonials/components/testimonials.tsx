@@ -1,6 +1,6 @@
 import { MarqueeWrapper } from './marquee';
 import { TestimonialsCard } from './testimonials-card';
-import { StyledTestimonialsWrapper } from '../testimonials.styles';
+import { StyledTestimonialsWrapper } from '..';
 
 import { Heart } from '@/components/elements/icon';
 import { HeadingBlock } from '@/components/modules/heading-block';

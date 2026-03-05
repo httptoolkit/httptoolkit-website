@@ -2,12 +2,27 @@
 
 import { styled } from '@linaria/react';
 
-import type { NavigationSidebarLinkItem, NavigationSidebarLinksProps } from './navigation-sidebar-links.types';
 import useActiveToc from '../table-content/hooks/use-active-toc';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { screens, fontSizes, fontWeight } from '@/styles/tokens';
+
+export interface NavigationSidebarLinkSubitem {
+  text: string;
+  href: string;
+}
+
+export interface NavigationSidebarLinkItem {
+  text: string;
+  href?: string;
+  subItems?: NavigationSidebarLinkSubitem[];
+}
+
+export interface NavigationSidebarLinksProps {
+  title: string;
+  links: NavigationSidebarLinkItem[];
+}
 
 const StyledNavigationSidebarLinksWrapper = styled.div`
   display: flex;

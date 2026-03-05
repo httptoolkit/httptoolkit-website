@@ -1,4 +1,4 @@
-import { StyledMenuItems, StyledMenuWrapper } from '../footer.styles';
+import { StyledMenuItems, StyledMenuWrapper } from '..';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';

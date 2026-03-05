@@ -1,7 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { Heading } from '@/components/elements/heading';
-import type { HeadingProps } from '@/components/elements/heading/heading.types';
+import { Heading, type HeadingProps } from '@/components/elements/heading';
 import { HighlightedText } from '@/components/elements/highlighted-text';
 import { fontSizes, fontWeight } from '@/styles/tokens';
 

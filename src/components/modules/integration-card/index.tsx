@@ -1,11 +1,9 @@
 import type { Icon } from '@phosphor-icons/react';
 
-import type { LinkProps } from '@/components/elements/link/link.types';
-
 import { Badge } from '@/components/elements/badge';
 import { Heading } from '@/components/elements/heading';
 import { ArrowRight } from '@/components/elements/icon';
-import { Link } from '@/components/elements/link';
+import { Link, type LinkProps } from '@/components/elements/link';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Text } from '@/components/elements/text';
 import { styled } from '@linaria/react';

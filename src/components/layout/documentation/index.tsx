@@ -1,3 +1,12 @@
+import { Gradient } from '@/components/elements/gradient';
+import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
+import type { NavigationSidebarLinksProps } from '@/components/modules/navigation-sidebar-links';
+import { SiteSearch } from '@/components/modules/site-search';
+import { TableContent } from '@/components/modules/table-content';
+import { getAllDocsMeta } from '@/lib/mdx/docs';
+import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
+import { getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
+
 import {
   StyledDocumentationGlobalWrapper,
   StyledDocumentationLayoutWrapper,
@@ -8,15 +17,6 @@ import {
   StyledDocumentationLayoutNavigationWrapper,
   StyledDocumentationLayoutContentWrapper,
 } from './documentation.styles';
-
-import { Gradient } from '@/components/elements/gradient';
-import { NavigationSidebarLinks } from '@/components/modules/navigation-sidebar-links';
-import type { NavigationSidebarLinksProps } from '@/components/modules/navigation-sidebar-links/navigation-sidebar-links.types';
-import { SiteSearch } from '@/components/modules/site-search';
-import { TableContent } from '@/components/modules/table-content';
-import { getAllDocsMeta } from '@/lib/mdx/docs';
-import type { UnorganizedDoc } from '@/lib/mdx/utils/get-content-table-links';
-import { getContentTableLinks } from '@/lib/mdx/utils/get-content-table-links';
 
 interface DocumentationLayoutProps {
   title: string;

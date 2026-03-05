@@ -1,9 +1,19 @@
 import React from 'react';
 
 import { StyledText } from './text.styles';
-import type { TextProps } from './text.types';
 
+import type { FontSize, FontWeight, TextColor } from '@/styles/tokens';
 import { fontSizes, fontWeight, textColors } from '@/styles/tokens';
+
+export interface TextProps {
+  as?: 'span' | 'p' | 'label';
+  color?: TextColor;
+  fontSize?: FontSize;
+  fontWeight?: FontWeight;
+  textAlign?: CanvasTextAlign;
+  fontStyle?: 'normal' | 'italic';
+  $isLabel?: boolean;
+}
 
 export const Text = ({
   children,

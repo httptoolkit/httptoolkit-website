@@ -1,6 +1,4 @@
-import type { BadgeProps } from '@/components/elements/badge/badge.types';
-
-import { Badge } from '@/components/elements/badge';
+import { Badge, type BadgeProps } from '@/components/elements/badge';
 import { Heading } from '@/components/elements/heading';
 import { HighlightedText } from '@/components/elements/highlighted-text';
 import { Text } from '@/components/elements/text';

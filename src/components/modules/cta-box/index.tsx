@@ -1,12 +1,24 @@
 import { styled } from '@linaria/react';
-
-import type { CTABoxProps } from './cta-box.types';
+import type { Icon } from '@phosphor-icons/react';
 
 import { Button } from '@/components/elements/button';
-import { Heading } from '@/components/elements/heading';
-import type { HeadingProps } from '@/components/elements/heading/heading.types';
+import { Heading, type HeadingProps } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 import { screens, fontSizes, fontWeight } from '@/styles/tokens';
+
+export interface StyledCTABoxProps {
+  $variant?: 'blog' | 'faq';
+}
+
+export interface CTABoxProps extends StyledCTABoxProps {
+  title: string;
+  subtitle?: string;
+  text?: string;
+  textOverButton?: string;
+  buttonText: string;
+  buttonHref: string;
+  buttonIcon?: Icon;
+}
 
 const StyledCTABoxWrapper = styled.div`
   display: flex;

@@ -1,6 +1,10 @@
 import { styled } from '@linaria/react';
 import { screens } from '@/styles/tokens';
 
+export interface MovingBorderProps {
+  $withBorder: boolean;
+}
+
 export const MovingBorder = styled.figure`
   --border-width: 1px;
   --radius: 20px;

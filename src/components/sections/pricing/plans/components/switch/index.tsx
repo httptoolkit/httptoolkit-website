@@ -4,9 +4,19 @@ import { useState, type KeyboardEvent } from 'react';
 
 import { styled } from '@linaria/react';
 
-import type { SwitchProps } from './switch.types';
-
+import { Interval } from '@/lib/store/account-store';
 import { fontSizes, fontWeight } from '@/styles/tokens';
+
+interface Option {
+  text: string;
+  id: Interval;
+}
+
+export interface SwitchProps {
+  defaultValue?: Interval;
+  options: [Option, Option];
+  onChange(id: Interval): void;
+}
 
 const StyledWrapper = styled.div`
   display: flex;

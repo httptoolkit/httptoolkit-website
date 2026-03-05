@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { StyledWillItCorsContainer, StyledWillItCorsWrapper } from './page.styles';
+import { StyledWillItCorsWrapper, StyledWillItCorsContainer } from './page.styles';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Steps } from '../components/steps';
 import type { WillItCorsSteps } from '../data';

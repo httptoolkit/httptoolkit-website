@@ -4,8 +4,8 @@ import kebabCase from 'lodash/kebabCase';
 
 import { TableContentTriggerComponent } from './table-content-trigger';
 import useActiveToc from '../hooks/use-active-toc';
-import { StyledTableContentItemLink, StyledTableContentSubitem } from '../table-content.styles';
-import type { TableContentFixedProps, TableContentSubitem } from '../table-content.types';
+import { StyledTableContentItemLink, StyledTableContentSubitem } from '..';
+import type { TableContentFixedProps, TableContentSubitem } from '..';
 
 import { Text } from '@/components/elements/text';
 
