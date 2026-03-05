@@ -4,7 +4,8 @@ import sortBy from 'lodash/sortBy';
 import partition from 'lodash/partition';
 import { useEffect, useMemo, useState } from 'react';
 
-import { styled, fontSizes } from '@/styles';
+import { styled } from '@linaria/react';
+import { fontSizes } from '@/styles/tokens';
 
 import { SendEmail } from './components/send-email';
 import type { DownloadDropdownProps } from './download-button.types';

@@ -1,6 +1,5 @@
-'use client';
-
-import { screens, styled } from '@/styles';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
 export const MovingBorder = styled.figure`
   --border-width: 1px;

@@ -1,7 +1,6 @@
-'use client';
-
+import { styled } from '@linaria/react';
 import { Container } from '@/components/elements/container';
-import { screens, styled, fontSizes } from '@/styles';
+import { screens, fontSizes } from '@/styles/tokens';
 
 export const StyledExplorerSection = styled.section`
   padding: 18px 0;

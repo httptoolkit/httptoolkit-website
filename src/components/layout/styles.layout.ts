@@ -1,6 +1,5 @@
-'use client';
-
-import { screens, styled } from '@/styles';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
 export const StyledLandingLayoutWrapper = styled.div`
   min-height: fit-content;
