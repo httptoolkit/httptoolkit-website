@@ -4,12 +4,13 @@ import sortBy from 'lodash/sortBy';
 import partition from 'lodash/partition';
 import { useEffect, useMemo, useState } from 'react';
 
-import { styled, fontSizes } from '@/styles';
+import { styled } from '@linaria/react';
+import { fontSizes } from '@/styles/tokens';
 
 import { SendEmail } from './components/send-email';
-import type { DownloadDropdownProps } from './download-button.types';
+import type { DownloadDropdownProps } from '.';
 import { Dropdown } from '../dropdown';
-import type { DropdownOption } from '../dropdown/dropdown.types';
+import type { DropdownOption } from '../dropdown';
 
 import { StyledHideElementOn } from '@/components/elements/hide-on/hide-on';
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
@@ -31,9 +32,9 @@ const downloadItemToOption = (item: DownloadDictionary) => ({
 } as const);
 
 export const DownloadDropdown = ({
-  $small,
-  $variant,
-  $withBorder,
+  small,
+  variant,
+  withBorder,
   isInHeader,
   fixedOS,
   downloadItems,
@@ -64,13 +65,13 @@ export const DownloadDropdown = ({
   // Makes the hide/show with styles to avoid CLS issues
   return (
     <>
-      <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
-      <StyledHideElementOn $hideBelow="md">
+      <SendEmail data-is-in-header={isInHeader} buttonProps={{ variant, small, withBorder }} />
+      <StyledHideElementOn data-hide-below="md">
         <Dropdown
-          $small={$small}
+          small={small}
           href={defaultDownload.href}
-          $variant={$variant}
-          $withBorder={$withBorder}
+          variant={variant}
+          withBorder={withBorder}
           aria-label="Download Items"
           items={items}
         >

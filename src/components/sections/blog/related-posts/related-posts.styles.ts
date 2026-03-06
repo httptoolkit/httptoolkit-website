@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledRelatedPostWrapper = styled.section`
   padding: 32px 0;

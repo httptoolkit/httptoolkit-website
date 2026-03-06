@@ -1,8 +1,8 @@
 'use client';
 
 import { Input } from '../../input';
-import { StyledNewsletterSuccess } from '../../newsletter/newsletter.styles';
-import { StyledContentCardForm } from '../content-card.styles';
+import { StyledNewsletterSuccess } from '../../newsletter';
+import { StyledContentCardForm } from '..';
 
 import { Button } from '@/components/elements/button';
 import { Text } from '@/components/elements/text';
@@ -29,7 +29,7 @@ export const NewsletterForm = ({ action, source }: { action: string, source: str
           }
         </div>
         <Input id="email" placeholder="Email address" type="email" required />
-        <Button as="button" type="submit" $variant="primary" $small>
+        <Button as="button" type="submit" variant="primary" small>
           Sign up
         </Button>
       </StyledContentCardForm>

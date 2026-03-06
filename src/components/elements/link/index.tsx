@@ -1,8 +1,16 @@
 import NextLink from 'next/link';
-
-import type { AnchorProps, LinkProps, NextLinkType } from './link.types';
+import type { LinkProps as NextLinkProps } from 'next/link';
+import type { AnchorHTMLAttributes, AriaAttributes } from 'react';
 
 import { isAnchor, isExternalUrl, isUtilityLink } from '@/lib/utils';
+
+export type NextLinkType = Omit<NextLinkProps, 'href'>;
+
+export type AnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & AriaAttributes;
+
+export type LinkProps = {
+  href: string;
+} & (NextLinkType | AnchorProps);
 
 export const Link = ({ href, children, ...rest }: Component<LinkProps>) => {
   const anchorProps = rest as AnchorProps;

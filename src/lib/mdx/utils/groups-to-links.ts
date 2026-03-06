@@ -2,7 +2,7 @@ import kebabCase from 'lodash/kebabCase';
 
 import type { HeadingGroupWithSubItems } from './group-by-level';
 
-import type { ContentWithTableProps } from '@/components/sections/content-with-table/content-with-table.type';
+import type { ContentWithTableProps } from '@/components/sections/content-with-table';
 
 export function formatLinks(headings: HeadingGroupWithSubItems[], withHref = true): ContentWithTableProps['links'] {
   return headings.map(heading => ({

@@ -1,10 +1,46 @@
-import { StyledFeaturesWrapper, StyledGradientLeft, StyledGradientRight } from './http-toolkit-features.styles';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
 import { Sparkle } from '@/components/elements/icon';
 import { Section } from '@/components/elements/section';
 import { FeatureLine } from '@/components/sections/feature-line';
+import { screens } from '@/styles/tokens';
+
+const commonGradientStyles = `
+  position: absolute;
+  height: 641px;
+
+  @media (min-width: ${screens['lg']}) {
+    height: 940px;
+  }
+`;
+
+const StyledFeaturesWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (min-width: ${screens['lg']}) {
+    gap: 96px;
+  }
+`;
+
+const StyledGradientRight = styled.div`
+  top: 65px;
+  right: 0;
+  transform: rotate(180deg);
+
+  ${commonGradientStyles}
+`;
+
+const StyledGradientLeft = styled.div`
+  bottom: 376px;
+  left: 0;
+
+  ${commonGradientStyles}
+`;
 
 export const HttpToolkitFeatures = () => {
   return (
@@ -15,7 +51,7 @@ export const HttpToolkitFeatures = () => {
       <Container>
         <StyledFeaturesWrapper>
           <FeatureLine
-            $align="right"
+            align="right"
             image={{
               darkSrc: '/images/product/intercept-dark.png',
               lightSrc: '/images/product/intercept-light.png',
@@ -33,7 +69,7 @@ export const HttpToolkitFeatures = () => {
             ]}
           />
           <FeatureLine
-            $align="left"
+            align="left"
             image={{
               darkSrc: '/images/product/explore-dark.png',
               lightSrc: '/images/product/explore-light.png',
@@ -50,7 +86,7 @@ export const HttpToolkitFeatures = () => {
             ]}
           />
           <FeatureLine
-            $align="right"
+            align="right"
             image={{
               darkSrc: '/images/product/breakpoint-dark.png',
               lightSrc: '/images/product/breakpoint-light.png',
@@ -68,7 +104,7 @@ export const HttpToolkitFeatures = () => {
             ]}
           />
           <FeatureLine
-            $align="left"
+            align="left"
             image={{
               darkSrc: '/images/product/send-dark.png',
               lightSrc: '/images/product/send-light.png',

@@ -1,11 +1,40 @@
 import React from 'react';
 
-import { StyledStack } from './stack.styles';
-import type { StackProps } from './stack.types';
+import { styled } from '@linaria/react';
 
-const Stack = ({ $gap, $gapxl, $direction, $alignItems, children }: StackProps) => {
+import { screens } from '@/styles/tokens';
+
+export interface StackLayoutProps {
+  direction?: 'row' | 'row-reverse' | 'column' | ' column-reverse';
+  alignItems?: 'center' | 'self-start' | 'self-end' | 'normal';
+  gap?: string;
+  gapxl?: string;
+}
+
+export type StackProps = Component<StackLayoutProps>;
+
+const StyledStack = styled.div`
+  display: flex;
+  flex-direction: var(--stack-direction, column);
+  align-items: var(--stack-align, initial);
+  gap: var(--stack-gap, 16px);
+
+  @media (min-width: ${screens.lg}) {
+    gap: var(--stack-gapxl, 16px);
+  }
+`;
+
+const Stack = ({ gap, gapxl, direction, alignItems, children }: StackProps) => {
   return (
-    <StyledStack $gap={$gap} $gapxl={$gapxl} $alignItems={$alignItems} $direction={$direction}>
+    <StyledStack
+      data-stack
+      style={{
+        '--stack-direction': direction,
+        '--stack-align': alignItems,
+        '--stack-gap': gap,
+        '--stack-gapxl': gapxl,
+      } as React.CSSProperties}
+    >
       {children}
     </StyledStack>
   );

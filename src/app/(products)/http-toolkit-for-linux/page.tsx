@@ -17,7 +17,7 @@ export default async function ForLinuxPage() {
   return (
     <>
       <CTA
-        $bgVariant="rigth-bottom-to-top-left"
+        bgVariant="right-bottom-to-top-left"
         icon={LinuxLogo}
         heading="Intercept, debug & mock HTTP on Linux"
         excerpt="HTTP Toolkit lets you easily see and modify HTTP & HTTPS messages from applications, browsers, scripts & more on your Linux computer."

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 
+import { StyledWillItCorsWrapper, StyledWillItCorsContainer } from './page.styles';
 import { Breadcrumbs } from '../components/breadcrumbs';
 import { Steps } from '../components/steps';
 import type { WillItCorsSteps } from '../data';
 import { willItCorsSteps } from '../data';
-import { StyledWillItCorsContainer, StyledWillItCorsWrapper } from '../will-it-cors.styles';
-
 import Stack from '@/components/elements/stack';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { buildMetadata } from '@/lib/utils/build-metadata';

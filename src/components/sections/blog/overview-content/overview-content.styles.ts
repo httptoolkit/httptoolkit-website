@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledBlogOverviewSection = styled.section`
   display: flex;
@@ -17,13 +17,11 @@ export const StyledSubscriberBox = styled.aside`
   flex: 1;
   max-width: fit-content;
   display: none;
-  visibility: hidden;
 
   @media (min-width: ${screens.lg}) {
     min-width: 387px;
     max-width: 387px;
     display: block;
-    visibility: visible;
     position: sticky;
     top: 10px;
     align-self: self-start;

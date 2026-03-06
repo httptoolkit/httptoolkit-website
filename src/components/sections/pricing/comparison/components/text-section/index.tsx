@@ -1,8 +1,23 @@
-import { StyledTextSection } from './text-section.styles';
-import type { TextSectionProps } from './text-section.types';
+import { styled } from '@linaria/react';
 
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
+import { screens } from '@/styles/tokens';
+
+interface TextSectionProps {
+  title: string;
+  text: string;
+}
+
+const StyledTextSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: ${screens.lg}) {
+    gap: 16px;
+  }
+`;
 
 export const TextSection = ({ title, text }: TextSectionProps) => {
   return (

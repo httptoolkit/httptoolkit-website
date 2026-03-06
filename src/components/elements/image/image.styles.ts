@@ -1,10 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { ImageProps } from '.';
-
-import { styled } from '@/styles';
-
-export const StyledImageWrapper = styled.figure<Partial<ImageProps>>`
+export const StyledImageWrapper = styled.figure`
   position: relative;
   line-height: 0;
   /* width: fit-content; */

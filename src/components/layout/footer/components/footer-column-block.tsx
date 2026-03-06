@@ -1,4 +1,4 @@
-import { StyledMenuItems, StyledMenuWrapper } from '../footer.styles';
+import { StyledMenuItems, StyledMenuWrapper } from '..';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
@@ -11,13 +11,13 @@ export const FooterColumnBlock = ({ column }: { column: FooterColumn }) => {
   return (
     <StyledMenuWrapper
       data-hide={displayOnMobile}
-      $displayOnMobile={displayOnMobile}
-      $displayOnDesktop={displayOnDesktop}
+      data-display-on-mobile={String(displayOnMobile)}
+      data-display-on-desktop={String(displayOnDesktop)}
     >
       <Text as="label" fontSize="m" color="cinnabarRed" fontWeight="bold">
         {column.title}
       </Text>
-      <StyledMenuItems role="list" $displayOnMobile={displayOnMobile} $displayOnDesktop={displayOnDesktop}>
+      <StyledMenuItems role="list" data-display-on-mobile={String(displayOnMobile)} data-display-on-desktop={String(displayOnDesktop)}>
         {column.links.map(link => {
           if (!link) {
             return null;

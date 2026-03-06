@@ -17,7 +17,7 @@ export default async function ForWindowsPage() {
   return (
     <>
       <CTA
-        $bgVariant="left-top-to-bottom-right"
+        bgVariant="left-top-to-bottom-right"
         icon={WindowsLogo}
         heading="Intercept, debug & mock HTTP on Windows"
         excerpt="HTTP Toolkit lets you easily see and modify HTTP & HTTPS messages from applications, browsers, scripts & more on your Windows computer."

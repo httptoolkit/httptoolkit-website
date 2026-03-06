@@ -1,7 +1,54 @@
-import { StyledBreadcrumbItem, StyledBreadcrumbLink, StyledBreadcrumbsWrapper } from './breadcrumbs.styles';
-import type { BreadcrumbsProps } from './breadcrumbs.types';
-
+import { Link } from '@/components/elements/link';
 import { CaretRight } from '@/components/elements/icon';
+import { styled } from '@linaria/react';
+import { fontSizes, fontWeight } from '@/styles/tokens';
+
+interface BreadcrumbLink {
+  href?: string;
+  text: string;
+}
+
+export interface BreadcrumbsProps {
+  links: BreadcrumbLink[];
+}
+
+const StyledBreadcrumbsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+const StyledBreadcrumbItem = styled.div`
+  display: flex;
+  gap: 8px;
+
+  & svg {
+    color: var(--text-dark-grey);
+  }
+`;
+
+const breadcrumbStyles = `
+  font-size: ${fontSizes.label.l};
+  line-height: 1.1;
+  color: var(--text-dark-grey);
+  letter-spacing: 0.6px;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  flex-shrink: 0;
+
+  &[data-active="true"] {
+    font-weight: ${fontWeight.bold};
+    color: var(--text-white);
+  }
+`;
+
+const StyledBreadcrumbLink = styled(Link)`
+  ${breadcrumbStyles}
+`;
+
+const StyledBreadcrumbText = styled.p`
+  ${breadcrumbStyles}
+`;
 
 export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
   return (
@@ -14,13 +61,13 @@ export const Breadcrumbs = ({ links }: BreadcrumbsProps) => {
             <StyledBreadcrumbItem key={link.text}>
               <StyledBreadcrumbItem>
                 {link.href ? (
-                  <StyledBreadcrumbLink $active={isLast} href={link.href}>
+                  <StyledBreadcrumbLink data-active={isLast} href={link.href}>
                     {link.text}
                   </StyledBreadcrumbLink>
                 ) : (
-                  <StyledBreadcrumbLink as="p" $active={isLast} href="">
+                  <StyledBreadcrumbText data-active={isLast}>
                     {link.text}
-                  </StyledBreadcrumbLink>
+                  </StyledBreadcrumbText>
                 )}
                 {!isLast && <CaretRight size={16} weight="fill" />}
               </StyledBreadcrumbItem>

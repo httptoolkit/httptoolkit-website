@@ -29,31 +29,31 @@ export default function AndroidIntegrationPage() {
         subtitle="what is http toolkit?"
         cards={[
           {
-            $variant: 'default',
+            variant: 'default',
             title: 'Get started instantly',
             text: 'No messing around with certificate files and wifi settings.\n\nClick the button, accept permissions, start capturing traffic, toggle off & on again in one tap.\n\nGet straight to the data with zero hassle.',
             icon: RocketLaunch,
           },
           {
-            $variant: 'default',
+            variant: 'default',
             title: "Flexible setup for every environment",
             text: 'Setup automatically using ADB or by scanning a QR code.\n\nIntercept the entire device, or target just a single app.\n\nSupports Android versions from Android Lollipop (v5 / API level 21+) through to the latest releases.',
             icon: Wrench,
           },
           {
-            $variant: 'default',
+            variant: 'default',
             title: 'Capture & inspect encrypted HTTPS',
             text: 'Immediately view HTTPS on any device for apps that trust user-installed certificates, like Chrome, or your own app with a tiny manifest change.\n\nOn emulators & rooted devices, easily intercept HTTPS from any app, with automatic injection of a system certificate authority and automatic certificate unpinning powered by built-in Frida integration.',
             icon: SealCheck,
           },
           {
-            $variant: 'default',
+            variant: 'default',
             title: 'See all your Android HTTP',
             text: 'Powered by Android\'s VPN APIs and built-in Frida support, HTTP Toolkit intercepts everything, even HTTP traffic from apps that try to ignore your system proxy settings.',
             icon: MagnifyingGlass,
           },
           {
-            $variant: 'highlighted',
+            variant: 'highlighted',
             title: 'Want the full details?',
             text: 'Take a look at the in-depth guide to Android HTTP debugging.',
             buttonText: 'Learn more',

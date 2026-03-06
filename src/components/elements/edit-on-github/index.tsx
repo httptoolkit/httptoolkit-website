@@ -1,6 +1,4 @@
-'use client';
-
-import { styled } from '@/styles';
+import { styled } from '@linaria/react';
 
 import { PencilSimple } from '@/components/elements/icon';
 import { Link } from '@/components/elements/link';

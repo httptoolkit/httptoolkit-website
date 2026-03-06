@@ -1,9 +1,9 @@
-import { StyledRelatedPostWrapper, StyledRelatedPostsGrid } from './related-posts.styles';
-
 import Stack from '@/components/elements/stack';
 import { BlogCard } from '@/components/modules/blog-card';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getRelatedPosts } from '@/lib/mdx/blog';
+
+import { StyledRelatedPostWrapper, StyledRelatedPostsGrid } from './related-posts.styles';
 
 interface RelatedPostsProps {
   tags: string[];
@@ -19,8 +19,8 @@ export const RelatedPosts = async ({ tags, currentPostSlug }: RelatedPostsProps)
 
   return (
     <StyledRelatedPostWrapper>
-      <Stack $gap="32px" $gapxl="48px">
-        <HeadingBlock title="Related *content*" $align="center" $isContentCentered />
+      <Stack gap="32px" gapxl="48px">
+        <HeadingBlock title="Related *content*" align="center" isContentCentered />
         <StyledRelatedPostsGrid>
           {relatedPosts.length &&
             relatedPosts.map(post => (

@@ -12,7 +12,7 @@ export default function ThankYouPage() {
         excerpt="Watch your inbox for updates, there's a lot more new features coming soon! If you think this sounds great,
         tell your friends:"
         callToAction={
-          <Stack $gapxl="7px" $alignItems="center">
+          <Stack gapxl="7px" alignItems="center">
             <Text fontSize="s">Share HTTP Toolkit on:</Text>
             <SocialShare />
           </Stack>

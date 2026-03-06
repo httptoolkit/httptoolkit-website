@@ -3,11 +3,11 @@ import { TryYourselfWrapper } from './wrapper';
 import { Logo, RocketLaunch } from '@/components/elements/icon';
 import { ResponsiveLineBreak } from '@/components/elements/responsive-line-break';
 import { CTA } from '@/components/sections/cta';
-import type { CTAProps } from '@/components/sections/cta/cta.types';
+import type { CTAProps } from '@/components/sections/cta';
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];
-  isFooterClose?: CTAProps['$isFooterClose'];
+  isFooterClose?: CTAProps['isFooterClose'];
 }
 
 export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = false }: TryItForYourselfCTAProps) => {
@@ -21,7 +21,7 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = fa
         excerpt={<>
           Download HTTP Toolkit to intercept, inspect, <ResponsiveLineBreak />and modify any HTTP traffic in seconds.
         </>}
-        $isFooterClose={isFooterClose}
+        isFooterClose={isFooterClose}
       />
     </TryYourselfWrapper>
   );

@@ -1,12 +1,29 @@
 import dynamic from 'next/dynamic';
 
-import { SocialShareContainer, SocialButton } from './social-share.styles';
-import type { SocialShareProps } from './social-share.types';
-
 import { TwitterX, FacebookLogo } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
+import { styled } from '@linaria/react';
+
+export interface SocialShareProps {
+  url?: string;
+}
+
+export interface WebShareProps extends SocialShareProps {
+  title?: string;
+}
 
 const WebShare = dynamic(() => import('./web-share'), { ssr: false });
+
+const SocialShareContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
+
+export const SocialButton = styled.a`
+  display: inline-flex;
+  cursor: pointer;
+`;
 
 export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialShareProps) => {
   return (
@@ -19,7 +36,7 @@ export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialSharePro
         rel="noopener noreferrer"
         aria-label="Share HTTP Toolkit on Twitter"
       >
-        <SquareIcon $size="mini" icon={TwitterX} />
+        <SquareIcon size="mini" icon={TwitterX} />
       </SocialButton>
       <SocialButton
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
@@ -27,7 +44,7 @@ export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialSharePro
         rel="noopener noreferrer"
         aria-label="Share HTTP Toolkit on Facebook"
       >
-        <SquareIcon $size="mini" icon={FacebookLogo} />
+        <SquareIcon size="mini" icon={FacebookLogo} />
       </SocialButton>
       <WebShare title="HTTP Toolkit " url={url} />
     </SocialShareContainer>

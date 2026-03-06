@@ -1,6 +1,6 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { styled, screens } from '@/styles';
+import { screens } from '@/styles/tokens';
 
 export const StyledSection = styled.section`
   position: relative;

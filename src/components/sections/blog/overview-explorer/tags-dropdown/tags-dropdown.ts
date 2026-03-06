@@ -1,8 +1,7 @@
-'use client';
-
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-import { styled, fontSizes, fontWeight } from '@/styles';
+import { styled } from '@linaria/react';
+import { fontSizes, fontWeight } from '@/styles/tokens';
 
 export const StyledButtonTrigger = styled.button`
   background: transparent;

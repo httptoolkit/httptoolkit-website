@@ -2,8 +2,59 @@
 
 import { useState, type KeyboardEvent } from 'react';
 
-import { StyledWrapper, StyledOption, StyledOptionsWrapper } from './switch.styles';
-import type { SwitchProps } from './switch.types';
+import { styled } from '@linaria/react';
+
+import { Interval } from '@/lib/store/account-store';
+import { fontSizes, fontWeight } from '@/styles/tokens';
+
+interface Option {
+  text: string;
+  id: Interval;
+}
+
+export interface SwitchProps {
+  defaultValue?: Interval;
+  options: [Option, Option];
+  onChange(id: Interval): void;
+}
+
+const StyledWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  gap: 2px;
+`;
+
+const StyledOption = styled.span`
+  padding: 8px 16px;
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.s};
+  line-height: 1.5;
+
+  &[data-is-active='true'] {
+    border-radius: 24px;
+    color: var(--text-light-grey);
+    font-weight: ${fontWeight.medium};
+    background-color: var(--ink-black);
+  }
+`;
+
+const StyledOptionsWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--dark-grey);
+  border-radius: 40px;
+  padding: 2px;
+  transition: 350ms all ease-in;
+  border: none;
+  box-shadow:
+    0 0 0 1px var(--button-border) inset,
+    0 0 8px 0 var(--shadow-default);
+
+  cursor: pointer;
+`;
 
 export const Switch = ({ options, defaultValue, onChange }: SwitchProps) => {
   const [activeOption, setActiveOption] = useState(defaultValue || options[0].id);

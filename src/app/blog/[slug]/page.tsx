@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </Container>
 
       <ContentWithTable
-        $bgVariant="darkGrey"
+        bgVariant="darkGrey"
         links={[postNavigation]}
         parsedContent={post.content}
         additionalContent={<>
@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Container>
         <Newsletter
           action={NEWSLETTER_URLS.blog}
-          $variant="with-gradient"
+          variant="with-gradient"
           title="Blog newsletter"
           text="Become an HTTP & debugging expert, by subscribing to receive new posts like these emailed straight to your inbox:"
         />

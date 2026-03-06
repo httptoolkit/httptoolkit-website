@@ -1,17 +1,53 @@
-import {
-  StyledStatisticsGradient,
-  StyledStatisticsGradientWrapper,
-  StyledStatisticsWrapper,
-} from './stadistics.styles';
-import type { StatisticsProps } from './stadistics.types';
+import { styled } from '@linaria/react';
 
+import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
 import { GrowingNumbers } from '@/components/modules/growing-numbers';
-import type { GrowingNumbersStat } from '@/components/modules/growing-numbers/growing-numbers.types';
+import type { GrowingNumbersStat } from '@/components/modules/growing-numbers';
 import { HeadingBlock } from '@/components/modules/heading-block';
 import { getGithubDownloadStats } from '@/lib/services/get-github-download-stats';
 import { getOpenSourceContributors } from '@/lib/services/get-open-source-contributors';
 import { getOrganizationStars } from '@/lib/services/get-repo-stars';
+import { screens } from '@/styles/tokens';
+
+interface StatisticsProps {
+  title?: string;
+  text?: string;
+}
+
+const StyledStatisticsGradient = styled.div`
+  position: absolute;
+  top: 0;
+  height: 110%;
+  left: 0;
+`;
+
+const StyledStatisticsGradientWrapper = styled.section`
+  position: relative;
+  overflow: hidden;
+`;
+
+const StyledStatisticsWrapper = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 96px 48px;
+  position: relative;
+
+  @media (max-width: ${screens.lg}) {
+    flex-direction: column;
+    padding: 16px 0;
+
+    & > *:first-child {
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    & * {
+      text-align: center;
+    }
+  }
+`;
 
 export const Statistics = async ({
   title = 'Why *HTTP Toolkit*?',
@@ -49,7 +85,7 @@ export const Statistics = async ({
         <Gradient />
       </StyledStatisticsGradient>
       <StyledStatisticsWrapper>
-        <HeadingBlock $align="left" title={title} text={text} />
+        <HeadingBlock align="left" title={title} text={text} />
         <GrowingNumbers stats={stats} />
       </StyledStatisticsWrapper>
     </StyledStatisticsGradientWrapper>

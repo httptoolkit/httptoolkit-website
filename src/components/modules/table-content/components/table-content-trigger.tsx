@@ -1,6 +1,6 @@
 'use client';
 
-import type { TableContentProps } from '../table-content.types';
+import type { TableContentProps } from '..';
 
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';

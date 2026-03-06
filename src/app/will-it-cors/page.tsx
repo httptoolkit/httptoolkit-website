@@ -36,8 +36,8 @@ export default function WillItCorsPage() {
         cta={{
           href: '/will-it-cors/source-url/',
           title: 'Get Started!',
-          $variant: 'primary',
-          $withBorder: true,
+          variant: 'primary',
+          withBorder: true,
         }}
       />
     </LandingLayout>

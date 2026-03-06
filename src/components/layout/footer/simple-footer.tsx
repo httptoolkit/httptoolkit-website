@@ -1,5 +1,5 @@
 import { FooterCopy } from './components/footer-copy';
-import { StyledSeparator, StyledSimpleFooterWrapper, StyledSimpleFooter } from './footer.styles';
+import { StyledSeparator, StyledSimpleFooterWrapper, StyledSimpleFooter } from '.';
 
 import { Container } from '@/components/elements/container';
 import { HalfColoredLogo } from '@/components/elements/icon';
@@ -16,7 +16,7 @@ export const SimpleFooter = () => {
           </Link>
           <ThemeToggle id="theme-toggle-footer-small" />
         </StyledSimpleFooterWrapper>
-        <StyledSeparator $isSimple />
+        <StyledSeparator data-is-simple="true" />
         <FooterCopy />
       </Container>
     </StyledSimpleFooter>

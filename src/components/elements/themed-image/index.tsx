@@ -60,7 +60,7 @@ export const ThemedImage = ({
 
   if (withBorderAnimation || withBorder) {
     return (
-      <ThemedImageMovingBorder $withBorder={Boolean(withBorder)}>
+      <ThemedImageMovingBorder data-with-border={String(Boolean(withBorder))}>
         <FinalImage />
       </ThemedImageMovingBorder>
     );

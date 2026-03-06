@@ -1,11 +1,6 @@
-import {
-    StyledAlternativesColumnContent,
-    StyledAlternativesPageColumns,
-    StyledGradientLeft,
-    StyledAlternativeHeadingTag,
-    StyledAlternativeList
-} from './alternatives.styles';
+import { styled } from '@linaria/react';
 
+import { screens, fontSizes } from '@/styles/tokens';
 import { LandingLayout } from '@/components/layout/landing-layout';
 import { Container } from '@/components/elements/container';
 import { Gradient } from '@/components/elements/gradient';
@@ -14,6 +9,66 @@ import { Section } from '@/components/elements/section';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { Link } from '@/components/elements/link';
+
+const StyledAlternativesPageColumns = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+
+  @media (min-width: ${screens['lg']}) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 96px;
+  }
+`;
+
+const StyledAlternativesColumnContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+
+  @media (min-width: ${screens['lg']}) {
+    gap: 64px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+`;
+
+const StyledGradientLeft = styled.div`
+  position: absolute;
+  max-width: 100%;
+  top: -180px;
+  left: 0;
+  height: 780px;
+
+  pointer-events: none;
+
+  @media (min-width: ${screens['lg']}) {
+    top: -7px;
+  }
+`;
+
+const StyledAlternativeList = styled.ul`
+  list-style: disc inside;
+`;
+
+const StyledAlternativeHeadingTag = styled.h2`
+  display: inline-block;
+
+  font-size: ${fontSizes.heading.mobile.m};
+  color: var(--text-light-grey);
+  line-height: 1.5;
+
+  @media (min-width: ${screens.lg}) {
+    font-size: ${fontSizes.heading.desktop.m};
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 export default function AlternativesPage() {
   return (
@@ -25,7 +80,7 @@ export default function AlternativesPage() {
         <Container>
           <StyledAlternativesPageColumns>
             <StyledAlternativesColumnContent>
-              <Stack $gap="32px" $gapxl="24px">
+              <Stack gap="32px" gapxl="24px">
                 <Heading fontSize="l" color="textGradient">
                     HTTP Toolkit as an alternative to...
                 </Heading>

@@ -33,8 +33,8 @@ export default async function HomePage() {
         <HeadingBlock
           title="What is *HTTP Toolkit*?"
           text="HTTP Toolkit is an open-source tool for debugging, testing and building with HTTP on Windows, Linux & Mac."
-          $align="center"
-          $isContentCentered
+          align="center"
+          isContentCentered
         />
       </Section>
       <HttpToolkitFeatures />

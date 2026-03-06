@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useState, type ReactNode } from 'react';
 
-import { StyledTestimonialGrid } from '../testimonials.styles';
+import { StyledTestimonialGrid } from '..';
 
 import { useIsMobile } from '@/lib/hooks/use-is-mobile';
 
@@ -34,7 +34,7 @@ export const MarqueeWrapper = ({
   return (
     <Marquee pauseOnHover={!isMobile} play={isRunning}>
       <StyledTestimonialGrid
-        $columnsCount={columnsCount}
+        style={{ '--grid-columns': columnsCount } as React.CSSProperties}
         onTouchStart={pause}
         onTouchEnd={play}
       >

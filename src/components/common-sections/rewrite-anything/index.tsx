@@ -1,4 +1,4 @@
-import { StyledCardsWrapper } from './rewrite-anything.styles';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
 import { Sparkle } from '@/components/elements/icon';
@@ -6,19 +6,30 @@ import { Section } from '@/components/elements/section';
 import Stack from '@/components/elements/stack';
 import { Card } from '@/components/modules/card';
 import { HeadingBlock } from '@/components/modules/heading-block';
+import { screens } from '@/styles/tokens';
+
+const StyledCardsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (min-width: ${screens['lg']}) {
+    flex-direction: row;
+  }
+`;
 
 export const RewriteAnything = () => {
   return (
     <Section>
       <Container>
-        <Stack $gap="32px" $gapxl="64px">
+        <Stack gap="32px" gapxl="64px">
           <HeadingBlock
             title="Rewrite *anything*"
             badgeTitle="Pro Feature"
             badgeAdditionalText="EDIT"
             badgeIcon={Sparkle}
-            $align="center"
-            $isContentCentered
+            align="center"
+            isContentCentered
           />
           <StyledCardsWrapper>
             <Card

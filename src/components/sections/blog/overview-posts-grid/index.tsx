@@ -8,7 +8,7 @@ export const OverviewPostsGrid = async () => {
   const postsWithoutFeatured = posts.filter(item => !item.isFeatured);
 
   return (
-    <Stack $gap="24px" $gapxl="24px">
+    <Stack gap="24px" gapxl="24px">
       <MasonryPosts posts={postsWithoutFeatured} />
     </Stack>
   );

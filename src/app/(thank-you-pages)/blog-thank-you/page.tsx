@@ -11,7 +11,7 @@ export default function BlogThankYouPage() {
       <SuccessHero
         heading="Thanks for signing up"
         excerpt={
-          <Stack $gapxl="7px">
+          <Stack gapxl="7px">
             <Text fontSize="m">Watch your inbox for new blog posts coming soon.</Text>
             <Text fontSize="m">
               Have you tried HTTP Toolkit out for yourself yet? <Link href="/">Download it now.</Link>
@@ -19,7 +19,7 @@ export default function BlogThankYouPage() {
           </Stack>
         }
         callToAction={
-          <Stack $gapxl="7px" $alignItems="center">
+          <Stack gapxl="7px" alignItems="center">
             <Text fontSize="s">Share HTTP Toolkit on:</Text>
             <SocialShare />
           </Stack>

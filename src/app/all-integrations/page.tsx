@@ -18,7 +18,7 @@ export default function IntegrationsPage() {
   return (
     <Layout>
       <IntegrationCTA
-        $variant="hero"
+        variant="hero"
         title="Automated setup and powerful integrations for all your HTTP tools"
         text={[
           "With deep integration into a huge range of popular components & tools, HTTP Toolkit lets you intercept mobile apps, bash scripts, Docker containers, web browsers and more, so you can see & modify anything in just one click.",

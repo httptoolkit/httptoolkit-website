@@ -1,7 +1,7 @@
 'use client';
 
-import { SocialButton } from './social-share.styles';
-import type { WebShareProps } from './social-share.types';
+import { SocialButton } from './index';
+import type { WebShareProps } from '.';
 
 import { ShareNetwork } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -32,7 +32,7 @@ const WebShare = ({ title, url }: WebShareProps) => {
         });
       }}
     >
-      <SquareIcon $size="mini" icon={ShareNetwork} />
+      <SquareIcon size="mini" icon={ShareNetwork} />
     </SocialButton>
   );
 };

@@ -1,16 +1,18 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import type { StyledTextProps } from './text.types';
+export const StyledText = styled.p`
+  font-size: var(--text-font-size);
+  color: var(--text-color);
+  font-weight: var(--text-font-weight);
+  text-align: var(--text-text-align, unset);
+  line-height: 1.5;
+  letter-spacing: initial;
+  text-transform: initial;
+  font-style: var(--text-font-style, normal);
 
-import { styled, textColors, fontSizes, fontWeight } from '@/styles';
-
-export const StyledText = styled.p<StyledTextProps>`
-  font-size: ${({ fontSize }) => fontSizes.text[fontSize || 'm']};
-  color: ${({ color }) => textColors[(color || 'darkGrey') as keyof typeof textColors]};
-  font-weight: ${({ fontWeight: fw }) => fontWeight[fw || 'normal']};
-  text-align: ${({ $textAlign }) => $textAlign || 'unset'};
-  line-height: ${({ $isLabel }) => ($isLabel ? 1.1 : 1.5)};
-  letter-spacing: ${({ $isLabel }) => ($isLabel ? '0.06em' : 'initial')};
-  text-transform: ${({ $isLabel }) => ($isLabel ? 'uppercase' : 'initial')};
-  font-style: ${({ $fontStyle }) => $fontStyle || 'normal'};
+  &[data-is-label="true"] {
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
 `;

@@ -1,6 +1,6 @@
 import { startCase } from 'lodash-es';
 
-import type { TableContentProps } from '@/components/modules/table-content/table-content.types';
+import type { TableContentProps } from '@/components/modules/table-content';
 
 export type UnorganizedDoc = Omit<Doc, 'content'> & { parent: string | undefined };
 

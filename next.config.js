@@ -1,3 +1,4 @@
+const withLinaria = require('next-with-linaria');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -23,10 +24,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@phosphor-icons/react', '@httptoolkit/accounts'],
   },
-  compiler: {
-    styledComponents: true,
-  },
-  // Configure `pageExtensions` to include MDX files
+// Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   trailingSlash: true,
   webpack(config) {
@@ -45,4 +43,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+module.exports = withBundleAnalyzer(withLinaria(nextConfig));

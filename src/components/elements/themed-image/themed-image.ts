@@ -1,9 +1,8 @@
-'use client';
-
 import { MovingBorder } from '../moving-border';
-import type { MovingBorderProps } from '../moving-border/moving-border.types';
 
-import { screens, styled } from '@/styles';
+import { styled } from '@linaria/react';
+
+import { screens } from '@/styles/tokens';
 
 export const StyledThemedImage = styled.figure`
   & img {
@@ -14,7 +13,7 @@ export const StyledThemedImage = styled.figure`
   }
 `;
 
-export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
+export const ThemedImageMovingBorder = styled(MovingBorder)`
   & {
     --border-width: 2px;
     --radius: 8px;
@@ -27,20 +26,21 @@ export const ThemedImageMovingBorder = styled(MovingBorder)<MovingBorderProps>`
       --radius: 16px;
     }
 
-    ${({ $withBorder }) =>
-      $withBorder &&
-      `
-        border: var(--border-width) solid var(--button-border);
-    
-        &::before {
-          content: none;
-        }
-      `}
+    &[data-with-border="true"] {
+      border: var(--border-width) solid var(--button-border);
+
+      &::before {
+        content: none;
+      }
+    }
 
     @media (hover: hover) {
       &:hover {
-        border: var(--border-width) solid
-          ${({ $withBorder }) => (!$withBorder ? 'transparent' : 'var(--button-border)')};
+        border: var(--border-width) solid transparent;
+      }
+
+      &[data-with-border="true"]:hover {
+        border: var(--border-width) solid var(--button-border);
       }
     }
 

@@ -1,6 +1,9 @@
-'use client';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
-import { screens, styled } from '@/styles';
+export interface MovingBorderProps {
+  withBorder: boolean;
+}
 
 export const MovingBorder = styled.figure`
   --border-width: 1px;

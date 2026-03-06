@@ -1,4 +1,4 @@
-import { StyledIntegrationGrid } from './grid.styles';
+import { styled } from '@linaria/react';
 
 import { Container } from '@/components/elements/container';
 import {
@@ -12,12 +12,13 @@ import {
 } from '@/components/elements/icon';
 import { IntegrationCard } from '@/components/modules/integration-card';
 import { pageRoutes } from '@/lib/constants/routes';
+import { screens } from '@/styles/tokens';
 
 const { ANDROID, PYTHON, JAVASCRIPT, RUBY, JAVA, DOCKER, ELECTRON } = pageRoutes;
 
 const integrationCards = [
   {
-    $isPopular: true,
+    isPopular: true,
     icon: AndroidLogo,
     title: 'Android',
     text: 'In one click, capture Android traffic from apps and mobile browsers, with automated setup, per-app interception, and certificate injection & unpinning built-in.',
@@ -74,6 +75,20 @@ const integrationCards = [
     },
   },
 ];
+
+const StyledIntegrationGrid = styled.div`
+  display: grid;
+  gap: 16px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  @media (min-width: ${screens.lg}) {
+    padding-top: 48px;
+    padding-bottom: 0;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
 
 export const IntegrationsGrid = () => {
   return (

@@ -3,6 +3,8 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 
+import { styled } from '@linaria/react';
+
 import { useMounted } from '@/lib/hooks/use-mounted';
 import { VideoCallback } from "@/lib/video-events";
 
@@ -13,7 +15,20 @@ import {
     VideoKey
 } from "@/content/data/video-dictionary";
 
-import { StyledVideo } from "./direct-video-player.styles";
+const StyledVideo = styled.video`
+    width: 100%;
+    border: none;
+
+    &:not([data-mounted="true"]) {
+        @media (prefers-color-scheme: dark) {
+            &[data-hide-on-theme="dark"] { display: none; }
+        }
+
+        @media (prefers-color-scheme: light) {
+            &[data-hide-on-theme="light"] { display: none; }
+        }
+    }
+`;
 
 export const DirectVideoPlayer = (props: {
     videoId: VideoKey,
@@ -113,11 +128,11 @@ export const DirectVideoPlayer = (props: {
                 ref={darkVideoRef}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="light"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
             >
                 <source src={darkVideoPlaylist} type="application/x-mpegURL" />
 
@@ -143,11 +158,11 @@ export const DirectVideoPlayer = (props: {
                 ref={lightVideoRef}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="dark"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
             >
                 <source src={lightVideoPlaylist} type="application/x-mpegURL" />
 

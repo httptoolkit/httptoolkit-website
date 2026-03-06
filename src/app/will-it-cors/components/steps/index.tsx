@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 
@@ -32,8 +34,14 @@ export const Steps = observer(({ currentStep }: { currentStep: WillItCorsSteps }
 
   // If you end up directly on a step without having completed the path this session (e.g.
   // if you refresh the page or navigate there directly), we redirect you to the root.
-  if (currentStep !== 'source-url' && !steps.sourceUrl) {
-    router.push('/will-it-cors/');
+  const shouldRedirect = currentStep !== 'source-url' && !steps.sourceUrl;
+  useEffect(() => {
+    if (shouldRedirect) {
+      router.push('/will-it-cors/');
+    }
+  }, [shouldRedirect, router]);
+
+  if (shouldRedirect) {
     return null;
   }
 

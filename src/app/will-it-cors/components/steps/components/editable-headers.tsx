@@ -10,7 +10,8 @@ import * as React from 'react';
 import { Trash } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
 import { Input } from '@/components/modules/input';
-import { screens, styled } from '@/styles';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
 // Based RFC7230, 3.2.6:
 const HEADER_NAME_PATTERN = "[!#$%&'*+-;^_`|~A-Za-z0-9]+";
@@ -39,10 +40,7 @@ const HeadersContainer = styled.div`
   }
 `;
 
-const HeaderDeleteButton = styled.button.attrs({
-  type: 'button',
-  'aria-label': 'Delete header',
-})`
+const HeaderDeleteButton = styled.button`
   padding: 0;
   background: transparent;
   border: none;
@@ -125,6 +123,8 @@ export const EditableHeaders = props => {
               })}
             />,
             <HeaderDeleteButton
+              type="button"
+              aria-label="Delete header"
               key={`${i}-del`}
               onClick={action(() => {
                 headers.splice(i, 1);
@@ -132,7 +132,7 @@ export const EditableHeaders = props => {
               })}
               onKeyPress={clickOnEnter}
             >
-              <SquareIcon $size="small" icon={Trash} />
+              <SquareIcon size="small" icon={Trash} />
             </HeaderDeleteButton>,
           ]).concat([
             <Input

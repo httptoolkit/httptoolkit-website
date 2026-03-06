@@ -1,6 +1,6 @@
 import { MarqueeWrapper } from './marquee';
 import { TestimonialsCard } from './testimonials-card';
-import { StyledTestimonialsWrapper } from '../testimonials.styles';
+import { StyledTestimonialsWrapper } from '..';
 
 import { Heart } from '@/components/elements/icon';
 import { HeadingBlock } from '@/components/modules/heading-block';
@@ -26,7 +26,7 @@ export const TestimonialsGrid = async () => {
         badgeTitle="TESTIMONIALS"
         badgeIcon={Heart}
         title={`Join *${userDownloads.toLocaleString()}* developers`}
-        $align="center"
+        align="center"
       />
 
       <MarqueeWrapper columnsCount={chunkCount}>

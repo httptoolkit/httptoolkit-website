@@ -1,7 +1,7 @@
 import { getHeadingLinks } from './get-heading-links';
 import { getDocBySlug } from '../docs';
 
-import type { TableContentItem } from '@/components/modules/table-content/table-content.types';
+import type { TableContentItem } from '@/components/modules/table-content';
 
 export async function getTitlesBySlug(filePath: string, slug: string, prefixHref?: string): Promise<TableContentItem> {
   const content = await getDocBySlug(slug);

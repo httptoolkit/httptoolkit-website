@@ -1,6 +1,5 @@
-'use client';
-
-import { styled, screens } from '@/styles';
+import { styled } from '@linaria/react';
+import { screens } from '@/styles/tokens';
 
 /**
  * A line break that's only shown on larger screens (leaving smaller screens to

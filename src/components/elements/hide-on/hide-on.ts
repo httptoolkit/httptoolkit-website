@@ -1,33 +1,17 @@
-'use client';
+import { styled } from '@linaria/react';
 
-import { screens, styled, css } from '@/styles';
+import { screens } from '@/styles/tokens';
 
-type ScreenKey = keyof typeof screens;
+export const StyledHideElementOn = styled.div`
+  &[data-hide-below="sm"] { display: none; @media (min-width: ${screens.sm}) { display: block; } }
+  &[data-hide-below="md"] { display: none; @media (min-width: ${screens.md}) { display: block; } }
+  &[data-hide-below="lg"] { display: none; @media (min-width: ${screens.lg}) { display: block; } }
+  &[data-hide-below="xl"] { display: none; @media (min-width: ${screens.xl}) { display: block; } }
+  &[data-hide-below="2xl"] { display: none; @media (min-width: ${screens['2xl']}) { display: block; } }
 
-export const StyledHideElementOn = styled.div<
-  | { $hideBelow: ScreenKey, $hideAbove?: undefined }
-  | { $hideAbove: ScreenKey, $hideBelow?: undefined }
->`
-  ${({ $hideBelow, $hideAbove }) => {
-    if ($hideBelow) {
-      return css`
-        display: none;
-        visibility: hidden;
-
-        @media (min-width: ${screens[$hideBelow]}) {
-          display: block;
-          visibility: visible;
-        }
-      `;
-    } else {
-      return css`
-        display: block;
-        visibility: visible;
-        @media (min-width: ${screens[$hideAbove]}) {
-          display: none;
-          visibility: hidden;
-        }
-      `;
-    }
-  }}
+  &[data-hide-above="sm"] { @media (min-width: ${screens.sm}) { display: none; } }
+  &[data-hide-above="md"] { @media (min-width: ${screens.md}) { display: none; } }
+  &[data-hide-above="lg"] { @media (min-width: ${screens.lg}) { display: none; } }
+  &[data-hide-above="xl"] { @media (min-width: ${screens.xl}) { display: none; } }
+  &[data-hide-above="2xl"] { @media (min-width: ${screens['2xl']}) { display: none; } }
 `;

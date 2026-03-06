@@ -3,10 +3,25 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 
+import { styled } from '@linaria/react';
+
 import { useMounted } from '@/lib/hooks/use-mounted';
 import { darkLibraryId, lightLibraryId, videoDictionary, VideoKey } from "@/content/data/video-dictionary";
 
-import { StyledIframe } from "./bunny-video-player.styles";
+const StyledIframe = styled.iframe`
+    width: 100%;
+    border: none;
+
+    &:not([data-mounted="true"]) {
+        @media (prefers-color-scheme: dark) {
+            &[data-hide-on-theme="dark"] { display: none; }
+        }
+
+        @media (prefers-color-scheme: light) {
+            &[data-hide-on-theme="light"] { display: none; }
+        }
+    }
+`;
 
 const urlOptions = new URLSearchParams({
     autoplay: 'true',
@@ -33,11 +48,11 @@ export const BunnyVideoPlayer = (props: {
                 src={darkUrl}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="light"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
                 allow="autoplay;picture-in-picture;"
                 allowFullScreen={true}
             />
@@ -47,11 +62,11 @@ export const BunnyVideoPlayer = (props: {
                 src={lightUrl}
 
                 // During SSR, we show both but hide via CSS matching against system prefs:
-                $mounted={isMounted}
+                data-mounted={isMounted ? "true" : "false"}
                 // Using this prop to css-hide for wrong theme
                 data-hide-on-theme="dark"
 
-                $aspectRatio={aspectRatio}
+                style={{ aspectRatio }}
                 allow="autoplay;picture-in-picture;"
                 allowFullScreen={true}
             />

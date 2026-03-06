@@ -1,16 +1,15 @@
 import type { Metadata } from 'next/types';
 
 import {
-  StyledButtonsWrapper,
-  StyledFridaColumnContent,
-  StyledFridaColumns,
-  StyledGradientBottom,
-  StyledMobileText,
-  StyledSectionCTAWrapper,
-  StyledTextContent,
   StyledFridaSection,
-} from './frida.styles';
-
+  StyledFridaColumns,
+  StyledFridaColumnContent,
+  StyledButtonsWrapper,
+  StyledGradientBottom,
+  StyledSectionCTAWrapper,
+  StyledMobileText,
+  StyledTextContent,
+} from './page.styles';
 import { Button } from '@/components/elements/button';
 import { Container } from '@/components/elements/container';
 import { Heading } from '@/components/elements/heading';
@@ -30,7 +29,7 @@ export default async function FridaPage() {
   return (
     <LandingLayout>
       <div>
-        <StyledHideElementOn $hideAbove="md">
+        <StyledHideElementOn data-hide-above="md">
           <StyledSectionCTAWrapper>
             <CTA
               heading="Frida Mobile Interception Scripts"
@@ -54,8 +53,8 @@ export default async function FridaPage() {
           <Container>
             <StyledFridaColumns>
               <StyledFridaColumnContent>
-                <StyledHideElementOn $hideBelow="md">
-                  <Stack $gapxl="24px">
+                <StyledHideElementOn data-hide-below="md">
+                  <Stack gapxl="24px">
                     <Heading fontSize="l" color="textGradient">
                       Frida Mobile Interception Scripts
                     </Heading>
@@ -84,7 +83,7 @@ export default async function FridaPage() {
                   </Button>
                 </StyledButtonsWrapper>
               </StyledFridaColumnContent>
-              <StyledHideElementOn $hideBelow="md">
+              <StyledHideElementOn data-hide-below="md">
                 <ThemedImage
                   withBorder
                   alt="Frida Mobile Interception Scripts"

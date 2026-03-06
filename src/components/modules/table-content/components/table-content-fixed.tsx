@@ -4,8 +4,8 @@ import kebabCase from 'lodash/kebabCase';
 
 import { TableContentTriggerComponent } from './table-content-trigger';
 import useActiveToc from '../hooks/use-active-toc';
-import { StyledTableContentItemLink, StyledTableContentSubitem } from '../table-content.styles';
-import type { TableContentFixedProps, TableContentSubitem } from '../table-content.types';
+import { StyledTableContentItemLink, StyledTableContentSubitem } from '..';
+import type { TableContentFixedProps, TableContentSubitem } from '..';
 
 import { Text } from '@/components/elements/text';
 
@@ -22,7 +22,7 @@ export const TableContentAccordionFixed = ({ link, hasSubItems }: TableContentFi
         <ul style={{ paddingLeft: isChildHeading ? '16px' : 0 }} key={item.text} data-level={item.level ?? 2}>
           <li>
             <StyledTableContentSubitem
-              $isAccordionFixed={true}
+              data-accordion-fixed="true"
               href={item.href}
               data-to-scrollspy-id={`#${kebabCase(item.text)}`}
             >

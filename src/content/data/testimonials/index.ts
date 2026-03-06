@@ -1,5 +1,3 @@
-import 'server-only';
-
 import ARTICLE_QUOTES from './article-testimonials.json';
 import REDDIT_TESTIMONIALS from './reddit-testimonials.json';
 import TWEETS from './tweet-testimonials.json';

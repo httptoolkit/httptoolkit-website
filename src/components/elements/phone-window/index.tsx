@@ -1,17 +1,13 @@
 import React from 'react';
 
-import {
-    PhoneOutline,
-    PhoneScreen,
-    HomeButton
-} from './phone-window.styles';
+import { HomeButton, PhoneOutline, PhoneScreen } from './phone-window.styles';
 
 export const PhoneWindow = (p: {
     aspectRatio: string;
     children: React.ReactNode;
     className?: string;
 }) => <PhoneOutline className={p.className}>
-        <PhoneScreen $aspectRatio={p.aspectRatio}>
+        <PhoneScreen style={{ '--phone-aspect-ratio': p.aspectRatio } as React.CSSProperties}>
             { p.children }
         </PhoneScreen>
         <HomeButton />
