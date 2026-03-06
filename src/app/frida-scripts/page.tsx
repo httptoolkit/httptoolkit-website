@@ -54,7 +54,7 @@ export default async function FridaPage() {
             <StyledFridaColumns>
               <StyledFridaColumnContent>
                 <StyledHideElementOn data-hide-below="md">
-                  <Stack $gapxl="24px">
+                  <Stack gapxl="24px">
                     <Heading fontSize="l" color="textGradient">
                       Frida Mobile Interception Scripts
                     </Heading>

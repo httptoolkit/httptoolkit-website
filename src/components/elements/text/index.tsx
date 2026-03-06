@@ -12,7 +12,7 @@ export interface TextProps {
   fontWeight?: FontWeight;
   textAlign?: CanvasTextAlign;
   fontStyle?: 'normal' | 'italic';
-  $isLabel?: boolean;
+  isLabel?: boolean;
 }
 
 export const Text = ({
@@ -24,10 +24,10 @@ export const Text = ({
   color,
   textAlign,
   fontStyle,
-  $isLabel,
+  isLabel: isLabelProp,
   ...props
 }: Component<TextProps>) => {
-  const isLabel = $isLabel || as === 'label';
+  const isLabel = isLabelProp || as === 'label';
   const asTag = as === 'label' ? 'span' : as;
 
   return (

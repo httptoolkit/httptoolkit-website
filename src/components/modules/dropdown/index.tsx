@@ -10,7 +10,7 @@ import {
   type ButtonType,
   type ButtonWithoutHrefProps,
   type LinkWithHrefProps,
-  type StyledButtonProps,
+  type ButtonVariantProps,
 } from '@/components/elements/button';
 import { styled } from '@linaria/react';
 import { screens, fontSizes } from '@/styles/tokens';
@@ -31,15 +31,15 @@ export type DropdownDownloadOption = {
 export type DropdownOptionProps = {
   as?: ButtonType;
   href?: string;
-  $variant?: StyledButtonProps['$variant'];
+  variant?: ButtonVariantProps['variant'];
 } & (ButtonWithoutHrefProps | LinkWithHrefProps);
 
-export interface DropdownProps extends StyledButtonProps, AriaAttributes {
+export interface DropdownProps extends ButtonVariantProps, AriaAttributes {
   icon?: Icon;
   iconWeight?: IconWeight;
   href?: string;
   items: DropdownOption[];
-  $direction?: 'top' | 'bottom';
+  direction?: 'top' | 'bottom';
 }
 
 const openDropdown = `
@@ -189,8 +189,8 @@ export const Dropdown = ({
   items,
   icon = CaretDown,
   iconWeight = 'fill',
-  $variant = 'secondary',
-  $direction = 'bottom',
+  variant = 'secondary',
+  direction = 'bottom',
   ...buttonProps
 }: Component<DropdownProps>) => {
   return (
@@ -200,13 +200,13 @@ export const Dropdown = ({
         data-dropdown="true"
         icon={icon}
         iconWeight={iconWeight}
-        $variant={$variant}
-        $isDropdown
+        variant={variant}
+        isDropdown
         {...buttonProps}
       >
         {children}
       </Button>
-      <DropdownOptionsWrapper data-direction={$direction} role="menu">
+      <DropdownOptionsWrapper data-direction={direction} role="menu">
         {Array.isArray(items) && renderOptions(items)}
       </DropdownOptionsWrapper>
     </DropdownWrapper>

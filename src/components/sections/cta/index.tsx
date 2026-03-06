@@ -15,7 +15,7 @@ import { DownloadButton } from '@/components/modules/download-button';
 import { PhoneAppVideoPair } from '@/components/modules/phone-app-video-pair';
 import { screens } from '@/styles/tokens';
 
-export type CTAAction = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | '$withBorder' | '$small' | '$variant' | 'as'> & {
+export type CTAAction = Pick<ButtonProps, 'icon' | 'href' | 'onClick' | 'withBorder' | 'small' | 'variant' | 'as'> & {
   title: string;
 };
 
@@ -29,8 +29,8 @@ export type bgVariant =
 
 export interface CTAProps extends Component {
   variant?: CTAVariant;
-  $bgVariant?: bgVariant;
-  $isFooterClose?: boolean;
+  bgVariant?: bgVariant;
+  isFooterClose?: boolean;
   heading: React.ReactNode;
   textAppearance?: TextAppearance;
   subHeading?: {
@@ -154,7 +154,7 @@ const StyledHeroWrapper = styled.section`
 
   /* Narrow-specific: constrain container */
   &[data-variant="cta-narrow"] {
-    &&& div[data-container="true"] {
+    div[data-container="true"] {
       max-width: 657px;
     }
   }
@@ -179,47 +179,43 @@ const StyledHeroWrapper = styled.section`
 `;
 
 const StyledContainer = styled(Container)`
-  &&& {
-    max-width: 1280px;
-    display: flex;
-    flex-direction: column;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: ${screens['xl']}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  & [data-heading="true"] {
+    max-width: 360px;
+    line-height: 115%;
+    padding-top: 11px;
+
+    @media (min-width: ${screens['md']}) {
+      max-width: 1115px;
+    }
+  }
+
+  & [data-text="true"] {
+    margin: 0 auto;
+  }
+
+  & [data-stack] {
     align-items: center;
-    justify-content: center;
-
-    @media (min-width: ${screens['xl']}) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    & [data-heading="true"] {
-      max-width: 360px;
-      line-height: 115%;
-      padding-top: 11px;
-
-      @media (min-width: ${screens['md']}) {
-        max-width: 1115px;
-      }
-    }
-
-    & [data-text="true"] {
-      margin: 0 auto;
-    }
-
-    & [data-stack] {
-      align-items: center;
-    }
   }
 `;
 
 const StyledExcerpt = styled(Text)`
-  &&& {
-    &[data-large-text="true"] {
-      max-width: 343px;
+  &[data-large-text="true"] {
+    max-width: 343px;
 
-      @media (min-width: ${screens['lg']}) {
-        max-width: 659px;
-        text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
-      }
+    @media (min-width: ${screens['lg']}) {
+      max-width: 659px;
+      text-shadow: var(--ink-grey) 0 0 20px, var(--ink-grey) 1px 1px 1px;
     }
   }
 `;
@@ -251,8 +247,8 @@ export const CTA = ({
   image,
   video,
   variant = 'cta-hero',
-  $bgVariant = 'default',
-  $isFooterClose = false,
+  bgVariant = 'default',
+  isFooterClose = false,
   className,
   children,
   downloadButtonDefaultOsValue,
@@ -268,21 +264,21 @@ export const CTA = ({
   return (
     <StyledHeroWrapper
       data-cta="true"
-      data-footer-close={$isFooterClose ? 'true' : undefined}
+      data-footer-close={isFooterClose ? 'true' : undefined}
       data-variant={variant}
-      data-bg-variant={$bgVariant !== 'default' ? $bgVariant : undefined}
+      data-bg-variant={bgVariant !== 'default' ? bgVariant : undefined}
       className={className}
     >
       <StyledContainer data-container="true">
         {icon && (
-          <SquareIcon $size={isHero ? 'xLarge' : 'medium'} $variant={isHero ? 'primary' : 'secondary'} icon={icon} />
+          <SquareIcon size={isHero ? 'xLarge' : 'medium'} variant={isHero ? 'primary' : 'secondary'} icon={icon} />
         )}
         {subHeading && (
           <Text as="label" color="cinnabarRed" fontSize={labelSize} fontWeight="bold">
             {subHeading?.text} {SubHeadingIcon && <SubHeadingIcon weight="fill" />}
           </Text>
         )}
-        <Stack $gapxl="24px">
+        <Stack gapxl="24px">
           <Heading color="textGradient" as={asTitle} fontSize={HeadingSize}>
             {heading}
           </Heading>
@@ -299,8 +295,8 @@ export const CTA = ({
           <StyledCTAWrapper>
             {withDownload ? (
               <DownloadButton
-                $variant="primary"
-                $withBorder={isHero}
+                variant="primary"
+                withBorder={isHero}
                 aria-label="Download Items"
                 fixedOS={downloadButtonDefaultOsValue}
               />
@@ -309,10 +305,10 @@ export const CTA = ({
             {cta && (
               <Button
                 as={cta.as}
-                $variant={cta.$variant || 'secondary'}
+                variant={cta.variant || 'secondary'}
                 href={cta.href}
                 icon={cta.icon}
-                $withBorder={cta.$withBorder}
+                withBorder={cta.withBorder}
               >
                 {cta.title}
               </Button>

@@ -53,19 +53,17 @@ const StyledIntegrationCompatibilityGradientWrapper = styled.div`
 `;
 
 const StyledIntegrationCompatibilityContentWrapper = styled(Container)`
-  &&& {
-    display: flex;
-    padding: 32px 16px;
-    flex-direction: column;
-    gap: 32px;
-    position: relative;
+  display: flex;
+  padding: 32px 16px;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
 
-    @media (min-width: ${screens.lg}) {
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: row;
-      padding: 96px 90px;
-    }
+  @media (min-width: ${screens.lg}) {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 96px 90px;
   }
 `;
 
@@ -106,7 +104,7 @@ export const IntegrationCompatibility = ({
     <StyledIntegrationCompatibilityWrapper>
       <StyledIntegrationCompatibilityGradientLimits>
         <StyledIntegrationCompatibilityGradientWrapper>
-          <Gradient $shape="full" />
+          <Gradient shape="full" />
         </StyledIntegrationCompatibilityGradientWrapper>
       </StyledIntegrationCompatibilityGradientLimits>
       <StyledIntegrationCompatibilityContentWrapper>
@@ -117,7 +115,7 @@ export const IntegrationCompatibility = ({
               {title}
             </Heading>
           </StyledIntegrationCompatibilityContentTitle>
-          <DownloadButton $small $variant="secondary" />
+          <DownloadButton small variant="secondary" />
         </StyledIntegrationCompatibilityContent>
         <BadgesWrapper tools={tools} />
       </StyledIntegrationCompatibilityContentWrapper>

@@ -29,7 +29,7 @@ export const NewsletterForm = ({ action, source }: { action: string, source: str
           }
         </div>
         <Input id="email" placeholder="Email address" type="email" required />
-        <Button as="button" type="submit" $variant="primary" $small>
+        <Button as="button" type="submit" variant="primary" small>
           Sign up
         </Button>
       </StyledContentCardForm>

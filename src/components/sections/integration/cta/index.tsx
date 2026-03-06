@@ -21,11 +21,11 @@ import {
 import { Text } from '@/components/elements/text';
 import { screens } from '@/styles/tokens';
 
-export interface StyledIntegrationCTAProps {
-  $variant: 'hero' | 'cta';
+export interface IntegrationCTAVariantProps {
+  variant: 'hero' | 'cta';
 }
 
-export interface IntegrationCTAProps extends StyledIntegrationCTAProps {
+export interface IntegrationCTAProps extends IntegrationCTAVariantProps {
   title: string;
   text: string[];
   button?: ButtonProps;
@@ -151,13 +151,13 @@ const mobileIcons: IconRowsProps['rows'] = [
   },
 ];
 
-export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTAProps) => {
-  const HeadingTag = $variant === 'cta' ? 'h2' : 'h1';
+export const IntegrationCTA = ({ title, text, button, variant }: IntegrationCTAProps) => {
+  const HeadingTag = variant === 'cta' ? 'h2' : 'h1';
   const isMobile = useMedia(`(max-width: ${screens.lg})`, false);
 
   return (
-    <StyledIntegrationCTAWrapper data-variant={$variant}>
-      {!isMobile && <IconRows rows={leftIcons} $orientation="left" $offset={0.9} />}
+    <StyledIntegrationCTAWrapper data-variant={variant}>
+      {!isMobile && <IconRows rows={leftIcons} orientation="left" offset={0.9} />}
       <StyledIntegrationCTAContent>
         <Heading as={HeadingTag} fontSize="l" color="lightGrey" textAlign="center">
           {title}
@@ -173,8 +173,8 @@ export const IntegrationCTA = ({ title, text, button, $variant }: IntegrationCTA
           </Button>
         )}
       </StyledIntegrationCTAContent>
-      {isMobile && <IconRows rows={mobileIcons} $orientation="right" $offset={0} />}
-      {!isMobile && <IconRows rows={rightIcons} $orientation="right" $offset={0.8} />}
+      {isMobile && <IconRows rows={mobileIcons} orientation="right" offset={0} />}
+      {!isMobile && <IconRows rows={rightIcons} orientation="right" offset={0.8} />}
     </StyledIntegrationCTAWrapper>
   );
 };

@@ -3,11 +3,11 @@ import { Text } from '@/components/elements/text';
 import { styled } from '@linaria/react';
 import { screens } from '@/styles/tokens';
 
-interface StyledTextListProps {
-  $lighterText?: boolean;
+interface TextListVariantProps {
+  lighterText?: boolean;
 }
 
-export interface TextListProps extends StyledTextListProps {
+export interface TextListProps extends TextListVariantProps {
   list: string[];
 }
 
@@ -28,13 +28,13 @@ const StyledTextListItem = styled.li`
   align-items: center;
 `;
 
-export const TextList = ({ $lighterText = false, list }: TextListProps) => {
+export const TextList = ({ lighterText = false, list }: TextListProps) => {
   return (
     <StyledTextListWrapper>
       {list.map(text => (
         <StyledTextListItem key={text}>
           <CheckIcon />
-          <Text textAlign="left" fontSize="m" color={$lighterText ? 'white' : 'darkGrey'}>
+          <Text textAlign="left" fontSize="m" color={lighterText ? 'white' : 'darkGrey'}>
             {text}
           </Text>
         </StyledTextListItem>

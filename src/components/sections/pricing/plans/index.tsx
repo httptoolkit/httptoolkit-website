@@ -35,7 +35,7 @@ export interface PricingPlanData {
   features: PlanFeatures[];
   status?: string;
 
-  $isHighlighted: boolean;
+  isHighlighted: boolean;
 }
 
 interface PlanFeatures {
@@ -43,16 +43,14 @@ interface PlanFeatures {
   items: string[];
 }
 
-export interface StyledPricingPlansProps {
-  $hideFree?: boolean;
+export interface PricingPlansVariantProps {
+  hideFree?: boolean;
   downloadButton?: ReactNode;
 }
 
 const StyledPricingPlansWrapper = styled(Container)`
-  &&& {
-    position: relative;
-    max-width: ${screens['2xl']} !important;
-  }
+  position: relative;
+  max-width: ${screens['2xl']} !important;
 `;
 
 const StyledPricingPlansSwitchWrapper = styled.div`
@@ -153,12 +151,12 @@ const getAnnualDiscountText = (discount: number | null) => {
   return `Save ${discount ? (discount * 100) : '25'}%`;
 }
 
-export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPricingPlansProps) => {
+export const PricingPlans = observer(({ hideFree, downloadButton }: PricingPlansVariantProps) => {
   const [planCycle, setPlanCycle] = useState<Interval>('monthly');
   const getPlanCTA = usePlanCta(downloadButton);
 
   const isAnnual = planCycle === 'annual';
-  const filteredPlans = $hideFree ? plans.filter(plan => plan.id !== 'free') : plans;
+  const filteredPlans = hideFree ? plans.filter(plan => plan.id !== 'free') : plans;
   const {
     isLoggedIn,
     user,
@@ -198,14 +196,14 @@ export const PricingPlans = observer(({ $hideFree, downloadButton }: StyledPrici
         <StyledPricingPlansSwitchWrapper>
           { !isAnnual && (
             <StyledPricingPlansSwitchBadge>
-              <Text fontSize="s" fontWeight="bold" color="alwaysLightGrey" $isLabel>
+              <Text fontSize="s" fontWeight="bold" color="alwaysLightGrey" isLabel>
                 { getAnnualDiscountText(annualSaving) }
               </Text>
             </StyledPricingPlansSwitchBadge>
           )}
           <Switch options={intervalOptions} onChange={setPlanCycle} defaultValue={planCycle} />
         </StyledPricingPlansSwitchWrapper>
-        <StyledPricingPlansCardsWrapper data-hide-free={$hideFree ? 'true' : undefined}>
+        <StyledPricingPlansCardsWrapper data-hide-free={hideFree ? 'true' : undefined}>
           {Array.isArray(filteredPlans) &&
             filteredPlans.length > 0 &&
             filteredPlans.map(card => (

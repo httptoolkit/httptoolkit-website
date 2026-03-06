@@ -73,15 +73,13 @@ const StyledPostDetails = styled.div`
 `;
 
 const StyledExcerpt = styled(Text)`
-  &&& {
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-    padding: 3px 0;
-    text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  padding: 3px 0;
+  text-overflow: ellipsis;
 
-    display: -webkit-box;
-  }
+  display: -webkit-box;
 `;
 
 interface OverviewHeroProps {
@@ -110,8 +108,8 @@ export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {
               <Image width={540} height={303} src={`images/${featuredPost.coverImage}`} alt="" priority />
             </StyledPostImageWrapper>
             <StyledPostDetails>
-              <Stack $gapxl="16px">
-                <Stack $direction="row">
+              <Stack gapxl="16px">
+                <Stack direction="row">
                   {featuredPost.tags.length && featuredPost.tags.map((tag: string) => <Badge>{tag}</Badge>)}
                 </Stack>
                 <Heading fontSize="m" as="h2" fontWeight="normal" color="white">

@@ -18,16 +18,14 @@ const StyledHeader = styled.header`
 `;
 
 const StyledHeaderContainer = styled(Container)`
-  &&& {
-    display: flex;
-    align-items: center;
-    padding-top: 22px;
-    padding-bottom: 22px;
-    gap: 56px;
-    max-height: 70px;
+  display: flex;
+  align-items: center;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  gap: 56px;
+  max-height: 70px;
 
-    justify-content: space-between;
-  }
+  justify-content: space-between;
 `;
 
 const StyledNavItems = styled.nav`
@@ -99,7 +97,7 @@ export const Header = ({ isNavigationEnabled = true }: HeaderProps) => {
               })}
             </StyledNavItems>
             <Suspense>
-              <DownloadButton $small $variant="secondary" />
+              <DownloadButton small variant="secondary" />
             </Suspense>
           </StyledNavigation>
         ) : null}

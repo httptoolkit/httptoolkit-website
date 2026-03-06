@@ -72,7 +72,6 @@ export const StyledGradientBottom = styled.div`
   }
 
   display: none;
-  visibility: hidden;
 
   & > div {
     opacity: 0.2;
@@ -80,7 +79,6 @@ export const StyledGradientBottom = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -95,9 +93,7 @@ export const StyledSectionCTAWrapper = styled.div`
 `;
 
 export const StyledMobileText = styled(Container)`
-  &&& {
-    margin-top: 16px;
-  }
+  margin-top: 16px;
 `;
 
 export const StyledTextContent = styled.div`

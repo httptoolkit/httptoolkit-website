@@ -28,20 +28,18 @@ export const StyledSimpleFooter = styled.footer`
 `;
 
 const StyledContainer = styled(Container)`
-  &&& {
-    position: relative;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 24px;
 
-    @media (min-width: ${screens.md}) {
-      flex-direction: row;
-      gap: 40px;
-    }
+  @media (min-width: ${screens.md}) {
+    flex-direction: row;
+    gap: 40px;
+  }
 
-    @media (min-width: ${screens.lg}) {
-      flex-direction: row;
-    }
+  @media (min-width: ${screens.lg}) {
+    flex-direction: row;
   }
 `;
 
@@ -208,14 +206,12 @@ export const StyledFooterCopySection = styled.div`
 `;
 
 export const StyledSimpleFooterWrapper = styled(StyledFooterCopySection)`
-  &&& {
-    gap: 32px;
-    position: relative;
+  gap: 32px;
+  position: relative;
 
-    & svg[data-logo='true'] {
-      width: fit-content;
-      height: 26px;
-    }
+  & svg[data-logo='true'] {
+    width: fit-content;
+    height: 26px;
   }
 `;
 
@@ -260,22 +256,22 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
               <Text as="label" fontSize="m" fontWeight="bold">
                 FOLLOW US
               </Text>
-              <Stack $direction="row">
+              <Stack direction="row">
                 <Link href="https://github.com/httptoolkit" title="Github" aria-label="Github">
-                  <SquareIcon $size="small" icon={Github} />
+                  <SquareIcon size="small" icon={Github} />
                 </Link>
                 <Link href="https://bsky.app/profile/httptoolkit.com" title="Bluesky" aria-label="Bluesky">
-                  <SquareIcon $size="small" icon={Bluesky} />
+                  <SquareIcon size="small" icon={Bluesky} />
                 </Link>
                 <Link href="https://mastodon.social/@httptoolkit" title="Mastodon" aria-label="Mastodon">
-                  <SquareIcon $size="small" icon={Mastodon} />
+                  <SquareIcon size="small" icon={Mastodon} />
                 </Link>
                 <Link href="https://twitter.com/httptoolkit" title="Twitter" aria-label="Twitter">
-                  <SquareIcon $size="small" icon={TwitterX} />
+                  <SquareIcon size="small" icon={TwitterX} />
                 </Link>
               </Stack>
             </Stack>
-            <Stack $direction="row">
+            <Stack direction="row">
               <Link href="https://opensourcepledge.com/">
                 <OpenSourcePledge fill="#f00" width="120px" alt="Open Source Pledge member" />
               </Link>

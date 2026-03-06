@@ -43,7 +43,6 @@ const StyledFullGradient = styled.div`
 
   @media (min-width: ${screens.md}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -53,12 +52,10 @@ const StyledGradientMobile = styled.div`
   width: 100%;
   height: 700px;
   display: block;
-  visibility: visible;
   z-index: -1;
 
   @media (min-width: ${screens.md}) {
     display: none;
-    visibility: hidden;
   }
 `;
 
@@ -83,13 +80,13 @@ export const SuccessHero = ({ heading, excerpt, callToAction }: SuccessHeroProps
         {callToAction ? (
           callToAction
         ) : (
-          <Button href="/" $variant="secondary" $small>
+          <Button href="/" variant="secondary" small>
             Go to the Homepage
           </Button>
         )}
 
         <StyledFullGradient>
-          <Gradient $shape="full" />
+          <Gradient shape="full" />
         </StyledFullGradient>
       </StyledSuccessWrapper>
     </>

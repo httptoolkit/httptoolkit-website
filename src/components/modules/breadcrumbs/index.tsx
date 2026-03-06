@@ -43,9 +43,7 @@ const breadcrumbStyles = `
 `;
 
 const StyledBreadcrumbLink = styled(Link)`
-  &&& {
-    ${breadcrumbStyles}
-  }
+  ${breadcrumbStyles}
 `;
 
 const StyledBreadcrumbText = styled.p`

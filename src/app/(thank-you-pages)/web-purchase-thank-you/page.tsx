@@ -75,7 +75,6 @@ export const StyledGradientBottom = styled.div`
   }
 
   display: none;
-  visibility: hidden;
 
   & > div {
     opacity: 0.2;
@@ -83,7 +82,6 @@ export const StyledGradientBottom = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -135,9 +133,9 @@ export default function WebPurchaseThankYouPage() {
             <StyledThankYouColumns>
               <StyledThankYouColumnContent>
                 <StyledTextContent>
-                  <Stack $gapxl="48px">
-                    <Stack $gapxl="32px">
-                      <Stack $gapxl="24px">
+                  <Stack gapxl="48px">
+                    <Stack gapxl="32px">
+                      <Stack gapxl="24px">
                         <StyledHideElementOn data-hide-below="md">
                           <Heading fontSize="l" color="textGradient">
                             Thanks for your purchase!
@@ -148,7 +146,7 @@ export default function WebPurchaseThankYouPage() {
                           existing account&apos;, and enter your email.
                         </Text>
                       </Stack>
-                      <DownloadButton $withBorder $variant="primary" />
+                      <DownloadButton withBorder variant="primary" />
                     </Stack>
 
                     <ContentCard

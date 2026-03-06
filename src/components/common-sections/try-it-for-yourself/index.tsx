@@ -7,7 +7,7 @@ import type { CTAProps } from '@/components/sections/cta';
 
 interface TryItForYourselfCTAProps {
   variant?: CTAProps['variant'];
-  isFooterClose?: CTAProps['$isFooterClose'];
+  isFooterClose?: CTAProps['isFooterClose'];
 }
 
 export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = false }: TryItForYourselfCTAProps) => {
@@ -21,7 +21,7 @@ export const TryItForYourselfCTA = ({ variant = 'cta-square', isFooterClose = fa
         excerpt={<>
           Download HTTP Toolkit to intercept, inspect, <ResponsiveLineBreak />and modify any HTTP traffic in seconds.
         </>}
-        $isFooterClose={isFooterClose}
+        isFooterClose={isFooterClose}
       />
     </TryYourselfWrapper>
   );

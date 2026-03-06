@@ -25,8 +25,8 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
         title="Frequently Asked Questions"
         text=""
         cta={{
-          $small: true,
-          $variant: 'secondary',
+          small: true,
+          variant: 'secondary',
           children: 'See more FAQs',
           icon: CaretRight,
           as: 'link',

@@ -19,18 +19,16 @@ export interface IntegrationCardProps {
 }
 
 const StyledIntegrationCardBorder = styled(Link)`
-  &&& {
-    display: block;
-    background: var(--button-border);
-    padding: 1px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 8px 0px var(--shadow-default);
+  display: block;
+  background: var(--button-border);
+  padding: 1px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 0px var(--shadow-default);
 
-    @media (hover: hover) {
-      &:hover {
-        background: var(--blue-gradient);
-        box-shadow: none;
-      }
+  @media (hover: hover) {
+    &:hover {
+      background: var(--blue-gradient);
+      box-shadow: none;
     }
   }
 `;

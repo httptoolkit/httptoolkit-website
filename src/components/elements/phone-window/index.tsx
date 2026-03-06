@@ -7,7 +7,7 @@ export const PhoneWindow = (p: {
     children: React.ReactNode;
     className?: string;
 }) => <PhoneOutline className={p.className}>
-        <PhoneScreen $aspectRatio={p.aspectRatio}>
+        <PhoneScreen style={{ '--phone-aspect-ratio': p.aspectRatio } as React.CSSProperties}>
             { p.children }
         </PhoneScreen>
         <HomeButton />

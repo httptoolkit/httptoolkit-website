@@ -4,12 +4,12 @@ import { HighlightedText } from '@/components/elements/highlighted-text';
 import { Text } from '@/components/elements/text';
 import { styled } from '@linaria/react';
 
-export interface StyledHeadingBlockProps {
-  $align: CanvasTextAlign;
-  $isContentCentered?: boolean;
+export interface HeadingBlockLayoutProps {
+  align: CanvasTextAlign;
+  isContentCentered?: boolean;
 }
 
-export interface HeadingBlockProps extends StyledHeadingBlockProps {
+export interface HeadingBlockProps extends HeadingBlockLayoutProps {
   title: string;
   text?: string;
   badgeTitle?: string;
@@ -44,8 +44,8 @@ const StyledHeadingBlockTitle = styled.div`
  */
 
 export const HeadingBlock = ({
-  $align = 'center',
-  $isContentCentered = false,
+  align = 'center',
+  isContentCentered = false,
   title,
   text,
   badgeTitle,
@@ -55,9 +55,9 @@ export const HeadingBlock = ({
 }: HeadingBlockProps) => {
   return (
     <StyledHeadingBlockWrapper style={{
-      textAlign: $align,
-      alignItems: alignDictionary[$align],
-      margin: $isContentCentered ? '0 auto' : undefined,
+      textAlign: align,
+      alignItems: alignDictionary[align],
+      margin: isContentCentered ? '0 auto' : undefined,
     }}>
       {badgeTitle && (
         <Badge variant={badgeVariant} additionalText={badgeAdditionalText} icon={badgeIcon}>
@@ -65,12 +65,12 @@ export const HeadingBlock = ({
         </Badge>
       )}
       <StyledHeadingBlockTitle>
-        <Heading as="h2" fontSize="l" textAlign={$align} color="textGradient">
+        <Heading as="h2" fontSize="l" textAlign={align} color="textGradient">
           <HighlightedText title={title} />
         </Heading>
       </StyledHeadingBlockTitle>
       {text && (
-        <Text fontSize="l" textAlign={$align}>
+        <Text fontSize="l" textAlign={align}>
           {text}
         </Text>
       )}

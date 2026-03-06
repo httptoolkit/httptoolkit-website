@@ -5,8 +5,8 @@ import type { Icon, IconWeight } from '@phosphor-icons/react';
 import { fontSizes, fontWeight, letterSpacing, lineHeight } from '@/styles/tokens';
 
 type badgedVariant = 'primary' | 'secondary';
-export interface StyledBadgeProps {
-  $variant?: badgedVariant;
+export interface BadgeVariantProps {
+  variant?: badgedVariant;
 }
 
 export interface BadgeProps {

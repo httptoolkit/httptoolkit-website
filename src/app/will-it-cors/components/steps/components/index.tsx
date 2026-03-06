@@ -59,7 +59,7 @@ export const SourceUrlQuestion = observer(({ onNext, value, onChange }: Question
             onChange(e.target.value);
           }}
         />
-        <Button $isFluid type="submit">
+        <Button isFluid type="submit">
           Next
         </Button>
       </Stack>
@@ -81,7 +81,7 @@ export const TargetUrlQuestion = observer(({ onNext, value, onChange }: Question
           value={value}
           onChange={e => onChange(e.target.value)}
         />
-        <Button $isFluid type="submit">
+        <Button isFluid type="submit">
           Next
         </Button>
       </Stack>
@@ -170,7 +170,7 @@ export const MethodQuestion = observer(
               e.target.reportValidity();
             }}
           />
-          <Button $isFluid type="submit">
+          <Button isFluid type="submit">
             Next
           </Button>
         </Stack>
@@ -234,7 +234,7 @@ export const RequestExtrasQuestion = observer(
             <EditableHeaders autoFocus headers={headers} onChange={onChangeHeaders} onlyClientHeaders={true} />
           )}
 
-          <Button $isFluid type="submit">
+          <Button isFluid type="submit">
             {headers.length === 0 && !sendCredentials && !useStreaming ? 'No, skip this' : 'Next'}
           </Button>
         </Stack>
@@ -257,7 +257,7 @@ export const ContentTypeQuestion = ({ onNext, value, onChange }: QuestionProps) 
           value={value || ''}
           onChange={e => onChange(e.target.value)}
         />
-        <Button $isFluid type="submit">
+        <Button isFluid type="submit">
           Next
         </Button>
         <Text fontSize="m" fontStyle="italic">
@@ -292,7 +292,7 @@ export const SimpleCorsRequest = ({ onNext }: Pick<QuestionProps, 'onNext'>) => 
       <strong>However, this doesn&apos;t mean you&apos;re always allowed to read the response</strong>. That depends on
       the headers the server returns...
     </Text>
-    <Button $isFluid onClick={onNext}>
+    <Button isFluid onClick={onNext}>
       Next
     </Button>
   </Stack>
@@ -390,7 +390,7 @@ export const ServerResponseQuestion = observer(
           }}
         />
         <EditableHeaders headers={value} onChange={onChange} />
-        <Button $isFluid type="submit">
+        <Button isFluid type="submit">
           Next
         </Button>
       </Stack>
@@ -561,7 +561,7 @@ export const ServerAllowsCorsRequest = ({
           might be cached and then used by a CORS request from a different origin, where it will unexpectedly fail.
         </Text>
       )}
-      <Button type="submit" $isFluid onClick={onNext}>
+      <Button type="submit" isFluid onClick={onNext}>
         Show me the code
       </Button>
       <TryHttpToolkit />
@@ -597,7 +597,7 @@ export const PreflightRequest = ({ onNext }: Pick<QuestionProps, 'onNext'>) => (
       kind of CORS requests are allowed. The server&apos;s response tells the browser whether your main request can be
       sent.
     </Text>
-    <Button type="submit" $isFluid onClick={onNext}>
+    <Button type="submit" isFluid onClick={onNext}>
       Next
     </Button>
   </Stack>
@@ -679,7 +679,7 @@ export const PreflightResponseQuestion = observer(
             label="Cache this result, to speed up future preflight checks"
           />
           <EditableHeaders headers={value} onChange={onChange} />
-          <Button $isFluid type="submit">
+          <Button isFluid type="submit">
             Next
           </Button>
         </Stack>
@@ -820,7 +820,7 @@ export const ServerAllowsPreflightRequest = ({ onNext }: Pick<QuestionProps, 'on
       <strong>However, this doesn&apos;t mean you can definitely read the response</strong>. That depends on the headers
       the server returns with the final response...
     </Text>
-    <Button $isFluid type="submit" onClick={onNext}>
+    <Button isFluid type="submit" onClick={onNext}>
       Next
     </Button>
   </Stack>

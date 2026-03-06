@@ -4,14 +4,14 @@ import { styled } from '@linaria/react';
 
 import { screens } from '@/styles/tokens';
 
-export interface StyledStackProps {
-  $direction?: 'row' | 'row-reverse' | 'column' | ' column-reverse';
-  $alignItems?: 'center' | 'self-start' | 'self-end' | 'normal';
-  $gap?: string;
-  $gapxl?: string;
+export interface StackLayoutProps {
+  direction?: 'row' | 'row-reverse' | 'column' | ' column-reverse';
+  alignItems?: 'center' | 'self-start' | 'self-end' | 'normal';
+  gap?: string;
+  gapxl?: string;
 }
 
-export type StackProps = Component<StyledStackProps>;
+export type StackProps = Component<StackLayoutProps>;
 
 const StyledStack = styled.div`
   display: flex;
@@ -24,15 +24,15 @@ const StyledStack = styled.div`
   }
 `;
 
-const Stack = ({ $gap, $gapxl, $direction, $alignItems, children }: StackProps) => {
+const Stack = ({ gap, gapxl, direction, alignItems, children }: StackProps) => {
   return (
     <StyledStack
       data-stack
       style={{
-        '--stack-direction': $direction,
-        '--stack-align': $alignItems,
-        '--stack-gap': $gap,
-        '--stack-gapxl': $gapxl,
+        '--stack-direction': direction,
+        '--stack-align': alignItems,
+        '--stack-gap': gap,
+        '--stack-gapxl': gapxl,
       } as React.CSSProperties}
     >
       {children}

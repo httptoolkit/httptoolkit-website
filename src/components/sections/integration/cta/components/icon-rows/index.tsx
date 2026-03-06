@@ -13,8 +13,8 @@ export interface IconRowItem {
 
 export interface IconRowsProps {
   rows: IconRowItem[];
-  $offset: IconRowItem['offset'];
-  $orientation: 'right' | 'left';
+  offset: IconRowItem['offset'];
+  orientation: 'right' | 'left';
 }
 
 const iconsSize = 72;
@@ -55,23 +55,23 @@ const parserOffset = (offset: number) => {
   return offset + additionalOffset;
 };
 
-export const IconRows = ({ rows, $orientation, $offset }: IconRowsProps) => {
+export const IconRows = ({ rows, orientation, offset }: IconRowsProps) => {
   return (
     <StyledIconRowsWrapper
-      data-orientation={$orientation}
-      style={{ '--offset': $offset } as React.CSSProperties}
+      data-orientation={orientation}
+      style={{ '--offset': offset } as React.CSSProperties}
     >
       {Array.isArray(rows) &&
         rows?.length > 0 &&
         rows.map((row, rowIndex) => (
           <StyledIconRow
             key={rowIndex}
-            data-orientation={$orientation}
+            data-orientation={orientation}
             style={{ '--offset': parserOffset(row.offset) } as React.CSSProperties}
           >
             {Array.isArray(row.icons) &&
               row.icons?.length > 0 &&
-              row.icons.map((icon, iconIndex) => <SquareIcon key={iconIndex} icon={icon} $size="xLarge" />)}
+              row.icons.map((icon, iconIndex) => <SquareIcon key={iconIndex} icon={icon} size="xLarge" />)}
           </StyledIconRow>
         ))}
     </StyledIconRowsWrapper>

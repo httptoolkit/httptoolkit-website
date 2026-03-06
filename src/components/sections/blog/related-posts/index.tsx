@@ -19,8 +19,8 @@ export const RelatedPosts = async ({ tags, currentPostSlug }: RelatedPostsProps)
 
   return (
     <StyledRelatedPostWrapper>
-      <Stack $gap="32px" $gapxl="48px">
-        <HeadingBlock title="Related *content*" $align="center" $isContentCentered />
+      <Stack gap="32px" gapxl="48px">
+        <HeadingBlock title="Related *content*" align="center" isContentCentered />
         <StyledRelatedPostsGrid>
           {relatedPosts.length &&
             relatedPosts.map(post => (

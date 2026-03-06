@@ -11,11 +11,11 @@ import { TableContent } from '@/components/modules/table-content';
 import type { TableContentProps } from '@/components/modules/table-content';
 import { screens } from '@/styles/tokens';
 
-export interface StyledContentWithTableProps {
-  $bgVariant?: 'inkBlack' | 'darkGrey';
+export interface ContentWithTableVariantProps {
+  bgVariant?: 'inkBlack' | 'darkGrey';
 }
 
-export interface ContentWithTableProps extends StyledContentWithTableProps {
+export interface ContentWithTableProps extends ContentWithTableVariantProps {
   links: TableContentProps['links'];
   richTextContent?: RichTextProps['content'];
 
@@ -118,10 +118,10 @@ export const ContentWithTable = ({
   links,
   parsedContent,
   additionalContent,
-  $bgVariant = 'inkBlack',
+  bgVariant = 'inkBlack',
 }: ContentWithTableProps) => {
   return (
-    <StyledContentWithTableWrapper data-bg-variant={$bgVariant}>
+    <StyledContentWithTableWrapper data-bg-variant={bgVariant}>
       <StyledContentWithTableUpperGradientWrapper>
         <Gradient />
       </StyledContentWithTableUpperGradientWrapper>

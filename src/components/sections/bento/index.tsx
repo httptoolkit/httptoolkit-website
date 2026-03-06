@@ -84,7 +84,7 @@ export const Bento = ({ title, cards }: BentoProps) => {
               <StyledBentoColumn>
                 {Array.isArray(cardsChunk) &&
                   cardsChunk.length > 0 &&
-                  cardsChunk.map(card => <FluidCard $variant="dark" {...card} />)}
+                  cardsChunk.map(card => <FluidCard variant="dark" {...card} />)}
               </StyledBentoColumn>
             ))}
         </StyledBentoContent>

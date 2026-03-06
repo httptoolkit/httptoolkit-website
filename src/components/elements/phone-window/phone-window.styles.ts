@@ -38,15 +38,13 @@ export const PhoneOutline = styled.div`
     }
 `;
 
-export const PhoneScreen = styled.div<{
-    $aspectRatio: string
-}>`
+export const PhoneScreen = styled.div`
     border-width: 1px 0px;
     border-style: solid;
     border-color: var(--button-border);
 
     line-height: 0;
-    aspect-ratio: ${p => p.$aspectRatio};
+    aspect-ratio: var(--phone-aspect-ratio);
 `;
 
 export const HomeButton = styled.div`

@@ -36,11 +36,9 @@ export const StyledColumnContent = styled.div`
 
 export const StyledImageWrapper = styled.div`
   display: none;
-  visibility: hidden;
 
   @media (min-width: ${screens['lg']}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -71,7 +69,6 @@ export const StyledGradientBottom = styled.div`
   }
 
   display: none;
-  visibility: hidden;
 
   & > div {
     opacity: 0.2;
@@ -79,7 +76,6 @@ export const StyledGradientBottom = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -89,10 +85,8 @@ export const StyledGradientMobile = styled.div`
   width: 100%;
   height: 700px;
   display: block;
-  visibility: visible;
 
   @media (min-width: ${screens['lg']}) {
     display: none;
-    visibility: hidden;
   }
 `;

@@ -30,7 +30,7 @@ const StyledCompatibilityBadge = styled.div`
 export const CompatibilityBadge = ({ children }: Component) => {
   return (
     <StyledCompatibilityBadge>
-      <CheckIcon $small />
+      <CheckIcon small />
       <Text fontSize="m" color="lightGrey" fontWeight="medium">
         {children}
       </Text>

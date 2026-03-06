@@ -32,7 +32,7 @@ const WebShare = ({ title, url }: WebShareProps) => {
         });
       }}
     >
-      <SquareIcon $size="mini" icon={ShareNetwork} />
+      <SquareIcon size="mini" icon={ShareNetwork} />
     </SocialButton>
   );
 };

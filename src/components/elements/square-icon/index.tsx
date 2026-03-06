@@ -12,14 +12,14 @@ export const SquareIconSizes = {
   xLarge: 72,
 };
 
-export interface StyledSquareIconProps {
-  $variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary' | 'tertiary-bigger';
-  $size?: keyof typeof SquareIconSizes;
+export interface SquareIconVariantProps {
+  variant?: 'primary' | 'secondary' | 'darker-secondary' | 'tertiary' | 'tertiary-bigger';
+  size?: keyof typeof SquareIconSizes;
 }
 
 export type IconType = Icon | CustomIcon;
 
-export interface SquareIconProps extends StyledSquareIconProps {
+export interface SquareIconProps extends SquareIconVariantProps {
   icon: IconType;
 }
 
@@ -89,12 +89,12 @@ const StyledSquareIcon = styled.div`
   }
 `;
 
-export const SquareIcon = ({ icon: Icon, $size = 'medium', $variant = 'primary', ...props }: SquareIconProps) => {
+export const SquareIcon = ({ icon: Icon, size = 'medium', variant = 'primary', ...props }: SquareIconProps) => {
   return (
     <StyledSquareIcon
-      data-variant={$variant}
-      data-size={$size}
-      style={{ '--icon-size': `${SquareIconSizes[$size || 'medium']}px` } as React.CSSProperties}
+      data-variant={variant}
+      data-size={size}
+      style={{ '--icon-size': `${SquareIconSizes[size || 'medium']}px` } as React.CSSProperties}
       {...props}
     >
       <Icon size="100%" weight="fill" />

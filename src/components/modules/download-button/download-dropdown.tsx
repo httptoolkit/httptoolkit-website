@@ -32,9 +32,9 @@ const downloadItemToOption = (item: DownloadDictionary) => ({
 } as const);
 
 export const DownloadDropdown = ({
-  $small,
-  $variant,
-  $withBorder,
+  small,
+  variant,
+  withBorder,
   isInHeader,
   fixedOS,
   downloadItems,
@@ -65,13 +65,13 @@ export const DownloadDropdown = ({
   // Makes the hide/show with styles to avoid CLS issues
   return (
     <>
-      <SendEmail data-is-in-header={isInHeader} buttonProps={{ $variant, $small, $withBorder }} />
+      <SendEmail data-is-in-header={isInHeader} buttonProps={{ variant, small, withBorder }} />
       <StyledHideElementOn data-hide-below="md">
         <Dropdown
-          $small={$small}
+          small={small}
           href={defaultDownload.href}
-          $variant={$variant}
-          $withBorder={$withBorder}
+          variant={variant}
+          withBorder={withBorder}
           aria-label="Download Items"
           items={items}
         >

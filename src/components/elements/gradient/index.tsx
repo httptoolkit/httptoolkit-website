@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
-export interface StyledGradientProps {
-  $shape?: 'full' | 'side';
+export interface GradientVariantProps {
+  shape?: 'full' | 'side';
 }
 
 const StyledGradient = styled.div`
@@ -28,6 +28,6 @@ const StyledGradient = styled.div`
   }
 `;
 
-export const Gradient = ({ $shape = 'side' }: StyledGradientProps) => {
-  return <StyledGradient data-shape={$shape} />;
+export const Gradient = ({ shape = 'side' }: GradientVariantProps) => {
+  return <StyledGradient data-shape={shape} />;
 };

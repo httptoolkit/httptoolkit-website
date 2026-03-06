@@ -5,11 +5,7 @@ import { Text } from '@/components/elements/text';
 import { styled } from '@linaria/react';
 import { screens } from '@/styles/tokens';
 
-interface StyledContentCardProps {
-  $isNewsletter?: boolean;
-}
-
-export interface ContentCardProps extends StyledContentCardProps {
+export interface ContentCardProps {
   title: string;
   text?: string;
   button?: ButtonProps;
@@ -19,11 +15,11 @@ export interface ContentCardProps extends StyledContentCardProps {
   }
 }
 
-const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
+const StyledContentCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: ${({ $isNewsletter }) => ($isNewsletter ? '16px' : '32px')};
+  gap: 32px;
   border-radius: 12px;
   padding: 16px;
   background-color: var(--ink-black);
@@ -31,16 +27,22 @@ const StyledContentCardWrapper = styled.div<StyledContentCardProps>`
     0 0 0 1px var(--button-border),
     0 0 8px 0 var(--shadow-default);
 
+  &[data-newsletter='true'] {
+    gap: 16px;
+  }
+
   @media (min-width: ${screens['lg']}) {
     padding: 32px;
-    gap: ${({ $isNewsletter }) => ($isNewsletter ? '16px' : '43px')};
+    gap: 43px;
+
+    &[data-newsletter='true'] {
+      gap: 16px;
+    }
   }
 `;
 
 const StyledContentCardTitle = styled(Text)`
-  &&& {
-    max-width: 452px;
-  }
+  max-width: 452px;
 `;
 
 const StyledContentCardContent = styled.div`
@@ -66,7 +68,7 @@ export const StyledContentCardForm = styled.form`
 
 export const ContentCard = ({ title, text, button, newsletter }: ContentCardProps) => {
   return (
-    <StyledContentCardWrapper $isNewsletter={!!newsletter}>
+    <StyledContentCardWrapper data-newsletter={!!newsletter}>
       <StyledContentCardContent>
         <StyledContentCardTitle fontSize="l" fontWeight="bold" color="white" textAlign="left">
           {title}
@@ -79,7 +81,7 @@ export const ContentCard = ({ title, text, button, newsletter }: ContentCardProp
       </StyledContentCardContent>
       {!!newsletter && <NewsletterForm action={newsletter.action} source={newsletter.source} />}
       {button?.href && (
-        <Button as="link" target="_blank" $variant="secondary" {...button}>
+        <Button as="link" target="_blank" variant="secondary" {...button}>
           {button.children}
         </Button>
       )}

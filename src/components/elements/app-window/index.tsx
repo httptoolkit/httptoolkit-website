@@ -21,12 +21,10 @@ const VideoWindowBorder = styled.div`
         --video-dark-radius: 7px;
     }
 
-    @container style(--theme: dark) {
-        border-radius: 4px 4px var(--video-dark-radius) var(--video-dark-radius);
-        border: none;
-    }
+    border-radius: 4px 4px var(--video-dark-radius) var(--video-dark-radius);
+    border: none;
 
-    @container style(--theme: light) {
+    [data-theme="light"] & {
         border-radius: 4px 4px var(--video-light-radius) var(--video-light-radius);
         border: solid 1px var(--darkish-grey);
     }
@@ -59,7 +57,7 @@ const VideoWindowButtons = styled.svg`
 `;
 
 const VideoWindowContents = styled.div`
-    @container style(--theme: light) {
+    [data-theme="light"] & {
         border-top: solid 1px var(--darkish-grey);
     }
 

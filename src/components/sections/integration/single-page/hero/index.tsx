@@ -169,7 +169,7 @@ export const IntegrationSinglePageHero = ({
             <Text fontSize="m" color="darkGrey">
               {text}
             </Text>
-            <DownloadButton $variant="primary" />
+            <DownloadButton variant="primary" />
           </StyledIntegrationHeroContent>
         </StyledIntegrationHeroContentWrapper>
 
@@ -183,7 +183,7 @@ export const IntegrationSinglePageHero = ({
           ) : (
             <StyledIntegrationHeroImageMultiple>
               <Logo width={109} />
-              <Stack $direction="row" $gapxl="32px">
+              <Stack direction="row" gapxl="32px">
                 {additionalIcons?.map((Icon, idx) => <Icon key={idx} height={64} />)}
               </Stack>
             </StyledIntegrationHeroImageMultiple>

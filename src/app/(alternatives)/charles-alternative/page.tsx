@@ -22,12 +22,12 @@ export default async function CharlesAlternativePage() {
         video={{id: 'chrome'}}
       />
       <IntegrationCTA
-        $variant="cta"
+        variant="cta"
         title="One-click setup integrations for every tool you use"
         text={["HTTP Toolkit includes one-click automated setup to provide precisely targeted interception of individual mobile apps, browsers, terminal windows, Docker containers & more."]}
         button={{
-          $small: true,
-          $variant: 'secondary',
+          small: true,
+          variant: 'secondary',
           children: 'See all integrations',
           href: '/all-integrations',
         }}

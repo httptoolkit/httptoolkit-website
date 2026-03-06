@@ -24,8 +24,8 @@ export const ContactForm = () => {
   return (
     <StyledContactFormWrapper>
       <form action="https://accounts.httptoolkit.tech/api/contact-form" method="POST">
-        <Stack $gapxl="32px">
-          <Stack $gapxl="16px">
+        <Stack gapxl="32px">
+          <Stack gapxl="16px">
             <Input label="Your Name" id="name" placeholder="e.g. Holly Smith" required type="text" />
             <Input label="Email" id="email" placeholder="e.g. holly.smith@example.com" required type="email" />
             <Input
@@ -45,7 +45,7 @@ export const ContactForm = () => {
               />
             </div>
           </Stack>
-          <Button type="submit" $isFluid>
+          <Button type="submit" isFluid>
             Submit the form
           </Button>
         </Stack>

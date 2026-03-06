@@ -47,13 +47,13 @@ export const MobileDrawerMenu = ({ children }: Component) => {
       <Button
         style={{ width: 48, height: 48, padding: 0 }}
         aria-label="Open mobile menu"
-        $variant="secondary"
+        variant="secondary"
         onClick={toggleDrawer}
       >
         <List aria-hidden="true" size={16} color="currenColor" />
       </Button>
       <div ref={drawerRef}>
-        <Drawer $isOpen={isOpen} onClose={toggleDrawer}>
+        <Drawer isOpen={isOpen} onClose={toggleDrawer}>
           {children}
         </Drawer>
       </div>

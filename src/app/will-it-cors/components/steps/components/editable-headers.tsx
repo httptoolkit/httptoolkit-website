@@ -132,7 +132,7 @@ export const EditableHeaders = props => {
               })}
               onKeyPress={clickOnEnter}
             >
-              <SquareIcon $size="small" icon={Trash} />
+              <SquareIcon size="small" icon={Trash} />
             </HeaderDeleteButton>,
           ]).concat([
             <Input

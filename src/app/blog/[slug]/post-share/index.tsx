@@ -42,14 +42,14 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
   return (
     <SocialShareContainer>
       <Text fontSize="m">Share this post:</Text>
-      <Stack $direction="row" $gap="8px" $gapxl="8px">
+      <Stack direction="row" gap="8px" gapxl="8px">
         <SocialButton
           href={socialLinks?.blueskyUrl || `https://bsky.app/intent/compose?text=${postTitle}%3Cbr%3E%3Cbr%3E${fullPostUrl}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Share ${postTitle} on BlueSky`}
         >
-          <SquareIcon $size="mini" icon={Butterfly} />
+          <SquareIcon size="mini" icon={Butterfly} />
         </SocialButton>
 
         <SocialButton
@@ -58,7 +58,7 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
           rel="noopener noreferrer"
           aria-label={`Share ${postTitle} on Twitter`}
         >
-          <SquareIcon $size="mini" icon={TwitterX} />
+          <SquareIcon size="mini" icon={TwitterX} />
         </SocialButton>
 
         <SocialButton
@@ -67,7 +67,7 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
           rel="noopener noreferrer"
           aria-label="Share this post on Reddit"
         >
-          <SquareIcon $size="mini" icon={RedditLogo} />
+          <SquareIcon size="mini" icon={RedditLogo} />
         </SocialButton>
 
         <SocialButton
@@ -76,7 +76,7 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
           rel="noopener noreferrer"
           aria-label="Share this post on Hacker News"
         >
-          <SquareIcon $size="mini" icon={YCombinator} />
+          <SquareIcon size="mini" icon={YCombinator} />
         </SocialButton>
 
         {socialLinks?.devToUrl && (
@@ -86,7 +86,7 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
             rel="noopener noreferrer"
             aria-label="Share this post on Dev.to"
           >
-            <SquareIcon $size="mini" icon={DevToLogo} />
+            <SquareIcon size="mini" icon={DevToLogo} />
           </SocialButton>
         )}
 
@@ -97,7 +97,7 @@ export const SocialPostShare = ({ postTitle, postUrl, socialLinks }: SocialShare
             rel="noopener noreferrer"
             aria-label="Share this post on Product Hunt"
           >
-            <SquareIcon $size="mini" icon={ProductHuntLogo} />
+            <SquareIcon size="mini" icon={ProductHuntLogo} />
           </SocialButton>
         )}
 

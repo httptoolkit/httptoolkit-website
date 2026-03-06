@@ -68,15 +68,13 @@ const StyledBlogCardButtonWrapper = styled.div`
 `;
 
 const StyledExcerpt = styled(Text)`
-  &&& {
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-    padding: 3px 0;
-    text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  padding: 3px 0;
+  text-overflow: ellipsis;
 
-    display: -webkit-box;
-  }
+  display: -webkit-box;
 `;
 
 export const BlogCard = ({ title, excerpt, image, date, tag, slug }: BlogCardProps) => {
@@ -107,8 +105,8 @@ export const BlogCard = ({ title, excerpt, image, date, tag, slug }: BlogCardPro
             href={`/blog/${slug}`}
             title={`Read more about ${title}`}
             aria-label={`Read more about ${title}`}
-            $variant="secondary"
-            $small
+            variant="secondary"
+            small
             icon={ArrowRight}
           >
             Read more

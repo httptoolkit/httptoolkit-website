@@ -77,7 +77,7 @@ export default function RootLayout({
         <PHProvider>
           <ThemeLayout>
             <RadixProviders>
-              <Button as="link" href="#main-content" $small className="skip-button">
+              <Button as="link" href="#main-content" small className="skip-button">
                 Skip to main content
               </Button>
               <PostHogPageView />

@@ -85,7 +85,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
           <StyledSelectedTag>{currentTag}</StyledSelectedTag>
           tag
         </Text>
-        <Button icon={ArrowRight} as="link" $variant="secondary" $small href="/blog">
+        <Button icon={ArrowRight} as="link" variant="secondary" small href="/blog">
           Back to all posts
         </Button>
       </StyledNoResultsWrapper>
@@ -121,7 +121,7 @@ export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
       />
       {visibleItems < filteredPosts.length && (
         <StyledLoadMoreWrapper>
-          <Button $variant="secondary" onClick={handleLoadMore}>
+          <Button variant="secondary" onClick={handleLoadMore}>
             Load More
           </Button>
         </StyledLoadMoreWrapper>

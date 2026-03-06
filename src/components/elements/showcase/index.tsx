@@ -22,12 +22,12 @@ const ShowCaseWrapper = styled.fieldset`
 
 interface ShowCaseProps {
   title: string;
-  $flexDirection?: 'row' | 'column';
+  flexDirection?: 'row' | 'column';
 }
 
-const ShowCase = ({ children, title, $flexDirection }: Component<ShowCaseProps>) => {
+const ShowCase = ({ children, title, flexDirection }: Component<ShowCaseProps>) => {
   return (
-    <ShowCaseWrapper data-flex-direction={$flexDirection}>
+    <ShowCaseWrapper data-flex-direction={flexDirection}>
       <legend>{title}</legend>
       {children}
     </ShowCaseWrapper>

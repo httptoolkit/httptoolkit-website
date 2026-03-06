@@ -58,7 +58,7 @@ export default function ContactPage() {
         <Container>
           <StyledContactPageColumns>
             <StyledContactColumnContent>
-              <Stack $gap="32px" $gapxl="24px">
+              <Stack gap="32px" gapxl="24px">
                 <Heading fontSize="l" color="textGradient">
                   Get in touch
                 </Heading>

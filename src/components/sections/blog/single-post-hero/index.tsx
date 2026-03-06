@@ -103,7 +103,6 @@ const StyledTags = styled.div`
 
   @media (min-width: ${screens['lg']}) {
     display: none;
-    visibility: hidden;
   }
 `;
 
@@ -131,7 +130,7 @@ export const SinglePostHero = ({ post }: SinglePostHeroProps) => {
     <StyledSinglePost>
       <StyledSinglePostDetails>
         <GoBack displayOn="desktop" />
-        <Stack $gap="16px">
+        <Stack gap="16px">
           <StyledTags>{post.tags.length && post.tags.map((tag: string) => <Badge>{tag}</Badge>)}</StyledTags>
           <Heading fontSize="l" fontWeight="normal" color="white">
             {post.title}

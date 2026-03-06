@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 import { screens } from '@/styles/tokens';
 
 export interface MovingBorderProps {
-  $withBorder: boolean;
+  withBorder: boolean;
 }
 
 export const MovingBorder = styled.figure`

@@ -18,11 +18,11 @@ interface FeatureLineBadgeProps {
   icon: Icon;
 }
 
-export interface StyledFeatureLineProps {
-  $align?: 'left' | 'right';
+export interface FeatureLineLayoutProps {
+  align?: 'left' | 'right';
 }
 
-export interface FeatureLineProps extends StyledFeatureLineProps {
+export interface FeatureLineProps extends FeatureLineLayoutProps {
   title: string;
   image?: ThemeImageProps;
   badge?: FeatureLineBadgeProps;
@@ -82,10 +82,10 @@ const StyledFeatureLineTextWrapper = styled.div`
   }
 `;
 
-export const FeatureLine = ({ $align, title, text, icon, list, badge, image }: FeatureLineProps) => {
+export const FeatureLine = ({ align, title, text, icon, list, badge, image }: FeatureLineProps) => {
   const headingColor: HeadingProps['color'] = icon ? 'white' : 'lightGrey';
   return (
-    <StyledFeatureLineWrapper data-align={$align}>
+    <StyledFeatureLineWrapper data-align={align}>
       <StyledFeatureLineContentWrapper>
         {icon && <SquareIcon icon={icon} />}
         {badge && (

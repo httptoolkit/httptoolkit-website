@@ -118,7 +118,6 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 [data-theme='light'] [data-hide-on-theme='light'] {
   display: none;
   padding-top: 0;
-  visibility: hidden;
 }
 
 * {

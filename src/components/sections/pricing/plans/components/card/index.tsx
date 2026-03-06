@@ -14,11 +14,11 @@ import type { TextProps } from '@/components/elements/text';
 import { screens, fontSizes, textColors } from '@/styles/tokens';
 import { renderer } from '@/lib/marked/link-target-render';
 
-export interface StyledPricingCardProps {
-  $isHighlighted?: boolean;
+export interface PricingCardVariantProps {
+  isHighlighted?: boolean;
 }
 
-export type PricingCardProps = StyledPricingCardProps & PricingPlanData;
+export type PricingCardProps = PricingCardVariantProps & PricingPlanData;
 
 const StyledPricingCardWrapper = styled.div`
   border-radius: 16px;
@@ -153,11 +153,11 @@ const StyledPriceCardFeatureItemLI = styled.li`
 
 interface FeatureListProps {
   feature: PricingCardProps['features'][number];
-  $isHighlighted: PricingCardProps['$isHighlighted'];
+  isHighlighted: PricingCardProps['isHighlighted'];
 }
-const FeatureList = ({ feature, $isHighlighted }: FeatureListProps) => {
-  const textColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
-  const itemColor: TextProps['color'] = $isHighlighted ? 'white' : 'darkGrey';
+const FeatureList = ({ feature, isHighlighted }: FeatureListProps) => {
+  const textColor: TextProps['color'] = isHighlighted ? 'white' : 'lightGrey';
+  const itemColor: TextProps['color'] = isHighlighted ? 'white' : 'darkGrey';
 
   return (
     <StyledPriceCardFeature>
@@ -186,15 +186,15 @@ export const PricingCard = ({
   price,
   priceDescription,
   features,
-  $isHighlighted,
+  isHighlighted,
   isPaidYearly,
   children,
   status,
 }: Component<PricingCardProps>) => {
-  const TextColor: TextProps['color'] = $isHighlighted ? 'white' : 'lightGrey';
+  const TextColor: TextProps['color'] = isHighlighted ? 'white' : 'lightGrey';
   const isFree = price === 0;
   return (
-    <StyledPricingCardWrapper data-highlighted={$isHighlighted ? 'true' : undefined} data-pricing-card="true">
+    <StyledPricingCardWrapper data-highlighted={isHighlighted ? 'true' : undefined} data-pricing-card="true">
       <StyledPricingCardPriceWrapper>
         <StyledPricingCardTitle>
           <Text fontSize="l" color={TextColor}>
@@ -218,7 +218,7 @@ export const PricingCard = ({
       <StyledPricingCardButtonWrapper>{children}</StyledPricingCardButtonWrapper>
       {Array.isArray(features) &&
         features.length > 0 &&
-        features.map((feature, idx) => <FeatureList key={idx} feature={feature} $isHighlighted={$isHighlighted} />)}
+        features.map((feature, idx) => <FeatureList key={idx} feature={feature} isHighlighted={isHighlighted} />)}
     </StyledPricingCardWrapper>
   );
 };

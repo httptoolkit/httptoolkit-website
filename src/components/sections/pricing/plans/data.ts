@@ -15,7 +15,7 @@ export const intervalOptions: SwitchProps['options'] = [
 export const { plans }: PricingPlansData = {
   plans: [
     {
-      $isHighlighted: false,
+      isHighlighted: false,
       id: 'free',
       title: 'Hobbyist',
       priceDescription: '',
@@ -33,7 +33,7 @@ export const { plans }: PricingPlansData = {
       ],
     },
     {
-      $isHighlighted: true,
+      isHighlighted: true,
       id: 'pro',
       title: 'Professional',
       priceDescription: 'per month',
@@ -53,7 +53,7 @@ export const { plans }: PricingPlansData = {
       ],
     },
     {
-      $isHighlighted: false,
+      isHighlighted: false,
       id: 'team',
       title: 'Team',
       priceDescription: 'per user, per month',

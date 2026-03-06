@@ -17,16 +17,12 @@ import type { CTABoxProps } from '@/components/modules/cta-box';
 import { fontSizes, fontWeight } from '@/styles/tokens';
 
 const StyledLink = styled(Link)`
-  &&& {
-    text-decoration: underline;
-    color: var(--text-dark-grey);
-  }
+  text-decoration: underline;
+  color: var(--text-dark-grey);
 `;
 
 const StyledText = styled(Text)`
-  &&& {
-    margin-bottom: 1.25rem;
-  }
+  margin-bottom: 1.25rem;
 `;
 
 const StyledHighlightedParagraphs = styled.div`
@@ -40,10 +36,8 @@ const StyledHighlightedParagraphs = styled.div`
 `;
 
 const StyledHeading = styled.div`
-  &&& {
-    margin-bottom: 24px;
-    margin-top: var(--heading-margin, 0px);
-  }
+  margin-bottom: 24px;
+  margin-top: var(--heading-margin, 0px);
 `;
 
 const StyledUL = styled.ul`
@@ -73,12 +67,10 @@ const StyledOL = styled.ol`
 `;
 
 const StyledImage = styled(Image)`
-  &&& {
-    display: block;
-    position: relative !important;
-    max-width: 100%;
-    margin: 48px auto;
-  }
+  display: block;
+  position: relative !important;
+  max-width: 100%;
+  margin: 48px auto;
 `;
 
 const Heading2 = ({ children }: Component) => {

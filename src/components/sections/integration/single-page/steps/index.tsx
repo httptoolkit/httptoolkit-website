@@ -10,8 +10,8 @@ export interface IntegrationStepsProps {
   steps: string[][];
 }
 
-export interface StyledIntegrationStepNumberProps {
-  $variation: 'blue' | 'orange';
+export interface IntegrationStepNumberProps {
+  variation: 'blue' | 'orange';
 }
 
 const StyledIntegrationStepsWrapper = styled.section`

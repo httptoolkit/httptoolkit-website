@@ -36,7 +36,7 @@ export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialSharePro
         rel="noopener noreferrer"
         aria-label="Share HTTP Toolkit on Twitter"
       >
-        <SquareIcon $size="mini" icon={TwitterX} />
+        <SquareIcon size="mini" icon={TwitterX} />
       </SocialButton>
       <SocialButton
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
@@ -44,7 +44,7 @@ export const SocialShare = ({ url = 'https://httptoolkit.com/' }: SocialSharePro
         rel="noopener noreferrer"
         aria-label="Share HTTP Toolkit on Facebook"
       >
-        <SquareIcon $size="mini" icon={FacebookLogo} />
+        <SquareIcon size="mini" icon={FacebookLogo} />
       </SocialButton>
       <WebShare title="HTTP Toolkit " url={url} />
     </SocialShareContainer>

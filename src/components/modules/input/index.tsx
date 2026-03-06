@@ -119,7 +119,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ as = 'input', errorMessage, hasError = false, onClickSearch, id, label, ...props }, ref) => {
     return (
       <StyledInputWrapper>
-        <Stack $gapxl="8px">
+        <Stack gapxl="8px">
           {label && <STyledLabel htmlFor={id}>{label}</STyledLabel>}
           <StyledInputBorder data-has-error={String(hasError)} data-styled-as={as}>
             <StyledInput

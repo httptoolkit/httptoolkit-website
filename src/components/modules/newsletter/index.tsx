@@ -11,11 +11,11 @@ import { Gradient } from '@/components/elements/gradient';
 import { Text, type TextProps } from '@/components/elements/text';
 import { useNewsletterSubmit } from '@/lib/hooks/use-newsletter-submit';
 
-export interface StyledNewsletterProps {
-  $variant?: 'default' | 'blog-short' | 'with-gradient';
+export interface NewsletterVariantProps {
+  variant?: 'default' | 'blog-short' | 'with-gradient';
 }
 
-export interface NewsletterProps extends StyledNewsletterProps {
+export interface NewsletterProps extends NewsletterVariantProps {
   title: string;
   text: string;
   supportText?: string;
@@ -204,29 +204,29 @@ export const StyledNewsletterSuccess = styled.div`
 `;
 
 export function Newsletter({
-  $variant = 'default',
+  variant = 'default',
   title,
   text,
   supportText,
   buttonText = 'Sign up',
   action = NEWSLETTER_URLS.default,
 }: NewsletterProps) {
-  const TextSize: TextProps['fontSize'] = $variant === 'blog-short' ? 'l' : 'm';
-  const TextColor: TextProps['color'] = $variant === 'blog-short' ? 'white' : 'darkGrey';
-  const SupportWeight: TextProps['fontWeight'] = $variant === 'with-gradient' ? 'bold' : 'normal';
-  const SupportColor: TextProps['color'] = $variant === 'with-gradient' ? 'white' : 'darkGrey';
+  const TextSize: TextProps['fontSize'] = variant === 'blog-short' ? 'l' : 'm';
+  const TextColor: TextProps['color'] = variant === 'blog-short' ? 'white' : 'darkGrey';
+  const SupportWeight: TextProps['fontWeight'] = variant === 'with-gradient' ? 'bold' : 'normal';
+  const SupportColor: TextProps['color'] = variant === 'with-gradient' ? 'white' : 'darkGrey';
 
   const [isSuccess, handleSubmit] = useNewsletterSubmit();
 
   return (
-    <StyledNewsletterWrapper data-variant={$variant}>
-      {$variant !== 'default' && (
-        <StyledNewsletterGradientWrapper data-variant={$variant}>
-          <Gradient $shape="full" />
+    <StyledNewsletterWrapper data-variant={variant}>
+      {variant !== 'default' && (
+        <StyledNewsletterGradientWrapper data-variant={variant}>
+          <Gradient shape="full" />
         </StyledNewsletterGradientWrapper>
       )}
-      <StyledNewsletterContentWrapper data-variant={$variant}>
-        <StyledNewsletterTitle data-variant={$variant}>{title}</StyledNewsletterTitle>
+      <StyledNewsletterContentWrapper data-variant={variant}>
+        <StyledNewsletterTitle data-variant={variant}>{title}</StyledNewsletterTitle>
         {text && (
           <Text fontSize={TextSize} color={TextColor} fontWeight="normal">
             {text}
@@ -234,14 +234,14 @@ export function Newsletter({
         )}
       </StyledNewsletterContentWrapper>
       <StyledNewsletterFormContentWrapper>
-        {$variant !== 'blog-short' && (
+        {variant !== 'blog-short' && (
           <Text fontSize="m" color={SupportColor} fontWeight={SupportWeight}>
             {supportText}
           </Text>
         )}
         {isSuccess && <StyledNewsletterSuccess>Thanks for subscribing!</StyledNewsletterSuccess>}
         <StyledNewsletterFormWrapper
-          data-variant={$variant}
+          data-variant={variant}
           onSubmit={handleSubmit}
           method="POST"
           action={action}
@@ -252,7 +252,7 @@ export function Newsletter({
             <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
           </div>
           <Input required id="email" type="email" placeholder="Email address" />
-          <Button $variant="secondary" $small type="submit">
+          <Button variant="secondary" small type="submit">
             {buttonText}
           </Button>
         </StyledNewsletterFormWrapper>

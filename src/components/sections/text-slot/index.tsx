@@ -9,11 +9,11 @@ import { Copy } from '@/components/elements/copy';
 import { Heading } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 
-export interface StyledTextSlotProps {
-  $textCenteredOnMobile?: boolean;
+export interface TextSlotVariantProps {
+  textCenteredOnMobile?: boolean;
 }
 
-export interface TextSlotProps extends Component, StyledTextSlotProps {
+export interface TextSlotProps extends Component, TextSlotVariantProps {
   title: string;
   texts: string[];
   buttons: ButtonProps[];
@@ -99,11 +99,11 @@ const StyledTextSlotButtonsWrapper = styled.div`
   }
 `;
 
-export const TextSlot = ({ title, copy, texts, children, buttons, $textCenteredOnMobile }: TextSlotProps) => {
+export const TextSlot = ({ title, copy, texts, children, buttons, textCenteredOnMobile }: TextSlotProps) => {
   return (
     <StyledTextSlotWrapper>
-      <StyledTextSlotInnerWrapper data-text-centered={$textCenteredOnMobile ? 'true' : undefined}>
-        <StyledTextSlotTitle data-text-centered={$textCenteredOnMobile ? 'true' : undefined}>
+      <StyledTextSlotInnerWrapper data-text-centered={textCenteredOnMobile ? 'true' : undefined}>
+        <StyledTextSlotTitle data-text-centered={textCenteredOnMobile ? 'true' : undefined}>
           <Heading as="h1" fontSize="l" color="textGradient">
             {title}
           </Heading>
@@ -120,7 +120,7 @@ export const TextSlot = ({ title, copy, texts, children, buttons, $textCenteredO
           texts?.length > 0 &&
           texts.map(text => (
             <StyledTextSlotText
-              data-text-centered={$textCenteredOnMobile ? 'true' : undefined}
+              data-text-centered={textCenteredOnMobile ? 'true' : undefined}
               dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
             />
           ))}

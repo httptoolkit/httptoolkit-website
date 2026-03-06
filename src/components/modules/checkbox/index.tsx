@@ -8,15 +8,10 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, AriaA
   id: string;
   as?: 'input' | 'textarea';
   errorMessage?: string;
-  $hasError?: boolean;
+  hasError?: boolean;
   onClickSearch?: () => void;
   label?: string;
-  $type?: string;
-}
-
-export interface InputBorderProps {
-  $styledAs: InputProps['as'];
-  $hasError: boolean;
+  type?: string;
 }
 
 const StyledInputWrapper = styled.div`
@@ -56,10 +51,10 @@ const STyledLabel = styled.label`
   text-align: left;
 `;
 
-export const Checkbox = forwardRef<HTMLInputElement, InputProps>(({ id, label, $hasError, ...props }, ref) => {
+export const Checkbox = forwardRef<HTMLInputElement, InputProps>(({ id, label, hasError, ...props }, ref) => {
   return (
     <StyledInputWrapper>
-      <StyledInput id={id} name={id} ref={ref} type="checkbox" data-has-error={$hasError ? "true" : undefined} {...props} />
+      <StyledInput id={id} name={id} ref={ref} type="checkbox" data-has-error={hasError ? "true" : undefined} {...props} />
       <STyledLabel htmlFor={id}>{label}</STyledLabel>
     </StyledInputWrapper>
   );

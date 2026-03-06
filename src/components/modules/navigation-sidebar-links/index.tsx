@@ -102,40 +102,38 @@ const StyledNavigationSidebarLinksContentTitle = styled(Text)`
 `;
 
 const StyledNavigationSidebarLinksContentLink = styled(Link)`
-  &&& {
-    display: inline-block;
-    font-size: ${fontSizes.text.m};
-    line-height: 1.5;
-    color: var(--text-light-grey);
-    padding: 8px 32px;
+  display: inline-block;
+  font-size: ${fontSizes.text.m};
+  line-height: 1.5;
+  color: var(--text-light-grey);
+  padding: 8px 32px;
 
-    transition: color ease-in 300ms;
+  transition: color ease-in 300ms;
 
-    &.active {
-      color: var(--text-electric-light-blue);
-      @media (min-width: ${screens.md}) {
-        &:focus,
-        &:active {
-          color: var(--text-electric-light-blue);
-        }
-
-        @media (hover: hover) {
-          &:hover {
-            color: var(--text-electric-light-blue);
-          }
-        }
-      }
-    }
-
+  &.active {
+    color: var(--text-electric-light-blue);
     @media (min-width: ${screens.md}) {
-      &:focus {
-        color: var(--text-dark-grey);
+      &:focus,
+      &:active {
+        color: var(--text-electric-light-blue);
       }
 
       @media (hover: hover) {
         &:hover {
-          color: var(--text-dark-grey);
+          color: var(--text-electric-light-blue);
         }
+      }
+    }
+  }
+
+  @media (min-width: ${screens.md}) {
+    &:focus {
+      color: var(--text-dark-grey);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--text-dark-grey);
       }
     }
   }

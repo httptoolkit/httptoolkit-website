@@ -28,25 +28,23 @@ const StyledStatisticsGradientWrapper = styled.section`
 `;
 
 const StyledStatisticsWrapper = styled(Container)`
-  &&& {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    padding: 96px 48px;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 96px 48px;
+  position: relative;
 
-    @media (max-width: ${screens.lg}) {
-      flex-direction: column;
-      padding: 16px 0;
+  @media (max-width: ${screens.lg}) {
+    flex-direction: column;
+    padding: 16px 0;
 
-      & > *:first-child {
-        margin: 0 auto;
-        align-items: center;
-      }
+    & > *:first-child {
+      margin: 0 auto;
+      align-items: center;
+    }
 
-      & * {
-        text-align: center;
-      }
+    & * {
+      text-align: center;
     }
   }
 `;
@@ -87,7 +85,7 @@ export const Statistics = async ({
         <Gradient />
       </StyledStatisticsGradient>
       <StyledStatisticsWrapper>
-        <HeadingBlock $align="left" title={title} text={text} />
+        <HeadingBlock align="left" title={title} text={text} />
         <GrowingNumbers stats={stats} />
       </StyledStatisticsWrapper>
     </StyledStatisticsGradientWrapper>

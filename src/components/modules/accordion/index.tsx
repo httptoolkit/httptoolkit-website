@@ -14,11 +14,11 @@ export interface AccordionItem {
   text: string;
 }
 
-export interface StyledAccordionProps {
-  $variant?: 'default' | 'transparent';
+export interface AccordionVariantProps {
+  variant?: 'default' | 'transparent';
 }
 
-export interface AccordionProps extends StyledAccordionProps {
+export interface AccordionProps extends AccordionVariantProps {
   items: AccordionItem[];
   isBiggerIcon?: boolean;
 }
@@ -169,8 +169,8 @@ const StyledAccordionContent = styled(RadixAccordion.Content)`
   }
 `;
 
-const AccordionTitle = ({ $variant, children }: Component<StyledAccordionProps>) => {
-  if ($variant === 'transparent') {
+const AccordionTitle = ({ variant, children }: Component<AccordionVariantProps>) => {
+  if (variant === 'transparent') {
     return <StyledAccordionTransparentTitle>{children}</StyledAccordionTransparentTitle>;
   }
   return (
@@ -180,15 +180,15 @@ const AccordionTitle = ({ $variant, children }: Component<StyledAccordionProps>)
   );
 };
 
-export const Accordion = ({ items, $variant = 'default', isBiggerIcon }: AccordionProps) => {
+export const Accordion = ({ items, variant = 'default', isBiggerIcon }: AccordionProps) => {
   return (
-    <StyledAccordionWrapper type="single" defaultValue={items[0].title} collapsible data-variant={$variant}>
+    <StyledAccordionWrapper type="single" defaultValue={items[0].title} collapsible data-variant={variant}>
       {Array.isArray(items) &&
         items.length > 0 &&
         items.map((item, idx) => (
-          <StyledAccordionItem key={`${item.title}-${idx}`} value={item.title} data-variant={$variant}>
+          <StyledAccordionItem key={`${item.title}-${idx}`} value={item.title} data-variant={variant}>
             <StyledAccordionTrigger>
-              <AccordionTitle $variant={$variant}>{item.title}</AccordionTitle>
+              <AccordionTitle variant={variant}>{item.title}</AccordionTitle>
               <CaretDown weight="fill" size={isBiggerIcon ? 24 : 16} />
             </StyledAccordionTrigger>
             <StyledAccordionContent>

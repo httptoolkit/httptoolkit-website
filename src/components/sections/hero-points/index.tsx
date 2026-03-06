@@ -44,7 +44,7 @@ interface HeroPointsProps {
 export const HeroPoints = ({ title, text }: HeroPointsProps) => {
   return (
     <StyledHeroPointsWrapper>
-      <Container $size="content">
+      <Container size="content">
         <Heading fontSize="l" color="textGradient">
           {title}
         </Heading>

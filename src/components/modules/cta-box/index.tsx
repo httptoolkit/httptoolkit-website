@@ -6,11 +6,11 @@ import { Heading, type HeadingProps } from '@/components/elements/heading';
 import { Text } from '@/components/elements/text';
 import { screens, fontSizes, fontWeight } from '@/styles/tokens';
 
-export interface StyledCTABoxProps {
-  $variant?: 'blog' | 'faq';
+export interface CTABoxVariantProps {
+  variant?: 'blog' | 'faq';
 }
 
-export interface CTABoxProps extends StyledCTABoxProps {
+export interface CTABoxProps extends CTABoxVariantProps {
   title: string;
   subtitle?: string;
   text?: string;
@@ -85,9 +85,9 @@ export const CTABox = ({
   textOverButton,
   buttonHref,
   buttonIcon,
-  $variant = 'blog',
+  variant = 'blog',
 }: CTABoxProps) => {
-  const HeadingColor: HeadingProps['color'] = $variant === 'blog' ? 'textGradient' : 'white';
+  const HeadingColor: HeadingProps['color'] = variant === 'blog' ? 'textGradient' : 'white';
   return (
     <StyledCTABoxWrapper>
       {subtitle && <StyledCTABoxSubtitle>{subtitle}</StyledCTABoxSubtitle>}
@@ -109,9 +109,9 @@ export const CTABox = ({
         )}
         <Button
           as="link"
-          $small={$variant === 'faq'}
+          small={variant === 'faq'}
           target="_blank"
-          $variant="secondary"
+          variant="secondary"
           href={buttonHref}
           icon={buttonIcon}
         >

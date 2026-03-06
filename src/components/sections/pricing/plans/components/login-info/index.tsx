@@ -41,7 +41,7 @@ export const LoginInfo = ({
       <Text fontSize="m" textAlign="center" color="darkGrey">
         Logged in as {email}.
       </Text>
-      <Button $variant="secondary" $small onClick={logOut}>
+      <Button variant="secondary" small onClick={logOut}>
         Log out
       </Button>
     </StyledLoginInfoWrapper>

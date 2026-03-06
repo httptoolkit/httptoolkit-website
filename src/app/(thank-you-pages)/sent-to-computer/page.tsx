@@ -11,7 +11,7 @@ export default function SentToComputerThanksPage() {
       <SuccessHero
         heading="Thanks!"
         excerpt={
-          <Stack $gapxl="7px">
+          <Stack gapxl="7px">
             <Text fontSize="m">
               We&apos;ve just sent a download link for <Link href="/">HTTP Toolkit</Link> to your inbox to check out on
               your desktop later.
@@ -20,7 +20,7 @@ export default function SentToComputerThanksPage() {
           </Stack>
         }
         callToAction={
-          <Stack $gapxl="7px" $alignItems="center">
+          <Stack gapxl="7px" alignItems="center">
             <Text fontSize="s">Share HTTP Toolkit on:</Text>
             <SocialShare />
           </Stack>

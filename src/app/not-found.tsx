@@ -15,7 +15,7 @@ export default function NotFound() {
           title: 'Go to the Homepage',
           icon: ArrowRight,
           href: '/',
-          $variant: 'primary',
+          variant: 'primary',
         }}
       />
     </LandingLayout>

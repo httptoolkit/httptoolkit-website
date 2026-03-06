@@ -13,16 +13,14 @@ interface FeaturesSectionProps extends Pick<PricingComparisonProps, 'plans' | 'f
 }
 
 const StyledFeaturesSectionWrapper = styled.div`
-  &&& {
-    padding-top: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    @media (min-width: ${screens.lg}) {
-      gap: 0;
-      padding-top: 0;
-    }
+  @media (min-width: ${screens.lg}) {
+    gap: 0;
+    padding-top: 0;
   }
 `;
 
@@ -50,12 +48,10 @@ const StyledFeatureSectionItemWrapper = styled.div`
 `;
 
 const StyledFeatureSectionTitle = styled(Text)`
-  &&& {
-    padding: 18.5px 0;
+  padding: 18.5px 0;
 
-    @media (min-width: ${screens.lg}) {
-      padding-left: 32px;
-    }
+  @media (min-width: ${screens.lg}) {
+    padding-left: 32px;
   }
 `;
 

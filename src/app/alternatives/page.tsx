@@ -80,7 +80,7 @@ export default function AlternativesPage() {
         <Container>
           <StyledAlternativesPageColumns>
             <StyledAlternativesColumnContent>
-              <Stack $gap="32px" $gapxl="24px">
+              <Stack gap="32px" gapxl="24px">
                 <Heading fontSize="l" color="textGradient">
                     HTTP Toolkit as an alternative to...
                 </Heading>

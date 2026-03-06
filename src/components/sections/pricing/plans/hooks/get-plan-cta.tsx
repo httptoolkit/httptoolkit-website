@@ -37,7 +37,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
 
       return (
         <StyledPricingCardCTAWrapper>
-          <Button $isFluid href="/contact/">
+          <Button isFluid href="/contact/">
             Change to {planCycle}
           </Button>
           <Text fontSize="s" color="lightGrey">
@@ -49,7 +49,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
 
     if (tierCode === 'pro') {
       return (
-        <Button icon={Sparkle} $isFluid onClick={() => account.buyPlan('pro', planCycle, posthog)}>
+        <Button icon={Sparkle} isFluid onClick={() => account.buyPlan('pro', planCycle, posthog)}>
           Buy Pro
         </Button>
       );
@@ -58,10 +58,10 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
     if (tierCode === 'team') {
       return (
         <Button
-          $variant="secondary"
+          variant="secondary"
           href="/contact/"
           icon={PaperPlaneTilt}
-          $isFluid
+          isFluid
           onClick={() => account.reportPurchaseEvent('Select team plan', tierCode, planCycle, posthog)}
         >
           Get in touch

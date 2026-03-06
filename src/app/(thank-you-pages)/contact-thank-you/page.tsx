@@ -19,14 +19,14 @@ export default function ContactThankYouPage() {
         </>}
 
         callToAction={
-          <Stack $direction='row' $gapxl="24px" $alignItems="center">
+          <Stack direction='row' gapxl="24px" alignItems="center">
             <Button
               href="/docs"
-              $variant="secondary"
+              variant="secondary"
             >Read the docs</Button>
             <Button
               href="https://github.com/httptoolkit/httptoolkit/issues/"
-              $variant="secondary"
+              variant="secondary"
             >Discuss on GitHub</Button>
           </Stack>
         }

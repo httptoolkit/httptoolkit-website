@@ -67,7 +67,7 @@ export const MobileHeader = ({ navigationItems }: MobileHeaderProps) => {
             );
           })}
         </StyledNavMobileItems>
-        <DownloadButton $small $variant="secondary" isInHeader={true} />
+        <DownloadButton small variant="secondary" isInHeader={true} />
       </MobileDrawerMenu>
     </StyledMobileWrapper>
   );

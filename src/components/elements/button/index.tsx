@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import type { Icon, IconWeight } from '@phosphor-icons/react';
-import type { AnchorHTMLAttributes, AriaAttributes, ButtonHTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes, AriaAttributes, ButtonHTMLAttributes, MouseEventHandler } from 'react';
 
 import { Link } from '@/components/elements/link';
 import { MovingBorder } from '@/components/elements/moving-border';
@@ -19,23 +19,21 @@ export type LinkWithHrefProps = {
 
 export type ButtonType = 'link' | 'button';
 
-export type StyledButtonProps = {
-  $isDropdown?: boolean;
-  $variant?: 'primary' | 'secondary';
-  $withBorder?: boolean;
-  $small?: boolean;
-  $isFluid?: boolean;
+export type ButtonVariantProps = {
+  isDropdown?: boolean;
+  variant?: 'primary' | 'secondary';
+  withBorder?: boolean;
+  small?: boolean;
+  isFluid?: boolean;
 };
 
 export type ButtonProps = {
   as?: ButtonType;
   icon?: Icon;
   iconWeight?: IconWeight;
-} & StyledButtonProps &
+} & ButtonVariantProps &
   AriaAttributes &
   (ButtonWithoutHrefProps | LinkWithHrefProps);
-
-export type ButtonComponentType = (props: Component<Omit<ButtonProps, 'HTMLAnchorElement'>>) => JSX.Element;
 
 const baseStyles = `
   position: relative;
@@ -193,39 +191,60 @@ export const Button = ({
   onClick,
   target,
   type,
-  $small = false,
-  $variant = 'primary',
-  $withBorder = false,
-  $isDropdown = false,
-  $isFluid = false,
+  small = false,
+  variant = 'primary',
+  withBorder = false,
+  isDropdown = false,
+  isFluid = false,
   className,
   ...aria
 }: ButtonProps) => {
+  const sharedDataProps = {
+    'data-button': 'true' as const,
+    'data-variant': variant,
+    'data-small': small ? ('true' as const) : undefined,
+    'data-with-border': withBorder ? ('true' as const) : undefined,
+    'data-dropdown': isDropdown ? ('true' as const) : undefined,
+    'data-fluid': isFluid ? ('true' as const) : undefined,
+  };
+
+  const content = (
+    <>
+      {children}
+      {Icon && <Icon size={16} weight={iconWeight} />}
+    </>
+  );
+
   const BaseButton = () => {
-    const ButtonComponent = (as === 'link' || href ? StyledLink : StyledButton) as unknown as ButtonComponentType;
+    if (as === 'link' || href) {
+      return (
+        <StyledLink
+          href={href || '#'}
+          target={target}
+          onClick={onClick as MouseEventHandler<HTMLAnchorElement>}
+          className={className}
+          {...sharedDataProps}
+          {...(aria as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {content}
+        </StyledLink>
+      );
+    }
 
     return (
-      <ButtonComponent
-        data-button="true"
+      <StyledButton
+        type={type || 'button'}
+        onClick={onClick as MouseEventHandler<HTMLButtonElement>}
         className={className}
-        type={type}
-        onClick={onClick}
-        href={href}
-        target={target}
-        data-variant={$variant}
-        data-small={$small ? 'true' : undefined}
-        data-with-border={$withBorder ? 'true' : undefined}
-        data-dropdown={$isDropdown ? 'true' : undefined}
-        data-fluid={$isFluid ? 'true' : undefined}
-        {...aria}
+        {...sharedDataProps}
+        {...(aria as ButtonHTMLAttributes<HTMLButtonElement>)}
       >
-        {children}
-        {Icon && <Icon size={16} weight={iconWeight} />}
-      </ButtonComponent>
+        {content}
+      </StyledButton>
     );
   };
 
-  if ($withBorder) {
+  if (withBorder) {
     return (
       <MovingBorder>
         <StyledButtonWrapper>

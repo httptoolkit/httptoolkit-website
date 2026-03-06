@@ -26,7 +26,7 @@ export const TestimonialsGrid = async () => {
         badgeTitle="TESTIMONIALS"
         badgeIcon={Heart}
         title={`Join *${userDownloads.toLocaleString()}* developers`}
-        $align="center"
+        align="center"
       />
 
       <MarqueeWrapper columnsCount={chunkCount}>

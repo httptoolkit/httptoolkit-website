@@ -42,8 +42,8 @@ export default function AppPurchaseThankYouPage() {
               <StyledThankYouColumnContent>
                 <StyledTextContent>
                   <Stack>
-                    <Stack $gapxl="32px">
-                      <Stack $gapxl="24px">
+                    <Stack gapxl="32px">
+                      <Stack gapxl="24px">
                         <StyledHideElementOn data-hide-below="md">
                           <Heading fontSize="l" color="textGradient">
                             Thanks for your purchase!

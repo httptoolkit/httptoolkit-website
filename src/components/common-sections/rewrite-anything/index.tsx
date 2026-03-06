@@ -22,14 +22,14 @@ export const RewriteAnything = () => {
   return (
     <Section>
       <Container>
-        <Stack $gap="32px" $gapxl="64px">
+        <Stack gap="32px" gapxl="64px">
           <HeadingBlock
             title="Rewrite *anything*"
             badgeTitle="Pro Feature"
             badgeAdditionalText="EDIT"
             badgeIcon={Sparkle}
-            $align="center"
-            $isContentCentered
+            align="center"
+            isContentCentered
           />
           <StyledCardsWrapper>
             <Card

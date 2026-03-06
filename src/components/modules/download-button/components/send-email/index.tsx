@@ -8,7 +8,6 @@ import { screens } from '@/styles/tokens';
 
 const StyledSendEmailWrapper = styled.div`
   display: flex;
-  visibility: visible;
   flex-direction: column;
   gap: 16px;
   border-radius: 12px;
@@ -20,7 +19,6 @@ const StyledSendEmailWrapper = styled.div`
 
   @media (min-width: ${screens.md}) {
     display: none;
-    visibility: hidden;
   }
 
   &&[data-is-in-header='true'] p {
@@ -44,7 +42,7 @@ export const SendEmail = ({
   buttonProps,
   ...props
 }: {
-  buttonProps: Pick<ButtonProps, '$small' | '$variant' | '$withBorder'>;
+  buttonProps: Pick<ButtonProps, 'small' | 'variant' | 'withBorder'>;
 }) => {
   return (
     <StyledSendEmailWrapper {...props}>
@@ -57,7 +55,7 @@ export const SendEmail = ({
           <input type="text" id="extra-info" name="first-name" tab-index="-1" autoComplete="nope" />
         </div>
         <Input required id="" name="email" type="email" placeholder="Enter your email" />
-        <Button {...buttonProps} $withBorder={false} type="submit">
+        <Button {...buttonProps} withBorder={false} type="submit">
           Send me a download link
         </Button>
       </StyledSendEmailForm>

@@ -13,13 +13,11 @@ const commonGradientStyles = `
   position: absolute;
   height: 940px;
   display: none;
-  visibility: hidden;
 
   pointer-events: none;
 
   @media (min-width: ${screens['lg']}) {
     display: block;
-    visibility: visible;
   }
 `;
 
@@ -56,14 +54,14 @@ export const ModifyFeatures = () => {
         <Gradient />
       </StyledGradientRight>
       <Container>
-        <Stack $gap="32px" $gapxl="64px">
+        <Stack gap="32px" gapxl="64px">
           <HeadingBlock
             title="Test with *fully automated* rewrite rules"
             badgeTitle="Pro Feature"
             badgeAdditionalText="Modify"
             badgeIcon={Sparkle}
-            $align="center"
-            $isContentCentered
+            align="center"
+            isContentCentered
           />
           <StyledFeaturesWrapper>
             <FeatureLine

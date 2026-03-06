@@ -33,20 +33,18 @@ const StyledTextWithAccordionGradientWrapper = styled.div`
 `;
 
 const StyledTextWithAccordionContentWrapper = styled(Container)`
-  &&& {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-    @media (min-width: ${screens.lg}) {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 128px 48px;
-    }
+  @media (min-width: ${screens.lg}) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 128px 48px;
+  }
 
-    @media (min-width: ${screens['2xl']}) {
-      padding: 128px 90px;
-    }
+  @media (min-width: ${screens['2xl']}) {
+    padding: 128px 90px;
   }
 `;
 
@@ -65,13 +63,11 @@ const StyledTextWithAccordionTextWrapper = styled.div`
 `;
 
 const StyledTextWithAccordionText = styled(Text)`
-  &&& {
-    margin-top: 24px;
-    margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 16px;
 
-    @media (min-width: ${screens.lg}) {
-      margin-bottom: 24px;
-    }
+  @media (min-width: ${screens.lg}) {
+    margin-bottom: 24px;
   }
 `;
 
