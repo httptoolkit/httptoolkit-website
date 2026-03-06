@@ -131,10 +131,14 @@ export const StyledMenuWrapper = styled.div`
 
   @media (min-width: ${screens.lg}) {
     display: none;
-    gap: var(--menu-gapxl, 21px);
+    gap: 21px;
 
     &[data-display-on-desktop="true"] {
       display: flex;
+    }
+
+    &[data-has-subheading="true"] {
+      gap: 64px;
     }
   }
 `;
@@ -288,7 +292,7 @@ export const Footer = ({ withoutNewsletter }: FooterProps) => {
               <StyledMenuWrapper
                 data-display-on-mobile={String(displayOnMobile)}
                 data-display-on-desktop={String(displayOnDesktop)}
-                style={{ '--menu-gapxl': hasSubHeading ? '64px' : '21px' } as React.CSSProperties}
+                data-has-subheading={String(hasSubHeading)}
                 key={column.title}
               >
                 <FooterColumnBlock column={column} />
