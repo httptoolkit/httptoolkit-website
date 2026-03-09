@@ -28,7 +28,7 @@ export const TestimonialsCard = ({
 
   return (
     <StyledTestimonialCard cite={sourceLink}>
-      <StyledQuote dangerouslySetInnerHTML={{ __html: marked.parse(quote, { renderer }) }} />
+      <StyledQuote dangerouslySetInnerHTML={{ __html: marked.parse(quote, { renderer }) as string }} />
       <StyledAuthorWrapper>
         <IconAvatar icon={type} />
         <StyledAuthorDetails>

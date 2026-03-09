@@ -107,7 +107,7 @@ export const FluidCard = ({ title, icon, text, buttonHref, buttonText, variant =
         </Heading>
         <StyledFluidCardText
           data-variant={variant}
-          dangerouslySetInnerHTML={{ __html: marked.parse(text, { renderer }) }}
+          dangerouslySetInnerHTML={{ __html: marked.parse(text, { renderer }) as string }}
         />
       </StyledFluidCardContentWrapper>
       {buttonText && buttonHref && (

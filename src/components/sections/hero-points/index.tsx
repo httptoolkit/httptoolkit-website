@@ -48,7 +48,7 @@ export const HeroPoints = ({ title, text }: HeroPointsProps) => {
         <Heading fontSize="l" color="textGradient">
           {title}
         </Heading>
-        <StyledHeroPointsContent dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
+        <StyledHeroPointsContent dangerouslySetInnerHTML={{ __html: marked.parse(text) as string }} />
       </Container>
     </StyledHeroPointsWrapper>
   );

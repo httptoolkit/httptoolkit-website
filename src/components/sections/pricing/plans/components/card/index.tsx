@@ -173,7 +173,7 @@ const FeatureList = ({ feature, isHighlighted }: FeatureListProps) => {
               style={{ '--item-color': textColors[itemColor as keyof typeof textColors] } as React.CSSProperties}
             >
               <CheckIcon />
-              <span dangerouslySetInnerHTML={{ __html: marked.parse(item, { renderer }) }} />
+              <span dangerouslySetInnerHTML={{ __html: marked.parse(item, { renderer }) as string }} />
             </StyledPriceCardFeatureItemLI>
           ))}
       </StyledPriceCardFeatureItemsWrapper>

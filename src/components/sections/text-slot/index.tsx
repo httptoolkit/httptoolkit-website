@@ -121,7 +121,7 @@ export const TextSlot = ({ title, copy, texts, children, buttons, textCenteredOn
           texts.map(text => (
             <StyledTextSlotText
               data-text-centered={textCenteredOnMobile ? 'true' : undefined}
-              dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
+              dangerouslySetInnerHTML={{ __html: marked.parse(text) as string }}
             />
           ))}
         <StyledTextSlotButtonsWrapper>

@@ -194,7 +194,7 @@ export const Accordion = ({ items, variant = 'default', isBiggerIcon }: Accordio
             <StyledAccordionContent>
               <div
                 className="accordion_content_inner"
-                dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) }}
+                dangerouslySetInnerHTML={{ __html: marked.parse(item.text, { renderer }) as string }}
               />
             </StyledAccordionContent>
           </StyledAccordionItem>

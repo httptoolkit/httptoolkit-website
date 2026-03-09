@@ -39,6 +39,9 @@ const nextConfig = {
       ],
     });
 
+    // Use PostHog slim bundle (strips toolbar, session recording, surveys, etc.)
+    config.resolve.alias['posthog-js$'] = require.resolve('posthog-js/dist/module.slim');
+
     return config;
   },
 };
