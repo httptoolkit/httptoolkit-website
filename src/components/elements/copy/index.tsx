@@ -1,7 +1,8 @@
 'use client';
 
+import { useCallback, useState } from 'react';
+
 import { styled } from '@linaria/react';
-import useClipboard from 'react-use-clipboard';
 
 import { fontSizes, fontWeight } from '@/styles/tokens';
 
@@ -50,9 +51,12 @@ const StyledCopyButton = styled.button`
 `;
 
 export const Copy = ({ text }: CopyProps) => {
-  const [isCopied, setCopied] = useClipboard(text, {
-    successDuration: 1000,
-  });
+  const [isCopied, setIsCopied] = useState(false);
+  const setCopied = useCallback(() => {
+    navigator.clipboard.writeText(text);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 1000);
+  }, [text]);
 
   return (
     <StyledCopy>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMedia } from 'react-use';
+import { useMedia } from '@/lib/hooks/use-media';
 
 import { styled } from '@linaria/react';
 
