@@ -36,7 +36,6 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@wyw-in-js/babel-preset": "^1.0.6",
     "@wyw-in-js/transform": "^1.0.6",
-    "core-js": "^3.47.0",
     "date-fns": "^1.29.0",
     "fs-extra": "^6.0.0",
     "gray-matter": "^4.0.3",
