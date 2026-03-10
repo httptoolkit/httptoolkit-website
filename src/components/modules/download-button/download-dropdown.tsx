@@ -1,7 +1,6 @@
 'use client';
 
-import sortBy from 'lodash/sortBy';
-import partition from 'lodash/partition';
+import { sortBy, partition } from 'lodash-es';
 import { useEffect, useMemo, useState } from 'react';
 
 import { styled } from '@linaria/react';

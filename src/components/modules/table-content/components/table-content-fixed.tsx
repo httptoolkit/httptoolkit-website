@@ -1,6 +1,6 @@
 'use client';
 
-import kebabCase from 'lodash/kebabCase';
+import { kebabCase } from 'lodash-es';
 
 import { TableContentTriggerComponent } from './table-content-trigger';
 import useActiveToc from '../hooks/use-active-toc';

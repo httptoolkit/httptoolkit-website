@@ -1,4 +1,4 @@
-import chunk from 'lodash/chunk';
+import { chunk } from 'lodash-es';
 
 import { styled } from '@linaria/react';
 

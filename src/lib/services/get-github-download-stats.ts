@@ -1,5 +1,3 @@
-import sum from 'lodash/sum';
-
 import { GITHUB_ORG } from '../constants/github';
 import { siteMetadata } from '../site-metadata';
 
@@ -32,8 +30,10 @@ export async function getGithubDownloadStats(): Promise<number> {
       else pageIndex += 1;
     }
 
-    const totalDownloads = sum(
-      releases.map((release: any) => sum(release.assets.map((asset: any) => asset.download_count))),
+    const totalDownloads = releases.reduce(
+      (total: number, release: any) =>
+        total + release.assets.reduce((a: number, asset: any) => a + asset.download_count, 0),
+      0,
     );
 
     return (cachedDownloadState = totalDownloads);
