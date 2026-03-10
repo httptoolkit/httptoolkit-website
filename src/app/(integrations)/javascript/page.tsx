@@ -1,6 +1,10 @@
 import type { Metadata } from 'next/types';
 
-import { NodeLogo, DenoLogo, BunLogo, FirefoxLogo, ChromeLogo } from '@/components/elements/icon';
+import NodeLogo from '@/components/elements/icon/custom/node-logo.svg';
+import DenoLogo from '@/components/elements/icon/custom/deno-logo.svg';
+import BunLogo from '@/components/elements/icon/custom/bun-logo.svg';
+import FirefoxLogo from '@/components/elements/icon/custom/firefox-logo.svg';
+import ChromeLogo from '@/components/elements/icon/custom/chrome-logo.svg';
 import { IntegrationCompatibility } from '@/components/sections/integration/single-page/compatibility';
 import { IntegrationSinglePageHero } from '@/components/sections/integration/single-page/hero';
 import { IntegrationSteps } from '@/components/sections/integration/single-page/steps';
