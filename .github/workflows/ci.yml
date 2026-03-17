@@ -5,9 +5,9 @@ jobs:
     name: Build & test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 20.11.1
           cache: 'npm'
@@ -31,13 +31,13 @@ jobs:
           NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.POSTHOG_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: out
           path: out/*
           if-no-files-found: error
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: rss
           path: out/rss.xml
@@ -51,9 +51,9 @@ jobs:
     outputs:
       new-blog-post: ${{ steps.detect-changes.outputs.new-blog-post }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: rss
           path: local-rss
@@ -99,9 +99,9 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: out
           path: out
@@ -149,7 +149,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: publish-docker
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Configure Kubectl
         run: |
@@ -208,7 +208,7 @@ jobs:
       - check-blog-changes
       - publish-scaleway
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Send an email about the new blog post with Mailcoach
         run: |
