@@ -99,6 +99,10 @@ export const pageRoutes = {
     href: '/http-toolkit-for-linux/',
     label: 'HTTP Toolkit for Linux',
   },
+  REQUEST_STUDENT_ACCOUNT: {
+    href: '/request-student-account/',
+    label: 'Student Discount',
+  },
 };
 
 export interface PageRoute {

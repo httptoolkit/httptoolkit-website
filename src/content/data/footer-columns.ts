@@ -21,6 +21,7 @@ const {
   PROD_FOR_LINUX,
   PROD_FOR_MAC_OS,
   PROD_FOR_WINDOW,
+  REQUEST_STUDENT_ACCOUNT,
 } = pageRoutes;
 
 export interface FooterColumn {
@@ -37,7 +38,7 @@ export interface FooterColumn {
 export const footerColumns: FooterColumn[] = [
   {
     title: 'Product',
-    links: [PROD_FOR_MAC_OS, PROD_FOR_WINDOW, PROD_FOR_LINUX, PRICING],
+    links: [PROD_FOR_MAC_OS, PROD_FOR_WINDOW, PROD_FOR_LINUX, PRICING, REQUEST_STUDENT_ACCOUNT],
     subHeading: [
       {
         title: 'Projects',

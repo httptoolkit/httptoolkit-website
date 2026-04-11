@@ -20,20 +20,55 @@ const StyledContactFormWrapper = styled.div`
   }
 `;
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  action?: string;
+  submitLabel?: string;
+  defaultValues?: {
+    name?: string;
+    email?: string;
+    message?: string;
+  };
+  placeholders?: {
+    name?: string;
+    email?: string;
+    message?: string;
+  };
+}
+
+export const ContactForm = ({
+  action = 'https://accounts.httptoolkit.tech/api/contact-form',
+  submitLabel = 'Submit the form',
+  defaultValues,
+  placeholders,
+}: ContactFormProps) => {
   return (
     <StyledContactFormWrapper>
-      <form action="https://accounts.httptoolkit.tech/api/contact-form" method="POST">
+      <form action={action} method="POST">
         <Stack gapxl="32px">
           <Stack gapxl="16px">
-            <Input label="Your Name" id="name" placeholder="e.g. Holly Smith" required type="text" />
-            <Input label="Email" id="email" placeholder="e.g. holly.smith@example.com" required type="email" />
+            <Input
+              label="Your Name"
+              id="name"
+              placeholder={placeholders?.name ?? 'e.g. Holly Smith'}
+              required
+              type="text"
+              defaultValue={defaultValues?.name}
+            />
+            <Input
+              label="Email"
+              id="email"
+              placeholder={placeholders?.email ?? 'e.g. holly.smith@example.com'}
+              required
+              type="email"
+              defaultValue={defaultValues?.email}
+            />
             <Input
               label="Message"
               id="message"
               as="textarea"
-              placeholder="Your message..."
+              placeholder={placeholders?.message ?? 'Your message...'}
               required
+              defaultValue={defaultValues?.message}
             />
             <div style={{ display: 'none' }}>
               <Input
@@ -46,7 +81,7 @@ export const ContactForm = () => {
             </div>
           </Stack>
           <Button type="submit" isFluid>
-            Submit the form
+            {submitLabel}
           </Button>
         </Stack>
       </form>
