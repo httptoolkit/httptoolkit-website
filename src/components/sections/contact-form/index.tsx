@@ -21,38 +21,30 @@ const StyledContactFormWrapper = styled.div`
 `;
 
 interface ContactFormProps {
-  action?: string;
   submitLabel?: string;
-  defaultValues?: {
-    name?: string;
-    email?: string;
-    message?: string;
-  };
+  defaultEmail?: string;
   placeholders?: {
-    name?: string;
     email?: string;
     message?: string;
   };
 }
 
 export const ContactForm = ({
-  action = 'https://accounts.httptoolkit.tech/api/contact-form',
   submitLabel = 'Submit the form',
-  defaultValues,
+  defaultEmail,
   placeholders,
 }: ContactFormProps) => {
   return (
     <StyledContactFormWrapper>
-      <form action={action} method="POST">
+      <form action="https://accounts.httptoolkit.tech/api/contact-form" method="POST">
         <Stack gapxl="32px">
           <Stack gapxl="16px">
             <Input
               label="Your Name"
               id="name"
-              placeholder={placeholders?.name ?? 'e.g. Holly Smith'}
+              placeholder={'e.g. Holly Smith'}
               required
               type="text"
-              defaultValue={defaultValues?.name}
             />
             <Input
               label="Email"
@@ -60,7 +52,7 @@ export const ContactForm = ({
               placeholder={placeholders?.email ?? 'e.g. holly.smith@example.com'}
               required
               type="email"
-              defaultValue={defaultValues?.email}
+              defaultValue={defaultEmail}
             />
             <Input
               label="Message"
@@ -68,7 +60,6 @@ export const ContactForm = ({
               as="textarea"
               placeholder={placeholders?.message ?? 'Your message...'}
               required
-              defaultValue={defaultValues?.message}
             />
             <div style={{ display: 'none' }}>
               <Input

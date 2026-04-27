@@ -290,16 +290,12 @@ export const StudentAccountContent = observer(() => {
             </StyledPageWrapper>
 
             <ContactForm
-              action={`${ACCOUNTS_API_BASE}/contact-form`}
               submitLabel="Submit request"
               placeholders={{
                 email: 'e.g. holly.smith@university.edu',
                 message: "Tell us about your institution and why you'd like a student account...",
               }}
-              defaultValues={{
-                email: accountStore.user.email,
-                message: `I'd like to request a student account. My academic email (${accountStore.user.email || ''}) was not automatically recognized.`,
-              }}
+              defaultEmail={accountStore.user.email}
             />
           </Stack>
         </StyledFallbackWrapper>
