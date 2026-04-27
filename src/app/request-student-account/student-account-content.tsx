@@ -24,6 +24,7 @@ type PageState =
   | 'success'
   | 'not_academic'
   | 'already_active'
+  | 'paid_account'
   | 'error';
 
 interface VerificationResult {
@@ -122,19 +123,22 @@ export const StudentAccountContent = observer(() => {
         },
       });
 
+      const data = await response.json().catch(() => ({}));
+
       if (response.ok) {
-        const data = await response.json();
         setResult({ school: data.school, expiry: data.expiry });
         setPageState('success');
-      } else if (response.status === 403) {
+      } else if (data?.error === 'not_academic') {
         setPageState('not_academic');
-      } else if (response.status === 409) {
-        const data = await response.json().catch(() => ({}));
+      } else if (data?.error === 'already_active') {
         setResult({ expiry: data.expiry });
         setPageState('already_active');
+      } else if (data?.error === 'paid_account') {
+        setResult({ expiry: data.expiry });
+        setPageState('paid_account');
       } else {
         setPageState('error');
-        setErrorMessage('Something went wrong. Please try again later.');
+        setErrorMessage('Something went wrong. Please try again later or contact help@httptoolkit.com for support.');
       }
     } catch {
       setPageState('error');
@@ -165,10 +169,10 @@ export const StudentAccountContent = observer(() => {
               Student Discount
             </Heading>
             <Text fontSize="m">
-              HTTP Toolkit Pro is free for students and faculty at accredited
-              universities and colleges. Log in with your academic email
-              address (.edu, .ac.uk, etc.) to get started. Your access lasts
-              one year and can be renewed as long as you're still studying.
+              HTTP Toolkit Pro is free for any students or faculty at accredited universities and
+              colleges who can't afford a paid subscription. Log in with your academic email
+              address (.edu, .ac.uk, etc.) to get started. Your access lasts one year and
+              can be renewed for as long as you're still studying.
             </Text>
           </Stack>
           <Button onClick={handleLoginClick} variant="primary">
@@ -201,13 +205,13 @@ export const StudentAccountContent = observer(() => {
               <Text fontSize="m">
                 Your academic email has been verified
                 {result.school ? ` (${result.school})` : ''} and
-                your HTTP Toolkit Pro subscription is now active
+                your HTTP Toolkit Pro account is now active
                 {result.expiry ? ` until ${formatExpiry(result.expiry)}` : ' for one year'}.
+                When your access expires, come back to this page to renew it for another year.
               </Text>
-              <Text fontSize="s" color="darkGrey">
-                When your access expires, come back to this page to renew it
-                for another year. Download HTTP Toolkit and log in with your
-                account to get started.
+              <Text fontSize="m">
+                Download HTTP Toolkit, and click 'Get Pro' then 'Log into existing account'
+                to get started with your student account.
               </Text>
             </Stack>
           }
@@ -222,14 +226,44 @@ export const StudentAccountContent = observer(() => {
       {pageState === 'already_active' && (
         <SuccessHero
           heading="Already active"
-          excerpt={
+          excerpt={<>
             <Text fontSize="m">
-              You already have an active student subscription
-              {result.expiry ? ` until ${formatExpiry(result.expiry)}` : ''}.
-              You can renew when less than 2 months remain. Download HTTP
-              Toolkit and log in with your account to use it.
+              You already have an student account{
+                result.expiry
+                ? `, active until ${formatExpiry(result.expiry)}`
+                : ` that's currently active`
+              }.
             </Text>
+            <Text fontSize="m">
+              You can renew when less than 2 months remain. To use your existing account, download HTTP
+              Toolkit, and click 'Get Pro' then 'Log into existing account'.
+            </Text>
+          </>}
+          callToAction={
+            <Button href="/download/" variant="primary">
+              Download HTTP Toolkit
+            </Button>
           }
+        />
+      )}
+
+      {pageState === 'paid_account' && (
+        <SuccessHero
+          heading="Already active"
+          excerpt={<>
+            <Text fontSize="m">
+              You already have a paid account{
+                result.expiry
+                ? `, active until ${formatExpiry(result.expiry)}`
+                : ` that's currently active`
+              }.
+            </Text>
+            <Text fontSize="m">
+              To use your existing account and manage your subscription, download HTTP Toolkit,
+              and click 'Get Pro' then 'Log into existing account'. To request a
+              student account, please cancel your existing subscription and try again.
+            </Text>
+          </>}
           callToAction={
             <Button href="/download/" variant="primary">
               Download HTTP Toolkit
@@ -247,9 +281,10 @@ export const StudentAccountContent = observer(() => {
                   Email not recognized
                 </Heading>
                 <Text fontSize="m">
-                  We couldn't verify your email ({accountStore.user.email}) as belonging to
-                  an academic institution. If you believe this is a mistake,
-                  use the form below to contact us and we'll review it manually.
+                  We couldn't match your email ({accountStore.user.email}) to any known
+                  academic institution. If you believe this is a mistake, use the form below to
+                  contact us and we'll review it manually. Please include verifiable details about
+                  your academic situation in your message for verification.
                 </Text>
               </Stack>
             </StyledPageWrapper>
