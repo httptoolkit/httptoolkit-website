@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 }
 
 type WillItCorsStepsPageProps = {
-  params: { step: WillItCorsSteps };
+  params: Promise<{ step: WillItCorsSteps }>;
 };
 
 export const metadata: Metadata = buildMetadata({
@@ -28,8 +28,8 @@ export const metadata: Metadata = buildMetadata({
   },
 });
 
-export default function WillItCorsStepsPage({ params }: WillItCorsStepsPageProps) {
-  const { step } = params;
+export default async function WillItCorsStepsPage({ params }: WillItCorsStepsPageProps) {
+  const { step } = await params;
 
   return (
     <LandingLayout isNavigationEnabled={false}>

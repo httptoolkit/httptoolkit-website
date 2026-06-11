@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import WebShare from './web-share';
 
 import { TwitterX, FacebookLogo } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
@@ -11,8 +11,6 @@ export interface SocialShareProps {
 export interface WebShareProps extends SocialShareProps {
   title?: string;
 }
-
-const WebShare = dynamic(() => import('./web-share'), { ssr: false });
 
 const SocialShareContainer = styled.div`
   display: flex;

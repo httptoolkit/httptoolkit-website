@@ -1,4 +1,5 @@
 import type { MDXComponents, MDXProps } from 'mdx/types';
+import type { JSX } from 'react';
 
 import { defaultComponents } from './components';
 

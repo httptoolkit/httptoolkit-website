@@ -16,11 +16,11 @@ import { NEWSLETTER_URLS } from '@/components/modules/newsletter/newsletter.valu
 import { EditOnGithub } from '@/components/elements/edit-on-github';
 
 type BlogPostPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
 
   const metaDescription = post.excerpt ? optimizeExcerptToMetaDescription(post.excerpt) : undefined;
@@ -58,7 +58,7 @@ export async function generateStaticParams() {
 const githubBlogUrl = 'https://github.com/httptoolkit/httptoolkit-website/blob/main/src/content/posts';
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await getPostBySlug(slug);
   const postNavigation = await getBlogTitlesBySlug(slug);
   const editUrl = `${githubBlogUrl}/${slug}.mdx`;

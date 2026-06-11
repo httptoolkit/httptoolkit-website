@@ -2,7 +2,7 @@
 
 import { CaretDown } from '@phosphor-icons/react/dist/ssr';
 import type { Icon, IconWeight } from '@phosphor-icons/react';
-import type { AriaAttributes } from 'react';
+import type { AriaAttributes, JSX } from 'react';
 
 import { Link } from '@/components/elements/link';
 import {

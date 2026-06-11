@@ -24,11 +24,11 @@ import { getDownloadOptionsDictionary } from '@/content/data/download-dictionary
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 type DownloadPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: DownloadPageProps): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const downloadItems = await getDownloadOptionsDictionary();
   const currentDownloadData = downloadItems.find(item => item.slug === slug);
 
@@ -47,7 +47,7 @@ export async function generateStaticParams() {
 }
 
 export default async function DownloadPage({ params }: DownloadPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const downloadItems = await getDownloadOptionsDictionary();
   const currentDownloadData = downloadItems.find(item => item.slug === slug);
   const hasDownloadCommand = typeof currentDownloadData?.downloadCommand === 'string';

@@ -1,6 +1,6 @@
 'use client';
 
-import type { ReactNode } from 'react';
+import type { JSX, ReactNode } from 'react';
 import { TierCode } from '@httptoolkit/accounts';
 import { observer } from 'mobx-react-lite';
 import { useCallback, useState } from 'react';

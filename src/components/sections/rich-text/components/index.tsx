@@ -10,10 +10,8 @@ import { Image } from '@/components/elements/image';
 import { Link } from '@/components/elements/link';
 import { Text } from '@/components/elements/text';
 import { Accordion } from '@/components/modules/accordion';
-import type { AccordionProps } from '@/components/modules/accordion';
 import { BlockCode, InlineCode } from '@/components/modules/block-code';
 import { CTABox } from '@/components/modules/cta-box';
-import type { CTABoxProps } from '@/components/modules/cta-box';
 import { fontSizes, fontWeight } from '@/styles/tokens';
 
 const StyledLink = styled(Link)`
@@ -99,7 +97,6 @@ export const defaultComponents: MDXComponents = {
   h4: Heading3to6,
   h5: Heading3to6,
   h6: Heading3to6,
-  // @ts-expect-error - MDX component signature doesn't match React.FC
   a({ children, href }: Component<{ href: string }>) {
     return <StyledLink href={href}>{children}</StyledLink>;
   },
@@ -113,12 +110,8 @@ export const defaultComponents: MDXComponents = {
   HighlightedParagraphs({ children }: Component) {
     return <StyledHighlightedParagraphs>{children}</StyledHighlightedParagraphs>;
   },
-  Accordion(props: AccordionProps) {
-    return <Accordion {...props} />;
-  },
-  CTABox(props: CTABoxProps) {
-    return <CTABox {...props} />;
-  },
+  Accordion,
+  CTABox,
   ul({ children }: Component) {
     return <StyledUL>{children}</StyledUL>;
   },

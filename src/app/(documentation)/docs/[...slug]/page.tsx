@@ -10,11 +10,11 @@ import { optimizeExcerptToMetaDescription } from '@/lib/utils';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 type DocPageProps = {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 };
 
 export async function generateMetadata({ params }: DocPageProps): Promise<Metadata> {
-  const slug = params.slug;
+  const { slug } = await params;
   const realSlug = slug[slug.length - 1];
   const doc = await getDocBySlug(realSlug);
 
@@ -39,7 +39,7 @@ export async function generateStaticParams() {
 const githubDocsUrl = 'https://github.com/httptoolkit/httptoolkit-website/blob/main/src/content/docs';
 
 export default async function DocsPage({ params }: DocPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const realSlug = slug[slug.length - 1];
   const { title, content: Content } = await getDocBySlug(realSlug);
   const [filePath] = findFile(ROOT_DOCS_DIRECTORY, realSlug, '.mdx', true);

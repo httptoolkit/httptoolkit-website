@@ -1,14 +1,11 @@
-import dynamic from 'next/dynamic';
-
 import { styled } from '@linaria/react';
 
+import WebShare from '@/components/modules/social-share/web-share';
 import { TwitterX, RedditLogo, DevToLogo, YCombinator, ProductHuntLogo, Butterfly } from '@/components/elements/icon';
 import { SquareIcon } from '@/components/elements/square-icon';
 import Stack from '@/components/elements/stack';
 import { Text } from '@/components/elements/text';
 import { siteMetadata } from '@/lib/site-metadata';
-
-const WebShare = dynamic(() => import('@/components/modules/social-share/web-share'), { ssr: false });
 
 interface SocialShareProps extends Pick<Post, 'socialLinks'> {
   postTitle?: string;

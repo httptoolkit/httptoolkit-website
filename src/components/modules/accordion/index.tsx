@@ -182,7 +182,7 @@ const AccordionTitle = ({ variant, children }: Component<AccordionVariantProps>)
 
 export const Accordion = ({ items, variant = 'default', isBiggerIcon }: AccordionProps) => {
   return (
-    <StyledAccordionWrapper type="single" defaultValue={items[0].title} collapsible data-variant={variant}>
+    <StyledAccordionWrapper type="single" defaultValue={items?.[0]?.title} collapsible data-variant={variant}>
       {Array.isArray(items) &&
         items.length > 0 &&
         items.map((item, idx) => (

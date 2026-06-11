@@ -1,21 +1,18 @@
 import '@/styles/globals.css';
-import dynamic from 'next/dynamic';
 import { DM_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next/types';
+import { Suspense } from 'react';
 
 import { PHProvider } from './providers';
 
 import { Button } from '@/components/elements/button';
 import { RadixProviders } from '@/components/layout/radix-layout';
 import { ThemeLayout } from '@/components/layout/theme-layout';
+import PostHogPageView from '@/components/layout/posthog-page-view';
 import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
 import { Polyfills } from '@/components/elements/polyfills';
-
-const PostHogPageView = dynamic(() => import('@/components/layout/posthog-page-view'), {
-  ssr: false,
-});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -80,7 +77,9 @@ export default function RootLayout({
               <Button as="link" href="#main-content" small className="skip-button">
                 Skip to main content
               </Button>
-              <PostHogPageView />
+              <Suspense fallback={null}>
+                <PostHogPageView />
+              </Suspense>
               {children}
             </RadixProviders>
           </ThemeLayout>
