@@ -18,7 +18,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
 
   const { frontmatter, content } = await compileMDX<PostFrontmatter>({
     source: fileContent,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, blockJS: false },
     components: { ...defaultComponents, ...postComponents },
   });
 

@@ -11,7 +11,7 @@ export const getPageContent = async (fileContentPath: string) => {
 
   const { content } = await compileMDX<PostFrontmatter>({
     source: fileContent,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, blockJS: false },
     components: { ...defaultComponents },
   });
 

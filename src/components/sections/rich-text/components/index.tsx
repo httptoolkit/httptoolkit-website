@@ -97,8 +97,8 @@ export const defaultComponents: MDXComponents = {
   h4: Heading3to6,
   h5: Heading3to6,
   h6: Heading3to6,
-  a({ children, href }: Component<{ href: string }>) {
-    return <StyledLink href={href}>{children}</StyledLink>;
+  a({ children, href }: React.ComponentProps<'a'>) {
+    return <StyledLink href={href ?? ''}>{children}</StyledLink>;
   },
   p({ children }: Component) {
     return (

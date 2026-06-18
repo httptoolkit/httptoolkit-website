@@ -25,7 +25,7 @@ export const getDocBySlug = async (slug: string, extension = '.mdx'): Promise<Do
 
   const { frontmatter, content } = await compileMDX<Doc>({
     source: fileContent,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, blockJS: false },
     components: { ...defaultComponents, ...docsComponents } as MDXComponents,
   });
 
