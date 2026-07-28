@@ -16,31 +16,27 @@ The search box allows you to quickly filter the interception options for the one
 
 The connected sources panel shows the list of sources from whom traffic has been intercepted so far. Note that this is based on actually intercepted traffic: it's possible for a client to be correctly configured but not appear in this list, if they haven't yet sent any requests.
 
+Not every option will be enabled. Many appear only when the relevant tool is actually installed and available on your machine, and some are placeholders for interception features that aren't supported yet.
+
 ## Interception Options
 
-### Chrome, Edge, and Brave
+### Fresh browser windows
 
-These interceptors launch a fresh instance of the Chromium-based browsers, preconfigured to use the HTTP Toolkit proxy and trust the HTTP Toolkit certificate.
+These interceptors launch a fresh instance of a browser, preconfigured to use the HTTP Toolkit proxy and trust the HTTP Toolkit certificate. Options are available for Chrome, Chromium, Edge, Brave, Opera and Firefox, and each browser's other release channels (such as Beta, Dev, Canary or Nightly) will appear as their own options when they're installed.
 
-This browser instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other window, and it runs as a separate app. Only the traffic from this specific browser process (this window or windows opened from here) will be intercepted. The separate profile ensures that this window starts completely fresh, with none of your day-to-day cookies or extensions, which is useful for testing. Otherwise though this window acts just like any other Chrome/Edge/Brave window on your machine.
+This browser instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other window, and it runs as a separate app. Only the traffic from this specific browser process (this window or windows opened from here) will be intercepted. The separate profile ensures that this window starts completely fresh, isolated from your normal browser sessions' cookies or extensions, which is useful for testing. Otherwise though, this window acts just like any other browser window on your machine.
 
-### Fresh Firefox
+Firefox is the one exception to the fully automatic setup: when it is first started, it will prompt you to trust the certificate. Select 'Trust this CA to identify web sites' and click ok. If you do this wrong, the certificate won't be trusted, and you'll see failing requests in the View page. In that case, you can just close Firefox and then restart it using the same interception option, and it'll prompt you to try again.
 
-This interceptor launches a Firefox instance, preconfigured to use the HTTP Toolkit proxy. When it is first started, it will prompt you to trust the certificate: select 'Trust this CA to identify web sites' and click ok.
-
-Once that's done, any traffic from this Firefox instance will be intercepted and visible in HTTP Toolkit. If you do this wrong, the certificate won't be trusted, and you'll see failing requests in the View page. In that case, you can just close Firefox and then restart it using the same interception option, and it'll prompt you to try again.
-
-This Firefox instance is an independent process and profile from others on your machine. That means that it doesn't change the certificate or proxy settings on any other Firefox window, and it runs as a separate app. Only the traffic from this specific Firefox process (this window or windows opened from here) will be intercepted. The separate profile ensures that this window starts completely fresh, with none of your day-to-day cookies or extensions, which is useful for testing. Otherwise though this window acts just like any other Firefox window on your machine.
-
-### Global Chrome
+### Global browser interception
 
 Most of the time it's preferable to launch a fresh isolated browser window, which can be intercepted independently of other traffic on your machine.
 
-Sometimes though, it's useful to be able to use your existing browser state, extensions and configuration. To do this for Chrome, you can intercept your browser globally.
+Sometimes though, it's useful to be able to use your existing browser state, extensions and configuration. To do this, you can intercept a browser globally. Options are available for Chrome and Chromium.
 
-This starts an intercepted session using your normal browser profile. This injected configuration is the same, but it will affect all normal Chrome windows on your machine. This requires restarting Chrome, but HTTP Toolkit will prompt you before it does so if Chrome is currently running.
+This starts an intercepted session using your normal browser profile. This injected configuration is the same, but it will affect all normal windows of that browser on your machine, so it may interfere with your normal usage. This requires restarting the browser, but HTTP Toolkit will prompt you before it does so if it's currently running.
 
-The configuration injected is temporary, and will disappear when Chrome is restarted from outside of HTTP Toolkit. This doesn't necessarily mean all intercepted effects will disappear though, for example cached mock responses may persist in your browser even when it's not intercepted by HTTP Toolkit.
+The configuration injected is temporary, and will disappear when the browser is restarted from outside of HTTP Toolkit. This doesn't necessarily mean all intercepted effects will disappear though, for example cached mock responses may persist in your browser even when it's not intercepted by HTTP Toolkit.
 
 ### Android device connected via ADB
 
@@ -65,6 +61,31 @@ The first time you do this, the device may show some permission prompts to activ
 Interception requires connectivity between your Android device and your computer. They need to be on the same network, the network needs to allow connectivity between them, and if your computer has a firewall it must allow incoming traffic to HTTP Toolkit's proxy port.
 
 For more details, see the in-depth [Android interception guide](/docs/guides/android/).
+
+### Android app via Frida
+
+_Experimental_
+
+This intercepts a single target app, using [Frida](https://frida.re/) to inject into the app directly. Doing so automatically disables most certificate pinning, so this can capture HTTPS from apps that would otherwise refuse to trust the HTTP Toolkit certificate.
+
+This requires a rooted device connected via ADB. When you select this option, you'll be able to pick which of the installed apps to intercept.
+
+For more details, see the in-depth [Android interception guide](/docs/guides/android/).
+
+### iOS devices
+
+There are two options for iOS:
+
+* Manual setup, which shows the proxy settings and a QR code for the certificate, to configure by hand.
+* iOS app via Frida (_experimental_), which intercepts a single target app and automatically disables most certificate pinning, in the same way as the Android Frida option above. This requires a jailbroken device running Frida Server.
+
+For more details, see the in-depth [iOS interception guide](/docs/guides/ios/).
+
+### Attach to Docker Container
+
+This intercepts all traffic from Docker containers that are already running. When you select this option, you can pick from the list of running containers, and the selected container will be recreated and restarted with HTTP Toolkit's settings injected.
+
+Containers launched from an intercepted terminal are captured automatically without needing this. For more details on both, see the in-depth [Docker interception guide](/docs/guides/docker/).
 
 ### Fresh Terminal
 
