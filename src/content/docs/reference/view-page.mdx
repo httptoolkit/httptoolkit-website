@@ -8,11 +8,11 @@ order: 1
 
 On the View page you can examine collected HTTP and HTTPS traffic up close.
 
-It shows the traffic collected from HTTP clients that you've intercepted, and/or past HTTP traffic that you import from a HAR file.
+It shows the traffic collected from HTTP clients that you've intercepted, and/or past HTTP traffic that you import from a HAR file, along with any non-HTTP connections that were intercepted too.
 
 The page is in two parts:
 
-- On the left, a list of HTTP events, with some controls to explore those.
+- On the left, a list of events, with some controls to explore those.
 - On the right, a pane that shows the details of the selected event, if any.
 
 You can drag the central divider to resize either half as you'd like.
@@ -27,6 +27,8 @@ There's a few possible types of event:
 
 - An HTTP exchange. This consists of a request, which might still be in progresss, might be at a breakpoint, might have completed with a response, or might have failed permanently.
 - A failed TLS connection. This is an HTTPS request that has failed to setup the initial connection, perhaps due to the HTTP Toolkit certificate being rejected, or a connection being cancelled.
+- A TLS tunnel. This is an HTTPS connection that has been passed straight through without inspection, because the host is configured for TLS passthrough on [the Settings page](/docs/reference/settings-page/).
+- A non-HTTP connection. Not everything that arrives at the proxy is HTTP: connections using some other protocol are shown as their own rows, and you can still examine the raw data that was sent.
 - A WebRTC connection, data channel, or media stream. Channels & streams exist within connections, but are shown as separate rows so that you can independently view the connection information, the data in a channel, or the transfer statistics from a stream.
 - An IPFS & Ethereum interaction. This shows the core interaction details in the row itself, and then shows a detailed explanation of the IPFS/Ethereum interaction when selected (in a card at the top) and the raw HTTP data corresponding to this below.
 
@@ -77,6 +79,7 @@ At the bottom of the list, there's a few useful controls:
 - A button to export the currently visible exchanges as a [HAR file](<https://en.wikipedia.org/wiki/HAR_(file_format)>), usable with many other tools (_requires [HTTP Toolkit Pro](/get-pro/)_).
 - A button to import a HAR file. These imported exchanges are appended to the list of events, and won't remove any events already present (_requires [HTTP Toolkit Pro](/get-pro/)_).
 - A button to clear the event list, deleting all events from memory.
+- A button to scroll to the bottom of the list.
 
 #### Filtering intercepted traffic
 
@@ -154,6 +157,34 @@ With [HTTP Toolkit Pro](/get-pro/) it's also possible to save sets of filters wi
 
 Once a custom filter is created, you can create it like any other, by typing the name and pressing enter to select the suggestion. To delete a custom filter, type its name so the suggestion appears, and then click the trash icon shown alongside.
 
+### Selecting events
+
+Clicking a row selects it. You can also select many events at once, to act on them together:
+
+- Ctrl/Cmd + click adds or removes a single row from the selection.
+- Shift + click selects every row between the last selected row and the clicked row.
+- Ctrl/Cmd + A selects everything currently shown.
+- The arrow keys, Page Up/Down, and Home/End move the selection, and holding shift extends it instead.
+- Escape clears the selection.
+
+When more than one event is selected, the details pane on the right is replaced by a summary of the selection, showing a preview of the most recent events selected and the total count, along with buttons to:
+
+- Toggle pinning for all of them.
+- Delete all of them.
+- Create one matching modify rule per selected request (_requires [HTTP Toolkit Pro](/get-pro/)_).
+- Export them all as a single HAR file (_requires [HTTP Toolkit Pro](/get-pro/)_).
+- Export them as a code snippet ZIP (_requires [HTTP Toolkit Pro](/get-pro/)_).
+
+The ZIP export lets you pick any number of the available code snippet formats, so each request is written out as ready-to-run code in every format you choose, with a manifest listing the contents. You can optionally include the complete raw data as a HAR file alongside, although that can make the export much larger.
+
+### The context menu
+
+Right-clicking any event opens a context menu, which is often the quickest way to act on traffic. For an HTTP exchange this includes pinning, copying the request URL, deleting the event, and a 'Filter traffic like this' submenu to instantly show only (or hide) the hostname of that request.
+
+With [HTTP Toolkit Pro](/get-pro/) it also offers resending the request, creating a matching modify rule, exporting the exchange as HAR, and copying the request as a code snippet in any supported format. The format you pick is remembered, and then appears as a top-level 'Copy as ... Snippet' option for next time.
+
+Right-clicking within a multiple selection shows the equivalent options for the whole selection instead.
+
 ## The event details pane
 
 The right pane is made up of a series of 'cards': collapsible sections, which provide different views of the details of the selected event. You can see an example of each card below.
@@ -161,11 +192,14 @@ The right pane is made up of a series of 'cards': collapsible sections, which pr
 For an HTTP exchange, there's a few cards that will be shown:
 
 - A summary of the API request, for requests to recognized endpoints of public APIs like AWS, GitHub, Stripe and 2600+ others (_with [HTTP Toolkit Pro](/get-pro/)_).
+- A transform summary, if the exchange was modified by one of your rules.
 - The request non-body content (method, URL & headers).
 - The request body (if there is one).
+- The request trailers (if there are any).
 - If a response has been received:
   - The response details.
   - The response body (if there is one).
+  - The response trailers (if there are any).
 - The performance details (_requires [HTTP Toolkit Pro](/get-pro/)_).
 - The export options (_requires [HTTP Toolkit Pro](/get-pro/)_).
 - Breakpoint cards, for breakpointed requests and responses.
@@ -223,8 +257,14 @@ This card consists of a viewer for the body content, plus a few controls. Let's 
   - CSS - the content of the body decoded as UTF8 text, autoformatted as CSS, with syntax highlighting.
   - Markdown - the content of the body decoded as UTF8 text, with markdown syntax highlighting.
   - YAML - the content of the body decoded as UTF8 text, with YAML syntax highlighting.
+  - JSON records - a stream of separate JSON values, such as newline-delimited JSON, formatted as a readable list.
+  - URL encoded - form data, decoded into its separate fields.
+  - Protobuf - protobuf data, decoded and shown as readable structured content, even without a schema.
+  - gRPC - the protobuf messages within a gRPC request or response, unwrapped from their gRPC framing and decoded as above.
 
 The viewer itself appears below, showing the content formatted according to the formatting dropdown.
+
+For images, a summary of any EXIF metadata in the image is shown above it, which can be expanded to see the full details, including the camera used and any location data embedded in the file.
 
 The viewer is powered by a read-only [Monaco editor](https://github.com/microsoft/monaco-editor) (the internals of Visual Studio Code), and includes many of the features of Visual Studio Code. For example:
 
@@ -242,6 +282,23 @@ The viewer is powered by a read-only [Monaco editor](https://github.com/microsof
 The response card shows the HTTP status code, status message, and response headers. For [HTTP Toolkit Pro](/get-pro/) users, the response status itself may come with further explanations powered by any detected OpenAPI specifications from the [OpenAPI Directory](https://github.com/APIs-guru/openapi-directory).
 
 All standard status codes and headers on this card are automatically recognized, and clicking the plus symbol next to them will show a quick explanation of what they mean, and links to the Mozilla Developer Network's full documentation for that status or header.
+
+### The Transform Card
+
+When an exchange has been modified by one of your rules, an extra card appears at the top showing which rule matched, which you can click to jump straight to that rule on [the Modify page](/docs/reference/modify-page/).
+
+Because the data the client sent and the data the server received are no longer the same, this card also lets you choose which version of the exchange the cards below should show:
+
+- Show transformed content: the data after your rules were applied.
+- Show original content: the data before your rules were applied.
+- Show the client's perspective: what the client sent, and what it received back.
+- Show the server's perspective: what the server received, and what it sent back.
+
+This setting applies to every exchange you look at, until you change it again.
+
+### Trailer Cards
+
+Some HTTP responses (and, more rarely, requests) send extra headers _after_ the body, known as trailers. When these are present, they're shown in their own card, in exactly the same format as the normal header cards.
 
 ### The Performance Card
 
@@ -419,6 +476,14 @@ WebRTC traffic is shown in a selection of cards, including:
 ![RTC connection and data cards](./rtc-connection-and-data-cards.png)
 
 ![An RTC media card](./rtc-media-card.png)
+
+### Connection Cards
+
+Not every connection carries HTTP, and those that don't get their own simpler details panes:
+
+- A failed TLS connection shows what was known about the client before the connection failed, which is usually enough to work out which client rejected the certificate and why.
+- A TLS tunnel shows a connection that was passed through untouched, because its host is configured for TLS passthrough on [the Settings page](/docs/reference/settings-page/). The contents are encrypted, so only the connection details are available.
+- A non-HTTP connection shows the raw data that was sent, in a 'Raw Data' card, so you can examine protocols that HTTP Toolkit doesn't parse itself.
 
 ### The event details footer
 
