@@ -8,9 +8,9 @@ order: 2
 
 The Modify page allows you to rewrite traffic, simulate fake servers, test edge cases, or change real HTTP requests and responses in any other way you'd like.
 
-It shows a list of rules, which define how all HTTP traffic is handled. Each rule has a matcher and an action. The matcher defines which requests it applies to, and the action defines what happens to matching requests.
+It shows a list of rules, which define how all HTTP traffic is handled. Each rule has a matcher and one or more steps. The matcher defines which requests it applies to, and the steps define what happens to matching requests.
 
-Every request is matched against each rule one by one from the top, until a matching rule is found, and the action for that rule is then run. Only one rule ever matches any request. If no rule matches, the request receives a 503 error, where the body explains the details of the request, and the details of the existing rules that didn't match.
+Every request is matched against each rule one by one from the top, until a matching rule is found, and the steps for that rule are then run in order. Only one rule ever matches any request. If no rule matches, the request receives a 503 error, where the body explains the details of the request, and the details of the existing rules that didn't match.
 
 Rule changes only take effect when saved. You can save all changes to rules from the button at the top, or save any one individual rule from the button on its row.
 
@@ -43,14 +43,18 @@ Hovering over any rule will show a draggable tag on the left, and a set of contr
 
 ![Row controls](./mock-row-controls.png)
 
-Each rule row shows these 4 controls in the top right. You can hover over any button to see a short description. From left to right, they are:
+Each rule row shows these controls in the top right. You can hover over any button to see a short description. From left to right, they are:
 
 * Save rule / collapse rule (depending on whether there are unsaved changes).
 * Revert unsaved changes to this rule.
+* Give this rule a custom name, to make it easier to recognize in a long list.
 * Deactivate/reactivate rule (note that you will need to save the rule for this change to apply).
+* Clone rule, to create a copy you can edit separately.
 * Delete rule (note that you will need to save the full list of rules for this change to apply).
 
 Rules can be reordered by hovering over the rule whilst it is collapsed, and dragging it using the draggable tag that appears. For keyboard use you can tab to this tag, which will appear if previously invisible, start dragging with space, select a position with the arrow keys, and place the rule with space again.
+
+Rules can also be collected into named groups, by dragging one rule onto another. Groups can be collapsed and reordered as a unit, which is useful to keep large sets of rules manageable.
 
 To edit any rule, click it or press enter on it in the list, and it will expand to show its details. You can collapse it again from the chevron button in the top right. If you've made changes, that becomes a save button, which will save the changes to this rule before collapsing it. To avoid saving changes, first use the revert button, which will put the rule back to its last saved state.
 
@@ -58,7 +62,7 @@ To edit any rule, click it or press enter on it in the list, and it will expand 
 
 Within each row, you can see:
 
-* A top line, showing a summary of the matcher and action currently selected. This is greyed out when the rule is expanded.
+* A top line, showing a summary of the matcher and steps currently selected. This is greyed out when the rule is expanded.
 * A colour marker on the left. This corresponds to the HTTP method matched, to allow easier skimming within large lists of rules.
 * A set of matchers on the left.
     * These are combined together, so that requests will match only if all matchers match the request.
@@ -66,12 +70,12 @@ Within each row, you can see:
     * More specific matchers that have been added are shown below this, with their editable configuration.
     * Press the delete button next to any matcher to remove it.
     * Use the dropdown at the bottom to select a new matcher, then configure it, and click the + button to add it to the rule.
-* A single action on the right.
-    * This action will be applied to all matching requests as they arrive.
-    * Change the dropdown at the top to select the action to use.
-    * The configuration and an explanation for the selected action will appear below..
+* A list of steps on the right, shown below a 'Then:' header.
+    * These are applied in order to all matching requests as they arrive.
+    * Change the dropdown at the top of any step to select the step to use.
+    * The configuration and an explanation for the selected step will appear below it.
 
-Some matchers and actions have validations, for example host matching requires a valid hostname. If any data is invalid, it will be marked with a warning icon, and the rule will not be changed until you provide a valid value.
+Some matchers and steps have validations, for example host matching requires a valid hostname. If any data is invalid, it will be marked with a warning icon, and the rule will not be changed until you provide a valid value.
 
 ## Matchers
 
@@ -94,21 +98,45 @@ There are a variety of matchers available to filter the requests that a rule wil
     * This matches any request with the exact query string provided.
     * If empty, this matches only requests with no query parameters at all.
     * If set, this matches the exact query string provided.
+* Query parameters including:
+    * This takes a list of name/value pairs.
+    * It will match any request whose query string includes all those parameters, regardless of any others.
 * Including headers:
     * This takes a list of name/value header pairs.
     * It will match any requests that include those pairs of headers.
     * Edit the last name/value row to add a new pair.
     * Use the delete button on any row to remove any pair.
+* A body:
+    * 'With exact body' matches requests whose body is exactly the content given.
+    * 'With body including' matches requests whose body contains the content given anywhere within it.
+* A JSON body:
+    * 'With JSON body' matches requests whose body is JSON exactly equal to the JSON given.
+    * 'With JSON body including' matches requests whose body is JSON containing at least the properties given, ignoring any others.
 
 After selecting and configuring the matcher, press the + button on the right of the matcher to add it to the set of matchers for this rule, and then use the save button to save the rule.
 
 _Have suggestions for other matchers you'd like to see? File [some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
 
-## Actions
+## Steps
 
-![The action selection dropdown](./mock-actions.png)
+![The step selection dropdown](./mock-actions.png)
 
-There are a variety of actions available, to apply different effects to the matched requests:
+Each rule runs a series of steps against the requests it matches. Most steps are final: they complete the request, and so must come last. A few steps instead run and then continue, and selecting one of those will automatically add a following step, so you can build up a rule that (for example) waits, fires a webhook, and then returns a fixed response.
+
+Only passthrough (do nothing) and the breakpoint (manual rewrite) steps are available for free. All other steps require [HTTP Toolkit Pro](/get-pro/), and are shown in the dropdown under a 'With HTTP Toolkit Pro' heading otherwise.
+
+### Continuing steps
+
+These steps run and then hand over to the next step in the rule:
+
+* Wait before continuing: pauses for a given duration before running the next step, to simulate a slow server or network.
+* Enable webhooks:
+    * This sends a copy of the request and/or response to a URL of your choice, as it happens.
+    * The traffic itself is unaffected, so this is useful to feed real traffic into your own tooling.
+
+### Final steps
+
+These steps complete the request, and end the rule:
 
 * Pass the request on to its destination: This proxies the request to its target server, and returns the server's response, with no changes.
 * Forward the request to a different host:
@@ -127,6 +155,9 @@ There are a variety of actions available, to apply different effects to the matc
     * Header rows can be added by editing the final name/value pair, or deleted using the delete button next to each individual row.
     * The body content will come from a file, selected using the button shown.
     * The file contents are read fresh for each request, so future changes will be immediately visible in responses.
+* Transform the real request or response automatically:
+    * This passes the request through to the real server, but rewrites parts of the request and/or response on the way, without any manual intervention.
+    * See [transforms](#transforms) below for the full details.
 * Pause the request to manually edit it:
     * This will breakpoint each matched request as it is received, before it is sent upstream to the server.
     * When a matching request is received, HTTP Toolkit will immediately jump to the request on the View page to show it.
@@ -139,10 +170,48 @@ There are a variety of actions available, to apply different effects to the matc
     * Matching requests will be breakpointed both before they are sent upstream, and after a response is received from the upstream server.
     * This behaves as a combination of the previous two rules.
 * Time out with no response: matching requests will never receive any response, and the connection will remain open until they time out (or until HTTP Toolkit is closed).
-* Close the connection immediately: as soon as a matched request is detected, the connection will be immediately closed with no response.
+* Close the connection: as soon as a matched request is detected, the connection will be immediately closed with no response.
+* Forcibly reset the connection: like closing the connection, but the connection is reset rather than closed cleanly, to test how clients handle abrupt network failures.
 
-After selecting and configuring an action, remember to save the rule to begin applying it to matching traffic.
+After selecting and configuring your steps, remember to save the rule to begin applying it to matching traffic.
 
-_Have suggestions for other actions you'd like to see? File [some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
+_Have suggestions for other steps you'd like to see? File [some feedback](https://github.com/httptoolkit/httptoolkit/issues/new/choose), or contribute them directly [for yourself](https://github.com/httptoolkit/httptoolkit-ui#contributing)._
+
+## Transforms
+
+The 'Transform the real request or response automatically' step rewrites traffic as it passes through, so you can change real requests and responses without stopping at a breakpoint each time.
+
+The step is configured in two halves, for request transforms and response transforms. Each part defaults to using the original value, and you can enable as many parts as you like at once.
+
+For requests, you can change:
+
+* The method, replacing it with any other HTTP method.
+* The URL, either changing the protocol, replacing the host outright, or using match & replace on the host, path or query string.
+* The headers, either overriding specific headers (leaving the rest untouched) or replacing all of them.
+* The body, as below.
+
+For responses, you can change:
+
+* The status code.
+* The headers, with the same options as requests.
+* The body, as below.
+
+In both cases the body can be replaced with a fixed value or the contents of a file, or edited in place: merging JSON data into a JSON body, applying a [JSON patch](https://jsonpatch.com/) to a JSON body, or running match & replace over the raw body text.
+
+Match & replace takes a regular expression and a replacement, applied to the matching part of the request or response. This makes it easy to rewrite just one value, such as swapping a hostname in a redirect or an API key in a body, whilst leaving everything else as it is.
+
+## WebSocket rules
+
+WebSocket traffic is matched and modified with its own rules. To create one, set the first matcher of a rule to 'Any WebSocket', and the available matchers and steps will update to match.
+
+WebSocket rules use the same matchers as HTTP rules, applied to the initial setup request, with their own set of steps:
+
+* Pass the WebSocket through to its destination: connects to the real server, and proxies messages in both directions unchanged.
+* Forward the WebSocket to a different host: as above, but connecting to a different server than the client asked for.
+* Reject the WebSocket setup request: refuses the connection with an HTTP response, so it's never upgraded.
+* Accept the WebSocket but send no messages: completes the connection, and then stays silent.
+* Echo all messages: completes the connection, and sends every received message straight back to the client.
+
+Passthrough and forwarding are available for free here. The remaining steps require [HTTP Toolkit Pro](/get-pro/).
 
 **Any questions? [Get in touch](/contact/)**
