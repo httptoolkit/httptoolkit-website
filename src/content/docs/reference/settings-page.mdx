@@ -10,11 +10,12 @@ It looks like this:
 
 ![The full Settings page](./settings-page.png)
 
-There are four cards here, each of which can be collapsed or expanded as required by clicking or pressing enter on the title and chevron in the top right. The cards are:
+There are five cards here, each of which can be collapsed or expanded as required by clicking or pressing enter on the title and chevron in the top right. The cards are:
 
 * The Account card, which allows you to manage your user account and subscription.
 * The Proxy Settings card, which allows you to configure how the proxy is used by intercepted applications.
 * The Connection Settings card, which allows you to configure how upstream connections behave.
+* The API Settings card, which allows you to add your own OpenAPI specifications.
 * The Themes card, which allows you to select themes and see their settings at a glance.
 
 ## Account Settings
@@ -56,7 +57,7 @@ The proxy settings card allows you to reconfigure various settings of the intern
 
 All changes here require a restart of the app to take effect, and a button will appear in the top left of the card allowing you to do that when required, as shown above.
 
-There's two settings you can edit here:
+There's a few settings you can edit here:
 
 ### Proxy Port Ranges
 
@@ -66,7 +67,23 @@ For advanced use cases, you can configure the range to use for yourself, which c
 
 If every single port in the range is unavailable, HTTP Toolkit will fall back to its default settings and use the first free port above 8000. If no ports above 8000 are available at all then HTTP Toolkit will fail to start.
 
-### HTTP/2 Behaviour
+### TLS Passthrough
+
+Some HTTPS connections can't be intercepted, usually because the client refuses to trust the HTTP Toolkit certificate. Here you can list hostnames whose TLS connections should be passed straight upstream, untouched. That can resolve the resulting connection failures, at the cost of not being able to see inside those connections at all: they'll appear on the View page as TLS tunnels instead of exchanges.
+
+Hostnames can include `*` wildcards, so you can exclude an entire domain at once.
+
+You can also invert this, using the toggle beside the heading. In 'Intercept only these hostnames' mode, the list becomes the only hostnames that _will_ be intercepted, and every other TLS connection is passed through. That's useful when you're interested in one specific service and want to leave everything else on the machine untouched.
+
+Either way, non-TLS traffic is always visible regardless of this setting.
+
+### TLS Key Log File
+
+If you set a file path here, the TLS keys for all client & server traffic will be logged to that file.
+
+This allows low-level packet inspection tools like Wireshark to decrypt the raw TLS packets they capture, so you can examine traffic below the HTTP layer alongside HTTP Toolkit's own view of it.
+
+### HTTP/2 Support
 
 HTTP Toolkit supports both HTTP/1 and HTTP/2, over both plain text and TLS (HTTPS) connections.
 
@@ -90,21 +107,21 @@ The connection settings card allows you to reconfigure the settings for upstream
 
 All changes take effect immediately when the corresponding save/add/delete button is pressed.
 
-There's three settings you can edit here:
+There's a few settings you can edit here:
 
 ### Upstream proxy settings
 
 HTTP Toolkit supports forwarding requests via upstream proxies, for use in enterprise environments, or to chain HTTP Toolkit with other proxy tools.
 
-There are 5 available configurations:
+The available configurations are:
 
 * Direct - all requests will be sent directly.
 * System - the system proxy settings will be used.
-* HTTP - a custom HTTP proxy and no-proxy list will be used
-* HTTPS - a custom HTTPS proxy and no-proxy list will be used
-* SOCKS - a custom SOCKS proxy and no-proxy list will be used
+* HTTP - a custom HTTP proxy will be used
+* HTTPS - a custom HTTPS proxy will be used
+* SOCKS - a custom SOCKS proxy will be used, selecting between SOCKS 4, 4a, 5 or 5h
 
-When HTTP, HTTPS or SOCKS is selected, additional configuration options are shown, to allow you to enter the proxy address, and to add a list of hosts whose traffic should always be sent directly, ignoring the proxy.
+When a custom proxy is selected, additional configuration options are shown, to allow you to enter the proxy address, and to add a list of non-proxied hosts whose traffic should always be sent directly, ignoring the proxy.
 
 The proxy address should be entered as a standard proxy URL, but skipping the protocol that was already selected in the dropdown. For example:
 
@@ -114,7 +131,15 @@ The proxy address should be entered as a standard proxy URL, but skipping the pr
 
 When using system mode, the system proxy settings will generally be used as defined in your operating system configuration, with one exception: if the system is configured to use a localhost proxy. In this case, the proxy is ignored and a warning is shown, to avoid common issues when HTTP Toolkit itself is configured as the system proxy, resulting in a recursive proxy loop. If you do want to use a localhost proxy, you can do so by manually configuring the proxy instead.
 
-### Host Certificate Whitelist
+### Trusted CA Certificates
+
+If your servers use certificates issued by a private certificate authority, such as an internal corporate CA, HTTP Toolkit won't trust them by default and those connections will fail.
+
+Here you can load extra CA certificates (in `.pem`, `.crt` or `.cert` format) which will be treated as trusted roots for all HTTPS requests, in addition to the normal set of built-in trusted CAs.
+
+This is different to the host whitelist below: that disables validation entirely for the hosts listed, whilst this keeps validation on but trusts an additional CA, making that working HTTPS servers using certs from that CA are accessible while preserving all the other security of TLS. This is generally the better and more secure option.
+
+### Host HTTPS Whitelist
 
 HTTP Toolkit allows you to configure a list of hosts whose TLS connections will not be securely validated. This allows use of invalid, self-signed or expired TLS certificates, and deprecated TLS versions (back to TLSv1) for testing and compatibility.
 
@@ -127,6 +152,12 @@ Some servers require a client certificate for authentication when a connection i
 To do so, simply enter a hostname and click the 'Load certificate' button to load a certificate. Certificates must be in PKCS#12 (.p12 or .pfx) format. If required you'll be also prompted for a passphrase for the certificate. Enter your passphrase and press the unlock button to test it. Once your certificate is loaded & unlocked, and you've entered the hostname, press the + button to save it.
 
 Note that client certificates are necessarily stored unencrypted in HTTP Toolkit's settings on disk. They are never shared outside your machine, but storing very sensitive certificates on disk unencrypted may be a concern in some security environments. If this is an issue, you can remove the certificate from HTTP Toolkit's settings after use to immediately and completely remove them from storage.
+
+## API Settings
+
+HTTP Toolkit includes built-in specifications for 2600+ popular public APIs, which power the API card on [the View page](/docs/reference/view-page/).
+
+This card lets you add your own. Load an OpenAPI or Swagger specification, enter the base URL that requests to this API will use, and save it. From then on, any request within that base URL will get the same documentation & validation as the built-in APIs.
 
 ## Themes
 
