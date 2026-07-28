@@ -106,15 +106,15 @@ That proxied request might look like this:
 
 All data running in this service is totally local, so feel free to edit owners, create new pets and record pet visits to the clinic to see the traffic that's sent between these microservices under the hood.
 
-You can also try visiting the interfaces of the other components, such as the admin server at `http://localhost:9090`. Once your containers have started, this should show all containers up and running. If you want, you can mess with this too by adding a mock rule to fail health checks:
+You can also try visiting the interfaces of the other components, such as the admin server at `http://localhost:9090`. Once your containers have started, this should show all containers up and running. If you want, you can mess with this too by adding a rule to fail health checks:
 
-![A mock rule that close the connection whenever a health check request is sent](./docker-healthcheck-rule.png)
+![A rule that closes the connection whenever a health check request is sent](./docker-healthcheck-rule.png)
 
 ([HTTP Toolkit Pro](/get-pro/) is required to add automated response rules like this, but you can do the same manually using the "Pause the request to manually edit it" option and manually killing health check requests)
 
 You should quickly see failing requests on the View page, and when you refresh the admin server's status page it will show the entire infrastructure going offline:
 
-![The Spring service healthcheck failing due to our mock rules](./docker-healthcheck-failure.png)
+![The Spring service healthcheck failing due to our rule](./docker-healthcheck-failure.png)
 
 HTTP Toolkit can intercept and rewrite traffic like this for any Docker or Docker Compose project, to automatically inspect, debug, and mock any HTTP or HTTPS traffic you like.
 
