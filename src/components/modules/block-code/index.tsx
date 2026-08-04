@@ -11,7 +11,16 @@ export interface BlockCodeProps {
   language?: string;
 }
 
-const dmCodeFont = Roboto_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-code' });
+// display/fallback set for the same reason as the body font in app/layout.tsx: the
+// generated metric-matched fallback is `local("Arial")`, which doesn't resolve everywhere,
+// and without a generic here code blocks reflow from a proportional font to a mono one.
+const dmCodeFont = Roboto_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-code',
+  display: 'optional',
+  fallback: ['ui-monospace', 'Menlo', 'Consolas', 'monospace'],
+});
 
 const StyledBlockCodeWrapper = styled.div`
   border-radius: 16px;

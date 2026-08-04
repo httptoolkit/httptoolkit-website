@@ -45,8 +45,13 @@ const dmSansFont = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--font-dmSans',
-  display: 'swap',
+  // 'optional' over 'swap': the font is preloaded & same-origin, so it almost always
+  // arrives in time, and when it doesn't we keep the fallback rather than reflowing.
+  display: 'optional',
   preload: true,
+  // Next's generated metric-matched fallback is `local("Arial")`, which doesn't resolve
+  // on Android (Roboto) or most Linux, leaving no generic family to fall back to.
+  fallback: ['Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
 });
 
 export default function RootLayout({
