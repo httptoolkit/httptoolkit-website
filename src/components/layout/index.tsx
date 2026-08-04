@@ -1,5 +1,3 @@
-import { Suspense } from 'react';
-
 import type { FooterProps } from './footer';
 import { Footer } from './footer';
 import { SimpleFooter } from './footer/simple-footer';
@@ -19,9 +17,7 @@ export const Layout = ({
   return (
     <>
       <Header isNavigationEnabled={isNavigationEnabled} />
-      <Suspense>
-        <main id="main-content">{children}</main>
-      </Suspense>
+      <main id="main-content">{children}</main>
       {withSimpleFooter ? <SimpleFooter /> : <Footer withoutNewsletter={withoutNewsletter} />}
     </>
   );
