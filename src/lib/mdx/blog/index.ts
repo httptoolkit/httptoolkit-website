@@ -1,6 +1,7 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
+import matter from 'gray-matter';
 import { compileMDX } from 'next-mdx-remote/rsc';
 
 import { extractExcerpt } from '../utils/extract-excerpt';
@@ -10,28 +11,17 @@ import { defaultComponents, postComponents } from '@/components/sections/rich-te
 
 const rootDirectory = path.join(process.cwd(), 'src', 'content', 'posts');
 
-export const getPostBySlug = async (slug: string): Promise<Post> => {
-  const realSlug = slug.replace(markdownRegex, '');
-  const filePath = path.join(rootDirectory, `${realSlug}.mdx`);
+const buildPostMeta = (realSlug: string, fileContent: string): PostMeta => {
+  const frontmatter = matter(fileContent).data as PostFrontmatter;
 
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
-
-  const { frontmatter, content } = await compileMDX<PostFrontmatter>({
-    source: fileContent,
-    options: { parseFrontmatter: true, blockJS: false },
-    components: { ...defaultComponents, ...postComponents },
-  });
-
-  const excerpt = extractExcerpt(fileContent);
-
-  const post: Post = {
+  return {
     title: frontmatter?.title ?? '',
     date: frontmatter?.date ?? '',
     coverImage: frontmatter?.cover_image ?? '',
     tags: frontmatter?.tags ? frontmatter?.tags.split(',')?.map(tag => tag?.trim()) : [],
     isFeatured: frontmatter?.isFeatured ?? false,
     isDraft: frontmatter?.draft ?? false,
-    excerpt,
+    excerpt: extractExcerpt(fileContent),
     slug: realSlug,
     author: {
       name: frontmatter.author ?? 'Tim Perry',
@@ -44,21 +34,48 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
       hackerNewsUrl: frontmatter.hackerNewsUrl,
       productHuntUrl: frontmatter.productHuntUrl,
     },
-    content,
   };
-
-  return post;
 };
 
-export const getAllPostsMeta = async () => {
-  const files = fs.readdirSync(rootDirectory);
-  const posts = [];
+const readPost = async (slug: string) => {
+  const realSlug = slug.replace(markdownRegex, '');
+  const fileContent = await fs.readFile(path.join(rootDirectory, `${realSlug}.mdx`), { encoding: 'utf8' });
+  return { realSlug, fileContent };
+};
+
+export const getPostBySlug = async (slug: string): Promise<Post> => {
+  const { realSlug, fileContent } = await readPost(slug);
+
+  const { content } = await compileMDX<PostFrontmatter>({
+    source: fileContent,
+    options: { parseFrontmatter: true, blockJS: false },
+    components: { ...defaultComponents, ...postComponents },
+  });
+
+  return { ...buildPostMeta(realSlug, fileContent), content };
+};
+
+/**
+ * Metadata only - deliberately no compiled `content`.
+ *
+ * Listing pages pass these straight into client components, so anything returned here
+ * ends up serialized into the page's RSC payload. Including the compiled body of every
+ * post took the blog index to 3.2MB (485KB over the wire), for content that only the
+ * individual post pages ever render.
+ */
+export const getPostMetaBySlug = async (slug: string): Promise<PostMeta> => {
+  const { realSlug, fileContent } = await readPost(slug);
+  return buildPostMeta(realSlug, fileContent);
+};
+
+export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
+  const files = await fs.readdir(rootDirectory);
+  const posts: PostMeta[] = [];
 
   for (const file of files) {
     try {
       if (isMarkdown(file)) {
-        const post = await getPostBySlug(file);
-        posts.push(post);
+        posts.push(await getPostMetaBySlug(file));
       }
     } catch (error) {
       console.error('*_________START___________*');

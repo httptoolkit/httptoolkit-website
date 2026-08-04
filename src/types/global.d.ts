@@ -25,7 +25,9 @@ interface PostFrontmatter {
   author?: string;
   authorUrl?: string;
 }
-interface Post {
+// Everything about a post except its compiled body. Listing pages should use this:
+// anything they hold ends up serialized into the page's RSC payload.
+interface PostMeta {
   title: string;
   slug: string;
   date: string;
@@ -34,7 +36,6 @@ interface Post {
   isFeatured: boolean;
   isDraft: boolean;
   excerpt?: string;
-  content: any;
   author?: {
     name: string;
     url: string;
@@ -47,6 +48,10 @@ interface Post {
     devToUrl?: string;
     productHuntUrl?: string;
   };
+}
+
+interface Post extends PostMeta {
+  content: any;
 }
 
 interface Doc {

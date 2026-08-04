@@ -83,7 +83,7 @@ const StyledExcerpt = styled(Text)`
 `;
 
 interface OverviewHeroProps {
-  featuredPost: Post;
+  featuredPost: PostMeta;
 }
 
 export const OverviewHero = ({ featuredPost }: OverviewHeroProps) => {

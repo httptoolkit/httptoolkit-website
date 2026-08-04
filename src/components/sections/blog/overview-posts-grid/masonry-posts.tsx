@@ -54,7 +54,7 @@ const StyledSelectedTag = styled.span`
 
 const POST_ITEMS_PER_PAGE = 6;
 
-export const MasonryPosts = ({ posts }: { posts: Post[] }) => {
+export const MasonryPosts = ({ posts }: { posts: PostMeta[] }) => {
   const [visibleItems, setVisibleItems] = useState(POST_ITEMS_PER_PAGE);
   const isMobile = useIsMobile();
   const params = useSearchParams();
