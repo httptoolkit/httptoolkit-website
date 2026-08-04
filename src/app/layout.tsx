@@ -9,6 +9,7 @@ import { Button } from '@/components/elements/button';
 import { RadixProviders } from '@/components/layout/radix-layout';
 import { ThemeLayout } from '@/components/layout/theme-layout';
 import PostHogPageView from '@/components/layout/posthog-page-view';
+import { darkPullZoneId, lightPullZoneId } from '@/content/data/video-dictionary';
 import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
 
@@ -62,6 +63,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Polyfills />
+
+      {/* Hero video posters & media come from these, but aren't discoverable until
+          CSS/JS has run, so get the connections open early. One per theme: which one
+          we use isn't known until the theme resolves in the browser. */}
+      <link rel="preconnect" href={`https://${lightPullZoneId}.b-cdn.net`} crossOrigin="" />
+      <link rel="preconnect" href={`https://${darkPullZoneId}.b-cdn.net`} crossOrigin="" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
