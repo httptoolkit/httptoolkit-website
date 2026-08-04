@@ -14,7 +14,7 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
   return (
     <Layout>
       <LoginModal />
-      <Suspense>{children}</Suspense>
+      {children}
       <PricingComparison
         title="Features"
         text="Choose the perfect plan for your business needs"
