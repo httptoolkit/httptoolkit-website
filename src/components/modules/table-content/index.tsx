@@ -275,16 +275,16 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   );
 
   return (
-    <StyledTableContentWrapper data-animated={isAnimated ? 'true' : undefined}>
-      <Accordion.Root
-        asChild
-        type="single"
-        defaultValue={defaultOpenItem?.text || links[0].text}
-        collapsible
-        onValueChange={() => setIsAnimated(true)}
-      >
-        <>{ content }</>
-      </Accordion.Root>
-    </StyledTableContentWrapper>
+    <Accordion.Root
+      asChild
+      type="single"
+      defaultValue={defaultOpenItem?.text || links[0].text}
+      collapsible
+      onValueChange={() => setIsAnimated(true)}
+    >
+      <StyledTableContentWrapper data-animated={isAnimated ? 'true' : undefined}>
+        { content }
+      </StyledTableContentWrapper>
+    </Accordion.Root>
   );
 };
