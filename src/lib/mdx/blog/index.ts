@@ -46,7 +46,7 @@ const readPost = async (slug: string) => {
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const { realSlug, fileContent } = await readPost(slug);
 
-  const { content } = await compileMDX<PostFrontmatter>({
+  const { content } = await compileMDX({
     source: fileContent,
     options: { parseFrontmatter: true, blockJS: false },
     components: { ...defaultComponents, ...postComponents },
