@@ -67,8 +67,8 @@ export default function RootLayout({
       {/* Hero video posters & media come from these, but aren't discoverable until
           CSS/JS has run, so get the connections open early. One per theme: which one
           we use isn't known until the theme resolves in the browser. */}
-      <link rel="preconnect" href={`https://${lightPullZoneId}.b-cdn.net`} crossOrigin="" />
-      <link rel="preconnect" href={`https://${darkPullZoneId}.b-cdn.net`} crossOrigin="" />
+      <link rel="preconnect" href={`https://${lightPullZoneId}.b-cdn.net`} />
+      <link rel="preconnect" href={`https://${darkPullZoneId}.b-cdn.net`} />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
