@@ -2,6 +2,7 @@
 
 import * as Accordion from '@radix-ui/react-accordion';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 import { styled } from '@linaria/react';
 import { Link } from '@/components/elements/link';
@@ -141,10 +142,11 @@ const StyledTableContentContent = styled(Accordion.Content)`
       }
     }
 
-    &[data-state='open'] {
+    /* Only animate on toggle, after load, to avoid initial page load movement */
+    [data-animated='true'] &[data-state='open'] {
       animation: table-content-slide-down 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
-    &[data-state='closed'] {
+    [data-animated='true'] &[data-state='closed'] {
       animation: table-content-slide-up 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }
   }
@@ -248,6 +250,9 @@ const AccordionItem = ({
 export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   const currentPath = usePathname();
 
+  // Enabled on the first toggle, so the initially-open section doesn't animate in.
+  const [isAnimated, setIsAnimated] = useState(false);
+
   const content =
     Array.isArray(links) &&
     links.map((link, idx) => (
@@ -270,12 +275,13 @@ export const TableContent = ({ isCollapsible, links }: TableContentProps) => {
   );
 
   return (
-    <StyledTableContentWrapper>
+    <StyledTableContentWrapper data-animated={isAnimated ? 'true' : undefined}>
       <Accordion.Root
         asChild
         type="single"
         defaultValue={defaultOpenItem?.text || links[0].text}
         collapsible
+        onValueChange={() => setIsAnimated(true)}
       >
         <>{ content }</>
       </Accordion.Root>
