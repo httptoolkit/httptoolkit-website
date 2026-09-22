@@ -33,6 +33,17 @@ const StyledHighlightedParagraphs = styled.div`
   }
 `;
 
+const StyledBlockquote = styled.blockquote`
+  margin: 2rem 0;
+  padding: 0 1.5rem;
+  border-left: 4px solid var(--text-white);
+  background-color: var(--background-light-grey);
+  color: var(--text-dark-grey);
+  font-size: ${fontSizes.text.m};
+  line-height: 1.5;
+  font-style: italic;
+`;
+
 const StyledHeading = styled.div`
   margin-bottom: 24px;
   margin-top: var(--heading-margin, 0px);
@@ -41,7 +52,6 @@ const StyledHeading = styled.div`
 const StyledUL = styled.ul`
   list-style: disc;
   padding-left: 30px;
-  margin-bottom: 2rem;
   color: var(--text-dark-grey);
   font-size: ${fontSizes.text.m};
 
@@ -49,18 +59,25 @@ const StyledUL = styled.ul`
     margin-top: 2px;
     margin-bottom: 2px;
   }
+
+  li {
+    margin-bottom: 1.25rem;
+  }
 `;
 
 const StyledOL = styled.ol`
   list-style: decimal;
   padding-left: 30px;
-  margin-bottom: 2rem;
   color: var(--text-dark-grey);
   font-size: ${fontSizes.text.m};
 
   ul, ol {
     margin-top: 2px;
     margin-bottom: 2px;
+  }
+
+  li {
+    margin-bottom: 1.25rem;
   }
 `;
 
@@ -130,6 +147,9 @@ export const defaultComponents: MDXComponents = {
   },
   code({ children }) {
     return <InlineCode>{children}</InlineCode>;
+  },
+  blockquote({ children }: Component) {
+    return <StyledBlockquote>{children}</StyledBlockquote>;
   },
   ...Icons,
 };
