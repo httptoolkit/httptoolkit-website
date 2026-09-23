@@ -62,6 +62,10 @@ const StyledUL = styled.ul`
 
   li {
     margin-bottom: 1.25rem;
+
+    > ul, > ol {
+      margin-top: 1.25rem;
+    }
   }
 `;
 
@@ -78,6 +82,10 @@ const StyledOL = styled.ol`
 
   li {
     margin-bottom: 1.25rem;
+
+    > ul, > ol {
+      margin-top: 1.25rem;
+    }
   }
 `;
 
