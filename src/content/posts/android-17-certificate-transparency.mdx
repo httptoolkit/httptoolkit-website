@@ -1,0 +1,125 @@
+---
+title: 'Android 17 enables certificate transparency, and breaks custom CAs'
+date: '2026-09-23T08:00'
+cover_image: 'header-images/minster-glass.jpg'
+tags: android, tls, certificates
+---
+
+Do you want to know what your phone is sending & receiving? Nowadays, that means you need to control who it trusts. In modern connections everything sent & received is encrypted by TLS, and the only practical way to intercept traffic on Android is to generate a certificate, make the phone or app trust it as a certificate authority (CA), and then use this to act as a fully trusted proxy to the real server.
+
+Being able to view & modify this traffic is important. It's the basis of a huge amount of security & privacy research, allowing researchers to confirm what an app is actually sharing, and whether it requests and manages your data securely. It's also fundamental to reverse engineering so people can investigate how other apps work, for tools like [AdGuard](https://github.com/AdguardTeam/adguardcert) to filter ad traffic on mobile, and for plenty of developers' processes for debugging and testing their own apps too.
+
+In Android 17 (rolling out as we speak) certificate transparency has now been enabled by default for all apps, in ways that'll break all of this.
+
+I've been looking into this since it was first announced in the early preview releases though, and I now have a working solution! If you don't care about the details and you just want to intercept all Android traffic, without worrying about any of this, go [download HTTP Toolkit](https://httptoolkit.com/android/) now. On the other hand, if you want to know what Android's changed here, learn about some TLS minutiae, and work out how to fix all this (especially if you use your own CAs locally), then read on:
+
+## Certificate configuration for me, not for thee
+
+Android has been steadily making CA certificate configuration more and more difficult over the years:
+
+* In Android 7 (API level 24, in 2016), Google [stopped](https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html) all apps from trusting CA certificates configured by users by default. Users can install a CA themselves into the user-level store, but it's ignored by all apps that don't actively opt-in to trusting it. Since then, on standard Android devices a normal user effectively cannot control who their apps trust or view & modify what they send, and a fully rooted device that can modify the system-level store becomes obligatory for intercepting most apps.
+* Android 11 (API level 30, 2020) [tightened this](https://httptoolkit.com/blog/android-11-trust-ca-certificates/) further, making it impossible to prompt the user to install a CA at all, even for the opt-in-only user certificate trust level.
+* In Android 14 (API level 34, 2023), Android [moved](https://httptoolkit.com/blog/android-14-breaks-system-certificate-installation/) the trusted certificate store out of the shared system path into an APEX module: an independently managed component, stored immutably, with its certificates individually mounted directly into each process. This broke most simple configuration approaches even on rooted devices, although [a later workaround](https://httptoolkit.com/blog/android-14-install-system-ca-certificate/) (recursively remounting certificates throughout all running processes) does still work to override this.
+
+Chrome has taken a similar path, moving to its own [built-in trust store](https://blog.chromium.org/2022/09/announcing-launch-of-chrome-root-program.html) that ignores the platform certificate configuration, and tightening the restrictions there [with CT too](https://httptoolkit.com/blog/chrome-android-certificate-transparency/) in ways that break common debug CA configurations.
+
+A limited degree of this is honestly not unreasonable. CA trust defines the security of most connections online, and most normal users should not reconfigure it - moving that out of the standard path is a good idea.
+
+There are very few good reasons I can see though for an absolute hard block on technical users from doing this on their own normal devices (with careful opt-in, persistent notification, etc). These limitations create serious problems for both security & privacy research, reduce user control over their own devices, lock everybody to a single inflexible & centrally controlled definition of "who is trusted", and give apps a false sense of security over their traffic & client-side behaviour (by making it difficult to intercept on normal devices, but never impossible).
+
+This is all overridable with root access and some (quite complicated) scripting to reconfigure the system certs, so that's the main path nowadays, but this is an ugly workaround with its own large set of downsides, shouldn't be necessary here, and frankly more people rooting their devices isn't what I think Google wants to encourage either.
+
+While Google is keen in theory to support Android security research with things like the [ASPIRE program](https://source.android.com/docs/security/overview/aspire), and the past [GPSRP program](https://web.archive.org/web/20240912063424/https://bughunters.google.com/about/rules/android-friends/5604090422493184/google-play-security-reward-program-rules), changes like this make it increasingly difficult to understand & audit Android app behaviour. Given the painful state of mobile app security & privacy today, combined with the rapid rise in vibe-coded everything everywhere, this seems likely to make everybody much less secure in the long run.
+
+## Certificate restrictions in Android 17
+
+Android 17 adds a new restriction: certificate transparency is required by default for all system-trusted certificates.
+
+A quick recap: modern Android has two main stores of CA certificates: the system store (managed in the Conscrypt APEX module, intended to be immutable) and the user store (configurable in the Android settings, trusted by very few apps, largely useless). Read [the detailed guide to Android certificate trust](https://httptoolkit.com/blog/intercepting-android-https/) if you want more background on how this all hooks together.
+
+The CAs in the system store are the useful ones: they're trusted by all apps by default, and changing those allows you to intercept most Android traffic immediately. HTTP Toolkit, other similar MitM proxies, and tools like [AdGuard Cert](https://github.com/AdguardTeam/adguardcert) all use root access to modify this store to change the trusted CAs and thereby control the traffic on the device.
+
+This is about to get more difficult.
+
+For all apps targeting Android API 37 and running on Android 17 devices, all system-trusted certificates must now use certificate transparency (CT) or they won't be trusted by default (apps can disable this - I expect few or none to do so). Even though they're signed by a CA from the system's trusted CA store, if they don't use CT they won't work.
+
+Note that this only applies if the running app _and_ the user's OS include this update. The OS version was officially released in June 2026, Pixel devices started updating shortly after, the Samsung Galaxy Z devices were the first to ship with it in August, and non-Pixel OEMs started updating other devices to it around early September. Apps themselves will update independently, but targeting API level 37 will be obligatory by August 2027 to keep publishing on the Play Store, so within a year this will be very widespread.
+
+## What is certificate transparency?
+
+Certificate transparency aims to solve a problem: if somebody else somehow issues a certificate for your domain (allowing them to intercept all your traffic), how would you find out about it? This became a serious concern after the trusted CA [DigiNotar was compromised](https://en.wikipedia.org/wiki/DigiNotar) and attackers issued malicious certificates. Wikipedia has [the full details](https://en.wikipedia.org/wiki/Certificate_Transparency) but I'll give you a quick summary:
+
+* Certificate log services allow CAs to submit certificates. The logs then list these publicly, so everybody can see what's been issued.
+* When the certificate is submitted to the log, the CA gets a signed certificate timestamp (SCT) back, proving that this cert has been reported publicly to that log.
+* The SCTs are then included within the final certificate that's used by the web server.
+* When a client connects to a server, it can look at the certificate's SCTs. If it has SCTs from a log it trusts, then it knows that the certificate has been publicly recorded.
+
+This is a neat solution to this problem for web PKI. It's a massive pain for custom CA setups.
+
+It's a problem for local network debugging, for self-signed servers, and for any other TLS traffic that's not built on official public TLS certificate infrastructure, because certificates you generate yourself are definitely _not_ recorded publicly. You wouldn't really want them to be (this is a certificate you're using privately on your own device, for your own traffic) and even if you did, as far as I can tell no trusted cert log providers offer a mechanism for you to submit your own certificates to the log, unless you're a real CA.
+
+Certificates signed by a custom CA won't have SCTs, so clients who require them will reject them, and effectively the CA will be unusable.
+
+This is covered very briefly in the [Android release notes](https://developer.android.com/about/versions/17/behavior-changes-17#ct-default), with a little more detail in the [Android Enterprise notes](https://developer.android.com/work/versions/android-17#enable-certificate-transparency) (many enterprises use custom CAs both for internal private services and for scanning traffic on their network). Chrome 99 already enabled this for browser traffic a while back, but Chrome is at least easy to configure: you can pass `--ignore-certificate-errors-spki-list` to disable certificate validation for any certificate you like.
+
+**In practice, this means anybody using a custom CA on Android is going to see it slowly become unusable over the next year.**
+
+We're going to see a lot more errors like:
+
+```
+NET::ERR_CERTIFICATE_TRANSPARENCY_REQUIRED
+
+SSLPeerUnverifiedException: Certificate transparency failed
+
+Certificate chain does not conform to required transparency policy: NOT_ENOUGH_SCTS
+
+SSLHandshakeException: Certificate transparency failed
+
+MOZILLA_PKIX_ERROR_INSUFFICIENT_CERTIFICATE_TRANSPARENCY
+```
+
+Uh oh.
+
+## Certificate transparency with custom MitM CAs
+
+I've already done a good bit of work on fixing this, and for HTTP Toolkit I have a solution: let's just run our own CT logs.
+
+I'm being a bit flippant here, as you _really_ don't want a public CT log for your own private CA. In most of these scenarios, including HTTP Toolkit, the CA is generated locally and unique to you, and the proxy generates a cert for every domain you visit, so this would be roughly equivalent to live-publishing your browser history, linked to a unique personal id. A bold choice.
+
+Fortunately we can avoid that part. If you look at the CT explanation above, you'll notice that nothing actually guarantees that the log really publishes the certificate. The spec does have mechanisms to do this (by fetching [inclusion proofs](https://www.rfc-editor.org/info/rfc9162/#section-8.1.4)) but doing so means a network dependency on cert validation, wouldn't work for recent certs (CT only guarantees inclusion within 24 hours), and has privacy impacts since it exposes which server you're talking to.
+
+In practice clients don't do this, and independent enforcement steps elsewhere are used to keep the log providers honest (if Google et al ever find out you didn't make a cert public after issuing an SCT, they drop you from their trusted list).
+
+That gives us a path: create our own log providers, get them trusted on the device, issue SCTs and attach them to our certificates, but obviously never actually publish the certs anywhere. From the point of view of the client, the certificates have SCTs signed by trusted providers, and we're all good.
+
+How do you actually do that? It's quite complicated, but mostly comes down to fairly mechanical generation steps for X.509 certificates and log operator config files. I'll give a quick outline, but for the full code for HTTP Toolkit, check out Mockttp's [certificate issuance](https://github.com/httptoolkit/mockttp/blob/v4.6.3/src/util/certificates.ts) and [certificate transparency](https://github.com/httptoolkit/mockttp/blob/v4.6.3/src/util/certificate-transparency.ts) utilities, and then the [derived log generation and injection](https://github.com/httptoolkit/httptoolkit-server/blob/dee8ac01946ad7c807902533e2a0a78b1e4d765c/src/interceptors/android/android-adb-interceptor.ts#L227-L253) in the HTTP Toolkit server itself. The overall process is:
+
+* Given a CA certificate, [derive](https://github.com/httptoolkit/mockttp/blob/8a5c3fef60acc26c9f9d5610ab1dd5ab942002a7/src/util/certificate-transparency.ts#L91-L120) two CT log operator ids & keypairs. This means we don't need to pass around all the CT log details everywhere - the CA cert is enough for anything downstream to derive the log operator details. The number of logs you need depends on the cert lifetimes you use (see the [Android policy](https://developer.android.com/privacy-and-security/certificate-transparency-policy#ct-compliant-certificates)).
+* When generating any certificate:
+    * First [generate a template certificate](https://github.com/httptoolkit/mockttp/blob/8a5c3fef60acc26c9f9d5610ab1dd5ab942002a7/src/util/certificates.ts#L526-L532) with everything _except_ the SCT.
+    * Then [generate the SCTs](https://github.com/httptoolkit/mockttp/blob/8a5c3fef60acc26c9f9d5610ab1dd5ab942002a7/src/util/certificate-transparency.ts#L122-L175) for both providers and embed them in the certificate.
+    * Then sign the resulting certificate with the CA as normal.
+* When setting up a device:
+    * [Read](https://github.com/httptoolkit/httptoolkit-server/blob/dee8ac01946ad7c807902533e2a0a78b1e4d765c/src/interceptors/android/adb-commands.ts#L577-L625) the existing CT log config - note there are at least 3 possible formats.
+    * [Derive Android config](https://github.com/httptoolkit/httptoolkit-server/blob/dee8ac01946ad7c807902533e2a0a78b1e4d765c/src/interceptors/android/ct-log-list.ts#L148-L181) for the CT log providers, based on the CA you're using.
+    * Add this to the existing device config and [inject it](https://github.com/httptoolkit/httptoolkit-server/blob/dee8ac01946ad7c807902533e2a0a78b1e4d765c/src/interceptors/android/adb-commands.ts#L627-L692) into the 3 different log locations (HTTP Toolkit uses the same temporary mount mechanism used for CA cert injection, so this disappears on reboot).
+
+Bingo! You now have your own trusted CT log providers, and a CA that can issue certs that are 'guaranteed' to be logged by these stalwart defenders of certificate issuance auditability.
+
+This is a bit complicated, and every tool in the ecosystem is going to have to implement this same thing everywhere. As with each previous iteration, it's annoying that researchers, developers & others interested in controlling their own network traffic need to do this, but at least for now it remains workable.
+
+## Until next time
+
+That solves the immediate problem.
+
+Restrictions like this are frustrating, but the worst part is that this isn't really intended breakage at all. CT is intended to protect against misissuance, not interception by private CAs, and Android isn't _intentionally_ breaking things here (to my knowledge - if they wanted to, there would be better approaches). It's just that use cases like security/privacy research, HTTPS debugging, reverse engineering & control of your own devices are very low down the priority list, and so things like CT are rolled out without any mechanism to support them.
+
+I think Google would argue that they did exclude user-level CAs from this, matching their exclusion of locally installed roots on desktop. On Android though, as mentioned above, user CAs are largely unusable for the cases here since they're effectively not trusted by any apps - everybody is using system-level CAs by necessity, due to Google's own changes to enforce that.
+
+If it were possible to install user-level CAs that were trusted by apps by default, this whole dance could go away, and things would improve drastically, but I have a [feature request](https://issuetracker.google.com/issues/168169729?pli=1) with more than 500 votes asking for basic improvements for user CAs, currently #5 on the Android bug tracker, and even that's not moved for 6 years, so I'm not hopeful.
+
+(But if anybody from Google is reading this and does want to discuss and understand what'd be helpful, do please [get in touch](https://httptoolkit.com/contact/)!)
+
+In the meantime, never fear, there'll be more to come here. At the latest, in 2028 (ish) post-quantum certificate infrastructure is coming in the form of [Merkle Tree Certificates](https://datatracker.ietf.org/doc/draft-ietf-plants-merkle-tree-certs/) (currently still being prototyped) and looks likely to completely replace modern web PKI and CT in one go, so all these custom CA setups will break once more! Watch this space for updates as the first versions of that start rolling out soon.
+
+_Want to put this into practice and start messing with your own Android traffic? HTTP Toolkit is free, 100% open-source, and you can [download it right now](https://httptoolkit.com/android/)._
