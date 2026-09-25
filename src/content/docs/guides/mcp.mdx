@@ -1,0 +1,50 @@
+---
+name: 'MCP & AI agents'
+title: 'Using HTTP Toolkit with AI agents via MCP'
+order: 4
+---
+
+HTTP Toolkit can be used by AI agents, using the [Model Context Protocol](https://modelcontextprotocol.io/) to expose the intercepted traffic, and other functionality.
+
+This lets an agent look at everything you've captured, and act on it: listing exchanges, reading request & response bodies, starting intercepted clients automatically, or reading the proxy configuration to do setup manually. This is useful for debugging with an assistant that can see the real traffic, rather than one that can only see what you paste into it, and allows you to do fully automated analysis of traffic in many cases.
+
+## Setting it up
+
+Click the 'MCP' option in the sidebar on the left in HTTP Toolkit. This opens a dialog with ready-to-use MCP setup instructions for many agent harnesses including:
+
+* Claude Code
+* Claude Desktop
+* Codex
+* VS Code (for GitHub Copilot)
+* Cursor
+
+Pick your client, and copy & paste the snippet shown to get started.
+
+For clients not listed, HTTP Toolkit also shows the generic setup instructions, so you can configure any MCP client to run the command shown in the 'Other MCP clients' tab and speak MCP over stdio.
+
+HTTP Toolkit must be running for your AI client to connect to it. If it's not running when the client starts, the only tool available will be one to launch HTTP Toolkit, and the rest will appear automatically once it's running.
+
+## What's available
+
+The tools exposed to the agent include:
+
+* List captured exchanges, with filtering & pagination.
+* Get the outline of an exchange: the request & response details, without the bodies.
+* Get the request or response body of an exchange, with optional offsets and length limits so that large bodies can be read in chunks.
+* Clear captured events.
+* List the available interceptors and their current status.
+* Activate an interceptor, for interceptors that don't need any further interaction.
+* Get the proxy configuration, including the proxy port and certificate path, so the agent can configure other tools to send traffic through HTTP Toolkit itself.
+* Control the configured rules on the Modify page.
+
+## Free & Pro usage
+
+Basic MCP access is available to everybody, but free accounts have some limits:
+
+* Reading exchange outlines is limited to 500 calls per session.
+* Reading request & response bodies is limited to 100 calls per session, and bodies are truncated to 100,000 characters.
+* Advanced read-write functionality such as activating interceptors or modifying rules is Pro-only.
+
+With HTTP Toolkit Pro there are no call limits, bodies aren't truncated, and the behaviour from the normal HTTP Toolkit UI is fully available. You can sign up for HTTP Toolkit Pro directly in the app, or here online [on the website](/get-pro/).
+
+**Any questions? [Get in touch](/contact/)**
