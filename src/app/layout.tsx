@@ -3,12 +3,10 @@ import { DM_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next/types';
 import { Suspense } from 'react';
 
-import { PHProvider } from './providers';
-
 import { Button } from '@/components/elements/button';
 import { RadixProviders } from '@/components/layout/radix-layout';
 import { ThemeLayout } from '@/components/layout/theme-layout';
-import PostHogPageView from '@/components/layout/posthog-page-view';
+import PageViewTracker from '@/components/layout/page-view-tracker';
 import { darkPullZoneId, lightPullZoneId } from '@/content/data/video-dictionary';
 import { siteMetadata } from '@/lib/site-metadata';
 import { buildMetadata } from '@/lib/utils/build-metadata';
@@ -83,19 +81,17 @@ export default function RootLayout({
       <link rel="terms-of-service" href="/terms-of-service/" />
 
       <body className={dmSansFont.variable}>
-        <PHProvider>
-          <ThemeLayout>
-            <RadixProviders>
-              <Button as="link" href="#main-content" small className="skip-button">
-                Skip to main content
-              </Button>
-              <Suspense fallback={null}>
-                <PostHogPageView />
-              </Suspense>
-              {children}
-            </RadixProviders>
-          </ThemeLayout>
-        </PHProvider>
+        <ThemeLayout>
+          <RadixProviders>
+            <Button as="link" href="#main-content" small className="skip-button">
+              Skip to main content
+            </Button>
+            <Suspense fallback={null}>
+              <PageViewTracker />
+            </Suspense>
+            {children}
+          </RadixProviders>
+        </ThemeLayout>
       </body>
     </html>
   );

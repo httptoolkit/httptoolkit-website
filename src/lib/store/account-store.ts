@@ -10,7 +10,6 @@ import {
     logOut
 } from '@httptoolkit/accounts';
 
-import { PostHog } from 'posthog-js';
 import {
     makeObservable,
     observable,
@@ -20,6 +19,7 @@ import {
     when
 } from 'mobx';
 
+import { capture } from '../analytics';
 import { isSSR } from '../utils';
 
 // Limited interval here - tighter type than the accounts module
@@ -144,20 +144,20 @@ export class AccountStore {
     }).bind(this);
 
     buyPlan = flow(
-        function* (this: AccountStore, tierCode: TierCode, planCycle: Interval, posthog?: PostHog) {
-            this.reportPurchaseEvent('Select plan', tierCode, planCycle, posthog);
+        function* (this: AccountStore, tierCode: TierCode, planCycle: Interval) {
+            this.reportPurchaseEvent('Select plan', tierCode, planCycle);
             const sku = this.getSKU(tierCode, planCycle);
 
             if (!this.isLoggedIn) {
-                this.reportPurchaseEvent('Login started', tierCode, planCycle, posthog);
+                this.reportPurchaseEvent('Login started', tierCode, planCycle);
                 yield this.login();
                 if (this.isLoggedIn) {
-                    this.reportPurchaseEvent('Login completed', tierCode, planCycle, posthog);
+                    this.reportPurchaseEvent('Login completed', tierCode, planCycle);
                 } else {
-                    this.reportPurchaseEvent('Login cancelled', tierCode, planCycle, posthog);
+                    this.reportPurchaseEvent('Login cancelled', tierCode, planCycle);
                 }
             } else {
-                this.reportPurchaseEvent('Already logged in', tierCode, planCycle, posthog);
+                this.reportPurchaseEvent('Already logged in', tierCode, planCycle);
             }
 
             if (!this.isLoggedIn || this.isPaidUser) {
@@ -169,16 +169,14 @@ export class AccountStore {
                 return;
             }
 
-            this.reportPurchaseEvent('Checkout started', tierCode, planCycle, posthog);
+            this.reportPurchaseEvent('Checkout started', tierCode, planCycle);
             return goToCheckout(this.user.email!, sku, 'web');
         }.bind(this)
     );
 
-    reportPurchaseEvent(name: string, planName: TierCode, planCycle: Interval, posthog?: PostHog): void {
+    reportPurchaseEvent(name: string, planName: TierCode, planCycle: Interval): void {
         const sku = this.getSKU(planName, planCycle);
-        if (posthog) {
-            posthog.capture(name, { planName, planCycle, sku });
-        }
+        capture(name, { planName, planCycle, sku });
     }
 }
 

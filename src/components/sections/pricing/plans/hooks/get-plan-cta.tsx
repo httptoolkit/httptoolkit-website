@@ -1,7 +1,6 @@
 'use client';
 
 import { upperFirst } from 'lodash-es';
-import { usePostHog } from 'posthog-js/react';
 import React, { useCallback } from 'react';
 
 import { StyledPricingCardCTAWrapper } from '../components/card';
@@ -15,8 +14,6 @@ import type { AccountStore, Interval } from '@/lib/store/account-store';
  *  @param {React.ReactNode} downloadButton - DrowpdownButton is a server component, so we need to provide it as a children because we cannot import directly in client component
  */
 export const usePlanCta = (downloadButton?: React.ReactNode) => {
-  const posthog = usePostHog();
-
   return useCallback((tierCode: string, account: AccountStore, planCycle: Interval) => {
     const { paidTier, paidCycle } = account.subscription;
     if (tierCode === 'free') {
@@ -49,7 +46,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
 
     if (tierCode === 'pro') {
       return (
-        <Button icon={Sparkle} isFluid onClick={() => account.buyPlan('pro', planCycle, posthog)}>
+        <Button icon={Sparkle} isFluid onClick={() => account.buyPlan('pro', planCycle)}>
           Buy Pro
         </Button>
       );
@@ -62,7 +59,7 @@ export const usePlanCta = (downloadButton?: React.ReactNode) => {
           href="/contact/"
           icon={PaperPlaneTilt}
           isFluid
-          onClick={() => account.reportPurchaseEvent('Select team plan', tierCode, planCycle, posthog)}
+          onClick={() => account.reportPurchaseEvent('Select team plan', tierCode, planCycle)}
         >
           Get in touch
         </Button>
