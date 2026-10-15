@@ -74,7 +74,15 @@ function isLikelyBot(): boolean {
     const brands = (navigator as UserAgentDataNavigator).userAgentData?.brands;
     if (brands?.some(({ brand }) => isBlocked(brand))) return true;
   } catch {}
-  return !!navigator.webdriver;
+  if (navigator.webdriver) return true;
+
+  return isFakeUserAgent(navigator.userAgent);
+}
+
+// Crawlers spoofing browser UAs, in ways no real browser produces
+function isFakeUserAgent(ua: string): boolean {
+  if (/^[\s"']|[\s"']$/.test(ua)) return true;
+  return /Chrome\/1\d\d.*Edge\/1[2-8]\./.test(ua); // Legacy Edge never shipped with Chrome 100+
 }
 
 // PostHog requires session ids to be UUIDv7, and uses the embedded timestamp.
