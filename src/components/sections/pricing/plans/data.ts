@@ -69,6 +69,7 @@ export const { plans }: PricingPlansData = {
         {
           text: 'Options available on request:',
           items: [
+            'Formal quotes',
             'Fixed-term bespoke licensing',
             'Private support',
             'Self-hosted infrastructure',

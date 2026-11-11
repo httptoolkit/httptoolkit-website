@@ -177,6 +177,11 @@ export const planFeatures: PricingComparisonProps['features'] = [
         title: 'Centralized account management',
         tooltip: 'Manage your team members, invoices, and subscription settings from an online dashboard, with an administrator account that can be separate from the team itself',
         checked: ['team']
+      },
+      {
+        title: 'Formal quotes for procurement',
+        tooltip: 'Formal quotes are available on request for Team purchases of any size, including single licenses, for your procurement & purchase approval processes',
+        checked: ['team']
       }
     ]
   }
